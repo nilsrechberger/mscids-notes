@@ -1,6 +1,6 @@
 ---
-title: Classical and Bayesian Statistics
-toc: True
+title: "Classical and Bayesian Statistics - Notes"
+toc: true
 ---
 
 # Introduction
