@@ -1,5 +1,6 @@
 ---
 title: "Python for Data Science - Exercises"
+toc: true
 ---
 
 # Datatypes and Variables
