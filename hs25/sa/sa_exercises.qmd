@@ -1,0 +1,138 @@
+---
+title: "Classical and Bayesian Statistics - Exercises"
+toc: true
+---
+
+# Problems 1
+
+## a
+
+It seams that in total, the Allied and the Enemy Countries had about the same amount of civilian deaths. But if we compare the numbers per party menber, we we that the enemy country habe in average a higher amount of deaths. On the other hand, the data from the Allied a inconsistens (see Denmark).
+
+## b
+
+The shares of the peaces does not sum up to 100%.
+
+## c
+
+### 1
+
+We can assuem that Linda is a bank teller and is active in the feminist movement. Her experiances from the past could influenced her behavior and thinking to certain topics. She may have a sense for justice and equality, regarles to the topic.
+
+### 2
+
+We can assuem that Steve is a librarian since his helpful personality and need for order and struckture (like in a library). His passion for details can conect to a wish for knowlage.
+
+### 3
+
+A Ball costs $0.05.
+
+### 4
+
+All accidents combined.
+
+## d
+
+Since the enging is the only thing that keeps a plane flying, its woth it to bee more amoured than the rest. Even if some other parts have in average more bullet holes (e.g. Fuselage), the plane could still fly.
+
+# Problem 1.2
+
+```{r}
+# Define vectors
+winner <- c(193, 183, 191, 185, 185, 182, 182, 188, 188, 188, 185, 185, 177,
+182, 182, 193, 183, 179, 179, 175)
+
+opponent <- c(163, 191, 165, 187, 175, 193, 185, 187, 188, 173, 180, 177, 183,
+185, 180, 180, 182, 178, 178, 173)
+```
+
+### a
+
+```{r}
+# Determine length
+cat("Length of winners vector =", length(winner), "\n") # Add line break
+cat("Length of opponent vector =", length(opponent))
+```
+
+### b
+```{r}
+cat("Entries 6 to 10 =",winner[6:10]) # Index starts at 1
+```
+
+### c
+
+```{r}
+cat("Some values from winner:", winner[c(3, 5, 10, 12)]) # Passing a vector for selection
+```
+
+### d
+
+```{r}
+print(winner[c(8, 9)])  # Check values
+winner[c(8, 9)] <- 189  # Reassing 
+print(winner[c(8, 9)])  # Check values
+```
+
+### e
+
+```{r}
+mu_winner <- mean(winner)
+mu_opponent <- mean(opponent)
+
+cat("Mean higth of winner vs. opponent:", mu_winner, "vs.", mu_opponent)
+```
+
+### g
+
+```{r}
+var_winner <- var(winner)
+sd_winner <- sd(winner)
+
+cat("Variance/Std. deviation of winner:", var_winner, "/", sd_winner)
+```
+
+### h
+
+```{r}
+my_variance <- function(data){
+    mu <- mean(data)
+    sum_of_squares <- sum((data - mu)^2)
+    variance <- sum_of_squares / (length(data) - 1)
+    
+    return(variance)
+}
+
+my_stdDeviation <- function(variance){
+    stdDevition <- sqrt(variance)
+
+    return(stdDevition)
+}
+
+my_var_winner <- my_variance(winner)
+my_sd_winner <- my_stdDeviation(my_var_winner)
+
+cat("Variance of Winner =", my_var_winner)
+cat("Variance of Winner =", my_sd_winner)
+```
+
+## Problem 1.3
+
+```{r}
+grades <- c(4.2, 2.3, 5.6, 4.5, 4.8, 3.9, 5.9, 2.4, 5.9, 6, 4, 3.7, 5, 5.2, 4.5, 3.6, 5, 6, 2.8, 3.3, 5.5, 4.2, 4.9, 5.1)
+
+grades <- sort(grades) # Sort values
+hist(grades) # Show histogram
+
+original_mu <- mean(grades)
+originla_meadian <- median(grades)
+
+grades[1:3] <- 1 # Reassign values
+new_mu <- mean(grades)
+new_median <- median(grades)
+
+cat("Original vs. New mean:", original_mu, "vs.", new_mu, "\n")
+cat("Median stays the same:", originla_meadian, "=", new_median)
+
+
+
+```
