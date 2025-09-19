@@ -1,0 +1,35 @@
+---
+title: Linear Algebra 01
+---
+
+# What is Linear Algebra
+Linar Algebra is the theory of linear mappings between vector spaces. Broadly the theory of certain (linear) data transformation (manipulation). The main actors are vectors and matrices.
+
+## Vector
+
+Vertical brunch of numbers.
+
+$$
+b = \begin{bmatrix}
+1 \\
+-3 \\
+2 \\
+\end{bmatrix}
+$$
+
+## Matrice
+
+Rectangular bunch of numbers.
+
+$$
+A = \begin{bmatrix}
+1 & 3 & -7 \\
+2 & 1 & 6 \\
+4 & 0 & 1 \\
+\end{bmatrix}
+$$
+
+# Mappings
+
+After data transformation (mapping), patterns become visible which have not been
+visible before or notions become very easy.

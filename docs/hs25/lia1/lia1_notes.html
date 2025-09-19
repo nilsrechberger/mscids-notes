@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Classical and Bayesian Statistics – mscids-notes</title>
+<title>Linear Algebra 01 – mscids-notes</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -19,40 +19,6 @@ ul.task-list li input[type="checkbox"] {
   width: 0.8em;
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
-}
-/* CSS for syntax highlighting */
-pre > code.sourceCode { white-space: pre; position: relative; }
-pre > code.sourceCode > span { line-height: 1.25; }
-pre > code.sourceCode > span:empty { height: 1.2em; }
-.sourceCode { overflow: visible; }
-code.sourceCode > span { color: inherit; text-decoration: inherit; }
-div.sourceCode { margin: 1em 0; }
-pre.sourceCode { margin: 0; }
-@media screen {
-div.sourceCode { overflow: auto; }
-}
-@media print {
-pre > code.sourceCode { white-space: pre-wrap; }
-pre > code.sourceCode > span { display: inline-block; text-indent: -5em; padding-left: 5em; }
-}
-pre.numberSource code
-  { counter-reset: source-line 0; }
-pre.numberSource code > span
-  { position: relative; left: -4em; counter-increment: source-line; }
-pre.numberSource code > span > a:first-child::before
-  { content: counter(source-line);
-    position: relative; left: -1em; text-align: right; vertical-align: baseline;
-    border: none; display: inline-block;
-    -webkit-touch-callout: none; -webkit-user-select: none;
-    -khtml-user-select: none; -moz-user-select: none;
-    -ms-user-select: none; user-select: none;
-    padding: 0 4px; width: 4em;
-  }
-pre.numberSource { margin-left: 3em;  padding-left: 4px; }
-div.sourceCode
-  {   }
-@media screen {
-pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
 }
 </style>
 
@@ -198,28 +164,12 @@ window.Quarto = {
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#introduction" id="toc-introduction" class="nav-link active" data-scroll-target="#introduction">Introduction</a></li>
-  <li><a href="#classical-statistics" id="toc-classical-statistics" class="nav-link" data-scroll-target="#classical-statistics">Classical Statistics</a></li>
-  <li><a href="#bayesien-statistic" id="toc-bayesien-statistic" class="nav-link" data-scroll-target="#bayesien-statistic">Bayesien Statistic</a></li>
-  <li><a href="#models" id="toc-models" class="nav-link" data-scroll-target="#models">Models</a></li>
-  <li><a href="#simulations" id="toc-simulations" class="nav-link" data-scroll-target="#simulations">Simulations</a></li>
-  <li><a href="#data" id="toc-data" class="nav-link" data-scroll-target="#data">Data</a></li>
-  <li><a href="#one-dimensional" id="toc-one-dimensional" class="nav-link" data-scroll-target="#one-dimensional">One-Dimensional</a>
+  <li><a href="#what-is-linear-algebra" id="toc-what-is-linear-algebra" class="nav-link active" data-scroll-target="#what-is-linear-algebra">What is Linear Algebra</a>
   <ul class="collapse">
-  <li><a href="#two-dimentinal" id="toc-two-dimentinal" class="nav-link" data-scroll-target="#two-dimentinal">Two-Dimentinal</a></li>
+  <li><a href="#vector" id="toc-vector" class="nav-link" data-scroll-target="#vector">Vector</a></li>
+  <li><a href="#matrice" id="toc-matrice" class="nav-link" data-scroll-target="#matrice">Matrice</a></li>
   </ul></li>
-  <li><a href="#exploratory-datat-analysis-eda" id="toc-exploratory-datat-analysis-eda" class="nav-link" data-scroll-target="#exploratory-datat-analysis-eda">Exploratory Datat Analysis (EDA)</a></li>
-  <li><a href="#key-figures" id="toc-key-figures" class="nav-link" data-scroll-target="#key-figures">Key Figures</a>
-  <ul class="collapse">
-  <li><a href="#location-parameters" id="toc-location-parameters" class="nav-link" data-scroll-target="#location-parameters">Location parameters</a></li>
-  <li><a href="#spread-parameters" id="toc-spread-parameters" class="nav-link" data-scroll-target="#spread-parameters">Spread parameters</a></li>
-  <li><a href="#artithmetic-mean" id="toc-artithmetic-mean" class="nav-link" data-scroll-target="#artithmetic-mean">Artithmetic Mean</a></li>
-  <li><a href="#empirical-variancehave" id="toc-empirical-variancehave" class="nav-link" data-scroll-target="#empirical-variancehave">Empirical Variancehave</a></li>
-  <li><a href="#standard-deviation" id="toc-standard-deviation" class="nav-link" data-scroll-target="#standard-deviation">Standard Deviation</a></li>
-  <li><a href="#median" id="toc-median" class="nav-link" data-scroll-target="#median">Median</a></li>
-  <li><a href="#quantiles" id="toc-quantiles" class="nav-link" data-scroll-target="#quantiles">Quantiles</a></li>
-  </ul></li>
-  <li><a href="#interquantile-range" id="toc-interquantile-range" class="nav-link" data-scroll-target="#interquantile-range">Interquantile Range</a></li>
+  <li><a href="#mappings" id="toc-mappings" class="nav-link" data-scroll-target="#mappings">Mappings</a></li>
   </ul>
 </nav>
     </div>
@@ -228,7 +178,7 @@ window.Quarto = {
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">Classical and Bayesian Statistics</h1>
+<h1 class="title">Linear Algebra 01</h1>
 </div>
 
 
@@ -245,155 +195,35 @@ window.Quarto = {
 </header>
 
 
-<section id="introduction" class="level1">
-<h1>Introduction</h1>
-<p>Statistic is the discipline that concerns collection, organisation, analysis, interpretation, and presentation of data. Applied statistics applies to real everyday problems.</p>
-<blockquote class="blockquote">
-<p>Note: There is no cooking recipes how to solve problems.</p>
-</blockquote>
-</section>
-<section id="classical-statistics" class="level1">
-<h1>Classical Statistics</h1>
-<p>Classical statistics is a set of tools for decision making using hypothesis. or different types of problems different tests are being used.</p>
-</section>
-<section id="bayesien-statistic" class="level1">
-<h1>Bayesien Statistic</h1>
-<p>Bayesian statistics is a statistical theory that interprets probability as a degree of belief in an event, which can be updated as new evidence is obtained.</p>
-</section>
-<section id="models" class="level1">
-<h1>Models</h1>
-<p>Models are used to simplify nature of things and essential for statistics. Models are not simply useful but only useful in a certain context. Models have their limitations. Models are statements about the operation of nature that purposefully omit many details and thus achieve insight that would otherwise be discursively obscured.</p>
-</section>
-<section id="simulations" class="level1">
-<h1>Simulations</h1>
-<p>Simulations are used to approximate quantities for which exact solution is very difficult or even impossible to determine. Simulations rely heavily on computer power.</p>
-</section>
-<section id="data" class="level1">
-<h1>Data</h1>
-</section>
-<section id="one-dimensional" class="level1">
-<h1>One-Dimensional</h1>
-<p>List are the simplest kind od datasets. Lists are heterogeneous data structures.</p>
-<section id="two-dimentinal" class="level2">
-<h2 class="anchored" data-anchor-id="two-dimentinal">Two-Dimentinal</h2>
-<p>Tabels are the most common form of datasets</p>
-</section>
-</section>
-<section id="exploratory-datat-analysis-eda" class="level1">
-<h1>Exploratory Datat Analysis (EDA)</h1>
-<p>The aim of EDA ist to summarize data by numerical parameters and graphical representation of data. Data should if possible always be graphically displayed and compared with corresponding key figures.</p>
-<blockquote class="blockquote">
-<p>Note: Whenever a dataset is reduced by key figures or graphics, information is lost.</p>
-</blockquote>
-</section>
-<section id="key-figures" class="level1">
-<h1>Key Figures</h1>
-<section id="location-parameters" class="level2">
-<h2 class="anchored" data-anchor-id="location-parameters">Location parameters</h2>
-<ul>
-<li>Arithemtic mean (average)</li>
-<li>Median</li>
-<li>Quantil</li>
-</ul>
-</section>
-<section id="spread-parameters" class="level2">
-<h2 class="anchored" data-anchor-id="spread-parameters">Spread parameters</h2>
-<ul>
-<li>Empirical variance</li>
-<li>Stadnard deviation</li>
-<li>Interquantile range</li>
-</ul>
-</section>
-<section id="artithmetic-mean" class="level2">
-<h2 class="anchored" data-anchor-id="artithmetic-mean">Artithmetic Mean</h2>
-<p>Mean tells a lot about a dataset: “Center” of data. But average does not tell whole story about (quantitative) datasets. Datasets can have a different spread around mean.</p>
+<section id="what-is-linear-algebra" class="level1">
+<h1>What is Linear Algebra</h1>
+<p>Linar Algebra is the theory of linear mappings between vector spaces. Broadly the theory of certain (linear) data transformation (manipulation). The main actors are vectors and matrices.</p>
+<section id="vector" class="level2">
+<h2 class="anchored" data-anchor-id="vector">Vector</h2>
+<p>Vertical brunch of numbers.</p>
 <p><span class="math display">\[
-\bar{x} = \dfrac{x_1 + x_2 + \dots{} + x_n}{n} = \dfrac{1}{n}\sum^n_{i=1}x_i
+b = \begin{bmatrix}
+1 \\
+-3 \\
+2 \\
+\end{bmatrix}
 \]</span></p>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>x <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="fl">4.3</span>, <span class="fl">5.2</span>, <span class="fl">2.7</span>, <span class="fl">3.1</span>)</span>
-<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="fu">mean</span>(x)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>[1] 3.825</code></pre>
-</div>
-</div>
 </section>
-<section id="empirical-variancehave" class="level2">
-<h2 class="anchored" data-anchor-id="empirical-variancehave">Empirical Variancehave</h2>
-<p>Value of empirical variance has no physical interpretation</p>
+<section id="matrice" class="level2">
+<h2 class="anchored" data-anchor-id="matrice">Matrice</h2>
+<p>Rectangular bunch of numbers.</p>
 <p><span class="math display">\[
-Var(x) = \dfrac{(x_1-\bar{x})² + (x_2-\bar{x})² + \dots + (x_n-\bar{x})² }{n-1} = \dfrac{1}{n-1}\sum^n_{i=1}(x_i - \bar{x}²)
+A = \begin{bmatrix}
+1 &amp; 3 &amp; -7 \\
+2 &amp; 1 &amp; 6 \\
+4 &amp; 0 &amp; 1 \\
+\end{bmatrix}
 \]</span></p>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>x <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="fl">4.3</span>, <span class="fl">5.2</span>, <span class="fl">2.7</span>, <span class="fl">3.1</span>)</span>
-<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="fu">var</span>(x)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>[1] 1.3025</code></pre>
-</div>
-</div>
-</section>
-<section id="standard-deviation" class="level2">
-<h2 class="anchored" data-anchor-id="standard-deviation">Standard Deviation</h2>
-<p>Standard deviation is root of variance. Standard deviation has same unit as data itself</p>
-<p><span class="math display">\[
-s_x = \sqrt{Var(x)} = \sqrt{\dfrac{1}{n-1}\sum^n_{i=1}(x_i - \bar{x}²)}
-\]</span></p>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>x <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="fl">4.3</span>, <span class="fl">5.2</span>, <span class="fl">2.7</span>, <span class="fl">3.1</span>)</span>
-<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a><span class="fu">sd</span>(x)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>[1] 1.141271</code></pre>
-</div>
-</div>
-</section>
-<section id="median" class="level2">
-<h2 class="anchored" data-anchor-id="median">Median</h2>
-<p>Also called central value or average value. Median is much less influenced by extreme observations than mean.</p>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>x <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="fl">4.3</span>, <span class="fl">5.2</span>, <span class="fl">2.7</span>, <span class="fl">3.1</span>)</span>
-<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a><span class="fu">median</span>(x)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>[1] 3.7</code></pre>
-</div>
-</div>
-<blockquote class="blockquote">
-<p>Note: Consider Mean and Median simultaneously instead of choosing one.</p>
-</blockquote>
-</section>
-<section id="quantiles" class="level2">
-<h2 class="anchored" data-anchor-id="quantiles">Quantiles</h2>
-<p>Quantiles are values that divide a dataset into equal parts, allowing for the analysis of the distribution of data. Common types of quantiles include quartiles which split data into four parts.</p>
-<blockquote class="blockquote">
-<p>Note: Most of the time there is no exact 25 % of observations.</p>
-</blockquote>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a>x <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="fl">4.3</span>, <span class="fl">5.2</span>, <span class="fl">2.7</span>, <span class="fl">3.1</span>)</span>
-<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a><span class="fu">quantile</span>(x) <span class="co"># Default quartil</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>   0%   25%   50%   75%  100% 
-2.700 3.000 3.700 4.525 5.200 </code></pre>
-</div>
-<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="fu">quantile</span>(x, <span class="at">p =</span> <span class="fl">0.7</span>) <span class="co"># Individual value</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code> 70% 
-4.39 </code></pre>
-</div>
-</div>
 </section>
 </section>
-<section id="interquantile-range" class="level1">
-<h1>Interquantile Range</h1>
-<p>Measure for spread of data.</p>
-<p><span class="math display">\[
-\text{upper quartile} − \text{lower quartile}
-\]</span></p>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a>x <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="fl">4.3</span>, <span class="fl">5.2</span>, <span class="fl">2.7</span>, <span class="fl">3.1</span>)</span>
-<span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a><span class="fu">IQR</span>(x)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>[1] 1.525</code></pre>
-</div>
-</div>
+<section id="mappings" class="level1">
+<h1>Mappings</h1>
+<p>After data transformation (mapping), patterns become visible which have not been visible before or notions become very easy.</p>
 
 
 </section>

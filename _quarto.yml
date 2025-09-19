@@ -11,6 +11,13 @@ website:
       - text: "HS 25"
         menu:
           - text: "Python for Data Science"
+            href: hs25/pds/pds_notes.qmd
+          - text: "Classical and Bayesian Statistics"
+            href: hs25/sa/sa_notes.qmd
+          - text: "Design of Experiments"
+            href: hs25/doe/doe_notes.qmd
+          - text: "Linear Algebra 01"
+            href: hs25/lia1/lia1_notes.qmd
       - text: "About"
         href:  about.qmd
 

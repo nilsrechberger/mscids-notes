@@ -7,6 +7,104 @@
     "text": "This is a Quarto website.\nTo learn more about Quarto websites visit https://quarto.org/docs/websites."
   },
   {
+    "objectID": "hs25/lia1/lia1_notes.html",
+    "href": "hs25/lia1/lia1_notes.html",
+    "title": "Linear Algebra 01",
+    "section": "",
+    "text": "Linar Algebra is the theory of linear mappings between vector spaces. Broadly the theory of certain (linear) data transformation (manipulation). The main actors are vectors and matrices.\n\n\nVertical brunch of numbers.\n\\[\nb = \\begin{bmatrix}\n1 \\\\\n-3 \\\\\n2 \\\\\n\\end{bmatrix}\n\\]\n\n\n\nRectangular bunch of numbers.\n\\[\nA = \\begin{bmatrix}\n1 & 3 & -7 \\\\\n2 & 1 & 6 \\\\\n4 & 0 & 1 \\\\\n\\end{bmatrix}\n\\]"
+  },
+  {
+    "objectID": "hs25/lia1/lia1_notes.html#vector",
+    "href": "hs25/lia1/lia1_notes.html#vector",
+    "title": "Linear Algebra 01",
+    "section": "",
+    "text": "Vertical brunch of numbers.\n\\[\nb = \\begin{bmatrix}\n1 \\\\\n-3 \\\\\n2 \\\\\n\\end{bmatrix}\n\\]"
+  },
+  {
+    "objectID": "hs25/lia1/lia1_notes.html#matrice",
+    "href": "hs25/lia1/lia1_notes.html#matrice",
+    "title": "Linear Algebra 01",
+    "section": "",
+    "text": "Rectangular bunch of numbers.\n\\[\nA = \\begin{bmatrix}\n1 & 3 & -7 \\\\\n2 & 1 & 6 \\\\\n4 & 0 & 1 \\\\\n\\end{bmatrix}\n\\]"
+  },
+  {
+    "objectID": "hs25/pds/pds_notes.html",
+    "href": "hs25/pds/pds_notes.html",
+    "title": "Python for Data Science",
+    "section": "",
+    "text": "An interpreter translates code and sends it to the CPU. The code is sent to the interpreter line by line. The interpreter provides a console for ad-hoc commands. It’s usually slower than a compiler and not good for optimization.\nA compiler processes source code and returns an executable file. Compiler languages are usually fast and made for optimization (speed, storage use). Executable code is almost impossible to reverse-engineer."
+  },
+  {
+    "objectID": "hs25/pds/pds_notes.html#interpreter-vs.-compiler-languages",
+    "href": "hs25/pds/pds_notes.html#interpreter-vs.-compiler-languages",
+    "title": "Python for Data Science",
+    "section": "",
+    "text": "An interpreter translates code and sends it to the CPU. The code is sent to the interpreter line by line. The interpreter provides a console for ad-hoc commands. It’s usually slower than a compiler and not good for optimization.\nA compiler processes source code and returns an executable file. Compiler languages are usually fast and made for optimization (speed, storage use). Executable code is almost impossible to reverse-engineer."
+  },
+  {
+    "objectID": "hs25/pds/pds_notes.html#python-console-vs.-script",
+    "href": "hs25/pds/pds_notes.html#python-console-vs.-script",
+    "title": "Python for Data Science",
+    "section": "Python console vs. script",
+    "text": "Python console vs. script\nEvery instruction is sent sequentially to the interpreter. The Python console is a direct interface to the interpreter. Commands sent in the console are sent directly to the interpreter.\nA Python script is a collection of commands. Executing a Python script means sending all the commands it contains consecutively to the interpreter."
+  },
+  {
+    "objectID": "hs25/pds/pds_notes.html#virtual-enviroments-venv",
+    "href": "hs25/pds/pds_notes.html#virtual-enviroments-venv",
+    "title": "Python for Data Science",
+    "section": "Virtual enviroments (venv)",
+    "text": "Virtual enviroments (venv)\nTo avoid dependency issues and keep the development environment clean, developers programme applications in virtual environments.\nPython3 -m venv .venv # Standard name\n\nNote: It is best practice to name the virtual environment .venv to hide it in the file system.\n\nIf you are working in a command line interface, you need to activate the virtual environment.\n. .venv/bin/activate # For Linux\nYou can install packages into the venv with python3-pip."
+  },
+  {
+    "objectID": "hs25/pds/pds_notes.html#variabels-and-basic-data-types",
+    "href": "hs25/pds/pds_notes.html#variabels-and-basic-data-types",
+    "title": "Python for Data Science",
+    "section": "Variabels and Basic data types",
+    "text": "Variabels and Basic data types\nA variable is a name that refers to a particular or undefined value. In programming languages, we use them as a reference to a particular storage location. A variable always consists of a name, a data type, a storage location and a value. Python does not require any type for variable definitions. It assumes the type from the value.\n\nNote: variable names are usually written in lowercase.\n\nBasic data types:\n\nInteger (Int)\nString (str)\nBoolean (bool).\nList\nDictionary"
+  },
+  {
+    "objectID": "hs25/pds/pds_notes.html#mathematical-operations",
+    "href": "hs25/pds/pds_notes.html#mathematical-operations",
+    "title": "Python for Data Science",
+    "section": "Mathematical Operations",
+    "text": "Mathematical Operations\nDepending on the context, two particular mathematical operators can have different meanings. The sum operator (\\(+\\)), except for numerical values, means appending one element to another. This usually requires two elements of the same data type. The multiplication operation (\\(*\\)) always has to be applied with an integer.\n\nNote: sum and multiplication can be used with strings."
+  },
+  {
+    "objectID": "hs25/pds/pds_notes.html#boolean-operations",
+    "href": "hs25/pds/pds_notes.html#boolean-operations",
+    "title": "Python for Data Science",
+    "section": "Boolean operations",
+    "text": "Boolean operations\nTwo Boolean values can be combined in different ways using the keywords and, or and xor. Any Boolean operation can be inverted using the keyword not."
+  },
+  {
+    "objectID": "hs25/doe/doe_notes.html",
+    "href": "hs25/doe/doe_notes.html",
+    "title": "Design of Experiments",
+    "section": "",
+    "text": "Effect and aim of randomization Elimination of selection bias Elimination of confounding Ensuring the comparability of the groups at study initiation (Baseline Data)\n\n\n\nConfounding means that a factor (Confounder) that is not directly investigated is associated with both the independent variable and the dependent variable and accordingly causes the relationship between the two variables (Spurious Correlation).\n\n\n\nProblem of distortion due to knowledge about the treatment. Blinding is a suitable technique to avoid such distortions. Elimination of conscious and unconscious influences on the treatment result.\n\n\n\nOpen: No blining\nSingle-blind: Test persons have no knowledge of group membership.\nDouble-blind: Also, the persons carrying out the tests have no knowledge of group membership.\nTriple-blind: Also, people doing the analysis have no knowledge about group membership."
+  },
+  {
+    "objectID": "hs25/doe/doe_notes.html#randomization",
+    "href": "hs25/doe/doe_notes.html#randomization",
+    "title": "Design of Experiments",
+    "section": "",
+    "text": "Effect and aim of randomization Elimination of selection bias Elimination of confounding Ensuring the comparability of the groups at study initiation (Baseline Data)"
+  },
+  {
+    "objectID": "hs25/doe/doe_notes.html#confounder",
+    "href": "hs25/doe/doe_notes.html#confounder",
+    "title": "Design of Experiments",
+    "section": "",
+    "text": "Confounding means that a factor (Confounder) that is not directly investigated is associated with both the independent variable and the dependent variable and accordingly causes the relationship between the two variables (Spurious Correlation)."
+  },
+  {
+    "objectID": "hs25/doe/doe_notes.html#blinding",
+    "href": "hs25/doe/doe_notes.html#blinding",
+    "title": "Design of Experiments",
+    "section": "",
+    "text": "Problem of distortion due to knowledge about the treatment. Blinding is a suitable technique to avoid such distortions. Elimination of conscious and unconscious influences on the treatment result.\n\n\n\nOpen: No blining\nSingle-blind: Test persons have no knowledge of group membership.\nDouble-blind: Also, the persons carrying out the tests have no knowledge of group membership.\nTriple-blind: Also, people doing the analysis have no knowledge about group membership."
+  },
+  {
     "objectID": "hs25/sa/sa_notes.html",
     "href": "hs25/sa/sa_notes.html",
     "title": "Classical and Bayesian Statistics",
@@ -68,83 +166,6 @@
     "title": "Classical and Bayesian Statistics",
     "section": "Quantiles",
     "text": "Quantiles\nQuantiles are values that divide a dataset into equal parts, allowing for the analysis of the distribution of data. Common types of quantiles include quartiles which split data into four parts.\n\nNote: Most of the time there is no exact 25 % of observations.\n\n\nx &lt;- c(4.3, 5.2, 2.7, 3.1)\nquantile(x) # Default quartil\n\n   0%   25%   50%   75%  100% \n2.700 3.000 3.700 4.525 5.200 \n\nquantile(x, p = 0.7) # Individual value\n\n 70% \n4.39"
-  },
-  {
-    "objectID": "hs25/doe/doe_notes.html",
-    "href": "hs25/doe/doe_notes.html",
-    "title": "Design of Experiments",
-    "section": "",
-    "text": "Effect and aim of randomization Elimination of selection bias Elimination of confounding Ensuring the comparability of the groups at study initiation (Baseline Data)\n\n\n\nConfounding means that a factor (Confounder) that is not directly investigated is associated with both the independent variable and the dependent variable and accordingly causes the relationship between the two variables (Spurious Correlation).\n\n\n\nProblem of distortion due to knowledge about the treatment. Blinding is a suitable technique to avoid such distortions. Elimination of conscious and unconscious influences on the treatment result.\n\n\n\nOpen: No blining\nSingle-blind: Test persons have no knowledge of group membership.\nDouble-blind: Also, the persons carrying out the tests have no knowledge of group membership.\nTriple-blind: Also, people doing the analysis have no knowledge about group membership."
-  },
-  {
-    "objectID": "hs25/doe/doe_notes.html#randomization",
-    "href": "hs25/doe/doe_notes.html#randomization",
-    "title": "Design of Experiments",
-    "section": "",
-    "text": "Effect and aim of randomization Elimination of selection bias Elimination of confounding Ensuring the comparability of the groups at study initiation (Baseline Data)"
-  },
-  {
-    "objectID": "hs25/doe/doe_notes.html#confounder",
-    "href": "hs25/doe/doe_notes.html#confounder",
-    "title": "Design of Experiments",
-    "section": "",
-    "text": "Confounding means that a factor (Confounder) that is not directly investigated is associated with both the independent variable and the dependent variable and accordingly causes the relationship between the two variables (Spurious Correlation)."
-  },
-  {
-    "objectID": "hs25/doe/doe_notes.html#blinding",
-    "href": "hs25/doe/doe_notes.html#blinding",
-    "title": "Design of Experiments",
-    "section": "",
-    "text": "Problem of distortion due to knowledge about the treatment. Blinding is a suitable technique to avoid such distortions. Elimination of conscious and unconscious influences on the treatment result.\n\n\n\nOpen: No blining\nSingle-blind: Test persons have no knowledge of group membership.\nDouble-blind: Also, the persons carrying out the tests have no knowledge of group membership.\nTriple-blind: Also, people doing the analysis have no knowledge about group membership."
-  },
-  {
-    "objectID": "hs25/pds/pds_notes.html",
-    "href": "hs25/pds/pds_notes.html",
-    "title": "Python for Data Science",
-    "section": "",
-    "text": "An interpreter translates code and sends it to the CPU. The code is sent to the interpreter line by line. The interpreter provides a console for ad-hoc commands. It’s usually slower than a compiler and not good for optimization.\nA compiler processes source code and returns an executable file. Compiler languages are usually fast and made for optimization (speed, storage use). Executable code is almost impossible to reverse-engineer."
-  },
-  {
-    "objectID": "hs25/pds/pds_notes.html#interpreter-vs.-compiler-languages",
-    "href": "hs25/pds/pds_notes.html#interpreter-vs.-compiler-languages",
-    "title": "Python for Data Science",
-    "section": "",
-    "text": "An interpreter translates code and sends it to the CPU. The code is sent to the interpreter line by line. The interpreter provides a console for ad-hoc commands. It’s usually slower than a compiler and not good for optimization.\nA compiler processes source code and returns an executable file. Compiler languages are usually fast and made for optimization (speed, storage use). Executable code is almost impossible to reverse-engineer."
-  },
-  {
-    "objectID": "hs25/pds/pds_notes.html#python-console-vs.-script",
-    "href": "hs25/pds/pds_notes.html#python-console-vs.-script",
-    "title": "Python for Data Science",
-    "section": "Python console vs. script",
-    "text": "Python console vs. script\nEvery instruction is sent sequentially to the interpreter. The Python console is a direct interface to the interpreter. Commands sent in the console are sent directly to the interpreter.\nA Python script is a collection of commands. Executing a Python script means sending all the commands it contains consecutively to the interpreter."
-  },
-  {
-    "objectID": "hs25/pds/pds_notes.html#virtual-enviroments-venv",
-    "href": "hs25/pds/pds_notes.html#virtual-enviroments-venv",
-    "title": "Python for Data Science",
-    "section": "Virtual enviroments (venv)",
-    "text": "Virtual enviroments (venv)\nTo avoid dependency issues and keep the development environment clean, developers programme applications in virtual environments.\nPython3 -m venv .venv # Standard name\n\nNote: It is best practice to name the virtual environment .venv to hide it in the file system.\n\nIf you are working in a command line interface, you need to activate the virtual environment.\n. .venv/bin/activate # For Linux\nYou can install packages into the venv with python3-pip."
-  },
-  {
-    "objectID": "hs25/pds/pds_notes.html#variabels-and-basic-data-types",
-    "href": "hs25/pds/pds_notes.html#variabels-and-basic-data-types",
-    "title": "Python for Data Science",
-    "section": "Variabels and Basic data types",
-    "text": "Variabels and Basic data types\nA variable is a name that refers to a particular or undefined value. In programming languages, we use them as a reference to a particular storage location. A variable always consists of a name, a data type, a storage location and a value. Python does not require any type for variable definitions. It assumes the type from the value.\n\nNote: variable names are usually written in lowercase.\n\nBasic data types:\n\nInteger (Int)\nString (str)\nBoolean (bool).\nList\nDictionary"
-  },
-  {
-    "objectID": "hs25/pds/pds_notes.html#mathematical-operations",
-    "href": "hs25/pds/pds_notes.html#mathematical-operations",
-    "title": "Python for Data Science",
-    "section": "Mathematical Operations",
-    "text": "Mathematical Operations\nDepending on the context, two particular mathematical operators can have different meanings. The sum operator (\\(+\\)), except for numerical values, means appending one element to another. This usually requires two elements of the same data type. The multiplication operation (\\(*\\)) always has to be applied with an integer.\n\nNote: sum and multiplication can be used with strings."
-  },
-  {
-    "objectID": "hs25/pds/pds_notes.html#boolean-operations",
-    "href": "hs25/pds/pds_notes.html#boolean-operations",
-    "title": "Python for Data Science",
-    "section": "Boolean operations",
-    "text": "Boolean operations\nTwo Boolean values can be combined in different ways using the keywords and, or and xor. Any Boolean operation can be inverted using the keyword not."
   },
   {
     "objectID": "about.html",
