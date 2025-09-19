@@ -1,5 +1,5 @@
 ---
-title: "Python for Data Science"
+title: "Python for Data Science - Notes"
 toc: true
 ---
 
@@ -54,7 +54,7 @@ You can install packages into the venv with `python3-pip`.
 
 A variable is a name that refers to a particular or undefined value. In programming languages, we use them as a reference to a particular storage location. A variable always consists of a name, a data type, a storage location and a value. Python does not require any type for variable definitions. It assumes the type from the value.
 
-> Note: variable names are usually written in lowercase.
+> Note: Variable names are usually written in lowercase.
 
 Basic data types:
 
@@ -68,7 +68,7 @@ Basic data types:
 
 Depending on the context, two particular mathematical operators can have different meanings. The sum operator ($+$), except for numerical values, means appending one element to another. This usually requires two elements of the same data type. The multiplication operation ($*$) always has to be applied with an integer.
 
-> Note: sum and multiplication can be used with strings.
+> Note: Sum and multiplication can be used with strings.
 
 ## Boolean operations
 
