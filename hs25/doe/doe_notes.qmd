@@ -1,0 +1,26 @@
+---
+title: Design of Experiments
+---
+
+# Researce Design
+
+## Observational vs. Experimental
+
+## Randomization
+Effect and aim of randomization
+Elimination of selection bias
+Elimination of confounding
+Ensuring the comparability of the groups at study initiation (Baseline Data)
+
+## Confounder
+Confounding means that a factor (Confounder) that is not directly investigated is associated with both the independent variable and the dependent variable and accordingly causes the relationship between the two variables (Spurious Correlation).
+
+## Blinding
+Problem of distortion due to knowledge about the treatment. Blinding is a suitable technique to avoid such distortions. Elimination of conscious and unconscious influences on the treatment result.
+
+### Types of blining
+
+- Open: No blining
+- Single-blind: Test persons have no knowledge of group membership.
+- Double-blind: Also, the persons carrying out the tests have no knowledge of group membership.
+- Triple-blind: Also, people doing the analysis have no knowledge about group membership.

@@ -1,0 +1,75 @@
+---
+title: "Python for Data Science"
+toc: true
+---
+
+# Introduction
+
+## Interpreter vs. Compiler Languages
+
+An interpreter translates code and sends it to the CPU. The code is sent to the interpreter line by line. The interpreter provides a console for ad-hoc commands. It's usually slower than a compiler and not good for optimization.
+
+A compiler processes source code and returns an executable file. Compiler languages are usually fast and made for optimization (speed, storage use). Executable code is almost impossible to reverse-engineer.
+
+# Intelligent Development Environment (IDE)
+
+Typically, an IDE provides additional tools to make programming more convenient. IDEs provide tools such as:
+
+- Debuggers
+- Deployment chain control
+- File browser
+- Terminal
+- version control interface
+- etc.
+
+> Note: Python is a text-only language that can be written in a simple text editor.
+
+## Python console vs. script
+
+Every instruction is sent sequentially to the interpreter. The Python console is a direct interface to the interpreter. Commands sent in the console are sent directly to the interpreter.
+
+A Python script is a collection of commands. Executing a Python script means sending all the commands it contains consecutively to the interpreter.
+
+## Virtual enviroments (venv)
+
+To avoid dependency issues and keep the development environment clean, developers programme applications in virtual environments.
+
+```{bash}
+Python3 -m venv .venv # Standard name
+```
+
+> Note: It is best practice to name the virtual environment .venv to hide it in the file system.
+
+If you are working in a command line interface, you need to activate the virtual environment.
+
+```{bash}
+. .venv/bin/activate # For Linux
+```
+
+You can install packages into the venv with `python3-pip`.
+
+# Python Basics
+
+## Variabels and Basic data types
+
+A variable is a name that refers to a particular or undefined value. In programming languages, we use them as a reference to a particular storage location. A variable always consists of a name, a data type, a storage location and a value. Python does not require any type for variable definitions. It assumes the type from the value.
+
+> Note: variable names are usually written in lowercase.
+
+Basic data types:
+
+- Integer (Int)
+- String (str)
+- Boolean (bool).
+- List
+- Dictionary
+
+## Mathematical Operations
+
+Depending on the context, two particular mathematical operators can have different meanings. The sum operator ($+$), except for numerical values, means appending one element to another. This usually requires two elements of the same data type. The multiplication operation ($*$) always has to be applied with an integer.
+
+> Note: sum and multiplication can be used with strings.
+
+## Boolean operations
+
+Two Boolean values can be combined in different ways using the keywords `and`, `or` and `xor`. Any Boolean operation can be inverted using the keyword `not`.

@@ -6,15 +6,16 @@ website:
   title: "mscids-notes"
   navbar:
     left:
-      - href: index.qmd
-        text: Home
-      - about.qmd
+      - text: "Home"
+        href: index.qmd
+      - text: "HS 25"
+        menu:
+          - text: "Python for Data Science"
+      - text: "About"
+        href:  about.qmd
 
 format:
   html:
     theme: cosmo
     css: styles.css
     toc: true
-
-
-

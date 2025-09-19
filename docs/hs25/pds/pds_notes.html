@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>About – mscids-notes</title>
+<title>Python for Data Science – mscids-notes</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -23,22 +23,22 @@ ul.task-list li input[type="checkbox"] {
 </style>
 
 
-<script src="site_libs/quarto-nav/quarto-nav.js"></script>
-<script src="site_libs/quarto-nav/headroom.min.js"></script>
-<script src="site_libs/clipboard/clipboard.min.js"></script>
-<script src="site_libs/quarto-search/autocomplete.umd.js"></script>
-<script src="site_libs/quarto-search/fuse.min.js"></script>
-<script src="site_libs/quarto-search/quarto-search.js"></script>
-<meta name="quarto:offset" content="./">
-<script src="site_libs/quarto-html/quarto.js"></script>
-<script src="site_libs/quarto-html/popper.min.js"></script>
-<script src="site_libs/quarto-html/tippy.umd.min.js"></script>
-<script src="site_libs/quarto-html/anchor.min.js"></script>
-<link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting-e26003cea8cd680ca0c55a263523d882.css" rel="stylesheet" id="quarto-text-highlighting-styles">
-<script src="site_libs/bootstrap/bootstrap.min.js"></script>
-<link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="site_libs/bootstrap/bootstrap-8ef023257421bb572a6b5600f0392161.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<script src="../../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../../">
+<script src="../../site_libs/quarto-html/quarto.js"></script>
+<script src="../../site_libs/quarto-html/popper.min.js"></script>
+<script src="../../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-e26003cea8cd680ca0c55a263523d882.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../../site_libs/bootstrap/bootstrap-8ef023257421bb572a6b5600f0392161.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -67,8 +67,37 @@ ul.task-list li input[type="checkbox"] {
   }
 }</script>
 
+  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
 
-<link rel="stylesheet" href="styles.css">
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN") {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
+
+<link rel="stylesheet" href="../../styles.css">
 </head>
 
 <body class="nav-fixed">
@@ -78,7 +107,7 @@ ul.task-list li input[type="checkbox"] {
     <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
       <div class="navbar-container container-fluid">
       <div class="navbar-brand-container mx-auto">
-    <a class="navbar-brand" href="./index.html">
+    <a class="navbar-brand" href="../../index.html">
     <span class="navbar-title">mscids-notes</span>
     </a>
   </div>
@@ -89,7 +118,7 @@ ul.task-list li input[type="checkbox"] {
           <div class="collapse navbar-collapse" id="navbarCollapse">
             <ul class="navbar-nav navbar-nav-scroll me-auto">
   <li class="nav-item">
-    <a class="nav-link" href="./index.html"> 
+    <a class="nav-link" href="../../index.html"> 
 <span class="menu-text">Home</span></a>
   </li>  
   <li class="nav-item dropdown ">
@@ -101,7 +130,7 @@ ul.task-list li input[type="checkbox"] {
     </ul>
   </li>
   <li class="nav-item">
-    <a class="nav-link active" href="./about.html" aria-current="page"> 
+    <a class="nav-link" href="../../about.html"> 
 <span class="menu-text">About</span></a>
   </li>  
 </ul>
@@ -115,15 +144,35 @@ ul.task-list li input[type="checkbox"] {
 <div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
 <!-- sidebar -->
 <!-- margin-sidebar -->
-    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar zindex-bottom">
-        
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#introduction" id="toc-introduction" class="nav-link active" data-scroll-target="#introduction">Introduction</a>
+  <ul class="collapse">
+  <li><a href="#interpreter-vs.-compiler-languages" id="toc-interpreter-vs.-compiler-languages" class="nav-link" data-scroll-target="#interpreter-vs.-compiler-languages">Interpreter vs.&nbsp;Compiler Languages</a></li>
+  </ul></li>
+  <li><a href="#intelligent-development-environment-ide" id="toc-intelligent-development-environment-ide" class="nav-link" data-scroll-target="#intelligent-development-environment-ide">Intelligent Development Environment (IDE)</a>
+  <ul class="collapse">
+  <li><a href="#python-console-vs.-script" id="toc-python-console-vs.-script" class="nav-link" data-scroll-target="#python-console-vs.-script">Python console vs.&nbsp;script</a></li>
+  <li><a href="#virtual-enviroments-venv" id="toc-virtual-enviroments-venv" class="nav-link" data-scroll-target="#virtual-enviroments-venv">Virtual enviroments (venv)</a></li>
+  </ul></li>
+  <li><a href="#python-basics" id="toc-python-basics" class="nav-link" data-scroll-target="#python-basics">Python Basics</a>
+  <ul class="collapse">
+  <li><a href="#variabels-and-basic-data-types" id="toc-variabels-and-basic-data-types" class="nav-link" data-scroll-target="#variabels-and-basic-data-types">Variabels and Basic data types</a></li>
+  <li><a href="#mathematical-operations" id="toc-mathematical-operations" class="nav-link" data-scroll-target="#mathematical-operations">Mathematical Operations</a></li>
+  <li><a href="#boolean-operations" id="toc-boolean-operations" class="nav-link" data-scroll-target="#boolean-operations">Boolean operations</a></li>
+  </ul></li>
+  </ul>
+</nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">About</h1>
+<h1 class="title">Python for Data Science</h1>
 </div>
 
 
@@ -140,9 +189,76 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
-<p>About this site</p>
+<section id="introduction" class="level1">
+<h1>Introduction</h1>
+<section id="interpreter-vs.-compiler-languages" class="level2">
+<h2 class="anchored" data-anchor-id="interpreter-vs.-compiler-languages">Interpreter vs.&nbsp;Compiler Languages</h2>
+<p>An interpreter translates code and sends it to the CPU. The code is sent to the interpreter line by line. The interpreter provides a console for ad-hoc commands. It’s usually slower than a compiler and not good for optimization.</p>
+<p>A compiler processes source code and returns an executable file. Compiler languages are usually fast and made for optimization (speed, storage use). Executable code is almost impossible to reverse-engineer.</p>
+</section>
+</section>
+<section id="intelligent-development-environment-ide" class="level1">
+<h1>Intelligent Development Environment (IDE)</h1>
+<p>Typically, an IDE provides additional tools to make programming more convenient. IDEs provide tools such as:</p>
+<ul>
+<li>Debuggers</li>
+<li>Deployment chain control</li>
+<li>File browser</li>
+<li>Terminal</li>
+<li>version control interface</li>
+<li>etc.</li>
+</ul>
+<blockquote class="blockquote">
+<p>Note: Python is a text-only language that can be written in a simple text editor.</p>
+</blockquote>
+<section id="python-console-vs.-script" class="level2">
+<h2 class="anchored" data-anchor-id="python-console-vs.-script">Python console vs.&nbsp;script</h2>
+<p>Every instruction is sent sequentially to the interpreter. The Python console is a direct interface to the interpreter. Commands sent in the console are sent directly to the interpreter.</p>
+<p>A Python script is a collection of commands. Executing a Python script means sending all the commands it contains consecutively to the interpreter.</p>
+</section>
+<section id="virtual-enviroments-venv" class="level2">
+<h2 class="anchored" data-anchor-id="virtual-enviroments-venv">Virtual enviroments (venv)</h2>
+<p>To avoid dependency issues and keep the development environment clean, developers programme applications in virtual environments.</p>
+<pre class="{bash}"><code>Python3 -m venv .venv # Standard name</code></pre>
+<blockquote class="blockquote">
+<p>Note: It is best practice to name the virtual environment .venv to hide it in the file system.</p>
+</blockquote>
+<p>If you are working in a command line interface, you need to activate the virtual environment.</p>
+<pre class="{bash}"><code>. .venv/bin/activate # For Linux</code></pre>
+<p>You can install packages into the venv with <code>python3-pip</code>.</p>
+</section>
+</section>
+<section id="python-basics" class="level1">
+<h1>Python Basics</h1>
+<section id="variabels-and-basic-data-types" class="level2">
+<h2 class="anchored" data-anchor-id="variabels-and-basic-data-types">Variabels and Basic data types</h2>
+<p>A variable is a name that refers to a particular or undefined value. In programming languages, we use them as a reference to a particular storage location. A variable always consists of a name, a data type, a storage location and a value. Python does not require any type for variable definitions. It assumes the type from the value.</p>
+<blockquote class="blockquote">
+<p>Note: variable names are usually written in lowercase.</p>
+</blockquote>
+<p>Basic data types:</p>
+<ul>
+<li>Integer (Int)</li>
+<li>String (str)</li>
+<li>Boolean (bool).</li>
+<li>List</li>
+<li>Dictionary</li>
+</ul>
+</section>
+<section id="mathematical-operations" class="level2">
+<h2 class="anchored" data-anchor-id="mathematical-operations">Mathematical Operations</h2>
+<p>Depending on the context, two particular mathematical operators can have different meanings. The sum operator (<span class="math inline">\(+\)</span>), except for numerical values, means appending one element to another. This usually requires two elements of the same data type. The multiplication operation (<span class="math inline">\(*\)</span>) always has to be applied with an integer.</p>
+<blockquote class="blockquote">
+<p>Note: sum and multiplication can be used with strings.</p>
+</blockquote>
+</section>
+<section id="boolean-operations" class="level2">
+<h2 class="anchored" data-anchor-id="boolean-operations">Boolean operations</h2>
+<p>Two Boolean values can be combined in different ways using the keywords <code>and</code>, <code>or</code> and <code>xor</code>. Any Boolean operation can be inverted using the keyword <code>not</code>.</p>
 
 
+</section>
+</section>
 
 </main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">

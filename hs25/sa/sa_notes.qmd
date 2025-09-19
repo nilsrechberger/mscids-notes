@@ -1,0 +1,128 @@
+---
+title: Classical and Bayesian Statistics
+toc: True
+---
+
+# Introduction
+
+Statistic is the discipline that concerns collection, organisation, analysis,
+interpretation, and presentation of data. Applied statistics applies to real everyday problems.
+
+> Note: There is no cooking recipes how to solve problems.
+
+# Classical Statistics
+
+Classical statistics is a set of tools for decision making using hypothesis. or different types of problems different tests are being used.
+
+# Bayesien Statistic
+Bayesian statistics is a statistical theory that interprets probability as a degree of belief in an event, which can be updated as new evidence is obtained.
+
+# Models
+
+Models are used to simplify nature of things and essential for statistics. Models are not simply useful but only useful in a certain context. Models have their limitations. Models are statements about the operation of nature that purposefully omit many details and thus achieve insight that would otherwise be discursively obscured.
+
+# Simulations
+
+Simulations are used to approximate quantities for which exact solution is very difficult or even impossible to determine. Simulations rely heavily on computer power.
+
+# Data
+
+# One-Dimensional
+
+List are the simplest kind od datasets. Lists are heterogeneous data structures.
+
+## Two-Dimentinal
+
+Tabels are the most common form of datasets
+
+# Exploratory Datat Analysis (EDA)
+
+The aim of EDA ist to summarize data by numerical parameters and graphical representation of data. Data should if possible always be graphically displayed and compared with corresponding key figures.
+
+> Note:  Whenever a dataset is reduced by key figures or graphics, information is lost.
+
+# Key Figures
+
+## Location parameters
+
+- Arithemtic mean (average)
+- Median
+- Quantil
+
+## Spread parameters
+
+- Empirical variance
+- Stadnard deviation
+- Interquantile range
+
+## Artithmetic Mean
+
+Mean tells a lot about a dataset: “Center” of data. But average does not tell whole story about (quantitative) datasets. Datasets can have a different spread around mean.
+
+$$
+\bar{x} = \dfrac{x_1 + x_2 + \dots{} + x_n}{n} = \dfrac{1}{n}\sum^n_{i=1}x_i
+$$
+
+```{r}
+x <- c(4.3, 5.2, 2.7, 3.1)
+mean(x)
+```
+
+## Empirical Variancehave
+Value of empirical variance has no physical interpretation
+
+$$
+Var(x) = \dfrac{(x_1-\bar{x})² + (x_2-\bar{x})² + \dots + (x_n-\bar{x})² }{n-1} = \dfrac{1}{n-1}\sum^n_{i=1}(x_i - \bar{x}²)
+$$
+
+```{r}
+x <- c(4.3, 5.2, 2.7, 3.1)
+var(x)
+```
+
+## Standard Deviation
+
+Standard deviation is root of variance. Standard deviation has same unit as data itself
+
+$$
+s_x = \sqrt{Var(x)} = \sqrt{\dfrac{1}{n-1}\sum^n_{i=1}(x_i - \bar{x}²)}
+$$
+
+```{r}
+x <- c(4.3, 5.2, 2.7, 3.1)
+sd(x)
+```
+
+## Median
+Also called central value or average value. Median is much less influenced by extreme observations than mean.
+
+```{r}
+x <- c(4.3, 5.2, 2.7, 3.1)
+median(x)
+```
+
+> Note: Consider Mean and Median simultaneously instead of choosing one.
+
+## Quantiles
+Quantiles are values that divide a dataset into equal parts, allowing for the analysis of the distribution of data. Common types of quantiles include quartiles which split data into four parts.
+
+> Note: Most of the time there is no exact 25 % of observations.
+
+```{r}
+x <- c(4.3, 5.2, 2.7, 3.1)
+quantile(x) # Default quartil
+quantile(x, p = 0.7) # Individual value
+```
+
+# Interquantile Range
+
+Measure for spread of data.
+
+$$
+\text{upper quartile} − \text{lower quartile}
+$$
+
+```{r}
+x <- c(4.3, 5.2, 2.7, 3.1)
+IQR(x)
+```
