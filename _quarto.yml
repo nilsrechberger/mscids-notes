@@ -10,8 +10,10 @@ website:
         href: index.qmd
       - text: "HS 25"
         menu:
-          - text: "Python for Data Science"
+          - text: "Python for Data Science - Notes"
             href: hs25/pds/pds_notes.qmd
+          - text: "Python for Data Science - Exercises"
+            href: hs25/pds/pds_exercises.qmd
           - text: "Classical and Bayesian Statistics"
             href: hs25/sa/sa_notes.qmd
           - text: "Design of Experiments"
