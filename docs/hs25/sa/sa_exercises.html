@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Classical and Bayesian Statistics - Notes – mscids-notes</title>
+<title>Classical and Bayesian Statistics - Exercises – mscids-notes</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -101,35 +101,6 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   }
 }</script>
 
-  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
-  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
-
-<script type="text/javascript">
-const typesetMath = (el) => {
-  if (window.MathJax) {
-    // MathJax Typeset
-    window.MathJax.typeset([el]);
-  } else if (window.katex) {
-    // KaTeX Render
-    var mathElements = el.getElementsByClassName("math");
-    var macros = [];
-    for (var i = 0; i < mathElements.length; i++) {
-      var texText = mathElements[i].firstChild;
-      if (mathElements[i].tagName == "SPAN") {
-        window.katex.render(texText.data, mathElements[i], {
-          displayMode: mathElements[i].classList.contains('display'),
-          throwOnError: false,
-          macros: macros,
-          fleqn: false
-        });
-      }
-    }
-  }
-}
-window.Quarto = {
-  typesetMath
-};
-</script>
 
 <link rel="stylesheet" href="../../styles.css">
 </head>
@@ -206,28 +177,31 @@ window.Quarto = {
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#introduction" id="toc-introduction" class="nav-link active" data-scroll-target="#introduction">Introduction</a></li>
-  <li><a href="#classical-statistics" id="toc-classical-statistics" class="nav-link" data-scroll-target="#classical-statistics">Classical Statistics</a></li>
-  <li><a href="#bayesien-statistic" id="toc-bayesien-statistic" class="nav-link" data-scroll-target="#bayesien-statistic">Bayesien Statistic</a></li>
-  <li><a href="#models" id="toc-models" class="nav-link" data-scroll-target="#models">Models</a></li>
-  <li><a href="#simulations" id="toc-simulations" class="nav-link" data-scroll-target="#simulations">Simulations</a></li>
-  <li><a href="#data" id="toc-data" class="nav-link" data-scroll-target="#data">Data</a></li>
-  <li><a href="#one-dimensional" id="toc-one-dimensional" class="nav-link" data-scroll-target="#one-dimensional">One-Dimensional</a>
+  <li><a href="#problems-1" id="toc-problems-1" class="nav-link active" data-scroll-target="#problems-1">Problems 1</a>
   <ul class="collapse">
-  <li><a href="#two-dimentinal" id="toc-two-dimentinal" class="nav-link" data-scroll-target="#two-dimentinal">Two-Dimentinal</a></li>
-  </ul></li>
-  <li><a href="#exploratory-datat-analysis-eda" id="toc-exploratory-datat-analysis-eda" class="nav-link" data-scroll-target="#exploratory-datat-analysis-eda">Exploratory Datat Analysis (EDA)</a></li>
-  <li><a href="#key-figures" id="toc-key-figures" class="nav-link" data-scroll-target="#key-figures">Key Figures</a>
+  <li><a href="#a" id="toc-a" class="nav-link" data-scroll-target="#a">a</a></li>
+  <li><a href="#b" id="toc-b" class="nav-link" data-scroll-target="#b">b</a></li>
+  <li><a href="#c" id="toc-c" class="nav-link" data-scroll-target="#c">c</a>
   <ul class="collapse">
-  <li><a href="#location-parameters" id="toc-location-parameters" class="nav-link" data-scroll-target="#location-parameters">Location parameters</a></li>
-  <li><a href="#spread-parameters" id="toc-spread-parameters" class="nav-link" data-scroll-target="#spread-parameters">Spread parameters</a></li>
-  <li><a href="#artithmetic-mean" id="toc-artithmetic-mean" class="nav-link" data-scroll-target="#artithmetic-mean">Artithmetic Mean</a></li>
-  <li><a href="#empirical-variancehave" id="toc-empirical-variancehave" class="nav-link" data-scroll-target="#empirical-variancehave">Empirical Variancehave</a></li>
-  <li><a href="#standard-deviation" id="toc-standard-deviation" class="nav-link" data-scroll-target="#standard-deviation">Standard Deviation</a></li>
-  <li><a href="#median" id="toc-median" class="nav-link" data-scroll-target="#median">Median</a></li>
-  <li><a href="#quantiles" id="toc-quantiles" class="nav-link" data-scroll-target="#quantiles">Quantiles</a></li>
+  <li><a href="#section" id="toc-section" class="nav-link" data-scroll-target="#section">1</a></li>
+  <li><a href="#section-1" id="toc-section-1" class="nav-link" data-scroll-target="#section-1">2</a></li>
+  <li><a href="#section-2" id="toc-section-2" class="nav-link" data-scroll-target="#section-2">3</a></li>
+  <li><a href="#section-3" id="toc-section-3" class="nav-link" data-scroll-target="#section-3">4</a></li>
   </ul></li>
-  <li><a href="#interquantile-range" id="toc-interquantile-range" class="nav-link" data-scroll-target="#interquantile-range">Interquantile Range</a></li>
+  <li><a href="#d" id="toc-d" class="nav-link" data-scroll-target="#d">d</a></li>
+  </ul></li>
+  <li><a href="#problem-1.2" id="toc-problem-1.2" class="nav-link" data-scroll-target="#problem-1.2">Problem 1.2</a>
+  <ul class="collapse">
+  <li><a href="#a-1" id="toc-a-1" class="nav-link" data-scroll-target="#a-1">a</a></li>
+  <li><a href="#b-1" id="toc-b-1" class="nav-link" data-scroll-target="#b-1">b</a></li>
+  <li><a href="#c-1" id="toc-c-1" class="nav-link" data-scroll-target="#c-1">c</a></li>
+  <li><a href="#d-1" id="toc-d-1" class="nav-link" data-scroll-target="#d-1">d</a></li>
+  <li><a href="#e" id="toc-e" class="nav-link" data-scroll-target="#e">e</a></li>
+  <li><a href="#f" id="toc-f" class="nav-link" data-scroll-target="#f">f</a></li>
+  <li><a href="#g" id="toc-g" class="nav-link" data-scroll-target="#g">g</a></li>
+  <li><a href="#h" id="toc-h" class="nav-link" data-scroll-target="#h">h</a></li>
+  <li><a href="#problem-1.3" id="toc-problem-1.3" class="nav-link" data-scroll-target="#problem-1.3">Problem 1.3</a></li>
+  </ul></li>
   </ul>
 </nav>
     </div>
@@ -236,7 +210,7 @@ window.Quarto = {
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">Classical and Bayesian Statistics - Notes</h1>
+<h1 class="title">Classical and Bayesian Statistics - Exercises</h1>
 </div>
 
 
@@ -253,157 +227,187 @@ window.Quarto = {
 </header>
 
 
-<section id="introduction" class="level1">
-<h1>Introduction</h1>
-<p>Statistic is the discipline that concerns collection, organisation, analysis, interpretation, and presentation of data. Applied statistics applies to real everyday problems.</p>
-<blockquote class="blockquote">
-<p>Note: There is no cooking recipes how to solve problems.</p>
-</blockquote>
+<section id="problems-1" class="level1">
+<h1>Problems 1</h1>
+<section id="a" class="level2">
+<h2 class="anchored" data-anchor-id="a">a</h2>
+<p>It seems that, in total, the Allied and Axis countries had about the same number of civilian deaths. However, if we compare the numbers per party member, we see that the Axis countries had a higher average amount of deaths. On the other hand, the data from the Allies is inconsistent (see Denmark).</p>
 </section>
-<section id="classical-statistics" class="level1">
-<h1>Classical Statistics</h1>
-<p>Classical statistics is a set of tools for decision making using hypothesis. or different types of problems different tests are being used.</p>
+<section id="b" class="level2">
+<h2 class="anchored" data-anchor-id="b">b</h2>
+<p>The percentages in the chart do not sum up to 100%.</p>
 </section>
-<section id="bayesien-statistic" class="level1">
-<h1>Bayesien Statistic</h1>
-<p>Bayesian statistics is a statistical theory that interprets probability as a degree of belief in an event, which can be updated as new evidence is obtained.</p>
+<section id="c" class="level2">
+<h2 class="anchored" data-anchor-id="c">c</h2>
+<section id="section" class="level3">
+<h3 class="anchored" data-anchor-id="section">1</h3>
+<p>We can assume that Linda is a bank teller and is active in the feminist movement. Her experiences from the past could have influenced her behavior and thinking on certain topics. She may have a sense for justice and equality, regardless of the topic.</p>
 </section>
-<section id="models" class="level1">
-<h1>Models</h1>
-<p>Models are used to simplify nature of things and essential for statistics. Models are not simply useful but only useful in a certain context. Models have their limitations. Models are statements about the operation of nature that purposefully omit many details and thus achieve insight that would otherwise be discursively obscured.</p>
+<section id="section-1" class="level3">
+<h3 class="anchored" data-anchor-id="section-1">2</h3>
+<p>We can assume that Steve is a librarian because of his helpful personality and his need for order and structure, much like what’s found in a library. His passion for details may also be connected to a desire for knowledge.</p>
 </section>
-<section id="simulations" class="level1">
-<h1>Simulations</h1>
-<p>Simulations are used to approximate quantities for which exact solution is very difficult or even impossible to determine. Simulations rely heavily on computer power.</p>
+<section id="section-2" class="level3">
+<h3 class="anchored" data-anchor-id="section-2">3</h3>
+<p>A Ball costs $0.05.</p>
 </section>
-<section id="data" class="level1">
-<h1>Data</h1>
-</section>
-<section id="one-dimensional" class="level1">
-<h1>One-Dimensional</h1>
-<p>List are the simplest kind od datasets. Lists are heterogeneous data structures.</p>
-<section id="two-dimentinal" class="level2">
-<h2 class="anchored" data-anchor-id="two-dimentinal">Two-Dimentinal</h2>
-<p>Tabels are the most common form of datasets</p>
+<section id="section-3" class="level3">
+<h3 class="anchored" data-anchor-id="section-3">4</h3>
+<p>There are more death by heart diseases than accidents.</p>
 </section>
 </section>
-<section id="exploratory-datat-analysis-eda" class="level1">
-<h1>Exploratory Datat Analysis (EDA)</h1>
-<p>The aim of EDA ist to summarize data by numerical parameters and graphical representation of data. Data should if possible always be graphically displayed and compared with corresponding key figures.</p>
-<blockquote class="blockquote">
-<p>Note: Whenever a dataset is reduced by key figures or graphics, information is lost.</p>
-</blockquote>
+<section id="d" class="level2">
+<h2 class="anchored" data-anchor-id="d">d</h2>
+<p>Since the engine is the only thing that keeps a plane flying, it’s worth it to be more armored than the rest. Even if some other parts have on average more bullet holes (e.g., the fuselage), the plane could still fly.</p>
 </section>
-<section id="key-figures" class="level1">
-<h1>Key Figures</h1>
-<section id="location-parameters" class="level2">
-<h2 class="anchored" data-anchor-id="location-parameters">Location parameters</h2>
-<ul>
-<li>Arithemtic mean (average)</li>
-<li>Median</li>
-<li>Quantil</li>
-</ul>
 </section>
-<section id="spread-parameters" class="level2">
-<h2 class="anchored" data-anchor-id="spread-parameters">Spread parameters</h2>
-<ul>
-<li>Empirical variance</li>
-<li>Stadnard deviation</li>
-<li>Interquantile range</li>
-</ul>
-</section>
-<section id="artithmetic-mean" class="level2">
-<h2 class="anchored" data-anchor-id="artithmetic-mean">Artithmetic Mean</h2>
-<p>Mean tells a lot about a dataset: “Center” of data. But average does not tell whole story about (quantitative) datasets. Datasets can have a different spread around mean.</p>
-<p><span class="math display">\[
-\bar{x} = \dfrac{x_1 + x_2 + \dots{} + x_n}{n} = \dfrac{1}{n}\sum^n_{i=1}x_i
-\]</span></p>
+<section id="problem-1.2" class="level1">
+<h1>Problem 1.2</h1>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>x <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="fl">4.3</span>, <span class="fl">5.2</span>, <span class="fl">2.7</span>, <span class="fl">3.1</span>)</span>
-<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="fu">mean</span>(x)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>[1] 3.825</code></pre>
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Define vectors</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>winner <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">193</span>, <span class="dv">183</span>, <span class="dv">191</span>, <span class="dv">185</span>, <span class="dv">185</span>, <span class="dv">182</span>, <span class="dv">182</span>, <span class="dv">188</span>, <span class="dv">188</span>, <span class="dv">188</span>, <span class="dv">185</span>, <span class="dv">185</span>, <span class="dv">177</span>,</span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="dv">182</span>, <span class="dv">182</span>, <span class="dv">193</span>, <span class="dv">183</span>, <span class="dv">179</span>, <span class="dv">179</span>, <span class="dv">175</span>)</span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>opponent <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">163</span>, <span class="dv">191</span>, <span class="dv">165</span>, <span class="dv">187</span>, <span class="dv">175</span>, <span class="dv">193</span>, <span class="dv">185</span>, <span class="dv">187</span>, <span class="dv">188</span>, <span class="dv">173</span>, <span class="dv">180</span>, <span class="dv">177</span>, <span class="dv">183</span>,</span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a><span class="dv">185</span>, <span class="dv">180</span>, <span class="dv">180</span>, <span class="dv">182</span>, <span class="dv">178</span>, <span class="dv">178</span>, <span class="dv">173</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-</div>
-</section>
-<section id="empirical-variancehave" class="level2">
-<h2 class="anchored" data-anchor-id="empirical-variancehave">Empirical Variancehave</h2>
-<p>Value of empirical variance has no physical interpretation</p>
-<p><span class="math display">\[
-Var(x) = \dfrac{(x_1-\bar{x})² + (x_2-\bar{x})² + \dots + (x_n-\bar{x})² }{n-1} = \dfrac{1}{n-1}\sum^n_{i=1}(x_i - \bar{x}²)
-\]</span></p>
+<section id="a-1" class="level3">
+<h3 class="anchored" data-anchor-id="a-1">a</h3>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>x <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="fl">4.3</span>, <span class="fl">5.2</span>, <span class="fl">2.7</span>, <span class="fl">3.1</span>)</span>
-<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="fu">var</span>(x)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Determine length</span></span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="fu">cat</span>(<span class="st">"Length of winners vector ="</span>, <span class="fu">length</span>(winner), <span class="st">"</span><span class="sc">\n</span><span class="st">"</span>) <span class="co"># Add line break</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>[1] 1.3025</code></pre>
+<pre><code>Length of winners vector = 20 </code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="fu">cat</span>(<span class="st">"Length of opponent vector ="</span>, <span class="fu">length</span>(opponent))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Length of opponent vector = 20</code></pre>
 </div>
 </div>
 </section>
-<section id="standard-deviation" class="level2">
-<h2 class="anchored" data-anchor-id="standard-deviation">Standard Deviation</h2>
-<p>Standard deviation is root of variance. Standard deviation has same unit as data itself</p>
-<p><span class="math display">\[
-s_x = \sqrt{Var(x)} = \sqrt{\dfrac{1}{n-1}\sum^n_{i=1}(x_i - \bar{x}²)}
-\]</span></p>
+<section id="b-1" class="level3">
+<h3 class="anchored" data-anchor-id="b-1">b</h3>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>x <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="fl">4.3</span>, <span class="fl">5.2</span>, <span class="fl">2.7</span>, <span class="fl">3.1</span>)</span>
-<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a><span class="fu">sd</span>(x)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="fu">cat</span>(<span class="st">"Entries 6 to 10 ="</span>,winner[<span class="dv">6</span><span class="sc">:</span><span class="dv">10</span>]) <span class="co"># Index starts at 1</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>[1] 1.141271</code></pre>
+<pre><code>Entries 6 to 10 = 182 182 188 188 188</code></pre>
 </div>
 </div>
 </section>
-<section id="median" class="level2">
-<h2 class="anchored" data-anchor-id="median">Median</h2>
-<p>Also called central value or average value. Median is much less influenced by extreme observations than mean.</p>
+<section id="c-1" class="level3">
+<h3 class="anchored" data-anchor-id="c-1">c</h3>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>x <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="fl">4.3</span>, <span class="fl">5.2</span>, <span class="fl">2.7</span>, <span class="fl">3.1</span>)</span>
-<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a><span class="fu">median</span>(x)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="fu">cat</span>(<span class="st">"Some values from winner:"</span>, winner[<span class="fu">c</span>(<span class="dv">3</span>, <span class="dv">5</span>, <span class="dv">10</span>, <span class="dv">12</span>)]) <span class="co"># Passing a vector for selection</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>[1] 3.7</code></pre>
+<pre><code>Some values from winner: 191 185 188 185</code></pre>
 </div>
 </div>
-<blockquote class="blockquote">
-<p>Note: Consider Mean and Median simultaneously instead of choosing one.</p>
-</blockquote>
 </section>
-<section id="quantiles" class="level2">
-<h2 class="anchored" data-anchor-id="quantiles">Quantiles</h2>
-<p>Quantiles are values that divide a dataset into equal parts, allowing for the analysis of the distribution of data. Common types of quantiles include quartiles which split data into four parts.</p>
-<blockquote class="blockquote">
-<p>Note: Most of the time there is no exact 25 % of observations.</p>
-</blockquote>
+<section id="d-1" class="level3">
+<h3 class="anchored" data-anchor-id="d-1">d</h3>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a>x <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="fl">4.3</span>, <span class="fl">5.2</span>, <span class="fl">2.7</span>, <span class="fl">3.1</span>)</span>
-<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a><span class="fu">quantile</span>(x) <span class="co"># Default quartil</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(winner[<span class="fu">c</span>(<span class="dv">8</span>, <span class="dv">9</span>)])  <span class="co"># Check values</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>   0%   25%   50%   75%  100% 
-2.700 3.000 3.700 4.525 5.200 </code></pre>
+<pre><code>[1] 188 188</code></pre>
 </div>
-<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="fu">quantile</span>(x, <span class="at">p =</span> <span class="fl">0.7</span>) <span class="co"># Individual value</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a>winner[<span class="fu">c</span>(<span class="dv">8</span>, <span class="dv">9</span>)] <span class="ot">&lt;-</span> <span class="dv">189</span>  <span class="co"># Reassing </span></span>
+<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(winner[<span class="fu">c</span>(<span class="dv">8</span>, <span class="dv">9</span>)])  <span class="co"># Check values</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code> 70% 
-4.39 </code></pre>
+<pre><code>[1] 189 189</code></pre>
 </div>
 </div>
 </section>
-</section>
-<section id="interquantile-range" class="level1">
-<h1>Interquantile Range</h1>
-<p>Measure for spread of data.</p>
-<p><span class="math display">\[
-\text{upper quartile} − \text{lower quartile}
-\]</span></p>
+<section id="e" class="level3">
+<h3 class="anchored" data-anchor-id="e">e</h3>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a>x <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="fl">4.3</span>, <span class="fl">5.2</span>, <span class="fl">2.7</span>, <span class="fl">3.1</span>)</span>
-<span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a><span class="fu">IQR</span>(x)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb14"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a>mu_winner <span class="ot">&lt;-</span> <span class="fu">mean</span>(winner)</span>
+<span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a>mu_opponent <span class="ot">&lt;-</span> <span class="fu">mean</span>(opponent)</span>
+<span id="cb14-3"><a href="#cb14-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb14-4"><a href="#cb14-4" aria-hidden="true" tabindex="-1"></a><span class="fu">cat</span>(<span class="st">"Mean higth of winner vs. opponent:"</span>, mu_winner, <span class="st">"vs."</span>, mu_opponent)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>[1] 1.525</code></pre>
+<pre><code>Mean higth of winner vs. opponent: 184.35 vs. 180.15</code></pre>
+</div>
+</div>
+</section>
+<section id="f" class="level3">
+<h3 class="anchored" data-anchor-id="f">f</h3>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb16"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a>mu_diff <span class="ot">&lt;-</span> mu_winner <span class="sc">-</span> mu_opponent</span>
+<span id="cb16-2"><a href="#cb16-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb16-3"><a href="#cb16-3" aria-hidden="true" tabindex="-1"></a><span class="fu">cat</span>(<span class="st">"Differences between means ="</span>, mu_diff)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Differences between means = 4.2</code></pre>
+</div>
+</div>
+</section>
+<section id="g" class="level3">
+<h3 class="anchored" data-anchor-id="g">g</h3>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb18"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a>var_winner <span class="ot">&lt;-</span> <span class="fu">var</span>(winner)</span>
+<span id="cb18-2"><a href="#cb18-2" aria-hidden="true" tabindex="-1"></a>sd_winner <span class="ot">&lt;-</span> <span class="fu">sd</span>(winner)</span>
+<span id="cb18-3"><a href="#cb18-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb18-4"><a href="#cb18-4" aria-hidden="true" tabindex="-1"></a><span class="fu">cat</span>(<span class="st">"Variance/Std. deviation of winner:"</span>, var_winner, <span class="st">"/"</span>, sd_winner)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Variance/Std. deviation of winner: 25.08158 / 5.008151</code></pre>
+</div>
+</div>
+</section>
+<section id="h" class="level3">
+<h3 class="anchored" data-anchor-id="h">h</h3>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb20"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a>my_variance <span class="ot">&lt;-</span> <span class="cf">function</span>(data){</span>
+<span id="cb20-2"><a href="#cb20-2" aria-hidden="true" tabindex="-1"></a>    mu <span class="ot">&lt;-</span> <span class="fu">mean</span>(data)</span>
+<span id="cb20-3"><a href="#cb20-3" aria-hidden="true" tabindex="-1"></a>    sum_of_squares <span class="ot">&lt;-</span> <span class="fu">sum</span>((data <span class="sc">-</span> mu)<span class="sc">^</span><span class="dv">2</span>)</span>
+<span id="cb20-4"><a href="#cb20-4" aria-hidden="true" tabindex="-1"></a>    variance <span class="ot">&lt;-</span> sum_of_squares <span class="sc">/</span> (<span class="fu">length</span>(data) <span class="sc">-</span> <span class="dv">1</span>)</span>
+<span id="cb20-5"><a href="#cb20-5" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb20-6"><a href="#cb20-6" aria-hidden="true" tabindex="-1"></a>    <span class="fu">return</span>(variance)</span>
+<span id="cb20-7"><a href="#cb20-7" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb20-8"><a href="#cb20-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-9"><a href="#cb20-9" aria-hidden="true" tabindex="-1"></a>my_stdDeviation <span class="ot">&lt;-</span> <span class="cf">function</span>(variance){</span>
+<span id="cb20-10"><a href="#cb20-10" aria-hidden="true" tabindex="-1"></a>    stdDevition <span class="ot">&lt;-</span> <span class="fu">sqrt</span>(variance)</span>
+<span id="cb20-11"><a href="#cb20-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-12"><a href="#cb20-12" aria-hidden="true" tabindex="-1"></a>    <span class="fu">return</span>(stdDevition)</span>
+<span id="cb20-13"><a href="#cb20-13" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb20-14"><a href="#cb20-14" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-15"><a href="#cb20-15" aria-hidden="true" tabindex="-1"></a>my_var_winner <span class="ot">&lt;-</span> <span class="fu">my_variance</span>(winner)</span>
+<span id="cb20-16"><a href="#cb20-16" aria-hidden="true" tabindex="-1"></a>my_sd_winner <span class="ot">&lt;-</span> <span class="fu">my_stdDeviation</span>(my_var_winner)</span>
+<span id="cb20-17"><a href="#cb20-17" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-18"><a href="#cb20-18" aria-hidden="true" tabindex="-1"></a><span class="fu">cat</span>(<span class="st">"Variance of Winner ="</span>, my_var_winner)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Variance of Winner = 25.08158</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb22"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a><span class="fu">cat</span>(<span class="st">"Variance of Winner ="</span>, my_sd_winner)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Variance of Winner = 5.008151</code></pre>
+</div>
+</div>
+</section>
+<section id="problem-1.3" class="level2">
+<h2 class="anchored" data-anchor-id="problem-1.3">Problem 1.3</h2>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb24"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb24-1"><a href="#cb24-1" aria-hidden="true" tabindex="-1"></a>grades <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="fl">4.2</span>, <span class="fl">2.3</span>, <span class="fl">5.6</span>, <span class="fl">4.5</span>, <span class="fl">4.8</span>, <span class="fl">3.9</span>, <span class="fl">5.9</span>, <span class="fl">2.4</span>, <span class="fl">5.9</span>, <span class="dv">6</span>, <span class="dv">4</span>, <span class="fl">3.7</span>, <span class="dv">5</span>, <span class="fl">5.2</span>, <span class="fl">4.5</span>, <span class="fl">3.6</span>, <span class="dv">5</span>, <span class="dv">6</span>, <span class="fl">2.8</span>, <span class="fl">3.3</span>, <span class="fl">5.5</span>, <span class="fl">4.2</span>, <span class="fl">4.9</span>, <span class="fl">5.1</span>)</span>
+<span id="cb24-2"><a href="#cb24-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb24-3"><a href="#cb24-3" aria-hidden="true" tabindex="-1"></a>grades <span class="ot">&lt;-</span> <span class="fu">sort</span>(grades) <span class="co"># Sort values</span></span>
+<span id="cb24-4"><a href="#cb24-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb24-5"><a href="#cb24-5" aria-hidden="true" tabindex="-1"></a>original_mu <span class="ot">&lt;-</span> <span class="fu">mean</span>(grades)</span>
+<span id="cb24-6"><a href="#cb24-6" aria-hidden="true" tabindex="-1"></a>originla_meadian <span class="ot">&lt;-</span> <span class="fu">median</span>(grades)</span>
+<span id="cb24-7"><a href="#cb24-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb24-8"><a href="#cb24-8" aria-hidden="true" tabindex="-1"></a>grades[<span class="dv">9</span><span class="sc">:</span><span class="dv">11</span>] <span class="ot">&lt;-</span> <span class="dv">1</span> <span class="co"># Reassign values</span></span>
+<span id="cb24-9"><a href="#cb24-9" aria-hidden="true" tabindex="-1"></a>new_mu <span class="ot">&lt;-</span> <span class="fu">mean</span>(grades)</span>
+<span id="cb24-10"><a href="#cb24-10" aria-hidden="true" tabindex="-1"></a>new_median <span class="ot">&lt;-</span> <span class="fu">median</span>(grades)</span>
+<span id="cb24-11"><a href="#cb24-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb24-12"><a href="#cb24-12" aria-hidden="true" tabindex="-1"></a><span class="fu">cat</span>(<span class="st">"Original vs. New mean:"</span>, original_mu, <span class="st">"vs."</span>, new_mu, <span class="st">"</span><span class="sc">\n</span><span class="st">"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Original vs. New mean: 4.5125 vs. 4.1 </code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb26"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb26-1"><a href="#cb26-1" aria-hidden="true" tabindex="-1"></a><span class="fu">cat</span>(<span class="st">"Median stays the same:"</span>, originla_meadian, <span class="st">"="</span>, new_median)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Median stays the same: 4.65 = 4.65</code></pre>
 </div>
 </div>
 
 
+</section>
 </section>
 
 </main> <!-- /main -->
