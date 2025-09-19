@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Classical and Bayesian Statistics – mscids-notes</title>
+<title>Python for Data Science - Exercises – mscids-notes</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -101,35 +101,6 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   }
 }</script>
 
-  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
-  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
-
-<script type="text/javascript">
-const typesetMath = (el) => {
-  if (window.MathJax) {
-    // MathJax Typeset
-    window.MathJax.typeset([el]);
-  } else if (window.katex) {
-    // KaTeX Render
-    var mathElements = el.getElementsByClassName("math");
-    var macros = [];
-    for (var i = 0; i < mathElements.length; i++) {
-      var texText = mathElements[i].firstChild;
-      if (mathElements[i].tagName == "SPAN") {
-        window.katex.render(texText.data, mathElements[i], {
-          displayMode: mathElements[i].classList.contains('display'),
-          throwOnError: false,
-          macros: macros,
-          fleqn: false
-        });
-      }
-    }
-  }
-}
-window.Quarto = {
-  typesetMath
-};
-</script>
 
 <link rel="stylesheet" href="../../styles.css">
 </head>
@@ -202,28 +173,19 @@ window.Quarto = {
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#introduction" id="toc-introduction" class="nav-link active" data-scroll-target="#introduction">Introduction</a></li>
-  <li><a href="#classical-statistics" id="toc-classical-statistics" class="nav-link" data-scroll-target="#classical-statistics">Classical Statistics</a></li>
-  <li><a href="#bayesien-statistic" id="toc-bayesien-statistic" class="nav-link" data-scroll-target="#bayesien-statistic">Bayesien Statistic</a></li>
-  <li><a href="#models" id="toc-models" class="nav-link" data-scroll-target="#models">Models</a></li>
-  <li><a href="#simulations" id="toc-simulations" class="nav-link" data-scroll-target="#simulations">Simulations</a></li>
-  <li><a href="#data" id="toc-data" class="nav-link" data-scroll-target="#data">Data</a></li>
-  <li><a href="#one-dimensional" id="toc-one-dimensional" class="nav-link" data-scroll-target="#one-dimensional">One-Dimensional</a>
+  <li><a href="#datatypes-and-variables" id="toc-datatypes-and-variables" class="nav-link active" data-scroll-target="#datatypes-and-variables">Datatypes and Variables</a>
   <ul class="collapse">
-  <li><a href="#two-dimentinal" id="toc-two-dimentinal" class="nav-link" data-scroll-target="#two-dimentinal">Two-Dimentinal</a></li>
-  </ul></li>
-  <li><a href="#exploratory-datat-analysis-eda" id="toc-exploratory-datat-analysis-eda" class="nav-link" data-scroll-target="#exploratory-datat-analysis-eda">Exploratory Datat Analysis (EDA)</a></li>
-  <li><a href="#key-figures" id="toc-key-figures" class="nav-link" data-scroll-target="#key-figures">Key Figures</a>
+  <li><a href="#exercises-1" id="toc-exercises-1" class="nav-link" data-scroll-target="#exercises-1">Exercises 1</a>
   <ul class="collapse">
-  <li><a href="#location-parameters" id="toc-location-parameters" class="nav-link" data-scroll-target="#location-parameters">Location parameters</a></li>
-  <li><a href="#spread-parameters" id="toc-spread-parameters" class="nav-link" data-scroll-target="#spread-parameters">Spread parameters</a></li>
-  <li><a href="#artithmetic-mean" id="toc-artithmetic-mean" class="nav-link" data-scroll-target="#artithmetic-mean">Artithmetic Mean</a></li>
-  <li><a href="#empirical-variancehave" id="toc-empirical-variancehave" class="nav-link" data-scroll-target="#empirical-variancehave">Empirical Variancehave</a></li>
-  <li><a href="#standard-deviation" id="toc-standard-deviation" class="nav-link" data-scroll-target="#standard-deviation">Standard Deviation</a></li>
-  <li><a href="#median" id="toc-median" class="nav-link" data-scroll-target="#median">Median</a></li>
-  <li><a href="#quantiles" id="toc-quantiles" class="nav-link" data-scroll-target="#quantiles">Quantiles</a></li>
+  <li><a href="#what-does-python-return-as-result-of-the-following-calculations" id="toc-what-does-python-return-as-result-of-the-following-calculations" class="nav-link" data-scroll-target="#what-does-python-return-as-result-of-the-following-calculations">What does Python return as result of the following calculations?</a></li>
+  <li><a href="#try-to-find-out-what-happens" id="toc-try-to-find-out-what-happens" class="nav-link" data-scroll-target="#try-to-find-out-what-happens">Try to find out: What happens?</a></li>
+  <li><a href="#change-the-value-of-variable-a" id="toc-change-the-value-of-variable-a" class="nav-link" data-scroll-target="#change-the-value-of-variable-a">Change the value of variable “a”</a></li>
+  <li><a href="#what-happens-now-why" id="toc-what-happens-now-why" class="nav-link" data-scroll-target="#what-happens-now-why">What happens now? why?</a></li>
+  <li><a href="#try-the-same-thing-with-a-float-variable" id="toc-try-the-same-thing-with-a-float-variable" class="nav-link" data-scroll-target="#try-the-same-thing-with-a-float-variable">Try the same thing with a float variable!!!</a></li>
+  <li><a href="#printing-of-text-strings" id="toc-printing-of-text-strings" class="nav-link" data-scroll-target="#printing-of-text-strings">Printing of text (strings)</a></li>
+  <li><a href="#try-to-understand-the-behaviour" id="toc-try-to-understand-the-behaviour" class="nav-link" data-scroll-target="#try-to-understand-the-behaviour">try to understand the behaviour</a></li>
   </ul></li>
-  <li><a href="#interquantile-range" id="toc-interquantile-range" class="nav-link" data-scroll-target="#interquantile-range">Interquantile Range</a></li>
+  </ul></li>
   </ul>
 </nav>
     </div>
@@ -232,7 +194,7 @@ window.Quarto = {
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">Classical and Bayesian Statistics</h1>
+<h1 class="title">Python for Data Science - Exercises</h1>
 </div>
 
 
@@ -249,157 +211,172 @@ window.Quarto = {
 </header>
 
 
-<section id="introduction" class="level1">
-<h1>Introduction</h1>
-<p>Statistic is the discipline that concerns collection, organisation, analysis, interpretation, and presentation of data. Applied statistics applies to real everyday problems.</p>
-<blockquote class="blockquote">
-<p>Note: There is no cooking recipes how to solve problems.</p>
-</blockquote>
-</section>
-<section id="classical-statistics" class="level1">
-<h1>Classical Statistics</h1>
-<p>Classical statistics is a set of tools for decision making using hypothesis. or different types of problems different tests are being used.</p>
-</section>
-<section id="bayesien-statistic" class="level1">
-<h1>Bayesien Statistic</h1>
-<p>Bayesian statistics is a statistical theory that interprets probability as a degree of belief in an event, which can be updated as new evidence is obtained.</p>
-</section>
-<section id="models" class="level1">
-<h1>Models</h1>
-<p>Models are used to simplify nature of things and essential for statistics. Models are not simply useful but only useful in a certain context. Models have their limitations. Models are statements about the operation of nature that purposefully omit many details and thus achieve insight that would otherwise be discursively obscured.</p>
-</section>
-<section id="simulations" class="level1">
-<h1>Simulations</h1>
-<p>Simulations are used to approximate quantities for which exact solution is very difficult or even impossible to determine. Simulations rely heavily on computer power.</p>
-</section>
-<section id="data" class="level1">
-<h1>Data</h1>
-</section>
-<section id="one-dimensional" class="level1">
-<h1>One-Dimensional</h1>
-<p>List are the simplest kind od datasets. Lists are heterogeneous data structures.</p>
-<section id="two-dimentinal" class="level2">
-<h2 class="anchored" data-anchor-id="two-dimentinal">Two-Dimentinal</h2>
-<p>Tabels are the most common form of datasets</p>
-</section>
-</section>
-<section id="exploratory-datat-analysis-eda" class="level1">
-<h1>Exploratory Datat Analysis (EDA)</h1>
-<p>The aim of EDA ist to summarize data by numerical parameters and graphical representation of data. Data should if possible always be graphically displayed and compared with corresponding key figures.</p>
-<blockquote class="blockquote">
-<p>Note: Whenever a dataset is reduced by key figures or graphics, information is lost.</p>
-</blockquote>
-</section>
-<section id="key-figures" class="level1">
-<h1>Key Figures</h1>
-<section id="location-parameters" class="level2">
-<h2 class="anchored" data-anchor-id="location-parameters">Location parameters</h2>
-<ul>
-<li>Arithemtic mean (average)</li>
-<li>Median</li>
-<li>Quantil</li>
-</ul>
-</section>
-<section id="spread-parameters" class="level2">
-<h2 class="anchored" data-anchor-id="spread-parameters">Spread parameters</h2>
-<ul>
-<li>Empirical variance</li>
-<li>Stadnard deviation</li>
-<li>Interquantile range</li>
-</ul>
-</section>
-<section id="artithmetic-mean" class="level2">
-<h2 class="anchored" data-anchor-id="artithmetic-mean">Artithmetic Mean</h2>
-<p>Mean tells a lot about a dataset: “Center” of data. But average does not tell whole story about (quantitative) datasets. Datasets can have a different spread around mean.</p>
-<p><span class="math display">\[
-\bar{x} = \dfrac{x_1 + x_2 + \dots{} + x_n}{n} = \dfrac{1}{n}\sum^n_{i=1}x_i
-\]</span></p>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>x <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="fl">4.3</span>, <span class="fl">5.2</span>, <span class="fl">2.7</span>, <span class="fl">3.1</span>)</span>
-<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="fu">mean</span>(x)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<section id="datatypes-and-variables" class="level1">
+<h1>Datatypes and Variables</h1>
+<section id="exercises-1" class="level2">
+<h2 class="anchored" data-anchor-id="exercises-1">Exercises 1</h2>
+<section id="what-does-python-return-as-result-of-the-following-calculations" class="level3">
+<h3 class="anchored" data-anchor-id="what-does-python-return-as-result-of-the-following-calculations">What does Python return as result of the following calculations?</h3>
+<div id="85275821" class="cell" data-execution_count="1">
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"10 + 10 + 10 = </span><span class="sc">{</span><span class="dv">10</span> <span class="op">+</span> <span class="dv">10</span> <span class="op">+</span> <span class="dv">10</span><span class="sc">}</span><span class="ss">"</span>)</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"10 - 3       = </span><span class="sc">{</span><span class="dv">10</span> <span class="op">-</span> <span class="dv">3</span><span class="sc">}</span><span class="ss">"</span>)</span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"10 * 2       = </span><span class="sc">{</span><span class="dv">10</span> <span class="op">*</span> <span class="dv">2</span><span class="sc">}</span><span class="ss">"</span>)</span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"5 / 2        = </span><span class="sc">{</span><span class="dv">5</span> <span class="op">/</span> <span class="dv">2</span><span class="sc">}</span><span class="ss">"</span>)</span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"5.0 / 2      = </span><span class="sc">{</span><span class="fl">5.0</span> <span class="op">/</span> <span class="dv">2</span><span class="sc">}</span><span class="ss">"</span>)</span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"5 % 2        = </span><span class="sc">{</span><span class="dv">5</span> <span class="op">%</span> <span class="dv">2</span><span class="sc">}</span><span class="ss">"</span>)</span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"10 % 3       = </span><span class="sc">{</span><span class="dv">10</span> <span class="op">%</span> <span class="dv">3</span><span class="sc">}</span><span class="ss">"</span>)</span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"3 ** 3       = </span><span class="sc">{</span><span class="dv">3</span> <span class="op">**</span> <span class="dv">3</span><span class="sc">}</span><span class="ss">"</span>)</span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"9 ** 0.5     = </span><span class="sc">{</span><span class="dv">9</span> <span class="op">**</span> <span class="fl">0.5</span><span class="sc">}</span><span class="ss">"</span>)</span>
+<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"10 + 3 * 3   = </span><span class="sc">{</span><span class="dv">10</span> <span class="op">+</span> <span class="dv">3</span> <span class="op">*</span> <span class="dv">3</span><span class="sc">}</span><span class="ss">"</span>)</span>
+<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"(10 + 3) * 3 = </span><span class="sc">{</span>(<span class="dv">10</span> <span class="op">+</span> <span class="dv">3</span>) <span class="op">*</span> <span class="dv">3</span><span class="sc">}</span><span class="ss">"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>[1] 3.825</code></pre>
+<pre><code>10 + 10 + 10 = 30
+10 - 3       = 7
+10 * 2       = 20
+5 / 2        = 2.5
+5.0 / 2      = 2.5
+5 % 2        = 1
+10 % 3       = 1
+3 ** 3       = 27
+9 ** 0.5     = 3.0
+10 + 3 * 3   = 19
+(10 + 3) * 3 = 39</code></pre>
 </div>
 </div>
 </section>
-<section id="empirical-variancehave" class="level2">
-<h2 class="anchored" data-anchor-id="empirical-variancehave">Empirical Variancehave</h2>
-<p>Value of empirical variance has no physical interpretation</p>
-<p><span class="math display">\[
-Var(x) = \dfrac{(x_1-\bar{x})² + (x_2-\bar{x})² + \dots + (x_n-\bar{x})² }{n-1} = \dfrac{1}{n-1}\sum^n_{i=1}(x_i - \bar{x}²)
-\]</span></p>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>x <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="fl">4.3</span>, <span class="fl">5.2</span>, <span class="fl">2.7</span>, <span class="fl">3.1</span>)</span>
-<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="fu">var</span>(x)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<section id="try-to-find-out-what-happens" class="level3">
+<h3 class="anchored" data-anchor-id="try-to-find-out-what-happens">Try to find out: What happens?</h3>
+<div id="7c90aefc" class="cell" data-execution_count="2">
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>a <span class="op">=</span> <span class="dv">23</span></span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>b <span class="op">=</span> <span class="dv">23</span></span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"a = </span><span class="sc">{</span>a<span class="sc">}</span><span class="ss">"</span>)</span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"The ID of a is </span><span class="sc">{</span><span class="bu">id</span>(a)<span class="sc">}</span><span class="ss">"</span>) <span class="co"># Prints memory address of the variable a</span></span>
+<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"a is of type </span><span class="sc">{</span><span class="bu">type</span>(a)<span class="sc">}</span><span class="ss">"</span>) <span class="co"># Prints the data type of the variable a</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>[1] 1.3025</code></pre>
-</div>
-</div>
-</section>
-<section id="standard-deviation" class="level2">
-<h2 class="anchored" data-anchor-id="standard-deviation">Standard Deviation</h2>
-<p>Standard deviation is root of variance. Standard deviation has same unit as data itself</p>
-<p><span class="math display">\[
-s_x = \sqrt{Var(x)} = \sqrt{\dfrac{1}{n-1}\sum^n_{i=1}(x_i - \bar{x}²)}
-\]</span></p>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>x <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="fl">4.3</span>, <span class="fl">5.2</span>, <span class="fl">2.7</span>, <span class="fl">3.1</span>)</span>
-<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a><span class="fu">sd</span>(x)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>[1] 1.141271</code></pre>
-</div>
-</div>
-</section>
-<section id="median" class="level2">
-<h2 class="anchored" data-anchor-id="median">Median</h2>
-<p>Also called central value or average value. Median is much less influenced by extreme observations than mean.</p>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>x <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="fl">4.3</span>, <span class="fl">5.2</span>, <span class="fl">2.7</span>, <span class="fl">3.1</span>)</span>
-<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a><span class="fu">median</span>(x)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>[1] 3.7</code></pre>
+<pre><code>a = 23
+The ID of a is 11761384
+a is of type &lt;class 'int'&gt;</code></pre>
 </div>
 </div>
 <blockquote class="blockquote">
-<p>Note: Consider Mean and Median simultaneously instead of choosing one.</p>
+<p>Note: <code>id()</code> corresponds to the objects memory address during its lifetime.</p>
 </blockquote>
-</section>
-<section id="quantiles" class="level2">
-<h2 class="anchored" data-anchor-id="quantiles">Quantiles</h2>
-<p>Quantiles are values that divide a dataset into equal parts, allowing for the analysis of the distribution of data. Common types of quantiles include quartiles which split data into four parts.</p>
-<blockquote class="blockquote">
-<p>Note: Most of the time there is no exact 25 % of observations.</p>
-</blockquote>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a>x <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="fl">4.3</span>, <span class="fl">5.2</span>, <span class="fl">2.7</span>, <span class="fl">3.1</span>)</span>
-<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a><span class="fu">quantile</span>(x) <span class="co"># Default quartil</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div id="11e68209" class="cell" data-execution_count="3">
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"b = </span><span class="sc">{</span>b<span class="sc">}</span><span class="ss">"</span>)</span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"The ID of b is </span><span class="sc">{</span><span class="bu">id</span>(b)<span class="sc">}</span><span class="ss">"</span>)</span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"b is of type </span><span class="sc">{</span><span class="bu">type</span>(a)<span class="sc">}</span><span class="ss">"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>   0%   25%   50%   75%  100% 
-2.700 3.000 3.700 4.525 5.200 </code></pre>
-</div>
-<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="fu">quantile</span>(x, <span class="at">p =</span> <span class="fl">0.7</span>) <span class="co"># Individual value</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code> 70% 
-4.39 </code></pre>
+<pre><code>b = 23
+The ID of b is 11761384
+b is of type &lt;class 'int'&gt;</code></pre>
 </div>
 </div>
 </section>
-</section>
-<section id="interquantile-range" class="level1">
-<h1>Interquantile Range</h1>
-<p>Measure for spread of data.</p>
-<p><span class="math display">\[
-\text{upper quartile} − \text{lower quartile}
-\]</span></p>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a>x <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="fl">4.3</span>, <span class="fl">5.2</span>, <span class="fl">2.7</span>, <span class="fl">3.1</span>)</span>
-<span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a><span class="fu">IQR</span>(x)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<section id="change-the-value-of-variable-a" class="level3">
+<h3 class="anchored" data-anchor-id="change-the-value-of-variable-a">Change the value of variable “a”</h3>
+<div id="4fedf123" class="cell" data-execution_count="4">
+<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>a <span class="op">=</span> <span class="dv">123</span> <span class="co"># Reassign a to int 123</span></span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"a = </span><span class="sc">{</span>a<span class="sc">}</span><span class="ss">"</span>)</span>
+<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"The ID of a is </span><span class="sc">{</span><span class="bu">id</span>(a)<span class="sc">}</span><span class="ss">"</span>)</span>
+<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"a is of type </span><span class="sc">{</span><span class="bu">type</span>(a)<span class="sc">}</span><span class="ss">"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>[1] 1.525</code></pre>
+<pre><code>a = 123
+The ID of a is 11764584
+a is of type &lt;class 'int'&gt;</code></pre>
+</div>
+</div>
+</section>
+<section id="what-happens-now-why" class="level3">
+<h3 class="anchored" data-anchor-id="what-happens-now-why">What happens now? why?</h3>
+<div id="a4f726f6" class="cell" data-execution_count="5">
+<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a>c <span class="op">=</span> <span class="dv">23</span></span>
+<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"c = </span><span class="sc">{</span>c<span class="sc">}</span><span class="ss">"</span>)</span>
+<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"The ID of a is </span><span class="sc">{</span><span class="bu">id</span>(c)<span class="sc">}</span><span class="ss">"</span>)</span>
+<span id="cb9-4"><a href="#cb9-4" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"c is of type </span><span class="sc">{</span><span class="bu">type</span>(c)<span class="sc">}</span><span class="ss">"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>c = 23
+The ID of a is 11761384
+c is of type &lt;class 'int'&gt;</code></pre>
+</div>
+</div>
+<p>We reference the variable <code>c</code> to the value <code>23</code> and check its data type and memory location.</p>
+</section>
+<section id="try-the-same-thing-with-a-float-variable" class="level3">
+<h3 class="anchored" data-anchor-id="try-the-same-thing-with-a-float-variable">Try the same thing with a float variable!!!</h3>
+<div id="d1c13dd2" class="cell" data-execution_count="6">
+<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a>d <span class="op">=</span> <span class="fl">3.142</span></span>
+<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"d = </span><span class="sc">{</span>d<span class="sc">}</span><span class="ss">"</span>)</span>
+<span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"The ID of a is </span><span class="sc">{</span><span class="bu">id</span>(d)<span class="sc">}</span><span class="ss">"</span>)</span>
+<span id="cb11-4"><a href="#cb11-4" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"d is of type </span><span class="sc">{</span><span class="bu">type</span>(d)<span class="sc">}</span><span class="ss">"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>d = 3.142
+The ID of a is 130677387042128
+d is of type &lt;class 'float'&gt;</code></pre>
+</div>
+</div>
+</section>
+<section id="printing-of-text-strings" class="level3">
+<h3 class="anchored" data-anchor-id="printing-of-text-strings">Printing of text (strings)</h3>
+<div id="48d05016" class="cell" data-execution_count="7">
+<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span> (<span class="st">"HSLU's Python course is cool"</span>)</span>
+<span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb13-3"><a href="#cb13-3" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"This is Line 1"</span>)</span>
+<span id="cb13-4"><a href="#cb13-4" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"This is Line 2"</span>)</span>
+<span id="cb13-5"><a href="#cb13-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb13-6"><a href="#cb13-6" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"</span><span class="ch">\n</span><span class="st">What does the </span><span class="ch">\\</span><span class="st">n control character do? Are you sure?"</span>) <span class="co"># \n is a line break</span></span>
+<span id="cb13-7"><a href="#cb13-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb13-8"><a href="#cb13-8" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"</span><span class="ch">\t</span><span class="st">What does the </span><span class="ch">\\</span><span class="st">t control character do? Are you sure?"</span>) <span class="co"># \t is a tabulator</span></span>
+<span id="cb13-9"><a href="#cb13-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb13-10"><a href="#cb13-10" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"I want to learn python because...."</span>)</span>
+<span id="cb13-11"><a href="#cb13-11" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"</span><span class="ch">\n\n\t</span><span class="st">....it's a cool data science programming language. Ok - there are also others ;-) !"</span>)</span>
+<span id="cb13-12"><a href="#cb13-12" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb13-13"><a href="#cb13-13" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"What "</span> <span class="op">+</span> <span class="st">"is "</span> <span class="op">+</span> <span class="st">"wrong?"</span> <span class="op">+</span> <span class="st">"</span><span class="ch">\n</span><span class="st">Add some space between the words without removing the '+' signs!"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>HSLU's Python course is cool
+This is Line 1
+This is Line 2
+
+What does the \n control character do? Are you sure?
+    What does the \t control character do? Are you sure?
+I want to learn python because....
+
+
+    ....it's a cool data science programming language. Ok - there are also others ;-) !
+What is wrong?
+Add some space between the words without removing the '+' signs!</code></pre>
+</div>
+</div>
+</section>
+<section id="try-to-understand-the-behaviour" class="level3">
+<h3 class="anchored" data-anchor-id="try-to-understand-the-behaviour">try to understand the behaviour</h3>
+<div id="ac5ec7a6" class="cell" data-execution_count="8">
+<div class="sourceCode cell-code" id="cb15"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a>g<span class="op">=</span>h<span class="op">=</span><span class="st">'hslu'</span>      <span class="co"># Assign the variables g and h to the string "hslu"</span></span>
+<span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(g)        <span class="co"># prints hslu</span></span>
+<span id="cb15-3"><a href="#cb15-3" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(h)        <span class="co"># print hslu</span></span>
+<span id="cb15-4"><a href="#cb15-4" aria-hidden="true" tabindex="-1"></a>h<span class="op">=</span><span class="dv">456</span>           <span class="co"># Reassign h to int 456</span></span>
+<span id="cb15-5"><a href="#cb15-5" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(h)        <span class="co"># prints 456</span></span>
+<span id="cb15-6"><a href="#cb15-6" aria-hidden="true" tabindex="-1"></a>h<span class="op">=</span>h<span class="op">+</span><span class="dv">1</span>           <span class="co"># Calculates 456 + 1 = 457</span></span>
+<span id="cb15-7"><a href="#cb15-7" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(h)        <span class="co"># prints 457</span></span>
+<span id="cb15-8"><a href="#cb15-8" aria-hidden="true" tabindex="-1"></a>h<span class="op">+=</span><span class="dv">1</span>            <span class="co"># Calculates 457 + 1 = 458</span></span>
+<span id="cb15-9"><a href="#cb15-9" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(h)        <span class="co"># prints 458</span></span>
+<span id="cb15-10"><a href="#cb15-10" aria-hidden="true" tabindex="-1"></a>p<span class="op">=</span><span class="st">'hslu'</span>        <span class="co"># Assign the variable p to the string "hslu"</span></span>
+<span id="cb15-11"><a href="#cb15-11" aria-hidden="true" tabindex="-1"></a>q<span class="op">=</span>p             <span class="co"># Copies the variable p (hlsu) to the variable q</span></span>
+<span id="cb15-12"><a href="#cb15-12" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(p<span class="op">==</span>q)     <span class="co"># Compare the variables p and q (Output: True)</span></span>
+<span id="cb15-13"><a href="#cb15-13" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(p <span class="kw">is</span> q)   <span class="co"># Compare the variables p and q (Output: True)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>hslu
+hslu
+456
+457
+458
+True
+True</code></pre>
 </div>
 </div>
 
 
+</section>
+</section>
 </section>
 
 </main> <!-- /main -->

@@ -42,53 +42,18 @@
     "text": "Rectangular bunch of numbers.\n\\[\nA = \\begin{bmatrix}\n1 & 3 & -7 \\\\\n2 & 1 & 6 \\\\\n4 & 0 & 1 \\\\\n\\end{bmatrix}\n\\]"
   },
   {
-    "objectID": "hs25/pds/pds_notes.html",
-    "href": "hs25/pds/pds_notes.html",
-    "title": "Python for Data Science",
+    "objectID": "hs25/pds/pds_exercises.html",
+    "href": "hs25/pds/pds_exercises.html",
+    "title": "Python for Data Science - Exercises",
     "section": "",
-    "text": "An interpreter translates code and sends it to the CPU. The code is sent to the interpreter line by line. The interpreter provides a console for ad-hoc commands. It’s usually slower than a compiler and not good for optimization.\nA compiler processes source code and returns an executable file. Compiler languages are usually fast and made for optimization (speed, storage use). Executable code is almost impossible to reverse-engineer."
+    "text": "print(f\"10 + 10 + 10 = {10 + 10 + 10}\")\nprint(f\"10 - 3       = {10 - 3}\")\nprint(f\"10 * 2       = {10 * 2}\")\nprint(f\"5 / 2        = {5 / 2}\")\nprint(f\"5.0 / 2      = {5.0 / 2}\")\nprint(f\"5 % 2        = {5 % 2}\")\nprint(f\"10 % 3       = {10 % 3}\")\nprint(f\"3 ** 3       = {3 ** 3}\")\nprint(f\"9 ** 0.5     = {9 ** 0.5}\")\nprint(f\"10 + 3 * 3   = {10 + 3 * 3}\")\nprint(f\"(10 + 3) * 3 = {(10 + 3) * 3}\")\n\n10 + 10 + 10 = 30\n10 - 3       = 7\n10 * 2       = 20\n5 / 2        = 2.5\n5.0 / 2      = 2.5\n5 % 2        = 1\n10 % 3       = 1\n3 ** 3       = 27\n9 ** 0.5     = 3.0\n10 + 3 * 3   = 19\n(10 + 3) * 3 = 39\n\n\n\n\n\n\na = 23\nb = 23\nprint(f\"a = {a}\")\nprint(f\"The ID of a is {id(a)}\") # Prints memory address of the variable a\nprint(f\"a is of type {type(a)}\") # Prints the data type of the variable a\n\na = 23\nThe ID of a is 11761384\na is of type &lt;class 'int'&gt;\n\n\n\nNote: id() corresponds to the objects memory address during its lifetime.\n\n\nprint(f\"b = {b}\")\nprint(f\"The ID of b is {id(b)}\")\nprint(f\"b is of type {type(a)}\")\n\nb = 23\nThe ID of b is 11761384\nb is of type &lt;class 'int'&gt;\n\n\n\n\n\n\na = 123 # Reassign a to int 123\nprint(f\"a = {a}\")\nprint(f\"The ID of a is {id(a)}\")\nprint(f\"a is of type {type(a)}\")\n\na = 123\nThe ID of a is 11764584\na is of type &lt;class 'int'&gt;\n\n\n\n\n\n\nc = 23\nprint(f\"c = {c}\")\nprint(f\"The ID of a is {id(c)}\")\nprint(f\"c is of type {type(c)}\")\n\nc = 23\nThe ID of a is 11761384\nc is of type &lt;class 'int'&gt;\n\n\nWe reference the variable c to the value 23 and check its data type and memory location.\n\n\n\n\nd = 3.142\nprint(f\"d = {d}\")\nprint(f\"The ID of a is {id(d)}\")\nprint(f\"d is of type {type(d)}\")\n\nd = 3.142\nThe ID of a is 130677387042128\nd is of type &lt;class 'float'&gt;\n\n\n\n\n\n\nprint (\"HSLU's Python course is cool\")\n\nprint(\"This is Line 1\")\nprint(\"This is Line 2\")\n\nprint(\"\\nWhat does the \\\\n control character do? Are you sure?\") # \\n is a line break\n\nprint(\"\\tWhat does the \\\\t control character do? Are you sure?\") # \\t is a tabulator\n\nprint(\"I want to learn python because....\")\nprint(\"\\n\\n\\t....it's a cool data science programming language. Ok - there are also others ;-) !\")\n\nprint(\"What \" + \"is \" + \"wrong?\" + \"\\nAdd some space between the words without removing the '+' signs!\")\n\nHSLU's Python course is cool\nThis is Line 1\nThis is Line 2\n\nWhat does the \\n control character do? Are you sure?\n    What does the \\t control character do? Are you sure?\nI want to learn python because....\n\n\n    ....it's a cool data science programming language. Ok - there are also others ;-) !\nWhat is wrong?\nAdd some space between the words without removing the '+' signs!\n\n\n\n\n\n\ng=h='hslu'      # Assign the variables g and h to the string \"hslu\"\nprint(g)        # prints hslu\nprint(h)        # print hslu\nh=456           # Reassign h to int 456\nprint(h)        # prints 456\nh=h+1           # Calculates 456 + 1 = 457\nprint(h)        # prints 457\nh+=1            # Calculates 457 + 1 = 458\nprint(h)        # prints 458\np='hslu'        # Assign the variable p to the string \"hslu\"\nq=p             # Copies the variable p (hlsu) to the variable q\nprint(p==q)     # Compare the variables p and q (Output: True)\nprint(p is q)   # Compare the variables p and q (Output: True)\n\nhslu\nhslu\n456\n457\n458\nTrue\nTrue"
   },
   {
-    "objectID": "hs25/pds/pds_notes.html#interpreter-vs.-compiler-languages",
-    "href": "hs25/pds/pds_notes.html#interpreter-vs.-compiler-languages",
-    "title": "Python for Data Science",
+    "objectID": "hs25/pds/pds_exercises.html#exercises-1",
+    "href": "hs25/pds/pds_exercises.html#exercises-1",
+    "title": "Python for Data Science - Exercises",
     "section": "",
-    "text": "An interpreter translates code and sends it to the CPU. The code is sent to the interpreter line by line. The interpreter provides a console for ad-hoc commands. It’s usually slower than a compiler and not good for optimization.\nA compiler processes source code and returns an executable file. Compiler languages are usually fast and made for optimization (speed, storage use). Executable code is almost impossible to reverse-engineer."
-  },
-  {
-    "objectID": "hs25/pds/pds_notes.html#python-console-vs.-script",
-    "href": "hs25/pds/pds_notes.html#python-console-vs.-script",
-    "title": "Python for Data Science",
-    "section": "Python console vs. script",
-    "text": "Python console vs. script\nEvery instruction is sent sequentially to the interpreter. The Python console is a direct interface to the interpreter. Commands sent in the console are sent directly to the interpreter.\nA Python script is a collection of commands. Executing a Python script means sending all the commands it contains consecutively to the interpreter."
-  },
-  {
-    "objectID": "hs25/pds/pds_notes.html#virtual-enviroments-venv",
-    "href": "hs25/pds/pds_notes.html#virtual-enviroments-venv",
-    "title": "Python for Data Science",
-    "section": "Virtual enviroments (venv)",
-    "text": "Virtual enviroments (venv)\nTo avoid dependency issues and keep the development environment clean, developers programme applications in virtual environments.\nPython3 -m venv .venv # Standard name\n\nNote: It is best practice to name the virtual environment .venv to hide it in the file system.\n\nIf you are working in a command line interface, you need to activate the virtual environment.\n. .venv/bin/activate # For Linux\nYou can install packages into the venv with python3-pip."
-  },
-  {
-    "objectID": "hs25/pds/pds_notes.html#variabels-and-basic-data-types",
-    "href": "hs25/pds/pds_notes.html#variabels-and-basic-data-types",
-    "title": "Python for Data Science",
-    "section": "Variabels and Basic data types",
-    "text": "Variabels and Basic data types\nA variable is a name that refers to a particular or undefined value. In programming languages, we use them as a reference to a particular storage location. A variable always consists of a name, a data type, a storage location and a value. Python does not require any type for variable definitions. It assumes the type from the value.\n\nNote: variable names are usually written in lowercase.\n\nBasic data types:\n\nInteger (Int)\nString (str)\nBoolean (bool).\nList\nDictionary"
-  },
-  {
-    "objectID": "hs25/pds/pds_notes.html#mathematical-operations",
-    "href": "hs25/pds/pds_notes.html#mathematical-operations",
-    "title": "Python for Data Science",
-    "section": "Mathematical Operations",
-    "text": "Mathematical Operations\nDepending on the context, two particular mathematical operators can have different meanings. The sum operator (\\(+\\)), except for numerical values, means appending one element to another. This usually requires two elements of the same data type. The multiplication operation (\\(*\\)) always has to be applied with an integer.\n\nNote: sum and multiplication can be used with strings."
-  },
-  {
-    "objectID": "hs25/pds/pds_notes.html#boolean-operations",
-    "href": "hs25/pds/pds_notes.html#boolean-operations",
-    "title": "Python for Data Science",
-    "section": "Boolean operations",
-    "text": "Boolean operations\nTwo Boolean values can be combined in different ways using the keywords and, or and xor. Any Boolean operation can be inverted using the keyword not."
+    "text": "print(f\"10 + 10 + 10 = {10 + 10 + 10}\")\nprint(f\"10 - 3       = {10 - 3}\")\nprint(f\"10 * 2       = {10 * 2}\")\nprint(f\"5 / 2        = {5 / 2}\")\nprint(f\"5.0 / 2      = {5.0 / 2}\")\nprint(f\"5 % 2        = {5 % 2}\")\nprint(f\"10 % 3       = {10 % 3}\")\nprint(f\"3 ** 3       = {3 ** 3}\")\nprint(f\"9 ** 0.5     = {9 ** 0.5}\")\nprint(f\"10 + 3 * 3   = {10 + 3 * 3}\")\nprint(f\"(10 + 3) * 3 = {(10 + 3) * 3}\")\n\n10 + 10 + 10 = 30\n10 - 3       = 7\n10 * 2       = 20\n5 / 2        = 2.5\n5.0 / 2      = 2.5\n5 % 2        = 1\n10 % 3       = 1\n3 ** 3       = 27\n9 ** 0.5     = 3.0\n10 + 3 * 3   = 19\n(10 + 3) * 3 = 39\n\n\n\n\n\n\na = 23\nb = 23\nprint(f\"a = {a}\")\nprint(f\"The ID of a is {id(a)}\") # Prints memory address of the variable a\nprint(f\"a is of type {type(a)}\") # Prints the data type of the variable a\n\na = 23\nThe ID of a is 11761384\na is of type &lt;class 'int'&gt;\n\n\n\nNote: id() corresponds to the objects memory address during its lifetime.\n\n\nprint(f\"b = {b}\")\nprint(f\"The ID of b is {id(b)}\")\nprint(f\"b is of type {type(a)}\")\n\nb = 23\nThe ID of b is 11761384\nb is of type &lt;class 'int'&gt;\n\n\n\n\n\n\na = 123 # Reassign a to int 123\nprint(f\"a = {a}\")\nprint(f\"The ID of a is {id(a)}\")\nprint(f\"a is of type {type(a)}\")\n\na = 123\nThe ID of a is 11764584\na is of type &lt;class 'int'&gt;\n\n\n\n\n\n\nc = 23\nprint(f\"c = {c}\")\nprint(f\"The ID of a is {id(c)}\")\nprint(f\"c is of type {type(c)}\")\n\nc = 23\nThe ID of a is 11761384\nc is of type &lt;class 'int'&gt;\n\n\nWe reference the variable c to the value 23 and check its data type and memory location.\n\n\n\n\nd = 3.142\nprint(f\"d = {d}\")\nprint(f\"The ID of a is {id(d)}\")\nprint(f\"d is of type {type(d)}\")\n\nd = 3.142\nThe ID of a is 130677387042128\nd is of type &lt;class 'float'&gt;\n\n\n\n\n\n\nprint (\"HSLU's Python course is cool\")\n\nprint(\"This is Line 1\")\nprint(\"This is Line 2\")\n\nprint(\"\\nWhat does the \\\\n control character do? Are you sure?\") # \\n is a line break\n\nprint(\"\\tWhat does the \\\\t control character do? Are you sure?\") # \\t is a tabulator\n\nprint(\"I want to learn python because....\")\nprint(\"\\n\\n\\t....it's a cool data science programming language. Ok - there are also others ;-) !\")\n\nprint(\"What \" + \"is \" + \"wrong?\" + \"\\nAdd some space between the words without removing the '+' signs!\")\n\nHSLU's Python course is cool\nThis is Line 1\nThis is Line 2\n\nWhat does the \\n control character do? Are you sure?\n    What does the \\t control character do? Are you sure?\nI want to learn python because....\n\n\n    ....it's a cool data science programming language. Ok - there are also others ;-) !\nWhat is wrong?\nAdd some space between the words without removing the '+' signs!\n\n\n\n\n\n\ng=h='hslu'      # Assign the variables g and h to the string \"hslu\"\nprint(g)        # prints hslu\nprint(h)        # print hslu\nh=456           # Reassign h to int 456\nprint(h)        # prints 456\nh=h+1           # Calculates 456 + 1 = 457\nprint(h)        # prints 457\nh+=1            # Calculates 457 + 1 = 458\nprint(h)        # prints 458\np='hslu'        # Assign the variable p to the string \"hslu\"\nq=p             # Copies the variable p (hlsu) to the variable q\nprint(p==q)     # Compare the variables p and q (Output: True)\nprint(p is q)   # Compare the variables p and q (Output: True)\n\nhslu\nhslu\n456\n457\n458\nTrue\nTrue"
   },
   {
     "objectID": "hs25/doe/doe_notes.html",
@@ -117,6 +82,55 @@
     "title": "Design of Experiments",
     "section": "",
     "text": "Problem of distortion due to knowledge about the treatment. Blinding is a suitable technique to avoid such distortions. Elimination of conscious and unconscious influences on the treatment result.\n\n\n\nOpen: No blining\nSingle-blind: Test persons have no knowledge of group membership.\nDouble-blind: Also, the persons carrying out the tests have no knowledge of group membership.\nTriple-blind: Also, people doing the analysis have no knowledge about group membership."
+  },
+  {
+    "objectID": "hs25/pds/pds_notes.html",
+    "href": "hs25/pds/pds_notes.html",
+    "title": "Python for Data Science - Notes",
+    "section": "",
+    "text": "An interpreter translates code and sends it to the CPU. The code is sent to the interpreter line by line. The interpreter provides a console for ad-hoc commands. It’s usually slower than a compiler and not good for optimization.\nA compiler processes source code and returns an executable file. Compiler languages are usually fast and made for optimization (speed, storage use). Executable code is almost impossible to reverse-engineer."
+  },
+  {
+    "objectID": "hs25/pds/pds_notes.html#interpreter-vs.-compiler-languages",
+    "href": "hs25/pds/pds_notes.html#interpreter-vs.-compiler-languages",
+    "title": "Python for Data Science - Notes",
+    "section": "",
+    "text": "An interpreter translates code and sends it to the CPU. The code is sent to the interpreter line by line. The interpreter provides a console for ad-hoc commands. It’s usually slower than a compiler and not good for optimization.\nA compiler processes source code and returns an executable file. Compiler languages are usually fast and made for optimization (speed, storage use). Executable code is almost impossible to reverse-engineer."
+  },
+  {
+    "objectID": "hs25/pds/pds_notes.html#python-console-vs.-script",
+    "href": "hs25/pds/pds_notes.html#python-console-vs.-script",
+    "title": "Python for Data Science - Notes",
+    "section": "Python console vs. script",
+    "text": "Python console vs. script\nEvery instruction is sent sequentially to the interpreter. The Python console is a direct interface to the interpreter. Commands sent in the console are sent directly to the interpreter.\nA Python script is a collection of commands. Executing a Python script means sending all the commands it contains consecutively to the interpreter."
+  },
+  {
+    "objectID": "hs25/pds/pds_notes.html#virtual-enviroments-venv",
+    "href": "hs25/pds/pds_notes.html#virtual-enviroments-venv",
+    "title": "Python for Data Science - Notes",
+    "section": "Virtual enviroments (venv)",
+    "text": "Virtual enviroments (venv)\nTo avoid dependency issues and keep the development environment clean, developers programme applications in virtual environments.\nPython3 -m venv .venv # Standard name\n\nNote: It is best practice to name the virtual environment .venv to hide it in the file system.\n\nIf you are working in a command line interface, you need to activate the virtual environment.\n. .venv/bin/activate # For Linux\nYou can install packages into the venv with python3-pip."
+  },
+  {
+    "objectID": "hs25/pds/pds_notes.html#variabels-and-basic-data-types",
+    "href": "hs25/pds/pds_notes.html#variabels-and-basic-data-types",
+    "title": "Python for Data Science - Notes",
+    "section": "Variabels and Basic data types",
+    "text": "Variabels and Basic data types\nA variable is a name that refers to a particular or undefined value. In programming languages, we use them as a reference to a particular storage location. A variable always consists of a name, a data type, a storage location and a value. Python does not require any type for variable definitions. It assumes the type from the value.\n\nNote: Variable names are usually written in lowercase.\n\nBasic data types:\n\nInteger (Int)\nString (str)\nBoolean (bool).\nList\nDictionary"
+  },
+  {
+    "objectID": "hs25/pds/pds_notes.html#mathematical-operations",
+    "href": "hs25/pds/pds_notes.html#mathematical-operations",
+    "title": "Python for Data Science - Notes",
+    "section": "Mathematical Operations",
+    "text": "Mathematical Operations\nDepending on the context, two particular mathematical operators can have different meanings. The sum operator (\\(+\\)), except for numerical values, means appending one element to another. This usually requires two elements of the same data type. The multiplication operation (\\(*\\)) always has to be applied with an integer.\n\nNote: Sum and multiplication can be used with strings."
+  },
+  {
+    "objectID": "hs25/pds/pds_notes.html#boolean-operations",
+    "href": "hs25/pds/pds_notes.html#boolean-operations",
+    "title": "Python for Data Science - Notes",
+    "section": "Boolean operations",
+    "text": "Boolean operations\nTwo Boolean values can be combined in different ways using the keywords and, or and xor. Any Boolean operation can be inverted using the keyword not."
   },
   {
     "objectID": "hs25/sa/sa_notes.html",
