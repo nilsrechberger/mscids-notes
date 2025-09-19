@@ -14,8 +14,10 @@ website:
             href: hs25/pds/pds_notes.qmd
           - text: "Python for Data Science - Exercises"
             href: hs25/pds/pds_exercises.qmd
-          - text: "Classical and Bayesian Statistics"
+          - text: "Classical and Bayesian Statistics - Notes"
             href: hs25/sa/sa_notes.qmd
+          - text: "Classical and Bayesian Statistics - Exercises"
+            href: hs25/sa/sa_exercises.qmd
           - text: "Design of Experiments"
             href: hs25/doe/doe_notes.qmd
           - text: "Linear Algebra 01"
