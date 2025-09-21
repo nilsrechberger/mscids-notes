@@ -4,42 +4,154 @@
     "href": "index.html",
     "title": "mscids-notes",
     "section": "",
-    "text": "Of course! Here is the complete text with the new section added.\n\n\nHey there, fellow students! 👋\nHere you’ll find a collection of my personal notes and solutions from our courses. I’ve decided to put them online in the hopes that they might help some of you out.\n\nQuick Heads-Up! 📝\nJust a friendly reminder: everything you see here is based on my own understanding and approach. That means my solutions might be different from the official ones provided by our professors.\nThink of this as a secondary resource to complement your own work, not as an official answer key.\n\n\nDisclaimer 🚨\nWhile I do my best, I can’t guarantee that everything is 100% correct or complete. I’m just a student trying to figure things out, same as you. Therefore, I’m not taking any responsibility for the accuracy of the content. Always double-check with official course materials!\n\n\nSpotted a Mistake? 👀\nIf you happen to find an error, I’d be super grateful if you could let me know. Just shoot me a quick email!\n📧 nils.rechberger@stud.hslu.ch\nHappy studying! 🚀"
+    "text": "Hey there, fellow students! 👋\nHere you’ll find a collection of my personal notes and solutions from our courses. I’ve decided to put them online in the hopes that they might help some of you out.\n\nQuick Heads-Up! 📝\nJust a friendly reminder: everything you see here is based on my own understanding and approach. That means my solutions might be different from the official ones provided by our professors.\nThink of this as a secondary resource to complement your own work, not as an official answer key.\n\n\nDisclaimer 🚨\nWhile I do my best, I can’t guarantee that everything is 100% correct or complete. I’m just a student trying to figure things out, same as you. Therefore, I’m not taking any responsibility for the accuracy of the content. Always double-check with official course materials!\n\n\nSpotted a Mistake? 👀\nIf you happen to find an error, I’d be super grateful if you could let me know. Just shoot me a quick email!\n📧 nils.rechberger@stud.hslu.ch\nHappy studying! 🚀"
   },
   {
-    "objectID": "hs25/lia1/lia1_notes.html",
-    "href": "hs25/lia1/lia1_notes.html",
-    "title": "Linear Algebra 01",
+    "objectID": "hs25/sa/sa_exercises.html",
+    "href": "hs25/sa/sa_exercises.html",
+    "title": "Classical and Bayesian Statistics - Exercises",
     "section": "",
-    "text": "Linar Algebra is the theory of linear mappings between vector spaces. Broadly the theory of certain (linear) data transformation (manipulation). The main actors are vectors and matrices.\n\n\nA vector \\(\\overrightarrow{a}\\) is data of a number (or magnitude) and a direction. Vertical brunch of numbers. Vector is defined only by length and direction. Two arrows represent same vector if one is a parallel translation (shift) of the other one. Vector determined by giving initial and terminal points of a representative, also called tail and head of the vector. Vector \\(\\overrightarrow{PQ}\\) defined by the arrow with initial point \\(P\\) (tail) and terminal point \\(Q\\) (head).\n\nNote: Position of arrow is not relevant.\n\n\\[\n\\overrightarrow{a} = \\begin{bmatrix}\n1 \\\\\n-3 \\\\\n\\end{bmatrix}\n\\]\n\n\nThe sum of two vectors calculates componet-wise. Sumation of vecots are commutativ, associativ, can include neutrala elements (zero vector) and can be inversed by its negatove vector to the zero vecto.\n\\[\n\\overrightarrow{a} + \\overrightarrow{b} = \\begin{bmatrix}\n1 \\\\\n-3 \\\\\n\\end{bmatrix}\n+\n\\begin{bmatrix}\n4 \\\\\n-1 \\\\\n\\end{bmatrix}\n=\n\\begin{bmatrix}\n5 \\\\\n-2 \\\\\n\\end{bmatrix}\n\\]\n\nNote: \\(\\overrightarrow{a} + \\overrightarrow{b} = \\overrightarrow{b} + \\overrightarrow{a}\\)\n\n\n\n\nDifference \\(\\overrightarrow{a} - \\overrightarrow{b}\\) of two vectors \\(\\overrightarrow{a}\\) and \\(\\overrightarrow{b}\\) is sum of \\(\\overrightarrow{a}\\) and opposite of \\(\\overrightarrow{b}\\)\n\\[\n\\overrightarrow{a} - \\overrightarrow{b} = \\overrightarrow{a} + (-\\overrightarrow{b})\n\\]\n\n\n\nScalar multiplication of a vector involves multiplying each component of the vector by a scalar (a real number). This changes the magnitude of the vector while keeping its direction the same if the scalar is positive, or reversing it if the scalar is negative. Scalar multiplication of vecots are associativ, distributiv, can include neutrala elements (zero vector).\n\\[\n\\dfrac{1}{2}(\\overrightarrow{a} + \\overrightarrow{b})\n=\n(\\begin{bmatrix}\n2 \\\\\n6 \\\\\n\\end{bmatrix}\n+\n\\begin{bmatrix}\n4 \\\\\n2 \\\\\n\\end{bmatrix})\n=\n\\begin{bmatrix}\n3 \\\\\n4 \\\\\n\\end{bmatrix}\n\\]\n\nNote: Numbers come with unites. Component-wise multiplication does not make any sense in certan cases.\n\n\n\n\nMagnitude or norm of vector \\(\\overrightarrow{a}\\) : Length of \\(\\overrightarrow{a}\\). Denoted by \\(|\\overrightarrow{a}|\\).\n\\[\n|\\overrightarrow{a}| = \\sqrt{a_x² + a_y²}\n\\]\n\nNote: Length of vector is never negative: \\(\\overrightarrow{a}| \\ge 0\\).\n\n\n\n\nVector with norm zero denoted by \\(\\overrightarrow{0}\\). The length of zero vector is \\(0\\)\n\\[\n|\\overrightarrow{0}| = 0\n\\]\n\nNote: Zero vector has no direction.\n\n\n\n\nOpposite vector of \\(\\overrightarrow{a}\\) is the same norm but with opposite direction (in a representative, initial and terminal points are reversed) of \\(-\\overrightarrow{a}\\).\n\nNote: \\(\\overrightarrow{PQ} = -\\overrightarrow{QP}\\), but \\(\\overrightarrow{PQ} \\neq \\overrightarrow{QP}\\)\n\n\n\n\nTBD\n\n\n\nTwo vectors \\(\\overrightarrow{a}\\) and \\(\\overrightarrow{b}\\) are called collinear or linearly dependent, if\n\\[\n\\overrightarrow{b} = r \\overrightarrow{a} \\quad \\text{for } r \\in \\mathbb{R}\n\\] \\[\ns \\overrightarrow{b} =  \\overrightarrow{a} \\quad \\text{for } s \\in \\mathbb{R}\n\\]\nMore generally. \\[\nr \\overrightarrow{a} + s \\overrightarrow{b} = \\overrightarrow{0} \\quad \\text{for } r, s \\in \\mathbb{R} \\quad \\text{with } r \\neq 0 \\quad \\text{or } s \\neq 0\n\\]\nThis will be used to generalize definition of linear independence.\n\n\n\nFor every vector there is axactly one unite vector (\\(\\overrightarrow{e}_a\\)) with the same direction, which normalize a vector.\n\\[\n\\overrightarrow{e}_a = \\dfrac{1}{|\\overrightarrow{a}|}\\overrightarrow{a}\n\\]\n\n\n\n\\[\n\\overrightarrow{PQ}\n=\n\\begin{bmatrix}\nx_2 - x_1 \\\\\ny_2 - y_1 \\\\\n\\end{bmatrix}\n\\]\n\n\n\n\nCartesian coordinate system whose axes are perpendicular and units on axes have same length 1 with \\(\\overrightarrow{e}_x\\) and \\(\\overrightarrow{e}_y\\). Every vector in this system can be represented by the unit vecorts.\n\\[\n\\overrightarrow{a} = a_x\\overrightarrow{e}_x + a_y\\overrightarrow{e}_y\n\\]\n\\(a_x\\) and \\(a_y\\) are called scalar components of \\(\\overrightarrow{a}\\).\n\n\n\nVectors in 3D space have a additional component to represent the 3thd dimension.\n\\[\n\\overrightarrow{a} = \\begin{bmatrix}\n1 \\\\\n-3 \\\\\n2 \\\\\n\\end{bmatrix}\n\\]\n\nNote: The mathamatical rules does not change by adding more dimension.\n\n\n\n\nRectangular bunch of numbers.\n\\[\nA = \\begin{bmatrix}\n1 & 3 & -7 \\\\\n2 & 1 & 6 \\\\\n4 & 0 & 1 \\\\\n\\end{bmatrix}\n\\]"
+    "text": "It seems that, in total, the Allied and Axis countries had about the same number of civilian deaths. However, if we compare the numbers per party member, we see that the Axis countries had a higher average amount of deaths. On the other hand, the data from the Allies is inconsistent (see Denmark).\n\n\n\nThe percentages in the chart do not sum up to 100%.\n\n\n\n\n\nWe can assume that Linda is a bank teller and is active in the feminist movement. Her experiences from the past could have influenced her behavior and thinking on certain topics. She may have a sense for justice and equality, regardless of the topic.\n\n\n\nWe can assume that Steve is a librarian because of his helpful personality and his need for order and structure, much like what’s found in a library. His passion for details may also be connected to a desire for knowledge.\n\n\n\nA Ball costs $0.05.\n\n\n\nThere are more death by heart diseases than accidents.\n\n\n\n\nSince the engine is the only thing that keeps a plane in the air, it makes sense for it to be more armoured than the rest of the plane. Even if other parts have more bullet holes on average (e.g. the fuselage), the plane could still fly."
   },
   {
-    "objectID": "hs25/lia1/lia1_notes.html#vector",
-    "href": "hs25/lia1/lia1_notes.html#vector",
-    "title": "Linear Algebra 01",
+    "objectID": "hs25/sa/sa_exercises.html#a",
+    "href": "hs25/sa/sa_exercises.html#a",
+    "title": "Classical and Bayesian Statistics - Exercises",
     "section": "",
-    "text": "A vector \\(\\overrightarrow{a}\\) is data of a number (or magnitude) and a direction. Vertical brunch of numbers. Vector is defined only by length and direction. Two arrows represent same vector if one is a parallel translation (shift) of the other one. Vector determined by giving initial and terminal points of a representative, also called tail and head of the vector. Vector \\(\\overrightarrow{PQ}\\) defined by the arrow with initial point \\(P\\) (tail) and terminal point \\(Q\\) (head).\n\nNote: Position of arrow is not relevant.\n\n\\[\n\\overrightarrow{a} = \\begin{bmatrix}\n1 \\\\\n-3 \\\\\n\\end{bmatrix}\n\\]\n\n\nThe sum of two vectors calculates componet-wise. Sumation of vecots are commutativ, associativ, can include neutrala elements (zero vector) and can be inversed by its negatove vector to the zero vecto.\n\\[\n\\overrightarrow{a} + \\overrightarrow{b} = \\begin{bmatrix}\n1 \\\\\n-3 \\\\\n\\end{bmatrix}\n+\n\\begin{bmatrix}\n4 \\\\\n-1 \\\\\n\\end{bmatrix}\n=\n\\begin{bmatrix}\n5 \\\\\n-2 \\\\\n\\end{bmatrix}\n\\]\n\nNote: \\(\\overrightarrow{a} + \\overrightarrow{b} = \\overrightarrow{b} + \\overrightarrow{a}\\)\n\n\n\n\nDifference \\(\\overrightarrow{a} - \\overrightarrow{b}\\) of two vectors \\(\\overrightarrow{a}\\) and \\(\\overrightarrow{b}\\) is sum of \\(\\overrightarrow{a}\\) and opposite of \\(\\overrightarrow{b}\\)\n\\[\n\\overrightarrow{a} - \\overrightarrow{b} = \\overrightarrow{a} + (-\\overrightarrow{b})\n\\]\n\n\n\nScalar multiplication of a vector involves multiplying each component of the vector by a scalar (a real number). This changes the magnitude of the vector while keeping its direction the same if the scalar is positive, or reversing it if the scalar is negative. Scalar multiplication of vecots are associativ, distributiv, can include neutrala elements (zero vector).\n\\[\n\\dfrac{1}{2}(\\overrightarrow{a} + \\overrightarrow{b})\n=\n(\\begin{bmatrix}\n2 \\\\\n6 \\\\\n\\end{bmatrix}\n+\n\\begin{bmatrix}\n4 \\\\\n2 \\\\\n\\end{bmatrix})\n=\n\\begin{bmatrix}\n3 \\\\\n4 \\\\\n\\end{bmatrix}\n\\]\n\nNote: Numbers come with unites. Component-wise multiplication does not make any sense in certan cases.\n\n\n\n\nMagnitude or norm of vector \\(\\overrightarrow{a}\\) : Length of \\(\\overrightarrow{a}\\). Denoted by \\(|\\overrightarrow{a}|\\).\n\\[\n|\\overrightarrow{a}| = \\sqrt{a_x² + a_y²}\n\\]\n\nNote: Length of vector is never negative: \\(\\overrightarrow{a}| \\ge 0\\).\n\n\n\n\nVector with norm zero denoted by \\(\\overrightarrow{0}\\). The length of zero vector is \\(0\\)\n\\[\n|\\overrightarrow{0}| = 0\n\\]\n\nNote: Zero vector has no direction.\n\n\n\n\nOpposite vector of \\(\\overrightarrow{a}\\) is the same norm but with opposite direction (in a representative, initial and terminal points are reversed) of \\(-\\overrightarrow{a}\\).\n\nNote: \\(\\overrightarrow{PQ} = -\\overrightarrow{QP}\\), but \\(\\overrightarrow{PQ} \\neq \\overrightarrow{QP}\\)\n\n\n\n\nTBD\n\n\n\nTwo vectors \\(\\overrightarrow{a}\\) and \\(\\overrightarrow{b}\\) are called collinear or linearly dependent, if\n\\[\n\\overrightarrow{b} = r \\overrightarrow{a} \\quad \\text{for } r \\in \\mathbb{R}\n\\] \\[\ns \\overrightarrow{b} =  \\overrightarrow{a} \\quad \\text{for } s \\in \\mathbb{R}\n\\]\nMore generally. \\[\nr \\overrightarrow{a} + s \\overrightarrow{b} = \\overrightarrow{0} \\quad \\text{for } r, s \\in \\mathbb{R} \\quad \\text{with } r \\neq 0 \\quad \\text{or } s \\neq 0\n\\]\nThis will be used to generalize definition of linear independence.\n\n\n\nFor every vector there is axactly one unite vector (\\(\\overrightarrow{e}_a\\)) with the same direction, which normalize a vector.\n\\[\n\\overrightarrow{e}_a = \\dfrac{1}{|\\overrightarrow{a}|}\\overrightarrow{a}\n\\]\n\n\n\n\\[\n\\overrightarrow{PQ}\n=\n\\begin{bmatrix}\nx_2 - x_1 \\\\\ny_2 - y_1 \\\\\n\\end{bmatrix}\n\\]"
+    "text": "It seems that, in total, the Allied and Axis countries had about the same number of civilian deaths. However, if we compare the numbers per party member, we see that the Axis countries had a higher average amount of deaths. On the other hand, the data from the Allies is inconsistent (see Denmark)."
   },
   {
-    "objectID": "hs25/lia1/lia1_notes.html#cartesian-coordinate-systems",
-    "href": "hs25/lia1/lia1_notes.html#cartesian-coordinate-systems",
-    "title": "Linear Algebra 01",
+    "objectID": "hs25/sa/sa_exercises.html#b",
+    "href": "hs25/sa/sa_exercises.html#b",
+    "title": "Classical and Bayesian Statistics - Exercises",
     "section": "",
-    "text": "Cartesian coordinate system whose axes are perpendicular and units on axes have same length 1 with \\(\\overrightarrow{e}_x\\) and \\(\\overrightarrow{e}_y\\). Every vector in this system can be represented by the unit vecorts.\n\\[\n\\overrightarrow{a} = a_x\\overrightarrow{e}_x + a_y\\overrightarrow{e}_y\n\\]\n\\(a_x\\) and \\(a_y\\) are called scalar components of \\(\\overrightarrow{a}\\)."
+    "text": "The percentages in the chart do not sum up to 100%."
   },
   {
-    "objectID": "hs25/lia1/lia1_notes.html#d-space",
-    "href": "hs25/lia1/lia1_notes.html#d-space",
-    "title": "Linear Algebra 01",
+    "objectID": "hs25/sa/sa_exercises.html#c",
+    "href": "hs25/sa/sa_exercises.html#c",
+    "title": "Classical and Bayesian Statistics - Exercises",
     "section": "",
-    "text": "Vectors in 3D space have a additional component to represent the 3thd dimension.\n\\[\n\\overrightarrow{a} = \\begin{bmatrix}\n1 \\\\\n-3 \\\\\n2 \\\\\n\\end{bmatrix}\n\\]\n\nNote: The mathamatical rules does not change by adding more dimension."
+    "text": "We can assume that Linda is a bank teller and is active in the feminist movement. Her experiences from the past could have influenced her behavior and thinking on certain topics. She may have a sense for justice and equality, regardless of the topic.\n\n\n\nWe can assume that Steve is a librarian because of his helpful personality and his need for order and structure, much like what’s found in a library. His passion for details may also be connected to a desire for knowledge.\n\n\n\nA Ball costs $0.05.\n\n\n\nThere are more death by heart diseases than accidents."
   },
   {
-    "objectID": "hs25/lia1/lia1_notes.html#matrice",
-    "href": "hs25/lia1/lia1_notes.html#matrice",
-    "title": "Linear Algebra 01",
+    "objectID": "hs25/sa/sa_exercises.html#d",
+    "href": "hs25/sa/sa_exercises.html#d",
+    "title": "Classical and Bayesian Statistics - Exercises",
     "section": "",
-    "text": "Rectangular bunch of numbers.\n\\[\nA = \\begin{bmatrix}\n1 & 3 & -7 \\\\\n2 & 1 & 6 \\\\\n4 & 0 & 1 \\\\\n\\end{bmatrix}\n\\]"
+    "text": "Since the engine is the only thing that keeps a plane in the air, it makes sense for it to be more armoured than the rest of the plane. Even if other parts have more bullet holes on average (e.g. the fuselage), the plane could still fly."
+  },
+  {
+    "objectID": "hs25/sa/sa_exercises.html#problem-1.3",
+    "href": "hs25/sa/sa_exercises.html#problem-1.3",
+    "title": "Classical and Bayesian Statistics - Exercises",
+    "section": "Problem 1.3",
+    "text": "Problem 1.3\n\ngrades &lt;- c(4.2, 2.3, 5.6, 4.5, 4.8, 3.9, 5.9, 2.4, 5.9, 6, 4, 3.7, 5, 5.2, 4.5, 3.6, 5, 6, 2.8, 3.3, 5.5, 4.2, 4.9, 5.1)\n\ngrades &lt;- sort(grades) # Sort values\n\noriginal_mu &lt;- mean(grades)\noriginla_meadian &lt;- median(grades)\n\ngrades[9:11] &lt;- 1 # Reassign values\nnew_mu &lt;- mean(grades)\nnew_median &lt;- median(grades)\n\ncat(\"Original vs. New mean:\", original_mu, \"vs.\", new_mu, \"\\n\") # Add line break\n\nOriginal vs. New mean: 4.5125 vs. 4.1 \n\ncat(\"Median stays the same:\", originla_meadian, \"=\", new_median)\n\nMedian stays the same: 4.65 = 4.65"
+  },
+  {
+    "objectID": "hs25/pds/pds_exercises.html",
+    "href": "hs25/pds/pds_exercises.html",
+    "title": "Python for Data Science - Exercises",
+    "section": "",
+    "text": "print(f\"10 + 10 + 10 = {10 + 10 + 10}\")\nprint(f\"10 - 3       = {10 - 3}\")\nprint(f\"10 * 2       = {10 * 2}\")\nprint(f\"5 / 2        = {5 / 2}\")\nprint(f\"5.0 / 2      = {5.0 / 2}\")\nprint(f\"5 % 2        = {5 % 2}\")\nprint(f\"10 % 3       = {10 % 3}\")\nprint(f\"3 ** 3       = {3 ** 3}\")\nprint(f\"9 ** 0.5     = {9 ** 0.5}\")\nprint(f\"10 + 3 * 3   = {10 + 3 * 3}\")\nprint(f\"(10 + 3) * 3 = {(10 + 3) * 3}\")\n\n10 + 10 + 10 = 30\n10 - 3       = 7\n10 * 2       = 20\n5 / 2        = 2.5\n5.0 / 2      = 2.5\n5 % 2        = 1\n10 % 3       = 1\n3 ** 3       = 27\n9 ** 0.5     = 3.0\n10 + 3 * 3   = 19\n(10 + 3) * 3 = 39\n\n\n\n\n\n\na = 23\nb = 23\nprint(f\"a = {a}\")\nprint(f\"The ID of a is {id(a)}\") # Prints memory address of the variable a\nprint(f\"a is of type {type(a)}\") # Prints the data type of the variable a\n\na = 23\nThe ID of a is 11761384\na is of type &lt;class 'int'&gt;\n\n\n\nNote: id() corresponds to the objects memory address during its lifetime.\n\n\nprint(f\"b = {b}\")\nprint(f\"The ID of b is {id(b)}\")\nprint(f\"b is of type {type(a)}\")\n\nb = 23\nThe ID of b is 11761384\nb is of type &lt;class 'int'&gt;\n\n\n\n\n\n\na = 123 # Reassign var a to int 123\nprint(f\"a = {a}\")\nprint(f\"The ID of a is {id(a)}\")\nprint(f\"a is of type {type(a)}\")\n\na = 123\nThe ID of a is 11764584\na is of type &lt;class 'int'&gt;\n\n\n\n\n\n\nc = 23\nprint(f\"c = {c}\")\nprint(f\"The ID of a is {id(c)}\")\nprint(f\"c is of type {type(c)}\")\n\nc = 23\nThe ID of a is 11761384\nc is of type &lt;class 'int'&gt;\n\n\nWe assign the variable c to the value 23 and check its data type and memory location.\n\n\n\n\nd = 3.142\nprint(f\"d = {d}\")\nprint(f\"The ID of a is {id(d)}\")\nprint(f\"d is of type {type(d)}\")\n\nd = 3.142\nThe ID of a is 135809848433936\nd is of type &lt;class 'float'&gt;\n\n\n\n\n\n\nprint (\"HSLU's Python course is cool\")\n\nprint(\"This is Line 1\")\nprint(\"This is Line 2\")\n\nprint(\"\\nWhat does the \\\\n control character do? Are you sure?\") # \\n is a line break\n\nprint(\"\\tWhat does the \\\\t control character do? Are you sure?\") # \\t is a tabulator\n\nprint(\"I want to learn python because....\")\nprint(\"\\n\\n\\t....it's a cool data science programming language. Ok - there are also others ;-) !\")\n\nprint(\"What \" + \"is \" + \"wrong?\" + \"\\nAdd some space between the words without removing the '+' signs!\") # Add spaces after the string\n\nHSLU's Python course is cool\nThis is Line 1\nThis is Line 2\n\nWhat does the \\n control character do? Are you sure?\n    What does the \\t control character do? Are you sure?\nI want to learn python because....\n\n\n    ....it's a cool data science programming language. Ok - there are also others ;-) !\nWhat is wrong?\nAdd some space between the words without removing the '+' signs!\n\n\n\n\n\n\ng=h='hslu'      # Assign the var g and h to the string \"hslu\"\nprint(g)        # Prints hslu\nprint(h)        # Print hslu\nh=456           # Reassign h to int 456\nprint(h)        # Prints 456\nh=h+1           # Calculates 456 + 1 = 457\nprint(h)        # Prints 457\nh+=1            # Calculates 457 + 1 = 458\nprint(h)        # Prints 458\np='hslu'        # Assign the var p to the string \"hslu\"\nq=p             # Copies the var p (hlsu) to the var q\nprint(p==q)     # Compare the var p and q (Output: True)\nprint(p is q)   # Compare the var p and q (Output: True)\n\nhslu\nhslu\n456\n457\n458\nTrue\nTrue"
+  },
+  {
+    "objectID": "hs25/pds/pds_exercises.html#exercises-1",
+    "href": "hs25/pds/pds_exercises.html#exercises-1",
+    "title": "Python for Data Science - Exercises",
+    "section": "",
+    "text": "print(f\"10 + 10 + 10 = {10 + 10 + 10}\")\nprint(f\"10 - 3       = {10 - 3}\")\nprint(f\"10 * 2       = {10 * 2}\")\nprint(f\"5 / 2        = {5 / 2}\")\nprint(f\"5.0 / 2      = {5.0 / 2}\")\nprint(f\"5 % 2        = {5 % 2}\")\nprint(f\"10 % 3       = {10 % 3}\")\nprint(f\"3 ** 3       = {3 ** 3}\")\nprint(f\"9 ** 0.5     = {9 ** 0.5}\")\nprint(f\"10 + 3 * 3   = {10 + 3 * 3}\")\nprint(f\"(10 + 3) * 3 = {(10 + 3) * 3}\")\n\n10 + 10 + 10 = 30\n10 - 3       = 7\n10 * 2       = 20\n5 / 2        = 2.5\n5.0 / 2      = 2.5\n5 % 2        = 1\n10 % 3       = 1\n3 ** 3       = 27\n9 ** 0.5     = 3.0\n10 + 3 * 3   = 19\n(10 + 3) * 3 = 39\n\n\n\n\n\n\na = 23\nb = 23\nprint(f\"a = {a}\")\nprint(f\"The ID of a is {id(a)}\") # Prints memory address of the variable a\nprint(f\"a is of type {type(a)}\") # Prints the data type of the variable a\n\na = 23\nThe ID of a is 11761384\na is of type &lt;class 'int'&gt;\n\n\n\nNote: id() corresponds to the objects memory address during its lifetime.\n\n\nprint(f\"b = {b}\")\nprint(f\"The ID of b is {id(b)}\")\nprint(f\"b is of type {type(a)}\")\n\nb = 23\nThe ID of b is 11761384\nb is of type &lt;class 'int'&gt;\n\n\n\n\n\n\na = 123 # Reassign var a to int 123\nprint(f\"a = {a}\")\nprint(f\"The ID of a is {id(a)}\")\nprint(f\"a is of type {type(a)}\")\n\na = 123\nThe ID of a is 11764584\na is of type &lt;class 'int'&gt;\n\n\n\n\n\n\nc = 23\nprint(f\"c = {c}\")\nprint(f\"The ID of a is {id(c)}\")\nprint(f\"c is of type {type(c)}\")\n\nc = 23\nThe ID of a is 11761384\nc is of type &lt;class 'int'&gt;\n\n\nWe assign the variable c to the value 23 and check its data type and memory location.\n\n\n\n\nd = 3.142\nprint(f\"d = {d}\")\nprint(f\"The ID of a is {id(d)}\")\nprint(f\"d is of type {type(d)}\")\n\nd = 3.142\nThe ID of a is 135809848433936\nd is of type &lt;class 'float'&gt;\n\n\n\n\n\n\nprint (\"HSLU's Python course is cool\")\n\nprint(\"This is Line 1\")\nprint(\"This is Line 2\")\n\nprint(\"\\nWhat does the \\\\n control character do? Are you sure?\") # \\n is a line break\n\nprint(\"\\tWhat does the \\\\t control character do? Are you sure?\") # \\t is a tabulator\n\nprint(\"I want to learn python because....\")\nprint(\"\\n\\n\\t....it's a cool data science programming language. Ok - there are also others ;-) !\")\n\nprint(\"What \" + \"is \" + \"wrong?\" + \"\\nAdd some space between the words without removing the '+' signs!\") # Add spaces after the string\n\nHSLU's Python course is cool\nThis is Line 1\nThis is Line 2\n\nWhat does the \\n control character do? Are you sure?\n    What does the \\t control character do? Are you sure?\nI want to learn python because....\n\n\n    ....it's a cool data science programming language. Ok - there are also others ;-) !\nWhat is wrong?\nAdd some space between the words without removing the '+' signs!\n\n\n\n\n\n\ng=h='hslu'      # Assign the var g and h to the string \"hslu\"\nprint(g)        # Prints hslu\nprint(h)        # Print hslu\nh=456           # Reassign h to int 456\nprint(h)        # Prints 456\nh=h+1           # Calculates 456 + 1 = 457\nprint(h)        # Prints 457\nh+=1            # Calculates 457 + 1 = 458\nprint(h)        # Prints 458\np='hslu'        # Assign the var p to the string \"hslu\"\nq=p             # Copies the var p (hlsu) to the var q\nprint(p==q)     # Compare the var p and q (Output: True)\nprint(p is q)   # Compare the var p and q (Output: True)\n\nhslu\nhslu\n456\n457\n458\nTrue\nTrue"
+  },
+  {
+    "objectID": "hs25/doe/doe_notes.html",
+    "href": "hs25/doe/doe_notes.html",
+    "title": "Design of Experiments",
+    "section": "",
+    "text": "The fundamental difference between observational studies and experimental research designs is that in the former, researchers simply observe and measure variables without actively intervening. In the latter, variables are purposefully manipulated to determine a cause-and-effect relationship.\n\n\n\nThe effect and aim of randomisation is to eliminate selection bias and confounding factors, and to ensure comparability between groups at the start of the study (baseline data).\n\n\n\nConfounding occurs when a factor (confounder) that has not been investigated is associated with both the independent and dependent variables, causing a spurious correlation between them.\n\n\n\nThe problem is distortion due to knowledge about the treatment. Blinding is a suitable technique for avoiding such distortions. It eliminates conscious and unconscious influences on the treatment result.\n\n\n\nOpen: No blining\nSingle-blind: Participants don’t know their group assignment (e.g., whether they’re receiving the real treatment or a placebo).\nDouble-blind: Neither the participants nor the researchers administering the treatment know the group assignments.\nTriple-blind: Participants, researchers, and the data analysts are all unaware of the group assignments."
+  },
+  {
+    "objectID": "hs25/doe/doe_notes.html#observational-vs.-experimental",
+    "href": "hs25/doe/doe_notes.html#observational-vs.-experimental",
+    "title": "Design of Experiments",
+    "section": "",
+    "text": "The fundamental difference between observational studies and experimental research designs is that in the former, researchers simply observe and measure variables without actively intervening. In the latter, variables are purposefully manipulated to determine a cause-and-effect relationship."
+  },
+  {
+    "objectID": "hs25/doe/doe_notes.html#randomization",
+    "href": "hs25/doe/doe_notes.html#randomization",
+    "title": "Design of Experiments",
+    "section": "",
+    "text": "The effect and aim of randomisation is to eliminate selection bias and confounding factors, and to ensure comparability between groups at the start of the study (baseline data)."
+  },
+  {
+    "objectID": "hs25/doe/doe_notes.html#confounder",
+    "href": "hs25/doe/doe_notes.html#confounder",
+    "title": "Design of Experiments",
+    "section": "",
+    "text": "Confounding occurs when a factor (confounder) that has not been investigated is associated with both the independent and dependent variables, causing a spurious correlation between them."
+  },
+  {
+    "objectID": "hs25/doe/doe_notes.html#blinding",
+    "href": "hs25/doe/doe_notes.html#blinding",
+    "title": "Design of Experiments",
+    "section": "",
+    "text": "The problem is distortion due to knowledge about the treatment. Blinding is a suitable technique for avoiding such distortions. It eliminates conscious and unconscious influences on the treatment result.\n\n\n\nOpen: No blining\nSingle-blind: Participants don’t know their group assignment (e.g., whether they’re receiving the real treatment or a placebo).\nDouble-blind: Neither the participants nor the researchers administering the treatment know the group assignments.\nTriple-blind: Participants, researchers, and the data analysts are all unaware of the group assignments."
+  },
+  {
+    "objectID": "hs25/csc1/csc1_notes.html",
+    "href": "hs25/csc1/csc1_notes.html",
+    "title": "Comuter Science Concepts for Data Science - Notes",
+    "section": "",
+    "text": "How can Data Science improve products & services?\nData Science improves basics function of traditionals product by applining Drinven function on Digital Services of a product."
+  },
+  {
+    "objectID": "hs25/pds/pds_notes.html",
+    "href": "hs25/pds/pds_notes.html",
+    "title": "Python for Data Science - Notes",
+    "section": "",
+    "text": "An interpreter translates code and sends it to the CPU. The code is sent to the interpreter line by line. The interpreter provides a console for ad-hoc commands. It’s usually slower than a compiler and not good for optimization.\nA compiler processes source code and returns an executable file. Compiler languages are usually fast and made for optimization (speed, storage use). Executable code is almost impossible to reverse-engineer."
+  },
+  {
+    "objectID": "hs25/pds/pds_notes.html#interpreter-vs.-compiler-languages",
+    "href": "hs25/pds/pds_notes.html#interpreter-vs.-compiler-languages",
+    "title": "Python for Data Science - Notes",
+    "section": "",
+    "text": "An interpreter translates code and sends it to the CPU. The code is sent to the interpreter line by line. The interpreter provides a console for ad-hoc commands. It’s usually slower than a compiler and not good for optimization.\nA compiler processes source code and returns an executable file. Compiler languages are usually fast and made for optimization (speed, storage use). Executable code is almost impossible to reverse-engineer."
+  },
+  {
+    "objectID": "hs25/pds/pds_notes.html#python-console-vs.-script",
+    "href": "hs25/pds/pds_notes.html#python-console-vs.-script",
+    "title": "Python for Data Science - Notes",
+    "section": "Python console vs. script",
+    "text": "Python console vs. script\nThe Python console is a direct interface to the interpreter. Every instruction is sent sequentially to the interpreter. Commands sent in the console are sent directly to the interpreter.\nA Python script is a collection of commands. Executing a Python script means sending all the commands it contains consecutively to the interpreter."
+  },
+  {
+    "objectID": "hs25/pds/pds_notes.html#virtual-enviroments-venv",
+    "href": "hs25/pds/pds_notes.html#virtual-enviroments-venv",
+    "title": "Python for Data Science - Notes",
+    "section": "Virtual enviroments (venv)",
+    "text": "Virtual enviroments (venv)\nTo avoid dependency issues of packages and keep the development environment clean, developers programme applications in virtual environments.\nPython3 -m venv .venv # Standard name\n\nNote: It is best practice to name the virtual environment .venv to hide it in the file system.\n\nYou need to activate the virtual environment.\n. .venv/bin/activate # For Linux\nYou can install packages into the venv with python3-pip."
+  },
+  {
+    "objectID": "hs25/pds/pds_notes.html#variabels-and-basic-data-types",
+    "href": "hs25/pds/pds_notes.html#variabels-and-basic-data-types",
+    "title": "Python for Data Science - Notes",
+    "section": "Variabels and Basic data types",
+    "text": "Variabels and Basic data types\nA variable is a name that refers to a particular or undefined value. In programming languages, we use them as a reference to a particular storage location. A variable always consists of a name, a data type, a storage location and a value. Python does not require any type for variable definitions. It assumes the type from the value.\n\nNote: Variable names are usually written in lowercase.\n\nBasic data types:\n\nInteger (int)\nString (str)\nBoolean (bool).\nList\nDictionary"
+  },
+  {
+    "objectID": "hs25/pds/pds_notes.html#mathematical-operations",
+    "href": "hs25/pds/pds_notes.html#mathematical-operations",
+    "title": "Python for Data Science - Notes",
+    "section": "Mathematical Operations",
+    "text": "Mathematical Operations\nDepending on the context, two particular mathematical operators can have different meanings. The sum operator (\\(+\\)), except for numerical values, means appending one element to another. This usually requires two elements of the same data type. The multiplication operation (\\(*\\)) always has to be applied with an integer.\n\nNote: Sum and multiplication can be used with strings."
+  },
+  {
+    "objectID": "hs25/pds/pds_notes.html#boolean-operations",
+    "href": "hs25/pds/pds_notes.html#boolean-operations",
+    "title": "Python for Data Science - Notes",
+    "section": "Boolean operations",
+    "text": "Boolean operations\nTwo Boolean values can be combined in different ways using the keywords and, or and xor. Any Boolean operation can be inverted using the keyword not."
   },
   {
     "objectID": "hs25/sa/sa_notes.html",
@@ -112,157 +224,38 @@
     "text": "Quantiles\nQuantiles are values that divide a dataset into equal parts, allowing for the analysis of the distribution of data. Common types of quantiles include quartiles which split data into four parts.\n\nNote: Most of the time there is no exact 25 % of observations.\n\n\nx &lt;- c(4.3, 5.2, 2.7, 3.1)\nquantile(x) # Default quartil\n\n   0%   25%   50%   75%  100% \n2.700 3.000 3.700 4.525 5.200 \n\nquantile(x, p = 0.7) # Individual value\n\n 70% \n4.39"
   },
   {
-    "objectID": "hs25/pds/pds_notes.html",
-    "href": "hs25/pds/pds_notes.html",
-    "title": "Python for Data Science - Notes",
+    "objectID": "hs25/lia1/lia1_notes.html",
+    "href": "hs25/lia1/lia1_notes.html",
+    "title": "Linear Algebra 01",
     "section": "",
-    "text": "An interpreter translates code and sends it to the CPU. The code is sent to the interpreter line by line. The interpreter provides a console for ad-hoc commands. It’s usually slower than a compiler and not good for optimization.\nA compiler processes source code and returns an executable file. Compiler languages are usually fast and made for optimization (speed, storage use). Executable code is almost impossible to reverse-engineer."
+    "text": "Linar Algebra is the theory of linear mappings between vector spaces. Broadly the theory of certain (linear) data transformation (manipulation). The main actors are vectors and matrices.\n\n\nA vector \\(\\overrightarrow{a}\\) is data of a number (or magnitude) and a direction. Vertical brunch of numbers. Vector is defined only by length and direction. Two arrows represent same vector if one is a parallel translation (shift) of the other one. Vector determined by giving initial and terminal points of a representative, also called tail and head of the vector. Vector \\(\\overrightarrow{PQ}\\) defined by the arrow with initial point \\(P\\) (tail) and terminal point \\(Q\\) (head).\n\nNote: Position of arrow is not relevant.\n\n\\[\n\\overrightarrow{a} = \\begin{bmatrix}\n1 \\\\\n-3 \\\\\n\\end{bmatrix}\n\\]\n\n\nThe sum of two vectors calculates componet-wise. Sumation of vecots are commutativ, associativ, can include neutrala elements (zero vector) and can be inversed by its negatove vector to the zero vecto.\n\\[\n\\overrightarrow{a} + \\overrightarrow{b} = \\begin{bmatrix}\n1 \\\\\n-3 \\\\\n\\end{bmatrix}\n+\n\\begin{bmatrix}\n4 \\\\\n-1 \\\\\n\\end{bmatrix}\n=\n\\begin{bmatrix}\n5 \\\\\n-2 \\\\\n\\end{bmatrix}\n\\]\n\nNote: \\(\\overrightarrow{a} + \\overrightarrow{b} = \\overrightarrow{b} + \\overrightarrow{a}\\)\n\n\n\n\nDifference \\(\\overrightarrow{a} - \\overrightarrow{b}\\) of two vectors \\(\\overrightarrow{a}\\) and \\(\\overrightarrow{b}\\) is sum of \\(\\overrightarrow{a}\\) and opposite of \\(\\overrightarrow{b}\\)\n\\[\n\\overrightarrow{a} - \\overrightarrow{b} = \\overrightarrow{a} + (-\\overrightarrow{b})\n\\]\n\n\n\nScalar multiplication of a vector involves multiplying each component of the vector by a scalar (a real number). This changes the magnitude of the vector while keeping its direction the same if the scalar is positive, or reversing it if the scalar is negative. Scalar multiplication of vecots are associativ, distributiv, can include neutrala elements (zero vector).\n\\[\n\\dfrac{1}{2}(\\overrightarrow{a} + \\overrightarrow{b})\n=\n(\\begin{bmatrix}\n2 \\\\\n6 \\\\\n\\end{bmatrix}\n+\n\\begin{bmatrix}\n4 \\\\\n2 \\\\\n\\end{bmatrix})\n=\n\\begin{bmatrix}\n3 \\\\\n4 \\\\\n\\end{bmatrix}\n\\]\n\nNote: Numbers come with unites. Component-wise multiplication does not make any sense in certan cases.\n\n\n\n\nMagnitude or norm of vector \\(\\overrightarrow{a}\\) : Length of \\(\\overrightarrow{a}\\). Denoted by \\(|\\overrightarrow{a}|\\).\n\\[\n|\\overrightarrow{a}| = \\sqrt{a_x² + a_y²}\n\\]\n\nNote: Length of vector is never negative: \\(\\overrightarrow{a}| \\ge 0\\).\n\n\n\n\nVector with norm zero denoted by \\(\\overrightarrow{0}\\). The length of zero vector is \\(0\\)\n\\[\n|\\overrightarrow{0}| = 0\n\\]\n\nNote: Zero vector has no direction.\n\n\n\n\nOpposite vector of \\(\\overrightarrow{a}\\) is the same norm but with opposite direction (in a representative, initial and terminal points are reversed) of \\(-\\overrightarrow{a}\\).\n\nNote: \\(\\overrightarrow{PQ} = -\\overrightarrow{QP}\\), but \\(\\overrightarrow{PQ} \\neq \\overrightarrow{QP}\\)\n\n\n\n\nTBD\n\n\n\nTwo vectors \\(\\overrightarrow{a}\\) and \\(\\overrightarrow{b}\\) are called collinear or linearly dependent, if\n\\[\n\\overrightarrow{b} = r \\overrightarrow{a} \\quad \\text{for } r \\in \\mathbb{R}\n\\] \\[\ns \\overrightarrow{b} =  \\overrightarrow{a} \\quad \\text{for } s \\in \\mathbb{R}\n\\]\nMore generally. \\[\nr \\overrightarrow{a} + s \\overrightarrow{b} = \\overrightarrow{0} \\quad \\text{for } r, s \\in \\mathbb{R} \\quad \\text{with } r \\neq 0 \\quad \\text{or } s \\neq 0\n\\]\nThis will be used to generalize definition of linear independence.\n\n\n\nFor every vector there is axactly one unite vector (\\(\\overrightarrow{e}_a\\)) with the same direction, which normalize a vector.\n\\[\n\\overrightarrow{e}_a = \\dfrac{1}{|\\overrightarrow{a}|}\\overrightarrow{a}\n\\]\n\n\n\n\\[\n\\overrightarrow{PQ}\n=\n\\begin{bmatrix}\nx_2 - x_1 \\\\\ny_2 - y_1 \\\\\n\\end{bmatrix}\n\\]\n\n\n\n\nCartesian coordinate system whose axes are perpendicular and units on axes have same length 1 with \\(\\overrightarrow{e}_x\\) and \\(\\overrightarrow{e}_y\\). Every vector in this system can be represented by the unit vecorts.\n\\[\n\\overrightarrow{a} = a_x\\overrightarrow{e}_x + a_y\\overrightarrow{e}_y\n\\]\n\\(a_x\\) and \\(a_y\\) are called scalar components of \\(\\overrightarrow{a}\\).\n\n\n\nVectors in 3D space have a additional component to represent the 3thd dimension.\n\\[\n\\overrightarrow{a} = \\begin{bmatrix}\n1 \\\\\n-3 \\\\\n2 \\\\\n\\end{bmatrix}\n\\]\n\nNote: The mathamatical rules does not change by adding more dimension.\n\n\n\n\nRectangular bunch of numbers.\n\\[\nA = \\begin{bmatrix}\n1 & 3 & -7 \\\\\n2 & 1 & 6 \\\\\n4 & 0 & 1 \\\\\n\\end{bmatrix}\n\\]"
   },
   {
-    "objectID": "hs25/pds/pds_notes.html#interpreter-vs.-compiler-languages",
-    "href": "hs25/pds/pds_notes.html#interpreter-vs.-compiler-languages",
-    "title": "Python for Data Science - Notes",
+    "objectID": "hs25/lia1/lia1_notes.html#vector",
+    "href": "hs25/lia1/lia1_notes.html#vector",
+    "title": "Linear Algebra 01",
     "section": "",
-    "text": "An interpreter translates code and sends it to the CPU. The code is sent to the interpreter line by line. The interpreter provides a console for ad-hoc commands. It’s usually slower than a compiler and not good for optimization.\nA compiler processes source code and returns an executable file. Compiler languages are usually fast and made for optimization (speed, storage use). Executable code is almost impossible to reverse-engineer."
+    "text": "A vector \\(\\overrightarrow{a}\\) is data of a number (or magnitude) and a direction. Vertical brunch of numbers. Vector is defined only by length and direction. Two arrows represent same vector if one is a parallel translation (shift) of the other one. Vector determined by giving initial and terminal points of a representative, also called tail and head of the vector. Vector \\(\\overrightarrow{PQ}\\) defined by the arrow with initial point \\(P\\) (tail) and terminal point \\(Q\\) (head).\n\nNote: Position of arrow is not relevant.\n\n\\[\n\\overrightarrow{a} = \\begin{bmatrix}\n1 \\\\\n-3 \\\\\n\\end{bmatrix}\n\\]\n\n\nThe sum of two vectors calculates componet-wise. Sumation of vecots are commutativ, associativ, can include neutrala elements (zero vector) and can be inversed by its negatove vector to the zero vecto.\n\\[\n\\overrightarrow{a} + \\overrightarrow{b} = \\begin{bmatrix}\n1 \\\\\n-3 \\\\\n\\end{bmatrix}\n+\n\\begin{bmatrix}\n4 \\\\\n-1 \\\\\n\\end{bmatrix}\n=\n\\begin{bmatrix}\n5 \\\\\n-2 \\\\\n\\end{bmatrix}\n\\]\n\nNote: \\(\\overrightarrow{a} + \\overrightarrow{b} = \\overrightarrow{b} + \\overrightarrow{a}\\)\n\n\n\n\nDifference \\(\\overrightarrow{a} - \\overrightarrow{b}\\) of two vectors \\(\\overrightarrow{a}\\) and \\(\\overrightarrow{b}\\) is sum of \\(\\overrightarrow{a}\\) and opposite of \\(\\overrightarrow{b}\\)\n\\[\n\\overrightarrow{a} - \\overrightarrow{b} = \\overrightarrow{a} + (-\\overrightarrow{b})\n\\]\n\n\n\nScalar multiplication of a vector involves multiplying each component of the vector by a scalar (a real number). This changes the magnitude of the vector while keeping its direction the same if the scalar is positive, or reversing it if the scalar is negative. Scalar multiplication of vecots are associativ, distributiv, can include neutrala elements (zero vector).\n\\[\n\\dfrac{1}{2}(\\overrightarrow{a} + \\overrightarrow{b})\n=\n(\\begin{bmatrix}\n2 \\\\\n6 \\\\\n\\end{bmatrix}\n+\n\\begin{bmatrix}\n4 \\\\\n2 \\\\\n\\end{bmatrix})\n=\n\\begin{bmatrix}\n3 \\\\\n4 \\\\\n\\end{bmatrix}\n\\]\n\nNote: Numbers come with unites. Component-wise multiplication does not make any sense in certan cases.\n\n\n\n\nMagnitude or norm of vector \\(\\overrightarrow{a}\\) : Length of \\(\\overrightarrow{a}\\). Denoted by \\(|\\overrightarrow{a}|\\).\n\\[\n|\\overrightarrow{a}| = \\sqrt{a_x² + a_y²}\n\\]\n\nNote: Length of vector is never negative: \\(\\overrightarrow{a}| \\ge 0\\).\n\n\n\n\nVector with norm zero denoted by \\(\\overrightarrow{0}\\). The length of zero vector is \\(0\\)\n\\[\n|\\overrightarrow{0}| = 0\n\\]\n\nNote: Zero vector has no direction.\n\n\n\n\nOpposite vector of \\(\\overrightarrow{a}\\) is the same norm but with opposite direction (in a representative, initial and terminal points are reversed) of \\(-\\overrightarrow{a}\\).\n\nNote: \\(\\overrightarrow{PQ} = -\\overrightarrow{QP}\\), but \\(\\overrightarrow{PQ} \\neq \\overrightarrow{QP}\\)\n\n\n\n\nTBD\n\n\n\nTwo vectors \\(\\overrightarrow{a}\\) and \\(\\overrightarrow{b}\\) are called collinear or linearly dependent, if\n\\[\n\\overrightarrow{b} = r \\overrightarrow{a} \\quad \\text{for } r \\in \\mathbb{R}\n\\] \\[\ns \\overrightarrow{b} =  \\overrightarrow{a} \\quad \\text{for } s \\in \\mathbb{R}\n\\]\nMore generally. \\[\nr \\overrightarrow{a} + s \\overrightarrow{b} = \\overrightarrow{0} \\quad \\text{for } r, s \\in \\mathbb{R} \\quad \\text{with } r \\neq 0 \\quad \\text{or } s \\neq 0\n\\]\nThis will be used to generalize definition of linear independence.\n\n\n\nFor every vector there is axactly one unite vector (\\(\\overrightarrow{e}_a\\)) with the same direction, which normalize a vector.\n\\[\n\\overrightarrow{e}_a = \\dfrac{1}{|\\overrightarrow{a}|}\\overrightarrow{a}\n\\]\n\n\n\n\\[\n\\overrightarrow{PQ}\n=\n\\begin{bmatrix}\nx_2 - x_1 \\\\\ny_2 - y_1 \\\\\n\\end{bmatrix}\n\\]"
   },
   {
-    "objectID": "hs25/pds/pds_notes.html#python-console-vs.-script",
-    "href": "hs25/pds/pds_notes.html#python-console-vs.-script",
-    "title": "Python for Data Science - Notes",
-    "section": "Python console vs. script",
-    "text": "Python console vs. script\nThe Python console is a direct interface to the interpreter. Every instruction is sent sequentially to the interpreter. Commands sent in the console are sent directly to the interpreter.\nA Python script is a collection of commands. Executing a Python script means sending all the commands it contains consecutively to the interpreter."
-  },
-  {
-    "objectID": "hs25/pds/pds_notes.html#virtual-enviroments-venv",
-    "href": "hs25/pds/pds_notes.html#virtual-enviroments-venv",
-    "title": "Python for Data Science - Notes",
-    "section": "Virtual enviroments (venv)",
-    "text": "Virtual enviroments (venv)\nTo avoid dependency issues of packages and keep the development environment clean, developers programme applications in virtual environments.\nPython3 -m venv .venv # Standard name\n\nNote: It is best practice to name the virtual environment .venv to hide it in the file system.\n\nYou need to activate the virtual environment.\n. .venv/bin/activate # For Linux\nYou can install packages into the venv with python3-pip."
-  },
-  {
-    "objectID": "hs25/pds/pds_notes.html#variabels-and-basic-data-types",
-    "href": "hs25/pds/pds_notes.html#variabels-and-basic-data-types",
-    "title": "Python for Data Science - Notes",
-    "section": "Variabels and Basic data types",
-    "text": "Variabels and Basic data types\nA variable is a name that refers to a particular or undefined value. In programming languages, we use them as a reference to a particular storage location. A variable always consists of a name, a data type, a storage location and a value. Python does not require any type for variable definitions. It assumes the type from the value.\n\nNote: Variable names are usually written in lowercase.\n\nBasic data types:\n\nInteger (int)\nString (str)\nBoolean (bool).\nList\nDictionary"
-  },
-  {
-    "objectID": "hs25/pds/pds_notes.html#mathematical-operations",
-    "href": "hs25/pds/pds_notes.html#mathematical-operations",
-    "title": "Python for Data Science - Notes",
-    "section": "Mathematical Operations",
-    "text": "Mathematical Operations\nDepending on the context, two particular mathematical operators can have different meanings. The sum operator (\\(+\\)), except for numerical values, means appending one element to another. This usually requires two elements of the same data type. The multiplication operation (\\(*\\)) always has to be applied with an integer.\n\nNote: Sum and multiplication can be used with strings."
-  },
-  {
-    "objectID": "hs25/pds/pds_notes.html#boolean-operations",
-    "href": "hs25/pds/pds_notes.html#boolean-operations",
-    "title": "Python for Data Science - Notes",
-    "section": "Boolean operations",
-    "text": "Boolean operations\nTwo Boolean values can be combined in different ways using the keywords and, or and xor. Any Boolean operation can be inverted using the keyword not."
-  },
-  {
-    "objectID": "hs25/csc1/csc1_notes.html",
-    "href": "hs25/csc1/csc1_notes.html",
-    "title": "Comuter Science Concepts for Data Science - Notes",
+    "objectID": "hs25/lia1/lia1_notes.html#cartesian-coordinate-systems",
+    "href": "hs25/lia1/lia1_notes.html#cartesian-coordinate-systems",
+    "title": "Linear Algebra 01",
     "section": "",
-    "text": "How can Data Science improve products & services?\nData Science improves basics function of traditionals product by applining Drinven function on Digital Services of a product."
+    "text": "Cartesian coordinate system whose axes are perpendicular and units on axes have same length 1 with \\(\\overrightarrow{e}_x\\) and \\(\\overrightarrow{e}_y\\). Every vector in this system can be represented by the unit vecorts.\n\\[\n\\overrightarrow{a} = a_x\\overrightarrow{e}_x + a_y\\overrightarrow{e}_y\n\\]\n\\(a_x\\) and \\(a_y\\) are called scalar components of \\(\\overrightarrow{a}\\)."
   },
   {
-    "objectID": "hs25/doe/doe_notes.html",
-    "href": "hs25/doe/doe_notes.html",
-    "title": "Design of Experiments",
+    "objectID": "hs25/lia1/lia1_notes.html#d-space",
+    "href": "hs25/lia1/lia1_notes.html#d-space",
+    "title": "Linear Algebra 01",
     "section": "",
-    "text": "The fundamental difference between observational studies and experimental research designs is that in the former, researchers simply observe and measure variables without actively intervening. In the latter, variables are purposefully manipulated to determine a cause-and-effect relationship.\n\n\n\nThe effect and aim of randomisation is to eliminate selection bias and confounding factors, and to ensure comparability between groups at the start of the study (baseline data).\n\n\n\nConfounding occurs when a factor (confounder) that has not been investigated is associated with both the independent and dependent variables, causing a spurious correlation between them.\n\n\n\nThe problem is distortion due to knowledge about the treatment. Blinding is a suitable technique for avoiding such distortions. It eliminates conscious and unconscious influences on the treatment result.\n\n\n\nOpen: No blining\nSingle-blind: Participants don’t know their group assignment (e.g., whether they’re receiving the real treatment or a placebo).\nDouble-blind: Neither the participants nor the researchers administering the treatment know the group assignments.\nTriple-blind: Participants, researchers, and the data analysts are all unaware of the group assignments."
+    "text": "Vectors in 3D space have a additional component to represent the 3thd dimension.\n\\[\n\\overrightarrow{a} = \\begin{bmatrix}\n1 \\\\\n-3 \\\\\n2 \\\\\n\\end{bmatrix}\n\\]\n\nNote: The mathamatical rules does not change by adding more dimension."
   },
   {
-    "objectID": "hs25/doe/doe_notes.html#observational-vs.-experimental",
-    "href": "hs25/doe/doe_notes.html#observational-vs.-experimental",
-    "title": "Design of Experiments",
+    "objectID": "hs25/lia1/lia1_notes.html#matrice",
+    "href": "hs25/lia1/lia1_notes.html#matrice",
+    "title": "Linear Algebra 01",
     "section": "",
-    "text": "The fundamental difference between observational studies and experimental research designs is that in the former, researchers simply observe and measure variables without actively intervening. In the latter, variables are purposefully manipulated to determine a cause-and-effect relationship."
-  },
-  {
-    "objectID": "hs25/doe/doe_notes.html#randomization",
-    "href": "hs25/doe/doe_notes.html#randomization",
-    "title": "Design of Experiments",
-    "section": "",
-    "text": "The effect and aim of randomisation is to eliminate selection bias and confounding factors, and to ensure comparability between groups at the start of the study (baseline data)."
-  },
-  {
-    "objectID": "hs25/doe/doe_notes.html#confounder",
-    "href": "hs25/doe/doe_notes.html#confounder",
-    "title": "Design of Experiments",
-    "section": "",
-    "text": "Confounding occurs when a factor (confounder) that has not been investigated is associated with both the independent and dependent variables, causing a spurious correlation between them."
-  },
-  {
-    "objectID": "hs25/doe/doe_notes.html#blinding",
-    "href": "hs25/doe/doe_notes.html#blinding",
-    "title": "Design of Experiments",
-    "section": "",
-    "text": "The problem is distortion due to knowledge about the treatment. Blinding is a suitable technique for avoiding such distortions. It eliminates conscious and unconscious influences on the treatment result.\n\n\n\nOpen: No blining\nSingle-blind: Participants don’t know their group assignment (e.g., whether they’re receiving the real treatment or a placebo).\nDouble-blind: Neither the participants nor the researchers administering the treatment know the group assignments.\nTriple-blind: Participants, researchers, and the data analysts are all unaware of the group assignments."
-  },
-  {
-    "objectID": "hs25/pds/pds_exercises.html",
-    "href": "hs25/pds/pds_exercises.html",
-    "title": "Python for Data Science - Exercises",
-    "section": "",
-    "text": "print(f\"10 + 10 + 10 = {10 + 10 + 10}\")\nprint(f\"10 - 3       = {10 - 3}\")\nprint(f\"10 * 2       = {10 * 2}\")\nprint(f\"5 / 2        = {5 / 2}\")\nprint(f\"5.0 / 2      = {5.0 / 2}\")\nprint(f\"5 % 2        = {5 % 2}\")\nprint(f\"10 % 3       = {10 % 3}\")\nprint(f\"3 ** 3       = {3 ** 3}\")\nprint(f\"9 ** 0.5     = {9 ** 0.5}\")\nprint(f\"10 + 3 * 3   = {10 + 3 * 3}\")\nprint(f\"(10 + 3) * 3 = {(10 + 3) * 3}\")\n\n10 + 10 + 10 = 30\n10 - 3       = 7\n10 * 2       = 20\n5 / 2        = 2.5\n5.0 / 2      = 2.5\n5 % 2        = 1\n10 % 3       = 1\n3 ** 3       = 27\n9 ** 0.5     = 3.0\n10 + 3 * 3   = 19\n(10 + 3) * 3 = 39\n\n\n\n\n\n\na = 23\nb = 23\nprint(f\"a = {a}\")\nprint(f\"The ID of a is {id(a)}\") # Prints memory address of the variable a\nprint(f\"a is of type {type(a)}\") # Prints the data type of the variable a\n\na = 23\nThe ID of a is 11761384\na is of type &lt;class 'int'&gt;\n\n\n\nNote: id() corresponds to the objects memory address during its lifetime.\n\n\nprint(f\"b = {b}\")\nprint(f\"The ID of b is {id(b)}\")\nprint(f\"b is of type {type(a)}\")\n\nb = 23\nThe ID of b is 11761384\nb is of type &lt;class 'int'&gt;\n\n\n\n\n\n\na = 123 # Reassign var a to int 123\nprint(f\"a = {a}\")\nprint(f\"The ID of a is {id(a)}\")\nprint(f\"a is of type {type(a)}\")\n\na = 123\nThe ID of a is 11764584\na is of type &lt;class 'int'&gt;\n\n\n\n\n\n\nc = 23\nprint(f\"c = {c}\")\nprint(f\"The ID of a is {id(c)}\")\nprint(f\"c is of type {type(c)}\")\n\nc = 23\nThe ID of a is 11761384\nc is of type &lt;class 'int'&gt;\n\n\nWe assign the variable c to the value 23 and check its data type and memory location.\n\n\n\n\nd = 3.142\nprint(f\"d = {d}\")\nprint(f\"The ID of a is {id(d)}\")\nprint(f\"d is of type {type(d)}\")\n\nd = 3.142\nThe ID of a is 126848102112592\nd is of type &lt;class 'float'&gt;\n\n\n\n\n\n\nprint (\"HSLU's Python course is cool\")\n\nprint(\"This is Line 1\")\nprint(\"This is Line 2\")\n\nprint(\"\\nWhat does the \\\\n control character do? Are you sure?\") # \\n is a line break\n\nprint(\"\\tWhat does the \\\\t control character do? Are you sure?\") # \\t is a tabulator\n\nprint(\"I want to learn python because....\")\nprint(\"\\n\\n\\t....it's a cool data science programming language. Ok - there are also others ;-) !\")\n\nprint(\"What \" + \"is \" + \"wrong?\" + \"\\nAdd some space between the words without removing the '+' signs!\") # Add spaces after the string\n\nHSLU's Python course is cool\nThis is Line 1\nThis is Line 2\n\nWhat does the \\n control character do? Are you sure?\n    What does the \\t control character do? Are you sure?\nI want to learn python because....\n\n\n    ....it's a cool data science programming language. Ok - there are also others ;-) !\nWhat is wrong?\nAdd some space between the words without removing the '+' signs!\n\n\n\n\n\n\ng=h='hslu'      # Assign the var g and h to the string \"hslu\"\nprint(g)        # Prints hslu\nprint(h)        # Print hslu\nh=456           # Reassign h to int 456\nprint(h)        # Prints 456\nh=h+1           # Calculates 456 + 1 = 457\nprint(h)        # Prints 457\nh+=1            # Calculates 457 + 1 = 458\nprint(h)        # Prints 458\np='hslu'        # Assign the var p to the string \"hslu\"\nq=p             # Copies the var p (hlsu) to the var q\nprint(p==q)     # Compare the var p and q (Output: True)\nprint(p is q)   # Compare the var p and q (Output: True)\n\nhslu\nhslu\n456\n457\n458\nTrue\nTrue"
-  },
-  {
-    "objectID": "hs25/pds/pds_exercises.html#exercises-1",
-    "href": "hs25/pds/pds_exercises.html#exercises-1",
-    "title": "Python for Data Science - Exercises",
-    "section": "",
-    "text": "print(f\"10 + 10 + 10 = {10 + 10 + 10}\")\nprint(f\"10 - 3       = {10 - 3}\")\nprint(f\"10 * 2       = {10 * 2}\")\nprint(f\"5 / 2        = {5 / 2}\")\nprint(f\"5.0 / 2      = {5.0 / 2}\")\nprint(f\"5 % 2        = {5 % 2}\")\nprint(f\"10 % 3       = {10 % 3}\")\nprint(f\"3 ** 3       = {3 ** 3}\")\nprint(f\"9 ** 0.5     = {9 ** 0.5}\")\nprint(f\"10 + 3 * 3   = {10 + 3 * 3}\")\nprint(f\"(10 + 3) * 3 = {(10 + 3) * 3}\")\n\n10 + 10 + 10 = 30\n10 - 3       = 7\n10 * 2       = 20\n5 / 2        = 2.5\n5.0 / 2      = 2.5\n5 % 2        = 1\n10 % 3       = 1\n3 ** 3       = 27\n9 ** 0.5     = 3.0\n10 + 3 * 3   = 19\n(10 + 3) * 3 = 39\n\n\n\n\n\n\na = 23\nb = 23\nprint(f\"a = {a}\")\nprint(f\"The ID of a is {id(a)}\") # Prints memory address of the variable a\nprint(f\"a is of type {type(a)}\") # Prints the data type of the variable a\n\na = 23\nThe ID of a is 11761384\na is of type &lt;class 'int'&gt;\n\n\n\nNote: id() corresponds to the objects memory address during its lifetime.\n\n\nprint(f\"b = {b}\")\nprint(f\"The ID of b is {id(b)}\")\nprint(f\"b is of type {type(a)}\")\n\nb = 23\nThe ID of b is 11761384\nb is of type &lt;class 'int'&gt;\n\n\n\n\n\n\na = 123 # Reassign var a to int 123\nprint(f\"a = {a}\")\nprint(f\"The ID of a is {id(a)}\")\nprint(f\"a is of type {type(a)}\")\n\na = 123\nThe ID of a is 11764584\na is of type &lt;class 'int'&gt;\n\n\n\n\n\n\nc = 23\nprint(f\"c = {c}\")\nprint(f\"The ID of a is {id(c)}\")\nprint(f\"c is of type {type(c)}\")\n\nc = 23\nThe ID of a is 11761384\nc is of type &lt;class 'int'&gt;\n\n\nWe assign the variable c to the value 23 and check its data type and memory location.\n\n\n\n\nd = 3.142\nprint(f\"d = {d}\")\nprint(f\"The ID of a is {id(d)}\")\nprint(f\"d is of type {type(d)}\")\n\nd = 3.142\nThe ID of a is 126848102112592\nd is of type &lt;class 'float'&gt;\n\n\n\n\n\n\nprint (\"HSLU's Python course is cool\")\n\nprint(\"This is Line 1\")\nprint(\"This is Line 2\")\n\nprint(\"\\nWhat does the \\\\n control character do? Are you sure?\") # \\n is a line break\n\nprint(\"\\tWhat does the \\\\t control character do? Are you sure?\") # \\t is a tabulator\n\nprint(\"I want to learn python because....\")\nprint(\"\\n\\n\\t....it's a cool data science programming language. Ok - there are also others ;-) !\")\n\nprint(\"What \" + \"is \" + \"wrong?\" + \"\\nAdd some space between the words without removing the '+' signs!\") # Add spaces after the string\n\nHSLU's Python course is cool\nThis is Line 1\nThis is Line 2\n\nWhat does the \\n control character do? Are you sure?\n    What does the \\t control character do? Are you sure?\nI want to learn python because....\n\n\n    ....it's a cool data science programming language. Ok - there are also others ;-) !\nWhat is wrong?\nAdd some space between the words without removing the '+' signs!\n\n\n\n\n\n\ng=h='hslu'      # Assign the var g and h to the string \"hslu\"\nprint(g)        # Prints hslu\nprint(h)        # Print hslu\nh=456           # Reassign h to int 456\nprint(h)        # Prints 456\nh=h+1           # Calculates 456 + 1 = 457\nprint(h)        # Prints 457\nh+=1            # Calculates 457 + 1 = 458\nprint(h)        # Prints 458\np='hslu'        # Assign the var p to the string \"hslu\"\nq=p             # Copies the var p (hlsu) to the var q\nprint(p==q)     # Compare the var p and q (Output: True)\nprint(p is q)   # Compare the var p and q (Output: True)\n\nhslu\nhslu\n456\n457\n458\nTrue\nTrue"
-  },
-  {
-    "objectID": "hs25/sa/sa_exercises.html",
-    "href": "hs25/sa/sa_exercises.html",
-    "title": "Classical and Bayesian Statistics - Exercises",
-    "section": "",
-    "text": "It seems that, in total, the Allied and Axis countries had about the same number of civilian deaths. However, if we compare the numbers per party member, we see that the Axis countries had a higher average amount of deaths. On the other hand, the data from the Allies is inconsistent (see Denmark).\n\n\n\nThe percentages in the chart do not sum up to 100%.\n\n\n\n\n\nWe can assume that Linda is a bank teller and is active in the feminist movement. Her experiences from the past could have influenced her behavior and thinking on certain topics. She may have a sense for justice and equality, regardless of the topic.\n\n\n\nWe can assume that Steve is a librarian because of his helpful personality and his need for order and structure, much like what’s found in a library. His passion for details may also be connected to a desire for knowledge.\n\n\n\nA Ball costs $0.05.\n\n\n\nThere are more death by heart diseases than accidents.\n\n\n\n\nSince the engine is the only thing that keeps a plane in the air, it makes sense for it to be more armoured than the rest of the plane. Even if other parts have more bullet holes on average (e.g. the fuselage), the plane could still fly."
-  },
-  {
-    "objectID": "hs25/sa/sa_exercises.html#a",
-    "href": "hs25/sa/sa_exercises.html#a",
-    "title": "Classical and Bayesian Statistics - Exercises",
-    "section": "",
-    "text": "It seems that, in total, the Allied and Axis countries had about the same number of civilian deaths. However, if we compare the numbers per party member, we see that the Axis countries had a higher average amount of deaths. On the other hand, the data from the Allies is inconsistent (see Denmark)."
-  },
-  {
-    "objectID": "hs25/sa/sa_exercises.html#b",
-    "href": "hs25/sa/sa_exercises.html#b",
-    "title": "Classical and Bayesian Statistics - Exercises",
-    "section": "",
-    "text": "The percentages in the chart do not sum up to 100%."
-  },
-  {
-    "objectID": "hs25/sa/sa_exercises.html#c",
-    "href": "hs25/sa/sa_exercises.html#c",
-    "title": "Classical and Bayesian Statistics - Exercises",
-    "section": "",
-    "text": "We can assume that Linda is a bank teller and is active in the feminist movement. Her experiences from the past could have influenced her behavior and thinking on certain topics. She may have a sense for justice and equality, regardless of the topic.\n\n\n\nWe can assume that Steve is a librarian because of his helpful personality and his need for order and structure, much like what’s found in a library. His passion for details may also be connected to a desire for knowledge.\n\n\n\nA Ball costs $0.05.\n\n\n\nThere are more death by heart diseases than accidents."
-  },
-  {
-    "objectID": "hs25/sa/sa_exercises.html#d",
-    "href": "hs25/sa/sa_exercises.html#d",
-    "title": "Classical and Bayesian Statistics - Exercises",
-    "section": "",
-    "text": "Since the engine is the only thing that keeps a plane in the air, it makes sense for it to be more armoured than the rest of the plane. Even if other parts have more bullet holes on average (e.g. the fuselage), the plane could still fly."
-  },
-  {
-    "objectID": "hs25/sa/sa_exercises.html#problem-1.3",
-    "href": "hs25/sa/sa_exercises.html#problem-1.3",
-    "title": "Classical and Bayesian Statistics - Exercises",
-    "section": "Problem 1.3",
-    "text": "Problem 1.3\n\ngrades &lt;- c(4.2, 2.3, 5.6, 4.5, 4.8, 3.9, 5.9, 2.4, 5.9, 6, 4, 3.7, 5, 5.2, 4.5, 3.6, 5, 6, 2.8, 3.3, 5.5, 4.2, 4.9, 5.1)\n\ngrades &lt;- sort(grades) # Sort values\n\noriginal_mu &lt;- mean(grades)\noriginla_meadian &lt;- median(grades)\n\ngrades[9:11] &lt;- 1 # Reassign values\nnew_mu &lt;- mean(grades)\nnew_median &lt;- median(grades)\n\ncat(\"Original vs. New mean:\", original_mu, \"vs.\", new_mu, \"\\n\") # Add line break\n\nOriginal vs. New mean: 4.5125 vs. 4.1 \n\ncat(\"Median stays the same:\", originla_meadian, \"=\", new_median)\n\nMedian stays the same: 4.65 = 4.65"
-  },
-  {
-    "objectID": "about.html",
-    "href": "about.html",
-    "title": "About",
-    "section": "",
-    "text": "About this site"
+    "text": "Rectangular bunch of numbers.\n\\[\nA = \\begin{bmatrix}\n1 & 3 & -7 \\\\\n2 & 1 & 6 \\\\\n4 & 0 & 1 \\\\\n\\end{bmatrix}\n\\]"
   }
 ]
