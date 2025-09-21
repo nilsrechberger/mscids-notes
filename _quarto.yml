@@ -20,11 +20,6 @@ website:
             href: hs25/sa/sa_exercises.qmd
           - text: "Design of Experiments"
             href: hs25/doe/doe_notes.qmd
-          - text: "Linear Algebra 01"
-            href: hs25/lia1/lia1_notes.qmd
-      - text: "About"
-        href:  about.qmd
-
 format:
   html:
     theme: cosmo
