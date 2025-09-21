@@ -2,10 +2,6 @@
 title: "mscids-notes"
 ---
 
-Of course! Here is the complete text with the new section added.
-
-***
-
 # Hey there, fellow students! 👋
 
 Here you'll find a collection of my **personal notes and solutions** from our courses. I've decided to put them online in the hopes that they might help some of you out.
