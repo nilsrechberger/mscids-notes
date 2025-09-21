@@ -2,25 +2,23 @@
 title: Design of Experiments
 ---
 
-# Researce Design
+# Research Design
 
 ## Observational vs. Experimental
+The fundamental difference between observational studies and experimental research designs is that in the former, researchers simply observe and measure variables without actively intervening. In the latter, variables are purposefully manipulated to determine a cause-and-effect relationship.
 
 ## Randomization
-Effect and aim of randomization
-Elimination of selection bias
-Elimination of confounding
-Ensuring the comparability of the groups at study initiation (Baseline Data)
+The effect and aim of randomisation is to eliminate selection bias and confounding factors, and to ensure comparability between groups at the start of the study (baseline data).
 
 ## Confounder
-Confounding means that a factor (Confounder) that is not directly investigated is associated with both the independent variable and the dependent variable and accordingly causes the relationship between the two variables (Spurious Correlation).
+Confounding occurs when a factor (confounder) that has not been investigated is associated with both the independent and dependent variables, causing a spurious correlation between them.
 
 ## Blinding
-Problem of distortion due to knowledge about the treatment. Blinding is a suitable technique to avoid such distortions. Elimination of conscious and unconscious influences on the treatment result.
+The problem is distortion due to knowledge about the treatment. Blinding is a suitable technique for avoiding such distortions. It eliminates conscious and unconscious influences on the treatment result.
 
 ### Types of blining
 
 - Open: No blining
-- Single-blind: Test persons have no knowledge of group membership.
-- Double-blind: Also, the persons carrying out the tests have no knowledge of group membership.
-- Triple-blind: Also, people doing the analysis have no knowledge about group membership.
+- Single-blind: Participants don't know their group assignment (e.g., whether they're receiving the real treatment or a placebo).
+- Double-blind: Neither the participants nor the researchers administering the treatment know the group assignments.
+- Triple-blind: Participants, researchers, and the data analysts are all unaware of the group assignments.

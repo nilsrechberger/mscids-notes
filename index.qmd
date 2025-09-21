@@ -2,6 +2,28 @@
 title: "mscids-notes"
 ---
 
-This is a Quarto website.
+Of course! Here is the complete text with the new section added.
 
-To learn more about Quarto websites visit <https://quarto.org/docs/websites>.
+***
+
+# Hey there, fellow students! 👋
+
+Here you'll find a collection of my **personal notes and solutions** from our courses. I've decided to put them online in the hopes that they might help some of you out.
+
+### Quick Heads-Up! 📝
+
+Just a friendly reminder: everything you see here is based on my own understanding and approach. That means my solutions might be different from the official ones provided by our professors.
+
+Think of this as a **secondary resource** to complement your own work, not as an official answer key.
+
+### Disclaimer 🚨
+
+While I do my best, I can't guarantee that everything is 100% correct or complete. I'm just a student trying to figure things out, same as you. Therefore, I'm not taking any responsibility for the accuracy of the content. **Always double-check with official course materials!**
+
+### Spotted a Mistake? 👀
+
+If you happen to find an error, I'd be super grateful if you could let me know. Just shoot me a quick email!
+
+📧 **[nils.rechberger@stud.hslu.ch](mailto:nils.rechberger@stud.hslu.ch)**
+
+Happy studying! 🚀

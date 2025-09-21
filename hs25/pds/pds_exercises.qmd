@@ -45,7 +45,7 @@ print(f"b is of type {type(a)}")
 ### Change the value of variable "a"
 
 ```{python}
-a = 123 # Reassign a to int 123
+a = 123 # Reassign var a to int 123
 print(f"a = {a}")
 print(f"The ID of a is {id(a)}")
 print(f"a is of type {type(a)}")
@@ -60,7 +60,7 @@ print(f"The ID of a is {id(c)}")
 print(f"c is of type {type(c)}")
 ```
 
-We reference the variable `c` to the value `23` and check its data type and memory location.
+We assign the variable `c` to the value `23` and check its data type and memory location.
 
 ### Try the same thing with a float variable!!!
 
@@ -86,23 +86,23 @@ print("\tWhat does the \\t control character do? Are you sure?") # \t is a tabul
 print("I want to learn python because....")
 print("\n\n\t....it's a cool data science programming language. Ok - there are also others ;-) !")
 
-print("What " + "is " + "wrong?" + "\nAdd some space between the words without removing the '+' signs!")
+print("What " + "is " + "wrong?" + "\nAdd some space between the words without removing the '+' signs!") # Add spaces after the string
 ```
 
 ### try to understand the behaviour
 
 ```{python}
-g=h='hslu'      # Assign the variables g and h to the string "hslu"
-print(g)        # prints hslu
-print(h)        # print hslu
+g=h='hslu'      # Assign the var g and h to the string "hslu"
+print(g)        # Prints hslu
+print(h)        # Print hslu
 h=456           # Reassign h to int 456
-print(h)        # prints 456
+print(h)        # Prints 456
 h=h+1           # Calculates 456 + 1 = 457
-print(h)        # prints 457
+print(h)        # Prints 457
 h+=1            # Calculates 457 + 1 = 458
-print(h)        # prints 458
-p='hslu'        # Assign the variable p to the string "hslu"
-q=p             # Copies the variable p (hlsu) to the variable q
-print(p==q)     # Compare the variables p and q (Output: True)
-print(p is q)   # Compare the variables p and q (Output: True)
+print(h)        # Prints 458
+p='hslu'        # Assign the var p to the string "hslu"
+q=p             # Copies the var p (hlsu) to the var q
+print(p==q)     # Compare the var p and q (Output: True)
+print(p is q)   # Compare the var p and q (Output: True)
 ```

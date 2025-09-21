@@ -15,25 +15,25 @@ The percentages in the chart do not sum up to 100%.
 
 ## c
 
-### 1
+### I
 
 We can assume that Linda is a bank teller and is active in the feminist movement. Her experiences from the past could have influenced her behavior and thinking on certain topics. She may have a sense for justice and equality, regardless of the topic.
 
-### 2
+### II
 
 We can assume that Steve is a librarian because of his helpful personality and his need for order and structure, much like what's found in a library. His passion for details may also be connected to a desire for knowledge.
 
-### 3
+### III
 
 A Ball costs $0.05.
 
-### 4
+### IV
 
 There are more death by heart diseases than accidents.
 
 ## d
 
-Since the engine is the only thing that keeps a plane flying, it's worth it to be more armored than the rest. Even if some other parts have on average more bullet holes (e.g., the fuselage), the plane could still fly.
+Since the engine is the only thing that keeps a plane in the air, it makes sense for it to be more armoured than the rest of the plane. Even if other parts have more bullet holes on average (e.g. the fuselage), the plane could still fly.
 
 # Problem 1.2
 
@@ -50,11 +50,12 @@ opponent <- c(163, 191, 165, 187, 175, 193, 185, 187, 188, 173, 180, 177, 183,
 
 ```{r}
 # Determine length
-cat("Length of winners vector =", length(winner), "\n") # Add line break
-cat("Length of opponent vector =", length(opponent))
+cat("Length of vector winners =", length(winner), "\n") # Add line break
+cat("Length of vector opponent =", length(opponent))
 ```
 
 ### b
+
 ```{r}
 cat("Entries 6 to 10 =",winner[6:10]) # Index starts at 1
 ```
@@ -68,9 +69,9 @@ cat("Some values from winner:", winner[c(3, 5, 10, 12)]) # Passing a vector for 
 ### d
 
 ```{r}
-print(winner[c(8, 9)])  # Check values
-winner[c(8, 9)] <- 189  # Reassing 
-print(winner[c(8, 9)])  # Check values
+cat("Current values:",winner[c(8, 9)], "\n")  # Check values
+winner[c(8, 9)] <- 189  # Reassign 
+cat("New values:", winner[c(8, 9)])  # Check values
 ```
 
 ### e
@@ -96,7 +97,7 @@ cat("Differences between means =", mu_diff)
 var_winner <- var(winner)
 sd_winner <- sd(winner)
 
-cat("Variance/Std. deviation of winner:", var_winner, "/", sd_winner)
+cat("Variance / Std. deviation of winner:", var_winner, "/", sd_winner)
 ```
 
 ### h
@@ -119,7 +120,7 @@ my_stdDeviation <- function(variance){
 my_var_winner <- my_variance(winner)
 my_sd_winner <- my_stdDeviation(my_var_winner)
 
-cat("Variance of Winner =", my_var_winner)
+cat("Variance of Winner =", my_var_winner, "\n") # Add line break
 cat("Variance of Winner =", my_sd_winner)
 ```
 
@@ -137,9 +138,6 @@ grades[9:11] <- 1 # Reassign values
 new_mu <- mean(grades)
 new_median <- median(grades)
 
-cat("Original vs. New mean:", original_mu, "vs.", new_mu, "\n")
+cat("Original vs. New mean:", original_mu, "vs.", new_mu, "\n") # Add line break
 cat("Median stays the same:", originla_meadian, "=", new_median)
-
-
-
 ```

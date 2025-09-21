@@ -12,22 +12,24 @@ interpretation, and presentation of data. Applied statistics applies to real eve
 
 # Classical Statistics
 
-Classical statistics is a set of tools for decision making using hypothesis. or different types of problems different tests are being used.
+Classical statistics is a set of tools for decision making using hypothesis.
 
 # Bayesien Statistic
 Bayesian statistics is a statistical theory that interprets probability as a degree of belief in an event, which can be updated as new evidence is obtained.
 
+> Note: Bayesian statistics is not the same as the Bayesian theorem.
+
 # Models
 
-Models are used to simplify nature of things and essential for statistics. Models are not simply useful but only useful in a certain context. Models have their limitations. Models are statements about the operation of nature that purposefully omit many details and thus achieve insight that would otherwise be discursively obscured.
+Models are used to simplify things and are essential for statistics. However, models are only useful in a certain context. Models have their limitations. They are statements about how nature operates that deliberately omit many details, thus achieving insight that would otherwise be obscured.
 
 # Simulations
 
-Simulations are used to approximate quantities for which exact solution is very difficult or even impossible to determine. Simulations rely heavily on computer power.
+Simulations are used to approximate quantities for which an exact solution would be very difficult, if not impossible, to determine. They rely heavily on computer power.
 
 # Data
 
-# One-Dimensional
+## One-Dimensional
 
 List are the simplest kind od datasets. Lists are heterogeneous data structures.
 
@@ -39,7 +41,7 @@ Tabels are the most common form of datasets
 
 The aim of EDA ist to summarize data by numerical parameters and graphical representation of data. Data should if possible always be graphically displayed and compared with corresponding key figures.
 
-> Note:  Whenever a dataset is reduced by key figures or graphics, information is lost.
+> Note:  Note: whenever a dataset is reduced by key figures or graphics, information gets lost.
 
 # Key Figures
 
@@ -68,8 +70,11 @@ x <- c(4.3, 5.2, 2.7, 3.1)
 mean(x)
 ```
 
+> Note: The arithmetic mean is not robust to outliers.
+
 ## Empirical Variancehave
-Value of empirical variance has no physical interpretation
+
+The value of empirical variance has no physical interpretation.
 
 $$
 Var(x) = \dfrac{(x_1-\bar{x})² + (x_2-\bar{x})² + \dots + (x_n-\bar{x})² }{n-1} = \dfrac{1}{n-1}\sum^n_{i=1}(x_i - \bar{x}²)
@@ -82,7 +87,7 @@ var(x)
 
 ## Standard Deviation
 
-Standard deviation is root of variance. Standard deviation has same unit as data itself
+Standard deviation is root of variance. Standard deviation has same unit as data itself.
 
 $$
 s_x = \sqrt{Var(x)} = \sqrt{\dfrac{1}{n-1}\sum^n_{i=1}(x_i - \bar{x}²)}

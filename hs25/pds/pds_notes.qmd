@@ -19,20 +19,20 @@ Typically, an IDE provides additional tools to make programming more convenient.
 - Deployment chain control
 - File browser
 - Terminal
-- version control interface
+- Version control interface
 - etc.
 
 > Note: Python is a text-only language that can be written in a simple text editor.
 
 ## Python console vs. script
 
-Every instruction is sent sequentially to the interpreter. The Python console is a direct interface to the interpreter. Commands sent in the console are sent directly to the interpreter.
+The Python console is a direct interface to the interpreter. Every instruction is sent sequentially to the interpreter. Commands sent in the console are sent directly to the interpreter.
 
 A Python script is a collection of commands. Executing a Python script means sending all the commands it contains consecutively to the interpreter.
 
 ## Virtual enviroments (venv)
 
-To avoid dependency issues and keep the development environment clean, developers programme applications in virtual environments.
+To avoid dependency issues of packages and keep the development environment clean, developers programme applications in virtual environments.
 
 ```{bash}
 Python3 -m venv .venv # Standard name
@@ -40,7 +40,7 @@ Python3 -m venv .venv # Standard name
 
 > Note: It is best practice to name the virtual environment .venv to hide it in the file system.
 
-If you are working in a command line interface, you need to activate the virtual environment.
+You need to activate the virtual environment.
 
 ```{bash}
 . .venv/bin/activate # For Linux
@@ -58,7 +58,7 @@ A variable is a name that refers to a particular or undefined value. In programm
 
 Basic data types:
 
-- Integer (Int)
+- Integer (int)
 - String (str)
 - Boolean (bool).
 - List
