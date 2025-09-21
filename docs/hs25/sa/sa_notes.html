@@ -180,16 +180,8 @@ window.Quarto = {
     <a class="dropdown-item" href="../../hs25/doe/doe_notes.html">
  <span class="dropdown-text">Design of Experiments</span></a>
   </li>  
-        <li>
-    <a class="dropdown-item" href="../../hs25/lia1/lia1_notes.html">
- <span class="dropdown-text">Linear Algebra 01</span></a>
-  </li>  
     </ul>
   </li>
-  <li class="nav-item">
-    <a class="nav-link" href="../../about.html"> 
-<span class="menu-text">About</span></a>
-  </li>  
 </ul>
           </div> <!-- /navcollapse -->
             <div class="quarto-navbar-tools">
@@ -211,9 +203,9 @@ window.Quarto = {
   <li><a href="#bayesien-statistic" id="toc-bayesien-statistic" class="nav-link" data-scroll-target="#bayesien-statistic">Bayesien Statistic</a></li>
   <li><a href="#models" id="toc-models" class="nav-link" data-scroll-target="#models">Models</a></li>
   <li><a href="#simulations" id="toc-simulations" class="nav-link" data-scroll-target="#simulations">Simulations</a></li>
-  <li><a href="#data" id="toc-data" class="nav-link" data-scroll-target="#data">Data</a></li>
-  <li><a href="#one-dimensional" id="toc-one-dimensional" class="nav-link" data-scroll-target="#one-dimensional">One-Dimensional</a>
+  <li><a href="#data" id="toc-data" class="nav-link" data-scroll-target="#data">Data</a>
   <ul class="collapse">
+  <li><a href="#one-dimensional" id="toc-one-dimensional" class="nav-link" data-scroll-target="#one-dimensional">One-Dimensional</a></li>
   <li><a href="#two-dimentinal" id="toc-two-dimentinal" class="nav-link" data-scroll-target="#two-dimentinal">Two-Dimentinal</a></li>
   </ul></li>
   <li><a href="#exploratory-datat-analysis-eda" id="toc-exploratory-datat-analysis-eda" class="nav-link" data-scroll-target="#exploratory-datat-analysis-eda">Exploratory Datat Analysis (EDA)</a></li>
@@ -262,26 +254,29 @@ window.Quarto = {
 </section>
 <section id="classical-statistics" class="level1">
 <h1>Classical Statistics</h1>
-<p>Classical statistics is a set of tools for decision making using hypothesis. or different types of problems different tests are being used.</p>
+<p>Classical statistics is a set of tools for decision making using hypothesis.</p>
 </section>
 <section id="bayesien-statistic" class="level1">
 <h1>Bayesien Statistic</h1>
 <p>Bayesian statistics is a statistical theory that interprets probability as a degree of belief in an event, which can be updated as new evidence is obtained.</p>
+<blockquote class="blockquote">
+<p>Note: Bayesian statistics is not the same as the Bayesian theorem.</p>
+</blockquote>
 </section>
 <section id="models" class="level1">
 <h1>Models</h1>
-<p>Models are used to simplify nature of things and essential for statistics. Models are not simply useful but only useful in a certain context. Models have their limitations. Models are statements about the operation of nature that purposefully omit many details and thus achieve insight that would otherwise be discursively obscured.</p>
+<p>Models are used to simplify things and are essential for statistics. However, models are only useful in a certain context. Models have their limitations. They are statements about how nature operates that deliberately omit many details, thus achieving insight that would otherwise be obscured.</p>
 </section>
 <section id="simulations" class="level1">
 <h1>Simulations</h1>
-<p>Simulations are used to approximate quantities for which exact solution is very difficult or even impossible to determine. Simulations rely heavily on computer power.</p>
+<p>Simulations are used to approximate quantities for which an exact solution would be very difficult, if not impossible, to determine. They rely heavily on computer power.</p>
 </section>
 <section id="data" class="level1">
 <h1>Data</h1>
-</section>
-<section id="one-dimensional" class="level1">
-<h1>One-Dimensional</h1>
+<section id="one-dimensional" class="level2">
+<h2 class="anchored" data-anchor-id="one-dimensional">One-Dimensional</h2>
 <p>List are the simplest kind od datasets. Lists are heterogeneous data structures.</p>
+</section>
 <section id="two-dimentinal" class="level2">
 <h2 class="anchored" data-anchor-id="two-dimentinal">Two-Dimentinal</h2>
 <p>Tabels are the most common form of datasets</p>
@@ -291,7 +286,7 @@ window.Quarto = {
 <h1>Exploratory Datat Analysis (EDA)</h1>
 <p>The aim of EDA ist to summarize data by numerical parameters and graphical representation of data. Data should if possible always be graphically displayed and compared with corresponding key figures.</p>
 <blockquote class="blockquote">
-<p>Note: Whenever a dataset is reduced by key figures or graphics, information is lost.</p>
+<p>Note: Note: whenever a dataset is reduced by key figures or graphics, information gets lost.</p>
 </blockquote>
 </section>
 <section id="key-figures" class="level1">
@@ -325,10 +320,13 @@ window.Quarto = {
 <pre><code>[1] 3.825</code></pre>
 </div>
 </div>
+<blockquote class="blockquote">
+<p>Note: The arithmetic mean is not robust to outliers.</p>
+</blockquote>
 </section>
 <section id="empirical-variancehave" class="level2">
 <h2 class="anchored" data-anchor-id="empirical-variancehave">Empirical Variancehave</h2>
-<p>Value of empirical variance has no physical interpretation</p>
+<p>The value of empirical variance has no physical interpretation.</p>
 <p><span class="math display">\[
 Var(x) = \dfrac{(x_1-\bar{x})² + (x_2-\bar{x})² + \dots + (x_n-\bar{x})² }{n-1} = \dfrac{1}{n-1}\sum^n_{i=1}(x_i - \bar{x}²)
 \]</span></p>
@@ -342,7 +340,7 @@ Var(x) = \dfrac{(x_1-\bar{x})² + (x_2-\bar{x})² + \dots + (x_n-\bar{x})² }{n-
 </section>
 <section id="standard-deviation" class="level2">
 <h2 class="anchored" data-anchor-id="standard-deviation">Standard Deviation</h2>
-<p>Standard deviation is root of variance. Standard deviation has same unit as data itself</p>
+<p>Standard deviation is root of variance. Standard deviation has same unit as data itself.</p>
 <p><span class="math display">\[
 s_x = \sqrt{Var(x)} = \sqrt{\dfrac{1}{n-1}\sum^n_{i=1}(x_i - \bar{x}²)}
 \]</span></p>
