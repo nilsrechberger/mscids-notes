@@ -143,6 +143,10 @@ window.Quarto = {
  <span class="dropdown-text">Classical and Bayesian Statistics - Exercises</span></a>
   </li>  
         <li>
+    <a class="dropdown-item" href="../../hs25/lia1/lia1_notes.html">
+ <span class="dropdown-text">Linear Algebra - Notes</span></a>
+  </li>  
+        <li>
     <a class="dropdown-item" href="../../hs25/doe/doe_notes.html">
  <span class="dropdown-text">Design of Experiments</span></a>
   </li>  
@@ -166,14 +170,14 @@ window.Quarto = {
   <ul>
   <li><a href="#what-is-linear-algebra" id="toc-what-is-linear-algebra" class="nav-link active" data-scroll-target="#what-is-linear-algebra">What is Linear Algebra</a>
   <ul class="collapse">
-  <li><a href="#vector" id="toc-vector" class="nav-link" data-scroll-target="#vector">Vector</a>
+  <li><a href="#vectors" id="toc-vectors" class="nav-link" data-scroll-target="#vectors">Vectors</a>
   <ul class="collapse">
   <li><a href="#sum-of-vectors" id="toc-sum-of-vectors" class="nav-link" data-scroll-target="#sum-of-vectors">Sum of Vectors</a></li>
   <li><a href="#subtraction" id="toc-subtraction" class="nav-link" data-scroll-target="#subtraction">Subtraction</a></li>
   <li><a href="#scalar-multiplication" id="toc-scalar-multiplication" class="nav-link" data-scroll-target="#scalar-multiplication">Scalar Multiplication</a></li>
   <li><a href="#magniture-norm" id="toc-magniture-norm" class="nav-link" data-scroll-target="#magniture-norm">Magniture (Norm)</a></li>
-  <li><a href="#zero-vecor" id="toc-zero-vecor" class="nav-link" data-scroll-target="#zero-vecor">Zero Vecor</a></li>
-  <li><a href="#opposite-vecor" id="toc-opposite-vecor" class="nav-link" data-scroll-target="#opposite-vecor">Opposite Vecor</a></li>
+  <li><a href="#zero-vector" id="toc-zero-vector" class="nav-link" data-scroll-target="#zero-vector">Zero Vector</a></li>
+  <li><a href="#opposite-vector" id="toc-opposite-vector" class="nav-link" data-scroll-target="#opposite-vector">Opposite Vector</a></li>
   <li><a href="#unite-vector" id="toc-unite-vector" class="nav-link" data-scroll-target="#unite-vector">Unite Vector</a></li>
   <li><a href="#collinearity" id="toc-collinearity" class="nav-link" data-scroll-target="#collinearity">Collinearity</a></li>
   <li><a href="#normalization" id="toc-normalization" class="nav-link" data-scroll-target="#normalization">Normalization</a></li>
@@ -181,9 +185,7 @@ window.Quarto = {
   </ul></li>
   <li><a href="#cartesian-coordinate-systems" id="toc-cartesian-coordinate-systems" class="nav-link" data-scroll-target="#cartesian-coordinate-systems">Cartesian Coordinate Systems</a></li>
   <li><a href="#d-space" id="toc-d-space" class="nav-link" data-scroll-target="#d-space">3-D Space</a></li>
-  <li><a href="#matrice" id="toc-matrice" class="nav-link" data-scroll-target="#matrice">Matrice</a></li>
   </ul></li>
-  <li><a href="#mappings" id="toc-mappings" class="nav-link" data-scroll-target="#mappings">Mappings</a></li>
   </ul>
 </nav>
     </div>
@@ -211,12 +213,12 @@ window.Quarto = {
 
 <section id="what-is-linear-algebra" class="level1">
 <h1>What is Linear Algebra</h1>
-<p>Linar Algebra is the theory of linear mappings between vector spaces. Broadly the theory of certain (linear) data transformation (manipulation). The main actors are vectors and matrices.</p>
-<section id="vector" class="level2">
-<h2 class="anchored" data-anchor-id="vector">Vector</h2>
-<p>A vector <span class="math inline">\(\overrightarrow{a}\)</span> is data of a number (or magnitude) and a direction. Vertical brunch of numbers. Vector is defined only by length and direction. Two arrows represent same vector if one is a parallel translation (shift) of the other one. Vector determined by giving initial and terminal points of a representative, also called tail and head of the vector. Vector <span class="math inline">\(\overrightarrow{PQ}\)</span> defined by the arrow with initial point <span class="math inline">\(P\)</span> (tail) and terminal point <span class="math inline">\(Q\)</span> (head).</p>
+<p>Linear algebra is the theory of linear mappings between vector spaces. Broadly, it’s the theory of certain linear data transformations or manipulations. The main actors are vectors and matrices.</p>
+<section id="vectors" class="level2">
+<h2 class="anchored" data-anchor-id="vectors">Vectors</h2>
+<p>A vector <span class="math inline">\(\overrightarrow{a}\)</span> is data of a number (or magnitude) and a direction. A vector is defined only by its length and direction. Two arrows represent the same vector if one is a parallel translation (shift) of the other. A vector is determined by giving the initial and terminal points of a representative, also called the tail and head of the vector. A vector, such as <span class="math inline">\(\overrightarrow{PQ}\)</span>, is defined by the arrow with initial point <span class="math inline">\(P\)</span> (tail) and terminal point <span class="math inline">\(Q\)</span> (head).</p>
 <blockquote class="blockquote">
-<p>Note: Position of arrow is not relevant.</p>
+<p>Note: The position of the arrow is not relevant.</p>
 </blockquote>
 <p><span class="math display">\[
 \overrightarrow{a} = \begin{bmatrix}
@@ -226,7 +228,7 @@ window.Quarto = {
 \]</span></p>
 <section id="sum-of-vectors" class="level3">
 <h3 class="anchored" data-anchor-id="sum-of-vectors">Sum of Vectors</h3>
-<p>The sum of two vectors calculates componet-wise. Sumation of vecots are commutativ, associativ, can include neutrala elements (zero vector) and can be inversed by its negatove vector to the zero vecto.</p>
+<p>The sum of two vectors is calculated component-wise. The summation of vectors is commutative and associative, includes a neutral element (the zero vector), and can be inverted by its negative vector to result in the zero vector.</p>
 <p><span class="math display">\[
 \overrightarrow{a} + \overrightarrow{b} = \begin{bmatrix}
 1 \\
@@ -243,24 +245,21 @@ window.Quarto = {
 -2 \\
 \end{bmatrix}
 \]</span></p>
-<blockquote class="blockquote">
-<p>Note: <span class="math inline">\(\overrightarrow{a} + \overrightarrow{b} = \overrightarrow{b} + \overrightarrow{a}\)</span></p>
-</blockquote>
 </section>
 <section id="subtraction" class="level3">
 <h3 class="anchored" data-anchor-id="subtraction">Subtraction</h3>
-<p>Difference <span class="math inline">\(\overrightarrow{a} - \overrightarrow{b}\)</span> of two vectors <span class="math inline">\(\overrightarrow{a}\)</span> and <span class="math inline">\(\overrightarrow{b}\)</span> is sum of <span class="math inline">\(\overrightarrow{a}\)</span> and opposite of <span class="math inline">\(\overrightarrow{b}\)</span></p>
+<p>The difference of two vectors <span class="math inline">\(\overrightarrow{a}\)</span> and <span class="math inline">\(\overrightarrow{b}\)</span> is the sum of <span class="math inline">\(\overrightarrow{a}\)</span> and the opposite of <span class="math inline">\(\overrightarrow{b}\)</span>.</p>
 <p><span class="math display">\[
 \overrightarrow{a} - \overrightarrow{b} = \overrightarrow{a} + (-\overrightarrow{b})
 \]</span></p>
 </section>
 <section id="scalar-multiplication" class="level3">
 <h3 class="anchored" data-anchor-id="scalar-multiplication">Scalar Multiplication</h3>
-<p>Scalar multiplication of a vector involves multiplying each component of the vector by a scalar (a real number). This changes the magnitude of the vector while keeping its direction the same if the scalar is positive, or reversing it if the scalar is negative. Scalar multiplication of vecots are associativ, distributiv, can include neutrala elements (zero vector).</p>
+<p>Scalar multiplication of a vector involves multiplying each component of the vector by a scalar (a real number). This changes the magnitude of the vector, keeping its direction the same if the scalar is positive or reversing it if the scalar is negative. Scalar multiplication of vectors is associative and distributive and includes a neutral element (the scalar 1).</p>
 <p><span class="math display">\[
 \dfrac{1}{2}(\overrightarrow{a} + \overrightarrow{b})
 =
-(\begin{bmatrix}
+\dfrac{1}{2}(\begin{bmatrix}
 2 \\
 6 \\
 \end{bmatrix}
@@ -275,59 +274,59 @@ window.Quarto = {
 4 \\
 \end{bmatrix}
 \]</span></p>
-<blockquote class="blockquote">
-<p>Note: Numbers come with unites. Component-wise multiplication does not make any sense in certan cases.</p>
-</blockquote>
 </section>
 <section id="magniture-norm" class="level3">
 <h3 class="anchored" data-anchor-id="magniture-norm">Magniture (Norm)</h3>
-<p>Magnitude or norm of vector <span class="math inline">\(\overrightarrow{a}\)</span> : Length of <span class="math inline">\(\overrightarrow{a}\)</span>. Denoted by <span class="math inline">\(|\overrightarrow{a}|\)</span>.</p>
+<p>The magnitude (or norm) of a vector <span class="math inline">\(\overrightarrow{a}\)</span> is its length, and it is denoted by <span class="math inline">\(|\overrightarrow{a}|\)</span>.</p>
 <p><span class="math display">\[
-|\overrightarrow{a}| = \sqrt{a_x² + a_y²}
+\lvert \vec{a} \rvert = \sqrt{a_x^2 + a_y^2}
 \]</span></p>
 <blockquote class="blockquote">
-<p>Note: Length of vector is never negative: <span class="math inline">\(\overrightarrow{a}| \ge 0\)</span>.</p>
+<p>Note: Length of vector is never negative: <span class="math inline">\(\lvert \overrightarrow{a} \rvert \ge 0\)</span>.</p>
 </blockquote>
 </section>
-<section id="zero-vecor" class="level3">
-<h3 class="anchored" data-anchor-id="zero-vecor">Zero Vecor</h3>
-<p>Vector with norm zero denoted by <span class="math inline">\(\overrightarrow{0}\)</span>. The length of zero vector is <span class="math inline">\(0\)</span></p>
+<section id="zero-vector" class="level3">
+<h3 class="anchored" data-anchor-id="zero-vector">Zero Vector</h3>
+<p>The vector with a norm of zero is denoted by <span class="math inline">\(\overrightarrow{0}\)</span>. The length of the zero vector is <span class="math inline">\(0\)</span>.</p>
 <p><span class="math display">\[
 |\overrightarrow{0}| = 0
 \]</span></p>
 <blockquote class="blockquote">
-<p>Note: Zero vector has no direction.</p>
+<p>Note: A zero vector has no direction.</p>
 </blockquote>
 </section>
-<section id="opposite-vecor" class="level3">
-<h3 class="anchored" data-anchor-id="opposite-vecor">Opposite Vecor</h3>
-<p>Opposite vector of <span class="math inline">\(\overrightarrow{a}\)</span> is the same norm but with opposite direction (in a representative, initial and terminal points are reversed) of <span class="math inline">\(-\overrightarrow{a}\)</span>.</p>
+<section id="opposite-vector" class="level3">
+<h3 class="anchored" data-anchor-id="opposite-vector">Opposite Vector</h3>
+<p>The opposite vector of <span class="math inline">\(\overrightarrow{a}\)</span> is a vector with the same norm but the opposite direction. It is denoted as <span class="math inline">\(-\overrightarrow{a}\)</span>. In a representative, the initial and terminal points are reversed.</p>
 <blockquote class="blockquote">
 <p>Note: <span class="math inline">\(\overrightarrow{PQ} = -\overrightarrow{QP}\)</span>, but <span class="math inline">\(\overrightarrow{PQ} \neq \overrightarrow{QP}\)</span></p>
 </blockquote>
 </section>
 <section id="unite-vector" class="level3">
 <h3 class="anchored" data-anchor-id="unite-vector">Unite Vector</h3>
-<p>TBD</p>
+<p>A unit vector is a vector that has a magnitude of 1 and is often used to indicate direction.</p>
+<p><span class="math display">\[
+\lvert \overrightarrow{e} \rvert = 1
+\]</span></p>
 </section>
 <section id="collinearity" class="level3">
 <h3 class="anchored" data-anchor-id="collinearity">Collinearity</h3>
-<p>Two vectors <span class="math inline">\(\overrightarrow{a}\)</span> and <span class="math inline">\(\overrightarrow{b}\)</span> are called collinear or linearly dependent, if</p>
+<p>Two vectors <span class="math inline">\(\overrightarrow{a}\)</span> and <span class="math inline">\(\overrightarrow{b}\)</span> are called collinear or linearly dependent, if:</p>
 <p><span class="math display">\[
 \overrightarrow{b} = r \overrightarrow{a} \quad \text{for } r \in \mathbb{R}
 \]</span> <span class="math display">\[
 s \overrightarrow{b} =  \overrightarrow{a} \quad \text{for } s \in \mathbb{R}
 \]</span></p>
-<p>More generally. <span class="math display">\[
+<p>More generally: <span class="math display">\[
 r \overrightarrow{a} + s \overrightarrow{b} = \overrightarrow{0} \quad \text{for } r, s \in \mathbb{R} \quad \text{with } r \neq 0 \quad \text{or } s \neq 0
 \]</span></p>
 <p>This will be used to generalize definition of linear independence.</p>
 </section>
 <section id="normalization" class="level3">
 <h3 class="anchored" data-anchor-id="normalization">Normalization</h3>
-<p>For every vector there is axactly one unite vector (<span class="math inline">\(\overrightarrow{e}_a\)</span>) with the same direction, which normalize a vector.</p>
+<p>For every non-zero vector <span class="math inline">\(\overrightarrow{a}\)</span>, there is exactly one unit vector (<span class="math inline">\(\overrightarrow{e}_a\)</span>) with the same direction. This process is called normalizing a vector.</p>
 <p><span class="math display">\[
-\overrightarrow{e}_a = \dfrac{1}{|\overrightarrow{a}|}\overrightarrow{a}
+\overrightarrow{e}_a = \dfrac{1}{\lvert \overrightarrow{a} \rvert}\overrightarrow{a}
 \]</span></p>
 </section>
 <section id="vectors-between-two-points" class="level3">
@@ -344,15 +343,17 @@ y_2 - y_1 \\
 </section>
 <section id="cartesian-coordinate-systems" class="level2">
 <h2 class="anchored" data-anchor-id="cartesian-coordinate-systems">Cartesian Coordinate Systems</h2>
-<p>Cartesian coordinate system whose axes are perpendicular and units on axes have same length 1 with <span class="math inline">\(\overrightarrow{e}_x\)</span> and <span class="math inline">\(\overrightarrow{e}_y\)</span>. Every vector in this system can be represented by the unit vecorts.</p>
+<p>A Cartesian coordinate system is one in which the axes are perpendicular and the units on each axis have the same length. The unit vectors along the axes are typically denoted by <span class="math inline">\(\overrightarrow{e}_x\)</span> and <span class="math inline">\(\overrightarrow{e}_y\)</span>. Every vector in this system can be represented as a linear combination of these unit vectors.</p>
 <p><span class="math display">\[
 \overrightarrow{a} = a_x\overrightarrow{e}_x + a_y\overrightarrow{e}_y
 \]</span></p>
-<p><span class="math inline">\(a_x\)</span> and <span class="math inline">\(a_y\)</span> are called scalar components of <span class="math inline">\(\overrightarrow{a}\)</span>.</p>
+<blockquote class="blockquote">
+<p>Note: <span class="math inline">\(a_x\)</span> and <span class="math inline">\(a_y\)</span> are called scalar components of <span class="math inline">\(\overrightarrow{a}\)</span>.</p>
+</blockquote>
 </section>
 <section id="d-space" class="level2">
 <h2 class="anchored" data-anchor-id="d-space">3-D Space</h2>
-<p>Vectors in 3D space have a additional component to represent the 3thd dimension.</p>
+<p>Vectors in 3D space have an additional component to represent the third dimension.</p>
 <p><span class="math display">\[
 \overrightarrow{a} = \begin{bmatrix}
 1 \\
@@ -361,26 +362,11 @@ y_2 - y_1 \\
 \end{bmatrix}
 \]</span></p>
 <blockquote class="blockquote">
-<p>Note: The mathamatical rules does not change by adding more dimension.</p>
+<p>Note: The mathematical rules do not change by adding more dimensions.</p>
 </blockquote>
-</section>
-<section id="matrice" class="level2">
-<h2 class="anchored" data-anchor-id="matrice">Matrice</h2>
-<p>Rectangular bunch of numbers.</p>
-<p><span class="math display">\[
-A = \begin{bmatrix}
-1 &amp; 3 &amp; -7 \\
-2 &amp; 1 &amp; 6 \\
-4 &amp; 0 &amp; 1 \\
-\end{bmatrix}
-\]</span></p>
-</section>
-</section>
-<section id="mappings" class="level1">
-<h1>Mappings</h1>
-<p>After data transformation (mapping), patterns become visible which have not been visible before or notions become very easy.</p>
 
 
+</section>
 </section>
 
 </main> <!-- /main -->
