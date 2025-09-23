@@ -3,13 +3,14 @@ title: Linear Algebra 01
 ---
 
 # What is Linear Algebra
-Linar Algebra is the theory of linear mappings between vector spaces. Broadly the theory of certain (linear) data transformation (manipulation). The main actors are vectors and matrices.
 
-## Vector
+Linear algebra is the theory of linear mappings between vector spaces. Broadly, it's the theory of certain linear data transformations or manipulations. The main actors are vectors and matrices.
 
-A vector $\overrightarrow{a}$ is data of a number (or magnitude) and a direction. Vertical brunch of numbers. Vector is defined only by length and direction. Two arrows represent same vector if one is a parallel translation (shift) of the other one. Vector determined by giving initial and terminal points of a representative, also called tail and head of the vector. Vector $\overrightarrow{PQ}$ defined by the arrow with initial point $P$ (tail) and terminal point $Q$ (head).
+## Vectors
 
-> Note: Position of arrow is not relevant.
+A vector $\overrightarrow{a}$ is data of a number (or magnitude) and a direction. A vector is defined only by its length and direction. Two arrows represent the same vector if one is a parallel translation (shift) of the other. A vector is determined by giving the initial and terminal points of a representative, also called the tail and head of the vector. A vector, such as $\overrightarrow{PQ}$, is defined by the arrow with initial point $P$ (tail) and terminal point $Q$ (head).
+
+> Note: The position of the arrow is not relevant.
 
 $$
 \overrightarrow{a} = \begin{bmatrix}
@@ -20,7 +21,7 @@ $$
 
 ### Sum of Vectors
 
-The sum of two vectors calculates componet-wise. Sumation of vecots are commutativ, associativ, can include neutrala elements (zero vector) and can be inversed by its negatove vector to the zero vecto.
+The sum of two vectors is calculated component-wise. The summation of vectors is commutative and associative, includes a neutral element (the zero vector), and can be inverted by its negative vector to result in the zero vector.
 
 $$
 \overrightarrow{a} + \overrightarrow{b} = \begin{bmatrix}
@@ -39,12 +40,9 @@ $$
 \end{bmatrix}
 $$
 
-> Note: $\overrightarrow{a} + \overrightarrow{b} = \overrightarrow{b} + \overrightarrow{a}$
-
 ### Subtraction
 
-Difference $\overrightarrow{a} - \overrightarrow{b}$ of two vectors $\overrightarrow{a}$ and $\overrightarrow{b}$ is sum of $\overrightarrow{a}$ and opposite
-of $\overrightarrow{b}$
+The difference of two vectors $\overrightarrow{a}$ and $\overrightarrow{b}$ is the sum of $\overrightarrow{a}$ and the opposite of $\overrightarrow{b}$.
 
 $$
 \overrightarrow{a} - \overrightarrow{b} = \overrightarrow{a} + (-\overrightarrow{b})
@@ -52,12 +50,12 @@ $$
 
 ### Scalar Multiplication
 
-Scalar multiplication of a vector involves multiplying each component of the vector by a scalar (a real number). This changes the magnitude of the vector while keeping its direction the same if the scalar is positive, or reversing it if the scalar is negative. Scalar multiplication of vecots are associativ, distributiv, can include neutrala elements (zero vector).
+Scalar multiplication of a vector involves multiplying each component of the vector by a scalar (a real number). This changes the magnitude of the vector, keeping its direction the same if the scalar is positive or reversing it if the scalar is negative. Scalar multiplication of vectors is associative and distributive and includes a neutral element (the scalar 1).
 
 $$
 \dfrac{1}{2}(\overrightarrow{a} + \overrightarrow{b})
 = 
-(\begin{bmatrix}
+\dfrac{1}{2}(\begin{bmatrix}
 2 \\
 6 \\
 \end{bmatrix}
@@ -73,41 +71,43 @@ $$
 \end{bmatrix}
 $$
 
-> Note: Numbers come with unites. Component-wise multiplication does not make any sense in certan
-cases.
-
 ### Magniture (Norm)
-Magnitude or norm of vector $\overrightarrow{a}$ : Length of $\overrightarrow{a}$. Denoted by $|\overrightarrow{a}|$.
+
+The magnitude (or norm) of a vector $\overrightarrow{a}$ is its length, and it is denoted by $|\overrightarrow{a}|$.
 
 $$
-|\overrightarrow{a}| = \sqrt{a_x² + a_y²}
+\lvert \vec{a} \rvert = \sqrt{a_x^2 + a_y^2}
 $$
 
-> Note: Length of vector is never negative: $\overrightarrow{a}| \ge 0$.
+> Note: Length of vector is never negative: $\lvert \overrightarrow{a} \rvert \ge 0$.
 
-### Zero Vecor
+### Zero Vector
 
-Vector with norm zero denoted by $\overrightarrow{0}$. The length of zero vector is $0$
+The vector with a norm of zero is denoted by $\overrightarrow{0}$. The length of the zero vector is $0$.
 
 $$
 |\overrightarrow{0}| = 0
 $$
 
-> Note: Zero vector has no direction.
+> Note: A zero vector has no direction.
 
-### Opposite Vecor
+### Opposite Vector
 
-Opposite vector of $\overrightarrow{a}$ is the same norm but with opposite direction (in a representative, initial and terminal points are reversed) of $-\overrightarrow{a}$.
+The opposite vector of $\overrightarrow{a}$ is a vector with the same norm but the opposite direction. It is denoted as $-\overrightarrow{a}$. In a representative, the initial and terminal points are reversed.
 
 > Note: $\overrightarrow{PQ} = -\overrightarrow{QP}$, but $\overrightarrow{PQ} \neq \overrightarrow{QP}$ 
 
 ### Unite Vector
 
-TBD
+A unit vector is a vector that has a magnitude of 1 and is often used to indicate direction.
+
+$$
+\lvert \overrightarrow{e} \rvert = 1
+$$
 
 ### Collinearity
 
-Two vectors $\overrightarrow{a}$ and $\overrightarrow{b}$ are called collinear or linearly dependent, if
+Two vectors $\overrightarrow{a}$ and $\overrightarrow{b}$ are called collinear or linearly dependent, if:
 
 $$
 \overrightarrow{b} = r \overrightarrow{a} \quad \text{for } r \in \mathbb{R}
@@ -116,7 +116,7 @@ $$
 s \overrightarrow{b} =  \overrightarrow{a} \quad \text{for } s \in \mathbb{R}
 $$
 
-More generally.
+More generally:
 $$
 r \overrightarrow{a} + s \overrightarrow{b} = \overrightarrow{0} \quad \text{for } r, s \in \mathbb{R} \quad \text{with } r \neq 0 \quad \text{or } s \neq 0
 $$
@@ -125,10 +125,10 @@ This will be used to generalize definition of linear independence.
 
 ### Normalization
 
-For every vector there is axactly one unite vector ($\overrightarrow{e}_a$) with the same direction, which normalize a vector.
+For every non-zero vector $\overrightarrow{a}$, there is exactly one unit vector ($\overrightarrow{e}_a$) with the same direction. This process is called normalizing a vector.
 
 $$
-\overrightarrow{e}_a = \dfrac{1}{|\overrightarrow{a}|}\overrightarrow{a}
+\overrightarrow{e}_a = \dfrac{1}{\lvert \overrightarrow{a} \rvert}\overrightarrow{a}
 $$
 
 ### Vectors between two points
@@ -143,16 +143,18 @@ y_2 - y_1 \\
 $$
 
 ## Cartesian Coordinate Systems
-Cartesian coordinate system whose axes are perpendicular and units on axes have same length 1 with $\overrightarrow{e}_x$ and $\overrightarrow{e}_y$. Every vector in this system can be represented by the unit vecorts.
+
+A Cartesian coordinate system is one in which the axes are perpendicular and the units on each axis have the same length. The unit vectors along the axes are typically denoted by $\overrightarrow{e}_x$ and $\overrightarrow{e}_y$. Every vector in this system can be represented as a linear combination of these unit vectors.
 
 $$
 \overrightarrow{a} = a_x\overrightarrow{e}_x + a_y\overrightarrow{e}_y
 $$
 
-$a_x$ and $a_y$ are called scalar components of $\overrightarrow{a}$.
+> Note: $a_x$ and $a_y$ are called scalar components of $\overrightarrow{a}$.
 
 ## 3-D Space
-Vectors in 3D space have a additional component to represent the 3thd dimension.
+
+Vectors in 3D space have an additional component to represent the third dimension.
 
 $$
 \overrightarrow{a} = \begin{bmatrix}
@@ -162,21 +164,4 @@ $$
 \end{bmatrix}
 $$
 
-> Note: The mathamatical rules does not change by adding more dimension.
-
-## Matrice
-
-Rectangular bunch of numbers.
-
-$$
-A = \begin{bmatrix}
-1 & 3 & -7 \\
-2 & 1 & 6 \\
-4 & 0 & 1 \\
-\end{bmatrix}
-$$
-
-# Mappings
-
-After data transformation (mapping), patterns become visible which have not been
-visible before or notions become very easy.
+> Note: The mathematical rules do not change by adding more dimensions.
