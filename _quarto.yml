@@ -18,6 +18,8 @@ website:
             href: hs25/sa/sa_notes.qmd
           - text: "Classical and Bayesian Statistics - Exercises"
             href: hs25/sa/sa_exercises.qmd
+          - text: "Linear Algebra - Notes"
+            href: hs25/lia1/lia1_notes.qmd
           - text: "Design of Experiments"
             href: hs25/doe/doe_notes.qmd
 format:
