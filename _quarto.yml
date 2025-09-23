@@ -22,6 +22,8 @@ website:
             href: hs25/lia1/lia1_notes.qmd
           - text: "Design of Experiments"
             href: hs25/doe/doe_notes.qmd
+      - text: "Sources"
+        href: sources.qmd
 format:
   html:
     theme: cosmo
