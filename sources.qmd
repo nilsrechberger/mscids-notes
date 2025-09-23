@@ -1,0 +1,26 @@
+---
+title: "Useful Resources"
+---
+
+# Python
+
+* [**W3Schools**](https://www.w3schools.com/python/default.asp): A great starting point for beginners with Python basics and simple examples.
+* [**Real Python**](https://realpython.com/): Comprehensive tutorials and advanced topics for a deeper dive into the language.
+
+---
+
+# Software Development
+
+* [**W3Schools Git Tutorial**](https://www.w3schools.com/git/default.asp): An easy-to-follow introduction to the fundamentals of version control with Git.
+
+---
+
+# Data Science
+
+* [**Towards Data Science**](https://towardsdatascience.com/) :A collection of articles, tutorials, and guides on data analysis, machine learning, and AI.
+
+---
+
+# YouTube Channels
+
+* [**3Blue1Brown**](https://www.youtube.com/@3blue1brown): Visual explanations and animations that make complex math and scientific concepts intuitive.
