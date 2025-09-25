@@ -73,3 +73,152 @@ Depending on the context, two particular mathematical operators can have differe
 ## Boolean operations
 
 Two Boolean values can be combined in different ways using the keywords `and`, `or` and `xor`. Any Boolean operation can be inverted using the keyword `not`.
+
+# Sequential data types
+
+In Python, sequential data types may comprise mixed data types and can have multiple dimensions.
+
+- List: Ordered, changeable.
+- Tuple: Ordered, unchangeable.
+- Dictonary: Key-Value-Pairs.
+- Set: No Duplicates.
+
+# Type casting
+
+Depending on operation, same data have to appear in different types. Data of a particular type can be transformed into a different data type.
+
+```{python}
+x = 3
+
+# Same variable, different data type
+print("x as int= ", int(x))
+print("x as float= ", float(x))
+print("x as string= ", str(x)) # Looks like int, bit is type str!
+```
+
+# Input and Output
+
+Interaction with an application requires input and output. Use the 'input()' function to print the passed string to the standard output (i.e. terminal). The input is read from the terminal and converted to a string.
+
+# Boolean
+
+A boolean expression can be of two states only
+
+> Note: Python treats all that is NOT 'empty', '0', 'False' or 'None' as 'True'
+
+Priority-List:
+
+1. not
+2. and
+3. or
+
+## Bitwise operations
+
+tbd
+
+## Comparison operations
+
+- `<` strictly less than
+- `<=` less than or equal
+- `>` strictly greater than
+- `>=` greater than or equal
+- `==` equal
+- `!=` not equal
+- `is` object identity
+- `is not` negated object identity
+
+# Indentation and syntax
+
+Block operations start with a column (:) and are defined by indentations. Indentations can have arbitrary number of spaces but must be constant for all instructions of the same block content.
+
+## Single block
+
+```{markdown}
+instruction
+instruction
+block header:
+••••block instruction
+••••block instruction
+••••block instruction
+instruction
+instruction
+```
+
+## Nested blocks
+
+```{markdown}
+instruction
+instruction
+block 1 header:
+••••block 1 instruction
+••••block 2 header:
+••••••••block 2 instruction
+••••••••block 2 instruction
+••••block 1 instruction
+••••block 1 instruction
+instruction
+```
+
+# If-else condition
+
+The if-else statement is a switch for proving and catching a condition being required for a conditional expression.
+
+```{python}
+x = 10
+
+if x == 10:
+    print("x has the value 10")
+else:
+    print("x does not have the value 10")
+```
+
+## Elif concatenation
+
+`elif` allows for concatenating conditions.
+
+```{python}
+x = 6
+
+if x == 10:
+    print("x has the value 10")
+elif x % 2 == 0:
+    print("x is an even number")
+```
+
+## Shorthand statement
+
+Shorthand if-statements allow for less code and better readability.
+
+```{python}
+x = 10
+
+# Block
+if x == 10:
+    x += 1
+    print(x)
+else:
+    None
+
+## Is the same as
+
+x = 10
+# One Line
+x = x + 1 if x == 10 else None
+print(x)
+```
+
+# Match case
+Instead of using multiple combined conditions with elif-statements, an expression can be directly checked against multiple specific cases to which it matches.
+
+```{python}
+x = 2
+match x:
+    case 0:
+        print("number is 0")
+    case 1:
+        print("number is 1")
+    case 2:
+        print("number is 2")
+    case _: # Default case
+        print("number unknown")
+```
