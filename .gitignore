@@ -3,3 +3,9 @@
 
 # Python
 /.venv/
+
+# Data directories
+*/*/data/
+
+# Image directories
+*/*/img
