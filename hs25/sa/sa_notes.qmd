@@ -241,3 +241,90 @@ hist(x, freq=FALSE) # Disable frequency
 
 ![Boxplot X Histogram](img/boxplot_x_histogram.png)
 
+# Probability
+
+- A random element: $x = 2$
+- Set of elements: $X = {1, 2, 3, 4}$
+- x is a element of the set X: $x \in X$
+- Subset: If $B = {2, 3}$, than $B \subset A$
+- Empty set: $\emptyset$. The empty subset is a supset of every set.
+
+## Probability Model
+
+Probability models use set theory as language. For random experiments the outcome is not predictable. Probability model consists of events that are possible in such an experiment and probabilities for different results occurring. Probability models have following components:
+
+- Sample space $\Omega$: Contains all possible elementary events $\omega$.
+- Events $A, B, C$: Subsets of sample space.
+- Probabilities $P$ associated with events $A, B, C$
+- Event: More general and more important than elementary events, but consist of these.
+
+Probability formula:
+
+$$
+P(E)=\dfrac{\lvert E \rvert}{\lvert \Omega \rvert} \text{, where } E \subseteq \Omega
+$$
+
+## Set Theory
+
+- Union: $A \cup B$
+- Intersection: $A \cap B$
+- Complement: $\bar{A}$
+- Difference: $A \setminus B$
+
+![Set theory](img/set_theory.png)
+
+## Axioms of Probability
+
+Each event $A$ probability $P(A)$ is assigned, with properties:
+
+- $P(A) \geq 0$
+- $P(\Omega) = 1$
+- $P(A \cup B) = P(A) + P(B) \text{, if } A \cap B = \emptyset$
+
+> Note: Kolmogorov Axioms of Probability
+
+## Laws for Calculating Probabilities
+
+If $A, B$ and $A_1, \dots, A_n$ events, then:
+
+- $P(\bar{A}) = 1 - P(A) \text{, for all } A$
+- $P(A \cup B) = P(A) + P(B) - P(A \cap B) \text{, for all } A \text{ and } B$
+- $P(A_1 \cup \dots A_n) \leq P(A_1) + \dots + P(A_n) \text{, for all } A_1, \dots, A_n$
+- $P(B) \leq P(A) \text{, for all } A \text{ and } B \text{ with } B \subseteq A$
+- $P(A \setminus B) = P(A) - P(B) \text{, for all } A \text{ and } B \text{ with } B \subseteq A$
+
+## Discrete Probability Models
+
+Sample space finite or infinite and discrete. Infinite, but still discrete set.
+
+### Probabilities for Discrete Models
+
+Probability of event $A = {\omega_1, \omega_2, \dots, \omega_n}$ is determined by sum of probabilities P(ω) of corresponding ele-
+mentary events
+
+$$
+P(A) = \sum_{\omega_i \in A} P(\omega_i)
+$$
+
+
+## Laplace Model
+
+Probabilities of all elementary elements add up to 1.
+
+$$
+P(E) = \dfrac{f}{p} = \sum_{k:\omega_i \in E} P(\omega_k)
+$$
+
+Divides number of “favorable” elementary events by number of “possible” elementary events.
+
+## Stochastic Independence
+
+If events $A$ and $B$ are stochastically independent, then:
+
+$$
+P(A \cap B) = P(A) \cdot P(B)
+$$
+
+> Note: Formula applies only if events A and B are stochastically independent
+
+Outcome of event A has no influence on outcome of event B and vice versa.
