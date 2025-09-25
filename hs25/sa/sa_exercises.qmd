@@ -141,3 +141,90 @@ new_median <- median(grades)
 cat("Original vs. New mean:", original_mu, "vs.", new_mu, "\n") # Add line break
 cat("Median stays the same:", originla_meadian, "=", new_median)
 ```
+
+# Problems 2
+
+## Probmel 2.1
+
+### a
+
+```{r}
+# Read data
+data <- read.csv('hs25/sa/data/husband_wife.csv')
+data
+```
+
+### b
+
+```{r}
+summary(data)
+```
+
+For each column, we see a breef summary qith quantitav and qualitativ informations about the data.
+
+### c
+
+```{r}
+age_diff <- data$age.husband - data$age.wife # Calc age difference
+
+boxplot(age_diff)
+```
+
+### d
+
+- The median off `age_diff` is located at about 2.5. In middle, the age difference between husbands and wifes are about 2.5cm.
+- 50% of the differences are located between about 0 and 5.
+- There are more upper than lower outliers. Meaning that there are more more extreme values, wehere the husband his much higher than there wifes.
+- Also the values of the upper outliers are bigger than the lower ones.
+
+## Problem 2.2
+
+```{r}
+head(InsectSprays) # Preview data from head
+```
+
+### a
+
+```{r}
+tapply(InsectSprays$count, InsectSprays$spray, mean)
+```
+
+### b
+
+```{r}
+boxplot(count ~ spray,
+        data = InsectSprays
+)
+```
+
+## Problem 2.3
+
+```{r}
+data <- read.csv('hs25/sa/data/Diet.csv')
+head(data)
+```
+
+```{r}
+# Add column weight.los
+data$weight.loss <- data$weight6weeks - data$pre.weight
+data$weight.loss
+```
+
+```{r}
+tapply(data$weight.loss, data$Diet, mean)
+```
+
+According to the data, the diet 3 seems to have the highest weight lost effect during the 6 week of therapy. Diet 1 and 2 seems to have a more or less same effect in weight lost. Patience with the diet 2 lost in average at less weight during 6 weeks.
+
+```{r}
+boxplot(data$weight.loss ~ data$Diet)
+```
+
+- Even when diet 3 seems to have the best effect according to the median, the IQR spreads also the most of all three diets.
+- Diet 2 spreads over the hole boxplot the most.
+- Diet 1 is effectet by some lower outliers.
+
+## Problem 2.4
+
+### a
+
