@@ -106,3 +106,162 @@ q=p             # Copies the var p (hlsu) to the var q
 print(p==q)     # Compare the var p and q (Output: True)
 print(p is q)   # Compare the var p and q (Output: True)
 ```
+
+# Conditions
+
+## Task 1
+Create a simple program in which three whole numbers (potentially negative!) are read in from the keyboard and afterwards get displayed on the screen in ascending order. Use nested if-statements for order determination (i.e. no built-in- 'sort' function).
+
+### Using if-else-statements
+
+```{python}
+inputs = [] # Set up storage
+
+print("Please input 3 whole numbers of your choise.")
+input1 = int(input("Number one: ")) # Assign input to a variable
+input2 = int(input("Number two: "))
+input3 = int(input("Number tree: "))
+
+# Sort list
+if input1 < input2 and input1 < input3:
+    inputs.append(input1) # Append input to list
+    if input2 < input3:
+        inputs.append(input2)
+        inputs.append(input3)
+    else:
+        inputs.append(input3)
+        inputs.append(input2)
+elif input2 < input1 and input2 < input3:
+    inputs.append(input2)
+    if input1 < input3:
+        inputs.append(input1)
+        inputs.append(input3)
+    else:
+        inputs.append(input3)
+        inputs.append(input1)
+elif input3 < input1 and input3 < input2:
+    inputs.append(input3)
+    if input1 < input2:
+        inputs.append(input1)
+        inputs.append(input2)
+    else:
+        inputs.append(input2)
+        inputs.append(input1)
+
+print(inputs)
+```
+
+### Using build in function `sorted()`
+
+```{python}
+inputs = [] # Set up storage
+
+print("Please input 3 whole numbers of your choise.")
+input1 = int(input("Number one: ")) # Assign input to a variable
+inputs.append(input1)
+input2 = int(input("Number two: "))
+inputs.append(input2)
+input3 = int(input("Number tree: "))
+inputs.append(input3)
+
+# Sort list
+inputs = sorted(inputs)
+print(inputs)
+```
+
+## Task 2
+
+### a
+Assumption: The int variables a, b and c are declared and initialized.
+
+Define a conditional expression "EXPR" in such a way that the body of the expression
+
+if EXPR:
+    print("condition fulfilled")
+
+is only carried out if:
+a is greater than b OR a is less than half of b OR the sum of a and c is greater than b.
+
+
+Check your result:
+a=1, b=2, c=2 -> True
+a=1, b=2, c=1 -> False
+
+```{python}
+# Test case one
+a = 1
+b = 2
+c = 2
+
+if a > b or a < b/2 or sum([a, c]) > b:
+    print("condition fulfilled")
+else:
+    print("condition not fulfilled")
+```
+
+```{python}
+# Test case two
+a = 1
+b = 2
+c = 1
+
+if a > b or a < b/2 or sum([a, c]) > b:
+    print("condition fulfilled")
+else:
+    print("condition not fulfilled")
+```
+
+### b
+
+Assumption: The int variables a, b and c are declared and initialized.
+
+Define a conditional expression "EXPR" in such a way that the body of the expression
+
+if EXPR:
+    print("condition fulfilled")
+
+is only carried out if:
+half of the number a is an odd number OR the subtraction of the numbers b and c results in an even number OR both a and b and also b and c have different values.
+
+Check your result:
+a=6, b=2, c=0 => True
+a=5, b=2, c=1 => True
+a=5, b=5, c=2 => False
+
+```{python}
+# Test case one
+a = 6
+b = 2
+c = 0
+
+if a/2 % 2 == 1 or b - c % 2 == 0 or a != b and b != c:
+        print("condition fulfilled")
+else:
+    print("condition not fulfilled")
+```
+
+```{python}
+# Test case two
+# Test case one
+a = 5
+b = 2
+c = 1
+
+if a/2 % 2 == 1 or b - c % 2 == 0 or a != b and b != c:
+        print("condition fulfilled")
+else:
+    print("condition not fulfilled")
+```
+
+```{python}
+# Test case three
+# Test case one
+a = 5
+b = 5
+c = 2
+
+if a/2 % 2 == 1 or b - c % 2 == 0 or a != b and b != c:
+        print("condition fulfilled")
+else:
+    print("condition not fulfilled")
+```
