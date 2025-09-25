@@ -131,3 +131,113 @@ $$
 x <- c(4.3, 5.2, 2.7, 3.1)
 IQR(x)
 ```
+
+# Graphical Representation of Data
+
+Plotting data is very important aspect of statistical data analysis. Often points to patterns that are not recognisable from key figures.
+
+> Note: Choosing “wrong” graphical representation is not useful.
+
+## Boxplot
+
+![Boxplot: Schematically](img/boxplot.png)
+
+- Box: Height is bounded by lower and upper quartile. Height of box is interquartile rang.
+- Horizontal line in box: Median
+- Whisker: $1.5 \times \text{IQR}$. Defined by inventor John Tukey.
+- Points: Outliers
+
+> Note: Upper and lower whisker do not have to have the length of $1.5 \times \text{IQR}$.
+
+```{r}
+# Single boxplot
+set.seed(42) # Set seed for reproducibility
+x <- rnorm(10) # Generate 10 random samples
+
+boxplot(x) # Plot data
+```
+
+```{r}
+# Compare two sample groups
+set.seed(42)
+x <- rnorm(100)
+y <- rnorm(100)
+
+boxplot(x, y)
+```
+
+## Histogram
+
+Graphical overview of occurring values. Draw a bar for each class. Height proportional to number of observations in that class.
+
+```{r}
+# Simple histogram
+set.seed(42)
+x <- rnorm(1000)
+
+hist(x)
+```
+
+Selection of number of classes relevant for interpretation of histogram.
+
+```{r}
+# Big breaks
+set.seed(42)
+x <- rnorm(1000)
+
+hist(x, breaks=5)
+```
+
+```{r}
+# Small breaks
+set.seed(42)
+x <- rnorm(1000)
+
+hist(x, breaks=50)
+```
+
+> Note: Since we used `set.seed(42)`, both plot shows the same data.
+
+### Skweness of Hostograms
+
+Histograms can have a skweness depending on the data.
+
+```{r}
+# Right skewed data
+set.seed(42)
+x <- rexp(1000, rate = 1) # Using expontial distribution
+
+hist(x, breaks=50)
+```
+
+```{r}
+# Left left data
+set.seed(42)
+x <- rexp(1000, rate = 1)
+x <- -x # Trun data positivity
+
+hist(x, breaks=50)
+```
+
+> Note: The terms “right” and “left” always refers to direction where it has less
+data (tail of distribution).
+
+## Normalised Histograms
+
+Select bar height such that bar area corresponds to proportion of respective observations in total number of observations.
+
+> Note: Density values are not percentages.
+
+```{r}
+# Normalized histogram
+set.seed(42)
+x <- rnorm(1000)
+
+hist(x, freq=FALSE) # Disable frequency
+```
+
+
+## Boxplot X Histogram
+
+![Boxplot X Histogram](img/boxplot_x_histogram.png)
+
