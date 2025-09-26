@@ -76,7 +76,7 @@ Two Boolean values can be combined in different ways using the keywords `and`, `
 
 # Sequential data types
 
-In Python, sequential data types may comprise mixed data types and can have multiple dimensions.
+In Python, sequential data types can comprise mixed data types and can have multiple dimensions.
 
 - List: Ordered, changeable.
 - Tuple: Ordered, unchangeable.
@@ -85,24 +85,24 @@ In Python, sequential data types may comprise mixed data types and can have mult
 
 # Type casting
 
-Depending on operation, same data have to appear in different types. Data of a particular type can be transformed into a different data type.
+Depending on the operation, the same data may have to appear in different types. Data of a particular type can be transformed into a different data type.
 
 ```{python}
 x = 3
 
-# Same variable, different data type
+# Same variable but different data type
 print("x as int= ", int(x))
 print("x as float= ", float(x))
-print("x as string= ", str(x)) # Looks like int, bit is type str!
+print("x as string= ", str(x)) # Looks like int but is type str!
 ```
 
 # Input and Output
 
-Interaction with an application requires input and output. Use the 'input()' function to print the passed string to the standard output (i.e. terminal). The input is read from the terminal and converted to a string.
+Interaction with an application requires input and output. Use the `input()` function to print the passed string to the standard output (i.e., terminal). The input is read from the terminal and converted to a string.
 
 # Boolean
 
-A boolean expression can be of two states only
+A boolean expression can be of two states only (`True` or `False`).
 
 > Note: Python treats all that is NOT 'empty', '0', 'False' or 'None' as 'True'
 
@@ -114,7 +114,14 @@ Priority-List:
 
 ## Bitwise operations
 
-tbd
+Bitwise operations in Python are used to manipulate individual bits of integer values.
+
+- `x | y` bitwise or of x and y
+- `x ^ y` bitwise exclusive or of x and y
+- `x & y` bitwise and of x and y
+- `x << n` x shifted left by n bits
+- `x >> n` x shifted right by n bits
+- `~x` the bits of x inverted
 
 ## Comparison operations
 
@@ -127,9 +134,11 @@ tbd
 - `is` object identity
 - `is not` negated object identity
 
+> Note: Comparisons can be chained arbitrarily.
+
 # Indentation and syntax
 
-Block operations start with a column (:) and are defined by indentations. Indentations can have arbitrary number of spaces but must be constant for all instructions of the same block content.
+Block operations start with a colon (:) and are defined by indentations. Indentations can have an arbitrary number of spaces but must be constant for all instructions within the same block.
 
 ## Single block
 
@@ -161,7 +170,7 @@ instruction
 
 # If-else condition
 
-The if-else statement is a switch for proving and catching a condition being required for a conditional expression.
+The if-else statement is a control structure for checking a condition, allowing you to execute different code blocks depending on whether the condition is met.
 
 ```{python}
 x = 10
@@ -174,7 +183,7 @@ else:
 
 ## Elif concatenation
 
-`elif` allows for concatenating conditions.
+`elif` allows for concatenating multiple conditions.
 
 ```{python}
 x = 6
@@ -187,7 +196,7 @@ elif x % 2 == 0:
 
 ## Shorthand statement
 
-Shorthand if-statements allow for less code and better readability.
+Shorthand `if` statements allow for less code and better readability.
 
 ```{python}
 x = 10
@@ -208,7 +217,8 @@ print(x)
 ```
 
 # Match case
-Instead of using multiple combined conditions with elif-statements, an expression can be directly checked against multiple specific cases to which it matches.
+
+Instead of using multiple combined conditions with elif statements, an expression can be directly checked against multiple specific cases.
 
 ```{python}
 x = 2
