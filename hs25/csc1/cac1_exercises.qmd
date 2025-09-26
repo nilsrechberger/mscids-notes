@@ -1,0 +1,43 @@
+---
+title: "Computer Science Concepts for Data Scientists - Exercises"
+toc: true
+---
+
+# Quick Guide: Decimal to Binary (12-Bit, 8.4 Format)
+
+**Format:** `IIIIIIII.FFFF` (8 bits integer, 4 bits fraction)
+
+**Example: `45.375`**
+
+### 1. Integer Part (`45`)
+- **Method:** Repeatedly divide by 2 & note the remainder.
+- **Calculation:**
+  - `45 / 2 = 22` Remainder `1`
+  - `22 / 2 = 11` Remainder `0`
+  - `11 / 2 = 5`  Remainder `1`
+  - `5 / 2  = 2`  Remainder `1`
+  - `2 / 2  = 1`  Remainder `0`
+  - `1 / 2  = 0`  Remainder `1`
+- **Result (read remainders from bottom to top):** `101101`
+- **Pad to 8 bits (on the left):** `00101101`
+
+### 2. Fractional Part (`0.375`)
+- **Method:** Repeatedly multiply by 2 & note the integer part.
+- **Calculation:**
+  - `0.375 * 2 = 0.75` -> `0`
+  - `0.75  * 2 = 1.5`  -> `1`
+  - `0.5   * 2 = 1.0`  -> `1`
+- **Result (read digits from top to bottom):** `011`
+- **Pad to 4 bits (on the right):** `0110`
+
+### 3. Combine
+- **Integer:** `00101101`
+- **Fraction:** `0110`
+- **Final (12-Bit):** `001011010110`
+
+#### Special Case: Loss of Precision (Ex: `2.3`)
+- Not every fraction can be represented exactly.
+- **Integer `2` -> `00000010`**
+- **Fraction `0.3` -> `0.010011...` (repeating)**
+- **Truncated to 4 bits:** `0100` (which represents `0.25`)
+- **Final result for 2.3:** `000000100100` (represents `2.25`)
