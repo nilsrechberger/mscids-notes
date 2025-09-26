@@ -150,7 +150,7 @@ cat("Median stays the same:", originla_meadian, "=", new_median)
 
 ```{r}
 # Read data
-data <- read.csv('hs25/sa/data/husband_wife.csv')
+data <- read.csv('/home/nils/dev/mscids-notes/hs25/sa/data/husband_wife.csv')
 data
 ```
 
@@ -200,7 +200,7 @@ boxplot(count ~ spray,
 ## Problem 2.3
 
 ```{r}
-data <- read.csv('hs25/sa/data/Diet.csv')
+data <- read.csv('/home/nils/dev/mscids-notes/hs25/sa/data/Diet.csv')
 head(data)
 ```
 
