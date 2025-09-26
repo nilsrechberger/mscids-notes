@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Linear Algebra 01 – mscids-notes</title>
+<title>Computer Science Concepts for Data Scientists - Exercises – mscids-notes</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -67,35 +67,6 @@ ul.task-list li input[type="checkbox"] {
   }
 }</script>
 
-  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
-  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
-
-<script type="text/javascript">
-const typesetMath = (el) => {
-  if (window.MathJax) {
-    // MathJax Typeset
-    window.MathJax.typeset([el]);
-  } else if (window.katex) {
-    // KaTeX Render
-    var mathElements = el.getElementsByClassName("math");
-    var macros = [];
-    for (var i = 0; i < mathElements.length; i++) {
-      var texText = mathElements[i].firstChild;
-      if (mathElements[i].tagName == "SPAN") {
-        window.katex.render(texText.data, mathElements[i], {
-          displayMode: mathElements[i].classList.contains('display'),
-          throwOnError: false,
-          macros: macros,
-          fleqn: false
-        });
-      }
-    }
-  }
-}
-window.Quarto = {
-  typesetMath
-};
-</script>
 
 <link rel="stylesheet" href="../../styles.css">
 </head>
@@ -172,25 +143,12 @@ window.Quarto = {
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#what-is-linear-algebra" id="toc-what-is-linear-algebra" class="nav-link active" data-scroll-target="#what-is-linear-algebra">What is Linear Algebra</a>
+  <li><a href="#quick-guide-decimal-to-binary-12-bit-8.4-format" id="toc-quick-guide-decimal-to-binary-12-bit-8.4-format" class="nav-link active" data-scroll-target="#quick-guide-decimal-to-binary-12-bit-8.4-format">Quick Guide: Decimal to Binary (12-Bit, 8.4 Format)</a>
   <ul class="collapse">
-  <li><a href="#vectors" id="toc-vectors" class="nav-link" data-scroll-target="#vectors">Vectors</a>
-  <ul class="collapse">
-  <li><a href="#sum-of-vectors" id="toc-sum-of-vectors" class="nav-link" data-scroll-target="#sum-of-vectors">Sum of Vectors</a></li>
-  <li><a href="#subtraction" id="toc-subtraction" class="nav-link" data-scroll-target="#subtraction">Subtraction</a></li>
-  <li><a href="#scalar-multiplication" id="toc-scalar-multiplication" class="nav-link" data-scroll-target="#scalar-multiplication">Scalar Multiplication</a></li>
-  <li><a href="#magniture-norm" id="toc-magniture-norm" class="nav-link" data-scroll-target="#magniture-norm">Magniture (Norm)</a></li>
-  <li><a href="#zero-vector" id="toc-zero-vector" class="nav-link" data-scroll-target="#zero-vector">Zero Vector</a></li>
-  <li><a href="#opposite-vector" id="toc-opposite-vector" class="nav-link" data-scroll-target="#opposite-vector">Opposite Vector</a></li>
-  <li><a href="#unite-vector" id="toc-unite-vector" class="nav-link" data-scroll-target="#unite-vector">Unite Vector</a></li>
-  <li><a href="#collinearity" id="toc-collinearity" class="nav-link" data-scroll-target="#collinearity">Collinearity</a></li>
-  <li><a href="#normalization" id="toc-normalization" class="nav-link" data-scroll-target="#normalization">Normalization</a></li>
-  <li><a href="#vectors-between-two-points" id="toc-vectors-between-two-points" class="nav-link" data-scroll-target="#vectors-between-two-points">Vectors between two points</a></li>
+  <li><a href="#integer-part-45" id="toc-integer-part-45" class="nav-link" data-scroll-target="#integer-part-45">1. Integer Part (<code>45</code>)</a></li>
+  <li><a href="#fractional-part-0.375" id="toc-fractional-part-0.375" class="nav-link" data-scroll-target="#fractional-part-0.375">2. Fractional Part (<code>0.375</code>)</a></li>
+  <li><a href="#combine" id="toc-combine" class="nav-link" data-scroll-target="#combine">3. Combine</a></li>
   </ul></li>
-  <li><a href="#cartesian-coordinate-systems" id="toc-cartesian-coordinate-systems" class="nav-link" data-scroll-target="#cartesian-coordinate-systems">Cartesian Coordinate Systems</a></li>
-  <li><a href="#d-space" id="toc-d-space" class="nav-link" data-scroll-target="#d-space">3-D Space</a></li>
-  </ul></li>
-  <li><a href="#system-of-linear-equations" id="toc-system-of-linear-equations" class="nav-link" data-scroll-target="#system-of-linear-equations">System of Linear Equations</a></li>
   </ul>
 </nav>
     </div>
@@ -199,7 +157,7 @@ window.Quarto = {
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">Linear Algebra 01</h1>
+<h1 class="title">Computer Science Concepts for Data Scientists - Exercises</h1>
 </div>
 
 
@@ -216,169 +174,61 @@ window.Quarto = {
 </header>
 
 
-<section id="what-is-linear-algebra" class="level1">
-<h1>What is Linear Algebra</h1>
-<p>Linear algebra is the theory of linear mappings between vector spaces. Broadly, it’s the theory of certain linear data transformations or manipulations. The main actors are vectors and matrices.</p>
-<section id="vectors" class="level2">
-<h2 class="anchored" data-anchor-id="vectors">Vectors</h2>
-<p>A vector <span class="math inline">\(\overrightarrow{a}\)</span> is data of a number (or magnitude) and a direction. A vector is defined only by its length and direction. Two arrows represent the same vector if one is a parallel translation (shift) of the other. A vector is determined by giving the initial and terminal points of a representative, also called the tail and head of the vector. A vector, such as <span class="math inline">\(\overrightarrow{PQ}\)</span>, is defined by the arrow with initial point <span class="math inline">\(P\)</span> (tail) and terminal point <span class="math inline">\(Q\)</span> (head).</p>
-<blockquote class="blockquote">
-<p>Note: The position of the arrow is not relevant.</p>
-</blockquote>
-<p><span class="math display">\[
-\overrightarrow{a} = \begin{bmatrix}
-1 \\
--3 \\
-\end{bmatrix}
-\]</span></p>
-<section id="sum-of-vectors" class="level3">
-<h3 class="anchored" data-anchor-id="sum-of-vectors">Sum of Vectors</h3>
-<p>The sum of two vectors is calculated component-wise. The summation of vectors is commutative and associative, includes a neutral element (the zero vector), and can be inverted by its negative vector to result in the zero vector.</p>
-<p><span class="math display">\[
-\overrightarrow{a} + \overrightarrow{b} = \begin{bmatrix}
-1 \\
--3 \\
-\end{bmatrix}
-+
-\begin{bmatrix}
-4 \\
--1 \\
-\end{bmatrix}
-=
-\begin{bmatrix}
-5 \\
--2 \\
-\end{bmatrix}
-\]</span></p>
+<section id="quick-guide-decimal-to-binary-12-bit-8.4-format" class="level1">
+<h1>Quick Guide: Decimal to Binary (12-Bit, 8.4 Format)</h1>
+<p><strong>Format:</strong> <code>IIIIIIII.FFFF</code> (8 bits integer, 4 bits fraction)</p>
+<p><strong>Example: <code>45.375</code></strong></p>
+<section id="integer-part-45" class="level3">
+<h3 class="anchored" data-anchor-id="integer-part-45">1. Integer Part (<code>45</code>)</h3>
+<ul>
+<li><strong>Method:</strong> Repeatedly divide by 2 &amp; note the remainder.</li>
+<li><strong>Calculation:</strong>
+<ul>
+<li><code>45 / 2 = 22</code> Remainder <code>1</code></li>
+<li><code>22 / 2 = 11</code> Remainder <code>0</code></li>
+<li><code>11 / 2 = 5</code> Remainder <code>1</code></li>
+<li><code>5 / 2  = 2</code> Remainder <code>1</code></li>
+<li><code>2 / 2  = 1</code> Remainder <code>0</code></li>
+<li><code>1 / 2  = 0</code> Remainder <code>1</code></li>
+</ul></li>
+<li><strong>Result (read remainders from bottom to top):</strong> <code>101101</code></li>
+<li><strong>Pad to 8 bits (on the left):</strong> <code>00101101</code></li>
+</ul>
 </section>
-<section id="subtraction" class="level3">
-<h3 class="anchored" data-anchor-id="subtraction">Subtraction</h3>
-<p>The difference of two vectors <span class="math inline">\(\overrightarrow{a}\)</span> and <span class="math inline">\(\overrightarrow{b}\)</span> is the sum of <span class="math inline">\(\overrightarrow{a}\)</span> and the opposite of <span class="math inline">\(\overrightarrow{b}\)</span>.</p>
-<p><span class="math display">\[
-\overrightarrow{a} - \overrightarrow{b} = \overrightarrow{a} + (-\overrightarrow{b})
-\]</span></p>
+<section id="fractional-part-0.375" class="level3">
+<h3 class="anchored" data-anchor-id="fractional-part-0.375">2. Fractional Part (<code>0.375</code>)</h3>
+<ul>
+<li><strong>Method:</strong> Repeatedly multiply by 2 &amp; note the integer part.</li>
+<li><strong>Calculation:</strong>
+<ul>
+<li><code>0.375 * 2 = 0.75</code> -&gt; <code>0</code></li>
+<li><code>0.75  * 2 = 1.5</code> -&gt; <code>1</code></li>
+<li><code>0.5   * 2 = 1.0</code> -&gt; <code>1</code></li>
+</ul></li>
+<li><strong>Result (read digits from top to bottom):</strong> <code>011</code></li>
+<li><strong>Pad to 4 bits (on the right):</strong> <code>0110</code></li>
+</ul>
 </section>
-<section id="scalar-multiplication" class="level3">
-<h3 class="anchored" data-anchor-id="scalar-multiplication">Scalar Multiplication</h3>
-<p>Scalar multiplication of a vector involves multiplying each component of the vector by a scalar (a real number). This changes the magnitude of the vector, keeping its direction the same if the scalar is positive or reversing it if the scalar is negative. Scalar multiplication of vectors is associative and distributive and includes a neutral element (the scalar 1).</p>
-<p><span class="math display">\[
-\dfrac{1}{2}(\overrightarrow{a} + \overrightarrow{b})
-=
-\dfrac{1}{2}(\begin{bmatrix}
-2 \\
-6 \\
-\end{bmatrix}
-+
-\begin{bmatrix}
-4 \\
-2 \\
-\end{bmatrix})
-=
-\begin{bmatrix}
-3 \\
-4 \\
-\end{bmatrix}
-\]</span></p>
-</section>
-<section id="magniture-norm" class="level3">
-<h3 class="anchored" data-anchor-id="magniture-norm">Magniture (Norm)</h3>
-<p>The magnitude (or norm) of a vector <span class="math inline">\(\overrightarrow{a}\)</span> is its length, and it is denoted by <span class="math inline">\(|\overrightarrow{a}|\)</span>.</p>
-<p><span class="math display">\[
-\lvert \vec{a} \rvert = \sqrt{a_x^2 + a_y^2}
-\]</span></p>
-<blockquote class="blockquote">
-<p>Note: Length of vector is never negative: <span class="math inline">\(\lvert \overrightarrow{a} \rvert \ge 0\)</span>.</p>
-</blockquote>
-</section>
-<section id="zero-vector" class="level3">
-<h3 class="anchored" data-anchor-id="zero-vector">Zero Vector</h3>
-<p>The vector with a norm of zero is denoted by <span class="math inline">\(\overrightarrow{0}\)</span>. The length of the zero vector is <span class="math inline">\(0\)</span>.</p>
-<p><span class="math display">\[
-|\overrightarrow{0}| = 0
-\]</span></p>
-<blockquote class="blockquote">
-<p>Note: A zero vector has no direction.</p>
-</blockquote>
-</section>
-<section id="opposite-vector" class="level3">
-<h3 class="anchored" data-anchor-id="opposite-vector">Opposite Vector</h3>
-<p>The opposite vector of <span class="math inline">\(\overrightarrow{a}\)</span> is a vector with the same norm but the opposite direction. It is denoted as <span class="math inline">\(-\overrightarrow{a}\)</span>. In a representative, the initial and terminal points are reversed.</p>
-<blockquote class="blockquote">
-<p>Note: <span class="math inline">\(\overrightarrow{PQ} = -\overrightarrow{QP}\)</span>, but <span class="math inline">\(\overrightarrow{PQ} \neq \overrightarrow{QP}\)</span></p>
-</blockquote>
-</section>
-<section id="unite-vector" class="level3">
-<h3 class="anchored" data-anchor-id="unite-vector">Unite Vector</h3>
-<p>A unit vector is a vector that has a magnitude of 1 and is often used to indicate direction.</p>
-<p><span class="math display">\[
-\lvert \overrightarrow{e} \rvert = 1
-\]</span></p>
-</section>
-<section id="collinearity" class="level3">
-<h3 class="anchored" data-anchor-id="collinearity">Collinearity</h3>
-<p>Two vectors <span class="math inline">\(\overrightarrow{a}\)</span> and <span class="math inline">\(\overrightarrow{b}\)</span> are called collinear or linearly dependent, if:</p>
-<p><span class="math display">\[
-\overrightarrow{b} = r \overrightarrow{a} \quad \text{for } r \in \mathbb{R}
-\]</span> <span class="math display">\[
-s \overrightarrow{b} =  \overrightarrow{a} \quad \text{for } s \in \mathbb{R}
-\]</span></p>
-<p>More generally: <span class="math display">\[
-r \overrightarrow{a} + s \overrightarrow{b} = \overrightarrow{0} \quad \text{for } r, s \in \mathbb{R} \quad \text{with } r \neq 0 \quad \text{or } s \neq 0
-\]</span></p>
-<p>This will be used to generalize definition of linear independence.</p>
-</section>
-<section id="normalization" class="level3">
-<h3 class="anchored" data-anchor-id="normalization">Normalization</h3>
-<p>For every non-zero vector <span class="math inline">\(\overrightarrow{a}\)</span>, there is exactly one unit vector (<span class="math inline">\(\overrightarrow{e}_a\)</span>) with the same direction. This process is called normalizing a vector.</p>
-<p><span class="math display">\[
-\overrightarrow{e}_a = \dfrac{1}{\lvert \overrightarrow{a} \rvert}\overrightarrow{a}
-\]</span></p>
-</section>
-<section id="vectors-between-two-points" class="level3">
-<h3 class="anchored" data-anchor-id="vectors-between-two-points">Vectors between two points</h3>
-<p><span class="math display">\[
-\overrightarrow{PQ}
-=
-\begin{bmatrix}
-x_2 - x_1 \\
-y_2 - y_1 \\
-\end{bmatrix}
-\]</span></p>
-</section>
-</section>
-<section id="cartesian-coordinate-systems" class="level2">
-<h2 class="anchored" data-anchor-id="cartesian-coordinate-systems">Cartesian Coordinate Systems</h2>
-<p>A Cartesian coordinate system is one in which the axes are perpendicular and the units on each axis have the same length. The unit vectors along the axes are typically denoted by <span class="math inline">\(\overrightarrow{e}_x\)</span> and <span class="math inline">\(\overrightarrow{e}_y\)</span>. Every vector in this system can be represented as a linear combination of these unit vectors.</p>
-<p><span class="math display">\[
-\overrightarrow{a} = a_x\overrightarrow{e}_x + a_y\overrightarrow{e}_y
-\]</span></p>
-<blockquote class="blockquote">
-<p>Note: <span class="math inline">\(a_x\)</span> and <span class="math inline">\(a_y\)</span> are called scalar components of <span class="math inline">\(\overrightarrow{a}\)</span>.</p>
-</blockquote>
-</section>
-<section id="d-space" class="level2">
-<h2 class="anchored" data-anchor-id="d-space">3-D Space</h2>
-<p>Vectors in 3D space have an additional component to represent the third dimension.</p>
-<p><span class="math display">\[
-\overrightarrow{a} = \begin{bmatrix}
-1 \\
--3 \\
-2 \\
-\end{bmatrix}
-\]</span></p>
-<blockquote class="blockquote">
-<p>Note: The mathematical rules do not change by adding more dimensions.</p>
-</blockquote>
-</section>
-</section>
-<section id="system-of-linear-equations" class="level1">
-<h1>System of Linear Equations</h1>
-<p>A system of linear equations is a collection of two or more linear equations that share the same variables. The solution to the system is the set of values for the variables that satisfy all equations simultaneously. Linear equation in two variables x and y is an equation of the form:</p>
-<p><span class="math display">\[
-ax + bx = c \text{, where } A, B, C \in \mathbb{R}
-\]</span></p>
+<section id="combine" class="level3">
+<h3 class="anchored" data-anchor-id="combine">3. Combine</h3>
+<ul>
+<li><strong>Integer:</strong> <code>00101101</code></li>
+<li><strong>Fraction:</strong> <code>0110</code></li>
+<li><strong>Final (12-Bit):</strong> <code>001011010110</code></li>
+</ul>
+<section id="special-case-loss-of-precision-ex-2.3" class="level4">
+<h4 class="anchored" data-anchor-id="special-case-loss-of-precision-ex-2.3">Special Case: Loss of Precision (Ex: <code>2.3</code>)</h4>
+<ul>
+<li>Not every fraction can be represented exactly.</li>
+<li><strong>Integer <code>2</code> -&gt; <code>00000010</code></strong></li>
+<li><strong>Fraction <code>0.3</code> -&gt; <code>0.010011...</code> (repeating)</strong></li>
+<li><strong>Truncated to 4 bits:</strong> <code>0100</code> (which represents <code>0.25</code>)</li>
+<li><strong>Final result for 2.3:</strong> <code>000000100100</code> (represents <code>2.25</code>)</li>
+</ul>
 
 
+</section>
+</section>
 </section>
 
 </main> <!-- /main -->

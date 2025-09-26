@@ -190,6 +190,19 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <li><a href="#try-to-understand-the-behaviour" id="toc-try-to-understand-the-behaviour" class="nav-link" data-scroll-target="#try-to-understand-the-behaviour">try to understand the behaviour</a></li>
   </ul></li>
   </ul></li>
+  <li><a href="#conditions" id="toc-conditions" class="nav-link" data-scroll-target="#conditions">Conditions</a>
+  <ul class="collapse">
+  <li><a href="#task-1" id="toc-task-1" class="nav-link" data-scroll-target="#task-1">Task 1</a>
+  <ul class="collapse">
+  <li><a href="#using-if-else-statements" id="toc-using-if-else-statements" class="nav-link" data-scroll-target="#using-if-else-statements">Using if-else-statements</a></li>
+  <li><a href="#using-build-in-function-sorted" id="toc-using-build-in-function-sorted" class="nav-link" data-scroll-target="#using-build-in-function-sorted">Using build in function <code>sorted()</code></a></li>
+  </ul></li>
+  <li><a href="#task-2" id="toc-task-2" class="nav-link" data-scroll-target="#task-2">Task 2</a>
+  <ul class="collapse">
+  <li><a href="#a" id="toc-a" class="nav-link" data-scroll-target="#a">a</a></li>
+  <li><a href="#b" id="toc-b" class="nav-link" data-scroll-target="#b">b</a></li>
+  </ul></li>
+  </ul></li>
   </ul>
 </nav>
     </div>
@@ -221,7 +234,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <h2 class="anchored" data-anchor-id="exercises-1">Exercises 1</h2>
 <section id="what-does-python-return-as-result-of-the-following-calculations" class="level3">
 <h3 class="anchored" data-anchor-id="what-does-python-return-as-result-of-the-following-calculations">What does Python return as result of the following calculations?</h3>
-<div id="4e9bd65e" class="cell" data-execution_count="1">
+<div id="171f7ec6" class="cell" data-execution_count="1">
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"10 + 10 + 10 = </span><span class="sc">{</span><span class="dv">10</span> <span class="op">+</span> <span class="dv">10</span> <span class="op">+</span> <span class="dv">10</span><span class="sc">}</span><span class="ss">"</span>)</span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"10 - 3       = </span><span class="sc">{</span><span class="dv">10</span> <span class="op">-</span> <span class="dv">3</span><span class="sc">}</span><span class="ss">"</span>)</span>
 <span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"10 * 2       = </span><span class="sc">{</span><span class="dv">10</span> <span class="op">*</span> <span class="dv">2</span><span class="sc">}</span><span class="ss">"</span>)</span>
@@ -250,7 +263,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </section>
 <section id="try-to-find-out-what-happens" class="level3">
 <h3 class="anchored" data-anchor-id="try-to-find-out-what-happens">Try to find out: What happens?</h3>
-<div id="2909a2c4" class="cell" data-execution_count="2">
+<div id="ca6d29e0" class="cell" data-execution_count="2">
 <div class="sourceCode cell-code" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>a <span class="op">=</span> <span class="dv">23</span></span>
 <span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>b <span class="op">=</span> <span class="dv">23</span></span>
 <span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"a = </span><span class="sc">{</span>a<span class="sc">}</span><span class="ss">"</span>)</span>
@@ -265,7 +278,7 @@ a is of type &lt;class 'int'&gt;</code></pre>
 <blockquote class="blockquote">
 <p>Note: <code>id()</code> corresponds to the objects memory address during its lifetime.</p>
 </blockquote>
-<div id="c8ac8d19" class="cell" data-execution_count="3">
+<div id="77a22bbc" class="cell" data-execution_count="3">
 <div class="sourceCode cell-code" id="cb5"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"b = </span><span class="sc">{</span>b<span class="sc">}</span><span class="ss">"</span>)</span>
 <span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"The ID of b is </span><span class="sc">{</span><span class="bu">id</span>(b)<span class="sc">}</span><span class="ss">"</span>)</span>
 <span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"b is of type </span><span class="sc">{</span><span class="bu">type</span>(a)<span class="sc">}</span><span class="ss">"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -278,7 +291,7 @@ b is of type &lt;class 'int'&gt;</code></pre>
 </section>
 <section id="change-the-value-of-variable-a" class="level3">
 <h3 class="anchored" data-anchor-id="change-the-value-of-variable-a">Change the value of variable “a”</h3>
-<div id="7e3c3925" class="cell" data-execution_count="4">
+<div id="4c8cdf9f" class="cell" data-execution_count="4">
 <div class="sourceCode cell-code" id="cb7"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>a <span class="op">=</span> <span class="dv">123</span> <span class="co"># Reassign var a to int 123</span></span>
 <span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"a = </span><span class="sc">{</span>a<span class="sc">}</span><span class="ss">"</span>)</span>
 <span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"The ID of a is </span><span class="sc">{</span><span class="bu">id</span>(a)<span class="sc">}</span><span class="ss">"</span>)</span>
@@ -292,7 +305,7 @@ a is of type &lt;class 'int'&gt;</code></pre>
 </section>
 <section id="what-happens-now-why" class="level3">
 <h3 class="anchored" data-anchor-id="what-happens-now-why">What happens now? why?</h3>
-<div id="e06c8266" class="cell" data-execution_count="5">
+<div id="8fed71b3" class="cell" data-execution_count="5">
 <div class="sourceCode cell-code" id="cb9"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a>c <span class="op">=</span> <span class="dv">23</span></span>
 <span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"c = </span><span class="sc">{</span>c<span class="sc">}</span><span class="ss">"</span>)</span>
 <span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"The ID of a is </span><span class="sc">{</span><span class="bu">id</span>(c)<span class="sc">}</span><span class="ss">"</span>)</span>
@@ -307,21 +320,21 @@ c is of type &lt;class 'int'&gt;</code></pre>
 </section>
 <section id="try-the-same-thing-with-a-float-variable" class="level3">
 <h3 class="anchored" data-anchor-id="try-the-same-thing-with-a-float-variable">Try the same thing with a float variable!!!</h3>
-<div id="9cd07d7c" class="cell" data-execution_count="6">
+<div id="9a8279ac" class="cell" data-execution_count="6">
 <div class="sourceCode cell-code" id="cb11"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a>d <span class="op">=</span> <span class="fl">3.142</span></span>
 <span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"d = </span><span class="sc">{</span>d<span class="sc">}</span><span class="ss">"</span>)</span>
 <span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"The ID of a is </span><span class="sc">{</span><span class="bu">id</span>(d)<span class="sc">}</span><span class="ss">"</span>)</span>
 <span id="cb11-4"><a href="#cb11-4" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"d is of type </span><span class="sc">{</span><span class="bu">type</span>(d)<span class="sc">}</span><span class="ss">"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>d = 3.142
-The ID of a is 124212808129872
+The ID of a is 125587394633040
 d is of type &lt;class 'float'&gt;</code></pre>
 </div>
 </div>
 </section>
 <section id="printing-of-text-strings" class="level3">
 <h3 class="anchored" data-anchor-id="printing-of-text-strings">Printing of text (strings)</h3>
-<div id="2fe95530" class="cell" data-execution_count="7">
+<div id="5902064a" class="cell" data-execution_count="7">
 <div class="sourceCode cell-code" id="cb13"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span> (<span class="st">"HSLU's Python course is cool"</span>)</span>
 <span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb13-3"><a href="#cb13-3" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"This is Line 1"</span>)</span>
@@ -353,7 +366,7 @@ Add some space between the words without removing the '+' signs!</code></pre>
 </section>
 <section id="try-to-understand-the-behaviour" class="level3">
 <h3 class="anchored" data-anchor-id="try-to-understand-the-behaviour">try to understand the behaviour</h3>
-<div id="86b622b2" class="cell" data-execution_count="8">
+<div id="9566bcca" class="cell" data-execution_count="8">
 <div class="sourceCode cell-code" id="cb15"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a>g<span class="op">=</span>h<span class="op">=</span><span class="st">'hslu'</span>      <span class="co"># Assign the var g and h to the string "hslu"</span></span>
 <span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(g)        <span class="co"># Prints hslu</span></span>
 <span id="cb15-3"><a href="#cb15-3" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(h)        <span class="co"># Print hslu</span></span>
@@ -375,6 +388,183 @@ hslu
 458
 True
 True</code></pre>
+</div>
+</div>
+</section>
+</section>
+</section>
+<section id="conditions" class="level1">
+<h1>Conditions</h1>
+<section id="task-1" class="level2">
+<h2 class="anchored" data-anchor-id="task-1">Task 1</h2>
+<p>Create a simple program in which three whole numbers (potentially negative!) are read in from the keyboard and afterwards get displayed on the screen in ascending order. Use nested if-statements for order determination (i.e.&nbsp;no built-in- ‘sort’ function).</p>
+<section id="using-if-else-statements" class="level3">
+<h3 class="anchored" data-anchor-id="using-if-else-statements">Using if-else-statements</h3>
+<div id="e168c2d0" class="cell" data-execution_count="9">
+<div class="sourceCode cell-code" id="cb17"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a>inputs <span class="op">=</span> [] <span class="co"># Set up storage</span></span>
+<span id="cb17-2"><a href="#cb17-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb17-3"><a href="#cb17-3" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"Please input 3 whole numbers of your choise."</span>)</span>
+<span id="cb17-4"><a href="#cb17-4" aria-hidden="true" tabindex="-1"></a><span class="co">"""</span></span>
+<span id="cb17-5"><a href="#cb17-5" aria-hidden="true" tabindex="-1"></a><span class="co">input1 = int(input("Number one: ")) # Assign input to a variable</span></span>
+<span id="cb17-6"><a href="#cb17-6" aria-hidden="true" tabindex="-1"></a><span class="co">input2 = int(input("Number two: "))</span></span>
+<span id="cb17-7"><a href="#cb17-7" aria-hidden="true" tabindex="-1"></a><span class="co">input3 = int(input("Number tree: "))</span></span>
+<span id="cb17-8"><a href="#cb17-8" aria-hidden="true" tabindex="-1"></a><span class="co">"""</span></span>
+<span id="cb17-9"><a href="#cb17-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb17-10"><a href="#cb17-10" aria-hidden="true" tabindex="-1"></a><span class="co"># Use fake user inputs</span></span>
+<span id="cb17-11"><a href="#cb17-11" aria-hidden="true" tabindex="-1"></a>input1 <span class="op">=</span> <span class="op">-</span><span class="dv">3</span></span>
+<span id="cb17-12"><a href="#cb17-12" aria-hidden="true" tabindex="-1"></a>input2 <span class="op">=</span> <span class="dv">10</span></span>
+<span id="cb17-13"><a href="#cb17-13" aria-hidden="true" tabindex="-1"></a>input3 <span class="op">=</span> <span class="op">-</span><span class="dv">6</span></span>
+<span id="cb17-14"><a href="#cb17-14" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb17-15"><a href="#cb17-15" aria-hidden="true" tabindex="-1"></a><span class="co"># Sort list</span></span>
+<span id="cb17-16"><a href="#cb17-16" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> input1 <span class="op">&lt;</span> input2 <span class="kw">and</span> input1 <span class="op">&lt;</span> input3:</span>
+<span id="cb17-17"><a href="#cb17-17" aria-hidden="true" tabindex="-1"></a>    inputs.append(input1) <span class="co"># Append input to list</span></span>
+<span id="cb17-18"><a href="#cb17-18" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> input2 <span class="op">&lt;</span> input3:</span>
+<span id="cb17-19"><a href="#cb17-19" aria-hidden="true" tabindex="-1"></a>        inputs.append(input2)</span>
+<span id="cb17-20"><a href="#cb17-20" aria-hidden="true" tabindex="-1"></a>        inputs.append(input3)</span>
+<span id="cb17-21"><a href="#cb17-21" aria-hidden="true" tabindex="-1"></a>    <span class="cf">else</span>:</span>
+<span id="cb17-22"><a href="#cb17-22" aria-hidden="true" tabindex="-1"></a>        inputs.append(input3)</span>
+<span id="cb17-23"><a href="#cb17-23" aria-hidden="true" tabindex="-1"></a>        inputs.append(input2)</span>
+<span id="cb17-24"><a href="#cb17-24" aria-hidden="true" tabindex="-1"></a><span class="cf">elif</span> input2 <span class="op">&lt;</span> input1 <span class="kw">and</span> input2 <span class="op">&lt;</span> input3:</span>
+<span id="cb17-25"><a href="#cb17-25" aria-hidden="true" tabindex="-1"></a>    inputs.append(input2)</span>
+<span id="cb17-26"><a href="#cb17-26" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> input1 <span class="op">&lt;</span> input3:</span>
+<span id="cb17-27"><a href="#cb17-27" aria-hidden="true" tabindex="-1"></a>        inputs.append(input1)</span>
+<span id="cb17-28"><a href="#cb17-28" aria-hidden="true" tabindex="-1"></a>        inputs.append(input3)</span>
+<span id="cb17-29"><a href="#cb17-29" aria-hidden="true" tabindex="-1"></a>    <span class="cf">else</span>:</span>
+<span id="cb17-30"><a href="#cb17-30" aria-hidden="true" tabindex="-1"></a>        inputs.append(input3)</span>
+<span id="cb17-31"><a href="#cb17-31" aria-hidden="true" tabindex="-1"></a>        inputs.append(input1)</span>
+<span id="cb17-32"><a href="#cb17-32" aria-hidden="true" tabindex="-1"></a><span class="cf">elif</span> input3 <span class="op">&lt;</span> input1 <span class="kw">and</span> input3 <span class="op">&lt;</span> input2:</span>
+<span id="cb17-33"><a href="#cb17-33" aria-hidden="true" tabindex="-1"></a>    inputs.append(input3)</span>
+<span id="cb17-34"><a href="#cb17-34" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> input1 <span class="op">&lt;</span> input2:</span>
+<span id="cb17-35"><a href="#cb17-35" aria-hidden="true" tabindex="-1"></a>        inputs.append(input1)</span>
+<span id="cb17-36"><a href="#cb17-36" aria-hidden="true" tabindex="-1"></a>        inputs.append(input2)</span>
+<span id="cb17-37"><a href="#cb17-37" aria-hidden="true" tabindex="-1"></a>    <span class="cf">else</span>:</span>
+<span id="cb17-38"><a href="#cb17-38" aria-hidden="true" tabindex="-1"></a>        inputs.append(input2)</span>
+<span id="cb17-39"><a href="#cb17-39" aria-hidden="true" tabindex="-1"></a>        inputs.append(input1)</span>
+<span id="cb17-40"><a href="#cb17-40" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb17-41"><a href="#cb17-41" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(inputs)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Please input 3 whole numbers of your choise.
+[-6, -3, 10]</code></pre>
+</div>
+</div>
+</section>
+<section id="using-build-in-function-sorted" class="level3">
+<h3 class="anchored" data-anchor-id="using-build-in-function-sorted">Using build in function <code>sorted()</code></h3>
+<div id="8f7e57ad" class="cell" data-execution_count="10">
+<div class="sourceCode cell-code" id="cb19"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a>inputs <span class="op">=</span> [] <span class="co"># Set up storage</span></span>
+<span id="cb19-2"><a href="#cb19-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb19-3"><a href="#cb19-3" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"Please input 3 whole numbers of your choise."</span>)</span>
+<span id="cb19-4"><a href="#cb19-4" aria-hidden="true" tabindex="-1"></a><span class="co">"""</span></span>
+<span id="cb19-5"><a href="#cb19-5" aria-hidden="true" tabindex="-1"></a><span class="co">input1 = int(input("Number one: ")) # Assign input to a variable</span></span>
+<span id="cb19-6"><a href="#cb19-6" aria-hidden="true" tabindex="-1"></a><span class="co">inputs.append(input1)</span></span>
+<span id="cb19-7"><a href="#cb19-7" aria-hidden="true" tabindex="-1"></a><span class="co">input2 = int(input("Number two: "))</span></span>
+<span id="cb19-8"><a href="#cb19-8" aria-hidden="true" tabindex="-1"></a><span class="co">inputs.append(input2)</span></span>
+<span id="cb19-9"><a href="#cb19-9" aria-hidden="true" tabindex="-1"></a><span class="co">input3 = int(input("Number tree: "))</span></span>
+<span id="cb19-10"><a href="#cb19-10" aria-hidden="true" tabindex="-1"></a><span class="co">inputs.append(input3)</span></span>
+<span id="cb19-11"><a href="#cb19-11" aria-hidden="true" tabindex="-1"></a><span class="co">"""</span></span>
+<span id="cb19-12"><a href="#cb19-12" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb19-13"><a href="#cb19-13" aria-hidden="true" tabindex="-1"></a><span class="co"># Use fake user inputs</span></span>
+<span id="cb19-14"><a href="#cb19-14" aria-hidden="true" tabindex="-1"></a>input1 <span class="op">=</span> <span class="op">-</span><span class="dv">3</span></span>
+<span id="cb19-15"><a href="#cb19-15" aria-hidden="true" tabindex="-1"></a>input2 <span class="op">=</span> <span class="dv">10</span></span>
+<span id="cb19-16"><a href="#cb19-16" aria-hidden="true" tabindex="-1"></a>input3 <span class="op">=</span> <span class="op">-</span><span class="dv">6</span></span>
+<span id="cb19-17"><a href="#cb19-17" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb19-18"><a href="#cb19-18" aria-hidden="true" tabindex="-1"></a><span class="co"># Sort list</span></span>
+<span id="cb19-19"><a href="#cb19-19" aria-hidden="true" tabindex="-1"></a>inputs <span class="op">=</span> <span class="bu">sorted</span>(inputs)</span>
+<span id="cb19-20"><a href="#cb19-20" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(inputs)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Please input 3 whole numbers of your choise.
+[]</code></pre>
+</div>
+</div>
+</section>
+</section>
+<section id="task-2" class="level2">
+<h2 class="anchored" data-anchor-id="task-2">Task 2</h2>
+<section id="a" class="level3">
+<h3 class="anchored" data-anchor-id="a">a</h3>
+<p>Assumption: The int variables a, b and c are declared and initialized.</p>
+<p>Define a conditional expression “EXPR” in such a way that the body of the expression</p>
+<p>if EXPR: print(“condition fulfilled”)</p>
+<p>is only carried out if: a is greater than b OR a is less than half of b OR the sum of a and c is greater than b.</p>
+<p>Check your result: a=1, b=2, c=2 -&gt; True a=1, b=2, c=1 -&gt; False</p>
+<div id="c08cd389" class="cell" data-execution_count="11">
+<div class="sourceCode cell-code" id="cb21"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Test case one</span></span>
+<span id="cb21-2"><a href="#cb21-2" aria-hidden="true" tabindex="-1"></a>a <span class="op">=</span> <span class="dv">1</span></span>
+<span id="cb21-3"><a href="#cb21-3" aria-hidden="true" tabindex="-1"></a>b <span class="op">=</span> <span class="dv">2</span></span>
+<span id="cb21-4"><a href="#cb21-4" aria-hidden="true" tabindex="-1"></a>c <span class="op">=</span> <span class="dv">2</span></span>
+<span id="cb21-5"><a href="#cb21-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb21-6"><a href="#cb21-6" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> a <span class="op">&gt;</span> b <span class="kw">or</span> a <span class="op">&lt;</span> b<span class="op">/</span><span class="dv">2</span> <span class="kw">or</span> <span class="bu">sum</span>([a, c]) <span class="op">&gt;</span> b:</span>
+<span id="cb21-7"><a href="#cb21-7" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="st">"condition fulfilled"</span>)</span>
+<span id="cb21-8"><a href="#cb21-8" aria-hidden="true" tabindex="-1"></a><span class="cf">else</span>:</span>
+<span id="cb21-9"><a href="#cb21-9" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="st">"condition not fulfilled"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>condition fulfilled</code></pre>
+</div>
+</div>
+<div id="a51efc4a" class="cell" data-execution_count="12">
+<div class="sourceCode cell-code" id="cb23"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Test case two</span></span>
+<span id="cb23-2"><a href="#cb23-2" aria-hidden="true" tabindex="-1"></a>a <span class="op">=</span> <span class="dv">1</span></span>
+<span id="cb23-3"><a href="#cb23-3" aria-hidden="true" tabindex="-1"></a>b <span class="op">=</span> <span class="dv">2</span></span>
+<span id="cb23-4"><a href="#cb23-4" aria-hidden="true" tabindex="-1"></a>c <span class="op">=</span> <span class="dv">1</span></span>
+<span id="cb23-5"><a href="#cb23-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb23-6"><a href="#cb23-6" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> a <span class="op">&gt;</span> b <span class="kw">or</span> a <span class="op">&lt;</span> b<span class="op">/</span><span class="dv">2</span> <span class="kw">or</span> <span class="bu">sum</span>([a, c]) <span class="op">&gt;</span> b:</span>
+<span id="cb23-7"><a href="#cb23-7" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="st">"condition fulfilled"</span>)</span>
+<span id="cb23-8"><a href="#cb23-8" aria-hidden="true" tabindex="-1"></a><span class="cf">else</span>:</span>
+<span id="cb23-9"><a href="#cb23-9" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="st">"condition not fulfilled"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>condition not fulfilled</code></pre>
+</div>
+</div>
+</section>
+<section id="b" class="level3">
+<h3 class="anchored" data-anchor-id="b">b</h3>
+<p>Assumption: The int variables a, b and c are declared and initialized.</p>
+<p>Define a conditional expression “EXPR” in such a way that the body of the expression</p>
+<p>if EXPR: print(“condition fulfilled”)</p>
+<p>is only carried out if: half of the number a is an odd number OR the subtraction of the numbers b and c results in an even number OR both a and b and also b and c have different values.</p>
+<p>Check your result: a=6, b=2, c=0 =&gt; True a=5, b=2, c=1 =&gt; True a=5, b=5, c=2 =&gt; False</p>
+<div id="5f4f8365" class="cell" data-execution_count="13">
+<div class="sourceCode cell-code" id="cb25"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb25-1"><a href="#cb25-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Test case one</span></span>
+<span id="cb25-2"><a href="#cb25-2" aria-hidden="true" tabindex="-1"></a>a <span class="op">=</span> <span class="dv">6</span></span>
+<span id="cb25-3"><a href="#cb25-3" aria-hidden="true" tabindex="-1"></a>b <span class="op">=</span> <span class="dv">2</span></span>
+<span id="cb25-4"><a href="#cb25-4" aria-hidden="true" tabindex="-1"></a>c <span class="op">=</span> <span class="dv">0</span></span>
+<span id="cb25-5"><a href="#cb25-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb25-6"><a href="#cb25-6" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> a<span class="op">/</span><span class="dv">2</span> <span class="op">%</span> <span class="dv">2</span> <span class="op">==</span> <span class="dv">1</span> <span class="kw">or</span> b <span class="op">-</span> c <span class="op">%</span> <span class="dv">2</span> <span class="op">==</span> <span class="dv">0</span> <span class="kw">or</span> a <span class="op">!=</span> b <span class="kw">and</span> b <span class="op">!=</span> c:</span>
+<span id="cb25-7"><a href="#cb25-7" aria-hidden="true" tabindex="-1"></a>        <span class="bu">print</span>(<span class="st">"condition fulfilled"</span>)</span>
+<span id="cb25-8"><a href="#cb25-8" aria-hidden="true" tabindex="-1"></a><span class="cf">else</span>:</span>
+<span id="cb25-9"><a href="#cb25-9" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="st">"condition not fulfilled"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>condition fulfilled</code></pre>
+</div>
+</div>
+<div id="9ee2d320" class="cell" data-execution_count="14">
+<div class="sourceCode cell-code" id="cb27"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb27-1"><a href="#cb27-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Test case two</span></span>
+<span id="cb27-2"><a href="#cb27-2" aria-hidden="true" tabindex="-1"></a><span class="co"># Test case one</span></span>
+<span id="cb27-3"><a href="#cb27-3" aria-hidden="true" tabindex="-1"></a>a <span class="op">=</span> <span class="dv">5</span></span>
+<span id="cb27-4"><a href="#cb27-4" aria-hidden="true" tabindex="-1"></a>b <span class="op">=</span> <span class="dv">2</span></span>
+<span id="cb27-5"><a href="#cb27-5" aria-hidden="true" tabindex="-1"></a>c <span class="op">=</span> <span class="dv">1</span></span>
+<span id="cb27-6"><a href="#cb27-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb27-7"><a href="#cb27-7" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> a<span class="op">/</span><span class="dv">2</span> <span class="op">%</span> <span class="dv">2</span> <span class="op">==</span> <span class="dv">1</span> <span class="kw">or</span> b <span class="op">-</span> c <span class="op">%</span> <span class="dv">2</span> <span class="op">==</span> <span class="dv">0</span> <span class="kw">or</span> a <span class="op">!=</span> b <span class="kw">and</span> b <span class="op">!=</span> c:</span>
+<span id="cb27-8"><a href="#cb27-8" aria-hidden="true" tabindex="-1"></a>        <span class="bu">print</span>(<span class="st">"condition fulfilled"</span>)</span>
+<span id="cb27-9"><a href="#cb27-9" aria-hidden="true" tabindex="-1"></a><span class="cf">else</span>:</span>
+<span id="cb27-10"><a href="#cb27-10" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="st">"condition not fulfilled"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>condition fulfilled</code></pre>
+</div>
+</div>
+<div id="7d03b952" class="cell" data-execution_count="15">
+<div class="sourceCode cell-code" id="cb29"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb29-1"><a href="#cb29-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Test case three</span></span>
+<span id="cb29-2"><a href="#cb29-2" aria-hidden="true" tabindex="-1"></a><span class="co"># Test case one</span></span>
+<span id="cb29-3"><a href="#cb29-3" aria-hidden="true" tabindex="-1"></a>a <span class="op">=</span> <span class="dv">5</span></span>
+<span id="cb29-4"><a href="#cb29-4" aria-hidden="true" tabindex="-1"></a>b <span class="op">=</span> <span class="dv">5</span></span>
+<span id="cb29-5"><a href="#cb29-5" aria-hidden="true" tabindex="-1"></a>c <span class="op">=</span> <span class="dv">2</span></span>
+<span id="cb29-6"><a href="#cb29-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb29-7"><a href="#cb29-7" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> a<span class="op">/</span><span class="dv">2</span> <span class="op">%</span> <span class="dv">2</span> <span class="op">==</span> <span class="dv">1</span> <span class="kw">or</span> b <span class="op">-</span> c <span class="op">%</span> <span class="dv">2</span> <span class="op">==</span> <span class="dv">0</span> <span class="kw">or</span> a <span class="op">!=</span> b <span class="kw">and</span> b <span class="op">!=</span> c:</span>
+<span id="cb29-8"><a href="#cb29-8" aria-hidden="true" tabindex="-1"></a>        <span class="bu">print</span>(<span class="st">"condition fulfilled"</span>)</span>
+<span id="cb29-9"><a href="#cb29-9" aria-hidden="true" tabindex="-1"></a><span class="cf">else</span>:</span>
+<span id="cb29-10"><a href="#cb29-10" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="st">"condition not fulfilled"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>condition not fulfilled</code></pre>
 </div>
 </div>
 

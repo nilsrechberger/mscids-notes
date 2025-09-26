@@ -228,6 +228,29 @@ window.Quarto = {
   <li><a href="#quantiles" id="toc-quantiles" class="nav-link" data-scroll-target="#quantiles">Quantiles</a></li>
   </ul></li>
   <li><a href="#interquantile-range" id="toc-interquantile-range" class="nav-link" data-scroll-target="#interquantile-range">Interquantile Range</a></li>
+  <li><a href="#graphical-representation-of-data" id="toc-graphical-representation-of-data" class="nav-link" data-scroll-target="#graphical-representation-of-data">Graphical Representation of Data</a>
+  <ul class="collapse">
+  <li><a href="#boxplot" id="toc-boxplot" class="nav-link" data-scroll-target="#boxplot">Boxplot</a></li>
+  <li><a href="#histogram" id="toc-histogram" class="nav-link" data-scroll-target="#histogram">Histogram</a>
+  <ul class="collapse">
+  <li><a href="#skweness-of-hostograms" id="toc-skweness-of-hostograms" class="nav-link" data-scroll-target="#skweness-of-hostograms">Skweness of Hostograms</a></li>
+  </ul></li>
+  <li><a href="#normalised-histograms" id="toc-normalised-histograms" class="nav-link" data-scroll-target="#normalised-histograms">Normalised Histograms</a></li>
+  <li><a href="#boxplot-x-histogram" id="toc-boxplot-x-histogram" class="nav-link" data-scroll-target="#boxplot-x-histogram">Boxplot X Histogram</a></li>
+  </ul></li>
+  <li><a href="#probability" id="toc-probability" class="nav-link" data-scroll-target="#probability">Probability</a>
+  <ul class="collapse">
+  <li><a href="#probability-model" id="toc-probability-model" class="nav-link" data-scroll-target="#probability-model">Probability Model</a></li>
+  <li><a href="#set-theory" id="toc-set-theory" class="nav-link" data-scroll-target="#set-theory">Set Theory</a></li>
+  <li><a href="#axioms-of-probability" id="toc-axioms-of-probability" class="nav-link" data-scroll-target="#axioms-of-probability">Axioms of Probability</a></li>
+  <li><a href="#laws-for-calculating-probabilities" id="toc-laws-for-calculating-probabilities" class="nav-link" data-scroll-target="#laws-for-calculating-probabilities">Laws for Calculating Probabilities</a></li>
+  <li><a href="#discrete-probability-models" id="toc-discrete-probability-models" class="nav-link" data-scroll-target="#discrete-probability-models">Discrete Probability Models</a>
+  <ul class="collapse">
+  <li><a href="#probabilities-for-discrete-models" id="toc-probabilities-for-discrete-models" class="nav-link" data-scroll-target="#probabilities-for-discrete-models">Probabilities for Discrete Models</a></li>
+  </ul></li>
+  <li><a href="#laplace-model" id="toc-laplace-model" class="nav-link" data-scroll-target="#laplace-model">Laplace Model</a></li>
+  <li><a href="#stochastic-independence" id="toc-stochastic-independence" class="nav-link" data-scroll-target="#stochastic-independence">Stochastic Independence</a></li>
+  </ul></li>
   </ul>
 </nav>
     </div>
@@ -408,8 +431,270 @@ s_x = \sqrt{Var(x)} = \sqrt{\dfrac{1}{n-1}\sum^n_{i=1}(x_i - \bar{x}²)}
 <pre><code>[1] 1.525</code></pre>
 </div>
 </div>
+</section>
+<section id="graphical-representation-of-data" class="level1">
+<h1>Graphical Representation of Data</h1>
+<p>Plotting data is very important aspect of statistical data analysis. Often points to patterns that are not recognisable from key figures.</p>
+<blockquote class="blockquote">
+<p>Note: Choosing “wrong” graphical representation is not useful.</p>
+</blockquote>
+<section id="boxplot" class="level2">
+<h2 class="anchored" data-anchor-id="boxplot">Boxplot</h2>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="img/boxplot.png" class="img-fluid figure-img"></p>
+<figcaption>Boxplot: Schematically</figcaption>
+</figure>
+</div>
+<ul>
+<li>Box: Height is bounded by lower and upper quartile. Height of box is interquartile rang.</li>
+<li>Horizontal line in box: Median</li>
+<li>Whisker: <span class="math inline">\(1.5 \times \text{IQR}\)</span>. Defined by inventor John Tukey.</li>
+<li>Points: Outliers</li>
+</ul>
+<blockquote class="blockquote">
+<p>Note: Upper and lower whisker do not have to have the length of <span class="math inline">\(1.5 \times \text{IQR}\)</span>.</p>
+</blockquote>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb15"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Single boxplot</span></span>
+<span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">42</span>) <span class="co"># Set seed for reproducibility</span></span>
+<span id="cb15-3"><a href="#cb15-3" aria-hidden="true" tabindex="-1"></a>x <span class="ot">&lt;-</span> <span class="fu">rnorm</span>(<span class="dv">10</span>) <span class="co"># Generate 10 random samples</span></span>
+<span id="cb15-4"><a href="#cb15-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb15-5"><a href="#cb15-5" aria-hidden="true" tabindex="-1"></a><span class="fu">boxplot</span>(x) <span class="co"># Plot data</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="sa_notes_files/figure-html/unnamed-chunk-7-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb16"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Compare two sample groups</span></span>
+<span id="cb16-2"><a href="#cb16-2" aria-hidden="true" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">42</span>)</span>
+<span id="cb16-3"><a href="#cb16-3" aria-hidden="true" tabindex="-1"></a>x <span class="ot">&lt;-</span> <span class="fu">rnorm</span>(<span class="dv">100</span>)</span>
+<span id="cb16-4"><a href="#cb16-4" aria-hidden="true" tabindex="-1"></a>y <span class="ot">&lt;-</span> <span class="fu">rnorm</span>(<span class="dv">100</span>)</span>
+<span id="cb16-5"><a href="#cb16-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb16-6"><a href="#cb16-6" aria-hidden="true" tabindex="-1"></a><span class="fu">boxplot</span>(x, y)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="sa_notes_files/figure-html/unnamed-chunk-8-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+</section>
+<section id="histogram" class="level2">
+<h2 class="anchored" data-anchor-id="histogram">Histogram</h2>
+<p>Graphical overview of occurring values. Draw a bar for each class. Height proportional to number of observations in that class.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb17"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Simple histogram</span></span>
+<span id="cb17-2"><a href="#cb17-2" aria-hidden="true" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">42</span>)</span>
+<span id="cb17-3"><a href="#cb17-3" aria-hidden="true" tabindex="-1"></a>x <span class="ot">&lt;-</span> <span class="fu">rnorm</span>(<span class="dv">1000</span>)</span>
+<span id="cb17-4"><a href="#cb17-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb17-5"><a href="#cb17-5" aria-hidden="true" tabindex="-1"></a><span class="fu">hist</span>(x)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="sa_notes_files/figure-html/unnamed-chunk-9-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+<p>Selection of number of classes relevant for interpretation of histogram.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb18"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Big breaks</span></span>
+<span id="cb18-2"><a href="#cb18-2" aria-hidden="true" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">42</span>)</span>
+<span id="cb18-3"><a href="#cb18-3" aria-hidden="true" tabindex="-1"></a>x <span class="ot">&lt;-</span> <span class="fu">rnorm</span>(<span class="dv">1000</span>)</span>
+<span id="cb18-4"><a href="#cb18-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb18-5"><a href="#cb18-5" aria-hidden="true" tabindex="-1"></a><span class="fu">hist</span>(x, <span class="at">breaks=</span><span class="dv">5</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="sa_notes_files/figure-html/unnamed-chunk-10-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb19"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Small breaks</span></span>
+<span id="cb19-2"><a href="#cb19-2" aria-hidden="true" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">42</span>)</span>
+<span id="cb19-3"><a href="#cb19-3" aria-hidden="true" tabindex="-1"></a>x <span class="ot">&lt;-</span> <span class="fu">rnorm</span>(<span class="dv">1000</span>)</span>
+<span id="cb19-4"><a href="#cb19-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb19-5"><a href="#cb19-5" aria-hidden="true" tabindex="-1"></a><span class="fu">hist</span>(x, <span class="at">breaks=</span><span class="dv">50</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="sa_notes_files/figure-html/unnamed-chunk-11-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+<blockquote class="blockquote">
+<p>Note: Since we used <code>set.seed(42)</code>, both plot shows the same data.</p>
+</blockquote>
+<section id="skweness-of-hostograms" class="level3">
+<h3 class="anchored" data-anchor-id="skweness-of-hostograms">Skweness of Hostograms</h3>
+<p>Histograms can have a skweness depending on the data.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb20"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Right skewed data</span></span>
+<span id="cb20-2"><a href="#cb20-2" aria-hidden="true" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">42</span>)</span>
+<span id="cb20-3"><a href="#cb20-3" aria-hidden="true" tabindex="-1"></a>x <span class="ot">&lt;-</span> <span class="fu">rexp</span>(<span class="dv">1000</span>, <span class="at">rate =</span> <span class="dv">1</span>) <span class="co"># Using expontial distribution</span></span>
+<span id="cb20-4"><a href="#cb20-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-5"><a href="#cb20-5" aria-hidden="true" tabindex="-1"></a><span class="fu">hist</span>(x, <span class="at">breaks=</span><span class="dv">50</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="sa_notes_files/figure-html/unnamed-chunk-12-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb21"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Left left data</span></span>
+<span id="cb21-2"><a href="#cb21-2" aria-hidden="true" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">42</span>)</span>
+<span id="cb21-3"><a href="#cb21-3" aria-hidden="true" tabindex="-1"></a>x <span class="ot">&lt;-</span> <span class="fu">rexp</span>(<span class="dv">1000</span>, <span class="at">rate =</span> <span class="dv">1</span>)</span>
+<span id="cb21-4"><a href="#cb21-4" aria-hidden="true" tabindex="-1"></a>x <span class="ot">&lt;-</span> <span class="sc">-</span>x <span class="co"># Trun data positivity</span></span>
+<span id="cb21-5"><a href="#cb21-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb21-6"><a href="#cb21-6" aria-hidden="true" tabindex="-1"></a><span class="fu">hist</span>(x, <span class="at">breaks=</span><span class="dv">50</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="sa_notes_files/figure-html/unnamed-chunk-13-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+<blockquote class="blockquote">
+<p>Note: The terms “right” and “left” always refers to direction where it has less data (tail of distribution).</p>
+</blockquote>
+</section>
+</section>
+<section id="normalised-histograms" class="level2">
+<h2 class="anchored" data-anchor-id="normalised-histograms">Normalised Histograms</h2>
+<p>Select bar height such that bar area corresponds to proportion of respective observations in total number of observations.</p>
+<blockquote class="blockquote">
+<p>Note: Density values are not percentages.</p>
+</blockquote>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb22"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Normalized histogram</span></span>
+<span id="cb22-2"><a href="#cb22-2" aria-hidden="true" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">42</span>)</span>
+<span id="cb22-3"><a href="#cb22-3" aria-hidden="true" tabindex="-1"></a>x <span class="ot">&lt;-</span> <span class="fu">rnorm</span>(<span class="dv">1000</span>)</span>
+<span id="cb22-4"><a href="#cb22-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb22-5"><a href="#cb22-5" aria-hidden="true" tabindex="-1"></a><span class="fu">hist</span>(x, <span class="at">freq=</span><span class="cn">FALSE</span>) <span class="co"># Disable frequency</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="sa_notes_files/figure-html/unnamed-chunk-14-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+</section>
+<section id="boxplot-x-histogram" class="level2">
+<h2 class="anchored" data-anchor-id="boxplot-x-histogram">Boxplot X Histogram</h2>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="img/boxplot_x_histogram.png" class="img-fluid figure-img"></p>
+<figcaption>Boxplot X Histogram</figcaption>
+</figure>
+</div>
+</section>
+</section>
+<section id="probability" class="level1">
+<h1>Probability</h1>
+<ul>
+<li>A random element: <span class="math inline">\(x = 2\)</span></li>
+<li>Set of elements: <span class="math inline">\(X = {1, 2, 3, 4}\)</span></li>
+<li>x is a element of the set X: <span class="math inline">\(x \in X\)</span></li>
+<li>Subset: If <span class="math inline">\(B = {2, 3}\)</span>, than <span class="math inline">\(B \subset A\)</span></li>
+<li>Empty set: <span class="math inline">\(\emptyset\)</span>. The empty subset is a supset of every set.</li>
+</ul>
+<section id="probability-model" class="level2">
+<h2 class="anchored" data-anchor-id="probability-model">Probability Model</h2>
+<p>Probability models use set theory as language. For random experiments the outcome is not predictable. Probability model consists of events that are possible in such an experiment and probabilities for different results occurring. Probability models have following components:</p>
+<ul>
+<li>Sample space <span class="math inline">\(\Omega\)</span>: Contains all possible elementary events <span class="math inline">\(\omega\)</span>.</li>
+<li>Events <span class="math inline">\(A, B, C\)</span>: Subsets of sample space.</li>
+<li>Probabilities <span class="math inline">\(P\)</span> associated with events <span class="math inline">\(A, B, C\)</span></li>
+<li>Event: More general and more important than elementary events, but consist of these.</li>
+</ul>
+<p>Probability formula:</p>
+<p><span class="math display">\[
+P(E)=\dfrac{\lvert E \rvert}{\lvert \Omega \rvert} \text{, where } E \subseteq \Omega
+\]</span></p>
+</section>
+<section id="set-theory" class="level2">
+<h2 class="anchored" data-anchor-id="set-theory">Set Theory</h2>
+<ul>
+<li>Union: <span class="math inline">\(A \cup B\)</span></li>
+<li>Intersection: <span class="math inline">\(A \cap B\)</span></li>
+<li>Complement: <span class="math inline">\(\bar{A}\)</span></li>
+<li>Difference: <span class="math inline">\(A \setminus B\)</span></li>
+</ul>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="img/set_theory.png" class="img-fluid figure-img"></p>
+<figcaption>Set theory</figcaption>
+</figure>
+</div>
+</section>
+<section id="axioms-of-probability" class="level2">
+<h2 class="anchored" data-anchor-id="axioms-of-probability">Axioms of Probability</h2>
+<p>Each event <span class="math inline">\(A\)</span> probability <span class="math inline">\(P(A)\)</span> is assigned, with properties:</p>
+<ul>
+<li><span class="math inline">\(P(A) \geq 0\)</span></li>
+<li><span class="math inline">\(P(\Omega) = 1\)</span></li>
+<li><span class="math inline">\(P(A \cup B) = P(A) + P(B) \text{, if } A \cap B = \emptyset\)</span></li>
+</ul>
+<blockquote class="blockquote">
+<p>Note: Kolmogorov Axioms of Probability</p>
+</blockquote>
+</section>
+<section id="laws-for-calculating-probabilities" class="level2">
+<h2 class="anchored" data-anchor-id="laws-for-calculating-probabilities">Laws for Calculating Probabilities</h2>
+<p>If <span class="math inline">\(A, B\)</span> and <span class="math inline">\(A_1, \dots, A_n\)</span> events, then:</p>
+<ul>
+<li><span class="math inline">\(P(\bar{A}) = 1 - P(A) \text{, for all } A\)</span></li>
+<li><span class="math inline">\(P(A \cup B) = P(A) + P(B) - P(A \cap B) \text{, for all } A \text{ and } B\)</span></li>
+<li><span class="math inline">\(P(A_1 \cup \dots A_n) \leq P(A_1) + \dots + P(A_n) \text{, for all } A_1, \dots, A_n\)</span></li>
+<li><span class="math inline">\(P(B) \leq P(A) \text{, for all } A \text{ and } B \text{ with } B \subseteq A\)</span></li>
+<li><span class="math inline">\(P(A \setminus B) = P(A) - P(B) \text{, for all } A \text{ and } B \text{ with } B \subseteq A\)</span></li>
+</ul>
+</section>
+<section id="discrete-probability-models" class="level2">
+<h2 class="anchored" data-anchor-id="discrete-probability-models">Discrete Probability Models</h2>
+<p>Sample space finite or infinite and discrete. Infinite, but still discrete set.</p>
+<section id="probabilities-for-discrete-models" class="level3">
+<h3 class="anchored" data-anchor-id="probabilities-for-discrete-models">Probabilities for Discrete Models</h3>
+<p>Probability of event <span class="math inline">\(A = {\omega_1, \omega_2, \dots, \omega_n}\)</span> is determined by sum of probabilities P(ω) of corresponding ele- mentary events</p>
+<p><span class="math display">\[
+P(A) = \sum_{\omega_i \in A} P(\omega_i)
+\]</span></p>
+</section>
+</section>
+<section id="laplace-model" class="level2">
+<h2 class="anchored" data-anchor-id="laplace-model">Laplace Model</h2>
+<p>Probabilities of all elementary elements add up to 1.</p>
+<p><span class="math display">\[
+P(E) = \dfrac{f}{p} = \sum_{k:\omega_i \in E} P(\omega_k)
+\]</span></p>
+<p>Divides number of “favorable” elementary events by number of “possible” elementary events.</p>
+</section>
+<section id="stochastic-independence" class="level2">
+<h2 class="anchored" data-anchor-id="stochastic-independence">Stochastic Independence</h2>
+<p>If events <span class="math inline">\(A\)</span> and <span class="math inline">\(B\)</span> are stochastically independent, then:</p>
+<p><span class="math display">\[
+P(A \cap B) = P(A) \cdot P(B)
+\]</span></p>
+<blockquote class="blockquote">
+<p>Note: Formula applies only if events A and B are stochastically independent</p>
+</blockquote>
+<p>Outcome of event A has no influence on outcome of event B and vice versa.</p>
 
 
+</section>
 </section>
 
 </main> <!-- /main -->

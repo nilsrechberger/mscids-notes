@@ -101,6 +101,35 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   }
 }</script>
 
+  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN") {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
 
 <link rel="stylesheet" href="../../styles.css">
 </head>
@@ -201,6 +230,46 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <li><a href="#g" id="toc-g" class="nav-link" data-scroll-target="#g">g</a></li>
   <li><a href="#h" id="toc-h" class="nav-link" data-scroll-target="#h">h</a></li>
   <li><a href="#problem-1.3" id="toc-problem-1.3" class="nav-link" data-scroll-target="#problem-1.3">Problem 1.3</a></li>
+  </ul></li>
+  <li><a href="#problems-2" id="toc-problems-2" class="nav-link" data-scroll-target="#problems-2">Problems 2</a>
+  <ul class="collapse">
+  <li><a href="#probmel-2.1" id="toc-probmel-2.1" class="nav-link" data-scroll-target="#probmel-2.1">Probmel 2.1</a>
+  <ul class="collapse">
+  <li><a href="#a-2" id="toc-a-2" class="nav-link" data-scroll-target="#a-2">a</a></li>
+  <li><a href="#b-2" id="toc-b-2" class="nav-link" data-scroll-target="#b-2">b</a></li>
+  <li><a href="#c-2" id="toc-c-2" class="nav-link" data-scroll-target="#c-2">c</a></li>
+  <li><a href="#d-2" id="toc-d-2" class="nav-link" data-scroll-target="#d-2">d</a></li>
+  </ul></li>
+  <li><a href="#problem-2.2" id="toc-problem-2.2" class="nav-link" data-scroll-target="#problem-2.2">Problem 2.2</a>
+  <ul class="collapse">
+  <li><a href="#a-3" id="toc-a-3" class="nav-link" data-scroll-target="#a-3">a</a></li>
+  <li><a href="#b-3" id="toc-b-3" class="nav-link" data-scroll-target="#b-3">b</a></li>
+  </ul></li>
+  <li><a href="#problem-2.3" id="toc-problem-2.3" class="nav-link" data-scroll-target="#problem-2.3">Problem 2.3</a></li>
+  <li><a href="#problem-2.4" id="toc-problem-2.4" class="nav-link" data-scroll-target="#problem-2.4">Problem 2.4</a>
+  <ul class="collapse">
+  <li><a href="#a-4" id="toc-a-4" class="nav-link" data-scroll-target="#a-4">a</a></li>
+  <li><a href="#b-4" id="toc-b-4" class="nav-link" data-scroll-target="#b-4">b</a></li>
+  <li><a href="#c-3" id="toc-c-3" class="nav-link" data-scroll-target="#c-3">c</a></li>
+  </ul></li>
+  <li><a href="#problem-2.5" id="toc-problem-2.5" class="nav-link" data-scroll-target="#problem-2.5">Problem 2.5</a>
+  <ul class="collapse">
+  <li><a href="#a-5" id="toc-a-5" class="nav-link" data-scroll-target="#a-5">a</a></li>
+  <li><a href="#b-5" id="toc-b-5" class="nav-link" data-scroll-target="#b-5">b</a></li>
+  <li><a href="#c-4" id="toc-c-4" class="nav-link" data-scroll-target="#c-4">c</a></li>
+  <li><a href="#d-3" id="toc-d-3" class="nav-link" data-scroll-target="#d-3">d</a></li>
+  <li><a href="#e-1" id="toc-e-1" class="nav-link" data-scroll-target="#e-1">e</a></li>
+  <li><a href="#f-1" id="toc-f-1" class="nav-link" data-scroll-target="#f-1">f</a></li>
+  </ul></li>
+  <li><a href="#problem-2.6" id="toc-problem-2.6" class="nav-link" data-scroll-target="#problem-2.6">Problem 2.6</a>
+  <ul class="collapse">
+  <li><a href="#a-6" id="toc-a-6" class="nav-link" data-scroll-target="#a-6">a</a></li>
+  <li><a href="#b-6" id="toc-b-6" class="nav-link" data-scroll-target="#b-6">b</a></li>
+  <li><a href="#c-5" id="toc-c-5" class="nav-link" data-scroll-target="#c-5">c</a></li>
+  <li><a href="#d-4" id="toc-d-4" class="nav-link" data-scroll-target="#d-4">d</a></li>
+  <li><a href="#e-2" id="toc-e-2" class="nav-link" data-scroll-target="#e-2">e</a></li>
+  </ul></li>
+  <li><a href="#problem-2.7" id="toc-problem-2.7" class="nav-link" data-scroll-target="#problem-2.7">Problem 2.7</a></li>
   </ul></li>
   </ul>
 </nav>
@@ -403,6 +472,477 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <div class="sourceCode cell-code" id="cb26"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb26-1"><a href="#cb26-1" aria-hidden="true" tabindex="-1"></a><span class="fu">cat</span>(<span class="st">"Median stays the same:"</span>, originla_meadian, <span class="st">"="</span>, new_median)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>Median stays the same: 4.65 = 4.65</code></pre>
+</div>
+</div>
+</section>
+</section>
+<section id="problems-2" class="level1">
+<h1>Problems 2</h1>
+<section id="probmel-2.1" class="level2">
+<h2 class="anchored" data-anchor-id="probmel-2.1">Probmel 2.1</h2>
+<section id="a-2" class="level3">
+<h3 class="anchored" data-anchor-id="a-2">a</h3>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb28"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb28-1"><a href="#cb28-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Read data</span></span>
+<span id="cb28-2"><a href="#cb28-2" aria-hidden="true" tabindex="-1"></a>data <span class="ot">&lt;-</span> <span class="fu">read.csv</span>(<span class="st">'/home/nils/dev/mscids-notes/hs25/sa/data/husband_wife.csv'</span>)</span>
+<span id="cb28-3"><a href="#cb28-3" aria-hidden="true" tabindex="-1"></a>data</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>    age.husband height.husband age.wife height.wife
+1            49            180       43         159
+2            25            184       28         156
+3            40            165       30         162
+4            52            177       57         154
+5            58            161       52         142
+6            32            169       27         166
+7            43            173       52         161
+8            47            174       43         158
+9            31            168       23         161
+10           26            173       25         159
+11           40            171       39         161
+12           35            173       32         170
+13           35            179       35         168
+14           35            178       33         168
+15           47            175       43         163
+16           38            172       35         157
+17           33            172       32         172
+18           32            181       30         174
+19           38            172       40         160
+20           29            168       29         160
+21           59            158       55         155
+22           26            168       25         154
+23           50            167       45         164
+24           49            172       44         164
+25           42            163       40         163
+26           33            185       31         156
+27           27            170       25         158
+28           57            176       51         157
+29           34            170       31         159
+30           28            172       25         165
+31           37            182       35         167
+32           56            171       55         160
+33           27            174       23         161
+34           36            169       35         161
+35           31            185       28         167
+36           57            161       52         151
+37           55            168       53         152
+38           47            180       43         162
+39           64            158       61         153
+40           31            158       23         157
+41           35            170       35         158
+42           36            167       35         159
+43           40            173       39         167
+44           30            168       24         163
+45           32            176       29         151
+46           20            175       21         166
+47           45            173       39         161
+48           59            169       52         144
+49           43            182       52         157
+50           29            174       26         167
+51           47            173       48         173
+52           54            167       53         156
+53           43            175       42         159
+54           54            171       50         160
+55           61            172       64         149
+56           27            178       26         166
+57           27            174       32         158
+58           32            171       31         150
+59           54            172       53         164
+60           37            162       39         165
+61           55            176       45         162
+62           36            179       33         155
+63           32            179       32         164
+64           57            173       55         156
+65           51            166       52         157
+66           50            174       50         155
+67           32            177       32         160
+68           54            166       54         166
+69           34            170       32         164
+70           45            180       41         167
+71           64            170       61         156
+72           55            166       43         176
+73           27            175       28         164
+74           55            178       51         160
+75           41            168       41         155
+76           44            171       41         157
+77           22            175       21         159
+78           30            176       28         165
+79           53            179       47         169
+80           42            173       37         158
+81           31            171       28         159
+82           36            172       35         151
+83           56            182       55         160
+84           46            173       45         166
+85           34            176       34         170
+86           55            168       51         153
+87           44            168       39         149
+88           45            155       35         158
+89           48            170       45         150
+90           44            172       44         160
+91           59            170       47         157
+92           64            166       57         162
+93           34            168       33         141
+94           37            180       38         156
+95           54            186       59         159
+96           49            188       46         171
+97           63            170       60         158
+98           48            178       47         169
+99           64            180       55         161
+100          33            179       45         166
+101          52            166       47         161
+102          27            170       24         159
+103          33            169       32         153
+104          46            182       47         169
+105          54            176       57         160
+106          54            190       46         167
+107          49            173       42         160
+108          62            173       63         157
+109          34            184       32         170
+110          23            186       24         174
+111          36            176       32         154
+112          59            172       56         153
+113          53            187       50         169
+114          55            172       55         159
+115          62            162       58         161
+116          42            162       38         167
+117          50            165       44         169
+118          37            178       35         155
+119          51            162       44         165
+120          25            169       25         154
+121          54            167       43         166
+122          34            186       31         162
+123          43            164       35         163
+124          43            170       41         161
+125          58            173       50         154
+126          28            169       23         161
+127          45            175       43         163
+128          47            168       49         153
+129          57            172       59         152
+130          34            163       38         157
+131          57            172       42         158
+132          27            172       21         155
+133          48            177       42         158
+134          37            177       35         163
+135          25            181       26         165
+136          57            157       57         164
+137          40            172       34         165
+138          61            174       63         152
+139          25            170       23         162
+140          24            177       23         168
+141          47            165       46         167
+142          44            179       40         162
+143          52            179       53         157
+144          45            182       40         166
+145          20            179       22         155
+146          60            172       60         159
+147          36            168       32         162
+148          25            176       24         156
+149          25            174       28         167
+150          35            171       40         165
+151          49            177       48         147
+152          33            176       33         158
+153          50            172       49         167
+154          63            164       64         152
+155          57            169       55         162
+156          41            185       41         171
+157          38            169       38         153
+158          30            188       31         163
+159          52            183       52         172
+160          51            173       43         157
+161          46            164       51         156
+162          50            172       47         165
+163          52            171       32         159
+164          30            172       33         159
+165          20            178       18         159
+166          51            167       45         155
+167          64            164       64         157
+168          44            174       43         156
+169          40            182       39         163
+170          59            172       56         153</code></pre>
+</div>
+</div>
+</section>
+<section id="b-2" class="level3">
+<h3 class="anchored" data-anchor-id="b-2">b</h3>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb30"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb30-1"><a href="#cb30-1" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(data)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>  age.husband    height.husband     age.wife      height.wife   
+ Min.   :20.00   Min.   :155.0   Min.   :18.00   Min.   :141.0  
+ 1st Qu.:33.00   1st Qu.:169.0   1st Qu.:32.00   1st Qu.:156.0  
+ Median :43.50   Median :172.0   Median :41.00   Median :160.0  
+ Mean   :42.92   Mean   :172.8   Mean   :40.68   Mean   :160.3  
+ 3rd Qu.:53.00   3rd Qu.:177.0   3rd Qu.:50.00   3rd Qu.:165.0  
+ Max.   :64.00   Max.   :190.0   Max.   :64.00   Max.   :176.0  </code></pre>
+</div>
+</div>
+<p>For each column, we see a brief summary with quantitative and qualitative information about the data.</p>
+</section>
+<section id="c-2" class="level3">
+<h3 class="anchored" data-anchor-id="c-2">c</h3>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb32"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb32-1"><a href="#cb32-1" aria-hidden="true" tabindex="-1"></a>age_diff <span class="ot">&lt;-</span> data<span class="sc">$</span>age.husband <span class="sc">-</span> data<span class="sc">$</span>age.wife <span class="co"># Calc age difference</span></span>
+<span id="cb32-2"><a href="#cb32-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb32-3"><a href="#cb32-3" aria-hidden="true" tabindex="-1"></a><span class="fu">boxplot</span>(age_diff)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="sa_exercises_files/figure-html/unnamed-chunk-13-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+</section>
+<section id="d-2" class="level3">
+<h3 class="anchored" data-anchor-id="d-2">d</h3>
+<ul>
+<li>The median of age_diff is about 2.5. On average, the age difference between husbands and wives is around 2.5 years.</li>
+<li>50% of the differences lie between approximately 0 and 5 years.</li>
+<li>There are more upper than lower outliers, meaning that extreme cases where the husband is much older than the wife occur more frequently.</li>
+<li>In addition, the values of the upper outliers are larger than those of the lower ones.</li>
+</ul>
+</section>
+</section>
+<section id="problem-2.2" class="level2">
+<h2 class="anchored" data-anchor-id="problem-2.2">Problem 2.2</h2>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb33"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb33-1"><a href="#cb33-1" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(InsectSprays) <span class="co"># Preview data from head</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>  count spray
+1    10     A
+2     7     A
+3    20     A
+4    14     A
+5    14     A
+6    12     A</code></pre>
+</div>
+</div>
+<section id="a-3" class="level3">
+<h3 class="anchored" data-anchor-id="a-3">a</h3>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb35"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb35-1"><a href="#cb35-1" aria-hidden="true" tabindex="-1"></a><span class="fu">tapply</span>(InsectSprays<span class="sc">$</span>count, InsectSprays<span class="sc">$</span>spray, mean)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>        A         B         C         D         E         F 
+14.500000 15.333333  2.083333  4.916667  3.500000 16.666667 </code></pre>
+</div>
+</div>
+</section>
+<section id="b-3" class="level3">
+<h3 class="anchored" data-anchor-id="b-3">b</h3>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb37"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb37-1"><a href="#cb37-1" aria-hidden="true" tabindex="-1"></a><span class="fu">boxplot</span>(count <span class="sc">~</span> spray,</span>
+<span id="cb37-2"><a href="#cb37-2" aria-hidden="true" tabindex="-1"></a>        <span class="at">data =</span> InsectSprays</span>
+<span id="cb37-3"><a href="#cb37-3" aria-hidden="true" tabindex="-1"></a>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="sa_exercises_files/figure-html/unnamed-chunk-16-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+</section>
+</section>
+<section id="problem-2.3" class="level2">
+<h2 class="anchored" data-anchor-id="problem-2.3">Problem 2.3</h2>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb38"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb38-1"><a href="#cb38-1" aria-hidden="true" tabindex="-1"></a>data <span class="ot">&lt;-</span> <span class="fu">read.csv</span>(<span class="st">'/home/nils/dev/mscids-notes/hs25/sa/data/Diet.csv'</span>)</span>
+<span id="cb38-2"><a href="#cb38-2" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(data)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>  Person gender Age Height pre.weight Diet weight6weeks
+1     25     NA  41    171         60    2         60.0
+2     26     NA  32    174        103    2        103.0
+3      1      0  22    159         58    1         54.2
+4      2      0  46    192         60    1         54.0
+5      3      0  55    170         64    1         63.3
+6      4      0  33    171         64    1         61.1</code></pre>
+</div>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb40"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb40-1"><a href="#cb40-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Add column weight.los</span></span>
+<span id="cb40-2"><a href="#cb40-2" aria-hidden="true" tabindex="-1"></a>data<span class="sc">$</span>weight.loss <span class="ot">&lt;-</span> data<span class="sc">$</span>weight6weeks <span class="sc">-</span> data<span class="sc">$</span>pre.weight</span>
+<span id="cb40-3"><a href="#cb40-3" aria-hidden="true" tabindex="-1"></a>data<span class="sc">$</span>weight.loss</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code> [1]  0.0  0.0 -3.8 -6.0 -0.7 -2.9 -2.8 -2.0 -2.0 -8.5 -1.9 -3.1 -1.5 -3.0 -3.6
+[16] -0.9  2.1 -2.0 -1.7 -4.3 -7.0 -0.6 -2.7 -3.6 -3.0 -2.0 -4.2 -4.7 -3.3  0.5
+[31] -7.0 -5.6 -3.4 -6.8 -7.8 -5.4 -6.8 -7.2 -7.0 -7.3 -0.9 -7.6 -4.1 -6.3 -5.0
+[46]  0.6 -1.1 -4.5 -4.1 -9.0 -2.4 -3.9 -3.5 -5.1 -3.5 -4.2 -2.4 -5.8 -3.5 -5.3
+[61] -1.7 -5.4 -6.1 -7.9  1.4 -4.3 -2.5 -0.9 -3.5 -0.5 -2.8 -8.6 -4.5 -2.8 -4.1
+[76] -5.3 -9.2 -6.1</code></pre>
+</div>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb42"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb42-1"><a href="#cb42-1" aria-hidden="true" tabindex="-1"></a><span class="fu">tapply</span>(data<span class="sc">$</span>weight.loss, data<span class="sc">$</span>Diet, mean)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>        1         2         3 
+-3.300000 -3.025926 -5.148148 </code></pre>
+</div>
+</div>
+<p>According to the data, diet 3 appears to have the greatest effect on weight loss over the 6-week therapy period. Diets 1 and 2 show more or less the same effect, although patients following diet 2 lost slightly less weight on average.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb44"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb44-1"><a href="#cb44-1" aria-hidden="true" tabindex="-1"></a><span class="fu">boxplot</span>(data<span class="sc">$</span>weight.loss <span class="sc">~</span> data<span class="sc">$</span>Diet)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="sa_exercises_files/figure-html/unnamed-chunk-20-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+<ul>
+<li>Even though diet 3 appears to have the greatest effect according to the median, it also has the largest interquartile range (IQR) among the three diets.</li>
+<li>Diet 2 shows the greatest overall spread across the entire boxplot</li>
+<li>Diet 1 is influenced by several lower outliers.</li>
+</ul>
+</section>
+<section id="problem-2.4" class="level2">
+<h2 class="anchored" data-anchor-id="problem-2.4">Problem 2.4</h2>
+<section id="a-4" class="level3">
+<h3 class="anchored" data-anchor-id="a-4">a</h3>
+<p>The probabilities of ‘heads’ and ‘tails’ do not add up to 1.</p>
+</section>
+<section id="b-4" class="level3">
+<h3 class="anchored" data-anchor-id="b-4">b</h3>
+<p>The calculated probability is negative. That’s not possible by definition.</p>
+</section>
+<section id="c-3" class="level3">
+<h3 class="anchored" data-anchor-id="c-3">c</h3>
+<p>The union of the quantities <code>S</code> and <code>M</code> cannot be 0.7, because men cannot be pregnant.</p>
+</section>
+</section>
+<section id="problem-2.5" class="level2">
+<h2 class="anchored" data-anchor-id="problem-2.5">Problem 2.5</h2>
+<section id="a-5" class="level3">
+<h3 class="anchored" data-anchor-id="a-5">a</h3>
+<p>Sample space of the experiment:</p>
+<p><span class="math display">\[
+\Omega = \{ (i, j) \mid i, j \in \{1,2,3,4,5,6\} \}
+\]</span></p>
+</section>
+<section id="b-5" class="level3">
+<h3 class="anchored" data-anchor-id="b-5">b</h3>
+<p><span class="math display">\[
+p(\omega_n) = \dfrac{1}{36} = 0.02\bar{7}
+\]</span></p>
+</section>
+<section id="c-4" class="level3">
+<h3 class="anchored" data-anchor-id="c-4">c</h3>
+<p>Events, where the sum is 7:</p>
+<p><span class="math display">\[
+E_1 = {(1, 6), (2, 5), (3, 4)}
+\]</span></p>
+<blockquote class="blockquote">
+<p>Note: Since there are two dices, we can multiply the number of favourable results by 2.</p>
+</blockquote>
+<p>Now, we can calculate the probability:</p>
+<p><span class="math display">\[
+p(E_1) = \dfrac{6}{36} = 0.1\bar{6}
+\]</span></p>
+</section>
+<section id="d-3" class="level3">
+<h3 class="anchored" data-anchor-id="d-3">d</h3>
+<p><span class="math display">\[
+E_2 = {(1, 1), (1, 2), (2, 1)}
+\]</span></p>
+<p><span class="math display">\[
+p(E_2) = \dfrac{3}{36} = 0.08\bar{3}
+\]</span></p>
+</section>
+<section id="e-1" class="level3">
+<h3 class="anchored" data-anchor-id="e-1">e</h3>
+<p><span class="math display">\[
+E_3 = \{ (i, j) \mid i, j \in \{1,3,5\} \}
+\]</span></p>
+<p><span class="math display">\[
+p(E_3) = \dfrac{9}{36} = 0.25
+\]</span></p>
+</section>
+<section id="f-1" class="level3">
+<h3 class="anchored" data-anchor-id="f-1">f</h3>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb45"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb45-1"><a href="#cb45-1" aria-hidden="true" tabindex="-1"></a>p_e2 <span class="ot">&lt;-</span> <span class="dv">3</span><span class="sc">/</span><span class="dv">36</span></span>
+<span id="cb45-2"><a href="#cb45-2" aria-hidden="true" tabindex="-1"></a>p_e3 <span class="ot">&lt;-</span> <span class="dv">9</span><span class="sc">/</span><span class="dv">36</span></span>
+<span id="cb45-3"><a href="#cb45-3" aria-hidden="true" tabindex="-1"></a>intersection <span class="ot">&lt;-</span> <span class="dv">1</span><span class="sc">/</span><span class="dv">36</span></span>
+<span id="cb45-4"><a href="#cb45-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb45-5"><a href="#cb45-5" aria-hidden="true" tabindex="-1"></a>p_annual <span class="ot">&lt;-</span> p_e2 <span class="sc">+</span> p_e3 <span class="sc">-</span> intersection</span>
+<span id="cb45-6"><a href="#cb45-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb45-7"><a href="#cb45-7" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(p_annual)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 0.3055556</code></pre>
+</div>
+</div>
+</section>
+</section>
+<section id="problem-2.6" class="level2">
+<h2 class="anchored" data-anchor-id="problem-2.6">Problem 2.6</h2>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb47"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb47-1"><a href="#cb47-1" aria-hidden="true" tabindex="-1"></a>A <span class="ot">&lt;-</span> <span class="dv">3</span><span class="sc">/</span><span class="dv">4</span></span>
+<span id="cb47-2"><a href="#cb47-2" aria-hidden="true" tabindex="-1"></a>B <span class="ot">&lt;-</span> <span class="dv">2</span><span class="sc">/</span><span class="dv">3</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<section id="a-6" class="level3">
+<h3 class="anchored" data-anchor-id="a-6">a</h3>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb48"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb48-1"><a href="#cb48-1" aria-hidden="true" tabindex="-1"></a>intersection <span class="ot">&lt;-</span> A <span class="sc">+</span> B</span>
+<span id="cb48-2"><a href="#cb48-2" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(intersection)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 1.416667</code></pre>
+</div>
+</div>
+</section>
+<section id="b-6" class="level3">
+<h3 class="anchored" data-anchor-id="b-6">b</h3>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb50"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb50-1"><a href="#cb50-1" aria-hidden="true" tabindex="-1"></a>A_only <span class="ot">&lt;-</span> A <span class="sc">-</span> B</span>
+<span id="cb50-2"><a href="#cb50-2" aria-hidden="true" tabindex="-1"></a>B_only <span class="ot">&lt;-</span> B <span class="sc">-</span> A</span>
+<span id="cb50-3"><a href="#cb50-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb50-4"><a href="#cb50-4" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(A_only <span class="sc">+</span> B_only)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 0</code></pre>
+</div>
+</div>
+</section>
+<section id="c-5" class="level3">
+<h3 class="anchored" data-anchor-id="c-5">c</h3>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb52"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb52-1"><a href="#cb52-1" aria-hidden="true" tabindex="-1"></a>A_only <span class="ot">&lt;-</span> A <span class="sc">-</span> B</span>
+<span id="cb52-2"><a href="#cb52-2" aria-hidden="true" tabindex="-1"></a>B_only <span class="ot">&lt;-</span> B <span class="sc">-</span> A</span>
+<span id="cb52-3"><a href="#cb52-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb52-4"><a href="#cb52-4" aria-hidden="true" tabindex="-1"></a><span class="fu">cat</span>(A_only, <span class="st">"or"</span>, B_only)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>0.08333333 or -0.08333333</code></pre>
+</div>
+</div>
+</section>
+<section id="d-4" class="level3">
+<h3 class="anchored" data-anchor-id="d-4">d</h3>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb54"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb54-1"><a href="#cb54-1" aria-hidden="true" tabindex="-1"></a>opposite_intersection <span class="ot">&lt;-</span> <span class="sc">-</span>(A <span class="sc">+</span> B)</span>
+<span id="cb54-2"><a href="#cb54-2" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(opposite_intersection)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] -1.416667</code></pre>
+</div>
+</div>
+</section>
+<section id="e-2" class="level3">
+<h3 class="anchored" data-anchor-id="e-2">e</h3>
+<p>TBD</p>
+</section>
+</section>
+<section id="problem-2.7" class="level2">
+<h2 class="anchored" data-anchor-id="problem-2.7">Problem 2.7</h2>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb56"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb56-1"><a href="#cb56-1" aria-hidden="true" tabindex="-1"></a>p_earthquake <span class="ot">&lt;-</span> <span class="fl">0.04</span></span>
+<span id="cb56-2"><a href="#cb56-2" aria-hidden="true" tabindex="-1"></a>p_typhoon <span class="ot">&lt;-</span> <span class="fl">0.08</span></span>
+<span id="cb56-3"><a href="#cb56-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb56-4"><a href="#cb56-4" aria-hidden="true" tabindex="-1"></a>only_earthquake <span class="ot">&lt;-</span> p_earthquake <span class="sc">-</span> p_typhoon</span>
+<span id="cb56-5"><a href="#cb56-5" aria-hidden="true" tabindex="-1"></a>only_typhoon <span class="ot">&lt;-</span> p_typhoon <span class="sc">-</span> p_earthquake</span>
+<span id="cb56-6"><a href="#cb56-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb56-7"><a href="#cb56-7" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(only_earthquake)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] -0.04</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb58"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb58-1"><a href="#cb58-1" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(only_typhoon)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 0.04</code></pre>
 </div>
 </div>
 
