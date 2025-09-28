@@ -156,33 +156,69 @@ window.Quarto = {
 <span class="menu-text">Home</span></a>
   </li>  
   <li class="nav-item dropdown ">
-    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-hs-25" role="link" data-bs-toggle="dropdown" aria-expanded="false">
- <span class="menu-text">HS 25</span>
+    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-python-for-data-science" role="link" data-bs-toggle="dropdown" aria-expanded="false">
+ <span class="menu-text">Python for Data Science</span>
     </a>
-    <ul class="dropdown-menu" aria-labelledby="nav-menu-hs-25">    
+    <ul class="dropdown-menu" aria-labelledby="nav-menu-python-for-data-science">    
         <li>
     <a class="dropdown-item" href="../../hs25/pds/pds_notes.html">
- <span class="dropdown-text">Python for Data Science - Notes</span></a>
+ <span class="dropdown-text">Notes</span></a>
   </li>  
         <li>
     <a class="dropdown-item" href="../../hs25/pds/pds_exercises.html">
- <span class="dropdown-text">Python for Data Science - Exercises</span></a>
+ <span class="dropdown-text">Exercises</span></a>
   </li>  
+    </ul>
+  </li>
+  <li class="nav-item dropdown ">
+    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-classical-and-bayesian-statistics" role="link" data-bs-toggle="dropdown" aria-expanded="false">
+ <span class="menu-text">Classical and Bayesian Statistics</span>
+    </a>
+    <ul class="dropdown-menu" aria-labelledby="nav-menu-classical-and-bayesian-statistics">    
         <li>
     <a class="dropdown-item" href="../../hs25/sa/sa_notes.html">
- <span class="dropdown-text">Classical and Bayesian Statistics - Notes</span></a>
+ <span class="dropdown-text">Notes</span></a>
   </li>  
         <li>
     <a class="dropdown-item" href="../../hs25/sa/sa_exercises.html">
- <span class="dropdown-text">Classical and Bayesian Statistics - Exercises</span></a>
+ <span class="dropdown-text">Exercises</span></a>
   </li>  
+    </ul>
+  </li>
+  <li class="nav-item dropdown ">
+    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-linear-algebra-01" role="link" data-bs-toggle="dropdown" aria-expanded="false">
+ <span class="menu-text">Linear Algebra 01</span>
+    </a>
+    <ul class="dropdown-menu" aria-labelledby="nav-menu-linear-algebra-01">    
         <li>
     <a class="dropdown-item" href="../../hs25/lia1/lia1_notes.html">
- <span class="dropdown-text">Linear Algebra - Notes</span></a>
+ <span class="dropdown-text">Notes</span></a>
   </li>  
+    </ul>
+  </li>
+  <li class="nav-item dropdown ">
+    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-design-of-experiments" role="link" data-bs-toggle="dropdown" aria-expanded="false">
+ <span class="menu-text">Design of Experiments</span>
+    </a>
+    <ul class="dropdown-menu" aria-labelledby="nav-menu-design-of-experiments">    
         <li>
     <a class="dropdown-item" href="../../hs25/doe/doe_notes.html">
- <span class="dropdown-text">Design of Experiments</span></a>
+ <span class="dropdown-text">Notes</span></a>
+  </li>  
+    </ul>
+  </li>
+  <li class="nav-item dropdown ">
+    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-computer-science-concepts-for-data-scientists" role="link" data-bs-toggle="dropdown" aria-expanded="false">
+ <span class="menu-text">Computer Science Concepts for Data Scientists</span>
+    </a>
+    <ul class="dropdown-menu" aria-labelledby="nav-menu-computer-science-concepts-for-data-scientists">    
+        <li>
+    <a class="dropdown-item" href="../../hs25/csc/csc_notes.html">
+ <span class="dropdown-text">Notes</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../hs25/csc/csc_exercises.html">
+ <span class="dropdown-text">Exercises</span></a>
   </li>  
     </ul>
   </li>
@@ -861,9 +897,9 @@ p(E_3) = \dfrac{9}{36} = 0.25
 <div class="cell">
 <div class="sourceCode cell-code" id="cb45"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb45-1"><a href="#cb45-1" aria-hidden="true" tabindex="-1"></a>p_e2 <span class="ot">&lt;-</span> <span class="dv">3</span><span class="sc">/</span><span class="dv">36</span></span>
 <span id="cb45-2"><a href="#cb45-2" aria-hidden="true" tabindex="-1"></a>p_e3 <span class="ot">&lt;-</span> <span class="dv">9</span><span class="sc">/</span><span class="dv">36</span></span>
-<span id="cb45-3"><a href="#cb45-3" aria-hidden="true" tabindex="-1"></a>intersection <span class="ot">&lt;-</span> <span class="dv">1</span><span class="sc">/</span><span class="dv">36</span></span>
+<span id="cb45-3"><a href="#cb45-3" aria-hidden="true" tabindex="-1"></a>p_intersection <span class="ot">&lt;-</span> <span class="dv">1</span><span class="sc">/</span><span class="dv">36</span></span>
 <span id="cb45-4"><a href="#cb45-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb45-5"><a href="#cb45-5" aria-hidden="true" tabindex="-1"></a>p_annual <span class="ot">&lt;-</span> p_e2 <span class="sc">+</span> p_e3 <span class="sc">-</span> intersection</span>
+<span id="cb45-5"><a href="#cb45-5" aria-hidden="true" tabindex="-1"></a>p_annual <span class="ot">&lt;-</span> p_e2 <span class="sc">+</span> p_e3 <span class="sc">-</span> p_intersection</span>
 <span id="cb45-6"><a href="#cb45-6" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb45-7"><a href="#cb45-7" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(p_annual)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
@@ -875,74 +911,72 @@ p(E_3) = \dfrac{9}{36} = 0.25
 <section id="problem-2.6" class="level2">
 <h2 class="anchored" data-anchor-id="problem-2.6">Problem 2.6</h2>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb47"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb47-1"><a href="#cb47-1" aria-hidden="true" tabindex="-1"></a>A <span class="ot">&lt;-</span> <span class="dv">3</span><span class="sc">/</span><span class="dv">4</span></span>
-<span id="cb47-2"><a href="#cb47-2" aria-hidden="true" tabindex="-1"></a>B <span class="ot">&lt;-</span> <span class="dv">2</span><span class="sc">/</span><span class="dv">3</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb47"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb47-1"><a href="#cb47-1" aria-hidden="true" tabindex="-1"></a>p_A <span class="ot">&lt;-</span> <span class="dv">3</span><span class="sc">/</span><span class="dv">4</span></span>
+<span id="cb47-2"><a href="#cb47-2" aria-hidden="true" tabindex="-1"></a>p_B <span class="ot">&lt;-</span> <span class="dv">2</span><span class="sc">/</span><span class="dv">3</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <section id="a-6" class="level3">
 <h3 class="anchored" data-anchor-id="a-6">a</h3>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb48"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb48-1"><a href="#cb48-1" aria-hidden="true" tabindex="-1"></a>intersection <span class="ot">&lt;-</span> A <span class="sc">+</span> B</span>
-<span id="cb48-2"><a href="#cb48-2" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(intersection)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb48"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb48-1"><a href="#cb48-1" aria-hidden="true" tabindex="-1"></a>p_bothEvents <span class="ot">&lt;-</span> p_A <span class="sc">*</span> p_B</span>
+<span id="cb48-2"><a href="#cb48-2" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(p_bothEvents)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>[1] 1.416667</code></pre>
+<pre><code>[1] 0.5</code></pre>
 </div>
 </div>
 </section>
 <section id="b-6" class="level3">
 <h3 class="anchored" data-anchor-id="b-6">b</h3>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb50"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb50-1"><a href="#cb50-1" aria-hidden="true" tabindex="-1"></a>A_only <span class="ot">&lt;-</span> A <span class="sc">-</span> B</span>
-<span id="cb50-2"><a href="#cb50-2" aria-hidden="true" tabindex="-1"></a>B_only <span class="ot">&lt;-</span> B <span class="sc">-</span> A</span>
-<span id="cb50-3"><a href="#cb50-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb50-4"><a href="#cb50-4" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(A_only <span class="sc">+</span> B_only)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb50"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb50-1"><a href="#cb50-1" aria-hidden="true" tabindex="-1"></a>p_atLeastOne <span class="ot">&lt;-</span> p_A <span class="sc">+</span> p_B <span class="sc">-</span> p_A <span class="sc">*</span> p_B</span>
+<span id="cb50-2"><a href="#cb50-2" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(p_atLeastOne)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>[1] 0</code></pre>
+<pre><code>[1] 0.9166667</code></pre>
 </div>
 </div>
 </section>
 <section id="c-5" class="level3">
 <h3 class="anchored" data-anchor-id="c-5">c</h3>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb52"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb52-1"><a href="#cb52-1" aria-hidden="true" tabindex="-1"></a>A_only <span class="ot">&lt;-</span> A <span class="sc">-</span> B</span>
-<span id="cb52-2"><a href="#cb52-2" aria-hidden="true" tabindex="-1"></a>B_only <span class="ot">&lt;-</span> B <span class="sc">-</span> A</span>
-<span id="cb52-3"><a href="#cb52-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb52-4"><a href="#cb52-4" aria-hidden="true" tabindex="-1"></a><span class="fu">cat</span>(A_only, <span class="st">"or"</span>, B_only)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb52"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb52-1"><a href="#cb52-1" aria-hidden="true" tabindex="-1"></a>p_atMostOne <span class="ot">&lt;-</span> <span class="dv">1</span> <span class="sc">-</span> p_A <span class="sc">*</span> p_B</span>
+<span id="cb52-2"><a href="#cb52-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb52-3"><a href="#cb52-3" aria-hidden="true" tabindex="-1"></a><span class="fu">cat</span>(p_atMostOne)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>0.08333333 or -0.08333333</code></pre>
+<pre><code>0.5</code></pre>
 </div>
 </div>
 </section>
 <section id="d-4" class="level3">
 <h3 class="anchored" data-anchor-id="d-4">d</h3>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb54"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb54-1"><a href="#cb54-1" aria-hidden="true" tabindex="-1"></a>opposite_intersection <span class="ot">&lt;-</span> <span class="sc">-</span>(A <span class="sc">+</span> B)</span>
-<span id="cb54-2"><a href="#cb54-2" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(opposite_intersection)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb54"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb54-1"><a href="#cb54-1" aria-hidden="true" tabindex="-1"></a>p_noEvent <span class="ot">&lt;-</span> <span class="dv">1</span> <span class="sc">-</span> (p_A <span class="sc">+</span> p_B <span class="sc">-</span> p_A <span class="sc">*</span> p_B)</span>
+<span id="cb54-2"><a href="#cb54-2" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(p_noEvent)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>[1] -1.416667</code></pre>
+<pre><code>[1] 0.08333333</code></pre>
 </div>
 </div>
 </section>
 <section id="e-2" class="level3">
 <h3 class="anchored" data-anchor-id="e-2">e</h3>
-<p>TBD</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb56"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb56-1"><a href="#cb56-1" aria-hidden="true" tabindex="-1"></a>p_exactlyOneEvent <span class="ot">&lt;-</span> p_A <span class="sc">+</span> p_B <span class="sc">-</span> <span class="dv">2</span> <span class="sc">*</span> p_A <span class="sc">*</span> p_B</span>
+<span id="cb56-2"><a href="#cb56-2" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(p_exactlyOneEvent)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 0.4166667</code></pre>
+</div>
+</div>
 </section>
 </section>
 <section id="problem-2.7" class="level2">
 <h2 class="anchored" data-anchor-id="problem-2.7">Problem 2.7</h2>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb56"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb56-1"><a href="#cb56-1" aria-hidden="true" tabindex="-1"></a>p_earthquake <span class="ot">&lt;-</span> <span class="fl">0.04</span></span>
-<span id="cb56-2"><a href="#cb56-2" aria-hidden="true" tabindex="-1"></a>p_typhoon <span class="ot">&lt;-</span> <span class="fl">0.08</span></span>
-<span id="cb56-3"><a href="#cb56-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb56-4"><a href="#cb56-4" aria-hidden="true" tabindex="-1"></a>only_earthquake <span class="ot">&lt;-</span> p_earthquake <span class="sc">-</span> p_typhoon</span>
-<span id="cb56-5"><a href="#cb56-5" aria-hidden="true" tabindex="-1"></a>only_typhoon <span class="ot">&lt;-</span> p_typhoon <span class="sc">-</span> p_earthquake</span>
-<span id="cb56-6"><a href="#cb56-6" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb56-7"><a href="#cb56-7" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(only_earthquake)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb58"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb58-1"><a href="#cb58-1" aria-hidden="true" tabindex="-1"></a>p_earthquake <span class="ot">&lt;-</span> <span class="fl">0.04</span></span>
+<span id="cb58-2"><a href="#cb58-2" aria-hidden="true" tabindex="-1"></a>p_typhoon <span class="ot">&lt;-</span> <span class="fl">0.08</span></span>
+<span id="cb58-3"><a href="#cb58-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb58-4"><a href="#cb58-4" aria-hidden="true" tabindex="-1"></a>p_annual <span class="ot">&lt;-</span> p_earthquake <span class="sc">+</span> p_typhoon <span class="sc">-</span> p_earthquake <span class="sc">*</span> p_typhoon</span>
+<span id="cb58-5"><a href="#cb58-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb58-6"><a href="#cb58-6" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(p_annual)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>[1] -0.04</code></pre>
-</div>
-<div class="sourceCode cell-code" id="cb58"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb58-1"><a href="#cb58-1" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(only_typhoon)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>[1] 0.04</code></pre>
+<pre><code>[1] 0.1168</code></pre>
 </div>
 </div>
 

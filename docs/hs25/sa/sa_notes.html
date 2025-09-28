@@ -156,33 +156,69 @@ window.Quarto = {
 <span class="menu-text">Home</span></a>
   </li>  
   <li class="nav-item dropdown ">
-    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-hs-25" role="link" data-bs-toggle="dropdown" aria-expanded="false">
- <span class="menu-text">HS 25</span>
+    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-python-for-data-science" role="link" data-bs-toggle="dropdown" aria-expanded="false">
+ <span class="menu-text">Python for Data Science</span>
     </a>
-    <ul class="dropdown-menu" aria-labelledby="nav-menu-hs-25">    
+    <ul class="dropdown-menu" aria-labelledby="nav-menu-python-for-data-science">    
         <li>
     <a class="dropdown-item" href="../../hs25/pds/pds_notes.html">
- <span class="dropdown-text">Python for Data Science - Notes</span></a>
+ <span class="dropdown-text">Notes</span></a>
   </li>  
         <li>
     <a class="dropdown-item" href="../../hs25/pds/pds_exercises.html">
- <span class="dropdown-text">Python for Data Science - Exercises</span></a>
+ <span class="dropdown-text">Exercises</span></a>
   </li>  
+    </ul>
+  </li>
+  <li class="nav-item dropdown ">
+    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-classical-and-bayesian-statistics" role="link" data-bs-toggle="dropdown" aria-expanded="false">
+ <span class="menu-text">Classical and Bayesian Statistics</span>
+    </a>
+    <ul class="dropdown-menu" aria-labelledby="nav-menu-classical-and-bayesian-statistics">    
         <li>
     <a class="dropdown-item" href="../../hs25/sa/sa_notes.html">
- <span class="dropdown-text">Classical and Bayesian Statistics - Notes</span></a>
+ <span class="dropdown-text">Notes</span></a>
   </li>  
         <li>
     <a class="dropdown-item" href="../../hs25/sa/sa_exercises.html">
- <span class="dropdown-text">Classical and Bayesian Statistics - Exercises</span></a>
+ <span class="dropdown-text">Exercises</span></a>
   </li>  
+    </ul>
+  </li>
+  <li class="nav-item dropdown ">
+    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-linear-algebra-01" role="link" data-bs-toggle="dropdown" aria-expanded="false">
+ <span class="menu-text">Linear Algebra 01</span>
+    </a>
+    <ul class="dropdown-menu" aria-labelledby="nav-menu-linear-algebra-01">    
         <li>
     <a class="dropdown-item" href="../../hs25/lia1/lia1_notes.html">
- <span class="dropdown-text">Linear Algebra - Notes</span></a>
+ <span class="dropdown-text">Notes</span></a>
   </li>  
+    </ul>
+  </li>
+  <li class="nav-item dropdown ">
+    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-design-of-experiments" role="link" data-bs-toggle="dropdown" aria-expanded="false">
+ <span class="menu-text">Design of Experiments</span>
+    </a>
+    <ul class="dropdown-menu" aria-labelledby="nav-menu-design-of-experiments">    
         <li>
     <a class="dropdown-item" href="../../hs25/doe/doe_notes.html">
- <span class="dropdown-text">Design of Experiments</span></a>
+ <span class="dropdown-text">Notes</span></a>
+  </li>  
+    </ul>
+  </li>
+  <li class="nav-item dropdown ">
+    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-computer-science-concepts-for-data-scientists" role="link" data-bs-toggle="dropdown" aria-expanded="false">
+ <span class="menu-text">Computer Science Concepts for Data Scientists</span>
+    </a>
+    <ul class="dropdown-menu" aria-labelledby="nav-menu-computer-science-concepts-for-data-scientists">    
+        <li>
+    <a class="dropdown-item" href="../../hs25/csc/csc_notes.html">
+ <span class="dropdown-text">Notes</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../hs25/csc/csc_exercises.html">
+ <span class="dropdown-text">Exercises</span></a>
   </li>  
     </ul>
   </li>
@@ -434,9 +470,9 @@ s_x = \sqrt{Var(x)} = \sqrt{\dfrac{1}{n-1}\sum^n_{i=1}(x_i - \bar{x}²)}
 </section>
 <section id="graphical-representation-of-data" class="level1">
 <h1>Graphical Representation of Data</h1>
-<p>Plotting data is very important aspect of statistical data analysis. Often points to patterns that are not recognisable from key figures.</p>
+<p>Plotting data is a very important aspect of statistical data analysis. It often points to patterns that are not recognizable from key figures.</p>
 <blockquote class="blockquote">
-<p>Note: Choosing “wrong” graphical representation is not useful.</p>
+<p>Note: Choosing the “wrong” graphical representation is not useful.</p>
 </blockquote>
 <section id="boxplot" class="level2">
 <h2 class="anchored" data-anchor-id="boxplot">Boxplot</h2>
@@ -447,13 +483,13 @@ s_x = \sqrt{Var(x)} = \sqrt{\dfrac{1}{n-1}\sum^n_{i=1}(x_i - \bar{x}²)}
 </figure>
 </div>
 <ul>
-<li>Box: Height is bounded by lower and upper quartile. Height of box is interquartile rang.</li>
+<li>Box: Height is bounded by the lower and upper quartiles. The height of the box is the interquartile range.</li>
 <li>Horizontal line in box: Median</li>
-<li>Whisker: <span class="math inline">\(1.5 \times \text{IQR}\)</span>. Defined by inventor John Tukey.</li>
+<li>Whisker: <span class="math inline">\(1.5 \times \text{IQR}\)</span>, defined by inventor John Tukey.</li>
 <li>Points: Outliers</li>
 </ul>
 <blockquote class="blockquote">
-<p>Note: Upper and lower whisker do not have to have the length of <span class="math inline">\(1.5 \times \text{IQR}\)</span>.</p>
+<p>Note: The upper and lower whiskers do not have to be <span class="math inline">\(1.5 \times \text{IQR}\)</span> in length.</p>
 </blockquote>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb15"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Single boxplot</span></span>
@@ -487,7 +523,7 @@ s_x = \sqrt{Var(x)} = \sqrt{\dfrac{1}{n-1}\sum^n_{i=1}(x_i - \bar{x}²)}
 </section>
 <section id="histogram" class="level2">
 <h2 class="anchored" data-anchor-id="histogram">Histogram</h2>
-<p>Graphical overview of occurring values. Draw a bar for each class. Height proportional to number of observations in that class.</p>
+<p>Graphical overview of occurring values. Draw a bar for each class, with the height proportional to the number of observations in that class.</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb17"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Simple histogram</span></span>
 <span id="cb17-2"><a href="#cb17-2" aria-hidden="true" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">42</span>)</span>
@@ -502,7 +538,7 @@ s_x = \sqrt{Var(x)} = \sqrt{\dfrac{1}{n-1}\sum^n_{i=1}(x_i - \bar{x}²)}
 </div>
 </div>
 </div>
-<p>Selection of number of classes relevant for interpretation of histogram.</p>
+<p>The selection of the number of classes is relevant for the interpretation of a histogram.</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb18"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Big breaks</span></span>
 <span id="cb18-2"><a href="#cb18-2" aria-hidden="true" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">42</span>)</span>
@@ -532,11 +568,11 @@ s_x = \sqrt{Var(x)} = \sqrt{\dfrac{1}{n-1}\sum^n_{i=1}(x_i - \bar{x}²)}
 </div>
 </div>
 <blockquote class="blockquote">
-<p>Note: Since we used <code>set.seed(42)</code>, both plot shows the same data.</p>
+<p>Note: Since we used <code>set.seed(42)</code>, both plots show the same data.</p>
 </blockquote>
 <section id="skweness-of-hostograms" class="level3">
 <h3 class="anchored" data-anchor-id="skweness-of-hostograms">Skweness of Hostograms</h3>
-<p>Histograms can have a skweness depending on the data.</p>
+<p>Histograms can have a skewness depending on the data.</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb20"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Right skewed data</span></span>
 <span id="cb20-2"><a href="#cb20-2" aria-hidden="true" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">42</span>)</span>
@@ -567,13 +603,13 @@ s_x = \sqrt{Var(x)} = \sqrt{\dfrac{1}{n-1}\sum^n_{i=1}(x_i - \bar{x}²)}
 </div>
 </div>
 <blockquote class="blockquote">
-<p>Note: The terms “right” and “left” always refers to direction where it has less data (tail of distribution).</p>
+<p>Note: The terms “right” and “left” always refer to the direction where there is less data (the tail of the distribution).</p>
 </blockquote>
 </section>
 </section>
 <section id="normalised-histograms" class="level2">
 <h2 class="anchored" data-anchor-id="normalised-histograms">Normalised Histograms</h2>
-<p>Select bar height such that bar area corresponds to proportion of respective observations in total number of observations.</p>
+<p>Select the bar height such that the bar area corresponds to the proportion of respective observations in the total number of observations.</p>
 <blockquote class="blockquote">
 <p>Note: Density values are not percentages.</p>
 </blockquote>
@@ -607,22 +643,22 @@ s_x = \sqrt{Var(x)} = \sqrt{\dfrac{1}{n-1}\sum^n_{i=1}(x_i - \bar{x}²)}
 <ul>
 <li>A random element: <span class="math inline">\(x = 2\)</span></li>
 <li>Set of elements: <span class="math inline">\(X = {1, 2, 3, 4}\)</span></li>
-<li>x is a element of the set X: <span class="math inline">\(x \in X\)</span></li>
-<li>Subset: If <span class="math inline">\(B = {2, 3}\)</span>, than <span class="math inline">\(B \subset A\)</span></li>
-<li>Empty set: <span class="math inline">\(\emptyset\)</span>. The empty subset is a supset of every set.</li>
+<li><span class="math inline">\(x\)</span> is an element of the set <span class="math inline">\(X\)</span>: <span class="math inline">\(x \in X\)</span></li>
+<li>Subset: If <span class="math inline">\(B = {2, 3}\)</span>, then <span class="math inline">\(B \subset A\)</span></li>
+<li>Empty set: <span class="math inline">\(\emptyset\)</span>. The empty set is a subset of every set.</li>
 </ul>
 <section id="probability-model" class="level2">
 <h2 class="anchored" data-anchor-id="probability-model">Probability Model</h2>
-<p>Probability models use set theory as language. For random experiments the outcome is not predictable. Probability model consists of events that are possible in such an experiment and probabilities for different results occurring. Probability models have following components:</p>
+<p>Probability models use set theory as a language. For random experiments, the outcome is not predictable. A probability model consists of events that are possible in such an experiment and probabilities for different results occurring. Probability models have the following components:</p>
 <ul>
 <li>Sample space <span class="math inline">\(\Omega\)</span>: Contains all possible elementary events <span class="math inline">\(\omega\)</span>.</li>
-<li>Events <span class="math inline">\(A, B, C\)</span>: Subsets of sample space.</li>
-<li>Probabilities <span class="math inline">\(P\)</span> associated with events <span class="math inline">\(A, B, C\)</span></li>
-<li>Event: More general and more important than elementary events, but consist of these.</li>
+<li>Events <span class="math inline">\(A, B, C\)</span>: Subsets of the sample space.</li>
+<li>Probabilities <span class="math inline">\(p\)</span> associated with events <span class="math inline">\(A, B, C\)</span>.</li>
+<li>Event: More general and more important than elementary events, but consists of them.</li>
 </ul>
 <p>Probability formula:</p>
 <p><span class="math display">\[
-P(E)=\dfrac{\lvert E \rvert}{\lvert \Omega \rvert} \text{, where } E \subseteq \Omega
+p(E)=\dfrac{\lvert E \rvert}{\lvert \Omega \rvert} \text{, where } E \subseteq \Omega
 \]</span></p>
 </section>
 <section id="set-theory" class="level2">
@@ -644,9 +680,9 @@ P(E)=\dfrac{\lvert E \rvert}{\lvert \Omega \rvert} \text{, where } E \subseteq \
 <h2 class="anchored" data-anchor-id="axioms-of-probability">Axioms of Probability</h2>
 <p>Each event <span class="math inline">\(A\)</span> probability <span class="math inline">\(P(A)\)</span> is assigned, with properties:</p>
 <ul>
-<li><span class="math inline">\(P(A) \geq 0\)</span></li>
-<li><span class="math inline">\(P(\Omega) = 1\)</span></li>
-<li><span class="math inline">\(P(A \cup B) = P(A) + P(B) \text{, if } A \cap B = \emptyset\)</span></li>
+<li><span class="math inline">\(p(A) \geq 0\)</span></li>
+<li><span class="math inline">\(p(\Omega) = 1\)</span></li>
+<li><span class="math inline">\(p(A \cup B) = p(A) + p(B) \text{, if } A \cap B = \emptyset\)</span></li>
 </ul>
 <blockquote class="blockquote">
 <p>Note: Kolmogorov Axioms of Probability</p>
@@ -656,21 +692,21 @@ P(E)=\dfrac{\lvert E \rvert}{\lvert \Omega \rvert} \text{, where } E \subseteq \
 <h2 class="anchored" data-anchor-id="laws-for-calculating-probabilities">Laws for Calculating Probabilities</h2>
 <p>If <span class="math inline">\(A, B\)</span> and <span class="math inline">\(A_1, \dots, A_n\)</span> events, then:</p>
 <ul>
-<li><span class="math inline">\(P(\bar{A}) = 1 - P(A) \text{, for all } A\)</span></li>
-<li><span class="math inline">\(P(A \cup B) = P(A) + P(B) - P(A \cap B) \text{, for all } A \text{ and } B\)</span></li>
-<li><span class="math inline">\(P(A_1 \cup \dots A_n) \leq P(A_1) + \dots + P(A_n) \text{, for all } A_1, \dots, A_n\)</span></li>
-<li><span class="math inline">\(P(B) \leq P(A) \text{, for all } A \text{ and } B \text{ with } B \subseteq A\)</span></li>
-<li><span class="math inline">\(P(A \setminus B) = P(A) - P(B) \text{, for all } A \text{ and } B \text{ with } B \subseteq A\)</span></li>
+<li><span class="math inline">\(p(\bar{A}) = 1 - p(A) \text{, for all } A\)</span></li>
+<li><span class="math inline">\(p(A \cup B) = p(A) + p(B) - p(A \cap B) \text{, for all } A \text{ and } B\)</span></li>
+<li><span class="math inline">\(p(A_1 \cup \dots A_n) \leq p(A_1) + \dots + p(A_n) \text{, for all } A_1, \dots, A_n\)</span></li>
+<li><span class="math inline">\(p(B) \leq p(A) \text{, for all } A \text{ and } B \text{ with } B \subseteq A\)</span></li>
+<li><span class="math inline">\(p(A \setminus B) = p(A) - p(B) \text{, for all } A \text{ and } B \text{ with } B \subseteq A\)</span></li>
 </ul>
 </section>
 <section id="discrete-probability-models" class="level2">
 <h2 class="anchored" data-anchor-id="discrete-probability-models">Discrete Probability Models</h2>
-<p>Sample space finite or infinite and discrete. Infinite, but still discrete set.</p>
+<p>A sample space can be finite or infinite and discrete. It can also be infinite but still discrete.</p>
 <section id="probabilities-for-discrete-models" class="level3">
 <h3 class="anchored" data-anchor-id="probabilities-for-discrete-models">Probabilities for Discrete Models</h3>
-<p>Probability of event <span class="math inline">\(A = {\omega_1, \omega_2, \dots, \omega_n}\)</span> is determined by sum of probabilities P(ω) of corresponding ele- mentary events</p>
+<p>The probability of event <span class="math inline">\(A = {\omega_1, \omega_2, \dots, \omega_n}\)</span> is determined by the sum of the probabilities <span class="math inline">\(p(\omega)\)</span> of the corresponding elementary events.</p>
 <p><span class="math display">\[
-P(A) = \sum_{\omega_i \in A} P(\omega_i)
+p(A) = \sum_{\omega_i \in A} p(\omega_i)
 \]</span></p>
 </section>
 </section>
@@ -678,7 +714,7 @@ P(A) = \sum_{\omega_i \in A} P(\omega_i)
 <h2 class="anchored" data-anchor-id="laplace-model">Laplace Model</h2>
 <p>Probabilities of all elementary elements add up to 1.</p>
 <p><span class="math display">\[
-P(E) = \dfrac{f}{p} = \sum_{k:\omega_i \in E} P(\omega_k)
+p(E) = \dfrac{f}{p} = \sum_{k:\omega_i \in E} p(\omega_k)
 \]</span></p>
 <p>Divides number of “favorable” elementary events by number of “possible” elementary events.</p>
 </section>
@@ -689,7 +725,7 @@ P(E) = \dfrac{f}{p} = \sum_{k:\omega_i \in E} P(\omega_k)
 P(A \cap B) = P(A) \cdot P(B)
 \]</span></p>
 <blockquote class="blockquote">
-<p>Note: Formula applies only if events A and B are stochastically independent</p>
+<p>Note: Formula applies only if events A and B are stochastically independent.</p>
 </blockquote>
 <p>Outcome of event A has no influence on outcome of event B and vice versa.</p>
 
