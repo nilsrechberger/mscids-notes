@@ -8,19 +8,25 @@ website:
     left:
       - text: "Home"
         href: index.qmd
-      - text: "HS 25"
+      - text: "Python for Data Science"
         menu:
-          - text: "Python for Data Science - Notes"
+          - text: "Notes"
             href: hs25/pds/pds_notes.qmd
-          - text: "Python for Data Science - Exercises"
+          - text: "Exercises"
             href: hs25/pds/pds_exercises.qmd
-          - text: "Classical and Bayesian Statistics - Notes"
+      - text: "Classical and Bayesian Statistics"
+        menu:
+          - text: "Notes"
             href: hs25/sa/sa_notes.qmd
-          - text: "Classical and Bayesian Statistics - Exercises"
+          - text: "Exercises"
             href: hs25/sa/sa_exercises.qmd
-          - text: "Linear Algebra - Notes"
+      - text: "Linear Algebra 01"
+        menu:
+          - text: "Notes"
             href: hs25/lia1/lia1_notes.qmd
-          - text: "Design of Experiments"
+      - text: "Design of Experiments"
+        menu:
+          - text: "Notes"
             href: hs25/doe/doe_notes.qmd
       - text: "Sources"
         href: sources.qmd
