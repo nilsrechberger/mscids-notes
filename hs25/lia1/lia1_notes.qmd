@@ -165,3 +165,12 @@ $$
 $$
 
 > Note: The mathematical rules do not change by adding more dimensions.
+
+# System of Linear Equations
+
+A system of linear equations is a collection of two or more linear equations that share the same variables. The solution to the system is the set of values for the variables that satisfy all equations simultaneously. Linear equation in two variables x and y is an equation of the form:
+
+$$
+ax + bx = c \text{, where } A, B, C \in \mathbb{R}
+$$
+
