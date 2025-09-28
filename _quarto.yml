@@ -28,12 +28,12 @@ website:
         menu:
           - text: "Notes"
             href: hs25/doe/doe_notes.qmd
-      - text: "Computer Science Concepts for Data Scientists"
-        menu:
-          - text: "Notes"
-            href: hs25/csc/csc_notes.qmd
-          - text: "Exercises"
-            href: hs25/csc/csc_exercises.qmd
+      # - text: "Computer Science Concepts for Data Scientists"
+        # menu:
+          # - text: "Notes"
+          #  href: hs25/csc/csc_notes.qmd
+          # - text: "Exercises"
+          #  href: hs25/csc/csc_exercises.qmd
       - text: "Sources"
         href: sources.qmd
 format:
