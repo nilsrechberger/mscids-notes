@@ -134,20 +134,20 @@ IQR(x)
 
 # Graphical Representation of Data
 
-Plotting data is very important aspect of statistical data analysis. Often points to patterns that are not recognisable from key figures.
+Plotting data is a very important aspect of statistical data analysis. It often points to patterns that are not recognizable from key figures.
 
-> Note: Choosing “wrong” graphical representation is not useful.
+> Note: Choosing the “wrong” graphical representation is not useful.
 
 ## Boxplot
 
 ![Boxplot: Schematically](img/boxplot.png)
 
-- Box: Height is bounded by lower and upper quartile. Height of box is interquartile rang.
+- Box: Height is bounded by the lower and upper quartiles. The height of the box is the interquartile range.
 - Horizontal line in box: Median
-- Whisker: $1.5 \times \text{IQR}$. Defined by inventor John Tukey.
+- Whisker: $1.5 \times \text{IQR}$, defined by inventor John Tukey.
 - Points: Outliers
 
-> Note: Upper and lower whisker do not have to have the length of $1.5 \times \text{IQR}$.
+> Note: The upper and lower whiskers do not have to be $1.5 \times \text{IQR}$ in length.
 
 ```{r}
 # Single boxplot
@@ -168,7 +168,7 @@ boxplot(x, y)
 
 ## Histogram
 
-Graphical overview of occurring values. Draw a bar for each class. Height proportional to number of observations in that class.
+Graphical overview of occurring values. Draw a bar for each class, with the height proportional to the number of observations in that class.
 
 ```{r}
 # Simple histogram
@@ -178,7 +178,7 @@ x <- rnorm(1000)
 hist(x)
 ```
 
-Selection of number of classes relevant for interpretation of histogram.
+The selection of the number of classes is relevant for the interpretation of a histogram.
 
 ```{r}
 # Big breaks
@@ -196,11 +196,11 @@ x <- rnorm(1000)
 hist(x, breaks=50)
 ```
 
-> Note: Since we used `set.seed(42)`, both plot shows the same data.
+> Note: Since we used `set.seed(42)`, both plots show the same data.
 
 ### Skweness of Hostograms
 
-Histograms can have a skweness depending on the data.
+Histograms can have a skewness depending on the data.
 
 ```{r}
 # Right skewed data
@@ -219,12 +219,11 @@ x <- -x # Trun data positivity
 hist(x, breaks=50)
 ```
 
-> Note: The terms “right” and “left” always refers to direction where it has less
-data (tail of distribution).
+> Note: The terms “right” and “left” always refer to the direction where there is less data (the tail of the distribution).
 
 ## Normalised Histograms
 
-Select bar height such that bar area corresponds to proportion of respective observations in total number of observations.
+Select the bar height such that the bar area corresponds to the proportion of respective observations in the total number of observations.
 
 > Note: Density values are not percentages.
 
@@ -236,7 +235,6 @@ x <- rnorm(1000)
 hist(x, freq=FALSE) # Disable frequency
 ```
 
-
 ## Boxplot X Histogram
 
 ![Boxplot X Histogram](img/boxplot_x_histogram.png)
@@ -245,23 +243,23 @@ hist(x, freq=FALSE) # Disable frequency
 
 - A random element: $x = 2$
 - Set of elements: $X = {1, 2, 3, 4}$
-- x is a element of the set X: $x \in X$
-- Subset: If $B = {2, 3}$, than $B \subset A$
-- Empty set: $\emptyset$. The empty subset is a supset of every set.
+- $x$ is an element of the set $X$: $x \in X$
+- Subset: If $B = {2, 3}$, then $B \subset A$
+- Empty set: $\emptyset$. The empty set is a subset of every set.
 
 ## Probability Model
 
-Probability models use set theory as language. For random experiments the outcome is not predictable. Probability model consists of events that are possible in such an experiment and probabilities for different results occurring. Probability models have following components:
+Probability models use set theory as a language. For random experiments, the outcome is not predictable. A probability model consists of events that are possible in such an experiment and probabilities for different results occurring. Probability models have the following components:
 
 - Sample space $\Omega$: Contains all possible elementary events $\omega$.
-- Events $A, B, C$: Subsets of sample space.
-- Probabilities $P$ associated with events $A, B, C$
-- Event: More general and more important than elementary events, but consist of these.
+- Events $A, B, C$: Subsets of the sample space.
+- Probabilities $p$ associated with events $A, B, C$.
+- Event: More general and more important than elementary events, but consists of them.
 
 Probability formula:
 
 $$
-P(E)=\dfrac{\lvert E \rvert}{\lvert \Omega \rvert} \text{, where } E \subseteq \Omega
+p(E)=\dfrac{\lvert E \rvert}{\lvert \Omega \rvert} \text{, where } E \subseteq \Omega
 $$
 
 ## Set Theory
@@ -277,9 +275,9 @@ $$
 
 Each event $A$ probability $P(A)$ is assigned, with properties:
 
-- $P(A) \geq 0$
-- $P(\Omega) = 1$
-- $P(A \cup B) = P(A) + P(B) \text{, if } A \cap B = \emptyset$
+- $p(A) \geq 0$
+- $p(\Omega) = 1$
+- $p(A \cup B) = p(A) + p(B) \text{, if } A \cap B = \emptyset$
 
 > Note: Kolmogorov Axioms of Probability
 
@@ -287,23 +285,22 @@ Each event $A$ probability $P(A)$ is assigned, with properties:
 
 If $A, B$ and $A_1, \dots, A_n$ events, then:
 
-- $P(\bar{A}) = 1 - P(A) \text{, for all } A$
-- $P(A \cup B) = P(A) + P(B) - P(A \cap B) \text{, for all } A \text{ and } B$
-- $P(A_1 \cup \dots A_n) \leq P(A_1) + \dots + P(A_n) \text{, for all } A_1, \dots, A_n$
-- $P(B) \leq P(A) \text{, for all } A \text{ and } B \text{ with } B \subseteq A$
-- $P(A \setminus B) = P(A) - P(B) \text{, for all } A \text{ and } B \text{ with } B \subseteq A$
+- $p(\bar{A}) = 1 - p(A) \text{, for all } A$
+- $p(A \cup B) = p(A) + p(B) - p(A \cap B) \text{, for all } A \text{ and } B$
+- $p(A_1 \cup \dots A_n) \leq p(A_1) + \dots + p(A_n) \text{, for all } A_1, \dots, A_n$
+- $p(B) \leq p(A) \text{, for all } A \text{ and } B \text{ with } B \subseteq A$
+- $p(A \setminus B) = p(A) - p(B) \text{, for all } A \text{ and } B \text{ with } B \subseteq A$
 
 ## Discrete Probability Models
 
-Sample space finite or infinite and discrete. Infinite, but still discrete set.
+A sample space can be finite or infinite and discrete. It can also be infinite but still discrete.
 
 ### Probabilities for Discrete Models
 
-Probability of event $A = {\omega_1, \omega_2, \dots, \omega_n}$ is determined by sum of probabilities P(ω) of corresponding ele-
-mentary events
+The probability of event $A = {\omega_1, \omega_2, \dots, \omega_n}$ is determined by the sum of the probabilities $p(\omega)$ of the corresponding elementary events.
 
 $$
-P(A) = \sum_{\omega_i \in A} P(\omega_i)
+p(A) = \sum_{\omega_i \in A} p(\omega_i)
 $$
 
 
@@ -312,7 +309,7 @@ $$
 Probabilities of all elementary elements add up to 1.
 
 $$
-P(E) = \dfrac{f}{p} = \sum_{k:\omega_i \in E} P(\omega_k)
+p(E) = \dfrac{f}{p} = \sum_{k:\omega_i \in E} p(\omega_k)
 $$
 
 Divides number of “favorable” elementary events by number of “possible” elementary events.
@@ -325,6 +322,6 @@ $$
 P(A \cap B) = P(A) \cdot P(B)
 $$
 
-> Note: Formula applies only if events A and B are stochastically independent
+> Note: Formula applies only if events A and B are stochastically independent.
 
 Outcome of event A has no influence on outcome of event B and vice versa.
