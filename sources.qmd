@@ -28,4 +28,4 @@ title: "Useful Resources"
 
 # Visualisations
 
-* [**The Wall Street journal guide to information graphics**](https://swisscovery.ch/permalink/41SLSP_NETWORK/19n6r1g/alma991066241679705501)
+* [**The Wall Street journal guide to information graphics**](https://swisscovery.ch/permalink/41SLSP_NETWORK/19n6r1g/alma991066241679705501): Dos and dont's of presenting data, facts and figures.
