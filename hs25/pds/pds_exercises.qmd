@@ -175,8 +175,11 @@ inputs.append(input3)
 
 # Use fake user inputs
 input1 = -3
+inputs.append(input1)
 input2 = 10
+inputs.append(input2)
 input3 = -6
+inputs.append(input3)
 
 # Sort list
 inputs = sorted(inputs)

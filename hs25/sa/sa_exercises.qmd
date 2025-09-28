@@ -151,7 +151,7 @@ cat("Median stays the same:", originla_meadian, "=", new_median)
 ```{r}
 # Read data
 data <- read.csv('/home/nils/dev/mscids-notes/hs25/sa/data/husband_wife.csv')
-data
+head(data)
 ```
 
 ### b
@@ -193,8 +193,7 @@ tapply(InsectSprays$count, InsectSprays$spray, mean)
 
 ```{r}
 boxplot(count ~ spray,
-        data = InsectSprays
-)
+        data = InsectSprays)
 ```
 
 ## Problem 2.3
