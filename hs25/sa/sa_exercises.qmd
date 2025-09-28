@@ -295,9 +295,9 @@ $$
 ```{r}
 p_e2 <- 3/36
 p_e3 <- 9/36
-intersection <- 1/36
+p_intersection <- 1/36
 
-p_annual <- p_e2 + p_e3 - intersection
+p_annual <- p_e2 + p_e3 - p_intersection
 
 print(p_annual)
 ```
@@ -305,45 +305,45 @@ print(p_annual)
 ## Problem 2.6
 
 ```{r}
-A <- 3/4
-B <- 2/3
+p_A <- 3/4
+p_B <- 2/3
 ```
 
 ### a
 
 ```{r}
-intersection <- A + B
-print(intersection)
+p_bothEvents <- p_A * p_B
+print(p_bothEvents)
 ```
 
 ### b
 
 ```{r}
-A_only <- A - B
-B_only <- B - A
-
-print(A_only + B_only)
+p_atLeastOne <- p_A + p_B - p_A * p_B
+print(p_atLeastOne)
 ```
 
 ### c
 
 ```{r}
-A_only <- A - B
-B_only <- B - A
+p_atMostOne <- 1 - p_A * p_B
 
-cat(A_only, "or", B_only)
+cat(p_atMostOne)
 ```
 
 ### d
 
 ```{r}
-opposite_intersection <- -(A + B)
-print(opposite_intersection)
+p_noEvent <- 1 - (p_A + p_B - p_A * p_B)
+print(p_noEvent)
 ```
 
 ### e
 
-TBD
+```{r}
+p_exactlyOneEvent <- p_A + p_B - 2 * p_A * p_B
+print(p_exactlyOneEvent)
+```
 
 ## Problem 2.7
 
@@ -351,9 +351,7 @@ TBD
 p_earthquake <- 0.04
 p_typhoon <- 0.08
 
-only_earthquake <- p_earthquake - p_typhoon
-only_typhoon <- p_typhoon - p_earthquake
+p_annual <- p_earthquake + p_typhoon - p_earthquake * p_typhoon
 
-print(only_earthquake)
-print(only_typhoon)
+print(p_annual)
 ```
