@@ -3,7 +3,5 @@ title: "Comuter Science Concepts for Data Science - Notes"
 toc: true
 ---
 
-# How can Data Science improve products & services?
-
-Data Science improves basics function of traditionals product by applining Drinven function on Digital Services of a product.
+# Computer Networks
 
