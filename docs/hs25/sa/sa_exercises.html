@@ -207,21 +207,6 @@ window.Quarto = {
   </li>  
     </ul>
   </li>
-  <li class="nav-item dropdown ">
-    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-computer-science-concepts-for-data-scientists" role="link" data-bs-toggle="dropdown" aria-expanded="false">
- <span class="menu-text">Computer Science Concepts for Data Scientists</span>
-    </a>
-    <ul class="dropdown-menu" aria-labelledby="nav-menu-computer-science-concepts-for-data-scientists">    
-        <li>
-    <a class="dropdown-item" href="../../hs25/csc/csc_notes.html">
- <span class="dropdown-text">Notes</span></a>
-  </li>  
-        <li>
-    <a class="dropdown-item" href="../../hs25/csc/csc_exercises.html">
- <span class="dropdown-text">Exercises</span></a>
-  </li>  
-    </ul>
-  </li>
   <li class="nav-item">
     <a class="nav-link" href="../../sources.html"> 
 <span class="menu-text">Sources</span></a>
@@ -521,179 +506,15 @@ window.Quarto = {
 <div class="cell">
 <div class="sourceCode cell-code" id="cb28"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb28-1"><a href="#cb28-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Read data</span></span>
 <span id="cb28-2"><a href="#cb28-2" aria-hidden="true" tabindex="-1"></a>data <span class="ot">&lt;-</span> <span class="fu">read.csv</span>(<span class="st">'/home/nils/dev/mscids-notes/hs25/sa/data/husband_wife.csv'</span>)</span>
-<span id="cb28-3"><a href="#cb28-3" aria-hidden="true" tabindex="-1"></a>data</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb28-3"><a href="#cb28-3" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(data)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>    age.husband height.husband age.wife height.wife
-1            49            180       43         159
-2            25            184       28         156
-3            40            165       30         162
-4            52            177       57         154
-5            58            161       52         142
-6            32            169       27         166
-7            43            173       52         161
-8            47            174       43         158
-9            31            168       23         161
-10           26            173       25         159
-11           40            171       39         161
-12           35            173       32         170
-13           35            179       35         168
-14           35            178       33         168
-15           47            175       43         163
-16           38            172       35         157
-17           33            172       32         172
-18           32            181       30         174
-19           38            172       40         160
-20           29            168       29         160
-21           59            158       55         155
-22           26            168       25         154
-23           50            167       45         164
-24           49            172       44         164
-25           42            163       40         163
-26           33            185       31         156
-27           27            170       25         158
-28           57            176       51         157
-29           34            170       31         159
-30           28            172       25         165
-31           37            182       35         167
-32           56            171       55         160
-33           27            174       23         161
-34           36            169       35         161
-35           31            185       28         167
-36           57            161       52         151
-37           55            168       53         152
-38           47            180       43         162
-39           64            158       61         153
-40           31            158       23         157
-41           35            170       35         158
-42           36            167       35         159
-43           40            173       39         167
-44           30            168       24         163
-45           32            176       29         151
-46           20            175       21         166
-47           45            173       39         161
-48           59            169       52         144
-49           43            182       52         157
-50           29            174       26         167
-51           47            173       48         173
-52           54            167       53         156
-53           43            175       42         159
-54           54            171       50         160
-55           61            172       64         149
-56           27            178       26         166
-57           27            174       32         158
-58           32            171       31         150
-59           54            172       53         164
-60           37            162       39         165
-61           55            176       45         162
-62           36            179       33         155
-63           32            179       32         164
-64           57            173       55         156
-65           51            166       52         157
-66           50            174       50         155
-67           32            177       32         160
-68           54            166       54         166
-69           34            170       32         164
-70           45            180       41         167
-71           64            170       61         156
-72           55            166       43         176
-73           27            175       28         164
-74           55            178       51         160
-75           41            168       41         155
-76           44            171       41         157
-77           22            175       21         159
-78           30            176       28         165
-79           53            179       47         169
-80           42            173       37         158
-81           31            171       28         159
-82           36            172       35         151
-83           56            182       55         160
-84           46            173       45         166
-85           34            176       34         170
-86           55            168       51         153
-87           44            168       39         149
-88           45            155       35         158
-89           48            170       45         150
-90           44            172       44         160
-91           59            170       47         157
-92           64            166       57         162
-93           34            168       33         141
-94           37            180       38         156
-95           54            186       59         159
-96           49            188       46         171
-97           63            170       60         158
-98           48            178       47         169
-99           64            180       55         161
-100          33            179       45         166
-101          52            166       47         161
-102          27            170       24         159
-103          33            169       32         153
-104          46            182       47         169
-105          54            176       57         160
-106          54            190       46         167
-107          49            173       42         160
-108          62            173       63         157
-109          34            184       32         170
-110          23            186       24         174
-111          36            176       32         154
-112          59            172       56         153
-113          53            187       50         169
-114          55            172       55         159
-115          62            162       58         161
-116          42            162       38         167
-117          50            165       44         169
-118          37            178       35         155
-119          51            162       44         165
-120          25            169       25         154
-121          54            167       43         166
-122          34            186       31         162
-123          43            164       35         163
-124          43            170       41         161
-125          58            173       50         154
-126          28            169       23         161
-127          45            175       43         163
-128          47            168       49         153
-129          57            172       59         152
-130          34            163       38         157
-131          57            172       42         158
-132          27            172       21         155
-133          48            177       42         158
-134          37            177       35         163
-135          25            181       26         165
-136          57            157       57         164
-137          40            172       34         165
-138          61            174       63         152
-139          25            170       23         162
-140          24            177       23         168
-141          47            165       46         167
-142          44            179       40         162
-143          52            179       53         157
-144          45            182       40         166
-145          20            179       22         155
-146          60            172       60         159
-147          36            168       32         162
-148          25            176       24         156
-149          25            174       28         167
-150          35            171       40         165
-151          49            177       48         147
-152          33            176       33         158
-153          50            172       49         167
-154          63            164       64         152
-155          57            169       55         162
-156          41            185       41         171
-157          38            169       38         153
-158          30            188       31         163
-159          52            183       52         172
-160          51            173       43         157
-161          46            164       51         156
-162          50            172       47         165
-163          52            171       32         159
-164          30            172       33         159
-165          20            178       18         159
-166          51            167       45         155
-167          64            164       64         157
-168          44            174       43         156
-169          40            182       39         163
-170          59            172       56         153</code></pre>
+<pre><code>  age.husband height.husband age.wife height.wife
+1          49            180       43         159
+2          25            184       28         156
+3          40            165       30         162
+4          52            177       57         154
+5          58            161       52         142
+6          32            169       27         166</code></pre>
 </div>
 </div>
 </section>
@@ -766,8 +587,7 @@ window.Quarto = {
 <h3 class="anchored" data-anchor-id="b-3">b</h3>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb37"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb37-1"><a href="#cb37-1" aria-hidden="true" tabindex="-1"></a><span class="fu">boxplot</span>(count <span class="sc">~</span> spray,</span>
-<span id="cb37-2"><a href="#cb37-2" aria-hidden="true" tabindex="-1"></a>        <span class="at">data =</span> InsectSprays</span>
-<span id="cb37-3"><a href="#cb37-3" aria-hidden="true" tabindex="-1"></a>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb37-2"><a href="#cb37-2" aria-hidden="true" tabindex="-1"></a>        <span class="at">data =</span> InsectSprays)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <div>
 <figure class="figure">
