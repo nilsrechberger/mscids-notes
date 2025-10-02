@@ -151,28 +151,14 @@ window.Quarto = {
   </li>  
     </ul>
   </li>
-  <li class="nav-item dropdown ">
-    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-linear-algebra-01" role="link" data-bs-toggle="dropdown" aria-expanded="false">
- <span class="menu-text">Linear Algebra 01</span>
-    </a>
-    <ul class="dropdown-menu" aria-labelledby="nav-menu-linear-algebra-01">    
-        <li>
-    <a class="dropdown-item" href="../../hs25/lia1/lia1_notes.html">
- <span class="dropdown-text">Notes</span></a>
+  <li class="nav-item">
+    <a class="nav-link active" href="../../hs25/lia1/lia1_notes.html" aria-current="page"> 
+<span class="menu-text">Linear Algebra 01</span></a>
   </li>  
-    </ul>
-  </li>
-  <li class="nav-item dropdown ">
-    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-design-of-experiments" role="link" data-bs-toggle="dropdown" aria-expanded="false">
- <span class="menu-text">Design of Experiments</span>
-    </a>
-    <ul class="dropdown-menu" aria-labelledby="nav-menu-design-of-experiments">    
-        <li>
-    <a class="dropdown-item" href="../../hs25/doe/doe_notes.html">
- <span class="dropdown-text">Notes</span></a>
+  <li class="nav-item">
+    <a class="nav-link" href="../../hs25/doe/doe_notes.html"> 
+<span class="menu-text">Design of Experiments</span></a>
   </li>  
-    </ul>
-  </li>
   <li class="nav-item">
     <a class="nav-link" href="../../sources.html"> 
 <span class="menu-text">Sources</span></a>
@@ -211,7 +197,18 @@ window.Quarto = {
   <li><a href="#cartesian-coordinate-systems" id="toc-cartesian-coordinate-systems" class="nav-link" data-scroll-target="#cartesian-coordinate-systems">Cartesian Coordinate Systems</a></li>
   <li><a href="#d-space" id="toc-d-space" class="nav-link" data-scroll-target="#d-space">3-D Space</a></li>
   </ul></li>
-  <li><a href="#system-of-linear-equations" id="toc-system-of-linear-equations" class="nav-link" data-scroll-target="#system-of-linear-equations">System of Linear Equations</a></li>
+  <li><a href="#system-of-linear-equations" id="toc-system-of-linear-equations" class="nav-link" data-scroll-target="#system-of-linear-equations">System of Linear Equations</a>
+  <ul class="collapse">
+  <li><a href="#non-linear-equations" id="toc-non-linear-equations" class="nav-link" data-scroll-target="#non-linear-equations">Non-Linear equations</a></li>
+  <li><a href="#matrix-notifications" id="toc-matrix-notifications" class="nav-link" data-scroll-target="#matrix-notifications">Matrix Notifications</a></li>
+  <li><a href="#gaussian-elimination-method" id="toc-gaussian-elimination-method" class="nav-link" data-scroll-target="#gaussian-elimination-method">Gaussian Elimination Method</a>
+  <ul class="collapse">
+  <li><a href="#backward-substitution" id="toc-backward-substitution" class="nav-link" data-scroll-target="#backward-substitution">Backward Substitution</a></li>
+  <li><a href="#pivot-element" id="toc-pivot-element" class="nav-link" data-scroll-target="#pivot-element">Pivot element</a></li>
+  <li><a href="#types-of-row-echelon-forms" id="toc-types-of-row-echelon-forms" class="nav-link" data-scroll-target="#types-of-row-echelon-forms">Types of Row Echelon Forms</a></li>
+  </ul></li>
+  <li><a href="#set-of-solutions" id="toc-set-of-solutions" class="nav-link" data-scroll-target="#set-of-solutions">Set of Solutions</a></li>
+  </ul></li>
   </ul>
 </nav>
     </div>
@@ -394,12 +391,89 @@ y_2 - y_1 \\
 </section>
 <section id="system-of-linear-equations" class="level1">
 <h1>System of Linear Equations</h1>
-<p>A system of linear equations is a collection of two or more linear equations that share the same variables. The solution to the system is the set of values for the variables that satisfy all equations simultaneously. Linear equation in two variables x and y is an equation of the form:</p>
+<p>A system of linear equations is a collection of two or more linear equations that contain the same variables. The solution to the system is the set of values for the variables that satisfy all equations simultaneously. A linear equation in two variables, <span class="math inline">\(x\)</span> and <span class="math inline">\(y\)</span>, is an equation of the form:</p>
 <p><span class="math display">\[
-ax + bx = c \text{, where } A, B, C \in \mathbb{R}
+ax + bx = c \text{, where } a, b, c \in \mathbb{R}
 \]</span></p>
+<p>A system of linear equations with two variables can only have one of the following possible solutions:</p>
+<ol type="1">
+<li><p>Exactly one solution: Corresponds to a unique intersection point</p></li>
+<li><p>No solution: Corresponds to mutually exclusive, parallel objects.</p></li>
+<li><p>Infinitely many solutions: Corresponds to identical objects or objects intersecting along a higher-dimensional object.</p></li>
+</ol>
+<section id="non-linear-equations" class="level2">
+<h2 class="anchored" data-anchor-id="non-linear-equations">Non-Linear equations</h2>
+<ul>
+<li>Product of two unknown variables: <span class="math inline">\(x \cdot y + 1 = x\)</span></li>
+<li>Trigonomical terms: <span class="math inline">\(\3\sin x + y = 0\)</span></li>
+<li>Fractions of unknown variables: <span class="math inline">\(\dfrac{1}{x} + y = 1\)</span></li>
+</ul>
+</section>
+<section id="matrix-notifications" class="level2">
+<h2 class="anchored" data-anchor-id="matrix-notifications">Matrix Notifications</h2>
+<p>To generalize determination of solutions of linear equations, we can use the matrix notification.</p>
+<p><span class="math display">\[
+\begin{multline}
+2x + 3y = 10 \\
+x - y = -5
+\end{multline}
+\]</span></p>
+<p>Short hand notation by writing down coefficients only.</p>
+<p><span class="math display">\[
+\begin{pmatrix}
+2 &amp; 3 &amp; | &amp; 10 \\
+1 &amp; -1 &amp; | &amp; -5
+\end{pmatrix}
+\]</span></p>
+<blockquote class="blockquote">
+<p>Note: Called coefficient matrix.</p>
+</blockquote>
+</section>
+<section id="gaussian-elimination-method" class="level2">
+<h2 class="anchored" data-anchor-id="gaussian-elimination-method">Gaussian Elimination Method</h2>
+<p>Goal of Gaussian elimination method is to apply sequence of elementary row operations in order to transform augmented matrix of a system into a matrix in row echelon form.</p>
+<blockquote class="blockquote">
+<p>Note: Echelon row form is not unique, since interchanging rows is allowed.</p>
+</blockquote>
+<section id="backward-substitution" class="level3">
+<h3 class="anchored" data-anchor-id="backward-substitution">Backward Substitution</h3>
+<p>The system of linear equations is written in a special type of matrix. Solution are easy to determine with so-called backward substitution.</p>
+<p><span class="math display">\[
+\begin{pmatrix}
+2 &amp; 1 &amp; 1 &amp; | &amp; 5 \\
+0 &amp; 8 &amp; 3 &amp; | &amp; 14 \\
+0 &amp; 0 &amp; 1 &amp; | &amp; 2
+\end{pmatrix}
+\]</span></p>
+</section>
+<section id="pivot-element" class="level3">
+<h3 class="anchored" data-anchor-id="pivot-element">Pivot element</h3>
+<p>The pivot element is a key element chosen at each step of an algorithm used to solve a system of linear equations.</p>
+<blockquote class="blockquote">
+<p>Note: The pivot element must be non-zero.</p>
+</blockquote>
+</section>
+<section id="types-of-row-echelon-forms" class="level3">
+<h3 class="anchored" data-anchor-id="types-of-row-echelon-forms">Types of Row Echelon Forms</h3>
+<ol type="1">
+<li>In all rows and in all columns there is a pivot: System has unique solutions</li>
+<li>In all rows there is a pivot, but not in all columns: Free variables, so system has infinitely many solutions.</li>
+<li>Some row has no pivot: System is inconsistent (no solutions).</li>
+</ol>
+</section>
+</section>
+<section id="set-of-solutions" class="level2">
+<h2 class="anchored" data-anchor-id="set-of-solutions">Set of Solutions</h2>
+<p>Often a free parameter is denoted by <span class="math inline">\(t\)</span>: <span class="math inline">\(t = y\)</span></p>
+<p><span class="math display">\[
+L = \left\{ \begin{bmatrix} 3 \\ 0 \\ 1 \end{bmatrix} + t \begin{bmatrix} -3 \\ 1 \\ 0 \end{bmatrix} \mid t \in \mathbb{R} \right\}
+\]</span></p>
+<blockquote class="blockquote">
+<p>Note: <span class="math inline">\(t\)</span> vary over whole set <span class="math inline">\(\mathbb{R}\)</span>, i.e., from <span class="math inline">\(-\infty\)</span> to <span class="math inline">\(\infty\)</span></p>
+</blockquote>
 
 
+</section>
 </section>
 
 </main> <!-- /main -->
