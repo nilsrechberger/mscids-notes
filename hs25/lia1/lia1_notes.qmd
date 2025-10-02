@@ -168,9 +168,84 @@ $$
 
 # System of Linear Equations
 
-A system of linear equations is a collection of two or more linear equations that share the same variables. The solution to the system is the set of values for the variables that satisfy all equations simultaneously. Linear equation in two variables x and y is an equation of the form:
+A system of linear equations is a collection of two or more linear equations that contain the same variables. The solution to the system is the set of values for the variables that satisfy all equations simultaneously. A linear equation in two variables, $x$ and $y$, is an equation of the form:
 
 $$
-ax + bx = c \text{, where } A, B, C \in \mathbb{R}
+ax + bx = c \text{, where } a, b, c \in \mathbb{R}
 $$
 
+A system of linear equations with two variables can only have one of the following possible solutions:
+
+1. Exactly one solution: Corresponds to a unique intersection point
+
+2. No solution: Corresponds to mutually exclusive, parallel objects.
+
+3. Infinitely many solutions: Corresponds to identical objects or objects intersecting along a higher-dimensional object.
+
+## Non-Linear equations
+
+- Product of two unknown variables: $x \cdot y + 1 = x$
+- Trigonomical terms: $\3\sin x + y = 0$
+- Fractions of unknown variables: $\dfrac{1}{x} + y = 1$
+
+## Matrix Notifications
+
+To generalize determination of solutions of linear equations, we can use the matrix notification.
+
+$$
+\begin{multline}
+2x + 3y = 10 \\
+x - y = -5
+\end{multline}
+$$
+
+Short hand notation by writing down coefficients only.
+
+$$
+\begin{pmatrix}
+2 & 3 & | & 10 \\
+1 & -1 & | & -5
+\end{pmatrix}
+$$
+
+> Note: Called coefficient matrix.
+
+## Gaussian Elimination Method
+
+Goal of Gaussian elimination method is to apply sequence of elementary row operations in order to transform augmented matrix of a system into a matrix in row echelon form.
+
+> Note: Echelon row form is not unique, since interchanging rows is allowed.
+
+### Backward Substitution
+
+The system of linear equations is written in a special type of matrix. Solution are easy to determine with so-called backward substitution.
+
+$$
+\begin{pmatrix}
+2 & 1 & 1 & | & 5 \\
+0 & 8 & 3 & | & 14 \\
+0 & 0 & 1 & | & 2
+\end{pmatrix}
+$$
+
+### Pivot element
+
+The pivot element is a key element chosen at each step of an algorithm used to solve a system of linear equations.
+
+> Note: The pivot element must be non-zero.
+
+### Types of Row Echelon Forms
+
+1. In all rows and in all columns there is a pivot: System has unique solutions
+2. In all rows there is a pivot, but not in all columns: Free variables, so system has infinitely many solutions.
+3. Some row has no pivot: System is inconsistent (no solutions).
+
+## Set of Solutions
+
+Often a free parameter is denoted by $t$: $t = y$
+
+$$
+L = \left\{ \begin{bmatrix} 3 \\ 0 \\ 1 \end{bmatrix} + t \begin{bmatrix} -3 \\ 1 \\ 0 \end{bmatrix} \mid t \in \mathbb{R} \right\}
+$$
+
+> Note: $t$ vary over whole set $\mathbb{R}$, i.e., from $-\infty$ to $\infty$
