@@ -185,8 +185,9 @@ A system of linear equations with two variables can only have one of the followi
 ## Non-Linear equations
 
 - Product of two unknown variables: $x \cdot y + 1 = x$
-- Trigonomical terms: $\3\sin x + y = 0$
+- Trigonometric terms: $3\sin x + y = 0$
 - Fractions of unknown variables: $\dfrac{1}{x} + y = 1$
+- 
 
 ## Matrix Notifications
 
