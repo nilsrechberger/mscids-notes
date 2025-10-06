@@ -3,5 +3,92 @@ title: "Comuter Science Concepts for Data Science - Notes"
 toc: true
 ---
 
-# Computer Networks
+# Introduction
 
+## How can Data Science improve Products & Services?
+
+Data Science improves traditional productio nwith basic function by Digital services using Data Science driven functions. The result is a new poroduct type, for Example watch vs. smart watch.
+To do so, data has to be processec, visialized, tranferd storaged and used in a program.
+
+# Computer Network
+
+## Fundaments of Computer Networks
+
+A computer network is build of several components:
+
+- Coneccted devises: Hosts (end stystems).
+- Communications linsk: Wired and wireless.
+- Protocols: Sending and receiving data.
+- Packet switches: routers and switches.
+
+### Example Net
+
+![Enterprise Network](img/enterprise_net.png)
+
+## Packet Switching
+
+The Host dates applicatins messages and breaks them into smaller chunks (aka. packets) of length $L$ bits. The packets are transmitted into access network at rate $R$, called link capacity/bandwith.
+
+### Packaet Transmission Delay
+
+- $L$: Packet lenght (bits).
+- $R$: Link bandwith (dps).
+
+$$
+d_{\text{trans}} = \dfrac{L \quad \text{(bits)}}{R \quad \text{(bits/sec)}}
+$$
+
+### Propagation delay
+
+- $d$: Length of physical link.
+- $s$: Propagation speed in medium.
+
+$$
+d_{\text{prop}} = \dfrac{d}{s}
+$$
+
+### Rate
+
+Rate (bits/time unit) at which bits transferred between sender/receiver. We disquinsh between:
+
+- Instantaneous: Rate at given point in time.
+- Average: Rate over longer period of time.
+
+## Protocol Layers
+
+Protocols define format, order of msgs sent and received among network entities, and actions taken on msg transmission, receipt.
+
+- Applications: FTP, SMTP, HTTP.
+- Transport: TCP, UDP.
+- Network: IP, routing protocols.
+- Link: Ethernet, WiFi.
+- Physical: Ethernet, WiFi.
+
+## Addressing in Computer Networks
+
+### Domain Name System
+
+Translates domain names to numerical IP addresses.
+
+- DNS Recursor (Client Side): Initiates the query. It's the first stop and acts as a librarian trying to find the IP address.
+- Root Nameserver (The Dot '.'): The starting point. It directs the Recursor to the correct Top-Level Domain (TLD) Nameserver.
+- TLD Nameserver (e.g., .com, .de, .org): Manages all domains under its specific extension. It points the Recursor to the Authoritative Nameserver for the specific domain requested.
+- Authoritative Nameserver: Holds the definitive DNS records (A, CNAME, MX, etc.) for the requested domain. It provides the actual IP address back to the Recursor.
+- DNS Recursor / Client: Receives the IP address and finally connects to the web server to load the website.
+
+### IP Addressing
+
+Each device is assigned a unique IP address build up by `Net ID` + `Host ID`
+
+## Switch
+
+A network switch is a central component in almost every wired network, especially in local area networks (LANs). It acts as an intelligent distribution station for data traffic. Based on incoming frames
+switch “learns” location of sender. Records sender/location pair in switch table.
+
+> Note: Layer 2 – Data Link Layer
+
+## Router
+
+A router is a network device that forwards data packets between different networks. It ensures that information (e.g. a website, video or email) reaches the recipient from the sender – even if it has to pass through many intermediate stations.
+
+> Note: Layer 3 – Network Layer
