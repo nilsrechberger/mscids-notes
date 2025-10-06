@@ -3,7 +3,7 @@ title: "Computer Science Concepts for Data Scientists - Exercises"
 toc: true
 ---
 
-# Quick Guide: Decimal to Binary (12-Bit, 8.4 Format)
+# Week 1: Case Study: Bits & Bytes
 
 **Format:** `IIIIIIII.FFFF` (8 bits integer, 4 bits fraction)
 
@@ -41,3 +41,62 @@ toc: true
 - **Fraction `0.3` -> `0.010011...` (repeating)**
 - **Truncated to 4 bits:** `0100` (which represents `0.25`)
 - **Final result for 2.3:** `000000100100` (represents `2.25`)
+
+# Week 2: Computer Networks
+
+## Exercise 1: Internet Delays and Routes
+
+### a
+
+Traceroute is a command line tool for determining the transport route of IP data packets between your own computer and a selected remote station.
+
+```bash
+traceroute gaia.cs.umass.edu
+```
+
+### b
+
+The number of routers along the path depends on the network route and topology — for example, whether a VPN or proxy is used, but not on the local access medium (WiFi vs. Ethernet).
+
+## Exercise 2: Internet Delays
+
+### a
+
+$$
+\text{file} = 4\text{MB} = 4000\text{bytes} = 32000\text{bites}
+$$
+
+$$
+R_s = 1\text{Mbit/sec} = \dfrac{32000}{1000} = 32\text{sec}
+$$
+
+## Exercise 3: Domains, Hosts and URLs
+
+```{mermaid}
+flowchart TD
+    A(Root) --> B(edu)
+    B --> C[umass]
+    C --> E(cs)
+    F[gaia]
+    D[www]
+
+    %% Subgraph trick
+    subgraph row1[ ]
+        direction LR
+        C
+        D
+    end
+
+    %% Subgraph trick
+    subgraph row2[ ]
+        direction LR
+        E
+        F
+    end
+```
+
+## Exercise 4: http Protocol
+
+Whenever a user downloads a new web page a copy is saved on the local web server (cache).
+If the same page is requested again later by the same or another user AND it is still valid (i.e., the expiration date has not yet been
+reached), the page does not have to be fetched again from the remote web server.
