@@ -20,6 +20,40 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
+/* CSS for syntax highlighting */
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { display: inline-block; text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
 </style>
 
 
@@ -66,7 +100,39 @@ ul.task-list li input[type="checkbox"] {
     "search-label": "Search"
   }
 }</script>
+<script src="../../site_libs/quarto-diagram/mermaid.min.js"></script>
+<script src="../../site_libs/quarto-diagram/mermaid-init.js"></script>
+<link href="../../site_libs/quarto-diagram/mermaid.css" rel="stylesheet">
 
+  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN") {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
 
 <link rel="stylesheet" href="../../styles.css">
 </head>
@@ -130,6 +196,21 @@ ul.task-list li input[type="checkbox"] {
     <a class="nav-link" href="../../hs25/doe/doe_notes.html"> 
 <span class="menu-text">Design of Experiments</span></a>
   </li>  
+  <li class="nav-item dropdown ">
+    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-computer-science-concepts-for-data-scientists" role="link" data-bs-toggle="dropdown" aria-expanded="false">
+ <span class="menu-text">Computer Science Concepts for Data Scientists</span>
+    </a>
+    <ul class="dropdown-menu" aria-labelledby="nav-menu-computer-science-concepts-for-data-scientists">    
+        <li>
+    <a class="dropdown-item" href="../../hs25/csc/csc_notes.html">
+ <span class="dropdown-text">Notes</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../hs25/csc/csc_exercises.html">
+ <span class="dropdown-text">Exercises</span></a>
+  </li>  
+    </ul>
+  </li>
   <li class="nav-item">
     <a class="nav-link" href="../../sources.html"> 
 <span class="menu-text">Sources</span></a>
@@ -150,11 +231,25 @@ ul.task-list li input[type="checkbox"] {
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#quick-guide-decimal-to-binary-12-bit-8.4-format" id="toc-quick-guide-decimal-to-binary-12-bit-8.4-format" class="nav-link active" data-scroll-target="#quick-guide-decimal-to-binary-12-bit-8.4-format">Quick Guide: Decimal to Binary (12-Bit, 8.4 Format)</a>
+  <li><a href="#week-1-case-study-bits-bytes" id="toc-week-1-case-study-bits-bytes" class="nav-link active" data-scroll-target="#week-1-case-study-bits-bytes">Week 1: Case Study: Bits &amp; Bytes</a>
   <ul class="collapse">
   <li><a href="#integer-part-45" id="toc-integer-part-45" class="nav-link" data-scroll-target="#integer-part-45">1. Integer Part (<code>45</code>)</a></li>
   <li><a href="#fractional-part-0.375" id="toc-fractional-part-0.375" class="nav-link" data-scroll-target="#fractional-part-0.375">2. Fractional Part (<code>0.375</code>)</a></li>
   <li><a href="#combine" id="toc-combine" class="nav-link" data-scroll-target="#combine">3. Combine</a></li>
+  </ul></li>
+  <li><a href="#week-2-computer-networks" id="toc-week-2-computer-networks" class="nav-link" data-scroll-target="#week-2-computer-networks">Week 2: Computer Networks</a>
+  <ul class="collapse">
+  <li><a href="#exercise-1-internet-delays-and-routes" id="toc-exercise-1-internet-delays-and-routes" class="nav-link" data-scroll-target="#exercise-1-internet-delays-and-routes">Exercise 1: Internet Delays and Routes</a>
+  <ul class="collapse">
+  <li><a href="#a" id="toc-a" class="nav-link" data-scroll-target="#a">a</a></li>
+  <li><a href="#b" id="toc-b" class="nav-link" data-scroll-target="#b">b</a></li>
+  </ul></li>
+  <li><a href="#exercise-2-internet-delays" id="toc-exercise-2-internet-delays" class="nav-link" data-scroll-target="#exercise-2-internet-delays">Exercise 2: Internet Delays</a>
+  <ul class="collapse">
+  <li><a href="#a-1" id="toc-a-1" class="nav-link" data-scroll-target="#a-1">a</a></li>
+  </ul></li>
+  <li><a href="#exercise-3-domains-hosts-and-urls" id="toc-exercise-3-domains-hosts-and-urls" class="nav-link" data-scroll-target="#exercise-3-domains-hosts-and-urls">Exercise 3: Domains, Hosts and URLs</a></li>
+  <li><a href="#exercise-4-http-protocol" id="toc-exercise-4-http-protocol" class="nav-link" data-scroll-target="#exercise-4-http-protocol">Exercise 4: http Protocol</a></li>
   </ul></li>
   </ul>
 </nav>
@@ -181,8 +276,8 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
-<section id="quick-guide-decimal-to-binary-12-bit-8.4-format" class="level1">
-<h1>Quick Guide: Decimal to Binary (12-Bit, 8.4 Format)</h1>
+<section id="week-1-case-study-bits-bytes" class="level1">
+<h1>Week 1: Case Study: Bits &amp; Bytes</h1>
 <p><strong>Format:</strong> <code>IIIIIIII.FFFF</code> (8 bits integer, 4 bits fraction)</p>
 <p><strong>Example: <code>45.375</code></strong></p>
 <section id="integer-part-45" class="level3">
@@ -232,9 +327,74 @@ ul.task-list li input[type="checkbox"] {
 <li><strong>Truncated to 4 bits:</strong> <code>0100</code> (which represents <code>0.25</code>)</li>
 <li><strong>Final result for 2.3:</strong> <code>000000100100</code> (represents <code>2.25</code>)</li>
 </ul>
-
-
 </section>
+</section>
+</section>
+<section id="week-2-computer-networks" class="level1">
+<h1>Week 2: Computer Networks</h1>
+<section id="exercise-1-internet-delays-and-routes" class="level2">
+<h2 class="anchored" data-anchor-id="exercise-1-internet-delays-and-routes">Exercise 1: Internet Delays and Routes</h2>
+<section id="a" class="level3">
+<h3 class="anchored" data-anchor-id="a">a</h3>
+<p>Traceroute is a command line tool for determining the transport route of IP data packets between your own computer and a selected remote station.</p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="ex">traceroute</span> gaia.cs.umass.edu</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</section>
+<section id="b" class="level3">
+<h3 class="anchored" data-anchor-id="b">b</h3>
+<p>The number of routers along the path depends on the network route and topology — for example, whether a VPN or proxy is used, but not on the local access medium (WiFi vs.&nbsp;Ethernet).</p>
+</section>
+</section>
+<section id="exercise-2-internet-delays" class="level2">
+<h2 class="anchored" data-anchor-id="exercise-2-internet-delays">Exercise 2: Internet Delays</h2>
+<section id="a-1" class="level3">
+<h3 class="anchored" data-anchor-id="a-1">a</h3>
+<p><span class="math display">\[
+\text{file} = 4\text{MB} = 4000\text{bytes} = 32000\text{bites}
+\]</span></p>
+<p><span class="math display">\[
+R_s = 1\text{Mbit/sec} = \dfrac{32000}{1000} = 32\text{sec}
+\]</span></p>
+</section>
+</section>
+<section id="exercise-3-domains-hosts-and-urls" class="level2">
+<h2 class="anchored" data-anchor-id="exercise-3-domains-hosts-and-urls">Exercise 3: Domains, Hosts and URLs</h2>
+<div class="cell" data-layout-align="default">
+<div class="cell-output-display">
+<div>
+<p></p><figure class="figure"><p></p>
+<div>
+<pre class="mermaid mermaid-js">flowchart TD
+    A(Root) --&gt; B(edu)
+    B --&gt; C[umass]
+    C --&gt; E(cs)
+    F[gaia]
+    D[www]
+
+    %% Subgraph trick
+    subgraph row1[ ]
+        direction LR
+        C
+        D
+    end
+
+    %% Subgraph trick
+    subgraph row2[ ]
+        direction LR
+        E
+        F
+    end
+</pre>
+</div>
+<p></p></figure><p></p>
+</div>
+</div>
+</div>
+</section>
+<section id="exercise-4-http-protocol" class="level2">
+<h2 class="anchored" data-anchor-id="exercise-4-http-protocol">Exercise 4: http Protocol</h2>
+<p>Whenever a user downloads a new web page a copy is saved on the local web server (cache). If the same page is requested again later by the same or another user AND it is still valid (i.e., the expiration date has not yet been reached), the page does not have to be fetched again from the remote web server.</p>
+
+
 </section>
 </section>
 
