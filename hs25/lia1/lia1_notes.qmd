@@ -321,7 +321,7 @@ Let $A, B, C \in \mathbb{R}^{m \times n}$ and $r, s \in \mathbb{R}$:
 
 Matrix multiplication is the process of combining the rows of the first matrix with the columns of the second matrix. The number of columns in the first matrix must be equal to the number of rows in the second matrix. Each element of the result matrix is calculated by forming the scalar product (element-wise product and then sum) of a row from the first matrix and a column from the second matrix.
 
-> Note: The order is crucial: $A \time B$ can be different from $B \times A$.
+> Note: The order is crucial: $A \times B$ can be different from $B \times A$.
 
 #### Mnemonic
 
