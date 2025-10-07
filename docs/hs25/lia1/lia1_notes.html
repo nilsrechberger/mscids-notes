@@ -224,6 +224,17 @@ window.Quarto = {
   </ul></li>
   <li><a href="#set-of-solutions" id="toc-set-of-solutions" class="nav-link" data-scroll-target="#set-of-solutions">Set of Solutions</a></li>
   </ul></li>
+  <li><a href="#matrices-and-operations" id="toc-matrices-and-operations" class="nav-link" data-scroll-target="#matrices-and-operations">Matrices and Operations</a>
+  <ul class="collapse">
+  <li><a href="#special-matrices" id="toc-special-matrices" class="nav-link" data-scroll-target="#special-matrices">Special Matrices</a></li>
+  <li><a href="#matrix-operations" id="toc-matrix-operations" class="nav-link" data-scroll-target="#matrix-operations">Matrix Operations</a>
+  <ul class="collapse">
+  <li><a href="#transposition" id="toc-transposition" class="nav-link" data-scroll-target="#transposition">Transposition</a></li>
+  <li><a href="#addition-and-subtraction" id="toc-addition-and-subtraction" class="nav-link" data-scroll-target="#addition-and-subtraction">Addition and Subtraction</a></li>
+  <li><a href="#scalar-multiplication-1" id="toc-scalar-multiplication-1" class="nav-link" data-scroll-target="#scalar-multiplication-1">Scalar Multiplication</a></li>
+  <li><a href="#matrix-multiplication" id="toc-matrix-multiplication" class="nav-link" data-scroll-target="#matrix-multiplication">Matrix Multiplication</a></li>
+  </ul></li>
+  </ul></li>
   </ul>
 </nav>
     </div>
@@ -487,8 +498,104 @@ L = \left\{ \begin{bmatrix} 3 \\ 0 \\ 1 \end{bmatrix} + t \begin{bmatrix} -3 \\ 
 <blockquote class="blockquote">
 <p>Note: <span class="math inline">\(t\)</span> vary over whole set <span class="math inline">\(\mathbb{R}\)</span>, i.e., from <span class="math inline">\(-\infty\)</span> to <span class="math inline">\(\infty\)</span></p>
 </blockquote>
+</section>
+</section>
+<section id="matrices-and-operations" class="level1">
+<h1>Matrices and Operations</h1>
+<p>Matrices are rectangular set of ordered elements of form:</p>
+<p><span class="math display">\[
+A =
+\begin{bmatrix}
+a_{11} &amp; \dots &amp; a_{1n} \\
+\dots &amp; \dots &amp; \dots \\
+a_{m1} &amp; \dots &amp; a_{mn}
+\end{bmatrix}
+\]</span></p>
+<blockquote class="blockquote">
+<p>Note: Ordered set has m rows and n columns: <span class="math inline">\(m \times n\)</span>-matrix.</p>
+</blockquote>
+<p>Two matrices <span class="math inline">\(A\)</span> and <span class="math inline">\(B\)</span> are equal, if:</p>
+<ul>
+<li><span class="math inline">\(m = p and n = q\)</span></li>
+<li><span class="math inline">\(a_{ij} = b_{ij} \text{ for all } 1 \le i \le m \text{ and } 1 \le j \le n\)</span></li>
+</ul>
+<section id="special-matrices" class="level2">
+<h2 class="anchored" data-anchor-id="special-matrices">Special Matrices</h2>
+<ul>
+<li>Squared matrix: <span class="math inline">\(n \times n\)</span></li>
+<li>Column vector of dimension <span class="math inline">\(n\)</span> (or vector): <span class="math inline">\(n \times 1\)</span></li>
+<li>Row vector of dimension <span class="math inline">\(n\)</span>: <span class="math inline">\(1 \times n\)</span></li>
+<li>Zero matrix: All entries are zero.</li>
+<li>Upper/Lower square matrix</li>
+<li>Diagonal matrix: Only entries in main diagonal can be nonzero.</li>
+</ul>
+<blockquote class="blockquote">
+<p>Note: Set of all <span class="math inline">\(n\)</span>-vectors with real entries: <span class="math inline">\(\mathbb{R}^n\)</span></p>
+</blockquote>
+</section>
+<section id="matrix-operations" class="level2">
+<h2 class="anchored" data-anchor-id="matrix-operations">Matrix Operations</h2>
+<section id="transposition" class="level3">
+<h3 class="anchored" data-anchor-id="transposition">Transposition</h3>
+<p>Transposing a matrix means swapping rows and columns. If <span class="math inline">\(A\)</span> is a matrix, then its transposed matrix <span class="math inline">\(A^T\)</span> is defined by:</p>
+<p><span class="math display">\[
+(A^T)_{ij} = A_{ji}
+\]</span></p>
+<blockquote class="blockquote">
+<p>Note: Square matrix <span class="math inline">\(A\)</span> is symmetric, if: <span class="math inline">\(A^T = A\)</span></p>
+</blockquote>
+</section>
+<section id="addition-and-subtraction" class="level3">
+<h3 class="anchored" data-anchor-id="addition-and-subtraction">Addition and Subtraction</h3>
+<p>Addition and subtraction of matrices are performed element by element. &gt; Note: Both matrices must have the same dimensions.</p>
+</section>
+<section id="scalar-multiplication-1" class="level3">
+<h3 class="anchored" data-anchor-id="scalar-multiplication-1">Scalar Multiplication</h3>
+<p>In scalar multiplication, each element is multiplied individually by the number.</p>
+<section id="rules-for-addition-and-scalar-multiplication-of-matrices" class="level4">
+<h4 class="anchored" data-anchor-id="rules-for-addition-and-scalar-multiplication-of-matrices">Rules for addition and scalar multiplication of matrices</h4>
+<p>Let <span class="math inline">\(A, B, C \in \mathbb{R}^{m \times n}\)</span> and <span class="math inline">\(r, s \in \mathbb{R}\)</span>:</p>
+<ol type="1">
+<li><span class="math inline">\((A+B)+C = A+(B+C)\)</span> (Associativity)</li>
+<li><span class="math inline">\(A+B = B+A\)</span> (Commutativity)</li>
+<li><span class="math inline">\(A+\mathcal{O}_{m,n} = A\)</span> (Neutral element of addition)</li>
+<li><span class="math inline">\(A+(-A) = \mathcal{O}_{m,n}\)</span> (Inverse element of addition)</li>
+<li><span class="math inline">\(r(sA) = (rs)A\)</span> (Associativity)</li>
+<li><span class="math inline">\((r+s)A = rA+sA\)</span> (Distributivity)</li>
+<li><span class="math inline">\(r(A+B) = rA+rB\)</span> (Distributivity)</li>
+<li><span class="math inline">\(1 \cdot A = A\)</span> (Neutral element of scalar mult.)</li>
+<li><span class="math inline">\((A+B)^T = A^T+B^T\)</span></li>
+</ol>
+</section>
+</section>
+<section id="matrix-multiplication" class="level3">
+<h3 class="anchored" data-anchor-id="matrix-multiplication">Matrix Multiplication</h3>
+<p>Matrix multiplication is the process of combining the rows of the first matrix with the columns of the second matrix. The number of columns in the first matrix must be equal to the number of rows in the second matrix. Each element of the result matrix is calculated by forming the scalar product (element-wise product and then sum) of a row from the first matrix and a column from the second matrix.</p>
+<blockquote class="blockquote">
+<p>Note: The order is crucial: <span class="math inline">\(A \time B\)</span> can be different from <span class="math inline">\(B \times A\)</span>.</p>
+</blockquote>
+<section id="mnemonic" class="level4">
+<h4 class="anchored" data-anchor-id="mnemonic">Mnemonic</h4>
+<p><span class="math display">\[
+(m \times \mathbf{\color{red}{n}}) \cdot (\mathbf{\color{red}{n}} \times p) = (m \times p)
+\]</span></p>
+</section>
+<section id="rules-for-matrix-multiplication" class="level4">
+<h4 class="anchored" data-anchor-id="rules-for-matrix-multiplication">Rules for matrix multiplication</h4>
+<p>Let <span class="math inline">\(A, B, C\)</span> matrices such that following matrix multiplications exist:</p>
+<ol type="1">
+<li><span class="math inline">\((AB)C = A(BC)\)</span> (Associativity)</li>
+<li><span class="math inline">\((A+B)C = AC + BC\)</span> (Distributivity)</li>
+<li><span class="math inline">\(A(B+C) = AB + AC\)</span> (Distributivity)</li>
+<li><span class="math inline">\((rA)B = A(rB) = r(AB)\)</span> for <span class="math inline">\(r \in \mathbb{R}\)</span></li>
+<li><span class="math inline">\(A \cdot \mathcal{O}_{n,q} = \mathcal{O}_{m,q}\)</span> and <span class="math inline">\(\mathcal{O}_{p,m} \cdot A = \mathcal{O}_{p,n}\)</span> for <span class="math inline">\(A \in \mathbb{R}^{m \times n}\)</span></li>
+<li><span class="math inline">\(I_m \cdot A = A \cdot I_n = A\)</span> for <span class="math inline">\(A \in \mathbb{R}^{m \times n}\)</span> (Neutr. El.)</li>
+<li><span class="math inline">\((AB)^T = B^T A^T\)</span></li>
+</ol>
 
 
+</section>
+</section>
 </section>
 </section>
 
