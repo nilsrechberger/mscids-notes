@@ -250,3 +250,93 @@ L = \left\{ \begin{bmatrix} 3 \\ 0 \\ 1 \end{bmatrix} + t \begin{bmatrix} -3 \\ 
 $$
 
 > Note: $t$ vary over whole set $\mathbb{R}$, i.e., from $-\infty$ to $\infty$
+
+# Matrices and Operations
+
+Matrices are rectangular set of ordered elements of form:
+
+$$
+A = 
+\begin{bmatrix}
+a_{11} & \dots & a_{1n} \\
+\dots & \dots & \dots \\
+a_{m1} & \dots & a_{mn}
+\end{bmatrix}
+$$
+
+> Note: Ordered set has m rows and n columns: $m \times n$-matrix.
+
+Two matrices $A$ and $B$ are equal, if:
+
+- $m = p and n = q$
+- $a_{ij} = b_{ij} \text{ for all } 1 \le i \le m \text{ and } 1 \le j \le n$
+
+## Special Matrices
+
+- Squared matrix: $n \times n$
+- Column vector of dimension $n$ (or vector): $n \times 1$
+- Row vector of dimension $n$: $1 \times n$
+- Zero matrix: All entries are zero.
+- Upper/Lower square matrix
+- Diagonal matrix: Only entries in main diagonal can be nonzero.
+
+> Note: Set of all $n$-vectors with real entries: $\mathbb{R}^n$
+
+## Matrix Operations
+
+### Transposition
+
+Transposing a matrix means swapping rows and columns. If $A$ is a matrix, then its transposed matrix $A^T$ is defined by:
+
+$$
+(A^T)_{ij} = A_{ji}
+$$
+
+> Note: Square matrix $A$ is symmetric, if: $A^T = A$
+
+### Addition and Subtraction
+
+Addition and subtraction of matrices are performed element by element.
+> Note: Both matrices must have the same dimensions.
+
+### Scalar Multiplication
+
+In scalar multiplication, each element is multiplied individually by the number.
+
+#### Rules for addition and scalar multiplication of matrices
+
+Let $A, B, C \in \mathbb{R}^{m \times n}$ and $r, s \in \mathbb{R}$:
+
+1.  $(A+B)+C = A+(B+C)$ (Associativity)
+2.  $A+B = B+A$ (Commutativity)
+3.  $A+\mathcal{O}_{m,n} = A$ (Neutral element of addition)
+4.  $A+(-A) = \mathcal{O}_{m,n}$ (Inverse element of addition)
+5.  $r(sA) = (rs)A$ (Associativity)
+6.  $(r+s)A = rA+sA$ (Distributivity)
+7.  $r(A+B) = rA+rB$ (Distributivity)
+8.  $1 \cdot A = A$ (Neutral element of scalar mult.)
+9.  $(A+B)^T = A^T+B^T$
+
+### Matrix Multiplication
+
+Matrix multiplication is the process of combining the rows of the first matrix with the columns of the second matrix. The number of columns in the first matrix must be equal to the number of rows in the second matrix. Each element of the result matrix is calculated by forming the scalar product (element-wise product and then sum) of a row from the first matrix and a column from the second matrix.
+
+> Note: The order is crucial: $A \time B$ can be different from $B \times A$.
+
+#### Mnemonic
+
+$$
+(m \times \mathbf{\color{red}{n}}) \cdot (\mathbf{\color{red}{n}} \times p) = (m \times p)
+$$
+
+#### Rules for matrix multiplication
+
+Let $A, B, C$ matrices such that following matrix multiplications exist:
+
+1.  $(AB)C = A(BC)$ (Associativity)
+2.  $(A+B)C = AC + BC$ (Distributivity)
+3.  $A(B+C) = AB + AC$ (Distributivity)
+4.  $(rA)B = A(rB) = r(AB)$ for $r \in \mathbb{R}$
+5.  $A \cdot \mathcal{O}_{n,q} = \mathcal{O}_{m,q}$ and $\mathcal{O}_{p,m} \cdot A = \mathcal{O}_{p,n}$ for $A \in \mathbb{R}^{m \times n}$
+6.  $I_m \cdot A = A \cdot I_n = A$ for $A \in \mathbb{R}^{m \times n}$ (Neutr. El.)
+7.  $(AB)^T = B^T A^T$
