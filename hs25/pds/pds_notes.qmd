@@ -232,3 +232,145 @@ match x:
     case _: # Default case
         print("number unknown")
 ```
+
+# Loops
+
+## range ()
+
+The class range() allows creating sequence objects with constant step sizes. Ranges implement all of the common sequence operations except concatenation and repetition. 
+
+> Notes: The stop element is not included.
+
+```{python}
+my_range = list(range(2, 11, 2)) # Start = 2, End = 11, Steps = 2
+print(my_range)
+```
+
+## `len()`
+
+`len()` returns the number of elements in a sequence. Returns positive integer: 0 indicates an empty sequence.
+
+```{python}
+my_lenght = len(range(1, 11, 1))
+print(my_lenght)
+```
+
+## Sequence Slicing
+
+Extracting sub-sequences of larger data containers is an important and often used operation. Slicing options are:
+
+- By integer (particular element)
+- By range or slice object
+
+```{python}
+my_list = list(range(1, 11, 1))
+print(f"My list: {my_list}")
+
+# Extract only even numbers
+even_numbers = my_list[1:11:2] # Start = Index 1 (second entry), Steps = 2
+print(f"All even numbers in my list: {even_numbers}")
+
+# Extract only odd numbers
+odd_numbers = my_list[0:11:2] # Start = Index 0 (first entry), Steps = 2
+print(f"All odd numbers in my list: {odd_numbers}")
+```
+
+> Note: Same as `slice()`
+
+## `for`-loop
+
+Loops are used to iterate over sequence objects by providing each element one after the other through a loop variable. Assign each element of the sequence one after another to the loop variable.
+
+```{python}
+# Single loop
+my_list = list(range(1, 11, 1))
+print(f"My list: {my_list}")
+
+for element in my_list:
+    print(f"Element is {element}")
+else:
+    print("No more elements in my list")
+```
+
+> Note: The loop variable is often called `i`: `for i in my_list:`.
+
+## `while`-loop
+
+A while loop executes the loop body as long as the condition equals True. The while loop checks the condition each time before re-executing the loop body and terminates as soon as the condition is False.
+
+```{python}
+aim = 5
+counter = 0
+
+while counter != aim: # != means not equal
+    print(f"Counter at value {counter}")
+    counter += 1 # Add 1 to the counter
+else:
+    print("Aim reached")
+```
+
+> Note: Check whether the condition can be reached! Otherwise, you will end up in an infinite loop.
+
+## `break`, `continue` and `pass`
+
+Python has three keywords to control the loop (and function) process flow:
+
+### `break`
+
+Immediately break the current loop.
+
+```{python}
+aim = 5
+counter = 0
+
+while counter != aim:
+    print(f"Counter at value {counter}")
+    counter += 1
+    break # Force a loop break
+else:
+    print("Aim reached")
+```
+
+### `continue`
+
+Ignoring the rest of the loop body and jumping back to the header.
+
+```{python}
+aim = 5
+counter = 0
+
+while counter != aim:
+    print(f"Counter at value {counter}")
+    counter += 1
+    continue
+    print("This msg will not be printed")
+else:
+    print("Aim reached")
+```
+
+### `pass`
+
+No operation. Regular iteration with no execution.
+
+```{python}
+aim = 5
+counter = 0
+
+while counter != aim:
+    print(f"Counter at value {counter}")
+    counter += 1
+    pass
+else:
+    print("Aim reached")
+```
+
+## Enumerate
+
+The enumerate returns an iterator that returns a tuple with an incrementing number for each element of the sequence.
+
+```{python}
+x = list(range(0, 11, 2))
+
+for idx, i in enumerate(x):
+    print(f"Value {i} at Index {idx}")
+```
