@@ -325,3 +325,82 @@ $$
 > Note: Formula applies only if events A and B are stochastically independent.
 
 Outcome of event A has no influence on outcome of event B and vice versa.
+
+# Random Variable & Probability Distribution
+
+## Random Variable
+
+A Random variable X is a function:
+
+$$
+\Omega \to W_X \subset \mathbb{R}
+$$
+$$
+\omega \to X(\omega)
+$$
+
+Random variable denoted by capital letters X (or Y, Z). Corresponding lowercase letters x (or y, z) represents specific value that random variable can take. Once $\omega$ is chosen: $X(\omega)$ is fixed, not random.
+
+> Note: $x$ also called a realisation of random variable $X$.
+
+## Probability Distribution of Random Variable
+
+Values of random variable X (possible realisations of X) occur with certain probabilities that $X$ takes value $x$:
+
+$$
+P(X = x) = P(\{\omega \mid X(\omega) = x\}) = \sum_{\omega; X(\omega)=x} P(\omega)
+$$
+
+
+## Probability Distribution
+
+Associated probability is determined for all realisations of random variable. List of $P(X = x)$ for all possible values $x_1, x_2, \dots, x_n$ is called discrete probability distribution of discrete random variable $X$.All values of probability distribution has to sum up to 1.
+
+$$
+\sum_{\text{For all }x} P(X = x) = 1
+$$
+
+> Note: For finite sample space the probability distribution is a table.
+
+## Key Figures of Distribution
+
+### Expected Value $E(X)$
+
+Central location of distribution. Weighted mean of all possible values, weighted by their probability of occurring.
+
+$$
+\mu = \sum_{\text{all possible } x} x \times P(X = x)
+$$
+
+> Note: $E(X)$ is a theoretical value, which results from a model, i.e. distribution.
+
+### Variance
+
+Variance is square of spread of value of random variable from expected value weighted with respective weight.
+
+$$
+\sigma = \sum_{\text{all possible } x} (x - E(X))^2 \times P(X = x)
+$$
+
+### Standard deviation $\sigma$
+
+Spread of distribution about $E(X)$. Standard deviation has same unit as X.
+
+$$
+\sigma(X) = \sqrt{Var(X)}
+$$
+
+> Note: $\sigma(x)$ is a theoretical value, which results from a model, i.e. distribution.
+
+
+```{r}
+x <- 1 : 6
+p <- 1 / 6
+E_X <- sum(x * p)
+var_X <- sum((x - E_X)^2 * p)
+sd_X <- sqrt(var_X)
+
+sd_X
+```
+
+> Note: Means: Deviation on “average” 1.7 from 3.5.
