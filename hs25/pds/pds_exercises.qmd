@@ -357,18 +357,20 @@ Write a Python program to find all numbers between 200 and 500 (limits included)
 Correct solution: 
 
 ```{python}
-# TODO
+my_range = range(200, 501) # Include boarders
+even_digit_numbers = [] # Final result
 
-my_range = range(11, 21) # Include boarders
-even_digit_numbers = []
-
-for number in my_range:
+for number in my_range: 
+    test_result = []
     for digit in str(number):
         if int(digit) % 2 == 1:
-            break
+            test_result.append(True) # Add true for odd digit
         else:
-            continue
-        even_digit_numbers.append(number)
+            test_result.append(False) # Add false for even digit
+    if any(test_result):
+        pass # Pass if any odd digit (false) is in test_result
+    else:
+        even_digit_numbers.append(number) # Append to final result
 
 print(even_digit_numbers)
 ```
@@ -390,24 +392,19 @@ from random import randint
 random_number = randint(1,10)
 # End code block to create a random number
 
-
 trials = 0
 
-while ti: # Infinitive loop till break
+while True: # Infinitive loop till break
     # Unsing fake user input
-    user_input = randint(1,10)
-    trials += 1
-    
+    user_input = randint(1,10) # Also random
+    trials += 1 # Count trials
     if user_input == random_number:
-        print("Well done! You guessed the number")
+        print(f"Well done - you have tried it {trials} times!")
+        break
     elif user_input < random_number:
         print("Guess to low...")
-    elif user_input > random_number:
+    else:
         print("Guess to high...")
-    if trials == 4:
-        print("Well done - you have tried it 4 times!")
-        break
-
 ```
 
 ## Exercise 6
@@ -430,7 +427,23 @@ Create a program that asks the user for the height of the Christmas tree (trunk 
 and then draws the tree. The height of the trunk is always 2 and the width is 3 in case the entire height is > 5 and 1 in case the tree is smaller.
 
 ```{python}
-pyramid  = range(0, 6, 1) # Define upper pattern
+total_height = 8
+trunk_height = 2
+crown_height = total_height - trunk_height
 
-#TODO
+max_crown_width = 2 * (crown_height - 1) + 1
+
+i = 0
+while i < crown_height:
+    current_crown_width = 2 * i + 1
+    spaces = (max_crown_width - current_crown_width) // 2
+    print(" " * spaces + "x" * current_crown_width)
+    i += 1
+
+trunk_padding = (max_crown_width - trunk_width) // 2
+
+j = 0
+while j < trunk_height:
+    print(" " * trunk_padding + "x" * trunk_width)
+    j += 1
 ```
