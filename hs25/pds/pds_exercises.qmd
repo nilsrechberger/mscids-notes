@@ -282,3 +282,155 @@ if a/2 % 2 == 1 or b - c % 2 == 0 or a != b and b != c:
 else:
     print("condition not fulfilled")
 ```
+
+# Loops and Conditions
+
+## Exercise 1
+
+Write a python program that constructs the following pattern using a nested for loop:
+
+```{txt}
+*
+**
+***
+****
+*****
+****
+***
+**
+*
+```
+
+```{python}
+upper  = range(0, 6, 1) # Define upper pattern
+lower = range(6, 0, -1) # Define lower pattern
+
+
+for i in upper:
+    print("*" * i) # Print upper part of pattern
+else: # After done
+    for j in lower:
+        print("*" * j) # Print lower part of pattern
+```
+
+## Exercise 2
+
+Write a python program to count the number of even and odd numbers contained in a sequence of numbers.
+
+```{python}
+even_numbers = []
+odd_numbers = []
+numbers = (1,2,3,4,5,6,7,8,9,10)
+
+for i in range(len(numbers)):
+    if i % 2 == 0: # Check if current number is even
+        even_numbers.append(i)
+    else:
+        odd_numbers.append(i)
+
+print(f"Total number of even numbers: {len(even_numbers)}") # Use len() to count
+print(f"Total number of even numbers: {len(odd_numbers)}")
+```
+
+## Exercise 3
+
+Write a Python program which takes two digits m (row) and n (column) as input and
+generates a two-dimensional structure (e.g. nested list). The value in the i-th row and j-th column 
+should be i*j.
+
+```{python}
+rows = 3
+columns = 4
+result = [] # Define master list
+
+for row in range(rows):
+    sub_list = [] # Define sub-list
+    for column in range(columns):
+        sub_list.append(row * column) # Calc value
+    result.append(sub_list) # Append sub-list to master list
+
+print(result)
+```
+
+## Exercise 4
+Write a Python program to find all numbers between 200 and 500 (limits included) only containing even digits.
+Correct solution: 
+
+```{python}
+# TODO
+
+my_range = range(11, 21) # Include boarders
+even_digit_numbers = []
+
+for number in my_range:
+    for digit in str(number):
+        if int(digit) % 2 == 1:
+            break
+        else:
+            continue
+        even_digit_numbers.append(number)
+
+print(even_digit_numbers)
+```
+
+## Exercise 5
+
+Write a Python program to guess a number between 1 to 10.
+First: Use the predefined code block to create a random number
+Second:
+The user is prompted to enter a guess. If the guess is wrong a message
+"to big" or "to small" is printed to the console and the prompt (user
+input) appears again until the guess is correct. If the guess is correct, "Well guessed!" will be printed and the program ends.
+Extension:
+The number of trials should be prompted as well: "Well done - you have tried it 4 times!"
+
+```{python}
+# Code block to create a random number
+from random import randint
+random_number = randint(1,10)
+# End code block to create a random number
+
+
+trials = 0
+
+while ti: # Infinitive loop till break
+    # Unsing fake user input
+    user_input = randint(1,10)
+    trials += 1
+    
+    if user_input == random_number:
+        print("Well done! You guessed the number")
+    elif user_input < random_number:
+        print("Guess to low...")
+    elif user_input > random_number:
+        print("Guess to high...")
+    if trials == 4:
+        print("Well done - you have tried it 4 times!")
+        break
+
+```
+
+## Exercise 6
+Suppose we wish to draw a Christmas tree.
+Example tree - desired height: 8
+The result looks like:
+
+```{txt}
+     x
+    xxx
+   xxxxx
+  xxxxxxx
+ xxxxxxxxx
+xxxxxxxxxxx
+    xxx
+    xxx
+```
+
+Create a program that asks the user for the height of the Christmas tree (trunk included)
+and then draws the tree. The height of the trunk is always 2 and the width is 3 in case the entire height is > 5 and 1 in case the tree is smaller.
+
+```{python}
+pyramid  = range(0, 6, 1) # Define upper pattern
+
+#TODO
+```
