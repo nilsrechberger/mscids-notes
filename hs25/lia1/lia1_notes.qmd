@@ -340,3 +340,60 @@ Let $A, B, C$ matrices such that following matrix multiplications exist:
 5.  $A \cdot \mathcal{O}_{n,q} = \mathcal{O}_{m,q}$ and $\mathcal{O}_{p,m} \cdot A = \mathcal{O}_{p,n}$ for $A \in \mathbb{R}^{m \times n}$
 6.  $I_m \cdot A = A \cdot I_n = A$ for $A \in \mathbb{R}^{m \times n}$ (Neutr. El.)
 7.  $(AB)^T = B^T A^T$
+
+# Week 4: Matrices and Linear Systems
+
+## Linear Sytsems in Matrice Form 
+
+System with m equations and n unknowns can be expressed in form $Ax = b$, where A is the coefficient matrix and b is the right-hand side of the system.
+
+## Linear Systems on Vector Form
+
+The system can be presented in form $x_aa_1 + \dots x_na_n = b$. If $x \in \mathbb{R^n}$ is a solution of system, then b is a linear combination of column vectors $a_1, \dots, a_n$.
+
+## Homogeneous Systems
+
+A linear system is homogeneous, if right-hand side is zero vector: $Ax = 0$, where $A \in \mathbb{R}^{m \times n}$ and $x$ is a vector of unknowns.
+
+> Note: Zero vector $x = 0 \in \mathbb{R^n}$ is trivially a solution of a homogeneous system
+
+### Information in a Linear System
+
+Let $A$ be an ($m \times n$)-matrix and $T$ be a row echelon form obtained from $A$ using elementary row operations.
+
+- Rank of $A$: Number of pivot-elements in $T$.
+- Nullity of $A$: Number of columns of $T$ without pivot-elements.
+
+> Note: Rank of matrix $A$ is denoted by rk $A$ and nullity of $A$ by nullity $A$.
+
+Therefore
+
+$$
+\text{rk } A + \text{nullity } A = n = \textsf{number of cols of } A
+$$
+
+
+## Inhomogeneous Systems
+
+Form where $b \ne 0$ is a non-zero vector. Every solution x of the inhomogeneous system ($Ax=b$) can be written as the sum of a special (particular) solution $x_p$ and a homogeneous solution $x_h$:
+
+$$
+x = x_p + x_h
+$$
+
+The entire solution set of the inhomogeneous system $Ax=b$ thus consists of the shift of the solution space (or zero space) of the homogeneous system $Ax=0$ by the vector $x_p$.
+
+![Solution set of a inhomogeneous system](img/inhomoSys_solution.png)
+
+## Square Linear Systems
+
+If the number of equations and numbers of unknowns in a linear system coincide ($m = n$), than:
+
+- nullity $A = 0$.
+- rk $A = n$.
+- $Ax = 0$ admits only trivial solution $0$.
+- $Ax = b$ has one and only one solution.
+
+## Rank Criterion
+
+A linear equation system $Ax=b$ has at least one solution (is consistent) if and only if the rank of the coefficient matrix A is equal to the rank of the augmented coefficient matrix $[A \quad b]$. The rank of the extended coefficient matrix $[A \quad b]$ is created by appending the inhomogeneity vector b as an additional last column to the matrix A.
