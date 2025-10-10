@@ -235,6 +235,18 @@ window.Quarto = {
   <li><a href="#matrix-multiplication" id="toc-matrix-multiplication" class="nav-link" data-scroll-target="#matrix-multiplication">Matrix Multiplication</a></li>
   </ul></li>
   </ul></li>
+  <li><a href="#week-4-matrices-and-linear-systems" id="toc-week-4-matrices-and-linear-systems" class="nav-link" data-scroll-target="#week-4-matrices-and-linear-systems">Week 4: Matrices and Linear Systems</a>
+  <ul class="collapse">
+  <li><a href="#linear-sytsems-in-matrice-form" id="toc-linear-sytsems-in-matrice-form" class="nav-link" data-scroll-target="#linear-sytsems-in-matrice-form">Linear Sytsems in Matrice Form</a></li>
+  <li><a href="#linear-systems-on-vector-form" id="toc-linear-systems-on-vector-form" class="nav-link" data-scroll-target="#linear-systems-on-vector-form">Linear Systems on Vector Form</a></li>
+  <li><a href="#homogeneous-systems" id="toc-homogeneous-systems" class="nav-link" data-scroll-target="#homogeneous-systems">Homogeneous Systems</a>
+  <ul class="collapse">
+  <li><a href="#information-in-a-linear-system" id="toc-information-in-a-linear-system" class="nav-link" data-scroll-target="#information-in-a-linear-system">Information in a Linear System</a></li>
+  </ul></li>
+  <li><a href="#inhomogeneous-systems" id="toc-inhomogeneous-systems" class="nav-link" data-scroll-target="#inhomogeneous-systems">Inhomogeneous Systems</a></li>
+  <li><a href="#square-linear-systems" id="toc-square-linear-systems" class="nav-link" data-scroll-target="#square-linear-systems">Square Linear Systems</a></li>
+  <li><a href="#rank-criterion" id="toc-rank-criterion" class="nav-link" data-scroll-target="#rank-criterion">Rank Criterion</a></li>
+  </ul></li>
   </ul>
 </nav>
     </div>
@@ -592,10 +604,62 @@ a_{m1} &amp; \dots &amp; a_{mn}
 <li><span class="math inline">\(I_m \cdot A = A \cdot I_n = A\)</span> for <span class="math inline">\(A \in \mathbb{R}^{m \times n}\)</span> (Neutr. El.)</li>
 <li><span class="math inline">\((AB)^T = B^T A^T\)</span></li>
 </ol>
-
-
 </section>
 </section>
+</section>
+</section>
+<section id="week-4-matrices-and-linear-systems" class="level1">
+<h1>Week 4: Matrices and Linear Systems</h1>
+<section id="linear-sytsems-in-matrice-form" class="level2">
+<h2 class="anchored" data-anchor-id="linear-sytsems-in-matrice-form">Linear Sytsems in Matrice Form</h2>
+<p>System with m equations and n unknowns can be expressed in form <span class="math inline">\(Ax = b\)</span>, where A is the coefficient matrix and b is the right-hand side of the system.</p>
+</section>
+<section id="linear-systems-on-vector-form" class="level2">
+<h2 class="anchored" data-anchor-id="linear-systems-on-vector-form">Linear Systems on Vector Form</h2>
+<p>The system can be presented in form <span class="math inline">\(x_aa_1 + \dots x_na_n = b\)</span>. If <span class="math inline">\(x \in \mathbb{R^n}\)</span> is a solution of system, then b is a linear combination of column vectors <span class="math inline">\(a_1, \dots, a_n\)</span>.</p>
+</section>
+<section id="homogeneous-systems" class="level2">
+<h2 class="anchored" data-anchor-id="homogeneous-systems">Homogeneous Systems</h2>
+<p>A linear system is homogeneous, if right-hand side is zero vector: <span class="math inline">\(Ax = 0\)</span>, where <span class="math inline">\(A \in \mathbb{R}^{m \times n}\)</span> and <span class="math inline">\(x\)</span> is a vector of unknowns.</p>
+<blockquote class="blockquote">
+<p>Note: Zero vector <span class="math inline">\(x = 0 \in \mathbb{R^n}\)</span> is trivially a solution of a homogeneous system</p>
+</blockquote>
+<section id="information-in-a-linear-system" class="level3">
+<h3 class="anchored" data-anchor-id="information-in-a-linear-system">Information in a Linear System</h3>
+<p>Let <span class="math inline">\(A\)</span> be an (<span class="math inline">\(m \times n\)</span>)-matrix and <span class="math inline">\(T\)</span> be a row echelon form obtained from <span class="math inline">\(A\)</span> using elementary row operations.</p>
+<ul>
+<li>Rank of <span class="math inline">\(A\)</span>: Number of pivot-elements in <span class="math inline">\(T\)</span>.</li>
+<li>Nullity of <span class="math inline">\(A\)</span>: Number of columns of <span class="math inline">\(T\)</span> without pivot-elements.</li>
+</ul>
+<blockquote class="blockquote">
+<p>Note: Rank of matrix <span class="math inline">\(A\)</span> is denoted by rk <span class="math inline">\(A\)</span> and nullity of <span class="math inline">\(A\)</span> by nullity <span class="math inline">\(A\)</span>.</p>
+</blockquote>
+<p>Therefore</p>
+<p><span class="math display">\[
+\text{rk } A + \text{nullity } A = n = \textsf{number of cols of } A
+\]</span></p>
+</section>
+</section>
+<section id="inhomogeneous-systems" class="level2">
+<h2 class="anchored" data-anchor-id="inhomogeneous-systems">Inhomogeneous Systems</h2>
+<p>Form where <span class="math inline">\(b \ne 0\)</span> is a non-zero vector.</p>
+<p>DEFINITION?</p>
+</section>
+<section id="square-linear-systems" class="level2">
+<h2 class="anchored" data-anchor-id="square-linear-systems">Square Linear Systems</h2>
+<p>If the number of equations and numbers of unknowns in a linear system coincide (<span class="math inline">\(m = n\)</span>), than:</p>
+<ul>
+<li>nullity <span class="math inline">\(A = 0\)</span>.</li>
+<li>rk <span class="math inline">\(A = n\)</span>.</li>
+<li><span class="math inline">\(Ax = 0\)</span> admits only trivial solution <span class="math inline">\(0\)</span>.</li>
+<li><span class="math inline">\(Ax = b\)</span> has one and only one solution.</li>
+</ul>
+</section>
+<section id="rank-criterion" class="level2">
+<h2 class="anchored" data-anchor-id="rank-criterion">Rank Criterion</h2>
+<p>TBD</p>
+
+
 </section>
 </section>
 
