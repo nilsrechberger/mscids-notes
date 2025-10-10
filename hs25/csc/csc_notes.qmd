@@ -92,3 +92,58 @@ switch “learns” location of sender. Records sender/location pair in switch t
 A router is a network device that forwards data packets between different networks. It ensures that information (e.g. a website, video or email) reaches the recipient from the sender – even if it has to pass through many intermediate stations.
 
 > Note: Layer 3 – Network Layer
+
+# Week 3: Case Study – Web Applications & HTML
+
+## Client Server Communication Pattern
+
+Clients (e.g. Browser) send service requests. Servers (e.g. Web, Database) wait for requests to arrive from clients and then respond to. Client receive service responses from centralized server.
+
+## Uniform Resource Locator (URL)
+
+Reference to a web resource that specifies its location in a computer network (e.g. web page, video, image, etc.)
+
+![URL Structure](img/url_structure.png)
+
+## HTML
+
+Descriptive Language HTML, with a set of HTML elements/tags, is used to create Websites and publish content on the Internet in a simple and standardized way. The Hypertext Transfer Protocol (HTTP) ensures that content on a Web server can be accessed and interpreted by a Web client and thus displayed within a browser.
+
+### Elements & Tags
+
+Most HTML Elements are characterized by having a start and end tag.
+
+```{html}
+<h1>Header 1</h1>
+<p>Paragraph</p> 
+```
+
+- Headings: Headings are text size pre-sets ranging from `<h1>` to `<h6>`
+- Paragraphs: Paragraphs are used to create text blocks with `<p>content</p>`
+- Bold: With `<b> text </b>` text can be set to bold.
+- Italic: With `<i> text </i>` text can be set to italic.
+- Underline: With `<u> text </u>` text can be underlined.
+- Hyperlinks: Using the anchor tag with an link as attribute: `<a href="Reference target"> Text </a>`
+- Images: Image tag with at least a source attribute: `<img src = "path/file" >`
+
+#### Nested Elements
+
+It is possible to include elements within elements. Such constructs are being referred to as nested elements.
+
+```{html}
+<p>Star<b>Wars</b></p>
+```
+
+#### Structural Elements
+
+The structural elements can be considered as the core setup of any HTML
+Website.
+
+- `<!DOCTYPE html>`: Declares using HTML5
+- `<html> </html>`: Defines the root of an HTML document
+- `<head> </head>`: Meta data about the HTML document
+- `<body> </body>`: All content of the HTML document
+
+## CSS
+
+CSS is a stylesheet language that is primarily used to describe the appearance and formatting of a document written in a markup language such as HTML.
