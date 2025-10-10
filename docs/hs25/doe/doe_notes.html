@@ -237,10 +237,7 @@ window.Quarto = {
   <li><a href="#terms" id="toc-terms" class="nav-link" data-scroll-target="#terms">Terms</a></li>
   </ul></li>
   <li><a href="#non-controllable-factors" id="toc-non-controllable-factors" class="nav-link" data-scroll-target="#non-controllable-factors">Non-controllable factors</a></li>
-  <li><a href="#causality-in-observational-and-experimental-study-designs" id="toc-causality-in-observational-and-experimental-study-designs" class="nav-link" data-scroll-target="#causality-in-observational-and-experimental-study-designs">Causality in observational and experimental study designs</a>
-  <ul class="collapse">
-  <li><a href="#example" id="toc-example" class="nav-link" data-scroll-target="#example">Example</a></li>
-  </ul></li>
+  <li><a href="#causality-in-observational-and-experimental-study-designs" id="toc-causality-in-observational-and-experimental-study-designs" class="nav-link" data-scroll-target="#causality-in-observational-and-experimental-study-designs">Causality in observational and experimental study designs</a></li>
   <li><a href="#variance" id="toc-variance" class="nav-link" data-scroll-target="#variance">Variance</a>
   <ul class="collapse">
   <li><a href="#variantion-of-variance" id="toc-variantion-of-variance" class="nav-link" data-scroll-target="#variantion-of-variance">Variantion of Variance</a></li>
@@ -420,7 +417,7 @@ window.Quarto = {
 <ul>
 <li>Input: Trial objects, test objects, test persons, ect.</li>
 <li>Process: Process in which controllable and non-controllable factors influence the input.</li>
-<li>Output (aka. Dependet variable: DV): Input changed by the process, result of the test / experiment.</li>
+<li>Output (aka. Dependet variable: DV): Input changed by the process, result of the test/experiment.</li>
 <li>Controllable factors (aka Independet variables: IV): Influencing factors whose strength can be adjusted within defined limits.</li>
 <li>Non-controllable factors: Influencing factors whose strength cannot be determined but that can be measured / cannot be determined and that cannot be measured.</li>
 </ul>
@@ -428,15 +425,15 @@ window.Quarto = {
 </section>
 <section id="non-controllable-factors" class="level2">
 <h2 class="anchored" data-anchor-id="non-controllable-factors">Non-controllable factors</h2>
-<p>TBD</p>
+<p>Non-controllable factors are also referred to as nuisance variables in a general context or nuisance factors in the context of blocking</p>
+<blockquote class="blockquote">
+<p>Note: Blocking = arranging of experimental units in groups (blocks)</p>
+</blockquote>
 </section>
 <section id="causality-in-observational-and-experimental-study-designs" class="level2">
 <h2 class="anchored" data-anchor-id="causality-in-observational-and-experimental-study-designs">Causality in observational and experimental study designs</h2>
-<p>TBD</p>
-<section id="example" class="level3">
-<h3 class="anchored" data-anchor-id="example">Example</h3>
-<p>TABLE</p>
-</section>
+<p>Observational studies cannot directly prove causality, but only show correlations or associations. Since the assignment is not random, there is always a risk that the results are distorted by unknown confounding factors.</p>
+<p>Experimental studies (e.g.&nbsp;RCTs) can prove causality because they control for confounding factors through randomisation, thereby isolating the effect of the cause. They are the gold standard.</p>
 </section>
 <section id="variance" class="level2">
 <h2 class="anchored" data-anchor-id="variance">Variance</h2>
@@ -452,18 +449,37 @@ window.Quarto = {
 <section id="variantion-of-variance" class="level3">
 <h3 class="anchored" data-anchor-id="variantion-of-variance">Variantion of Variance</h3>
 <p>The variance of the dependent variable (DV) (primary variance) should be attributed to the systematic variation of the independent variable (IV). The secondary variance should be controlled and the error variance minimized.</p>
-<p>EVTL IMG OR OVERVIEW</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="img/var_summary.png" class="img-fluid figure-img"></p>
+<figcaption>Summary Variance</figcaption>
+</figure>
+</div>
 <section id="maximizing-the-primary-variance" class="level4">
 <h4 class="anchored" data-anchor-id="maximizing-the-primary-variance">Maximizing the primary variance</h4>
-<p>TBD</p>
+<ul>
+<li>Relationship is linear: Selecting of extreme values in the IV.</li>
+<li>Relationship were curvilinear: Selecting optimal increments of IV.</li>
+<li>Relationship were unknown: Selecting as many increments of IV in the smallest steps as possible.</li>
+</ul>
 </section>
 <section id="control-of-the-secondary-variance" class="level4">
 <h4 class="anchored" data-anchor-id="control-of-the-secondary-variance">Control of the secondary variance</h4>
-<p>TBD</p>
+<ul>
+<li>Keeping constant: Keeping the experimental setup constant.</li>
+<li>Repetition: Several measurements are repeated on the same trial objects.</li>
+<li>Randomization: Trial objects are assigned randomly to Treatment and Control groups to eliminate systematic bias</li>
+<li>Blocking: Trial objects are grouped into homogeneous blocks based on one or more influential variables to reduce variability.</li>
+<li>Covariate adjustment: Nuisance variables are included as covariates in the statistical model to account for their effects.</li>
+</ul>
 </section>
 <section id="minimizing-the-error-variance" class="level4">
 <h4 class="anchored" data-anchor-id="minimizing-the-error-variance">Minimizing the error variance</h4>
-<p>TBD</p>
+<ul>
+<li>Reliable measurement setup: Standardization of the experimental conditions</li>
+<li>Sample size: Larger sample sizes reduce the impact of individual measurement errors</li>
+<li>Suitable analytical methods: Use of robust estimators to account for heterogeneous error variance</li>
+</ul>
 </section>
 </section>
 <section id="properties-of-measurement-instruments" class="level3">
