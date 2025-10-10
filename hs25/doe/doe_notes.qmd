@@ -111,3 +111,74 @@ The choice of a suitable research design determines the scientific quality of a 
 - Descriptive study: Descriptive character. Suitable for forming hypotheses (Surveys).
 - Analytical study: Identification and quantification of effects / verification of relationships. Not fully suitable for hypothesis testing (Cohot).
 - Randomized controlled: Suitable for hypothesis testing (RCT).
+
+# Lecture 03: Introduction to Design of Experiments (DoE)
+
+## Cause and Effect
+
+A trial / experiment is carried out to discover a cause-and-effect relationship in a process.
+
+### Terms
+
+- Input: Trial objects, test objects, test persons, ect.
+- Process: Process in which controllable and non-controllable factors influence the input.
+- Output (aka. Dependet variable: DV): Input changed by the process, result of the test/experiment.
+- Controllable factors (aka Independet variables: IV): Influencing factors whose strength can be adjusted within defined limits.
+- Non-controllable factors: Influencing factors whose strength cannot be determined but that can be measured / cannot be determined and that cannot be measured.
+
+## Non-controllable factors
+
+Non-controllable factors are also referred to as nuisance variables in a general context or nuisance factors in the context of blocking
+
+> Note: Blocking = arranging of experimental units in groups (blocks)
+
+## Causality in observational and experimental study designs
+
+Observational studies cannot directly prove causality, but only show correlations or associations. Since the assignment is not random, there is always a risk that the results are distorted by unknown confounding factors.
+
+Experimental studies (e.g. RCTs) can prove causality because they control for confounding factors through randomisation, thereby isolating the effect of the cause. They are the gold standard.
+
+## Variance
+
+The variance describes the mean square deviation of the individual measured values from the empirical mean.
+
+- Primary variance: Impact of (experimental) factors in an experiment on
+the change / variation of the output to be examined.
+- Secondary variance: Variation of the output to be examined, caused by nuisance variables.
+Not in the focus of the study.
+- Error variance: Variation caused by measurement errors and random processes.
+
+> Note: Secondary and error variances are grouped to the residual variance.
+
+### Variantion of Variance
+
+The variance of the dependent variable (DV) (primary variance) should be attributed to the systematic variation of the independent variable (IV). The secondary variance should be controlled and the error variance minimized.
+
+![Summary Variance](img/var_summary.png)
+
+#### Maximizing the primary variance
+
+- Relationship is linear: Selecting of extreme values in the IV. 
+- Relationship were curvilinear: Selecting optimal increments of IV.
+- Relationship were unknown: Selecting as many increments of IV in the smallest steps as possible.
+
+#### Control of the secondary variance
+
+- Keeping constant: Keeping the experimental setup constant.
+- Repetition: Several measurements are repeated on the same trial objects.
+- Randomization: Trial objects are assigned randomly to Treatment and Control groups to eliminate systematic bias
+- Blocking: Trial objects are grouped into homogeneous blocks based on one or more influential
+variables to reduce variability.
+- Covariate adjustment: Nuisance variables are included as covariates in the statistical model to account for their effects.
+
+#### Minimizing the error variance
+
+- Reliable measurement setup: Standardization of the experimental conditions
+- Sample size: Larger sample sizes reduce the impact of individual measurement errors
+- Suitable analytical methods: Use of robust estimators to account for heterogeneous error variance
+
+### Properties of measurement instruments
+
+- Objectivity: Objectivity of an instrument is given when the results are independent of personnel and calculation methods.
+- Reliability: Reliability is the degree to which an instrument produces the same result each time under comparable conditions.
+- Validity: Validity is the extent to which an instrument measures what was intended.
