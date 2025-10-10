@@ -100,3 +100,102 @@ flowchart TD
 Whenever a user downloads a new web page a copy is saved on the local web server (cache).
 If the same page is requested again later by the same or another user AND it is still valid (i.e., the expiration date has not yet been
 reached), the page does not have to be fetched again from the remote web server.
+
+# Week 3: Web Applications & HTML
+
+## Exercise 2: Develop a web page - Task 1
+
+```html
+<!DOCTYPE html>
+<html>
+  <head>
+    Exercise 2: Develop a web page - Task 1
+  </head>
+  <body>
+    <img src="img/siliconValley.jpg" hight="1000" width="500">
+  </body>
+</html>
+```
+
+```{=html}
+<!DOCTYPE html>
+<html>
+  <head>
+    Exercise 2: Develop a web page - Task 1
+  </head>
+  <body>
+    <img src="img/siliconValley.jpg" hight="1000" width="500">
+  </body>
+</html>
+```
+
+## Exercise 2: Develop a web page - Task 2
+
+```html
+<!DOCTYPE html>
+<html>
+  <head>
+    Exercise 2: Develop a web page - Task 2
+  </head>
+
+  <body>
+    <h2>Links to well-known companies in Silicon Valley</h2>
+    <img src="img/tesla.png">
+    <h2>Link to overview map Silicon Valley</h2>
+    <a href="https://siliconvalleyguide.info/">Map</a>
+
+  </body>
+</html>
+```
+
+```{=html}
+<!DOCTYPE html>
+<html>
+  <head>
+    Exercise 2: Develop a web page - Task 2
+  </head>
+
+  <body>
+    <h2>Links to well-known companies in Silicon Valley</h2>
+    <img src="img/tesla.png">
+    <h2>Link to overview map Silicon Valley</h2>
+    <a href="https://siliconvalleyguide.info/">Map</a>
+  </body>
+
+</html>
+```
+
+## Exercise 3: Develop a CSS file
+
+```html
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Exercise 3: Develop a CSS file</title>
+
+    <style>
+      body { 
+        background-color: lightgoldenrodyellow;
+        color: blue;
+      }
+      
+      img {
+        border: 2px solid blue;
+        padding: 5px;
+      }
+      
+      a {
+        color: red;
+      }
+    </style>
+</head>
+
+<body>
+    <h2>Links to well-known companies in Silicon Valley</h2>    
+    <img src="img/tesla.png" alt="Tesla Logo">
+    <h2>Link to overview map Silicon Valley</h2>
+    <a href="https://siliconvalleyguide.info/">Map</a>
+</body>
+
+</html>
+```
