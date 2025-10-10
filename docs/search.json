@@ -280,6 +280,34 @@
     "text": "Stochastic Independence\nIf events \\(A\\) and \\(B\\) are stochastically independent, then:\n\\[\nP(A \\cap B) = P(A) \\cdot P(B)\n\\]\n\nNote: Formula applies only if events A and B are stochastically independent.\n\nOutcome of event A has no influence on outcome of event B and vice versa."
   },
   {
+    "objectID": "hs25/sa/sa_notes.html#random-variable",
+    "href": "hs25/sa/sa_notes.html#random-variable",
+    "title": "Classical and Bayesian Statistics - Notes",
+    "section": "Random Variable",
+    "text": "Random Variable\nA Random variable X is a function:\n\\[\n\\Omega \\to W_X \\subset \\mathbb{R}\n\\] \\[\n\\omega \\to X(\\omega)\n\\]\nRandom variable denoted by capital letters X (or Y, Z). Corresponding lowercase letters x (or y, z) represents specific value that random variable can take. Once \\(\\omega\\) is chosen: \\(X(\\omega)\\) is fixed, not random.\n\nNote: \\(x\\) also called a realisation of random variable \\(X\\)."
+  },
+  {
+    "objectID": "hs25/sa/sa_notes.html#probability-distribution-of-random-variable",
+    "href": "hs25/sa/sa_notes.html#probability-distribution-of-random-variable",
+    "title": "Classical and Bayesian Statistics - Notes",
+    "section": "Probability Distribution of Random Variable",
+    "text": "Probability Distribution of Random Variable\nValues of random variable X (possible realisations of X) occur with certain probabilities that \\(X\\) takes value \\(x\\):\n\\[\nP(X = x) = P(\\{\\omega \\mid X(\\omega) = x\\}) = \\sum_{\\omega; X(\\omega)=x} P(\\omega)\n\\]"
+  },
+  {
+    "objectID": "hs25/sa/sa_notes.html#probability-distribution",
+    "href": "hs25/sa/sa_notes.html#probability-distribution",
+    "title": "Classical and Bayesian Statistics - Notes",
+    "section": "Probability Distribution",
+    "text": "Probability Distribution\nAssociated probability is determined for all realisations of random variable. List of \\(P(X = x)\\) for all possible values \\(x_1, x_2, \\dots, x_n\\) is called discrete probability distribution of discrete random variable \\(X\\).All values of probability distribution has to sum up to 1.\n\\[\n\\sum_{\\text{For all }x} P(X = x) = 1\n\\]\n\nNote: For finite sample space the probability distribution is a table."
+  },
+  {
+    "objectID": "hs25/sa/sa_notes.html#key-figures-of-distribution",
+    "href": "hs25/sa/sa_notes.html#key-figures-of-distribution",
+    "title": "Classical and Bayesian Statistics - Notes",
+    "section": "Key Figures of Distribution",
+    "text": "Key Figures of Distribution\n\nExpected Value \\(E(X)\\)\nCentral location of distribution. Weighted mean of all possible values, weighted by their probability of occurring.\n\\[\n\\mu = \\sum_{\\text{all possible } x} x \\times P(X = x)\n\\]\n\nNote: \\(E(X)\\) is a theoretical value, which results from a model, i.e. distribution.\n\n\n\nVariance\nVariance is square of spread of value of random variable from expected value weighted with respective weight.\n\\[\n\\sigma = \\sum_{\\text{all possible } x} (x - E(X))^2 \\times P(X = x)\n\\]\n\n\nStandard deviation \\(\\sigma\\)\nSpread of distribution about \\(E(X)\\). Standard deviation has same unit as X.\n\\[\n\\sigma(X) = \\sqrt{Var(X)}\n\\]\n\nNote: \\(\\sigma(x)\\) is a theoretical value, which results from a model, i.e. distribution.\n\n\nx &lt;- 1 : 6\np &lt;- 1 / 6\nE_X &lt;- sum(x * p)\nvar_X &lt;- sum((x - E_X)^2 * p)\nsd_X &lt;- sqrt(var_X)\n\nsd_X\n\n[1] 1.707825\n\n\n\nNote: Means: Deviation on “average” 1.7 from 3.5."
+  },
+  {
     "objectID": "hs25/pds/pds_notes.html",
     "href": "hs25/pds/pds_notes.html",
     "title": "Python for Data Science - Notes",
@@ -371,6 +399,55 @@
     "text": "Shorthand statement\nShorthand if statements allow for less code and better readability.\n\nx = 10\n\n# Block\nif x == 10:\n    x += 1\n    print(x)\nelse:\n    None\n\n## Is the same as\n\nx = 10\n# One Line\nx = x + 1 if x == 10 else None\nprint(x)\n\n11\n11"
   },
   {
+    "objectID": "hs25/pds/pds_notes.html#range",
+    "href": "hs25/pds/pds_notes.html#range",
+    "title": "Python for Data Science - Notes",
+    "section": "range ()",
+    "text": "range ()\nThe class range() allows creating sequence objects with constant step sizes. Ranges implement all of the common sequence operations except concatenation and repetition.\n\nNotes: The stop element is not included.\n\n\nmy_range = list(range(2, 11, 2)) # Start = 2, End = 11, Steps = 2\nprint(my_range)\n\n[2, 4, 6, 8, 10]"
+  },
+  {
+    "objectID": "hs25/pds/pds_notes.html#len",
+    "href": "hs25/pds/pds_notes.html#len",
+    "title": "Python for Data Science - Notes",
+    "section": "len()",
+    "text": "len()\nlen() returns the number of elements in a sequence. Returns positive integer: 0 indicates an empty sequence.\n\nmy_lenght = len(range(1, 11, 1))\nprint(my_lenght)\n\n10"
+  },
+  {
+    "objectID": "hs25/pds/pds_notes.html#sequence-slicing",
+    "href": "hs25/pds/pds_notes.html#sequence-slicing",
+    "title": "Python for Data Science - Notes",
+    "section": "Sequence Slicing",
+    "text": "Sequence Slicing\nExtracting sub-sequences of larger data containers is an important and often used operation. Slicing options are:\n\nBy integer (particular element)\nBy range or slice object\n\n\nmy_list = list(range(1, 11, 1))\nprint(f\"My list: {my_list}\")\n\n# Extract only even numbers\neven_numbers = my_list[1:11:2] # Start = Index 1 (second entry), Steps = 2\nprint(f\"All even numbers in my list: {even_numbers}\")\n\n# Extract only odd numbers\nodd_numbers = my_list[0:11:2] # Start = Index 0 (first entry), Steps = 2\nprint(f\"All odd numbers in my list: {odd_numbers}\")\n\nMy list: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]\nAll even numbers in my list: [2, 4, 6, 8, 10]\nAll odd numbers in my list: [1, 3, 5, 7, 9]\n\n\n\nNote: Same as slice()"
+  },
+  {
+    "objectID": "hs25/pds/pds_notes.html#for-loop",
+    "href": "hs25/pds/pds_notes.html#for-loop",
+    "title": "Python for Data Science - Notes",
+    "section": "for-loop",
+    "text": "for-loop\nLoops are used to iterate over sequence objects by providing each element one after the other through a loop variable. Assign each element of the sequence one after another to the loop variable.\n\n# Single loop\nmy_list = list(range(1, 11, 1))\nprint(f\"My list: {my_list}\")\n\nfor element in my_list:\n    print(f\"Element is {element}\")\nelse:\n    print(\"No more elements in my list\")\n\nMy list: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]\nElement is 1\nElement is 2\nElement is 3\nElement is 4\nElement is 5\nElement is 6\nElement is 7\nElement is 8\nElement is 9\nElement is 10\nNo more elements in my list\n\n\n\nNote: The loop variable is often called i: for i in my_list:."
+  },
+  {
+    "objectID": "hs25/pds/pds_notes.html#while-loop",
+    "href": "hs25/pds/pds_notes.html#while-loop",
+    "title": "Python for Data Science - Notes",
+    "section": "while-loop",
+    "text": "while-loop\nA while loop executes the loop body as long as the condition equals True. The while loop checks the condition each time before re-executing the loop body and terminates as soon as the condition is False.\n\naim = 5\ncounter = 0\n\nwhile counter != aim: # != means not equal\n    print(f\"Counter at value {counter}\")\n    counter += 1 # Add 1 to the counter\nelse:\n    print(\"Aim reached\")\n\nCounter at value 0\nCounter at value 1\nCounter at value 2\nCounter at value 3\nCounter at value 4\nAim reached\n\n\n\nNote: Check whether the condition can be reached! Otherwise, you will end up in an infinite loop."
+  },
+  {
+    "objectID": "hs25/pds/pds_notes.html#break-continue-and-pass",
+    "href": "hs25/pds/pds_notes.html#break-continue-and-pass",
+    "title": "Python for Data Science - Notes",
+    "section": "break, continue and pass",
+    "text": "break, continue and pass\nPython has three keywords to control the loop (and function) process flow:\n\nbreak\nImmediately break the current loop.\n\naim = 5\ncounter = 0\n\nwhile counter != aim:\n    print(f\"Counter at value {counter}\")\n    counter += 1\n    break # Force a loop break\nelse:\n    print(\"Aim reached\")\n\nCounter at value 0\n\n\n\n\ncontinue\nIgnoring the rest of the loop body and jumping back to the header.\n\naim = 5\ncounter = 0\n\nwhile counter != aim:\n    print(f\"Counter at value {counter}\")\n    counter += 1\n    continue\n    print(\"This msg will not be printed\")\nelse:\n    print(\"Aim reached\")\n\nCounter at value 0\nCounter at value 1\nCounter at value 2\nCounter at value 3\nCounter at value 4\nAim reached\n\n\n\n\npass\nNo operation. Regular iteration with no execution.\n\naim = 5\ncounter = 0\n\nwhile counter != aim:\n    print(f\"Counter at value {counter}\")\n    counter += 1\n    pass\nelse:\n    print(\"Aim reached\")\n\nCounter at value 0\nCounter at value 1\nCounter at value 2\nCounter at value 3\nCounter at value 4\nAim reached"
+  },
+  {
+    "objectID": "hs25/pds/pds_notes.html#enumerate",
+    "href": "hs25/pds/pds_notes.html#enumerate",
+    "title": "Python for Data Science - Notes",
+    "section": "Enumerate",
+    "text": "Enumerate\nThe enumerate returns an iterator that returns a tuple with an incrementing number for each element of the sequence.\n\nx = list(range(0, 11, 2))\n\nfor idx, i in enumerate(x):\n    print(f\"Value {i} at Index {idx}\")\n\nValue 0 at Index 0\nValue 2 at Index 1\nValue 4 at Index 2\nValue 6 at Index 3\nValue 8 at Index 4\nValue 10 at Index 5"
+  },
+  {
     "objectID": "hs25/doe/doe_notes.html",
     "href": "hs25/doe/doe_notes.html",
     "title": "Design of Experiments",
@@ -427,18 +504,46 @@
     "text": "Definition & properties of study design\nThe choice of a suitable research design determines the scientific quality of a study. The planning of the analysis depends on the research design.\n\nStudy types\n\nDescriptive study: Descriptive character. Suitable for forming hypotheses (Surveys).\nAnalytical study: Identification and quantification of effects / verification of relationships. Not fully suitable for hypothesis testing (Cohot).\nRandomized controlled: Suitable for hypothesis testing (RCT)."
   },
   {
+    "objectID": "hs25/doe/doe_notes.html#cause-and-effect",
+    "href": "hs25/doe/doe_notes.html#cause-and-effect",
+    "title": "Design of Experiments",
+    "section": "Cause and Effect",
+    "text": "Cause and Effect\nA trial / experiment is carried out to discover a cause-and-effect relationship in a process.\n\nTerms\n\nInput: Trial objects, test objects, test persons, ect.\nProcess: Process in which controllable and non-controllable factors influence the input.\nOutput (aka. Dependet variable: DV): Input changed by the process, result of the test / experiment.\nControllable factors (aka Independet variables: IV): Influencing factors whose strength can be adjusted within defined limits.\nNon-controllable factors: Influencing factors whose strength cannot be determined but that can be measured / cannot be determined and that cannot be measured."
+  },
+  {
+    "objectID": "hs25/doe/doe_notes.html#non-controllable-factors",
+    "href": "hs25/doe/doe_notes.html#non-controllable-factors",
+    "title": "Design of Experiments",
+    "section": "Non-controllable factors",
+    "text": "Non-controllable factors\nTBD"
+  },
+  {
+    "objectID": "hs25/doe/doe_notes.html#causality-in-observational-and-experimental-study-designs",
+    "href": "hs25/doe/doe_notes.html#causality-in-observational-and-experimental-study-designs",
+    "title": "Design of Experiments",
+    "section": "Causality in observational and experimental study designs",
+    "text": "Causality in observational and experimental study designs\nTBD\n\nExample\nTABLE"
+  },
+  {
+    "objectID": "hs25/doe/doe_notes.html#variance",
+    "href": "hs25/doe/doe_notes.html#variance",
+    "title": "Design of Experiments",
+    "section": "Variance",
+    "text": "Variance\nThe variance describes the mean square deviation of the individual measured values from the empirical mean.\n\nPrimary variance: Impact of (experimental) factors in an experiment on the change / variation of the output to be examined.\nSecondary variance: Variation of the output to be examined, caused by nuisance variables. Not in the focus of the study.\nError variance: Variation caused by measurement errors and random processes.\n\n\nNote: Secondary and error variances are grouped to the residual variance.\n\n\nVariantion of Variance\nThe variance of the dependent variable (DV) (primary variance) should be attributed to the systematic variation of the independent variable (IV). The secondary variance should be controlled and the error variance minimized.\nEVTL IMG OR OVERVIEW\n\nMaximizing the primary variance\nTBD\n\n\nControl of the secondary variance\nTBD\n\n\nMinimizing the error variance\nTBD\n\n\n\nProperties of measurement instruments\n\nObjectivity: Objectivity of an instrument is given when the results are independent of personnel and calculation methods.\nReliability: Reliability is the degree to which an instrument produces the same result each time under comparable conditions.\nValidity: Validity is the extent to which an instrument measures what was intended."
+  },
+  {
     "objectID": "hs25/pds/pds_exercises.html",
     "href": "hs25/pds/pds_exercises.html",
     "title": "Python for Data Science - Exercises",
     "section": "",
-    "text": "print(f\"10 + 10 + 10 = {10 + 10 + 10}\")\nprint(f\"10 - 3       = {10 - 3}\")\nprint(f\"10 * 2       = {10 * 2}\")\nprint(f\"5 / 2        = {5 / 2}\")\nprint(f\"5.0 / 2      = {5.0 / 2}\")\nprint(f\"5 % 2        = {5 % 2}\")\nprint(f\"10 % 3       = {10 % 3}\")\nprint(f\"3 ** 3       = {3 ** 3}\")\nprint(f\"9 ** 0.5     = {9 ** 0.5}\")\nprint(f\"10 + 3 * 3   = {10 + 3 * 3}\")\nprint(f\"(10 + 3) * 3 = {(10 + 3) * 3}\")\n\n10 + 10 + 10 = 30\n10 - 3       = 7\n10 * 2       = 20\n5 / 2        = 2.5\n5.0 / 2      = 2.5\n5 % 2        = 1\n10 % 3       = 1\n3 ** 3       = 27\n9 ** 0.5     = 3.0\n10 + 3 * 3   = 19\n(10 + 3) * 3 = 39\n\n\n\n\n\n\na = 23\nb = 23\nprint(f\"a = {a}\")\nprint(f\"The ID of a is {id(a)}\") # Prints memory address of the variable a\nprint(f\"a is of type {type(a)}\") # Prints the data type of the variable a\n\na = 23\nThe ID of a is 11761384\na is of type &lt;class 'int'&gt;\n\n\n\nNote: id() corresponds to the objects memory address during its lifetime.\n\n\nprint(f\"b = {b}\")\nprint(f\"The ID of b is {id(b)}\")\nprint(f\"b is of type {type(a)}\")\n\nb = 23\nThe ID of b is 11761384\nb is of type &lt;class 'int'&gt;\n\n\n\n\n\n\na = 123 # Reassign var a to int 123\nprint(f\"a = {a}\")\nprint(f\"The ID of a is {id(a)}\")\nprint(f\"a is of type {type(a)}\")\n\na = 123\nThe ID of a is 11764584\na is of type &lt;class 'int'&gt;\n\n\n\n\n\n\nc = 23\nprint(f\"c = {c}\")\nprint(f\"The ID of a is {id(c)}\")\nprint(f\"c is of type {type(c)}\")\n\nc = 23\nThe ID of a is 11761384\nc is of type &lt;class 'int'&gt;\n\n\nWe assign the variable c to the value 23 and check its data type and memory location.\n\n\n\n\nd = 3.142\nprint(f\"d = {d}\")\nprint(f\"The ID of a is {id(d)}\")\nprint(f\"d is of type {type(d)}\")\n\nd = 3.142\nThe ID of a is 140478338571600\nd is of type &lt;class 'float'&gt;\n\n\n\n\n\n\nprint (\"HSLU's Python course is cool\")\n\nprint(\"This is Line 1\")\nprint(\"This is Line 2\")\n\nprint(\"\\nWhat does the \\\\n control character do? Are you sure?\") # \\n is a line break\n\nprint(\"\\tWhat does the \\\\t control character do? Are you sure?\") # \\t is a tabulator\n\nprint(\"I want to learn python because....\")\nprint(\"\\n\\n\\t....it's a cool data science programming language. Ok - there are also others ;-) !\")\n\nprint(\"What \" + \"is \" + \"wrong?\" + \"\\nAdd some space between the words without removing the '+' signs!\") # Add spaces after the string\n\nHSLU's Python course is cool\nThis is Line 1\nThis is Line 2\n\nWhat does the \\n control character do? Are you sure?\n    What does the \\t control character do? Are you sure?\nI want to learn python because....\n\n\n    ....it's a cool data science programming language. Ok - there are also others ;-) !\nWhat is wrong?\nAdd some space between the words without removing the '+' signs!\n\n\n\n\n\n\ng=h='hslu'      # Assign the var g and h to the string \"hslu\"\nprint(g)        # Prints hslu\nprint(h)        # Print hslu\nh=456           # Reassign h to int 456\nprint(h)        # Prints 456\nh=h+1           # Calculates 456 + 1 = 457\nprint(h)        # Prints 457\nh+=1            # Calculates 457 + 1 = 458\nprint(h)        # Prints 458\np='hslu'        # Assign the var p to the string \"hslu\"\nq=p             # Copies the var p (hlsu) to the var q\nprint(p==q)     # Compare the var p and q (Output: True)\nprint(p is q)   # Compare the var p and q (Output: True)\n\nhslu\nhslu\n456\n457\n458\nTrue\nTrue"
+    "text": "print(f\"10 + 10 + 10 = {10 + 10 + 10}\")\nprint(f\"10 - 3       = {10 - 3}\")\nprint(f\"10 * 2       = {10 * 2}\")\nprint(f\"5 / 2        = {5 / 2}\")\nprint(f\"5.0 / 2      = {5.0 / 2}\")\nprint(f\"5 % 2        = {5 % 2}\")\nprint(f\"10 % 3       = {10 % 3}\")\nprint(f\"3 ** 3       = {3 ** 3}\")\nprint(f\"9 ** 0.5     = {9 ** 0.5}\")\nprint(f\"10 + 3 * 3   = {10 + 3 * 3}\")\nprint(f\"(10 + 3) * 3 = {(10 + 3) * 3}\")\n\n10 + 10 + 10 = 30\n10 - 3       = 7\n10 * 2       = 20\n5 / 2        = 2.5\n5.0 / 2      = 2.5\n5 % 2        = 1\n10 % 3       = 1\n3 ** 3       = 27\n9 ** 0.5     = 3.0\n10 + 3 * 3   = 19\n(10 + 3) * 3 = 39\n\n\n\n\n\n\na = 23\nb = 23\nprint(f\"a = {a}\")\nprint(f\"The ID of a is {id(a)}\") # Prints memory address of the variable a\nprint(f\"a is of type {type(a)}\") # Prints the data type of the variable a\n\na = 23\nThe ID of a is 11761384\na is of type &lt;class 'int'&gt;\n\n\n\nNote: id() corresponds to the objects memory address during its lifetime.\n\n\nprint(f\"b = {b}\")\nprint(f\"The ID of b is {id(b)}\")\nprint(f\"b is of type {type(a)}\")\n\nb = 23\nThe ID of b is 11761384\nb is of type &lt;class 'int'&gt;\n\n\n\n\n\n\na = 123 # Reassign var a to int 123\nprint(f\"a = {a}\")\nprint(f\"The ID of a is {id(a)}\")\nprint(f\"a is of type {type(a)}\")\n\na = 123\nThe ID of a is 11764584\na is of type &lt;class 'int'&gt;\n\n\n\n\n\n\nc = 23\nprint(f\"c = {c}\")\nprint(f\"The ID of a is {id(c)}\")\nprint(f\"c is of type {type(c)}\")\n\nc = 23\nThe ID of a is 11761384\nc is of type &lt;class 'int'&gt;\n\n\nWe assign the variable c to the value 23 and check its data type and memory location.\n\n\n\n\nd = 3.142\nprint(f\"d = {d}\")\nprint(f\"The ID of a is {id(d)}\")\nprint(f\"d is of type {type(d)}\")\n\nd = 3.142\nThe ID of a is 136579537387152\nd is of type &lt;class 'float'&gt;\n\n\n\n\n\n\nprint (\"HSLU's Python course is cool\")\n\nprint(\"This is Line 1\")\nprint(\"This is Line 2\")\n\nprint(\"\\nWhat does the \\\\n control character do? Are you sure?\") # \\n is a line break\n\nprint(\"\\tWhat does the \\\\t control character do? Are you sure?\") # \\t is a tabulator\n\nprint(\"I want to learn python because....\")\nprint(\"\\n\\n\\t....it's a cool data science programming language. Ok - there are also others ;-) !\")\n\nprint(\"What \" + \"is \" + \"wrong?\" + \"\\nAdd some space between the words without removing the '+' signs!\") # Add spaces after the string\n\nHSLU's Python course is cool\nThis is Line 1\nThis is Line 2\n\nWhat does the \\n control character do? Are you sure?\n    What does the \\t control character do? Are you sure?\nI want to learn python because....\n\n\n    ....it's a cool data science programming language. Ok - there are also others ;-) !\nWhat is wrong?\nAdd some space between the words without removing the '+' signs!\n\n\n\n\n\n\ng=h='hslu'      # Assign the var g and h to the string \"hslu\"\nprint(g)        # Prints hslu\nprint(h)        # Print hslu\nh=456           # Reassign h to int 456\nprint(h)        # Prints 456\nh=h+1           # Calculates 456 + 1 = 457\nprint(h)        # Prints 457\nh+=1            # Calculates 457 + 1 = 458\nprint(h)        # Prints 458\np='hslu'        # Assign the var p to the string \"hslu\"\nq=p             # Copies the var p (hlsu) to the var q\nprint(p==q)     # Compare the var p and q (Output: True)\nprint(p is q)   # Compare the var p and q (Output: True)\n\nhslu\nhslu\n456\n457\n458\nTrue\nTrue"
   },
   {
     "objectID": "hs25/pds/pds_exercises.html#exercises-1",
     "href": "hs25/pds/pds_exercises.html#exercises-1",
     "title": "Python for Data Science - Exercises",
     "section": "",
-    "text": "print(f\"10 + 10 + 10 = {10 + 10 + 10}\")\nprint(f\"10 - 3       = {10 - 3}\")\nprint(f\"10 * 2       = {10 * 2}\")\nprint(f\"5 / 2        = {5 / 2}\")\nprint(f\"5.0 / 2      = {5.0 / 2}\")\nprint(f\"5 % 2        = {5 % 2}\")\nprint(f\"10 % 3       = {10 % 3}\")\nprint(f\"3 ** 3       = {3 ** 3}\")\nprint(f\"9 ** 0.5     = {9 ** 0.5}\")\nprint(f\"10 + 3 * 3   = {10 + 3 * 3}\")\nprint(f\"(10 + 3) * 3 = {(10 + 3) * 3}\")\n\n10 + 10 + 10 = 30\n10 - 3       = 7\n10 * 2       = 20\n5 / 2        = 2.5\n5.0 / 2      = 2.5\n5 % 2        = 1\n10 % 3       = 1\n3 ** 3       = 27\n9 ** 0.5     = 3.0\n10 + 3 * 3   = 19\n(10 + 3) * 3 = 39\n\n\n\n\n\n\na = 23\nb = 23\nprint(f\"a = {a}\")\nprint(f\"The ID of a is {id(a)}\") # Prints memory address of the variable a\nprint(f\"a is of type {type(a)}\") # Prints the data type of the variable a\n\na = 23\nThe ID of a is 11761384\na is of type &lt;class 'int'&gt;\n\n\n\nNote: id() corresponds to the objects memory address during its lifetime.\n\n\nprint(f\"b = {b}\")\nprint(f\"The ID of b is {id(b)}\")\nprint(f\"b is of type {type(a)}\")\n\nb = 23\nThe ID of b is 11761384\nb is of type &lt;class 'int'&gt;\n\n\n\n\n\n\na = 123 # Reassign var a to int 123\nprint(f\"a = {a}\")\nprint(f\"The ID of a is {id(a)}\")\nprint(f\"a is of type {type(a)}\")\n\na = 123\nThe ID of a is 11764584\na is of type &lt;class 'int'&gt;\n\n\n\n\n\n\nc = 23\nprint(f\"c = {c}\")\nprint(f\"The ID of a is {id(c)}\")\nprint(f\"c is of type {type(c)}\")\n\nc = 23\nThe ID of a is 11761384\nc is of type &lt;class 'int'&gt;\n\n\nWe assign the variable c to the value 23 and check its data type and memory location.\n\n\n\n\nd = 3.142\nprint(f\"d = {d}\")\nprint(f\"The ID of a is {id(d)}\")\nprint(f\"d is of type {type(d)}\")\n\nd = 3.142\nThe ID of a is 140478338571600\nd is of type &lt;class 'float'&gt;\n\n\n\n\n\n\nprint (\"HSLU's Python course is cool\")\n\nprint(\"This is Line 1\")\nprint(\"This is Line 2\")\n\nprint(\"\\nWhat does the \\\\n control character do? Are you sure?\") # \\n is a line break\n\nprint(\"\\tWhat does the \\\\t control character do? Are you sure?\") # \\t is a tabulator\n\nprint(\"I want to learn python because....\")\nprint(\"\\n\\n\\t....it's a cool data science programming language. Ok - there are also others ;-) !\")\n\nprint(\"What \" + \"is \" + \"wrong?\" + \"\\nAdd some space between the words without removing the '+' signs!\") # Add spaces after the string\n\nHSLU's Python course is cool\nThis is Line 1\nThis is Line 2\n\nWhat does the \\n control character do? Are you sure?\n    What does the \\t control character do? Are you sure?\nI want to learn python because....\n\n\n    ....it's a cool data science programming language. Ok - there are also others ;-) !\nWhat is wrong?\nAdd some space between the words without removing the '+' signs!\n\n\n\n\n\n\ng=h='hslu'      # Assign the var g and h to the string \"hslu\"\nprint(g)        # Prints hslu\nprint(h)        # Print hslu\nh=456           # Reassign h to int 456\nprint(h)        # Prints 456\nh=h+1           # Calculates 456 + 1 = 457\nprint(h)        # Prints 457\nh+=1            # Calculates 457 + 1 = 458\nprint(h)        # Prints 458\np='hslu'        # Assign the var p to the string \"hslu\"\nq=p             # Copies the var p (hlsu) to the var q\nprint(p==q)     # Compare the var p and q (Output: True)\nprint(p is q)   # Compare the var p and q (Output: True)\n\nhslu\nhslu\n456\n457\n458\nTrue\nTrue"
+    "text": "print(f\"10 + 10 + 10 = {10 + 10 + 10}\")\nprint(f\"10 - 3       = {10 - 3}\")\nprint(f\"10 * 2       = {10 * 2}\")\nprint(f\"5 / 2        = {5 / 2}\")\nprint(f\"5.0 / 2      = {5.0 / 2}\")\nprint(f\"5 % 2        = {5 % 2}\")\nprint(f\"10 % 3       = {10 % 3}\")\nprint(f\"3 ** 3       = {3 ** 3}\")\nprint(f\"9 ** 0.5     = {9 ** 0.5}\")\nprint(f\"10 + 3 * 3   = {10 + 3 * 3}\")\nprint(f\"(10 + 3) * 3 = {(10 + 3) * 3}\")\n\n10 + 10 + 10 = 30\n10 - 3       = 7\n10 * 2       = 20\n5 / 2        = 2.5\n5.0 / 2      = 2.5\n5 % 2        = 1\n10 % 3       = 1\n3 ** 3       = 27\n9 ** 0.5     = 3.0\n10 + 3 * 3   = 19\n(10 + 3) * 3 = 39\n\n\n\n\n\n\na = 23\nb = 23\nprint(f\"a = {a}\")\nprint(f\"The ID of a is {id(a)}\") # Prints memory address of the variable a\nprint(f\"a is of type {type(a)}\") # Prints the data type of the variable a\n\na = 23\nThe ID of a is 11761384\na is of type &lt;class 'int'&gt;\n\n\n\nNote: id() corresponds to the objects memory address during its lifetime.\n\n\nprint(f\"b = {b}\")\nprint(f\"The ID of b is {id(b)}\")\nprint(f\"b is of type {type(a)}\")\n\nb = 23\nThe ID of b is 11761384\nb is of type &lt;class 'int'&gt;\n\n\n\n\n\n\na = 123 # Reassign var a to int 123\nprint(f\"a = {a}\")\nprint(f\"The ID of a is {id(a)}\")\nprint(f\"a is of type {type(a)}\")\n\na = 123\nThe ID of a is 11764584\na is of type &lt;class 'int'&gt;\n\n\n\n\n\n\nc = 23\nprint(f\"c = {c}\")\nprint(f\"The ID of a is {id(c)}\")\nprint(f\"c is of type {type(c)}\")\n\nc = 23\nThe ID of a is 11761384\nc is of type &lt;class 'int'&gt;\n\n\nWe assign the variable c to the value 23 and check its data type and memory location.\n\n\n\n\nd = 3.142\nprint(f\"d = {d}\")\nprint(f\"The ID of a is {id(d)}\")\nprint(f\"d is of type {type(d)}\")\n\nd = 3.142\nThe ID of a is 136579537387152\nd is of type &lt;class 'float'&gt;\n\n\n\n\n\n\nprint (\"HSLU's Python course is cool\")\n\nprint(\"This is Line 1\")\nprint(\"This is Line 2\")\n\nprint(\"\\nWhat does the \\\\n control character do? Are you sure?\") # \\n is a line break\n\nprint(\"\\tWhat does the \\\\t control character do? Are you sure?\") # \\t is a tabulator\n\nprint(\"I want to learn python because....\")\nprint(\"\\n\\n\\t....it's a cool data science programming language. Ok - there are also others ;-) !\")\n\nprint(\"What \" + \"is \" + \"wrong?\" + \"\\nAdd some space between the words without removing the '+' signs!\") # Add spaces after the string\n\nHSLU's Python course is cool\nThis is Line 1\nThis is Line 2\n\nWhat does the \\n control character do? Are you sure?\n    What does the \\t control character do? Are you sure?\nI want to learn python because....\n\n\n    ....it's a cool data science programming language. Ok - there are also others ;-) !\nWhat is wrong?\nAdd some space between the words without removing the '+' signs!\n\n\n\n\n\n\ng=h='hslu'      # Assign the var g and h to the string \"hslu\"\nprint(g)        # Prints hslu\nprint(h)        # Print hslu\nh=456           # Reassign h to int 456\nprint(h)        # Prints 456\nh=h+1           # Calculates 456 + 1 = 457\nprint(h)        # Prints 457\nh+=1            # Calculates 457 + 1 = 458\nprint(h)        # Prints 458\np='hslu'        # Assign the var p to the string \"hslu\"\nq=p             # Copies the var p (hlsu) to the var q\nprint(p==q)     # Compare the var p and q (Output: True)\nprint(p is q)   # Compare the var p and q (Output: True)\n\nhslu\nhslu\n456\n457\n458\nTrue\nTrue"
   },
   {
     "objectID": "hs25/pds/pds_exercises.html#task-1",
@@ -453,6 +558,48 @@
     "title": "Python for Data Science - Exercises",
     "section": "Task 2",
     "text": "Task 2\n\na\nAssumption: The int variables a, b and c are declared and initialized.\nDefine a conditional expression “EXPR” in such a way that the body of the expression\nif EXPR: print(“condition fulfilled”)\nis only carried out if: a is greater than b OR a is less than half of b OR the sum of a and c is greater than b.\nCheck your result: a=1, b=2, c=2 -&gt; True a=1, b=2, c=1 -&gt; False\n\n# Test case one\na = 1\nb = 2\nc = 2\n\nif a &gt; b or a &lt; b/2 or sum([a, c]) &gt; b:\n    print(\"condition fulfilled\")\nelse:\n    print(\"condition not fulfilled\")\n\ncondition fulfilled\n\n\n\n# Test case two\na = 1\nb = 2\nc = 1\n\nif a &gt; b or a &lt; b/2 or sum([a, c]) &gt; b:\n    print(\"condition fulfilled\")\nelse:\n    print(\"condition not fulfilled\")\n\ncondition not fulfilled\n\n\n\n\nb\nAssumption: The int variables a, b and c are declared and initialized.\nDefine a conditional expression “EXPR” in such a way that the body of the expression\nif EXPR: print(“condition fulfilled”)\nis only carried out if: half of the number a is an odd number OR the subtraction of the numbers b and c results in an even number OR both a and b and also b and c have different values.\nCheck your result: a=6, b=2, c=0 =&gt; True a=5, b=2, c=1 =&gt; True a=5, b=5, c=2 =&gt; False\n\n# Test case one\na = 6\nb = 2\nc = 0\n\nif a/2 % 2 == 1 or b - c % 2 == 0 or a != b and b != c:\n        print(\"condition fulfilled\")\nelse:\n    print(\"condition not fulfilled\")\n\ncondition fulfilled\n\n\n\n# Test case two\n# Test case one\na = 5\nb = 2\nc = 1\n\nif a/2 % 2 == 1 or b - c % 2 == 0 or a != b and b != c:\n        print(\"condition fulfilled\")\nelse:\n    print(\"condition not fulfilled\")\n\ncondition fulfilled\n\n\n\n# Test case three\n# Test case one\na = 5\nb = 5\nc = 2\n\nif a/2 % 2 == 1 or b - c % 2 == 0 or a != b and b != c:\n        print(\"condition fulfilled\")\nelse:\n    print(\"condition not fulfilled\")\n\ncondition not fulfilled"
+  },
+  {
+    "objectID": "hs25/pds/pds_exercises.html#exercise-1",
+    "href": "hs25/pds/pds_exercises.html#exercise-1",
+    "title": "Python for Data Science - Exercises",
+    "section": "Exercise 1",
+    "text": "Exercise 1\nWrite a python program that constructs the following pattern using a nested for loop:\n*\n**\n***\n****\n*****\n****\n***\n**\n*\n\nupper  = range(0, 6, 1) # Define upper pattern\nlower = range(6, 0, -1) # Define lower pattern\n\n\nfor i in upper:\n    print(\"*\" * i) # Print upper part of pattern\nelse: # After done\n    for j in lower:\n        print(\"*\" * j) # Print lower part of pattern\n\n\n*\n**\n***\n****\n*****\n******\n*****\n****\n***\n**\n*"
+  },
+  {
+    "objectID": "hs25/pds/pds_exercises.html#exercise-2",
+    "href": "hs25/pds/pds_exercises.html#exercise-2",
+    "title": "Python for Data Science - Exercises",
+    "section": "Exercise 2",
+    "text": "Exercise 2\nWrite a python program to count the number of even and odd numbers contained in a sequence of numbers.\n\neven_numbers = []\nodd_numbers = []\nnumbers = (1,2,3,4,5,6,7,8,9,10)\n\nfor i in range(len(numbers)):\n    if i % 2 == 0: # Check if current number is even\n        even_numbers.append(i)\n    else:\n        odd_numbers.append(i)\n\nprint(f\"Total number of even numbers: {len(even_numbers)}\") # Use len() to count\nprint(f\"Total number of even numbers: {len(odd_numbers)}\")\n\nTotal number of even numbers: 5\nTotal number of even numbers: 5"
+  },
+  {
+    "objectID": "hs25/pds/pds_exercises.html#exercise-3",
+    "href": "hs25/pds/pds_exercises.html#exercise-3",
+    "title": "Python for Data Science - Exercises",
+    "section": "Exercise 3",
+    "text": "Exercise 3\nWrite a Python program which takes two digits m (row) and n (column) as input and generates a two-dimensional structure (e.g. nested list). The value in the i-th row and j-th column should be i*j.\n\nrows = 3\ncolumns = 4\nresult = [] # Define master list\n\nfor row in range(rows):\n    sub_list = [] # Define sub-list\n    for column in range(columns):\n        sub_list.append(row * column) # Calc value\n    result.append(sub_list) # Append sub-list to master list\n\nprint(result)\n\n[[0, 0, 0, 0], [0, 1, 2, 3], [0, 2, 4, 6]]"
+  },
+  {
+    "objectID": "hs25/pds/pds_exercises.html#exercise-4",
+    "href": "hs25/pds/pds_exercises.html#exercise-4",
+    "title": "Python for Data Science - Exercises",
+    "section": "Exercise 4",
+    "text": "Exercise 4\nWrite a Python program to find all numbers between 200 and 500 (limits included) only containing even digits. Correct solution:\n\nmy_range = range(200, 501) # Include boarders\neven_digit_numbers = [] # Final result\n\nfor number in my_range: \n    test_result = []\n    for digit in str(number):\n        if int(digit) % 2 == 1:\n            test_result.append(True) # Add true for odd digit\n        else:\n            test_result.append(False) # Add false for even digit\n    if any(test_result):\n        pass # Pass if any odd digit (false) is in test_result\n    else:\n        even_digit_numbers.append(number) # Append to final result\n\nprint(even_digit_numbers)\n\n[200, 202, 204, 206, 208, 220, 222, 224, 226, 228, 240, 242, 244, 246, 248, 260, 262, 264, 266, 268, 280, 282, 284, 286, 288, 400, 402, 404, 406, 408, 420, 422, 424, 426, 428, 440, 442, 444, 446, 448, 460, 462, 464, 466, 468, 480, 482, 484, 486, 488]"
+  },
+  {
+    "objectID": "hs25/pds/pds_exercises.html#exercise-5",
+    "href": "hs25/pds/pds_exercises.html#exercise-5",
+    "title": "Python for Data Science - Exercises",
+    "section": "Exercise 5",
+    "text": "Exercise 5\nWrite a Python program to guess a number between 1 to 10. First: Use the predefined code block to create a random number Second: The user is prompted to enter a guess. If the guess is wrong a message “to big” or “to small” is printed to the console and the prompt (user input) appears again until the guess is correct. If the guess is correct, “Well guessed!” will be printed and the program ends. Extension: The number of trials should be prompted as well: “Well done - you have tried it 4 times!”\n\n# Code block to create a random number\nfrom random import randint\nrandom_number = randint(1,10)\n# End code block to create a random number\n\ntrials = 0\n\nwhile True: # Infinitive loop till break\n    # Unsing fake user input\n    user_input = randint(1,10) # Also random\n    trials += 1 # Count trials\n    if user_input == random_number:\n        print(f\"Well done - you have tried it {trials} times!\")\n        break\n    elif user_input &lt; random_number:\n        print(\"Guess to low...\")\n    else:\n        print(\"Guess to high...\")\n\nGuess to low...\nGuess to low...\nGuess to low...\nGuess to low...\nGuess to high...\nWell done - you have tried it 6 times!"
+  },
+  {
+    "objectID": "hs25/pds/pds_exercises.html#exercise-6",
+    "href": "hs25/pds/pds_exercises.html#exercise-6",
+    "title": "Python for Data Science - Exercises",
+    "section": "Exercise 6",
+    "text": "Exercise 6\nSuppose we wish to draw a Christmas tree. Example tree - desired height: 8 The result looks like:\n     x\n    xxx\n   xxxxx\n  xxxxxxx\n xxxxxxxxx\nxxxxxxxxxxx\n    xxx\n    xxx\nCreate a program that asks the user for the height of the Christmas tree (trunk included) and then draws the tree. The height of the trunk is always 2 and the width is 3 in case the entire height is &gt; 5 and 1 in case the tree is smaller.\n\ntotal_height = 8\ntrunk_height = 2\ncrown_height = total_height - trunk_height\nmax_crown_width = 2 * (crown_height - 1) + 1\n\nif total_height &gt; 5:\n    trunk_width = 3\nelse:\n    trunk_width = 1\n\ni = 0\nwhile i &lt; crown_height:\n    current_crown_width = 2 * i + 1\n    spaces = (max_crown_width - current_crown_width) // 2\n    print(\" \" * spaces + \"x\" * current_crown_width)\n    i += 1\n\ntrunk_padding = (max_crown_width - trunk_width) // 2\n\nj = 0\nwhile j &lt; trunk_height:\n    print(\" \" * trunk_padding + \"x\" * trunk_width)\n    j += 1\n\n     x\n    xxx\n   xxxxx\n  xxxxxxx\n xxxxxxxxx\nxxxxxxxxxxx\n    xxx\n    xxx"
   },
   {
     "objectID": "hs25/sa/sa_exercises.html",
@@ -544,6 +691,48 @@
     "title": "Classical and Bayesian Statistics - Exercises",
     "section": "Problem 2.7",
     "text": "Problem 2.7\n\np_earthquake &lt;- 0.04\np_typhoon &lt;- 0.08\n\np_annual &lt;- p_earthquake + p_typhoon - p_earthquake * p_typhoon\n\nprint(p_annual)\n\n[1] 0.1168"
+  },
+  {
+    "objectID": "hs25/sa/sa_exercises.html#problem-3.1",
+    "href": "hs25/sa/sa_exercises.html#problem-3.1",
+    "title": "Classical and Bayesian Statistics - Exercises",
+    "section": "Problem 3.1",
+    "text": "Problem 3.1\n\\[\np_2 = 1 - 0.3 - 0.1 - 0.2 - 0.3 = 0.1\n\\]"
+  },
+  {
+    "objectID": "hs25/sa/sa_exercises.html#problem-3.2",
+    "href": "hs25/sa/sa_exercises.html#problem-3.2",
+    "title": "Classical and Bayesian Statistics - Exercises",
+    "section": "Problem 3.2",
+    "text": "Problem 3.2\n\na\nThe probabilities in the table sum to one, so it is a probability distribution.\n\\[\n\\sum P(X = k) = 1\n\\]\n\n\nb\n\\[\np(2 \\le k \\le 4) = 0.2 + 0.2 + 0.1 = 0.5\n\\]\n\n\nc\n\\[\np(k \\gt 2) = 0.2 + 0.1 + 0.1 = 0.4\n\\]\n\n\nd\n\\[\np(k \\le 4) = 1 - 0.1 = 0.9\n\\]\n\n\ne\n\\[\np(k \\gt 1) = 1 - 0.4 = 0.6\n\\]"
+  },
+  {
+    "objectID": "hs25/sa/sa_exercises.html#problem-3.3",
+    "href": "hs25/sa/sa_exercises.html#problem-3.3",
+    "title": "Classical and Bayesian Statistics - Exercises",
+    "section": "Problem 3.3",
+    "text": "Problem 3.3\n\na\n\\[\np(k \\le 13) = 0.992\n\\]\n\n\nb\n\\[\np(k \\ge 10) = 1 - 0.939 = 0.061\n\\]\n\n\nc\n\\[\np(k = 15) = 1 - 0.999 = 0.001\n\\]\n\n\nd\n\\[\np(9 \\le k \\le 12) = 0.989 - 0.711 = 0.282\n\\]"
+  },
+  {
+    "objectID": "hs25/sa/sa_exercises.html#problem-3.4",
+    "href": "hs25/sa/sa_exercises.html#problem-3.4",
+    "title": "Classical and Bayesian Statistics - Exercises",
+    "section": "Problem 3.4",
+    "text": "Problem 3.4\n\na\n\\[\n\\Omega = \\{\\text{TTT}, \\text{TTH}, \\text{THT}, \\text{HTT}, \\text{THH}, \\text{HTH}, \\text{HHT}, \\text{HHH}\\}\n\\] \\[\nP(X = 0) = \\frac{1}{8}\n\\] \\[\nP(X = 1) = \\frac{3}{8}\n\\] \\[\nP(X = 2) = \\frac{3}{8}\n\\] \\[\nP(X = 3) = \\frac{1}{8}\n\\]\n\n\nb\n\\[\np(x = 2) = \\frac{3}{8}\n\\]\n\n\nc\n\\[\np(X \\ge 2) = \\frac{3}{8} + \\frac{1}{8} = \\frac{1}{2}\n\\]\n\n\nd\n\\[\np(X \\le 1) = \\frac{1}{8} + \\frac{3}{8} = \\frac{1}{2}\n\\]"
+  },
+  {
+    "objectID": "hs25/sa/sa_exercises.html#problem-3.5",
+    "href": "hs25/sa/sa_exercises.html#problem-3.5",
+    "title": "Classical and Bayesian Statistics - Exercises",
+    "section": "Problem 3.5",
+    "text": "Problem 3.5\n\nx_k &lt;- c(-5, -4, 1, 3, 6)\np &lt;- c(0.3, 0.1, 0.2, 0.3)\np_k &lt;- 1 - sum(p) # Calc p_k\ncat(\"Probability of -4 =\", p_k, \"\\n\")\n\nProbability of -4 = 0.1 \n\np &lt;- c(0.3, p_k, 0.1, 0.2, 0.3) # Reassign p\n\nmu &lt;- sum(x_k * p) # Calc expected value\nmu\n\n[1] 0.6"
+  },
+  {
+    "objectID": "hs25/sa/sa_exercises.html#problem-3.6",
+    "href": "hs25/sa/sa_exercises.html#problem-3.6",
+    "title": "Classical and Bayesian Statistics - Exercises",
+    "section": "Problem 3.6",
+    "text": "Problem 3.6\n\na\n\\[\np(x) = \\frac{1}{6} + \\frac{1}{6} = \\frac{1}{3}\n\\]\n\n\nb\n\nx &lt;- 2:12 # Sum of eyes\np &lt;- c(1, 2, 3, 4, 5, 6, 5, 4, 3, 2, 1) / 36 # Probability of summed eyes\n\nmu = sum(x * p)\nmu\n\n[1] 7\n\nvar = sum((x - mu)**2 * p)\nvar\n\n[1] 5.833333\n\nsd = sqrt(var)\nsd\n\n[1] 2.415229"
   },
   {
     "objectID": "hs25/csc/csc_exercises.html",
