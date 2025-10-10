@@ -147,3 +147,13 @@ Website.
 ## CSS
 
 CSS is a stylesheet language that is primarily used to describe the appearance and formatting of a document written in a markup language such as HTML.
+
+# Week 4: Algorithms & Programming Language Concepts
+
+Coming soon...
+
+# Week 5:Algorithms & Programming Language Concepts
+
+## Low Code Environments
+
+Combines visual program elements like variables, loops or conditional statements rather than specifying them textually.
