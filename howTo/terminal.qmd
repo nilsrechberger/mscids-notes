@@ -1,0 +1,74 @@
+---
+title: "How to... Terminal"
+---
+
+# Introduction
+
+The Terminal (also called Shell, Console, PowerShell, or Command Line) is a text-based interface to your computer. Back in time, when there were no fancy graphical user interfaces (UIs), you had to use the terminal to interact with your computer. Nowadays, we often use the mouse. Nevertheless, the terminal offers some significant advantages and is indispensable in many fields.
+
+# Setup
+
+For those who use an Apple device or have Linux installed: Congratulations! All of the following commands will run directly in your standard terminal.
+
+If you are using a Windows device: No problem. Just install the [**WSL** (Windows Subsystem for Linux)](https://learn.microsoft.com/en-us/windows/wsl/install) extension. This allows you to run Linux commands natively on Windows.
+
+# Commands
+
+We use the terminal by employing commands. You simply type a command and press $\text{Enter}$. There are many built-in commands, but you only need to know a few to get started.
+
+## Navigating the Terminal
+
+When you open your terminal, it usually shows your username, your device name, and the Current Working Directory — your current "position" in the file system. Sometimes, there is just the `$`-symbol, which often means you are in your Home Directory (the starting point).
+
+Use `pwd` (Print Working Directory) to show your current "position":
+
+```bash
+pwd
+```
+
+By using `cd` (Change Directory) followed by a path, you can move to that position:
+
+```bash
+cd path/to/my/notes
+```
+
+> Note: `cd` is used to go to a folder (directory), not a file.
+
+To move back to the parent directory (one level up), use `..`:
+
+```bash
+cd ..
+```
+
+## Getting an Overview
+
+When you arrive at a folder, you may want to know what's inside. Use `ls` (List) to list the contents of the folder:
+
+```bash
+ls
+```
+
+## Parameters and Options
+
+Sometimes, you can add a parameter or option to the command to get a special output. For instance, `ls` does not show hidden files by default. Running `ls -a` (all) lists all files in a folder, including the hidden ones:
+
+```bash
+ls -a
+```
+
+> Note: Any file can be made hidden by adding a period (`.`) to the beginning of the file name: `.hidden_notes.txt`.
+
+## Most Used Commands
+
+Here is a quick list of the most frequently used commands:
+
+  - `pwd`: **P**rint **W**orking **D**irectory (Shows the current directory).
+  - `ls`: **L**i**s**t (Lists all files in a directory).
+  - `cd`: **C**hange **D**irectory (Changes the current directory).
+  - `touch`: Creates a new, empty file.
+  - `mv`: **M**o**v**e (Moves a file or renames it).
+  - `rm`: **R**e**m**ove (Deletes a file or directory).
+
+# Do I Really Need All This?
+
+The short answer: Yes. There will be a time when you need to use the Terminal. Example: You have to use a Server for a study project. Servers often lack a graphical User Interface (UI) where you can click around with your mouse. The Terminal is often the only tool you can use to work on a server, manage files, and execute programs.
