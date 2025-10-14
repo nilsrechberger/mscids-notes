@@ -396,4 +396,4 @@ If the number of equations and numbers of unknowns in a linear system coincide (
 
 ## Rank Criterion
 
-A linear equation system $Ax=b$ has at least one solution (is consistent) if and only if the rank of the coefficient matrix A is equal to the rank of the augmented coefficient matrix $[A \quad b]$. The rank of the extended coefficient matrix $[A \quad b]$ is created by appending the inhomogeneity vector b as an additional last column to the matrix A.
+A linear equation system $Ax=b$ has at least one solution (is consistent) if and only if the rank of the coefficient matrix A is equal to the rank of the augmented coefficient matrix $[A \quad b]$. The rank of the extended coefficient matrix $[A \quad b]$ is created by appending the inhomogeneity vector b as an additional last column to the matrix $A$.
