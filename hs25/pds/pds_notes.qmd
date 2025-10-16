@@ -374,3 +374,43 @@ x = list(range(0, 11, 2))
 for idx, i in enumerate(x):
     print(f"Value {i} at Index {idx}")
 ```
+
+# SW05: Python Debugging
+
+## Remote App Development
+
+Modern data analysis methods (e.g. deep learning, optimisation) require large computational resources such as memory or gpu. Remote resources can be provided by individual institutions like HSLU, or rent from web service providers like Amazone Web Services (AWS) or Google Cloud Platform (GCP). Data scientists use two popular Python development environments for data analysis and reporting: Desktop IDE (PyCharm) and Notebooks (Jupyter).
+
+## Jupyter Nootebooks
+
+A Jupyter Notebook is a web-based, open-source tool that combines live code (like Python), equations, output, and narrative text (Markdown) into a single, interactive document. It is organized into cells and is a cornerstone of data science for combining execution and documentation, making analysis transparent and reproducible.
+
+## Debugging
+
+- Semantic errors: violating rules of coding language.
+- Syntax errors: missing code elements (e.g. parathesis).
+- Logical errors: correct syntax but incorrect directions causing undesired output.
+- Runtime errors: error happens when application is running or starting up.
+- ect.
+
+### Breakpoints
+
+Breakpoints define code locations where the execution shall stop. The execution is stopped before the selected line of code.
+
+### Debugger
+
+A debugger is a tool that allows developers to meticulously examine and control the execution of their code. It enables the setting of breakpoints, allowing the developer to inspect the current state of variables, the call stack (the sequence of function calls that led to the current point), and memory. This step-by-step execution, often called stepping (e.g., step over, step into, step out), is fundamental for isolating and understanding the root cause of bugs or unexpected behavior.
+
+## Enum data type
+
+An Enum is a set of symbolic names bound to unique values. Enumeration requires the package Enum.
+
+```{python}
+from enum import Enum
+```
+
+Enum allows handle a set of values:
+
+- days of the week
+- Colors
+- ect.
