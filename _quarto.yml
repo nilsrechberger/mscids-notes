@@ -34,7 +34,7 @@ website:
         menu:
           - text: "Terminal"
             href: "howTo/terminal.qmd"
-          - text: "Git"
+          - text: "Git/GitHub"
             href: "howTo/git.qmd"
           - text: "Python"
             href: "howTo/python.qmd"
