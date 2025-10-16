@@ -30,6 +30,18 @@ website:
            href: hs25/csc/csc_notes.qmd
          - text: "Exercises"
            href: hs25/csc/csc_exercises.qmd
+      - text: "How to"
+        menu:
+          - text: "Terminal"
+            href: "howTo/terminal.qmd"
+          - text: "Git"
+            href: "howTo/git.qmd"
+          - text: "Python"
+            href: "howTo/python.qmd"
+          - text: "Python Packages"
+            href: "howTo/pythonPackages.qmd"
+          - text: "Python Project"
+            href: "howTo/pythonProject.qmd"
       - text: "Sources"
         href: sources.qmd
 format:
