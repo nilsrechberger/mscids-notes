@@ -271,6 +271,27 @@ window.Quarto = {
   <li><a href="#properties-of-measurement-instruments" id="toc-properties-of-measurement-instruments" class="nav-link" data-scroll-target="#properties-of-measurement-instruments">Properties of measurement instruments</a></li>
   </ul></li>
   </ul></li>
+  <li><a href="#lecture-04-properties-of-doe" id="toc-lecture-04-properties-of-doe" class="nav-link" data-scroll-target="#lecture-04-properties-of-doe">Lecture 04: Properties of DoE</a>
+  <ul class="collapse">
+  <li><a href="#design-of-experiments-types" id="toc-design-of-experiments-types" class="nav-link" data-scroll-target="#design-of-experiments-types">Design of Experiments Types</a>
+  <ul class="collapse">
+  <li><a href="#trial-and-error" id="toc-trial-and-error" class="nav-link" data-scroll-target="#trial-and-error">Trial and error</a></li>
+  <li><a href="#one-factor-at-a-time" id="toc-one-factor-at-a-time" class="nav-link" data-scroll-target="#one-factor-at-a-time">One-factor-at-a-time</a></li>
+  <li><a href="#full-factorial-design" id="toc-full-factorial-design" class="nav-link" data-scroll-target="#full-factorial-design">Full factorial design</a></li>
+  </ul></li>
+  <li><a href="#factorial-design-with-interactions" id="toc-factorial-design-with-interactions" class="nav-link" data-scroll-target="#factorial-design-with-interactions">Factorial design with interactions</a>
+  <ul class="collapse">
+  <li><a href="#full-factorial-designs" id="toc-full-factorial-designs" class="nav-link" data-scroll-target="#full-factorial-designs">Full factorial designs</a></li>
+  <li><a href="#fractional-factorial-designs" id="toc-fractional-factorial-designs" class="nav-link" data-scroll-target="#fractional-factorial-designs">Fractional factorial designs</a></li>
+  </ul></li>
+  <li><a href="#quality-criteria-of-experiments" id="toc-quality-criteria-of-experiments" class="nav-link" data-scroll-target="#quality-criteria-of-experiments">Quality criteria of experiments</a>
+  <ul class="collapse">
+  <li><a href="#internal-validity" id="toc-internal-validity" class="nav-link" data-scroll-target="#internal-validity">Internal Validity</a></li>
+  <li><a href="#external-validity" id="toc-external-validity" class="nav-link" data-scroll-target="#external-validity">External Validity</a></li>
+  <li><a href="#construct-validity" id="toc-construct-validity" class="nav-link" data-scroll-target="#construct-validity">Construct Validity</a></li>
+  <li><a href="#relationship-between-internal-vs.-external-validity" id="toc-relationship-between-internal-vs.-external-validity" class="nav-link" data-scroll-target="#relationship-between-internal-vs.-external-validity">Relationship between Internal vs.&nbsp;External Validity</a></li>
+  </ul></li>
+  </ul></li>
   </ul>
 </nav>
     </div>
@@ -516,6 +537,99 @@ window.Quarto = {
 <li>Reliability: Reliability is the degree to which an instrument produces the same result each time under comparable conditions.</li>
 <li>Validity: Validity is the extent to which an instrument measures what was intended.</li>
 </ul>
+</section>
+</section>
+</section>
+<section id="lecture-04-properties-of-doe" class="level1">
+<h1>Lecture 04: Properties of DoE</h1>
+<section id="design-of-experiments-types" class="level2">
+<h2 class="anchored" data-anchor-id="design-of-experiments-types">Design of Experiments Types</h2>
+<section id="trial-and-error" class="level3">
+<h3 class="anchored" data-anchor-id="trial-and-error">Trial and error</h3>
+<p>Combination of parameters have no structure and are mixed randomly. No idea what factors influence how.</p>
+</section>
+<section id="one-factor-at-a-time" class="level3">
+<h3 class="anchored" data-anchor-id="one-factor-at-a-time">One-factor-at-a-time</h3>
+<p>Vary the first factor and then measure fuel consumption. Keep the setting with the lowest consumption and then vary the next factor. Easy to implement, but interaction between factors are not recognized. Research question is answered neither systematically nor exhaustively.</p>
+</section>
+<section id="full-factorial-design" class="level3">
+<h3 class="anchored" data-anchor-id="full-factorial-design">Full factorial design</h3>
+<p>Two levels (+/-) are defined per factor. All possible combinations of factor levels are varied. All main effects and all interactions can be determined. Can be used as a screening experiment to identify potentially important variables. The effort involved increases rapidly as the number of factors increases. Each additional factor doubles the number of combinations.</p>
+<section id="profile-plot" class="level4">
+<h4 class="anchored" data-anchor-id="profile-plot">Profile Plot</h4>
+<p>Impact of the factors on the dependent variable <span class="math inline">\(x\)</span>. Based model:</p>
+<p><span class="math display">\[
+y = \beta_0 + \beta_1 x_1 + \beta_2 x_2 \dots + \beta_n x_n
+\]</span></p>
+</section>
+</section>
+</section>
+<section id="factorial-design-with-interactions" class="level2">
+<h2 class="anchored" data-anchor-id="factorial-design-with-interactions">Factorial design with interactions</h2>
+<p>Interactions can occur in experiments with two or more independent variables. An interaction of two factors means that the two factors interact in a complex way. If there is an interaction, the effect of one factor depends on the levels of the other factor. Interaction terms are written as multiplication.</p>
+<ul>
+<li>Two way interaction: <span class="math inline">\(x_1 \times x_2\)</span></li>
+<li>Three way interaction: <span class="math inline">\(x_1 \times x_2 \times x_3\)</span></li>
+</ul>
+<p><span class="math display">\[
+y = \beta_0 + \beta_1 x_1 + \beta_2 x_2 + \beta_3 x_1 \times x_2
+\]</span></p>
+<section id="full-factorial-designs" class="level3">
+<h3 class="anchored" data-anchor-id="full-factorial-designs">Full factorial designs</h3>
+<p>Generalization of two-level full factorial design with <span class="math inline">\(k\)</span> factors and <span class="math inline">\(n\)</span> levels. All possible factor combinations are varied.</p>
+<p><span class="math display">\[
+\text{combinations} = n^k
+\]</span></p>
+</section>
+<section id="fractional-factorial-designs" class="level3">
+<h3 class="anchored" data-anchor-id="fractional-factorial-designs">Fractional factorial designs</h3>
+<p>Only a (balanced) part of the possible combinations of factors are varied.</p>
+<p><span class="math display">\[
+\text{combinations} = n^{k-1}
+\]</span></p>
+<section id="design" class="level4">
+<h4 class="anchored" data-anchor-id="design">Design</h4>
+<ul>
+<li>Procedure: The factor levels are determined before the experiment</li>
+<li>Factor combinations: Only a part of the possible combinations of factors are selected</li>
+<li>Restrictions: In fractional factorial designs, interactions can only be partially measured because not all possible combinations of factor levels are tested.</li>
+<li>Advantages: The effort involved is significantly lower compared to full factorial designs</li>
+<li>Statistical analysis: As in the case of full factorial design, but without interactions</li>
+</ul>
+</section>
+</section>
+</section>
+<section id="quality-criteria-of-experiments" class="level2">
+<h2 class="anchored" data-anchor-id="quality-criteria-of-experiments">Quality criteria of experiments</h2>
+<section id="internal-validity" class="level3">
+<h3 class="anchored" data-anchor-id="internal-validity">Internal Validity</h3>
+<p>Exists when changes in dependent variables (DV) are attributed to independent variables (IV). Increases with decreasing impact of nuisance variables.</p>
+<section id="population-validity" class="level4">
+<h4 class="anchored" data-anchor-id="population-validity">Population Validity</h4>
+<p>Degree to which the results of a study can be generalized from the sample to the whole population.</p>
+</section>
+<section id="situation-validity" class="level4">
+<h4 class="anchored" data-anchor-id="situation-validity">Situation Validity</h4>
+<p>Degree to which the findings of a study can be applied to different situations.</p>
+</section>
+</section>
+<section id="external-validity" class="level3">
+<h3 class="anchored" data-anchor-id="external-validity">External Validity</h3>
+<p>Exists when experimental results from a sample can be generalized to the entire population. Increases with increasing naturalness.</p>
+</section>
+<section id="construct-validity" class="level3">
+<h3 class="anchored" data-anchor-id="construct-validity">Construct Validity</h3>
+<p>Effectiveness of the measurement methods in precisely capturing the intended construct</p>
+</section>
+<section id="relationship-between-internal-vs.-external-validity" class="level3">
+<h3 class="anchored" data-anchor-id="relationship-between-internal-vs.-external-validity">Relationship between Internal vs.&nbsp;External Validity</h3>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="img/internal_vs_external_validity.png" class="img-fluid figure-img"></p>
+<figcaption>Relationship between Internal vs.&nbsp;External Validity</figcaption>
+</figure>
+</div>
+<p>The lowest general level of validity is at the bottom left for the quasi-experimental laboratory study, and the highest is at the top right for the experimental field study. A well-controlled lab experiment may maximize internal validity by eliminating confounding variables.</p>
 
 
 </section>
