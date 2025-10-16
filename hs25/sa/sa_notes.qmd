@@ -404,3 +404,93 @@ sd_X
 ```
 
 > Note: Means: Deviation on “average” 1.7 from 3.5.
+
+# Week 04: Continuous Distributions & Normal Distribution
+
+## Continuous Probability Distribution
+
+For continuous probability distributions, probabilities correspond to areas under density function. Range $W_X$ of a random variable: Set of all values $X$ can take. Random variable $X$ is continuous, if its range $W_X$ is continuous. For continuous random variable $X$ for all $x \in W_X$:
+
+$$
+P(X = x) = 0
+$$
+
+> Note: Probability distribution of $X$ can not be described by $P(X = x)$.
+
+## Probability Density
+
+Probability density function f(x) has the properties:
+
+- Function is not negative: $f(x) \ge 0$
+- Probability corresponds to area between $a$ and $b$ under $f(x)$: $P(a \lt X \le b )$
+- Total area under curve is $1$
+
+> Note: Values of f(x) are not probabilities, only areas are.
+
+## Quantiles of Continuous Probability Distribution
+
+For continuous distributions, the $\alpha$ quantile $q_\alpha$ is value where area (probability) under density function from $-\infty$ to $q_\alpha$ is just $\alpha$.
+
+![Quantiles of Continuous Probability Distribution](img/contProbDistrAlpha.png)
+
+## Normal Distribution
+
+The normal distribution $X \sim \mathcal{N}(\mu, \sigma^2)$ have the desity function:
+
+$$
+f(x) = \frac{1}{\sqrt{2\pi}\sigma} \exp\left\{ -\frac{1}{2} \left(\frac{x - \mu}{\sigma}\right)^2 \right\}
+$$
+
+With the expected value $E(X) = \mu$ and variance $Var(X) = \sigma^2$. The parameter $\mu$ shifts the curve horizontally from origin while $\sigma$ defines the shape of the curve.
+
+### Properties
+
+- Approx. $\frac{2}{3}$ of are between $\mu \pm \sigma$
+- Approx. 95% of area between $\mu \pm 2\sigma$
+
+### Calculate Normal Distributed Probability
+
+Calculation of IQ $P(X \le 130)$:
+
+```{r}
+# mean and sd are predefined in this task
+pnorm(q = 130, mean = 100, sd = 15)
+```
+
+since total area under curve is 1, $P(X \gt 130)$:
+
+```{r}
+1 - pnorm(q = 130, mean = 100, sd = 15)
+```
+
+Determine quantiles:
+
+```{r}
+qnorm(p = 0.025, mean = 100, sd = 15)
+qnorm(p = 0.975, mean = 100, sd = 15)
+```
+
+## i.i.d Assumption
+
+The i.i.d. assumption means a set of random variables are Independent (the value of one doesn't affect the others) and Identically Distributed (all come from the exact same probability distribution).
+
+### Key Figures
+
+#### $S_n$
+
+- $E(S_n) = n\mu$
+- $\text{Var}(S_n) = n\text{Var}(X_i)$
+- $\sigma(S_n) = \sqrt{n}\sigma_X$
+
+#### $\bar{X}_n$
+
+- $E(\bar{X}_n) = \mu$
+- $\text{Var}(\bar{X}_n) = \frac{\sigma^2_X}{n}$
+- $\sigma(\bar{X}_n) = \frac{\sigma_X}{\sqrt{n}}$
+
+> Note: Standard deviation of $X_n$ is called standard error of arithmetic mean.
+
+
+## Central Limit Theorem
+
+The Central Limit Theorem (CLT) states that, given a sufficiently large sample size ($n$), the distribution of the sample mean ($\bar{X}_n$) will be approximately normally distributed, regardless of the original population's distribution. This is true as long as the population has a finite mean ($\mu$) and variance ($\sigma^2$). In short: For large samples, the sample mean is normally distributed.
