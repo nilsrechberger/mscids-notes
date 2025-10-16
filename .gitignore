@@ -5,6 +5,7 @@
 /.venv/
 
 # Data directories
+*/data/
 */*/data/
 
 # Image directories
