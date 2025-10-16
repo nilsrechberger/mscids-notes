@@ -2,7 +2,7 @@
 title: "How to... Python"
 ---
 
- # Introduction
+# Introduction
 
 Python is a programming language designed for its simple readability and ease of use.
 
