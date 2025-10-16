@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>mscids-notes</title>
+<title>How to… Terminal – mscids-notes</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -20,25 +20,59 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
+/* CSS for syntax highlighting */
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { display: inline-block; text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
 </style>
 
 
-<script src="site_libs/quarto-nav/quarto-nav.js"></script>
-<script src="site_libs/quarto-nav/headroom.min.js"></script>
-<script src="site_libs/clipboard/clipboard.min.js"></script>
-<script src="site_libs/quarto-search/autocomplete.umd.js"></script>
-<script src="site_libs/quarto-search/fuse.min.js"></script>
-<script src="site_libs/quarto-search/quarto-search.js"></script>
-<meta name="quarto:offset" content="./">
-<script src="site_libs/quarto-html/quarto.js"></script>
-<script src="site_libs/quarto-html/popper.min.js"></script>
-<script src="site_libs/quarto-html/tippy.umd.min.js"></script>
-<script src="site_libs/quarto-html/anchor.min.js"></script>
-<link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting-e26003cea8cd680ca0c55a263523d882.css" rel="stylesheet" id="quarto-text-highlighting-styles">
-<script src="site_libs/bootstrap/bootstrap.min.js"></script>
-<link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="site_libs/bootstrap/bootstrap-8ef023257421bb572a6b5600f0392161.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<script src="../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../">
+<script src="../site_libs/quarto-html/quarto.js"></script>
+<script src="../site_libs/quarto-html/popper.min.js"></script>
+<script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-e26003cea8cd680ca0c55a263523d882.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../site_libs/bootstrap/bootstrap-8ef023257421bb572a6b5600f0392161.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -67,8 +101,37 @@ ul.task-list li input[type="checkbox"] {
   }
 }</script>
 
+  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
 
-<link rel="stylesheet" href="styles.css">
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN") {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
+
+<link rel="stylesheet" href="../styles.css">
 </head>
 
 <body class="nav-fixed">
@@ -78,7 +141,7 @@ ul.task-list li input[type="checkbox"] {
     <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
       <div class="navbar-container container-fluid">
       <div class="navbar-brand-container mx-auto">
-    <a class="navbar-brand" href="./index.html">
+    <a class="navbar-brand" href="../index.html">
     <span class="navbar-title">mscids-notes</span>
     </a>
   </div>
@@ -89,7 +152,7 @@ ul.task-list li input[type="checkbox"] {
           <div class="collapse navbar-collapse" id="navbarCollapse">
             <ul class="navbar-nav navbar-nav-scroll me-auto">
   <li class="nav-item">
-    <a class="nav-link active" href="./index.html" aria-current="page"> 
+    <a class="nav-link" href="../index.html"> 
 <span class="menu-text">Home</span></a>
   </li>  
   <li class="nav-item dropdown ">
@@ -98,11 +161,11 @@ ul.task-list li input[type="checkbox"] {
     </a>
     <ul class="dropdown-menu" aria-labelledby="nav-menu-python-for-data-science">    
         <li>
-    <a class="dropdown-item" href="./hs25/pds/pds_notes.html">
+    <a class="dropdown-item" href="../hs25/pds/pds_notes.html">
  <span class="dropdown-text">Notes</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="./hs25/pds/pds_exercises.html">
+    <a class="dropdown-item" href="../hs25/pds/pds_exercises.html">
  <span class="dropdown-text">Exercises</span></a>
   </li>  
     </ul>
@@ -113,21 +176,21 @@ ul.task-list li input[type="checkbox"] {
     </a>
     <ul class="dropdown-menu" aria-labelledby="nav-menu-classical-and-bayesian-statistics">    
         <li>
-    <a class="dropdown-item" href="./hs25/sa/sa_notes.html">
+    <a class="dropdown-item" href="../hs25/sa/sa_notes.html">
  <span class="dropdown-text">Notes</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="./hs25/sa/sa_exercises.html">
+    <a class="dropdown-item" href="../hs25/sa/sa_exercises.html">
  <span class="dropdown-text">Exercises</span></a>
   </li>  
     </ul>
   </li>
   <li class="nav-item">
-    <a class="nav-link" href="./hs25/lia1/lia1_notes.html"> 
+    <a class="nav-link" href="../hs25/lia1/lia1_notes.html"> 
 <span class="menu-text">Linear Algebra 01</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="./hs25/doe/doe_notes.html"> 
+    <a class="nav-link" href="../hs25/doe/doe_notes.html"> 
 <span class="menu-text">Design of Experiments</span></a>
   </li>  
   <li class="nav-item dropdown ">
@@ -136,11 +199,11 @@ ul.task-list li input[type="checkbox"] {
     </a>
     <ul class="dropdown-menu" aria-labelledby="nav-menu-computer-science-concepts-for-data-scientists">    
         <li>
-    <a class="dropdown-item" href="./hs25/csc/csc_notes.html">
+    <a class="dropdown-item" href="../hs25/csc/csc_notes.html">
  <span class="dropdown-text">Notes</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="./hs25/csc/csc_exercises.html">
+    <a class="dropdown-item" href="../hs25/csc/csc_exercises.html">
  <span class="dropdown-text">Exercises</span></a>
   </li>  
     </ul>
@@ -151,29 +214,29 @@ ul.task-list li input[type="checkbox"] {
     </a>
     <ul class="dropdown-menu" aria-labelledby="nav-menu-how-to">    
         <li>
-    <a class="dropdown-item" href="./howTo/terminal.html">
+    <a class="dropdown-item" href="../howTo/terminal.html">
  <span class="dropdown-text">Terminal</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="./howTo/git.html">
+    <a class="dropdown-item" href="../howTo/git.html">
  <span class="dropdown-text">Git</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="./howTo/python.html">
+    <a class="dropdown-item" href="../howTo/python.html">
  <span class="dropdown-text">Python</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="./howTo/pythonPackages.html">
+    <a class="dropdown-item" href="../howTo/pythonPackages.html">
  <span class="dropdown-text">Python Packages</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="./howTo/pythonProject.html">
+    <a class="dropdown-item" href="../howTo/pythonProject.html">
  <span class="dropdown-text">Python Project</span></a>
   </li>  
     </ul>
   </li>
   <li class="nav-item">
-    <a class="nav-link" href="./sources.html"> 
+    <a class="nav-link" href="../sources.html"> 
 <span class="menu-text">Sources</span></a>
   </li>  
 </ul>
@@ -192,12 +255,16 @@ ul.task-list li input[type="checkbox"] {
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#hey-there-fellow-students" id="toc-hey-there-fellow-students" class="nav-link active" data-scroll-target="#hey-there-fellow-students">Hey there, fellow students! 👋</a>
+  <li><a href="#introduction" id="toc-introduction" class="nav-link active" data-scroll-target="#introduction">Introduction</a></li>
+  <li><a href="#setup" id="toc-setup" class="nav-link" data-scroll-target="#setup">Setup</a></li>
+  <li><a href="#commands" id="toc-commands" class="nav-link" data-scroll-target="#commands">Commands</a>
   <ul class="collapse">
-  <li><a href="#quick-heads-up" id="toc-quick-heads-up" class="nav-link" data-scroll-target="#quick-heads-up">Quick Heads-Up! 📝</a></li>
-  <li><a href="#disclaimer" id="toc-disclaimer" class="nav-link" data-scroll-target="#disclaimer">Disclaimer 🚨</a></li>
-  <li><a href="#spotted-a-mistake" id="toc-spotted-a-mistake" class="nav-link" data-scroll-target="#spotted-a-mistake">Spotted a Mistake? 👀</a></li>
+  <li><a href="#navigating-the-terminal" id="toc-navigating-the-terminal" class="nav-link" data-scroll-target="#navigating-the-terminal">Navigating the Terminal</a></li>
+  <li><a href="#getting-an-overview" id="toc-getting-an-overview" class="nav-link" data-scroll-target="#getting-an-overview">Getting an Overview</a></li>
+  <li><a href="#parameters-and-options" id="toc-parameters-and-options" class="nav-link" data-scroll-target="#parameters-and-options">Parameters and Options</a></li>
+  <li><a href="#most-used-commands" id="toc-most-used-commands" class="nav-link" data-scroll-target="#most-used-commands">Most Used Commands</a></li>
   </ul></li>
+  <li><a href="#do-i-really-need-all-this" id="toc-do-i-really-need-all-this" class="nav-link" data-scroll-target="#do-i-really-need-all-this">Do I Really Need All This?</a></li>
   </ul>
 </nav>
     </div>
@@ -206,7 +273,7 @@ ul.task-list li input[type="checkbox"] {
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">mscids-notes</h1>
+<h1 class="title">How to… Terminal</h1>
 </div>
 
 
@@ -223,26 +290,62 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
-<section id="hey-there-fellow-students" class="level1">
-<h1>Hey there, fellow students! 👋</h1>
-<p>Here you’ll find a collection of my <strong>personal notes and solutions</strong> from our courses. I’ve decided to put them online in the hopes that they might help some of you out.</p>
-<section id="quick-heads-up" class="level3">
-<h3 class="anchored" data-anchor-id="quick-heads-up">Quick Heads-Up! 📝</h3>
-<p>Just a friendly reminder: everything you see here is based on my own understanding and approach. That means my solutions might be different from the official ones provided by our professors.</p>
-<p>Think of this as a <strong>secondary resource</strong> to complement your own work, not as an official answer key.</p>
+<section id="introduction" class="level1">
+<h1>Introduction</h1>
+<p>The Terminal (also called Shell, Console, PowerShell, or Command Line) is a text-based interface to your computer. Back in time, when there were no fancy graphical user interfaces (UIs), you had to use the terminal to interact with your computer. Nowadays, we often use the mouse. Nevertheless, the terminal offers some significant advantages and is indispensable in many fields.</p>
 </section>
-<section id="disclaimer" class="level3">
-<h3 class="anchored" data-anchor-id="disclaimer">Disclaimer 🚨</h3>
-<p>While I do my best, I can’t guarantee that everything is 100% correct or complete. I’m just a student trying to figure things out, same as you. Therefore, I’m not taking any responsibility for the accuracy of the content. <strong>Always double-check with official course materials!</strong></p>
+<section id="setup" class="level1">
+<h1>Setup</h1>
+<p>For those who use an Apple device or have Linux installed: Congratulations! All of the following commands will run directly in your standard terminal.</p>
+<p>If you are using a Windows device: No problem. Just install the <a href="https://learn.microsoft.com/en-us/windows/wsl/install"><strong>WSL</strong> (Windows Subsystem for Linux)</a> extension. This allows you to run Linux commands natively on Windows.</p>
 </section>
-<section id="spotted-a-mistake" class="level3">
-<h3 class="anchored" data-anchor-id="spotted-a-mistake">Spotted a Mistake? 👀</h3>
-<p>If you happen to find an error, I’d be super grateful if you could let me know. Just shoot me a quick email!</p>
-<p>📧 <strong><a href="mailto:nils.rechberger@stud.hslu.ch">nils.rechberger@stud.hslu.ch</a></strong></p>
-<p>Happy studying! 🚀</p>
+<section id="commands" class="level1">
+<h1>Commands</h1>
+<p>We use the terminal by employing commands. You simply type a command and press <span class="math inline">\(\text{Enter}\)</span>. There are many built-in commands, but you only need to know a few to get started.</p>
+<section id="navigating-the-terminal" class="level2">
+<h2 class="anchored" data-anchor-id="navigating-the-terminal">Navigating the Terminal</h2>
+<p>When you open your terminal, it usually shows your username, your device name, and the Current Working Directory — your current “position” in the file system. Sometimes, there is just the <code>$</code>-symbol, which often means you are in your Home Directory (the starting point).</p>
+<p>Use <code>pwd</code> (Print Working Directory) to show your current “position”:</p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="bu">pwd</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>By using <code>cd</code> (Change Directory) followed by a path, you can move to that position:</p>
+<div class="sourceCode" id="cb2"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="bu">cd</span> path/to/my/notes</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<blockquote class="blockquote">
+<p>Note: <code>cd</code> is used to go to a folder (directory), not a file.</p>
+</blockquote>
+<p>To move back to the parent directory (one level up), use <code>..</code>:</p>
+<div class="sourceCode" id="cb3"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="bu">cd</span> ..</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</section>
+<section id="getting-an-overview" class="level2">
+<h2 class="anchored" data-anchor-id="getting-an-overview">Getting an Overview</h2>
+<p>When you arrive at a folder, you may want to know what’s inside. Use <code>ls</code> (List) to list the contents of the folder:</p>
+<div class="sourceCode" id="cb4"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ls</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</section>
+<section id="parameters-and-options" class="level2">
+<h2 class="anchored" data-anchor-id="parameters-and-options">Parameters and Options</h2>
+<p>Sometimes, you can add a parameter or option to the command to get a special output. For instance, <code>ls</code> does not show hidden files by default. Running <code>ls -a</code> (all) lists all files in a folder, including the hidden ones:</p>
+<div class="sourceCode" id="cb5"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ls</span> <span class="at">-a</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<blockquote class="blockquote">
+<p>Note: Any file can be made hidden by adding a period (<code>.</code>) to the beginning of the file name: <code>.hidden_notes.txt</code>.</p>
+</blockquote>
+</section>
+<section id="most-used-commands" class="level2">
+<h2 class="anchored" data-anchor-id="most-used-commands">Most Used Commands</h2>
+<p>Here is a quick list of the most frequently used commands:</p>
+<ul>
+<li><code>pwd</code>: <strong>P</strong>rint <strong>W</strong>orking <strong>D</strong>irectory (Shows the current directory).</li>
+<li><code>ls</code>: <strong>L</strong>i<strong>s</strong>t (Lists all files in a directory).</li>
+<li><code>cd</code>: <strong>C</strong>hange <strong>D</strong>irectory (Changes the current directory).</li>
+<li><code>touch</code>: Creates a new, empty file.</li>
+<li><code>mv</code>: <strong>M</strong>o<strong>v</strong>e (Moves a file or renames it).</li>
+<li><code>rm</code>: <strong>R</strong>e<strong>m</strong>ove (Deletes a file or directory).</li>
+</ul>
+</section>
+</section>
+<section id="do-i-really-need-all-this" class="level1">
+<h1>Do I Really Need All This?</h1>
+<p>The short answer: Yes. There will be a time when you need to use the Terminal. Example: You have to use a Server for a study project. Servers often lack a graphical User Interface (UI) where you can click around with your mouse. The Terminal is often the only tool you can use to work on a server, manage files, and execute programs.</p>
 
 
-</section>
 </section>
 
 </main> <!-- /main -->

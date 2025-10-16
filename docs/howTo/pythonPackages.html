@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Computer Science Concepts for Data Scientists - Exercises – mscids-notes</title>
+<title>How to… Python Packages – mscids-notes</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -57,22 +57,22 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </style>
 
 
-<script src="../../site_libs/quarto-nav/quarto-nav.js"></script>
-<script src="../../site_libs/quarto-nav/headroom.min.js"></script>
-<script src="../../site_libs/clipboard/clipboard.min.js"></script>
-<script src="../../site_libs/quarto-search/autocomplete.umd.js"></script>
-<script src="../../site_libs/quarto-search/fuse.min.js"></script>
-<script src="../../site_libs/quarto-search/quarto-search.js"></script>
-<meta name="quarto:offset" content="../../">
-<script src="../../site_libs/quarto-html/quarto.js"></script>
-<script src="../../site_libs/quarto-html/popper.min.js"></script>
-<script src="../../site_libs/quarto-html/tippy.umd.min.js"></script>
-<script src="../../site_libs/quarto-html/anchor.min.js"></script>
-<link href="../../site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-e26003cea8cd680ca0c55a263523d882.css" rel="stylesheet" id="quarto-text-highlighting-styles">
-<script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
-<link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../../site_libs/bootstrap/bootstrap-8ef023257421bb572a6b5600f0392161.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js" integrity="sha512-bLT0Qm9VnAYZDflyKcBaQ2gg0hSYNQrJ8RilYldYQ1FxQYoCLtUjuuRuZo+fjqhx/qtq/1itJ0C2ejDxltZVFg==" crossorigin="anonymous"></script><script src="../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../">
+<script src="../site_libs/quarto-html/quarto.js"></script>
+<script src="../site_libs/quarto-html/popper.min.js"></script>
+<script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-e26003cea8cd680ca0c55a263523d882.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../site_libs/bootstrap/bootstrap-8ef023257421bb572a6b5600f0392161.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -100,9 +100,9 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     "search-label": "Search"
   }
 }</script>
-<script src="../../site_libs/quarto-diagram/mermaid.min.js"></script>
-<script src="../../site_libs/quarto-diagram/mermaid-init.js"></script>
-<link href="../../site_libs/quarto-diagram/mermaid.css" rel="stylesheet">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.6/require.min.js" integrity="sha512-c3Nl8+7g4LMSTdrm621y7kf9v3SDPnhxLNhcjFJbKECVnmZHTdo+IRO05sNLTH/D3vA6u1X32ehoLC7WFVdheg==" crossorigin="anonymous"></script>
+
+<script type="application/javascript">define('jquery', [],function() {return window.jQuery;})</script>
 
   <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
   <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
@@ -134,7 +134,7 @@ window.Quarto = {
 };
 </script>
 
-<link rel="stylesheet" href="../../styles.css">
+<link rel="stylesheet" href="../styles.css">
 </head>
 
 <body class="nav-fixed">
@@ -144,7 +144,7 @@ window.Quarto = {
     <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
       <div class="navbar-container container-fluid">
       <div class="navbar-brand-container mx-auto">
-    <a class="navbar-brand" href="../../index.html">
+    <a class="navbar-brand" href="../index.html">
     <span class="navbar-title">mscids-notes</span>
     </a>
   </div>
@@ -155,7 +155,7 @@ window.Quarto = {
           <div class="collapse navbar-collapse" id="navbarCollapse">
             <ul class="navbar-nav navbar-nav-scroll me-auto">
   <li class="nav-item">
-    <a class="nav-link" href="../../index.html"> 
+    <a class="nav-link" href="../index.html"> 
 <span class="menu-text">Home</span></a>
   </li>  
   <li class="nav-item dropdown ">
@@ -164,11 +164,11 @@ window.Quarto = {
     </a>
     <ul class="dropdown-menu" aria-labelledby="nav-menu-python-for-data-science">    
         <li>
-    <a class="dropdown-item" href="../../hs25/pds/pds_notes.html">
+    <a class="dropdown-item" href="../hs25/pds/pds_notes.html">
  <span class="dropdown-text">Notes</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="../../hs25/pds/pds_exercises.html">
+    <a class="dropdown-item" href="../hs25/pds/pds_exercises.html">
  <span class="dropdown-text">Exercises</span></a>
   </li>  
     </ul>
@@ -179,21 +179,21 @@ window.Quarto = {
     </a>
     <ul class="dropdown-menu" aria-labelledby="nav-menu-classical-and-bayesian-statistics">    
         <li>
-    <a class="dropdown-item" href="../../hs25/sa/sa_notes.html">
+    <a class="dropdown-item" href="../hs25/sa/sa_notes.html">
  <span class="dropdown-text">Notes</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="../../hs25/sa/sa_exercises.html">
+    <a class="dropdown-item" href="../hs25/sa/sa_exercises.html">
  <span class="dropdown-text">Exercises</span></a>
   </li>  
     </ul>
   </li>
   <li class="nav-item">
-    <a class="nav-link" href="../../hs25/lia1/lia1_notes.html"> 
+    <a class="nav-link" href="../hs25/lia1/lia1_notes.html"> 
 <span class="menu-text">Linear Algebra 01</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="../../hs25/doe/doe_notes.html"> 
+    <a class="nav-link" href="../hs25/doe/doe_notes.html"> 
 <span class="menu-text">Design of Experiments</span></a>
   </li>  
   <li class="nav-item dropdown ">
@@ -202,11 +202,11 @@ window.Quarto = {
     </a>
     <ul class="dropdown-menu" aria-labelledby="nav-menu-computer-science-concepts-for-data-scientists">    
         <li>
-    <a class="dropdown-item" href="../../hs25/csc/csc_notes.html">
+    <a class="dropdown-item" href="../hs25/csc/csc_notes.html">
  <span class="dropdown-text">Notes</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="../../hs25/csc/csc_exercises.html">
+    <a class="dropdown-item" href="../hs25/csc/csc_exercises.html">
  <span class="dropdown-text">Exercises</span></a>
   </li>  
     </ul>
@@ -217,29 +217,29 @@ window.Quarto = {
     </a>
     <ul class="dropdown-menu" aria-labelledby="nav-menu-how-to">    
         <li>
-    <a class="dropdown-item" href="../../howTo/terminal.html">
+    <a class="dropdown-item" href="../howTo/terminal.html">
  <span class="dropdown-text">Terminal</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="../../howTo/git.html">
+    <a class="dropdown-item" href="../howTo/git.html">
  <span class="dropdown-text">Git</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="../../howTo/python.html">
+    <a class="dropdown-item" href="../howTo/python.html">
  <span class="dropdown-text">Python</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="../../howTo/pythonPackages.html">
+    <a class="dropdown-item" href="../howTo/pythonPackages.html">
  <span class="dropdown-text">Python Packages</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="../../howTo/pythonProject.html">
+    <a class="dropdown-item" href="../howTo/pythonProject.html">
  <span class="dropdown-text">Python Project</span></a>
   </li>  
     </ul>
   </li>
   <li class="nav-item">
-    <a class="nav-link" href="../../sources.html"> 
+    <a class="nav-link" href="../sources.html"> 
 <span class="menu-text">Sources</span></a>
   </li>  
 </ul>
@@ -258,32 +258,11 @@ window.Quarto = {
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#week-1-case-study-bits-bytes" id="toc-week-1-case-study-bits-bytes" class="nav-link active" data-scroll-target="#week-1-case-study-bits-bytes">Week 1: Case Study: Bits &amp; Bytes</a>
-  <ul class="collapse">
-  <li><a href="#integer-part-45" id="toc-integer-part-45" class="nav-link" data-scroll-target="#integer-part-45">1. Integer Part (<code>45</code>)</a></li>
-  <li><a href="#fractional-part-0.375" id="toc-fractional-part-0.375" class="nav-link" data-scroll-target="#fractional-part-0.375">2. Fractional Part (<code>0.375</code>)</a></li>
-  <li><a href="#combine" id="toc-combine" class="nav-link" data-scroll-target="#combine">3. Combine</a></li>
-  </ul></li>
-  <li><a href="#week-2-computer-networks" id="toc-week-2-computer-networks" class="nav-link" data-scroll-target="#week-2-computer-networks">Week 2: Computer Networks</a>
-  <ul class="collapse">
-  <li><a href="#exercise-1-internet-delays-and-routes" id="toc-exercise-1-internet-delays-and-routes" class="nav-link" data-scroll-target="#exercise-1-internet-delays-and-routes">Exercise 1: Internet Delays and Routes</a>
-  <ul class="collapse">
-  <li><a href="#a" id="toc-a" class="nav-link" data-scroll-target="#a">a</a></li>
-  <li><a href="#b" id="toc-b" class="nav-link" data-scroll-target="#b">b</a></li>
-  </ul></li>
-  <li><a href="#exercise-2-internet-delays" id="toc-exercise-2-internet-delays" class="nav-link" data-scroll-target="#exercise-2-internet-delays">Exercise 2: Internet Delays</a>
-  <ul class="collapse">
-  <li><a href="#a-1" id="toc-a-1" class="nav-link" data-scroll-target="#a-1">a</a></li>
-  </ul></li>
-  <li><a href="#exercise-3-domains-hosts-and-urls" id="toc-exercise-3-domains-hosts-and-urls" class="nav-link" data-scroll-target="#exercise-3-domains-hosts-and-urls">Exercise 3: Domains, Hosts and URLs</a></li>
-  <li><a href="#exercise-4-http-protocol" id="toc-exercise-4-http-protocol" class="nav-link" data-scroll-target="#exercise-4-http-protocol">Exercise 4: http Protocol</a></li>
-  </ul></li>
-  <li><a href="#week-3-web-applications-html" id="toc-week-3-web-applications-html" class="nav-link" data-scroll-target="#week-3-web-applications-html">Week 3: Web Applications &amp; HTML</a>
-  <ul class="collapse">
-  <li><a href="#exercise-2-develop-a-web-page---task-1" id="toc-exercise-2-develop-a-web-page---task-1" class="nav-link" data-scroll-target="#exercise-2-develop-a-web-page---task-1">Exercise 2: Develop a web page - Task 1</a></li>
-  <li><a href="#exercise-2-develop-a-web-page---task-2" id="toc-exercise-2-develop-a-web-page---task-2" class="nav-link" data-scroll-target="#exercise-2-develop-a-web-page---task-2">Exercise 2: Develop a web page - Task 2</a></li>
-  <li><a href="#exercise-3-develop-a-css-file" id="toc-exercise-3-develop-a-css-file" class="nav-link" data-scroll-target="#exercise-3-develop-a-css-file">Exercise 3: Develop a CSS file</a></li>
-  </ul></li>
+  <li><a href="#introduction" id="toc-introduction" class="nav-link active" data-scroll-target="#introduction">Introduction</a></li>
+  <li><a href="#numpy" id="toc-numpy" class="nav-link" data-scroll-target="#numpy">NumPy</a></li>
+  <li><a href="#pandas" id="toc-pandas" class="nav-link" data-scroll-target="#pandas">Pandas</a></li>
+  <li><a href="#matplotlib" id="toc-matplotlib" class="nav-link" data-scroll-target="#matplotlib">Matplotlib</a></li>
+  <li><a href="#more-to-explore" id="toc-more-to-explore" class="nav-link" data-scroll-target="#more-to-explore">More to explore</a></li>
   </ul>
 </nav>
     </div>
@@ -292,7 +271,7 @@ window.Quarto = {
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">Computer Science Concepts for Data Scientists - Exercises</h1>
+<h1 class="title">How to… Python Packages</h1>
 </div>
 
 
@@ -309,214 +288,229 @@ window.Quarto = {
 </header>
 
 
-<section id="week-1-case-study-bits-bytes" class="level1">
-<h1>Week 1: Case Study: Bits &amp; Bytes</h1>
-<p><strong>Format:</strong> <code>IIIIIIII.FFFF</code> (8 bits integer, 4 bits fraction)</p>
-<p><strong>Example: <code>45.375</code></strong></p>
-<section id="integer-part-45" class="level3">
-<h3 class="anchored" data-anchor-id="integer-part-45">1. Integer Part (<code>45</code>)</h3>
+<section id="introduction" class="level1">
+<h1>Introduction</h1>
+<p>Python inherently offers useful functionalities such as <code>print()</code>, <code>enumerate()</code>, or <code>list.append()</code>. However, our projects often require more specific tools. This is where packages (or libraries) come in. Packages are extensions for Python that provide specialized functions and tools to efficiently solve a variety of problems.</p>
+<p>The most frequently used packages include:</p>
 <ul>
-<li><strong>Method:</strong> Repeatedly divide by 2 &amp; note the remainder.</li>
-<li><strong>Calculation:</strong>
-<ul>
-<li><code>45 / 2 = 22</code> Remainder <code>1</code></li>
-<li><code>22 / 2 = 11</code> Remainder <code>0</code></li>
-<li><code>11 / 2 = 5</code> Remainder <code>1</code></li>
-<li><code>5 / 2  = 2</code> Remainder <code>1</code></li>
-<li><code>2 / 2  = 1</code> Remainder <code>0</code></li>
-<li><code>1 / 2  = 0</code> Remainder <code>1</code></li>
-</ul></li>
-<li><strong>Result (read remainders from bottom to top):</strong> <code>101101</code></li>
-<li><strong>Pad to 8 bits (on the left):</strong> <code>00101101</code></li>
+<li><code>numpy</code>: For fast numerical and mathematical computations.</li>
+<li><code>pandas</code>: For the efficient processing of large amounts of structured data (tables).</li>
+<li><code>matplotlib</code>: For creating data visualizations and diagrams.</li>
 </ul>
+<p>Instead of treating every function of these packages in detail, which would be too extensive, this summary focuses on practical application examples for each presented package.</p>
 </section>
-<section id="fractional-part-0.375" class="level3">
-<h3 class="anchored" data-anchor-id="fractional-part-0.375">2. Fractional Part (<code>0.375</code>)</h3>
-<ul>
-<li><strong>Method:</strong> Repeatedly multiply by 2 &amp; note the integer part.</li>
-<li><strong>Calculation:</strong>
-<ul>
-<li><code>0.375 * 2 = 0.75</code> -&gt; <code>0</code></li>
-<li><code>0.75  * 2 = 1.5</code> -&gt; <code>1</code></li>
-<li><code>0.5   * 2 = 1.0</code> -&gt; <code>1</code></li>
-</ul></li>
-<li><strong>Result (read digits from top to bottom):</strong> <code>011</code></li>
-<li><strong>Pad to 4 bits (on the right):</strong> <code>0110</code></li>
-</ul>
-</section>
-<section id="combine" class="level3">
-<h3 class="anchored" data-anchor-id="combine">3. Combine</h3>
-<ul>
-<li><strong>Integer:</strong> <code>00101101</code></li>
-<li><strong>Fraction:</strong> <code>0110</code></li>
-<li><strong>Final (12-Bit):</strong> <code>001011010110</code></li>
-</ul>
-<section id="special-case-loss-of-precision-ex-2.3" class="level4">
-<h4 class="anchored" data-anchor-id="special-case-loss-of-precision-ex-2.3">Special Case: Loss of Precision (Ex: <code>2.3</code>)</h4>
-<ul>
-<li>Not every fraction can be represented exactly.</li>
-<li><strong>Integer <code>2</code> -&gt; <code>00000010</code></strong></li>
-<li><strong>Fraction <code>0.3</code> -&gt; <code>0.010011...</code> (repeating)</strong></li>
-<li><strong>Truncated to 4 bits:</strong> <code>0100</code> (which represents <code>0.25</code>)</li>
-<li><strong>Final result for 2.3:</strong> <code>000000100100</code> (represents <code>2.25</code>)</li>
-</ul>
-</section>
-</section>
-</section>
-<section id="week-2-computer-networks" class="level1">
-<h1>Week 2: Computer Networks</h1>
-<section id="exercise-1-internet-delays-and-routes" class="level2">
-<h2 class="anchored" data-anchor-id="exercise-1-internet-delays-and-routes">Exercise 1: Internet Delays and Routes</h2>
-<section id="a" class="level3">
-<h3 class="anchored" data-anchor-id="a">a</h3>
-<p>Traceroute is a command line tool for determining the transport route of IP data packets between your own computer and a selected remote station.</p>
-<div class="sourceCode" id="cb1"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="ex">traceroute</span> gaia.cs.umass.edu</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</section>
-<section id="b" class="level3">
-<h3 class="anchored" data-anchor-id="b">b</h3>
-<p>The number of routers along the path depends on the network route and topology — for example, whether a VPN or proxy is used, but not on the local access medium (WiFi vs.&nbsp;Ethernet).</p>
-</section>
-</section>
-<section id="exercise-2-internet-delays" class="level2">
-<h2 class="anchored" data-anchor-id="exercise-2-internet-delays">Exercise 2: Internet Delays</h2>
-<section id="a-1" class="level3">
-<h3 class="anchored" data-anchor-id="a-1">a</h3>
+<section id="numpy" class="level1">
+<h1>NumPy</h1>
+<p>Transposing a matrix means swapping rows and columns. If <span class="math inline">\(A\)</span> is a matrix, then its transposed matrix <span class="math inline">\(A^T\)</span> is defined by:</p>
 <p><span class="math display">\[
-\text{file} = 4\text{MB} = 4000\text{bytes} = 32000\text{bites}
+(A^T)_{ij} = A_{ji}
 \]</span></p>
-<p><span class="math display">\[
-R_s = 1\text{Mbit/sec} = \dfrac{32000}{1000} = 32\text{sec}
-\]</span></p>
+<p>If one were to perform a matrix transposition with pure Python, one would have to manually iterate over rows and columns, leading to comparatively inefficient code.</p>
+<div id="9fa7ae0f" class="cell" data-execution_count="1">
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>matrix <span class="op">=</span> [[<span class="dv">1</span>, <span class="dv">2</span>], [<span class="dv">3</span>, <span class="dv">4</span>]]</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>rows <span class="op">=</span> <span class="bu">len</span>(matrix)</span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>cols <span class="op">=</span> <span class="bu">len</span>(matrix[<span class="dv">0</span>])</span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>transposed <span class="op">=</span> []</span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> i <span class="kw">in</span> <span class="bu">range</span>(cols):</span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a>    new_row <span class="op">=</span> []</span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a>    <span class="cf">for</span> j <span class="kw">in</span> <span class="bu">range</span>(rows):</span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a>        new_row.append(matrix[j][i])</span>
+<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a>    transposed.append(new_row)</span>
+<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(transposed)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[[1, 3], [2, 4]]</code></pre>
+</div>
+</div>
+<p>Depending on the size of the matrix, this process can be very time-consuming. With NumPy, we can use the optimized transposition function to solve this problem quickly and elegantly. NumPy operations are vectorized and run with significantly better performance.</p>
+<div id="641a77bb" class="cell" data-execution_count="2">
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>matrix <span class="op">=</span> np.array([[<span class="dv">1</span>, <span class="dv">2</span>], [<span class="dv">3</span>, <span class="dv">4</span>]])</span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a>transposed <span class="op">=</span> matrix.T</span>
+<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(transposed)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[[1 3]
+ [2 4]]</code></pre>
+</div>
+</div>
 </section>
-</section>
-<section id="exercise-3-domains-hosts-and-urls" class="level2">
-<h2 class="anchored" data-anchor-id="exercise-3-domains-hosts-and-urls">Exercise 3: Domains, Hosts and URLs</h2>
-<div class="cell" data-layout-align="default">
-<div class="cell-output-display">
+<section id="pandas" class="level1">
+<h1>Pandas</h1>
+<p>Working with structured data in native Python is possible, but quickly becomes complicated and error-prone with larger data sets. Even simply summarizing a table already requires a considerable amount of code and manual data processing.</p>
+<div id="2384a524" class="cell" data-execution_count="3">
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>sum_col_a <span class="op">=</span> <span class="fl">0.0</span></span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>sum_col_b <span class="op">=</span> <span class="fl">0.0</span></span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>count <span class="op">=</span> <span class="dv">0</span></span>
+<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a><span class="cf">with</span> <span class="bu">open</span>(<span class="st">"data/pandasTable.csv"</span>, <span class="st">"r"</span>) <span class="im">as</span> f:</span>
+<span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a>    header <span class="op">=</span> f.readline() </span>
+<span id="cb5-7"><a href="#cb5-7" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb5-8"><a href="#cb5-8" aria-hidden="true" tabindex="-1"></a>    <span class="cf">for</span> line <span class="kw">in</span> f:</span>
+<span id="cb5-9"><a href="#cb5-9" aria-hidden="true" tabindex="-1"></a>        values <span class="op">=</span> line.strip().split(<span class="st">','</span>)</span>
+<span id="cb5-10"><a href="#cb5-10" aria-hidden="true" tabindex="-1"></a>        sum_col_a <span class="op">+=</span> <span class="bu">float</span>(values[<span class="dv">1</span>])</span>
+<span id="cb5-11"><a href="#cb5-11" aria-hidden="true" tabindex="-1"></a>        sum_col_b <span class="op">+=</span> <span class="bu">float</span>(values[<span class="dv">2</span>])</span>
+<span id="cb5-12"><a href="#cb5-12" aria-hidden="true" tabindex="-1"></a>        count <span class="op">+=</span> <span class="dv">1</span></span>
+<span id="cb5-13"><a href="#cb5-13" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-14"><a href="#cb5-14" aria-hidden="true" tabindex="-1"></a>avg_col_a <span class="op">=</span> <span class="fl">0.0</span></span>
+<span id="cb5-15"><a href="#cb5-15" aria-hidden="true" tabindex="-1"></a>avg_col_b <span class="op">=</span> <span class="fl">0.0</span></span>
+<span id="cb5-16"><a href="#cb5-16" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-17"><a href="#cb5-17" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> count <span class="op">&gt;</span> <span class="dv">0</span>:</span>
+<span id="cb5-18"><a href="#cb5-18" aria-hidden="true" tabindex="-1"></a>    avg_col_a <span class="op">=</span> sum_col_a <span class="op">/</span> count</span>
+<span id="cb5-19"><a href="#cb5-19" aria-hidden="true" tabindex="-1"></a>    avg_col_b <span class="op">=</span> sum_col_b <span class="op">/</span> count</span>
+<span id="cb5-20"><a href="#cb5-20" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-21"><a href="#cb5-21" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"Number of Records:"</span>, count)</span>
+<span id="cb5-22"><a href="#cb5-22" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"Column ColA:"</span>)</span>
+<span id="cb5-23"><a href="#cb5-23" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"  Sum:"</span>, sum_col_a)</span>
+<span id="cb5-24"><a href="#cb5-24" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"  Average:"</span>, avg_col_a)</span>
+<span id="cb5-25"><a href="#cb5-25" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"Column ColB:"</span>)</span>
+<span id="cb5-26"><a href="#cb5-26" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"  Sum:"</span>, sum_col_b)</span>
+<span id="cb5-27"><a href="#cb5-27" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"  Average:"</span>, avg_col_b)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Number of Records: 5
+Column ColA:
+  Sum: 82.2
+  Average: 16.44
+Column ColB:
+  Sum: 805.0
+  Average: 161.0</code></pre>
+</div>
+</div>
+<p>With Pandas, we can easily read in structured data and retrieve summary statistics with a single function call, which simplifies data analysis considerably.</p>
+<div id="2943a899" class="cell" data-execution_count="4">
+<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a>df <span class="op">=</span> pd.read_csv(<span class="st">"data/pandasTable.csv"</span>)</span>
+<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a>df.describe()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="4">
 <div>
-<p></p><figure class="figure"><p></p>
+
+
+<table class="dataframe caption-top table table-sm table-striped small" data-quarto-postprocess="true" data-border="1">
+<thead>
+<tr class="header">
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th">ID</th>
+<th data-quarto-table-cell-role="th">hight</th>
+<th data-quarto-table-cell-role="th">width</th>
+<th data-quarto-table-cell-role="th">Group</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">count</td>
+<td>5.000000</td>
+<td>5.000000</td>
+<td>5.000000</td>
+<td>5.00000</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">mean</td>
+<td>3.000000</td>
+<td>16.440000</td>
+<td>161.000000</td>
+<td>1.80000</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">std</td>
+<td>1.581139</td>
+<td>10.582911</td>
+<td>108.880669</td>
+<td>0.83666</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">min</td>
+<td>1.000000</td>
+<td>5.900000</td>
+<td>50.000000</td>
+<td>1.00000</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">25%</td>
+<td>2.000000</td>
+<td>10.500000</td>
+<td>100.000000</td>
+<td>1.00000</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">50%</td>
+<td>3.000000</td>
+<td>12.700000</td>
+<td>125.000000</td>
+<td>2.00000</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">75%</td>
+<td>4.000000</td>
+<td>20.100000</td>
+<td>200.000000</td>
+<td>2.00000</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">max</td>
+<td>5.000000</td>
+<td>33.000000</td>
+<td>330.000000</td>
+<td>3.00000</td>
+</tr>
+</tbody>
+</table>
+
+</div>
+</div>
+</div>
+</section>
+<section id="matplotlib" class="level1">
+<h1>Matplotlib</h1>
+<p>Data visualization in pure Python is a challenge, as the language was not designed for drawing diagrams without specialized packages.</p>
+<div id="0cd249c8" class="cell" data-execution_count="5">
+<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>data <span class="op">=</span> {<span class="st">"A"</span>: <span class="dv">5</span>, <span class="st">"B"</span>: <span class="dv">10</span>, <span class="st">"C"</span>: <span class="dv">3</span>}</span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a>max_val <span class="op">=</span> <span class="bu">max</span>(data.values())</span>
+<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a>scale <span class="op">=</span> <span class="dv">50</span> <span class="op">/</span> max_val  <span class="co"># Skalierung auf max. 50 Zeichen Breite</span></span>
+<span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-5"><a href="#cb8-5" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> key, value <span class="kw">in</span> data.items():</span>
+<span id="cb8-6"><a href="#cb8-6" aria-hidden="true" tabindex="-1"></a>    bar_length <span class="op">=</span> <span class="bu">int</span>(value <span class="op">*</span> scale)</span>
+<span id="cb8-7"><a href="#cb8-7" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="ss">f"</span><span class="sc">{</span>key<span class="sc">}</span><span class="ss">: </span><span class="sc">{</span><span class="st">'#'</span> <span class="op">*</span> bar_length<span class="sc">}</span><span class="ss"> </span><span class="sc">{</span>value<span class="sc">}</span><span class="ss">"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>A: ######################### 5
+B: ################################################## 10
+C: ############### 3</code></pre>
+</div>
+</div>
+<p>Fortunately, Matplotlib provides us with a versatile library with which we can create various types of diagrams.</p>
+<div id="114e2741" class="cell" data-execution_count="6">
+<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span>
+<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a>data <span class="op">=</span> {<span class="st">"A"</span>: <span class="dv">5</span>, <span class="st">"B"</span>: <span class="dv">10</span>, <span class="st">"C"</span>: <span class="dv">3</span>}</span>
+<span id="cb10-4"><a href="#cb10-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-5"><a href="#cb10-5" aria-hidden="true" tabindex="-1"></a>keys <span class="op">=</span> <span class="bu">list</span>(data.keys())</span>
+<span id="cb10-6"><a href="#cb10-6" aria-hidden="true" tabindex="-1"></a>values <span class="op">=</span> <span class="bu">list</span>(data.values())</span>
+<span id="cb10-7"><a href="#cb10-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-8"><a href="#cb10-8" aria-hidden="true" tabindex="-1"></a>plt.figure()</span>
+<span id="cb10-9"><a href="#cb10-9" aria-hidden="true" tabindex="-1"></a>plt.bar(keys, values, color<span class="op">=</span>[<span class="st">'blue'</span>, <span class="st">'red'</span>, <span class="st">'green'</span>])</span>
+<span id="cb10-10"><a href="#cb10-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-11"><a href="#cb10-11" aria-hidden="true" tabindex="-1"></a>plt.title(<span class="st">'Simple Data Visualization'</span>)</span>
+<span id="cb10-12"><a href="#cb10-12" aria-hidden="true" tabindex="-1"></a>plt.xlabel(<span class="st">'Category'</span>)</span>
+<span id="cb10-13"><a href="#cb10-13" aria-hidden="true" tabindex="-1"></a>plt.ylabel(<span class="st">'Value'</span>)</span>
+<span id="cb10-14"><a href="#cb10-14" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-15"><a href="#cb10-15" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display">
 <div>
-<pre class="mermaid mermaid-js">flowchart TD
-    A(Root) --&gt; B(edu)
-    B --&gt; C[umass]
-    C --&gt; E(cs)
-    F[gaia]
-    D[www]
-
-    %% Subgraph trick
-    subgraph row1[ ]
-        direction LR
-        C
-        D
-    end
-
-    %% Subgraph trick
-    subgraph row2[ ]
-        direction LR
-        E
-        F
-    end
-</pre>
-</div>
-<p></p></figure><p></p>
+<figure class="figure">
+<p><img src="pythonPackages_files/figure-html/cell-7-output-1.png" class="img-fluid figure-img"></p>
+</figure>
 </div>
 </div>
 </div>
 </section>
-<section id="exercise-4-http-protocol" class="level2">
-<h2 class="anchored" data-anchor-id="exercise-4-http-protocol">Exercise 4: http Protocol</h2>
-<p>Whenever a user downloads a new web page a copy is saved on the local web server (cache). If the same page is requested again later by the same or another user AND it is still valid (i.e., the expiration date has not yet been reached), the page does not have to be fetched again from the remote web server.</p>
-</section>
-</section>
-<section id="week-3-web-applications-html" class="level1">
-<h1>Week 3: Web Applications &amp; HTML</h1>
-<section id="exercise-2-develop-a-web-page---task-1" class="level2">
-<h2 class="anchored" data-anchor-id="exercise-2-develop-a-web-page---task-1">Exercise 2: Develop a web page - Task 1</h2>
-<div class="sourceCode" id="cb2"><pre class="sourceCode html code-with-copy"><code class="sourceCode html"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="dt">&lt;!DOCTYPE</span> html<span class="dt">&gt;</span></span>
-<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="dt">&lt;</span><span class="kw">html</span><span class="dt">&gt;</span></span>
-<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>  <span class="dt">&lt;</span><span class="kw">head</span><span class="dt">&gt;</span></span>
-<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a>    Exercise 2: Develop a web page - Task 1</span>
-<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a>  <span class="dt">&lt;/</span><span class="kw">head</span><span class="dt">&gt;</span></span>
-<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a>  <span class="dt">&lt;</span><span class="kw">body</span><span class="dt">&gt;</span></span>
-<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a>    <span class="dt">&lt;</span><span class="kw">img</span><span class="ot"> src</span><span class="op">=</span><span class="st">"img/siliconValley.jpg"</span><span class="ot"> hight</span><span class="op">=</span><span class="st">"1000"</span><span class="ot"> width</span><span class="op">=</span><span class="st">"500"</span><span class="dt">&gt;</span></span>
-<span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a>  <span class="dt">&lt;/</span><span class="kw">body</span><span class="dt">&gt;</span></span>
-<span id="cb2-9"><a href="#cb2-9" aria-hidden="true" tabindex="-1"></a><span class="dt">&lt;/</span><span class="kw">html</span><span class="dt">&gt;</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<section id="more-to-explore" class="level1">
+<h1>More to explore</h1>
+<p>Thousands of packages are available for Python. However, it is advisable to use well-maintained and established standard packages such as <code>numpy</code>, <code>pandas</code>, and <code>matplotlib</code>, as these are regularly updated and have large communities.</p>
+<p>If you are looking for a specific tool, PyPI (Python Package Index) is the central hub: <a href="https://pypi.org/">PIPY</a></p>
 
 
-  
-    Exercise 2: Develop a web page - Task 1
-  
-  
-    <img src="img/siliconValley.jpg" hight="1000" width="500">
-  
-
-</section>
-<section id="exercise-2-develop-a-web-page---task-2" class="level2">
-<h2 class="anchored" data-anchor-id="exercise-2-develop-a-web-page---task-2">Exercise 2: Develop a web page - Task 2</h2>
-<div class="sourceCode" id="cb3"><pre class="sourceCode html code-with-copy"><code class="sourceCode html"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="dt">&lt;!DOCTYPE</span> html<span class="dt">&gt;</span></span>
-<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="dt">&lt;</span><span class="kw">html</span><span class="dt">&gt;</span></span>
-<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>  <span class="dt">&lt;</span><span class="kw">head</span><span class="dt">&gt;</span></span>
-<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a>    Exercise 2: Develop a web page - Task 2</span>
-<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a>  <span class="dt">&lt;/</span><span class="kw">head</span><span class="dt">&gt;</span></span>
-<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a>  <span class="dt">&lt;</span><span class="kw">body</span><span class="dt">&gt;</span></span>
-<span id="cb3-8"><a href="#cb3-8" aria-hidden="true" tabindex="-1"></a>    <span class="dt">&lt;</span><span class="kw">h2</span><span class="dt">&gt;</span>Links to well-known companies in Silicon Valley<span class="dt">&lt;/</span><span class="kw">h2</span><span class="dt">&gt;</span></span>
-<span id="cb3-9"><a href="#cb3-9" aria-hidden="true" tabindex="-1"></a>    <span class="dt">&lt;</span><span class="kw">img</span><span class="ot"> src</span><span class="op">=</span><span class="st">"img/tesla.png"</span><span class="dt">&gt;</span></span>
-<span id="cb3-10"><a href="#cb3-10" aria-hidden="true" tabindex="-1"></a>    <span class="dt">&lt;</span><span class="kw">h2</span><span class="dt">&gt;</span>Link to overview map Silicon Valley<span class="dt">&lt;/</span><span class="kw">h2</span><span class="dt">&gt;</span></span>
-<span id="cb3-11"><a href="#cb3-11" aria-hidden="true" tabindex="-1"></a>    <span class="dt">&lt;</span><span class="kw">a</span><span class="ot"> href</span><span class="op">=</span><span class="st">"https://siliconvalleyguide.info/"</span><span class="dt">&gt;</span>Map<span class="dt">&lt;/</span><span class="kw">a</span><span class="dt">&gt;</span></span>
-<span id="cb3-12"><a href="#cb3-12" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-13"><a href="#cb3-13" aria-hidden="true" tabindex="-1"></a>  <span class="dt">&lt;/</span><span class="kw">body</span><span class="dt">&gt;</span></span>
-<span id="cb3-14"><a href="#cb3-14" aria-hidden="true" tabindex="-1"></a><span class="dt">&lt;/</span><span class="kw">html</span><span class="dt">&gt;</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-
-
-  
-    Exercise 2: Develop a web page - Task 2
-  
-
-  
-    <h2 class="anchored">Links to well-known companies in Silicon Valley</h2>
-    <img src="img/tesla.png">
-    <h2 class="anchored">Link to overview map Silicon Valley</h2>
-    <a href="https://siliconvalleyguide.info/">Map</a>
-  
-
-
-</section>
-<section id="exercise-3-develop-a-css-file" class="level2">
-<h2 class="anchored" data-anchor-id="exercise-3-develop-a-css-file">Exercise 3: Develop a CSS file</h2>
-<div class="sourceCode" id="cb4"><pre class="sourceCode html code-with-copy"><code class="sourceCode html"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="dt">&lt;!DOCTYPE</span> html<span class="dt">&gt;</span></span>
-<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a><span class="dt">&lt;</span><span class="kw">html</span><span class="dt">&gt;</span></span>
-<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a><span class="dt">&lt;</span><span class="kw">head</span><span class="dt">&gt;</span></span>
-<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a>    <span class="dt">&lt;</span><span class="kw">title</span><span class="dt">&gt;</span>Exercise 3: Develop a CSS file<span class="dt">&lt;/</span><span class="kw">title</span><span class="dt">&gt;</span></span>
-<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a>    <span class="dt">&lt;</span><span class="kw">style</span><span class="dt">&gt;</span></span>
-<span id="cb4-7"><a href="#cb4-7" aria-hidden="true" tabindex="-1"></a>      body { </span>
-<span id="cb4-8"><a href="#cb4-8" aria-hidden="true" tabindex="-1"></a>        <span class="kw">background-color</span><span class="ch">:</span> <span class="cn">lightgoldenrodyellow</span><span class="op">;</span></span>
-<span id="cb4-9"><a href="#cb4-9" aria-hidden="true" tabindex="-1"></a>        <span class="kw">color</span><span class="ch">:</span> <span class="cn">blue</span><span class="op">;</span></span>
-<span id="cb4-10"><a href="#cb4-10" aria-hidden="true" tabindex="-1"></a>      }</span>
-<span id="cb4-11"><a href="#cb4-11" aria-hidden="true" tabindex="-1"></a>      </span>
-<span id="cb4-12"><a href="#cb4-12" aria-hidden="true" tabindex="-1"></a>      img {</span>
-<span id="cb4-13"><a href="#cb4-13" aria-hidden="true" tabindex="-1"></a>        <span class="kw">border</span><span class="ch">:</span> <span class="dv">2</span><span class="dt">px</span> <span class="dv">solid</span> <span class="cn">blue</span><span class="op">;</span></span>
-<span id="cb4-14"><a href="#cb4-14" aria-hidden="true" tabindex="-1"></a>        <span class="kw">padding</span><span class="ch">:</span> <span class="dv">5</span><span class="dt">px</span><span class="op">;</span></span>
-<span id="cb4-15"><a href="#cb4-15" aria-hidden="true" tabindex="-1"></a>      }</span>
-<span id="cb4-16"><a href="#cb4-16" aria-hidden="true" tabindex="-1"></a>      </span>
-<span id="cb4-17"><a href="#cb4-17" aria-hidden="true" tabindex="-1"></a>      a {</span>
-<span id="cb4-18"><a href="#cb4-18" aria-hidden="true" tabindex="-1"></a>        <span class="kw">color</span><span class="ch">:</span> <span class="cn">red</span><span class="op">;</span></span>
-<span id="cb4-19"><a href="#cb4-19" aria-hidden="true" tabindex="-1"></a>      }</span>
-<span id="cb4-20"><a href="#cb4-20" aria-hidden="true" tabindex="-1"></a>    <span class="dt">&lt;/</span><span class="kw">style</span><span class="dt">&gt;</span></span>
-<span id="cb4-21"><a href="#cb4-21" aria-hidden="true" tabindex="-1"></a><span class="dt">&lt;/</span><span class="kw">head</span><span class="dt">&gt;</span></span>
-<span id="cb4-22"><a href="#cb4-22" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb4-23"><a href="#cb4-23" aria-hidden="true" tabindex="-1"></a><span class="dt">&lt;</span><span class="kw">body</span><span class="dt">&gt;</span></span>
-<span id="cb4-24"><a href="#cb4-24" aria-hidden="true" tabindex="-1"></a>    <span class="dt">&lt;</span><span class="kw">h2</span><span class="dt">&gt;</span>Links to well-known companies in Silicon Valley<span class="dt">&lt;/</span><span class="kw">h2</span><span class="dt">&gt;</span>    </span>
-<span id="cb4-25"><a href="#cb4-25" aria-hidden="true" tabindex="-1"></a>    <span class="dt">&lt;</span><span class="kw">img</span><span class="ot"> src</span><span class="op">=</span><span class="st">"img/tesla.png"</span><span class="ot"> alt</span><span class="op">=</span><span class="st">"Tesla Logo"</span><span class="dt">&gt;</span></span>
-<span id="cb4-26"><a href="#cb4-26" aria-hidden="true" tabindex="-1"></a>    <span class="dt">&lt;</span><span class="kw">h2</span><span class="dt">&gt;</span>Link to overview map Silicon Valley<span class="dt">&lt;/</span><span class="kw">h2</span><span class="dt">&gt;</span></span>
-<span id="cb4-27"><a href="#cb4-27" aria-hidden="true" tabindex="-1"></a>    <span class="dt">&lt;</span><span class="kw">a</span><span class="ot"> href</span><span class="op">=</span><span class="st">"https://siliconvalleyguide.info/"</span><span class="dt">&gt;</span>Map<span class="dt">&lt;/</span><span class="kw">a</span><span class="dt">&gt;</span></span>
-<span id="cb4-28"><a href="#cb4-28" aria-hidden="true" tabindex="-1"></a><span class="dt">&lt;/</span><span class="kw">body</span><span class="dt">&gt;</span></span>
-<span id="cb4-29"><a href="#cb4-29" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb4-30"><a href="#cb4-30" aria-hidden="true" tabindex="-1"></a><span class="dt">&lt;/</span><span class="kw">html</span><span class="dt">&gt;</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-
-
-</section>
 </section>
 
 </main> <!-- /main -->

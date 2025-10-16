@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>mscids-notes</title>
+<title>How to… Git and GitHub – mscids-notes</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -20,25 +20,59 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
+/* CSS for syntax highlighting */
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { display: inline-block; text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
 </style>
 
 
-<script src="site_libs/quarto-nav/quarto-nav.js"></script>
-<script src="site_libs/quarto-nav/headroom.min.js"></script>
-<script src="site_libs/clipboard/clipboard.min.js"></script>
-<script src="site_libs/quarto-search/autocomplete.umd.js"></script>
-<script src="site_libs/quarto-search/fuse.min.js"></script>
-<script src="site_libs/quarto-search/quarto-search.js"></script>
-<meta name="quarto:offset" content="./">
-<script src="site_libs/quarto-html/quarto.js"></script>
-<script src="site_libs/quarto-html/popper.min.js"></script>
-<script src="site_libs/quarto-html/tippy.umd.min.js"></script>
-<script src="site_libs/quarto-html/anchor.min.js"></script>
-<link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting-e26003cea8cd680ca0c55a263523d882.css" rel="stylesheet" id="quarto-text-highlighting-styles">
-<script src="site_libs/bootstrap/bootstrap.min.js"></script>
-<link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="site_libs/bootstrap/bootstrap-8ef023257421bb572a6b5600f0392161.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<script src="../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../">
+<script src="../site_libs/quarto-html/quarto.js"></script>
+<script src="../site_libs/quarto-html/popper.min.js"></script>
+<script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-e26003cea8cd680ca0c55a263523d882.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../site_libs/bootstrap/bootstrap-8ef023257421bb572a6b5600f0392161.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -68,7 +102,7 @@ ul.task-list li input[type="checkbox"] {
 }</script>
 
 
-<link rel="stylesheet" href="styles.css">
+<link rel="stylesheet" href="../styles.css">
 </head>
 
 <body class="nav-fixed">
@@ -78,7 +112,7 @@ ul.task-list li input[type="checkbox"] {
     <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
       <div class="navbar-container container-fluid">
       <div class="navbar-brand-container mx-auto">
-    <a class="navbar-brand" href="./index.html">
+    <a class="navbar-brand" href="../index.html">
     <span class="navbar-title">mscids-notes</span>
     </a>
   </div>
@@ -89,7 +123,7 @@ ul.task-list li input[type="checkbox"] {
           <div class="collapse navbar-collapse" id="navbarCollapse">
             <ul class="navbar-nav navbar-nav-scroll me-auto">
   <li class="nav-item">
-    <a class="nav-link active" href="./index.html" aria-current="page"> 
+    <a class="nav-link" href="../index.html"> 
 <span class="menu-text">Home</span></a>
   </li>  
   <li class="nav-item dropdown ">
@@ -98,11 +132,11 @@ ul.task-list li input[type="checkbox"] {
     </a>
     <ul class="dropdown-menu" aria-labelledby="nav-menu-python-for-data-science">    
         <li>
-    <a class="dropdown-item" href="./hs25/pds/pds_notes.html">
+    <a class="dropdown-item" href="../hs25/pds/pds_notes.html">
  <span class="dropdown-text">Notes</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="./hs25/pds/pds_exercises.html">
+    <a class="dropdown-item" href="../hs25/pds/pds_exercises.html">
  <span class="dropdown-text">Exercises</span></a>
   </li>  
     </ul>
@@ -113,21 +147,21 @@ ul.task-list li input[type="checkbox"] {
     </a>
     <ul class="dropdown-menu" aria-labelledby="nav-menu-classical-and-bayesian-statistics">    
         <li>
-    <a class="dropdown-item" href="./hs25/sa/sa_notes.html">
+    <a class="dropdown-item" href="../hs25/sa/sa_notes.html">
  <span class="dropdown-text">Notes</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="./hs25/sa/sa_exercises.html">
+    <a class="dropdown-item" href="../hs25/sa/sa_exercises.html">
  <span class="dropdown-text">Exercises</span></a>
   </li>  
     </ul>
   </li>
   <li class="nav-item">
-    <a class="nav-link" href="./hs25/lia1/lia1_notes.html"> 
+    <a class="nav-link" href="../hs25/lia1/lia1_notes.html"> 
 <span class="menu-text">Linear Algebra 01</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="./hs25/doe/doe_notes.html"> 
+    <a class="nav-link" href="../hs25/doe/doe_notes.html"> 
 <span class="menu-text">Design of Experiments</span></a>
   </li>  
   <li class="nav-item dropdown ">
@@ -136,11 +170,11 @@ ul.task-list li input[type="checkbox"] {
     </a>
     <ul class="dropdown-menu" aria-labelledby="nav-menu-computer-science-concepts-for-data-scientists">    
         <li>
-    <a class="dropdown-item" href="./hs25/csc/csc_notes.html">
+    <a class="dropdown-item" href="../hs25/csc/csc_notes.html">
  <span class="dropdown-text">Notes</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="./hs25/csc/csc_exercises.html">
+    <a class="dropdown-item" href="../hs25/csc/csc_exercises.html">
  <span class="dropdown-text">Exercises</span></a>
   </li>  
     </ul>
@@ -151,29 +185,29 @@ ul.task-list li input[type="checkbox"] {
     </a>
     <ul class="dropdown-menu" aria-labelledby="nav-menu-how-to">    
         <li>
-    <a class="dropdown-item" href="./howTo/terminal.html">
+    <a class="dropdown-item" href="../howTo/terminal.html">
  <span class="dropdown-text">Terminal</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="./howTo/git.html">
+    <a class="dropdown-item" href="../howTo/git.html">
  <span class="dropdown-text">Git</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="./howTo/python.html">
+    <a class="dropdown-item" href="../howTo/python.html">
  <span class="dropdown-text">Python</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="./howTo/pythonPackages.html">
+    <a class="dropdown-item" href="../howTo/pythonPackages.html">
  <span class="dropdown-text">Python Packages</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="./howTo/pythonProject.html">
+    <a class="dropdown-item" href="../howTo/pythonProject.html">
  <span class="dropdown-text">Python Project</span></a>
   </li>  
     </ul>
   </li>
   <li class="nav-item">
-    <a class="nav-link" href="./sources.html"> 
+    <a class="nav-link" href="../sources.html"> 
 <span class="menu-text">Sources</span></a>
   </li>  
 </ul>
@@ -192,11 +226,19 @@ ul.task-list li input[type="checkbox"] {
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#hey-there-fellow-students" id="toc-hey-there-fellow-students" class="nav-link active" data-scroll-target="#hey-there-fellow-students">Hey there, fellow students! 👋</a>
+  <li><a href="#introduction" id="toc-introduction" class="nav-link active" data-scroll-target="#introduction">Introduction</a></li>
+  <li><a href="#git-for-versioning" id="toc-git-for-versioning" class="nav-link" data-scroll-target="#git-for-versioning">Git for Versioning</a></li>
+  <li><a href="#the-git-workflow" id="toc-the-git-workflow" class="nav-link" data-scroll-target="#the-git-workflow">The Git Workflow</a>
   <ul class="collapse">
-  <li><a href="#quick-heads-up" id="toc-quick-heads-up" class="nav-link" data-scroll-target="#quick-heads-up">Quick Heads-Up! 📝</a></li>
-  <li><a href="#disclaimer" id="toc-disclaimer" class="nav-link" data-scroll-target="#disclaimer">Disclaimer 🚨</a></li>
-  <li><a href="#spotted-a-mistake" id="toc-spotted-a-mistake" class="nav-link" data-scroll-target="#spotted-a-mistake">Spotted a Mistake? 👀</a></li>
+  <li><a href="#create-a-git-repository" id="toc-create-a-git-repository" class="nav-link" data-scroll-target="#create-a-git-repository">1. Create a Git Repository</a></li>
+  <li><a href="#write-code" id="toc-write-code" class="nav-link" data-scroll-target="#write-code">2. Write Code</a></li>
+  <li><a href="#stage-the-file" id="toc-stage-the-file" class="nav-link" data-scroll-target="#stage-the-file">3. Stage the File</a></li>
+  <li><a href="#commit-the-changes" id="toc-commit-the-changes" class="nav-link" data-scroll-target="#commit-the-changes">4. Commit the Changes</a></li>
+  </ul></li>
+  <li><a href="#what-about-github" id="toc-what-about-github" class="nav-link" data-scroll-target="#what-about-github">What About GitHub?</a>
+  <ul class="collapse">
+  <li><a href="#get-the-latest-code" id="toc-get-the-latest-code" class="nav-link" data-scroll-target="#get-the-latest-code">1. Get the Latest Code</a></li>
+  <li><a href="#update-the-code-on-github" id="toc-update-the-code-on-github" class="nav-link" data-scroll-target="#update-the-code-on-github">5. Update the Code on GitHub</a></li>
   </ul></li>
   </ul>
 </nav>
@@ -206,7 +248,7 @@ ul.task-list li input[type="checkbox"] {
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">mscids-notes</h1>
+<h1 class="title">How to… Git and GitHub</h1>
 </div>
 
 
@@ -223,23 +265,70 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
-<section id="hey-there-fellow-students" class="level1">
-<h1>Hey there, fellow students! 👋</h1>
-<p>Here you’ll find a collection of my <strong>personal notes and solutions</strong> from our courses. I’ve decided to put them online in the hopes that they might help some of you out.</p>
-<section id="quick-heads-up" class="level3">
-<h3 class="anchored" data-anchor-id="quick-heads-up">Quick Heads-Up! 📝</h3>
-<p>Just a friendly reminder: everything you see here is based on my own understanding and approach. That means my solutions might be different from the official ones provided by our professors.</p>
-<p>Think of this as a <strong>secondary resource</strong> to complement your own work, not as an official answer key.</p>
+<section id="introduction" class="level1">
+<h1>Introduction</h1>
+<p>Git is a program designed to track and manage your code changes over time. We will discuss the difference between Git and GitHub in a moment, but first, let’s look at Git itself. You typically use Git in your terminal, though some IDEs (Integrated Development Environments) have Git extensions that provide a graphical user interface (UI).</p>
 </section>
-<section id="disclaimer" class="level3">
-<h3 class="anchored" data-anchor-id="disclaimer">Disclaimer 🚨</h3>
-<p>While I do my best, I can’t guarantee that everything is 100% correct or complete. I’m just a student trying to figure things out, same as you. Therefore, I’m not taking any responsibility for the accuracy of the content. <strong>Always double-check with official course materials!</strong></p>
+<section id="git-for-versioning" class="level1">
+<h1>Git for Versioning</h1>
+<p>Imagine writing code. Everything works perfectly. After a while, you want to add a feature, and suddenly, the code no longer works. Normally, you would have to manually delete all changes until the code works again. With Git, however, you can save any stage of your code at any time. This allows you to jump back in time (and changes) as needed.</p>
 </section>
-<section id="spotted-a-mistake" class="level3">
-<h3 class="anchored" data-anchor-id="spotted-a-mistake">Spotted a Mistake? 👀</h3>
-<p>If you happen to find an error, I’d be super grateful if you could let me know. Just shoot me a quick email!</p>
-<p>📧 <strong><a href="mailto:nils.rechberger@stud.hslu.ch">nils.rechberger@stud.hslu.ch</a></strong></p>
-<p>Happy studying! 🚀</p>
+<section id="the-git-workflow" class="level1">
+<h1>The Git Workflow</h1>
+<p>The basic workflow is quite simple:</p>
+<ol type="1">
+<li>Create a Git repository.</li>
+<li>Write code (make changes).</li>
+<li>Add the changed files to your “Staging Area”.</li>
+<li>Commit the changes with a descriptive message.</li>
+</ol>
+<p>These are the essential steps for creating cleaner code projects.</p>
+<section id="create-a-git-repository" class="level2">
+<h2 class="anchored" data-anchor-id="create-a-git-repository">1. Create a Git Repository</h2>
+<p>To begin, we need to create a Git repository (a special folder) where Git starts tracking our code.</p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> init</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</section>
+<section id="write-code" class="level2">
+<h2 class="anchored" data-anchor-id="write-code">2. Write Code</h2>
+<p>First, we’ll create an empty code file to have a change to track.</p>
+<div class="sourceCode" id="cb2"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="fu">touch</span> my_code.py</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</section>
+<section id="stage-the-file" class="level2">
+<h2 class="anchored" data-anchor-id="stage-the-file">3. Stage the File</h2>
+<p>By staging our changes, we prepare all files to be versioned by Git. They are moved into the “Staging Area”.</p>
+<div class="sourceCode" id="cb3"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> add my_code.py</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</section>
+<section id="commit-the-changes" class="level2">
+<h2 class="anchored" data-anchor-id="commit-the-changes">4. Commit the Changes</h2>
+<p>Now we can commit our changes by saving them with a short note. The <code>git commit</code> command will save all changes we staged in the previous step.</p>
+<div class="sourceCode" id="cb4"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> commit <span class="at">-m</span> <span class="st">"Initial commit: Created an empty file"</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>Done! Now we can start coding and come back to this point anytime we make a mistake.</p>
+</section>
+</section>
+<section id="what-about-github" class="level1">
+<h1>What About GitHub?</h1>
+<p>While Git runs only locally on your computer, sometimes we want to collaborate on the same project with colleagues. Instead of only creating a local Git repository with <code>git init</code>, we can use GitHub (or similar services like GitLab/Bitbucket) to provide a repository in the Cloud for all users.</p>
+<p>The workflow remains largely the same, except for two additional commands:</p>
+<ol type="1">
+<li><strong>Pull the code from GitHub</strong></li>
+<li>Write code</li>
+<li>Stage the file</li>
+<li>Commit the changes</li>
+<li><strong>Push to GitHub</strong></li>
+</ol>
+<section id="get-the-latest-code" class="level2">
+<h2 class="anchored" data-anchor-id="get-the-latest-code">1. Get the Latest Code</h2>
+<p>Before you start coding, make sure you have the newest version of the code from the Cloud.</p>
+<div class="sourceCode" id="cb5"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> pull</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>Now you can follow the normal Git workflow as you learned above.</p>
+</section>
+<section id="update-the-code-on-github" class="level2">
+<h2 class="anchored" data-anchor-id="update-the-code-on-github">5. Update the Code on GitHub</h2>
+<p>Your committed changes are only saved locally. You need to push your commit to GitHub to update the code for all other users.</p>
+<div class="sourceCode" id="cb6"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> push</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<blockquote class="blockquote">
+<p>Note: This step only works when you have correctly followed the Git workflow by staging (<code>git add</code>) and committing (<code>git commit</code>) your changes first.</p>
+</blockquote>
 
 
 </section>
