@@ -501,3 +501,110 @@ var
 sd = sqrt(var)
 sd
 ```
+
+# Problems 4
+
+## Problem 4.2
+
+```{r}
+# Define distr. paras
+mu <- 4
+sd <- 1.25
+```
+
+### a
+
+```{r}
+# Assume normal distr.
+pnorm(q = 2.5, mean = mu, sd = sd)
+```
+
+### b
+
+```{r}
+1 - pnorm(q = 5.0, mean = mu, sd = sd)
+```
+
+### c
+
+```{r}
+pnorm(q = 4.5, mean = mu, sd = sd) - pnorm(q = 3.0, mean = mu, sd = sd)
+```
+
+### d
+
+```{r}
+qnorm(0.98, mean=mu, sd=sd)
+```
+
+## Problem 4.3
+
+```{r}
+# Define distr. paras
+mu <- 2.2
+sd <- 0.3
+
+# Assume normal distr.
+1 - pnorm(q=3.1, mean=mu, sd=sd/sqrt(100))
+```
+
+## Problem 4.4
+
+```{r}
+# Define distr. paras
+mu <- 8.2
+sd <- 6.0
+```
+
+### a
+
+```{r}
+# Assume normal distr.
+pnorm(q=10.0, mean=mu, sd=sd/sqrt(36))
+```
+
+### b
+
+```{r}
+pnorm(q=10.0, mean=mu, sd=sd/sqrt(36)) - pnorm(q=5.0, mean=mu, sd=sd/sqrt(36))
+```
+
+### c
+
+```{r}
+1- pnorm(q=20.0, mean=mu, sd=sd/sqrt(36))
+```
+
+### d
+
+It's small, but not impossible. We also assume a normal distribution. The real distribution probability may differ from the normal distribution. We also use a very small sample size of 36.
+
+### e
+
+Yes, the i.i.d. assumption holds here because each of the 36 passengers is an individual who is independent of the others.
+
+## Problem 4.5
+
+```{r}
+# Define distr. paras
+mu <- 77
+sd <- 15
+
+course_1 <- 25
+course_2 <- 64
+```
+
+### a
+
+```{r}
+# Assume normal distr.
+pnorm(q=82, mean=mu, sd=sd/sqrt(course_1)) - pnorm(q=72, mean=mu, sd=sd/sqrt(course_1))
+```
+
+### b
+
+```{r}
+pnorm(q=82, mean=mu, sd=sd/sqrt(course_2)) - pnorm(q=72, mean=mu, sd=sd/sqrt(course_2))
+```
+
+For a larger group, the probability is more likely to be at the mean compared to a smaller group (CLT).
