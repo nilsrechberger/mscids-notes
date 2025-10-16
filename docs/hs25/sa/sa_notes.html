@@ -312,6 +312,22 @@ window.Quarto = {
   <li><a href="#standard-deviation-sigma" id="toc-standard-deviation-sigma" class="nav-link" data-scroll-target="#standard-deviation-sigma">Standard deviation <span class="math inline">\(\sigma\)</span></a></li>
   </ul></li>
   </ul></li>
+  <li><a href="#week-04-continuous-distributions-normal-distribution" id="toc-week-04-continuous-distributions-normal-distribution" class="nav-link" data-scroll-target="#week-04-continuous-distributions-normal-distribution">Week 04: Continuous Distributions &amp; Normal Distribution</a>
+  <ul class="collapse">
+  <li><a href="#continuous-probability-distribution" id="toc-continuous-probability-distribution" class="nav-link" data-scroll-target="#continuous-probability-distribution">Continuous Probability Distribution</a></li>
+  <li><a href="#probability-density" id="toc-probability-density" class="nav-link" data-scroll-target="#probability-density">Probability Density</a></li>
+  <li><a href="#quantiles-of-continuous-probability-distribution" id="toc-quantiles-of-continuous-probability-distribution" class="nav-link" data-scroll-target="#quantiles-of-continuous-probability-distribution">Quantiles of Continuous Probability Distribution</a></li>
+  <li><a href="#normal-distribution" id="toc-normal-distribution" class="nav-link" data-scroll-target="#normal-distribution">Normal Distribution</a>
+  <ul class="collapse">
+  <li><a href="#properties" id="toc-properties" class="nav-link" data-scroll-target="#properties">Properties</a></li>
+  <li><a href="#calculate-normal-distributed-probability" id="toc-calculate-normal-distributed-probability" class="nav-link" data-scroll-target="#calculate-normal-distributed-probability">Calculate Normal Distributed Probability</a></li>
+  </ul></li>
+  <li><a href="#i.i.d-assumption" id="toc-i.i.d-assumption" class="nav-link" data-scroll-target="#i.i.d-assumption">i.i.d Assumption</a>
+  <ul class="collapse">
+  <li><a href="#key-figures-1" id="toc-key-figures-1" class="nav-link" data-scroll-target="#key-figures-1">Key Figures</a></li>
+  </ul></li>
+  <li><a href="#central-limit-theorem" id="toc-central-limit-theorem" class="nav-link" data-scroll-target="#central-limit-theorem">Central Limit Theorem</a></li>
+  </ul></li>
   </ul>
 </nav>
     </div>
@@ -830,9 +846,118 @@ P(X = x) = P(\{\omega \mid X(\omega) = x\}) = \sum_{\omega; X(\omega)=x} P(\omeg
 <blockquote class="blockquote">
 <p>Note: Means: Deviation on “average” 1.7 from 3.5.</p>
 </blockquote>
-
-
 </section>
+</section>
+</section>
+<section id="week-04-continuous-distributions-normal-distribution" class="level1">
+<h1>Week 04: Continuous Distributions &amp; Normal Distribution</h1>
+<section id="continuous-probability-distribution" class="level2">
+<h2 class="anchored" data-anchor-id="continuous-probability-distribution">Continuous Probability Distribution</h2>
+<p>For continuous probability distributions, probabilities correspond to areas under density function. Range <span class="math inline">\(W_X\)</span> of a random variable: Set of all values <span class="math inline">\(X\)</span> can take. Random variable <span class="math inline">\(X\)</span> is continuous, if its range <span class="math inline">\(W_X\)</span> is continuous. For continuous random variable <span class="math inline">\(X\)</span> for all <span class="math inline">\(x \in W_X\)</span>:</p>
+<p><span class="math display">\[
+P(X = x) = 0
+\]</span></p>
+<blockquote class="blockquote">
+<p>Note: Probability distribution of <span class="math inline">\(X\)</span> can not be described by <span class="math inline">\(P(X = x)\)</span>.</p>
+</blockquote>
+</section>
+<section id="probability-density" class="level2">
+<h2 class="anchored" data-anchor-id="probability-density">Probability Density</h2>
+<p>Probability density function f(x) has the properties:</p>
+<ul>
+<li>Function is not negative: <span class="math inline">\(f(x) \ge 0\)</span></li>
+<li>Probability corresponds to area between <span class="math inline">\(a\)</span> and <span class="math inline">\(b\)</span> under <span class="math inline">\(f(x)\)</span>: <span class="math inline">\(P(a \lt X \le b )\)</span></li>
+<li>Total area under curve is <span class="math inline">\(1\)</span></li>
+</ul>
+<blockquote class="blockquote">
+<p>Note: Values of f(x) are not probabilities, only areas are.</p>
+</blockquote>
+</section>
+<section id="quantiles-of-continuous-probability-distribution" class="level2">
+<h2 class="anchored" data-anchor-id="quantiles-of-continuous-probability-distribution">Quantiles of Continuous Probability Distribution</h2>
+<p>For continuous distributions, the <span class="math inline">\(\alpha\)</span> quantile <span class="math inline">\(q_\alpha\)</span> is value where area (probability) under density function from <span class="math inline">\(-\infty\)</span> to <span class="math inline">\(q_\alpha\)</span> is just <span class="math inline">\(\alpha\)</span>.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="img/contProbDistrAlpha.png" class="img-fluid figure-img"></p>
+<figcaption>Quantiles of Continuous Probability Distribution</figcaption>
+</figure>
+</div>
+</section>
+<section id="normal-distribution" class="level2">
+<h2 class="anchored" data-anchor-id="normal-distribution">Normal Distribution</h2>
+<p>The normal distribution <span class="math inline">\(X \sim \mathcal{N}(\mu, \sigma^2)\)</span> have the desity function:</p>
+<p><span class="math display">\[
+f(x) = \frac{1}{\sqrt{2\pi}\sigma} \exp\left\{ -\frac{1}{2} \left(\frac{x - \mu}{\sigma}\right)^2 \right\}
+\]</span></p>
+<p>With the expected value <span class="math inline">\(E(X) = \mu\)</span> and variance <span class="math inline">\(Var(X) = \sigma^2\)</span>. The parameter <span class="math inline">\(\mu\)</span> shifts the curve horizontally from origin while <span class="math inline">\(\sigma\)</span> defines the shape of the curve.</p>
+<section id="properties" class="level3">
+<h3 class="anchored" data-anchor-id="properties">Properties</h3>
+<ul>
+<li>Approx. <span class="math inline">\(\frac{2}{3}\)</span> of are between <span class="math inline">\(\mu \pm \sigma\)</span></li>
+<li>Approx. 95% of area between <span class="math inline">\(\mu \pm 2\sigma\)</span></li>
+</ul>
+</section>
+<section id="calculate-normal-distributed-probability" class="level3">
+<h3 class="anchored" data-anchor-id="calculate-normal-distributed-probability">Calculate Normal Distributed Probability</h3>
+<p>Calculation of IQ <span class="math inline">\(P(X \le 130)\)</span>:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb25"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb25-1"><a href="#cb25-1" aria-hidden="true" tabindex="-1"></a><span class="co"># mean and sd are predefined in this task</span></span>
+<span id="cb25-2"><a href="#cb25-2" aria-hidden="true" tabindex="-1"></a><span class="fu">pnorm</span>(<span class="at">q =</span> <span class="dv">130</span>, <span class="at">mean =</span> <span class="dv">100</span>, <span class="at">sd =</span> <span class="dv">15</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 0.9772499</code></pre>
+</div>
+</div>
+<p>since total area under curve is 1, <span class="math inline">\(P(X \gt 130)\)</span>:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb27"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb27-1"><a href="#cb27-1" aria-hidden="true" tabindex="-1"></a><span class="dv">1</span> <span class="sc">-</span> <span class="fu">pnorm</span>(<span class="at">q =</span> <span class="dv">130</span>, <span class="at">mean =</span> <span class="dv">100</span>, <span class="at">sd =</span> <span class="dv">15</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 0.02275013</code></pre>
+</div>
+</div>
+<p>Determine quantiles:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb29"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb29-1"><a href="#cb29-1" aria-hidden="true" tabindex="-1"></a><span class="fu">qnorm</span>(<span class="at">p =</span> <span class="fl">0.025</span>, <span class="at">mean =</span> <span class="dv">100</span>, <span class="at">sd =</span> <span class="dv">15</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 70.60054</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb31"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb31-1"><a href="#cb31-1" aria-hidden="true" tabindex="-1"></a><span class="fu">qnorm</span>(<span class="at">p =</span> <span class="fl">0.975</span>, <span class="at">mean =</span> <span class="dv">100</span>, <span class="at">sd =</span> <span class="dv">15</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 129.3995</code></pre>
+</div>
+</div>
+</section>
+</section>
+<section id="i.i.d-assumption" class="level2">
+<h2 class="anchored" data-anchor-id="i.i.d-assumption">i.i.d Assumption</h2>
+<p>The i.i.d. assumption means a set of random variables are Independent (the value of one doesn’t affect the others) and Identically Distributed (all come from the exact same probability distribution).</p>
+<section id="key-figures-1" class="level3">
+<h3 class="anchored" data-anchor-id="key-figures-1">Key Figures</h3>
+<section id="s_n" class="level4">
+<h4 class="anchored" data-anchor-id="s_n"><span class="math inline">\(S_n\)</span></h4>
+<ul>
+<li><span class="math inline">\(E(S_n) = n\mu\)</span></li>
+<li><span class="math inline">\(\text{Var}(S_n) = n\text{Var}(X_i)\)</span></li>
+<li><span class="math inline">\(\sigma(S_n) = \sqrt{n}\sigma_X\)</span></li>
+</ul>
+</section>
+<section id="barx_n" class="level4">
+<h4 class="anchored" data-anchor-id="barx_n"><span class="math inline">\(\bar{X}_n\)</span></h4>
+<ul>
+<li><span class="math inline">\(E(\bar{X}_n) = \mu\)</span></li>
+<li><span class="math inline">\(\text{Var}(\bar{X}_n) = \frac{\sigma^2_X}{n}\)</span></li>
+<li><span class="math inline">\(\sigma(\bar{X}_n) = \frac{\sigma_X}{\sqrt{n}}\)</span></li>
+</ul>
+<blockquote class="blockquote">
+<p>Note: Standard deviation of <span class="math inline">\(X_n\)</span> is called standard error of arithmetic mean.</p>
+</blockquote>
+</section>
+</section>
+</section>
+<section id="central-limit-theorem" class="level2">
+<h2 class="anchored" data-anchor-id="central-limit-theorem">Central Limit Theorem</h2>
+<p>The Central Limit Theorem (CLT) states that, given a sufficiently large sample size (<span class="math inline">\(n\)</span>), the distribution of the sample mean (<span class="math inline">\(\bar{X}_n\)</span>) will be approximately normally distributed, regardless of the original population’s distribution. This is true as long as the population has a finite mean (<span class="math inline">\(\mu\)</span>) and variance (<span class="math inline">\(\sigma^2\)</span>). In short: For large samples, the sample mean is normally distributed.</p>
+
+
 </section>
 </section>
 
