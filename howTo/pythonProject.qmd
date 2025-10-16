@@ -83,8 +83,11 @@ You must activate the environment before installing packages or running your cod
 # For Mac/Linux
 . .venv/bin/activate
 
-# For Windowns
+# For Windowns (PowerShell)
 .venv\Scripts\Activate.ps1
+
+# For Windowns (CMD)
+.\.venv\Scripts\activate.bat
 ```
 
 > Note: Check your venv setup with `pip list`: there should be no installations listed except `pip`.
