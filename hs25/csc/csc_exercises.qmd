@@ -254,4 +254,3 @@ Linear search sequentially checks each element of the list until a match is foun
 Binary search compares the target value to the middle element of the list. For a list of length $n$ results a complexity of $O(\log(n))$.
 
 :::
-::: <!-- end columns -->
