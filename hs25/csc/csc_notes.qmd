@@ -150,7 +150,28 @@ CSS is a stylesheet language that is primarily used to describe the appearance a
 
 # Week 4: Algorithms & Programming Language Concepts
 
-Coming soon...
+## Algorithms
+
+A computational problem specifies an input-output relationship. An algorithm is an exact specification of how to solve a computational problem. Algorithms must be:
+- Correct: For each input produce an appropriate output
+- Efficient: Run as quickly as possible, and use as little memory as possible
+
+### Designing Algorithms
+
+Break problem up into smaller (easier) sub-problems. Think only about how to use the smaller solution to get the larger one
+Do not worry about how to solve to smaller problem (it will be solved using an even smaller one).
+
+### Recursion
+
+Recursion is a method of solving a problem where the solution depends on solutions to smaller instances of the same problem. This allows programming in a style that reflects divide-n-conquer algorithmic thinking.
+
+## Search Algorithms
+
+Linear search or sequential search is a simple method for finding an element within a sorted list. It sequentially checks each element of the list until a match is found or the whole list has been searched. A linear search runs in at worst linear time and makes at most $n$ comparisons.
+
+### Binary Search
+
+Binary search is a search algorithm that finds the position of a target value within a sorted list of values. Binary search compares the target value to the middle element of the list. If they are not equal, the half in which the target cannot lie is eliminated and the search continues on the remaining half, again taking the middle element to compare to the target value, and repeating this until the target value is found.
 
 # Week 5:Algorithms & Programming Language Concepts
 
