@@ -199,3 +199,59 @@ reached), the page does not have to be fetched again from the remote web server.
 
 </html>
 ```
+
+# Week 4: Algorithms
+
+## Exercise 1
+
+Develop a recursive algorithm for the function `power(x, n)`.
+
+```{python}
+def power(x, n):
+    if n == 0:
+        return 1
+    else:
+        return x * power(x, n - 1)
+
+res = power(2, 3)
+print(res)
+```
+
+## Exercise 2
+
+Develop a recursive algorithm for the product of the natural odd numbers
+from `m` to `n`: `product(m, n)`.
+
+```{python}
+def product(m: int, n: int) -> int:
+  """ Returns the product of the odd numbers from m to n """
+  # Check for only odd number inputs
+  assert m % 2 == 1 and n % 2 == 1
+
+  # Recursion
+  if m == n:
+    return m
+  else:
+    return m * product(m + 2, n)
+
+
+res = product(3, 11)
+print(res)
+```
+
+## Exercise 3
+
+::: {.columns}
+::: {.column}
+### Linear Search
+
+Linear search sequentially checks each element of the list until a match is found or the whole list has been searched. For a list of length $n$ results a complexity of $O(n)$.
+
+:::
+::: {.column}
+### Binary Search
+
+Binary search compares the target value to the middle element of the list. For a list of length $n$ results a complexity of $O(\log(n))$.
+
+:::
+::: <!-- end columns -->
