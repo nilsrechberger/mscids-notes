@@ -274,6 +274,14 @@ window.Quarto = {
   <li><a href="#square-linear-systems" id="toc-square-linear-systems" class="nav-link" data-scroll-target="#square-linear-systems">Square Linear Systems</a></li>
   <li><a href="#rank-criterion" id="toc-rank-criterion" class="nav-link" data-scroll-target="#rank-criterion">Rank Criterion</a></li>
   </ul></li>
+  <li><a href="#week-5-inverse-of-a-matrix" id="toc-week-5-inverse-of-a-matrix" class="nav-link" data-scroll-target="#week-5-inverse-of-a-matrix">Week 5: Inverse of a Matrix</a>
+  <ul class="collapse">
+  <li><a href="#identity-matrix" id="toc-identity-matrix" class="nav-link" data-scroll-target="#identity-matrix">Identity Matrix</a></li>
+  <li><a href="#calculate-the-inverse-matrix" id="toc-calculate-the-inverse-matrix" class="nav-link" data-scroll-target="#calculate-the-inverse-matrix">Calculate the Inverse Matrix</a>
+  <ul class="collapse">
+  <li><a href="#rules-of-inverse" id="toc-rules-of-inverse" class="nav-link" data-scroll-target="#rules-of-inverse">Rules of Inverse</a></li>
+  </ul></li>
+  </ul></li>
   </ul>
 </nav>
     </div>
@@ -694,8 +702,79 @@ x = x_p + x_h
 <section id="rank-criterion" class="level2">
 <h2 class="anchored" data-anchor-id="rank-criterion">Rank Criterion</h2>
 <p>A linear equation system <span class="math inline">\(Ax=b\)</span> has at least one solution (is consistent) if and only if the rank of the coefficient matrix A is equal to the rank of the augmented coefficient matrix <span class="math inline">\([A \quad b]\)</span>. The rank of the extended coefficient matrix <span class="math inline">\([A \quad b]\)</span> is created by appending the inhomogeneity vector b as an additional last column to the matrix <span class="math inline">\(A\)</span>.</p>
+</section>
+</section>
+<section id="week-5-inverse-of-a-matrix" class="level1">
+<h1>Week 5: Inverse of a Matrix</h1>
+<p>Consider the equation:</p>
+<p><span class="math display">\[
+ax = 1
+\]</span></p>
+<p>where <span class="math inline">\(x\)</span> os is unknown and <span class="math inline">\(a\)</span> on nonzero. To solve this equation, we multiply by <span class="math inline">\(a^{-1}\)</span>:</p>
+<p><span class="math display">\[
+x = a^{-1}
+\]</span></p>
+<p>So, <span class="math inline">\(a^{-1}\)</span> is called the <strong>inverse</strong> of <span class="math inline">\(a\)</span>.</p>
+<blockquote class="blockquote">
+<p>Note: Zero does not have any inverse.</p>
+</blockquote>
+<p>A square matrix <span class="math inline">\(A \in \mathbb{R}^{n \times n}\)</span> is invertible, regular or non–singular, if there exists a matrix <span class="math inline">\(X \in \mathbb{R}^{n \times n}\)</span> such that:</p>
+<p><span class="math display">\[
+AX = I_n
+\]</span></p>
+<p>Denote <span class="math inline">\(A^{-1} = X\)</span> and call it inverse matrix of <span class="math inline">\(A\)</span> or simply inverse.</p>
+<blockquote class="blockquote">
+<p>Note: Otherwise: <span class="math inline">\(A\)</span> is singular or non–invertible</p>
+</blockquote>
+<section id="identity-matrix" class="level2">
+<h2 class="anchored" data-anchor-id="identity-matrix">Identity Matrix</h2>
+<p>The identity matrix of size <span class="math inline">\(n\)</span> is the <span class="math inline">\(n \times n\)</span> square matrix with ones on the main diagonal and zeros elsewhere.</p>
+<p><span class="math display">\[
+I =
+\begin{bmatrix}
+1 &amp; 0 &amp; 0 \\
+0 &amp; 1 &amp; 0 \\
+0 &amp; 0 &amp; 1 \\
+\end{bmatrix}
+\]</span></p>
+</section>
+<section id="calculate-the-inverse-matrix" class="level2">
+<h2 class="anchored" data-anchor-id="calculate-the-inverse-matrix">Calculate the Inverse Matrix</h2>
+<p><span class="math display">\[
+[A|I_n]
+\]</span></p>
+<p>By using elementary rows transformations transform left term A to row echelon form.</p>
+<p><span class="math display">\[
+[I_n|\tilde{A}]
+\]</span></p>
+<section id="rules-of-inverse" class="level3">
+<h3 class="anchored" data-anchor-id="rules-of-inverse">Rules of Inverse</h3>
+<p>Let <span class="math inline">\(A\)</span> and <span class="math inline">\(B\)</span> be invertible (<span class="math inline">\(n \times n\)</span>)-matrices and <span class="math inline">\(s \ne 0\)</span> a scalar. Then <span class="math inline">\(A^{−1}\)</span>, <span class="math inline">\(sA\)</span>, <span class="math inline">\(AB\)</span> and <span class="math inline">\(A^\)</span>T are invertible and the following hold:</p>
+<ul>
+<li><span class="math inline">\((A^{-1})^{-1} = A\)</span></li>
+<li><span class="math inline">\((sA)^{-1} = s^{-1}A^{-1}\)</span></li>
+<li><span class="math inline">\((AB)^{-1} = B^{-1}A^{-1}\)</span></li>
+<li><span class="math inline">\((A^T)^{-1} = (A^{-1})^T\)</span></li>
+</ul>
+<div class="callout callout-style-default callout-caution callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Caution
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Generally: <span class="math display">\[
+(AB)^{−1} \ne A^{−1}B^{−1}
+\]</span></p>
+<p>Furthermore there is no rule for sum, so no rule for <span class="math inline">\((A + B)^{−1}\)</span>, which could even not exist.</p>
+</div>
+</div>
 
 
+</section>
 </section>
 </section>
 
