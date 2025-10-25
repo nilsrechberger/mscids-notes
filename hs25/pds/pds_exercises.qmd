@@ -485,3 +485,173 @@ while True: # Infinitive loop till break
     else:
         print("Guess to high...")
 ```
+
+# Exercise Collection Functions
+
+## Exercise 1
+
+Write a function that accepts a list of integers as input and returns a list containing all even numbers of the input list.
+
+```{python}
+def extract_even_num(num_list: list[int]) -> list:
+    """
+    Returns all even numbers of within a given list
+
+    Args:
+        num_list: A list with integers.
+
+    Returns:
+        list: A list with all even numbers from num_list
+    """
+    even_num_list = [] # Result storage
+    for num in num_list:
+        if num % 2 == 0: # Check for even or odd
+            even_num_list.append(num)
+    
+    return even_num_list # Return result
+
+even_num = extract_even_num((1, 2, 3 ,4, 5, 6, 7, 8, 9))
+print(even_num)
+```
+
+## Exercice 2
+
+Write a function accepts a list as input and returns the unique values contained in that list as a list. Hint: you can use the "set" method to check your solution.
+
+```{python}
+def get_unique_values(value_list: list) -> set:
+    """
+    Return a set (unique values) from a given list
+
+    Args:
+        value_list: List with different values
+    
+    Returns:
+        set: Unique values from value_list
+    """
+    return set(value_list)
+
+uniques = get_unique_values((1, 2, 2, 3, "Hello", "Hello", "Bye"))
+print(uniques)
+```
+
+## Exercise 3
+
+Crate a simple calculator that provides functions to add, subtract, multiply and divide two numbers.
+Implement the missing parts to execute the main() function below without an error.
+
+```{python}
+def add(num1: int, num2: int) -> int:
+    """ Add two numbers """
+    return num1 + num2
+
+def subtract(num1: int, num2: int) -> int:
+    """ Subtract two numbers """
+    return num1 - num2
+
+def multiply(num1: int, num2: int) -> int:
+    """ Multiply two numbers """
+    return num1 * num2
+
+def divide(num1: int, num2: int) -> int:
+    """ Divide two numbers """
+    return num1 / num2
+
+def main():
+    print("Select operation.")
+    print("1.Add")
+    print("2.Subtract")
+    print("3.Multiply")
+    print("4.Divide")
+
+    # Take input from the user
+    # choice = input("Enter choice(1/2/3/4):")
+    # Using fake user inputs
+    choice = str(1)
+
+    # num1 = int(input("Enter first number: "))
+    # num2 = int(input("Enter second number: "))
+    # Using fake user inputs
+
+    num1 = 4
+    num2 = 5
+
+    if choice == '1':
+       print(num1,"+",num2,"=", add(num1,num2))
+
+    elif choice == '2':
+       print(num1,"-",num2,"=", subtract(num1,num2))
+
+    elif choice == '3':
+       print(num1,"*",num2,"=", multiply(num1,num2))
+
+    elif choice == '4':
+       print(num1,"/",num2,"=", divide(num1,num2))
+    else:
+       print("Invalid input")
+
+main()
+```
+
+## Exercice 4
+
+Keyword parameters
+If we want call the function circumference(2) with the 'width' 2
+we have a problem: The number '2' is by default assigned to the first
+Parameter and that is 'length' ... Task: Change the calls so that the function circumference(2) is called with 'width' 2!
+
+```{python}
+def circumference(length = 2, width = 1):
+     return 2 * (length + width)
+
+c1 = circumference(width=2)         # 2 should be the width !!!
+print(c1)
+
+# or with length 5 and width 3:
+c2 = circumference(5, 3)
+print(c2)
+
+# how could the function also have been called
+# with length 5 and width 3
+c3 = circumference(length=5, width=3)
+print(c3)
+
+# you can even change the order of keyword parameters
+# try it: Change the order of  parameters!
+c4 = circumference (width=3, length=5)     # order swapped!
+print(c4)
+```
+
+## Exercise 5
+
+Functions may have parameters which may have default values.
+
+Task: Change the two examples (1 and 2) such that the two function calls hello(...)
+and the three function calls circumference(...) run without any error.
+
+```{python}
+# Example 1:
+def hello (name = "Mr. Unknown"):
+     print ("Hello " + name + "!")
+
+hello("Peter")
+
+# without parameters (default value used)
+hello()
+
+
+# Example 2:
+def circumference (length=1, width=1):
+     return 2 * (length + width)
+
+c1 = circumference(5, 3)
+print(c1)
+
+# for the width, the default value "1" is used.
+c2 = circumference(5)
+print(c2)
+
+# both default values are used.
+c3 = circumference()
+print(c3)
+```
