@@ -414,3 +414,77 @@ Enum allows handle a set of values:
 - days of the week
 - Colors
 - ect.
+
+# SW06: Functions, Strings & Files
+
+## Functions
+
+Functions allow to combine multiple instruction into a function block that can be executed multiple times. Main advantages of functions are modularity (mitigates code duplication) and readability. Functions tackle only **one** particular issue at once. Ideally operate on its input only and produce some output.
+
+> Note: Functions are named by convention in snake case (i.e. lower case separated with ‘_’): `my_function()`.
+
+The function header is made up of the function name and any optional parameters.
+
+> Note: Functions in Python are defined by the term `def`.
+
+```{python}
+# Name = my_function
+# Parameters: parameter1
+def my_function(parameter1):
+    pass # Do nothing, just pass.
+```
+
+The body of a function contains a sequence of operations and should always have an output value. The number of operations within a function is unlimited, and they can call other functions.
+
+```{python}
+def my_function(parameter1):
+    print(parameter1) # Call the print function
+    return True
+
+my_function("Test run") # Call my_function
+```
+
+### Return Values
+
+All functions (including purely functional) have one return value; at least `None`. Return value is a pointer to a storage location.
+
+### Documentation
+
+Python offers a centralized documentation with docstrings; a built-in attribute assigned to each function named `__doc__`. If the `__doc__` attribute is set with a documentation string, it is callable by means of the `help()` function. You can place a string block (triple-quotes “””doc text”””) immediately next to the function definition to define the docstring.
+
+```{python}
+def my_function(parameter1):
+    """ Prints a given parameter to the console """ # Docstring of my_function
+    print(parameter1) # Call the print function
+    return True
+```
+
+## String Formatting
+
+Python treats a string as a sequence (list) of characters (single letters, symbols or escape characters). Strings can be sliced, concatenated, allows index based access and formatting based on character position.
+
+![String as a sequence of characters](img/string_format.png)
+
+Formatting strings means defining the representation and treatment of particular sequences.
+
+### f-Strings
+
+An f-string can be used to add variables to a string. Rather than writing the string again every time the variable changes, we can use the f-string to add multiple variables to the string.
+
+```{python}
+for i in range(1, 5):
+    # Using f-String
+    print(f"i is {i}") # i changes over time
+```
+
+## File Handling
+
+Files enable storing data outside of the application and hence to keep the information for next execution or share data between different application. Python accesses files through a file object.
+
+```python
+file_object = open(file_name, mode)
+```
+
+::: {.callout-important}
+The buffer results in unfinished writing process as long as the file stream (file_object) is not flushed by '`file_object.flush()` or `file_object.close()`'.
+:::
