@@ -328,6 +328,13 @@ window.Quarto = {
   </ul></li>
   <li><a href="#central-limit-theorem" id="toc-central-limit-theorem" class="nav-link" data-scroll-target="#central-limit-theorem">Central Limit Theorem</a></li>
   </ul></li>
+  <li><a href="#week-05-hypothesis-tests" id="toc-week-05-hypothesis-tests" class="nav-link" data-scroll-target="#week-05-hypothesis-tests">Week 05: Hypothesis Tests</a>
+  <ul class="collapse">
+  <li><a href="#estimation" id="toc-estimation" class="nav-link" data-scroll-target="#estimation">Estimation</a></li>
+  <li><a href="#procedure-hypothesis-test" id="toc-procedure-hypothesis-test" class="nav-link" data-scroll-target="#procedure-hypothesis-test">Procedure Hypothesis Test</a></li>
+  <li><a href="#significance-level" id="toc-significance-level" class="nav-link" data-scroll-target="#significance-level">Significance Level </a></li>
+  <li><a href="#p-value" id="toc-p-value" class="nav-link" data-scroll-target="#p-value">p-Value</a></li>
+  </ul></li>
   </ul>
 </nav>
     </div>
@@ -956,6 +963,70 @@ f(x) = \frac{1}{\sqrt{2\pi}\sigma} \exp\left\{ -\frac{1}{2} \left(\frac{x - \mu}
 <section id="central-limit-theorem" class="level2">
 <h2 class="anchored" data-anchor-id="central-limit-theorem">Central Limit Theorem</h2>
 <p>The Central Limit Theorem (CLT) states that, given a sufficiently large sample size (<span class="math inline">\(n\)</span>), the distribution of the sample mean (<span class="math inline">\(\bar{X}_n\)</span>) will be approximately normally distributed, regardless of the original population’s distribution. This is true as long as the population has a finite mean (<span class="math inline">\(\mu\)</span>) and variance (<span class="math inline">\(\sigma^2\)</span>). In short: For large samples, the sample mean is normally distributed.</p>
+</section>
+</section>
+<section id="week-05-hypothesis-tests" class="level1">
+<h1>Week 05: Hypothesis Tests</h1>
+<p>Hypothesis testing are a important statistical tool to decide whether observations “fits” a certain parameter. Ro introduce a standardised, reproducible procedure to decide whether mean of observations does (or not) match a certain true mean <span class="math inline">\(\mu\)</span>.</p>
+<blockquote class="blockquote">
+<p>Note: We can only show that this quantity does not fit to the observations with high probability.</p>
+</blockquote>
+<section id="estimation" class="level2">
+<h2 class="anchored" data-anchor-id="estimation">Estimation</h2>
+<p>Point estimates for expected value.</p>
+<p><span class="math display">\[
+\hat{\mu} = \dfrac{1}{n}\sum^n_{i=1}X_i
+\]</span></p>
+<p>Point estimates for variance.</p>
+<p><span class="math display">\[
+\hat{\sigma}^2_X = \dfrac{1}{n-1}\sum^n_{i=1}(X_i - \bar{X_n})^2
+\]</span></p>
+<blockquote class="blockquote">
+<p>Note: Hat <span class="math inline">\(\hat{x}\)</span> denotes estimate of a quantity.</p>
+</blockquote>
+</section>
+<section id="procedure-hypothesis-test" class="level2">
+<h2 class="anchored" data-anchor-id="procedure-hypothesis-test">Procedure Hypothesis Test</h2>
+<p>Using a observation, check whether, under assumption <span class="math inline">\(\mu = x\)</span>, mean of observations is probable or not.</p>
+<ul>
+<li><span class="math inline">\(\mu\)</span>: True (unknown) mean of data</li>
+<li><span class="math inline">\(\mu_0\)</span>: Assumed true mean of data</li>
+</ul>
+<p>Null Hypothesis</p>
+<p><span class="math display">\[
+H_0: \mu = \mu_0 = x
+\]</span></p>
+<p>Alternative Hypothesis</p>
+<p><span class="math display">\[
+H_A: \mu \ne \mu_0 = x
+\]</span></p>
+<p>Test with this distribution whether assumption μ = x is justified. Distribution of test statistic <span class="math inline">\(T\)</span> under the null hypothesis <span class="math inline">\(H_0\)</span></p>
+<p><span class="math display">\[
+T: \bar{X}_{10} \sim \mathcal{N}(x, \dfrac{1^2}{x})
+\]</span></p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb33"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb33-1"><a href="#cb33-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Assume real mean of 500</span></span>
+<span id="cb33-2"><a href="#cb33-2" aria-hidden="true" tabindex="-1"></a><span class="fu">pnorm</span>(<span class="at">q =</span> <span class="fl">499.22</span>, <span class="at">mean =</span> <span class="dv">500</span>, <span class="at">sd =</span> <span class="dv">1</span><span class="sc">/</span><span class="fu">sqrt</span>(<span class="dv">10</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 0.006820578</code></pre>
+</div>
+</div>
+<p>It has proven practical to set this limit of what is too small and what is not at 2.5 %. So assume that given mean of <span class="math inline">\(μ_0 = 500\)</span> is not plausible. We reject null hypothesis.</p>
+</section>
+<section id="significance-level" class="level2">
+<h2 class="anchored" data-anchor-id="significance-level">Significance Level </h2>
+<p>Significance level <span class="math inline">\(\alpha\)</span>, indicates how high a risk one is willing to take of making a wrong decision. For most tests <span class="math inline">\(\alpha\)</span> value of <span class="math inline">\(0.05\)</span> or <span class="math inline">\(0.01\)</span>. Boundary rejection range <span class="math inline">\(0.025\)</span>- and <span class="math inline">\(0.975\)</span>-quantiles.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb35"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb35-1"><a href="#cb35-1" aria-hidden="true" tabindex="-1"></a><span class="fu">qnorm</span>(<span class="at">p =</span> <span class="fu">c</span>(<span class="fl">0.025</span>, <span class="fl">0.975</span>), <span class="at">mean =</span> <span class="dv">500</span>, <span class="at">sd =</span> <span class="dv">1</span><span class="sc">/</span><span class="fu">sqrt</span>(<span class="dv">10</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 499.3802 500.6198</code></pre>
+</div>
+</div>
+<p>If observed mean lies in red area of Figure, null hypothesis is rejected, also called rejection range.</p>
+</section>
+<section id="p-value" class="level2">
+<h2 class="anchored" data-anchor-id="p-value">p-Value</h2>
+<p>p-value is probability of observing an event under null hypothesis that is at least as extreme (in direction of alternative) as currently observed event. The smaller p-value, the more result argues against null hypothesis. Values smaller than a predetermined limit, such as 5 %, 1 % or 0.1 % are reason to reject the null hypothesis.</p>
 
 
 </section>
