@@ -608,3 +608,66 @@ pnorm(q=82, mean=mu, sd=sd/sqrt(course_2)) - pnorm(q=72, mean=mu, sd=sd/sqrt(cou
 ```
 
 For a larger group, the probability is more likely to be at the mean compared to a smaller group (CLT).
+
+# Problems 5
+
+# Problem 5.1
+
+- $H_0$: $\mu = \mu_0 = 70$
+- $H_A$: $\mu \lt 70$
+
+Rejection range:
+
+```{r}
+data <- c(71, 69, 67, 68, 73, 72, 71, 71, 68, 72, 69, 72)
+sd <- 1.5
+
+mu_hat <- mean(data)
+
+qnorm(p = 0.05, mean = 70, sd = 1.5/sqrt(12))
+```
+
+Test:
+
+```{r}
+pnorm(q = mu_hat, mean = 70, sd = 1.5 / sqrt(12))
+```
+
+We do not reject the null hypothesis.
+
+- p-value: 0.718
+
+The mean of the sample does not statistical deviate from the producers claimed mean.
+
+# Problem 5.2
+
+## a
+
+- $H_0$: $\mu = \mu_0 = 50$
+- $H_A$: $\mu \lt 50$
+
+```{r}
+data <- c(46, 48, 52, 49, 46, 51, 52, 47, 49, 44, 48, 51, 49, 50, 53, 47)
+sd <- 3.0
+
+mu_hat <- mean(data)
+
+pnorm(q = mu_hat, mean = 50, sd = 3.0/sqrt(16))
+```
+
+We do not reject the null hypothesis.
+
+- p-value: 0.0668072
+
+## b
+
+```{r}
+data <- c(46, 48, 52, 49, 46, 51, 52, 47, 49, 44, 48, 51, 49, 50, 53, 47)
+sd <- 3.0
+
+mu_hat <- mean(data)
+
+pnorm(q = mu_hat, mean = 50, sd = 3.0/sqrt(100))
+```
+
+We reject the null hypothesis.
