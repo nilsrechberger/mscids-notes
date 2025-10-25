@@ -494,3 +494,72 @@ The i.i.d. assumption means a set of random variables are Independent (the value
 ## Central Limit Theorem
 
 The Central Limit Theorem (CLT) states that, given a sufficiently large sample size ($n$), the distribution of the sample mean ($\bar{X}_n$) will be approximately normally distributed, regardless of the original population's distribution. This is true as long as the population has a finite mean ($\mu$) and variance ($\sigma^2$). In short: For large samples, the sample mean is normally distributed.
+
+# Week 05: Hypothesis Tests
+
+Hypothesis testing are a important statistical tool to decide whether observations “fits” a certain parameter. Ro introduce a standardised, reproducible procedure to decide
+whether mean of observations does (or not) match a certain true mean $\mu$.
+
+> Note: We can only show that this quantity does not fit to the observations with high probability.
+
+## Estimation
+
+Point estimates for expected value.
+
+$$
+\hat{\mu} = \dfrac{1}{n}\sum^n_{i=1}X_i
+$$
+
+Point estimates for variance.
+
+$$
+\hat{\sigma}^2_X = \dfrac{1}{n-1}\sum^n_{i=1}(X_i - \bar{X_n})^2
+$$
+
+> Note: Hat $\hat{x}$ denotes estimate of a quantity.
+
+## Procedure Hypothesis Test
+
+Using a observation, check whether, under assumption $\mu = x$, mean of observations is probable or not.
+
+- $\mu$: True (unknown) mean of data
+- $\mu_0$: Assumed true mean of data
+
+Null Hypothesis
+
+$$
+H_0: \mu = \mu_0 = x
+$$
+
+Alternative Hypothesis
+
+$$
+H_A: \mu \ne \mu_0 = x
+$$
+
+Test with this distribution whether assumption μ = x is justified. Distribution of test statistic $T$ under the null hypothesis $H_0$
+
+$$
+T: \bar{X}_{10} \sim \mathcal{N}(x, \dfrac{1^2}{x})
+$$
+
+```{r}
+# Assume real mean of 500
+pnorm(q = 499.22, mean = 500, sd = 1/sqrt(10))
+```
+
+It has proven practical to set this limit of what is too small and what is not at 2.5 %. So assume that given mean of $μ_0 = 500$ is not plausible. We reject null hypothesis.
+
+## Significance Level \alpha
+
+Significance level $\alpha$, indicates how high a risk one is willing to take of making a wrong decision. For most tests $\alpha$ value of $0.05$ or $0.01$. Boundary rejection range $0.025$- and $0.975$-quantiles.
+
+```{r}
+qnorm(p = c(0.025, 0.975), mean = 500, sd = 1/sqrt(10))
+```
+
+If observed mean lies in red area of Figure, null hypothesis is rejected, also called rejection range.
+
+## p-Value
+
+p-value is probability of observing an event under null hypothesis that is at least as extreme (in direction of alternative) as currently observed event. The smaller p-value, the more result argues against null hypothesis. Values smaller than a predetermined limit, such as 5 %, 1 % or 0.1 % are reason to reject the null hypothesis.
