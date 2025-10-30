@@ -268,3 +268,119 @@ Effectiveness of the measurement methods in precisely capturing the intended con
 ![Relationship between Internal vs. External Validity](img/internal_vs_external_validity.png)
 
 The lowest general level of validity is at the bottom left for the quasi-experimental laboratory study, and the highest is at the top right for the experimental field study. A well-controlled lab experiment may maximize internal validity by eliminating confounding variables.
+
+# Lecture 05: Sampling
+
+## Population
+
+Set of all (potentially explorable) elements that have a common characteristic or a common combination of characteristics. The observation units (individuals, households, etc.) must be defined before the research start. In order to define the population, clear differentiation criteria must be formulated, so that for each observation unit it can be determined whether it is part of the population.
+
+- Differentiation in geographical aspects
+- Differentiation of temporal aspects (point in time or period)
+- Differentiation in factual / content-related aspects
+
+## Generalizing from a sample to the population
+
+The population is often very large or not fully accessible. The population can be defined but not identified.
+
+### Characteristics of a sample
+
+A sample is a subset of all observation units and should reflect the relevant aspects of the population as accurately as possible. Three elements contribute to creating or describing representativeness:
+
+- The sample is drawn randomly.
+- Estimation procedure for generalizing from the sample to the population is reported.
+- Accuracy is reported, which is influenced by the sample size, among other things
+
+### Point estimate of the mean
+
+An "estimator" is a function that calculates a value.
+
+- $\bar{x}$: Mean of the sample
+- $\mu_0$: True mean in the population (generally unknown)
+
+::: {.callout-important}
+The mean value x of a sample is an unbiased, efficient and consistent estimator of the true mean value in the population: $\mu_0 = E(\bar{x})$
+:::
+
+## Sampling methods
+
+- Probabilistic (random) sampling procedures: Selecting elements based on a random mechanism
+- Non-probabilistic (non-random, purposive, arbitrary) sampling procedures: Selection of the elements is not based on a random mechanism, but is made by certain decisions (purposive or arbitrary selection of elements)
+
+### Sampling Map
+
+![Sampling procedure Overview](img/sampling_map.png)
+
+### Simple random sampling (SRS)
+
+Random selection of n elements from the N elements of the population. Each element has the same probability of being included in the sample.
+
+```{r}
+data <- rnorm(100) # 100 random numbers
+View(data)
+
+data_sample <- sample(data, 10, replace=FALSE) # Take 10 random sample from data
+View(data_sample)
+```
+
+### Stratified random sampling
+
+Structure of the population regarding certain characteristics is known in advance. The population is stratified in accordance with these characteristics.
+
+- Proportional: Selection set in each Disproportional: Selection rate per stratum stratum is the same (self-weighting)
+- Disproportional: Selection rate per stratum stratum is the same (self-weighting) is different (samples will be weighted)
+
+### Cluster sampling
+ 
+The elements are selected at a higher level. Variability within clusters is small (cluster elements are very similar) while variability between clusters is large (clusters differ greatly).
+
+### Arbitrary sampling
+
+Arbitrary sampling occurs when a sample is selected based on the researcher's discretion, convenience or ease of availability, without applying a specific, structured or random procedure.
+
+### Targeted sampling
+
+For populations that are difficult to reach and whose members are not closely networked. Preferred locations or places of residence of the members are identified and then systematically recruited on site.
+
+### Respondent Driven Sampling
+
+Multiple waves of peer-to-peer recruitment with statistical adjustments are conducted to approximate a random sample. Recruited individuals are only allowed to recruit a limited number of other individuals and are only rewarded for each person actually recruited.
+
+## Representativeness
+
+The degree of representativeness is not measurable. The sample should be representative with regard to key characteristics of the study.
+
+## Sampling errors
+
+### Non-sampling error
+
+Difference in the mean value between the defined ideal population and the real population that cannot be attributed to deficiencies in the random selection of the sample.
+
+- Coverage error*: Part of the population cannot be identified.
+- Systematic non-response: Lack of information on certain individual elements.
+
+### Sampling Error
+
+Difference between the estimated mean value from a randomly drawn sample and the real mean value of the population.
+
+- Selection error: Not all elements of the population have the same selection probability.
+- Use of an unsuitable estimator.
+
+## Variability of Sample Means
+
+In randomly drawn equal samples, the sample means vary depending on:
+
+- Attribute: The more heterogeneously an attribute is distributed in the population, the greater the variability of the sample means among many samples.
+- Sample size: The smaller the sample size, the greater the variability of sample means among many samples.
+
+## Standard Error
+
+The standard error is a measure of the variability of the sample means among many samples. It quantifies the spread of sample means from repeated random samples of the same size
+around the population mean $\mu_0$
+
+$$
+\hat{\sigma}_{\bar{X}} = \sqrt{\dfrac{s^2}{n}} = \dfrac{s}{\sqrt{n}}
+$$
+
+The larger the sample size, the smaller the standard error, and therefore, the larger the sample size, the more precise the sample mean is as an estimator of the population mean.
+
