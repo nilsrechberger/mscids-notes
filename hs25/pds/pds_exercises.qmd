@@ -593,7 +593,7 @@ def main():
 main()
 ```
 
-## Exercice 4
+## Extercise 4
 
 Keyword parameters
 If we want call the function circumference(2) with the 'width' 2
@@ -654,4 +654,109 @@ print(c2)
 # both default values are used.
 c3 = circumference()
 print(c3)
+```
+
+# Exercise Collection File Access
+
+## Exercise 01
+
+Write a program that combines three lines from the file 'musicians.txt' into one line
+and writes them as standard output using print(). That means: An output line should contain: first name, last name and artist name ("Künstername") or band of the artist. The band or artist name should be printed in round brackets and in captial letters. Example: "Marshall Bruce Mathers III (EMINEM)"
+
+```{python}
+with open('data/musicians.txt', mode='r') as file: # Read file
+        musicians = [line.rstrip() for line in file]
+
+first_name = 0
+artist_name = 1
+band = 2
+
+while band < len(musicians):
+    print(f"{musicians[first_name]} {musicians[artist_name]} ({str.upper(musicians[band])})")
+
+    first_name += 3
+    artist_name += 3
+    band += 3
+```
+
+## Exercise 02
+
+Change the solution of Exercise 02 so that the program writes the output to the file 'musicians2.txt'.
+
+```{python}
+with open('data/musicians.txt', mode='r') as file: # Read file
+        musicians = [line.rstrip() for line in file]
+
+first_name = 0
+artist_name = 1
+band = 2
+
+while band < len(musicians):
+    with open('data/musicians2.txt', mode='a') as file2: # Mode = Append
+        file2.write(f"{musicians[first_name]} {musicians[artist_name]} ({str.upper(musicians[band])})\n")
+
+    first_name += 3
+    artist_name += 3
+    band += 3
+```
+
+# Exercise Collection String Formatting
+
+## Exercise 01
+
+Use the f"XXX" syntax to produce the following print out "Hello Andreas and Ramon!" based on the given varibles.
+
+```{python}
+var1 = "and"
+var2 = "Andreas"
+var3 = "!"
+var4 = "Hello"
+var5 = "Ramon"
+
+print(f"{var4} {var2} {var1} {var5}{var3}")
+```
+
+## Exercise 02
+
+Use the "XXX".format() syntax to produce the following print out: "My name is Giacomo, I am 10 years old, and I live in Padova."
+based on the given dictionary. In the formatting call use:
+1 order based
+2 numbering based
+3 key word based
+4 dictionary key based
+versions to insert the variables.
+
+```{python}
+insert_dict = {'name': 'Giacomo', 'age': 10, 'city': 'Padova'}
+
+# Order based
+print("My name is {}, I am {} years old, and I live in {}.".format(
+    insert_dict['name'], insert_dict['age'], insert_dict['city']
+))
+
+# Numbering based
+print("My name is {0}, I am {1} years old, and I live in {2}.".format(
+    insert_dict['name'], insert_dict['age'], insert_dict['city']
+))
+
+# Key word based
+print("My name is {n}, I am {a} years old, and I live in {c}.".format(
+    n=insert_dict['name'], a=insert_dict['age'], c=insert_dict['city']
+))
+
+# Dictionary key based
+print("My name is {name}, I am {age} years old, and I live in {city}.".format(
+    **insert_dict
+))
+```
+
+## Exercise 03
+
+You are given list of n (even) numbers. Write a program that prints for each pair [(first, last), (second, second last ), etc...] X and Y the following string: X times Y is: X*Y. Use in place calculations to calculate the product directly in the string within the print statement.
+
+```{python}
+nums = [1, 2, 3, 4, 5, 6]
+
+for i in range(len(nums)):
+    print(f"{nums[i] * nums[len(nums) - 1 - i]}")
 ```
