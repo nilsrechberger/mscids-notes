@@ -270,8 +270,19 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <li><a href="#exercise-1-2" id="toc-exercise-1-2" class="nav-link" data-scroll-target="#exercise-1-2">Exercise 1</a></li>
   <li><a href="#exercice-2" id="toc-exercice-2" class="nav-link" data-scroll-target="#exercice-2">Exercice 2</a></li>
   <li><a href="#exercise-3-1" id="toc-exercise-3-1" class="nav-link" data-scroll-target="#exercise-3-1">Exercise 3</a></li>
-  <li><a href="#exercice-4" id="toc-exercice-4" class="nav-link" data-scroll-target="#exercice-4">Exercice 4</a></li>
+  <li><a href="#extercise-4" id="toc-extercise-4" class="nav-link" data-scroll-target="#extercise-4">Extercise 4</a></li>
   <li><a href="#exercise-5-1" id="toc-exercise-5-1" class="nav-link" data-scroll-target="#exercise-5-1">Exercise 5</a></li>
+  </ul></li>
+  <li><a href="#exercise-collection-file-access" id="toc-exercise-collection-file-access" class="nav-link" data-scroll-target="#exercise-collection-file-access">Exercise Collection File Access</a>
+  <ul class="collapse">
+  <li><a href="#exercise-01" id="toc-exercise-01" class="nav-link" data-scroll-target="#exercise-01">Exercise 01</a></li>
+  <li><a href="#exercise-02" id="toc-exercise-02" class="nav-link" data-scroll-target="#exercise-02">Exercise 02</a></li>
+  </ul></li>
+  <li><a href="#exercise-collection-string-formatting" id="toc-exercise-collection-string-formatting" class="nav-link" data-scroll-target="#exercise-collection-string-formatting">Exercise Collection String Formatting</a>
+  <ul class="collapse">
+  <li><a href="#exercise-01-1" id="toc-exercise-01-1" class="nav-link" data-scroll-target="#exercise-01-1">Exercise 01</a></li>
+  <li><a href="#exercise-02-1" id="toc-exercise-02-1" class="nav-link" data-scroll-target="#exercise-02-1">Exercise 02</a></li>
+  <li><a href="#exercise-03" id="toc-exercise-03" class="nav-link" data-scroll-target="#exercise-03">Exercise 03</a></li>
   </ul></li>
   </ul>
 </nav>
@@ -304,7 +315,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <h2 class="anchored" data-anchor-id="exercises-1">Exercises 1</h2>
 <section id="what-does-python-return-as-result-of-the-following-calculations" class="level3">
 <h3 class="anchored" data-anchor-id="what-does-python-return-as-result-of-the-following-calculations">What does Python return as result of the following calculations?</h3>
-<div id="79f409ac" class="cell" data-execution_count="1">
+<div id="1b6f11e5" class="cell" data-execution_count="1">
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"10 + 10 + 10 = </span><span class="sc">{</span><span class="dv">10</span> <span class="op">+</span> <span class="dv">10</span> <span class="op">+</span> <span class="dv">10</span><span class="sc">}</span><span class="ss">"</span>)</span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"10 - 3       = </span><span class="sc">{</span><span class="dv">10</span> <span class="op">-</span> <span class="dv">3</span><span class="sc">}</span><span class="ss">"</span>)</span>
 <span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"10 * 2       = </span><span class="sc">{</span><span class="dv">10</span> <span class="op">*</span> <span class="dv">2</span><span class="sc">}</span><span class="ss">"</span>)</span>
@@ -333,7 +344,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </section>
 <section id="try-to-find-out-what-happens" class="level3">
 <h3 class="anchored" data-anchor-id="try-to-find-out-what-happens">Try to find out: What happens?</h3>
-<div id="8dce30e6" class="cell" data-execution_count="2">
+<div id="67420bb3" class="cell" data-execution_count="2">
 <div class="sourceCode cell-code" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>a <span class="op">=</span> <span class="dv">23</span></span>
 <span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>b <span class="op">=</span> <span class="dv">23</span></span>
 <span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"a = </span><span class="sc">{</span>a<span class="sc">}</span><span class="ss">"</span>)</span>
@@ -348,7 +359,7 @@ a is of type &lt;class 'int'&gt;</code></pre>
 <blockquote class="blockquote">
 <p>Note: <code>id()</code> corresponds to the objects memory address during its lifetime.</p>
 </blockquote>
-<div id="fc7c1f9f" class="cell" data-execution_count="3">
+<div id="102750cf" class="cell" data-execution_count="3">
 <div class="sourceCode cell-code" id="cb5"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"b = </span><span class="sc">{</span>b<span class="sc">}</span><span class="ss">"</span>)</span>
 <span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"The ID of b is </span><span class="sc">{</span><span class="bu">id</span>(b)<span class="sc">}</span><span class="ss">"</span>)</span>
 <span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"b is of type </span><span class="sc">{</span><span class="bu">type</span>(a)<span class="sc">}</span><span class="ss">"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -361,7 +372,7 @@ b is of type &lt;class 'int'&gt;</code></pre>
 </section>
 <section id="change-the-value-of-variable-a" class="level3">
 <h3 class="anchored" data-anchor-id="change-the-value-of-variable-a">Change the value of variable “a”</h3>
-<div id="07eaf86a" class="cell" data-execution_count="4">
+<div id="dca5c5af" class="cell" data-execution_count="4">
 <div class="sourceCode cell-code" id="cb7"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>a <span class="op">=</span> <span class="dv">123</span> <span class="co"># Reassign var a to int 123</span></span>
 <span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"a = </span><span class="sc">{</span>a<span class="sc">}</span><span class="ss">"</span>)</span>
 <span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"The ID of a is </span><span class="sc">{</span><span class="bu">id</span>(a)<span class="sc">}</span><span class="ss">"</span>)</span>
@@ -375,7 +386,7 @@ a is of type &lt;class 'int'&gt;</code></pre>
 </section>
 <section id="what-happens-now-why" class="level3">
 <h3 class="anchored" data-anchor-id="what-happens-now-why">What happens now? why?</h3>
-<div id="2160249c" class="cell" data-execution_count="5">
+<div id="5a107ffa" class="cell" data-execution_count="5">
 <div class="sourceCode cell-code" id="cb9"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a>c <span class="op">=</span> <span class="dv">23</span></span>
 <span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"c = </span><span class="sc">{</span>c<span class="sc">}</span><span class="ss">"</span>)</span>
 <span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"The ID of a is </span><span class="sc">{</span><span class="bu">id</span>(c)<span class="sc">}</span><span class="ss">"</span>)</span>
@@ -390,21 +401,21 @@ c is of type &lt;class 'int'&gt;</code></pre>
 </section>
 <section id="try-the-same-thing-with-a-float-variable" class="level3">
 <h3 class="anchored" data-anchor-id="try-the-same-thing-with-a-float-variable">Try the same thing with a float variable!!!</h3>
-<div id="f2082b41" class="cell" data-execution_count="6">
+<div id="39fad6ba" class="cell" data-execution_count="6">
 <div class="sourceCode cell-code" id="cb11"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a>d <span class="op">=</span> <span class="fl">3.142</span></span>
 <span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"d = </span><span class="sc">{</span>d<span class="sc">}</span><span class="ss">"</span>)</span>
 <span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"The ID of a is </span><span class="sc">{</span><span class="bu">id</span>(d)<span class="sc">}</span><span class="ss">"</span>)</span>
 <span id="cb11-4"><a href="#cb11-4" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"d is of type </span><span class="sc">{</span><span class="bu">type</span>(d)<span class="sc">}</span><span class="ss">"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>d = 3.142
-The ID of a is 133583481642128
+The ID of a is 127863499529360
 d is of type &lt;class 'float'&gt;</code></pre>
 </div>
 </div>
 </section>
 <section id="printing-of-text-strings" class="level3">
 <h3 class="anchored" data-anchor-id="printing-of-text-strings">Printing of text (strings)</h3>
-<div id="7cac4dfd" class="cell" data-execution_count="7">
+<div id="7d3d13b8" class="cell" data-execution_count="7">
 <div class="sourceCode cell-code" id="cb13"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span> (<span class="st">"HSLU's Python course is cool"</span>)</span>
 <span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb13-3"><a href="#cb13-3" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"This is Line 1"</span>)</span>
@@ -436,7 +447,7 @@ Add some space between the words without removing the '+' signs!</code></pre>
 </section>
 <section id="try-to-understand-the-behaviour" class="level3">
 <h3 class="anchored" data-anchor-id="try-to-understand-the-behaviour">try to understand the behaviour</h3>
-<div id="983f306d" class="cell" data-execution_count="8">
+<div id="f6b09e09" class="cell" data-execution_count="8">
 <div class="sourceCode cell-code" id="cb15"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a>g<span class="op">=</span>h<span class="op">=</span><span class="st">'hslu'</span>      <span class="co"># Assign the var g and h to the string "hslu"</span></span>
 <span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(g)        <span class="co"># Prints hslu</span></span>
 <span id="cb15-3"><a href="#cb15-3" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(h)        <span class="co"># Print hslu</span></span>
@@ -470,7 +481,7 @@ True</code></pre>
 <p>Create a simple program in which three whole numbers (potentially negative!) are read in from the keyboard and afterwards get displayed on the screen in ascending order. Use nested if-statements for order determination (i.e.&nbsp;no built-in- ‘sort’ function).</p>
 <section id="using-if-else-statements" class="level3">
 <h3 class="anchored" data-anchor-id="using-if-else-statements">Using if-else-statements</h3>
-<div id="8c4124d7" class="cell" data-execution_count="9">
+<div id="6e87e8d2" class="cell" data-execution_count="9">
 <div class="sourceCode cell-code" id="cb17"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a>inputs <span class="op">=</span> [] <span class="co"># Set up storage</span></span>
 <span id="cb17-2"><a href="#cb17-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb17-3"><a href="#cb17-3" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"Please input 3 whole numbers of your choise."</span>)</span>
@@ -520,7 +531,7 @@ True</code></pre>
 </section>
 <section id="using-build-in-function-sorted" class="level3">
 <h3 class="anchored" data-anchor-id="using-build-in-function-sorted">Using build in function <code>sorted()</code></h3>
-<div id="056f1faf" class="cell" data-execution_count="10">
+<div id="af26fa30" class="cell" data-execution_count="10">
 <div class="sourceCode cell-code" id="cb19"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a>inputs <span class="op">=</span> [] <span class="co"># Set up storage</span></span>
 <span id="cb19-2"><a href="#cb19-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb19-3"><a href="#cb19-3" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"Please input 3 whole numbers of your choise."</span>)</span>
@@ -560,7 +571,7 @@ True</code></pre>
 <p>if EXPR: print(“condition fulfilled”)</p>
 <p>is only carried out if: a is greater than b OR a is less than half of b OR the sum of a and c is greater than b.</p>
 <p>Check your result: a=1, b=2, c=2 -&gt; True a=1, b=2, c=1 -&gt; False</p>
-<div id="05a82a4e" class="cell" data-execution_count="11">
+<div id="d74289e3" class="cell" data-execution_count="11">
 <div class="sourceCode cell-code" id="cb21"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Test case one</span></span>
 <span id="cb21-2"><a href="#cb21-2" aria-hidden="true" tabindex="-1"></a>a <span class="op">=</span> <span class="dv">1</span></span>
 <span id="cb21-3"><a href="#cb21-3" aria-hidden="true" tabindex="-1"></a>b <span class="op">=</span> <span class="dv">2</span></span>
@@ -574,7 +585,7 @@ True</code></pre>
 <pre><code>condition fulfilled</code></pre>
 </div>
 </div>
-<div id="2465c542" class="cell" data-execution_count="12">
+<div id="5a54725c" class="cell" data-execution_count="12">
 <div class="sourceCode cell-code" id="cb23"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Test case two</span></span>
 <span id="cb23-2"><a href="#cb23-2" aria-hidden="true" tabindex="-1"></a>a <span class="op">=</span> <span class="dv">1</span></span>
 <span id="cb23-3"><a href="#cb23-3" aria-hidden="true" tabindex="-1"></a>b <span class="op">=</span> <span class="dv">2</span></span>
@@ -596,7 +607,7 @@ True</code></pre>
 <p>if EXPR: print(“condition fulfilled”)</p>
 <p>is only carried out if: half of the number a is an odd number OR the subtraction of the numbers b and c results in an even number OR both a and b and also b and c have different values.</p>
 <p>Check your result: a=6, b=2, c=0 =&gt; True a=5, b=2, c=1 =&gt; True a=5, b=5, c=2 =&gt; False</p>
-<div id="ab887488" class="cell" data-execution_count="13">
+<div id="b9049e0a" class="cell" data-execution_count="13">
 <div class="sourceCode cell-code" id="cb25"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb25-1"><a href="#cb25-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Test case one</span></span>
 <span id="cb25-2"><a href="#cb25-2" aria-hidden="true" tabindex="-1"></a>a <span class="op">=</span> <span class="dv">6</span></span>
 <span id="cb25-3"><a href="#cb25-3" aria-hidden="true" tabindex="-1"></a>b <span class="op">=</span> <span class="dv">2</span></span>
@@ -610,7 +621,7 @@ True</code></pre>
 <pre><code>condition fulfilled</code></pre>
 </div>
 </div>
-<div id="bd4b2f40" class="cell" data-execution_count="14">
+<div id="35cf0835" class="cell" data-execution_count="14">
 <div class="sourceCode cell-code" id="cb27"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb27-1"><a href="#cb27-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Test case two</span></span>
 <span id="cb27-2"><a href="#cb27-2" aria-hidden="true" tabindex="-1"></a><span class="co"># Test case one</span></span>
 <span id="cb27-3"><a href="#cb27-3" aria-hidden="true" tabindex="-1"></a>a <span class="op">=</span> <span class="dv">5</span></span>
@@ -625,7 +636,7 @@ True</code></pre>
 <pre><code>condition fulfilled</code></pre>
 </div>
 </div>
-<div id="abcec85f" class="cell" data-execution_count="15">
+<div id="bc41a6e7" class="cell" data-execution_count="15">
 <div class="sourceCode cell-code" id="cb29"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb29-1"><a href="#cb29-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Test case three</span></span>
 <span id="cb29-2"><a href="#cb29-2" aria-hidden="true" tabindex="-1"></a><span class="co"># Test case one</span></span>
 <span id="cb29-3"><a href="#cb29-3" aria-hidden="true" tabindex="-1"></a>a <span class="op">=</span> <span class="dv">5</span></span>
@@ -657,7 +668,7 @@ True</code></pre>
 ***
 **
 *</code></pre>
-<div id="910cf23a" class="cell" data-execution_count="16">
+<div id="b0fc17fb" class="cell" data-execution_count="16">
 <div class="sourceCode cell-code" id="cb32"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb32-1"><a href="#cb32-1" aria-hidden="true" tabindex="-1"></a>upper  <span class="op">=</span> <span class="bu">range</span>(<span class="dv">0</span>, <span class="dv">6</span>, <span class="dv">1</span>) <span class="co"># Define upper pattern</span></span>
 <span id="cb32-2"><a href="#cb32-2" aria-hidden="true" tabindex="-1"></a>lower <span class="op">=</span> <span class="bu">range</span>(<span class="dv">6</span>, <span class="dv">0</span>, <span class="op">-</span><span class="dv">1</span>) <span class="co"># Define lower pattern</span></span>
 <span id="cb32-3"><a href="#cb32-3" aria-hidden="true" tabindex="-1"></a></span>
@@ -686,7 +697,7 @@ True</code></pre>
 <section id="exercise-2" class="level2">
 <h2 class="anchored" data-anchor-id="exercise-2">Exercise 2</h2>
 <p>Write a python program to count the number of even and odd numbers contained in a sequence of numbers.</p>
-<div id="c3cc0727" class="cell" data-execution_count="17">
+<div id="fab27292" class="cell" data-execution_count="17">
 <div class="sourceCode cell-code" id="cb34"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb34-1"><a href="#cb34-1" aria-hidden="true" tabindex="-1"></a>even_numbers <span class="op">=</span> []</span>
 <span id="cb34-2"><a href="#cb34-2" aria-hidden="true" tabindex="-1"></a>odd_numbers <span class="op">=</span> []</span>
 <span id="cb34-3"><a href="#cb34-3" aria-hidden="true" tabindex="-1"></a>numbers <span class="op">=</span> (<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">3</span>,<span class="dv">4</span>,<span class="dv">5</span>,<span class="dv">6</span>,<span class="dv">7</span>,<span class="dv">8</span>,<span class="dv">9</span>,<span class="dv">10</span>)</span>
@@ -708,7 +719,7 @@ Total number of even numbers: 5</code></pre>
 <section id="exercise-3" class="level2">
 <h2 class="anchored" data-anchor-id="exercise-3">Exercise 3</h2>
 <p>Write a Python program which takes two digits m (row) and n (column) as input and generates a two-dimensional structure (e.g.&nbsp;nested list). The value in the i-th row and j-th column should be i*j.</p>
-<div id="cbf3b4cc" class="cell" data-execution_count="18">
+<div id="918365c1" class="cell" data-execution_count="18">
 <div class="sourceCode cell-code" id="cb36"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb36-1"><a href="#cb36-1" aria-hidden="true" tabindex="-1"></a>rows <span class="op">=</span> <span class="dv">3</span></span>
 <span id="cb36-2"><a href="#cb36-2" aria-hidden="true" tabindex="-1"></a>columns <span class="op">=</span> <span class="dv">4</span></span>
 <span id="cb36-3"><a href="#cb36-3" aria-hidden="true" tabindex="-1"></a>result <span class="op">=</span> [] <span class="co"># Define master list</span></span>
@@ -728,7 +739,7 @@ Total number of even numbers: 5</code></pre>
 <section id="exercise-4" class="level2">
 <h2 class="anchored" data-anchor-id="exercise-4">Exercise 4</h2>
 <p>Write a Python program to find all numbers between 200 and 500 (limits included) only containing even digits. Correct solution:</p>
-<div id="20342de3" class="cell" data-execution_count="19">
+<div id="024e6eb6" class="cell" data-execution_count="19">
 <div class="sourceCode cell-code" id="cb38"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb38-1"><a href="#cb38-1" aria-hidden="true" tabindex="-1"></a>my_range <span class="op">=</span> <span class="bu">range</span>(<span class="dv">200</span>, <span class="dv">501</span>) <span class="co"># Include boarders</span></span>
 <span id="cb38-2"><a href="#cb38-2" aria-hidden="true" tabindex="-1"></a>even_digit_numbers <span class="op">=</span> [] <span class="co"># Final result</span></span>
 <span id="cb38-3"><a href="#cb38-3" aria-hidden="true" tabindex="-1"></a></span>
@@ -753,7 +764,7 @@ Total number of even numbers: 5</code></pre>
 <section id="exercise-5" class="level2">
 <h2 class="anchored" data-anchor-id="exercise-5">Exercise 5</h2>
 <p>Write a Python program to guess a number between 1 to 10. First: Use the predefined code block to create a random number Second: The user is prompted to enter a guess. If the guess is wrong a message “to big” or “to small” is printed to the console and the prompt (user input) appears again until the guess is correct. If the guess is correct, “Well guessed!” will be printed and the program ends. Extension: The number of trials should be prompted as well: “Well done - you have tried it 4 times!”</p>
-<div id="d1cdbe1a" class="cell" data-execution_count="20">
+<div id="1b46314d" class="cell" data-execution_count="20">
 <div class="sourceCode cell-code" id="cb40"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb40-1"><a href="#cb40-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Code block to create a random number</span></span>
 <span id="cb40-2"><a href="#cb40-2" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> random <span class="im">import</span> randint</span>
 <span id="cb40-3"><a href="#cb40-3" aria-hidden="true" tabindex="-1"></a>random_number <span class="op">=</span> randint(<span class="dv">1</span>,<span class="dv">10</span>)</span>
@@ -773,8 +784,10 @@ Total number of even numbers: 5</code></pre>
 <span id="cb40-17"><a href="#cb40-17" aria-hidden="true" tabindex="-1"></a>    <span class="cf">else</span>:</span>
 <span id="cb40-18"><a href="#cb40-18" aria-hidden="true" tabindex="-1"></a>        <span class="bu">print</span>(<span class="st">"Guess to high..."</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>Guess to low...
-Well done - you have tried it 2 times!</code></pre>
+<pre><code>Guess to high...
+Guess to low...
+Guess to low...
+Well done - you have tried it 4 times!</code></pre>
 </div>
 </div>
 </section>
@@ -790,7 +803,7 @@ xxxxxxxxxxx
     xxx
     xxx</code></pre>
 <p>Create a program that asks the user for the height of the Christmas tree (trunk included) and then draws the tree. The height of the trunk is always 2 and the width is 3 in case the entire height is &gt; 5 and 1 in case the tree is smaller.</p>
-<div id="c178910b" class="cell" data-execution_count="21">
+<div id="08eed3c6" class="cell" data-execution_count="21">
 <div class="sourceCode cell-code" id="cb43"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb43-1"><a href="#cb43-1" aria-hidden="true" tabindex="-1"></a>total_height <span class="op">=</span> <span class="dv">8</span></span>
 <span id="cb43-2"><a href="#cb43-2" aria-hidden="true" tabindex="-1"></a>trunk_height <span class="op">=</span> <span class="dv">2</span></span>
 <span id="cb43-3"><a href="#cb43-3" aria-hidden="true" tabindex="-1"></a>crown_height <span class="op">=</span> total_height <span class="op">-</span> trunk_height</span>
@@ -832,7 +845,7 @@ xxxxxxxxxxx
 <section id="exercise-1-1" class="level2">
 <h2 class="anchored" data-anchor-id="exercise-1-1">Exercise 1</h2>
 <p>Write a Python program to guess a number between 1 to 10. First: Use the predefined code block to create a random number Second: The user is prompted to enter a guess. If the guess is wrong a message “to big” or “to small” is printed to the console and the prompt (user input) appears again until the guess is correct. If the guess is correct, “Well guessed!” will be printed and the program ends. Extension: The number of trials should be prompted as well: “Well done - you have tried it 4 times!”</p>
-<div id="339f8aa9" class="cell" data-execution_count="22">
+<div id="88309c1a" class="cell" data-execution_count="22">
 <div class="sourceCode cell-code" id="cb45"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb45-1"><a href="#cb45-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Code block to create a random number</span></span>
 <span id="cb45-2"><a href="#cb45-2" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> random <span class="im">import</span> randint</span>
 <span id="cb45-3"><a href="#cb45-3" aria-hidden="true" tabindex="-1"></a>random_number <span class="op">=</span> randint(<span class="dv">1</span>,<span class="dv">10</span>)</span>
@@ -852,14 +865,22 @@ xxxxxxxxxxx
 <span id="cb45-17"><a href="#cb45-17" aria-hidden="true" tabindex="-1"></a>    <span class="cf">else</span>:</span>
 <span id="cb45-18"><a href="#cb45-18" aria-hidden="true" tabindex="-1"></a>        <span class="bu">print</span>(<span class="st">"Guess to high..."</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>Guess to low...
+<pre><code>Guess to high...
+Guess to high...
+Guess to high...
+Guess to high...
+Guess to high...
 Guess to high...
 Guess to low...
-Guess to high...
 Guess to low...
 Guess to high...
+Guess to high...
+Guess to high...
+Guess to high...
+Guess to high...
+Guess to high...
 Guess to low...
-Well done - you have tried it 8 times!</code></pre>
+Well done - you have tried it 16 times!</code></pre>
 </div>
 </div>
 </section>
@@ -869,7 +890,7 @@ Well done - you have tried it 8 times!</code></pre>
 <section id="exercise-1-2" class="level2">
 <h2 class="anchored" data-anchor-id="exercise-1-2">Exercise 1</h2>
 <p>Write a function that accepts a list of integers as input and returns a list containing all even numbers of the input list.</p>
-<div id="14a00b9c" class="cell" data-execution_count="23">
+<div id="223a9b32" class="cell" data-execution_count="23">
 <div class="sourceCode cell-code" id="cb47"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb47-1"><a href="#cb47-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> extract_even_num(num_list: <span class="bu">list</span>[<span class="bu">int</span>]) <span class="op">-&gt;</span> <span class="bu">list</span>:</span>
 <span id="cb47-2"><a href="#cb47-2" aria-hidden="true" tabindex="-1"></a>    <span class="co">"""</span></span>
 <span id="cb47-3"><a href="#cb47-3" aria-hidden="true" tabindex="-1"></a><span class="co">    Returns all even numbers of within a given list</span></span>
@@ -897,7 +918,7 @@ Well done - you have tried it 8 times!</code></pre>
 <section id="exercice-2" class="level2">
 <h2 class="anchored" data-anchor-id="exercice-2">Exercice 2</h2>
 <p>Write a function accepts a list as input and returns the unique values contained in that list as a list. Hint: you can use the “set” method to check your solution.</p>
-<div id="8064df43" class="cell" data-execution_count="24">
+<div id="002daa24" class="cell" data-execution_count="24">
 <div class="sourceCode cell-code" id="cb49"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb49-1"><a href="#cb49-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> get_unique_values(value_list: <span class="bu">list</span>) <span class="op">-&gt;</span> <span class="bu">set</span>:</span>
 <span id="cb49-2"><a href="#cb49-2" aria-hidden="true" tabindex="-1"></a>    <span class="co">"""</span></span>
 <span id="cb49-3"><a href="#cb49-3" aria-hidden="true" tabindex="-1"></a><span class="co">    Return a set (unique values) from a given list</span></span>
@@ -913,14 +934,14 @@ Well done - you have tried it 8 times!</code></pre>
 <span id="cb49-13"><a href="#cb49-13" aria-hidden="true" tabindex="-1"></a>uniques <span class="op">=</span> get_unique_values((<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">2</span>, <span class="dv">3</span>, <span class="st">"Hello"</span>, <span class="st">"Hello"</span>, <span class="st">"Bye"</span>))</span>
 <span id="cb49-14"><a href="#cb49-14" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(uniques)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>{1, 2, 3, 'Hello', 'Bye'}</code></pre>
+<pre><code>{1, 2, 3, 'Bye', 'Hello'}</code></pre>
 </div>
 </div>
 </section>
 <section id="exercise-3-1" class="level2">
 <h2 class="anchored" data-anchor-id="exercise-3-1">Exercise 3</h2>
 <p>Crate a simple calculator that provides functions to add, subtract, multiply and divide two numbers. Implement the missing parts to execute the main() function below without an error.</p>
-<div id="b7566384" class="cell" data-execution_count="25">
+<div id="e347540a" class="cell" data-execution_count="25">
 <div class="sourceCode cell-code" id="cb51"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb51-1"><a href="#cb51-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> add(num1: <span class="bu">int</span>, num2: <span class="bu">int</span>) <span class="op">-&gt;</span> <span class="bu">int</span>:</span>
 <span id="cb51-2"><a href="#cb51-2" aria-hidden="true" tabindex="-1"></a>    <span class="co">""" Add two numbers """</span></span>
 <span id="cb51-3"><a href="#cb51-3" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> num1 <span class="op">+</span> num2</span>
@@ -981,10 +1002,10 @@ Well done - you have tried it 8 times!</code></pre>
 </div>
 </div>
 </section>
-<section id="exercice-4" class="level2">
-<h2 class="anchored" data-anchor-id="exercice-4">Exercice 4</h2>
+<section id="extercise-4" class="level2">
+<h2 class="anchored" data-anchor-id="extercise-4">Extercise 4</h2>
 <p>Keyword parameters If we want call the function circumference(2) with the ‘width’ 2 we have a problem: The number ‘2’ is by default assigned to the first Parameter and that is ‘length’ … Task: Change the calls so that the function circumference(2) is called with ‘width’ 2!</p>
-<div id="88a7728b" class="cell" data-execution_count="26">
+<div id="1b508f0f" class="cell" data-execution_count="26">
 <div class="sourceCode cell-code" id="cb53"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb53-1"><a href="#cb53-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> circumference(length <span class="op">=</span> <span class="dv">2</span>, width <span class="op">=</span> <span class="dv">1</span>):</span>
 <span id="cb53-2"><a href="#cb53-2" aria-hidden="true" tabindex="-1"></a>     <span class="cf">return</span> <span class="dv">2</span> <span class="op">*</span> (length <span class="op">+</span> width)</span>
 <span id="cb53-3"><a href="#cb53-3" aria-hidden="true" tabindex="-1"></a></span>
@@ -1016,7 +1037,7 @@ Well done - you have tried it 8 times!</code></pre>
 <h2 class="anchored" data-anchor-id="exercise-5-1">Exercise 5</h2>
 <p>Functions may have parameters which may have default values.</p>
 <p>Task: Change the two examples (1 and 2) such that the two function calls hello(…) and the three function calls circumference(…) run without any error.</p>
-<div id="cf5fbe59" class="cell" data-execution_count="27">
+<div id="056f5ca0" class="cell" data-execution_count="27">
 <div class="sourceCode cell-code" id="cb55"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb55-1"><a href="#cb55-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Example 1:</span></span>
 <span id="cb55-2"><a href="#cb55-2" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> hello (name <span class="op">=</span> <span class="st">"Mr. Unknown"</span>):</span>
 <span id="cb55-3"><a href="#cb55-3" aria-hidden="true" tabindex="-1"></a>     <span class="bu">print</span> (<span class="st">"Hello "</span> <span class="op">+</span> name <span class="op">+</span> <span class="st">"!"</span>)</span>
@@ -1047,6 +1068,126 @@ Hello Mr. Unknown!
 16
 12
 4</code></pre>
+</div>
+</div>
+</section>
+</section>
+<section id="exercise-collection-file-access" class="level1">
+<h1>Exercise Collection File Access</h1>
+<section id="exercise-01" class="level2">
+<h2 class="anchored" data-anchor-id="exercise-01">Exercise 01</h2>
+<p>Write a program that combines three lines from the file ‘musicians.txt’ into one line and writes them as standard output using print(). That means: An output line should contain: first name, last name and artist name (“Künstername”) or band of the artist. The band or artist name should be printed in round brackets and in captial letters. Example: “Marshall Bruce Mathers III (EMINEM)”</p>
+<div id="603a2971" class="cell" data-execution_count="28">
+<div class="sourceCode cell-code" id="cb57"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb57-1"><a href="#cb57-1" aria-hidden="true" tabindex="-1"></a><span class="cf">with</span> <span class="bu">open</span>(<span class="st">'data/musicians.txt'</span>, mode<span class="op">=</span><span class="st">'r'</span>) <span class="im">as</span> <span class="bu">file</span>: <span class="co"># Read file</span></span>
+<span id="cb57-2"><a href="#cb57-2" aria-hidden="true" tabindex="-1"></a>        musicians <span class="op">=</span> [line.rstrip() <span class="cf">for</span> line <span class="kw">in</span> <span class="bu">file</span>]</span>
+<span id="cb57-3"><a href="#cb57-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb57-4"><a href="#cb57-4" aria-hidden="true" tabindex="-1"></a>first_name <span class="op">=</span> <span class="dv">0</span></span>
+<span id="cb57-5"><a href="#cb57-5" aria-hidden="true" tabindex="-1"></a>artist_name <span class="op">=</span> <span class="dv">1</span></span>
+<span id="cb57-6"><a href="#cb57-6" aria-hidden="true" tabindex="-1"></a>band <span class="op">=</span> <span class="dv">2</span></span>
+<span id="cb57-7"><a href="#cb57-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb57-8"><a href="#cb57-8" aria-hidden="true" tabindex="-1"></a><span class="cf">while</span> band <span class="op">&lt;</span> <span class="bu">len</span>(musicians):</span>
+<span id="cb57-9"><a href="#cb57-9" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="ss">f"</span><span class="sc">{</span>musicians[first_name]<span class="sc">}</span><span class="ss"> </span><span class="sc">{</span>musicians[artist_name]<span class="sc">}</span><span class="ss"> (</span><span class="sc">{</span><span class="bu">str</span><span class="sc">.</span>upper(musicians[band])<span class="sc">}</span><span class="ss">)"</span>)</span>
+<span id="cb57-10"><a href="#cb57-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb57-11"><a href="#cb57-11" aria-hidden="true" tabindex="-1"></a>    first_name <span class="op">+=</span> <span class="dv">3</span></span>
+<span id="cb57-12"><a href="#cb57-12" aria-hidden="true" tabindex="-1"></a>    artist_name <span class="op">+=</span> <span class="dv">3</span></span>
+<span id="cb57-13"><a href="#cb57-13" aria-hidden="true" tabindex="-1"></a>    band <span class="op">+=</span> <span class="dv">3</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Brian Molko (PLACEBO)
+Jim Morrison (THE DOORS)
+Ray Davies (THE KINKS)
+Marshall Bruce Mathers III (EMINEM)
+Andre Romelle Young (DR. DRE)
+Beth Gibbons (PORTISHEAD)</code></pre>
+</div>
+</div>
+</section>
+<section id="exercise-02" class="level2">
+<h2 class="anchored" data-anchor-id="exercise-02">Exercise 02</h2>
+<p>Change the solution of Exercise 02 so that the program writes the output to the file ‘musicians2.txt’.</p>
+<div id="ab57f1df" class="cell" data-execution_count="29">
+<div class="sourceCode cell-code" id="cb59"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb59-1"><a href="#cb59-1" aria-hidden="true" tabindex="-1"></a><span class="cf">with</span> <span class="bu">open</span>(<span class="st">'data/musicians.txt'</span>, mode<span class="op">=</span><span class="st">'r'</span>) <span class="im">as</span> <span class="bu">file</span>: <span class="co"># Read file</span></span>
+<span id="cb59-2"><a href="#cb59-2" aria-hidden="true" tabindex="-1"></a>        musicians <span class="op">=</span> [line.rstrip() <span class="cf">for</span> line <span class="kw">in</span> <span class="bu">file</span>]</span>
+<span id="cb59-3"><a href="#cb59-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb59-4"><a href="#cb59-4" aria-hidden="true" tabindex="-1"></a>first_name <span class="op">=</span> <span class="dv">0</span></span>
+<span id="cb59-5"><a href="#cb59-5" aria-hidden="true" tabindex="-1"></a>artist_name <span class="op">=</span> <span class="dv">1</span></span>
+<span id="cb59-6"><a href="#cb59-6" aria-hidden="true" tabindex="-1"></a>band <span class="op">=</span> <span class="dv">2</span></span>
+<span id="cb59-7"><a href="#cb59-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb59-8"><a href="#cb59-8" aria-hidden="true" tabindex="-1"></a><span class="cf">while</span> band <span class="op">&lt;</span> <span class="bu">len</span>(musicians):</span>
+<span id="cb59-9"><a href="#cb59-9" aria-hidden="true" tabindex="-1"></a>    <span class="cf">with</span> <span class="bu">open</span>(<span class="st">'data/musicians2.txt'</span>, mode<span class="op">=</span><span class="st">'a'</span>) <span class="im">as</span> file2: <span class="co"># Mode = Append</span></span>
+<span id="cb59-10"><a href="#cb59-10" aria-hidden="true" tabindex="-1"></a>        file2.write(<span class="ss">f"</span><span class="sc">{</span>musicians[first_name]<span class="sc">}</span><span class="ss"> </span><span class="sc">{</span>musicians[artist_name]<span class="sc">}</span><span class="ss"> (</span><span class="sc">{</span><span class="bu">str</span><span class="sc">.</span>upper(musicians[band])<span class="sc">}</span><span class="ss">)</span><span class="ch">\n</span><span class="ss">"</span>)</span>
+<span id="cb59-11"><a href="#cb59-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb59-12"><a href="#cb59-12" aria-hidden="true" tabindex="-1"></a>    first_name <span class="op">+=</span> <span class="dv">3</span></span>
+<span id="cb59-13"><a href="#cb59-13" aria-hidden="true" tabindex="-1"></a>    artist_name <span class="op">+=</span> <span class="dv">3</span></span>
+<span id="cb59-14"><a href="#cb59-14" aria-hidden="true" tabindex="-1"></a>    band <span class="op">+=</span> <span class="dv">3</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+</section>
+<section id="exercise-collection-string-formatting" class="level1">
+<h1>Exercise Collection String Formatting</h1>
+<section id="exercise-01-1" class="level2">
+<h2 class="anchored" data-anchor-id="exercise-01-1">Exercise 01</h2>
+<p>Use the f”XXX” syntax to produce the following print out “Hello Andreas and Ramon!” based on the given varibles.</p>
+<div id="5df33f85" class="cell" data-execution_count="30">
+<div class="sourceCode cell-code" id="cb60"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb60-1"><a href="#cb60-1" aria-hidden="true" tabindex="-1"></a>var1 <span class="op">=</span> <span class="st">"and"</span></span>
+<span id="cb60-2"><a href="#cb60-2" aria-hidden="true" tabindex="-1"></a>var2 <span class="op">=</span> <span class="st">"Andreas"</span></span>
+<span id="cb60-3"><a href="#cb60-3" aria-hidden="true" tabindex="-1"></a>var3 <span class="op">=</span> <span class="st">"!"</span></span>
+<span id="cb60-4"><a href="#cb60-4" aria-hidden="true" tabindex="-1"></a>var4 <span class="op">=</span> <span class="st">"Hello"</span></span>
+<span id="cb60-5"><a href="#cb60-5" aria-hidden="true" tabindex="-1"></a>var5 <span class="op">=</span> <span class="st">"Ramon"</span></span>
+<span id="cb60-6"><a href="#cb60-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb60-7"><a href="#cb60-7" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"</span><span class="sc">{</span>var4<span class="sc">}</span><span class="ss"> </span><span class="sc">{</span>var2<span class="sc">}</span><span class="ss"> </span><span class="sc">{</span>var1<span class="sc">}</span><span class="ss"> </span><span class="sc">{</span>var5<span class="sc">}{</span>var3<span class="sc">}</span><span class="ss">"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Hello Andreas and Ramon!</code></pre>
+</div>
+</div>
+</section>
+<section id="exercise-02-1" class="level2">
+<h2 class="anchored" data-anchor-id="exercise-02-1">Exercise 02</h2>
+<p>Use the “XXX”.format() syntax to produce the following print out: “My name is Giacomo, I am 10 years old, and I live in Padova.” based on the given dictionary. In the formatting call use: 1 order based 2 numbering based 3 key word based 4 dictionary key based versions to insert the variables.</p>
+<div id="13240a76" class="cell" data-execution_count="31">
+<div class="sourceCode cell-code" id="cb62"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb62-1"><a href="#cb62-1" aria-hidden="true" tabindex="-1"></a>insert_dict <span class="op">=</span> {<span class="st">'name'</span>: <span class="st">'Giacomo'</span>, <span class="st">'age'</span>: <span class="dv">10</span>, <span class="st">'city'</span>: <span class="st">'Padova'</span>}</span>
+<span id="cb62-2"><a href="#cb62-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb62-3"><a href="#cb62-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Order based</span></span>
+<span id="cb62-4"><a href="#cb62-4" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"My name is </span><span class="sc">{}</span><span class="st">, I am </span><span class="sc">{}</span><span class="st"> years old, and I live in </span><span class="sc">{}</span><span class="st">."</span>.<span class="bu">format</span>(</span>
+<span id="cb62-5"><a href="#cb62-5" aria-hidden="true" tabindex="-1"></a>    insert_dict[<span class="st">'name'</span>], insert_dict[<span class="st">'age'</span>], insert_dict[<span class="st">'city'</span>]</span>
+<span id="cb62-6"><a href="#cb62-6" aria-hidden="true" tabindex="-1"></a>))</span>
+<span id="cb62-7"><a href="#cb62-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb62-8"><a href="#cb62-8" aria-hidden="true" tabindex="-1"></a><span class="co"># Numbering based</span></span>
+<span id="cb62-9"><a href="#cb62-9" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"My name is </span><span class="sc">{0}</span><span class="st">, I am </span><span class="sc">{1}</span><span class="st"> years old, and I live in </span><span class="sc">{2}</span><span class="st">."</span>.<span class="bu">format</span>(</span>
+<span id="cb62-10"><a href="#cb62-10" aria-hidden="true" tabindex="-1"></a>    insert_dict[<span class="st">'name'</span>], insert_dict[<span class="st">'age'</span>], insert_dict[<span class="st">'city'</span>]</span>
+<span id="cb62-11"><a href="#cb62-11" aria-hidden="true" tabindex="-1"></a>))</span>
+<span id="cb62-12"><a href="#cb62-12" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb62-13"><a href="#cb62-13" aria-hidden="true" tabindex="-1"></a><span class="co"># Key word based</span></span>
+<span id="cb62-14"><a href="#cb62-14" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"My name is </span><span class="sc">{n}</span><span class="st">, I am </span><span class="sc">{a}</span><span class="st"> years old, and I live in </span><span class="sc">{c}</span><span class="st">."</span>.<span class="bu">format</span>(</span>
+<span id="cb62-15"><a href="#cb62-15" aria-hidden="true" tabindex="-1"></a>    n<span class="op">=</span>insert_dict[<span class="st">'name'</span>], a<span class="op">=</span>insert_dict[<span class="st">'age'</span>], c<span class="op">=</span>insert_dict[<span class="st">'city'</span>]</span>
+<span id="cb62-16"><a href="#cb62-16" aria-hidden="true" tabindex="-1"></a>))</span>
+<span id="cb62-17"><a href="#cb62-17" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb62-18"><a href="#cb62-18" aria-hidden="true" tabindex="-1"></a><span class="co"># Dictionary key based</span></span>
+<span id="cb62-19"><a href="#cb62-19" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"My name is </span><span class="sc">{name}</span><span class="st">, I am </span><span class="sc">{age}</span><span class="st"> years old, and I live in </span><span class="sc">{city}</span><span class="st">."</span>.<span class="bu">format</span>(</span>
+<span id="cb62-20"><a href="#cb62-20" aria-hidden="true" tabindex="-1"></a>    <span class="op">**</span>insert_dict</span>
+<span id="cb62-21"><a href="#cb62-21" aria-hidden="true" tabindex="-1"></a>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>My name is Giacomo, I am 10 years old, and I live in Padova.
+My name is Giacomo, I am 10 years old, and I live in Padova.
+My name is Giacomo, I am 10 years old, and I live in Padova.
+My name is Giacomo, I am 10 years old, and I live in Padova.</code></pre>
+</div>
+</div>
+</section>
+<section id="exercise-03" class="level2">
+<h2 class="anchored" data-anchor-id="exercise-03">Exercise 03</h2>
+<p>You are given list of n (even) numbers. Write a program that prints for each pair [(first, last), (second, second last ), etc…] X and Y the following string: X times Y is: X*Y. Use in place calculations to calculate the product directly in the string within the print statement.</p>
+<div id="37683583" class="cell" data-execution_count="32">
+<div class="sourceCode cell-code" id="cb64"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb64-1"><a href="#cb64-1" aria-hidden="true" tabindex="-1"></a>nums <span class="op">=</span> [<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>, <span class="dv">4</span>, <span class="dv">5</span>, <span class="dv">6</span>]</span>
+<span id="cb64-2"><a href="#cb64-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb64-3"><a href="#cb64-3" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> i <span class="kw">in</span> <span class="bu">range</span>(<span class="bu">len</span>(nums)):</span>
+<span id="cb64-4"><a href="#cb64-4" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="ss">f"</span><span class="sc">{</span>nums[i] <span class="op">*</span> nums[<span class="bu">len</span>(nums) <span class="op">-</span> <span class="dv">1</span> <span class="op">-</span> i]<span class="sc">}</span><span class="ss">"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>6
+10
+12
+12
+10
+6</code></pre>
 </div>
 </div>
 

@@ -20,6 +20,40 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
+/* CSS for syntax highlighting */
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { display: inline-block; text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
 </style>
 
 
@@ -291,6 +325,33 @@ window.Quarto = {
   <li><a href="#construct-validity" id="toc-construct-validity" class="nav-link" data-scroll-target="#construct-validity">Construct Validity</a></li>
   <li><a href="#relationship-between-internal-vs.-external-validity" id="toc-relationship-between-internal-vs.-external-validity" class="nav-link" data-scroll-target="#relationship-between-internal-vs.-external-validity">Relationship between Internal vs.&nbsp;External Validity</a></li>
   </ul></li>
+  </ul></li>
+  <li><a href="#lecture-05-sampling" id="toc-lecture-05-sampling" class="nav-link" data-scroll-target="#lecture-05-sampling">Lecture 05: Sampling</a>
+  <ul class="collapse">
+  <li><a href="#population" id="toc-population" class="nav-link" data-scroll-target="#population">Population</a></li>
+  <li><a href="#generalizing-from-a-sample-to-the-population" id="toc-generalizing-from-a-sample-to-the-population" class="nav-link" data-scroll-target="#generalizing-from-a-sample-to-the-population">Generalizing from a sample to the population</a>
+  <ul class="collapse">
+  <li><a href="#characteristics-of-a-sample" id="toc-characteristics-of-a-sample" class="nav-link" data-scroll-target="#characteristics-of-a-sample">Characteristics of a sample</a></li>
+  <li><a href="#point-estimate-of-the-mean" id="toc-point-estimate-of-the-mean" class="nav-link" data-scroll-target="#point-estimate-of-the-mean">Point estimate of the mean</a></li>
+  </ul></li>
+  <li><a href="#sampling-methods" id="toc-sampling-methods" class="nav-link" data-scroll-target="#sampling-methods">Sampling methods</a>
+  <ul class="collapse">
+  <li><a href="#sampling-map" id="toc-sampling-map" class="nav-link" data-scroll-target="#sampling-map">Sampling Map</a></li>
+  <li><a href="#simple-random-sampling-srs" id="toc-simple-random-sampling-srs" class="nav-link" data-scroll-target="#simple-random-sampling-srs">Simple random sampling (SRS)</a></li>
+  <li><a href="#stratified-random-sampling" id="toc-stratified-random-sampling" class="nav-link" data-scroll-target="#stratified-random-sampling">Stratified random sampling</a></li>
+  <li><a href="#cluster-sampling" id="toc-cluster-sampling" class="nav-link" data-scroll-target="#cluster-sampling">Cluster sampling</a></li>
+  <li><a href="#arbitrary-sampling" id="toc-arbitrary-sampling" class="nav-link" data-scroll-target="#arbitrary-sampling">Arbitrary sampling</a></li>
+  <li><a href="#targeted-sampling" id="toc-targeted-sampling" class="nav-link" data-scroll-target="#targeted-sampling">Targeted sampling</a></li>
+  <li><a href="#respondent-driven-sampling" id="toc-respondent-driven-sampling" class="nav-link" data-scroll-target="#respondent-driven-sampling">Respondent Driven Sampling</a></li>
+  </ul></li>
+  <li><a href="#representativeness" id="toc-representativeness" class="nav-link" data-scroll-target="#representativeness">Representativeness</a></li>
+  <li><a href="#sampling-errors" id="toc-sampling-errors" class="nav-link" data-scroll-target="#sampling-errors">Sampling errors</a>
+  <ul class="collapse">
+  <li><a href="#non-sampling-error" id="toc-non-sampling-error" class="nav-link" data-scroll-target="#non-sampling-error">Non-sampling error</a></li>
+  <li><a href="#sampling-error" id="toc-sampling-error" class="nav-link" data-scroll-target="#sampling-error">Sampling Error</a></li>
+  </ul></li>
+  <li><a href="#variability-of-sample-means" id="toc-variability-of-sample-means" class="nav-link" data-scroll-target="#variability-of-sample-means">Variability of Sample Means</a></li>
+  <li><a href="#standard-error" id="toc-standard-error" class="nav-link" data-scroll-target="#standard-error">Standard Error</a></li>
   </ul></li>
   </ul>
 </nav>
@@ -630,9 +691,145 @@ y = \beta_0 + \beta_1 x_1 + \beta_2 x_2 + \beta_3 x_1 \times x_2
 </figure>
 </div>
 <p>The lowest general level of validity is at the bottom left for the quasi-experimental laboratory study, and the highest is at the top right for the experimental field study. A well-controlled lab experiment may maximize internal validity by eliminating confounding variables.</p>
-
-
 </section>
+</section>
+</section>
+<section id="lecture-05-sampling" class="level1">
+<h1>Lecture 05: Sampling</h1>
+<section id="population" class="level2">
+<h2 class="anchored" data-anchor-id="population">Population</h2>
+<p>Set of all (potentially explorable) elements that have a common characteristic or a common combination of characteristics. The observation units (individuals, households, etc.) must be defined before the research start. In order to define the population, clear differentiation criteria must be formulated, so that for each observation unit it can be determined whether it is part of the population.</p>
+<ul>
+<li>Differentiation in geographical aspects</li>
+<li>Differentiation of temporal aspects (point in time or period)</li>
+<li>Differentiation in factual / content-related aspects</li>
+</ul>
+</section>
+<section id="generalizing-from-a-sample-to-the-population" class="level2">
+<h2 class="anchored" data-anchor-id="generalizing-from-a-sample-to-the-population">Generalizing from a sample to the population</h2>
+<p>The population is often very large or not fully accessible. The population can be defined but not identified.</p>
+<section id="characteristics-of-a-sample" class="level3">
+<h3 class="anchored" data-anchor-id="characteristics-of-a-sample">Characteristics of a sample</h3>
+<p>A sample is a subset of all observation units and should reflect the relevant aspects of the population as accurately as possible. Three elements contribute to creating or describing representativeness:</p>
+<ul>
+<li>The sample is drawn randomly.</li>
+<li>Estimation procedure for generalizing from the sample to the population is reported.</li>
+<li>Accuracy is reported, which is influenced by the sample size, among other things</li>
+</ul>
+</section>
+<section id="point-estimate-of-the-mean" class="level3">
+<h3 class="anchored" data-anchor-id="point-estimate-of-the-mean">Point estimate of the mean</h3>
+<p>An “estimator” is a function that calculates a value.</p>
+<ul>
+<li><span class="math inline">\(\bar{x}\)</span>: Mean of the sample</li>
+<li><span class="math inline">\(\mu_0\)</span>: True mean in the population (generally unknown)</li>
+</ul>
+<div class="callout callout-style-default callout-important callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Important
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>The mean value x of a sample is an unbiased, efficient and consistent estimator of the true mean value in the population: <span class="math inline">\(\mu_0 = E(\bar{x})\)</span></p>
+</div>
+</div>
+</section>
+</section>
+<section id="sampling-methods" class="level2">
+<h2 class="anchored" data-anchor-id="sampling-methods">Sampling methods</h2>
+<ul>
+<li>Probabilistic (random) sampling procedures: Selecting elements based on a random mechanism</li>
+<li>Non-probabilistic (non-random, purposive, arbitrary) sampling procedures: Selection of the elements is not based on a random mechanism, but is made by certain decisions (purposive or arbitrary selection of elements)</li>
+</ul>
+<section id="sampling-map" class="level3">
+<h3 class="anchored" data-anchor-id="sampling-map">Sampling Map</h3>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="img/sampling_map.png" class="img-fluid figure-img"></p>
+<figcaption>Sampling procedure Overview</figcaption>
+</figure>
+</div>
+</section>
+<section id="simple-random-sampling-srs" class="level3">
+<h3 class="anchored" data-anchor-id="simple-random-sampling-srs">Simple random sampling (SRS)</h3>
+<p>Random selection of n elements from the N elements of the population. Each element has the same probability of being included in the sample.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>data <span class="ot">&lt;-</span> <span class="fu">rnorm</span>(<span class="dv">100</span>) <span class="co"># 100 random numbers</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="fu">View</span>(data)</span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>data_sample <span class="ot">&lt;-</span> <span class="fu">sample</span>(data, <span class="dv">10</span>, <span class="at">replace=</span><span class="cn">FALSE</span>) <span class="co"># Take 10 random sample from data</span></span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a><span class="fu">View</span>(data_sample)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+<section id="stratified-random-sampling" class="level3">
+<h3 class="anchored" data-anchor-id="stratified-random-sampling">Stratified random sampling</h3>
+<p>Structure of the population regarding certain characteristics is known in advance. The population is stratified in accordance with these characteristics.</p>
+<ul>
+<li>Proportional: Selection set in each Disproportional: Selection rate per stratum stratum is the same (self-weighting)</li>
+<li>Disproportional: Selection rate per stratum stratum is the same (self-weighting) is different (samples will be weighted)</li>
+</ul>
+</section>
+<section id="cluster-sampling" class="level3">
+<h3 class="anchored" data-anchor-id="cluster-sampling">Cluster sampling</h3>
+<p>The elements are selected at a higher level. Variability within clusters is small (cluster elements are very similar) while variability between clusters is large (clusters differ greatly).</p>
+</section>
+<section id="arbitrary-sampling" class="level3">
+<h3 class="anchored" data-anchor-id="arbitrary-sampling">Arbitrary sampling</h3>
+<p>Arbitrary sampling occurs when a sample is selected based on the researcher’s discretion, convenience or ease of availability, without applying a specific, structured or random procedure.</p>
+</section>
+<section id="targeted-sampling" class="level3">
+<h3 class="anchored" data-anchor-id="targeted-sampling">Targeted sampling</h3>
+<p>For populations that are difficult to reach and whose members are not closely networked. Preferred locations or places of residence of the members are identified and then systematically recruited on site.</p>
+</section>
+<section id="respondent-driven-sampling" class="level3">
+<h3 class="anchored" data-anchor-id="respondent-driven-sampling">Respondent Driven Sampling</h3>
+<p>Multiple waves of peer-to-peer recruitment with statistical adjustments are conducted to approximate a random sample. Recruited individuals are only allowed to recruit a limited number of other individuals and are only rewarded for each person actually recruited.</p>
+</section>
+</section>
+<section id="representativeness" class="level2">
+<h2 class="anchored" data-anchor-id="representativeness">Representativeness</h2>
+<p>The degree of representativeness is not measurable. The sample should be representative with regard to key characteristics of the study.</p>
+</section>
+<section id="sampling-errors" class="level2">
+<h2 class="anchored" data-anchor-id="sampling-errors">Sampling errors</h2>
+<section id="non-sampling-error" class="level3">
+<h3 class="anchored" data-anchor-id="non-sampling-error">Non-sampling error</h3>
+<p>Difference in the mean value between the defined ideal population and the real population that cannot be attributed to deficiencies in the random selection of the sample.</p>
+<ul>
+<li>Coverage error*: Part of the population cannot be identified.</li>
+<li>Systematic non-response: Lack of information on certain individual elements.</li>
+</ul>
+</section>
+<section id="sampling-error" class="level3">
+<h3 class="anchored" data-anchor-id="sampling-error">Sampling Error</h3>
+<p>Difference between the estimated mean value from a randomly drawn sample and the real mean value of the population.</p>
+<ul>
+<li>Selection error: Not all elements of the population have the same selection probability.</li>
+<li>Use of an unsuitable estimator.</li>
+</ul>
+</section>
+</section>
+<section id="variability-of-sample-means" class="level2">
+<h2 class="anchored" data-anchor-id="variability-of-sample-means">Variability of Sample Means</h2>
+<p>In randomly drawn equal samples, the sample means vary depending on:</p>
+<ul>
+<li>Attribute: The more heterogeneously an attribute is distributed in the population, the greater the variability of the sample means among many samples.</li>
+<li>Sample size: The smaller the sample size, the greater the variability of sample means among many samples.</li>
+</ul>
+</section>
+<section id="standard-error" class="level2">
+<h2 class="anchored" data-anchor-id="standard-error">Standard Error</h2>
+<p>The standard error is a measure of the variability of the sample means among many samples. It quantifies the spread of sample means from repeated random samples of the same size around the population mean <span class="math inline">\(\mu_0\)</span></p>
+<p><span class="math display">\[
+\hat{\sigma}_{\bar{X}} = \sqrt{\dfrac{s^2}{n}} = \dfrac{s}{\sqrt{n}}
+\]</span></p>
+<p>The larger the sample size, the smaller the standard error, and therefore, the larger the sample size, the more precise the sample mean is as an estimator of the population mean.</p>
+
+
 </section>
 </section>
 
