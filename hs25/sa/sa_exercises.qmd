@@ -964,3 +964,223 @@ True
 ### e
 
 True
+
+# Problems 7
+
+## Problem 7.1
+
+### a
+
+```{r}
+inc <- read.table("/home/nils/dev/mscids-notes/hs25/sa/data/income.dat", header=TRUE)
+```
+
+### b
+
+```{r}
+# Plot data
+plot(inc$Educ, inc$Income2005)
+
+# Add linear reg to plot
+abline(lm(inc$Income2005 ~inc$Educ), col="red")
+```
+
+### c
+
+```{r}
+m <- lm(inc$Income2005 ~inc$Educ)
+m$coefficients
+```
+
+- a: The regression line crosses the $y$ axis at the point $x$ = -40199.575.
+- b: Fore one step at the direction $x$ (one year of education), we increase the salary by 6451.475.
+
+## d
+
+```{r}
+cat("The correlaiton between the education and income is:", cor(inc$Educ, inc$Income2005))
+```
+
+The corralation value ist near to O. The data points correlate loosly.
+
+## Problem 7.2
+
+### a
+
+```{r}
+head(anscombe)
+```
+
+### b
+
+```{r}
+par(mfrow=c(2,2))
+plot(anscombe$x1, anscombe$y1)
+reg <- lm(anscombe$y1 ~ anscombe$x1)
+abline(reg)
+title("x1, y1")
+
+plot(anscombe$x2, anscombe$y2)
+reg <- lm(anscombe$y2 ~ anscombe$x2)
+abline(reg)
+title("x2, y2")
+
+plot(anscombe$x3, anscombe$y3)
+reg <- lm(anscombe$y3 ~ anscombe$x3)
+abline(reg)
+title("x3, y3")
+
+plot(anscombe$x4, anscombe$y4)
+reg <- lm(anscombe$y4 ~ anscombe$x4)
+abline(reg)
+title("x4, y4")
+```
+
+### c
+
+```{r}
+lm(y1 ~ x1, data = anscombe)
+
+lm(y2 ~ x2, data = anscombe)
+
+lm(y3 ~ x3, data = anscombe)
+
+lm(y4 ~ x4, data = anscombe)
+```
+
+The model coefficients are almost identical.
+
+### d
+
+```{r}
+cat("The correlaiton between the x1 and y1 is:", cor(anscombe$x1, anscombe$y1), "\n")
+
+cat("The correlaiton between the x2 and y2 is:", cor(anscombe$x2, anscombe$y2), "\n")
+
+cat("The correlaiton between the x3 and y3 is:", cor(anscombe$x3, anscombe$y3), "\n")
+
+cat("The correlaiton between the x4 and y4 is:", cor(anscombe$x4, anscombe$y4))
+```
+
+The correlation value is almost identical.
+
+### Problem 7.3
+
+```{r}
+# install.packages("ISLR")
+library(ISLR)
+```
+
+### a
+
+```{r}
+head(Auto)
+```
+
+### b/c
+
+```{r}
+plot(Auto$horsepower, Auto$mpg)
+model <- lm(mpg ~ horsepower, data=Auto)
+summary(model)
+```
+
+#### I
+
+The fuel consumption depends on the horsepower.
+
+#### II
+
+The $y$ value at position $x$ = 0 value has no practical meaning here.
+
+#### III
+
+```{r}
+confint(model)
+```
+
+The confidence interval indicates the most likely range of values.
+
+#### IV
+
+```{r}
+summary(model)$r.squared
+```
+
+The $R^2$ value is 0.606. This indicates that the variability to 60 % is through the model.
+
+### d
+
+```{r}
+plot(Auto$horsepower, Auto$mpg)
+model <- lm(mpg ~ horsepower, data=Auto)
+abline(model, col="red")
+```
+
+### Problem 7.4
+
+### a
+
+```{r}
+?MASS::Boston
+```
+
+### b
+
+```{r}
+library(MASS)
+colnames(Boston)
+```
+
+### c
+
+```{r}
+attach(Boston)
+```
+
+### d
+
+#### I/II
+
+```{r}
+model <- lm(medv ~ lstat, data=Boston)
+summary(model)
+```
+
+### e
+
+```{r}
+names(model)
+```
+
+### f
+
+```{r}
+coef(model)
+```
+
+At the data point $x$ = 0, we start at a value of 34.6. Fore every step in $x$ direction, we lose -0.95. The p-value for `lstat` is close to 0 and therefore highly significant.
+
+### g
+
+```{r}
+confint(model)
+```
+
+The model shows that the true $x$ and $y$ values lies between this ranges.
+
+### h
+
+```{r}
+par(mfrow=c(1,1))
+plot(Boston$medv, Boston$lstat)
+abline(model, col="red")
+```
+
+### i
+
+```{r}
+summary(model)$r.squared
+```
+
+The $R^2$-value is 0.5441, so about 54 % of the variability is explained by the model.
