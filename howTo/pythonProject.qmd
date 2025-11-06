@@ -15,7 +15,7 @@ This document details the seven steps I follow to set up any new Python project.
 1.  Create the Project Folder
 2.  Initialize a Git Repository
 3.  Create Essential Subdirectories
-4.  Create Necessary Files**
+4.  Create Necessary Files
 5.  Create and Activate a Python Virtual Environment
 6.  Configure the `.gitignore` File
 7.  Add the Initial Commit to Git
