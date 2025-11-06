@@ -100,6 +100,15 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     "search-label": "Search"
   }
 }</script>
+<script async="" src="https://www.googletagmanager.com/gtag/js?id=G-NZ8462CXQ1"></script>
+
+<script type="text/javascript">
+
+window.dataLayer = window.dataLayer || [];
+function gtag(){dataLayer.push(arguments);}
+gtag('js', new Date());
+gtag('config', 'G-NZ8462CXQ1', { 'anonymize_ip': true});
+</script>
 
   <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
   <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
@@ -334,6 +343,27 @@ window.Quarto = {
   <li><a href="#procedure-hypothesis-test" id="toc-procedure-hypothesis-test" class="nav-link" data-scroll-target="#procedure-hypothesis-test">Procedure Hypothesis Test</a></li>
   <li><a href="#significance-level" id="toc-significance-level" class="nav-link" data-scroll-target="#significance-level">Significance Level </a></li>
   <li><a href="#p-value" id="toc-p-value" class="nav-link" data-scroll-target="#p-value">p-Value</a></li>
+  </ul></li>
+  <li><a href="#week-06-t-test-wilcoxon-test-confidence-interval" id="toc-week-06-t-test-wilcoxon-test-confidence-interval" class="nav-link" data-scroll-target="#week-06-t-test-wilcoxon-test-confidence-interval">Week 06: t-Test, Wilcoxon-Test, Confidence Interval</a>
+  <ul class="collapse">
+  <li><a href="#t-distribution" id="toc-t-distribution" class="nav-link" data-scroll-target="#t-distribution"><span class="math inline">\(t\)</span>-Distribution</a></li>
+  <li><a href="#confidence-interval" id="toc-confidence-interval" class="nav-link" data-scroll-target="#confidence-interval">Confidence Interval</a>
+  <ul class="collapse">
+  <li><a href="#test-decision-with-confidence-interval" id="toc-test-decision-with-confidence-interval" class="nav-link" data-scroll-target="#test-decision-with-confidence-interval">Test Decision with Confidence Interval</a></li>
+  </ul></li>
+  <li><a href="#non-normally-distributed-data-wilcoxon-test" id="toc-non-normally-distributed-data-wilcoxon-test" class="nav-link" data-scroll-target="#non-normally-distributed-data-wilcoxon-test">Non-Normally Distributed Data: Wilcoxon Test</a>
+  <ul class="collapse">
+  <li><a href="#wilcoxon-test-vs.-t-test" id="toc-wilcoxon-test-vs.-t-test" class="nav-link" data-scroll-target="#wilcoxon-test-vs.-t-test">Wilcoxon test vs.&nbsp;t-test</a></li>
+  </ul></li>
+  <li><a href="#paired-samples" id="toc-paired-samples" class="nav-link" data-scroll-target="#paired-samples">Paired Samples</a></li>
+  <li><a href="#unpaired-independent-samples" id="toc-unpaired-independent-samples" class="nav-link" data-scroll-target="#unpaired-independent-samples">Unpaired (Independent) Samples</a>
+  <ul class="collapse">
+  <li><a href="#mann-whitney-u-test-aka-wilcoxon-rank-sum-test" id="toc-mann-whitney-u-test-aka-wilcoxon-rank-sum-test" class="nav-link" data-scroll-target="#mann-whitney-u-test-aka-wilcoxon-rank-sum-test">Mann-Whitney U-Test (aka Wilcoxon Rank-sum Test)</a></li>
+  </ul></li>
+  <li><a href="#interpreting-p-values" id="toc-interpreting-p-values" class="nav-link" data-scroll-target="#interpreting-p-values">Interpreting p-Values</a>
+  <ul class="collapse">
+  <li><a href="#what-is-true-error-rate" id="toc-what-is-true-error-rate" class="nav-link" data-scroll-target="#what-is-true-error-rate">What Is True Error Rate?</a></li>
+  </ul></li>
   </ul></li>
   </ul>
 </nav>
@@ -1027,8 +1057,164 @@ T: \bar{X}_{10} \sim \mathcal{N}(x, \dfrac{1^2}{x})
 <section id="p-value" class="level2">
 <h2 class="anchored" data-anchor-id="p-value">p-Value</h2>
 <p>p-value is probability of observing an event under null hypothesis that is at least as extreme (in direction of alternative) as currently observed event. The smaller p-value, the more result argues against null hypothesis. Values smaller than a predetermined limit, such as 5 %, 1 % or 0.1 % are reason to reject the null hypothesis.</p>
+</section>
+</section>
+<section id="week-06-t-test-wilcoxon-test-confidence-interval" class="level1">
+<h1>Week 06: t-Test, Wilcoxon-Test, Confidence Interval</h1>
+<section id="t-distribution" class="level3">
+<h3 class="anchored" data-anchor-id="t-distribution"><span class="math inline">\(t\)</span>-Distribution</h3>
+<p>Distribution of test statistics for t-test under null hypothesis. Similar to normal distribution, but flatter, due to greater uncertainty. Depends on number of observations. Symmetric distribution around <span class="math inline">\(0\)</span>, but flattens out slower than standard normal distribution <span class="math inline">\(\mathcal{N} (0, 1)\)</span></p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="img/t_distr.png" class="img-fluid figure-img"></p>
+<figcaption>t-Distribution</figcaption>
+</figure>
+</div>
+<p><span class="math display">\[
+H_0 = \mu =\mu_o
+\]</span></p>
+<p>is given by</p>
+<p><span class="math display">\[
+T = \bar{X}_n \sim t_{n-1} \left(\mu, \frac{\hat{\sigma}_{\bar{X}}^2}{n}\right)
+\]</span></p>
+<p>where <span class="math inline">\(t_{n−1}\)</span> is a <span class="math inline">\(t\)</span>-distribution with <span class="math inline">\(n − 1\)</span> degrees of freedom.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb37"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb37-1"><a href="#cb37-1" aria-hidden="true" tabindex="-1"></a>x <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="fl">5.9</span>, <span class="fl">3.4</span>, <span class="fl">6.6</span>, <span class="fl">6.3</span>, <span class="fl">4.2</span>, <span class="fl">2.0</span>, <span class="fl">6.0</span>, <span class="fl">4.8</span>, <span class="fl">4.2</span>, <span class="fl">2.1</span>, <span class="fl">8.7</span>, <span class="fl">4.4</span>, <span class="fl">5.1</span>, <span class="fl">2.7</span>, <span class="fl">8.5</span>, <span class="fl">5.8</span>, <span class="fl">4.9</span>, <span class="fl">5.3</span>, <span class="fl">5.5</span>, <span class="fl">7.9</span>)</span>
+<span id="cb37-2"><a href="#cb37-2" aria-hidden="true" tabindex="-1"></a><span class="fu">mean</span>(x)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 5.215</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb39"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb39-1"><a href="#cb39-1" aria-hidden="true" tabindex="-1"></a><span class="fu">sd</span>(x)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 1.883802</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb41"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb41-1"><a href="#cb41-1" aria-hidden="true" tabindex="-1"></a><span class="fu">t.test</span>(x, <span class="at">mu =</span> <span class="dv">5</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>
+    One Sample t-test
+
+data:  x
+t = 0.51041, df = 19, p-value = 0.6156
+alternative hypothesis: true mean is not equal to 5
+95 percent confidence interval:
+ 4.333353 6.096647
+sample estimates:
+mean of x 
+    5.215 </code></pre>
+</div>
+</div>
+</section>
+<section id="confidence-interval" class="level2">
+<h2 class="anchored" data-anchor-id="confidence-interval">Confidence Interval</h2>
+<p>Interval indicating where, roughly speaking, true mean lies with a certain predefined probability</p>
+<section id="test-decision-with-confidence-interval" class="level3">
+<h3 class="anchored" data-anchor-id="test-decision-with-confidence-interval">Test Decision with Confidence Interval</h3>
+<p>If <span class="math inline">\(\mu_0\)</span> of null hypothesis does not lie within confidence interval of <span class="math inline">\(\bar{X}_n\)</span>, <span class="math inline">\(H_0\)</span> is rejected.</p>
+</section>
+</section>
+<section id="non-normally-distributed-data-wilcoxon-test" class="level2">
+<h2 class="anchored" data-anchor-id="non-normally-distributed-data-wilcoxon-test">Non-Normally Distributed Data: Wilcoxon Test</h2>
+<p>Assumes less than t-test. Distribution under null hypothesis is symmetrical with respect to median <span class="math inline">\(\mu_0\)</span>.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb43"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb43-1"><a href="#cb43-1" aria-hidden="true" tabindex="-1"></a>x <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="fl">79.98</span>, <span class="fl">80.04</span>, <span class="fl">80.02</span>, <span class="fl">80.04</span>, <span class="fl">80.03</span>, <span class="fl">80.03</span>, <span class="fl">80.04</span>, <span class="fl">79.97</span>, <span class="fl">80.05</span>, <span class="fl">80.03</span>, <span class="fl">80.02</span>, <span class="fl">80.00</span>, <span class="fl">80.02</span>)</span>
+<span id="cb43-2"><a href="#cb43-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb43-3"><a href="#cb43-3" aria-hidden="true" tabindex="-1"></a><span class="fu">wilcox.test</span>(x, <span class="at">mu =</span> <span class="fl">80.00</span>, <span class="at">alternative =</span> <span class="st">"two.sided"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Warning in wilcox.test.default(x, mu = 80, alternative = "two.sided"): cannot
+compute exact p-value with ties</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Warning in wilcox.test.default(x, mu = 80, alternative = "two.sided"): cannot
+compute exact p-value with zeroes</code></pre>
+</div>
+<div class="cell-output cell-output-stdout">
+<pre><code>
+    Wilcoxon signed rank test with continuity correction
+
+data:  x
+V = 69, p-value = 0.0195
+alternative hypothesis: true location is not equal to 80</code></pre>
+</div>
+</div>
+<section id="wilcoxon-test-vs.-t-test" class="level3">
+<h3 class="anchored" data-anchor-id="wilcoxon-test-vs.-t-test">Wilcoxon test vs.&nbsp;t-test</h3>
+<p>Wilcoxon test is in the vast majority of cases preferable to the t-test: It often has much greater power in many situations (probability of correctly rejecting the null hypothesis). Even in the most extreme cases it is never much worse.</p>
+</section>
+</section>
+<section id="paired-samples" class="level2">
+<h2 class="anchored" data-anchor-id="paired-samples">Paired Samples</h2>
+<p>Both observations are not independent, because same experimental unit is measured twice. Each observation of one group can be clearly assigned to an observation of the other group. Sample size is inevitably same in both groups</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb47"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb47-1"><a href="#cb47-1" aria-hidden="true" tabindex="-1"></a>before <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">25</span>, <span class="dv">25</span>, <span class="dv">27</span>, <span class="dv">44</span>, <span class="dv">30</span>, <span class="dv">67</span>, <span class="dv">53</span>, <span class="dv">53</span>, <span class="dv">52</span>, <span class="dv">60</span>, <span class="dv">28</span>)</span>
+<span id="cb47-2"><a href="#cb47-2" aria-hidden="true" tabindex="-1"></a>after <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">27</span>, <span class="dv">29</span>, <span class="dv">37</span>, <span class="dv">56</span>, <span class="dv">46</span>, <span class="dv">82</span>, <span class="dv">57</span>, <span class="dv">80</span>, <span class="dv">61</span>, <span class="dv">59</span>, <span class="dv">43</span>)</span>
+<span id="cb47-3"><a href="#cb47-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb47-4"><a href="#cb47-4" aria-hidden="true" tabindex="-1"></a><span class="fu">t.test</span>(<span class="at">x =</span> before, <span class="at">y =</span> after, <span class="at">paired=</span><span class="cn">TRUE</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>
+    Paired t-test
+
+data:  before and after
+t = -4.2716, df = 10, p-value = 0.001633
+alternative hypothesis: true mean difference is not equal to 0
+95 percent confidence interval:
+ -15.63114  -4.91431
+sample estimates:
+mean difference 
+      -10.27273 </code></pre>
+</div>
+</div>
+</section>
+<section id="unpaired-independent-samples" class="level2">
+<h2 class="anchored" data-anchor-id="unpaired-independent-samples">Unpaired (Independent) Samples</h2>
+<p>So-called unpaired (or independent) samples. No assignment of observations possible. Sample sizes can be differen.</p>
+<section id="mann-whitney-u-test-aka-wilcoxon-rank-sum-test" class="level3">
+<h3 class="anchored" data-anchor-id="mann-whitney-u-test-aka-wilcoxon-rank-sum-test">Mann-Whitney U-Test (aka Wilcoxon Rank-sum Test)</h3>
+<p>If data are non-normally distributed.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb49"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb49-1"><a href="#cb49-1" aria-hidden="true" tabindex="-1"></a>x <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="fl">79.98</span>, <span class="fl">80.04</span>, <span class="fl">80.02</span>, <span class="fl">80.04</span>, <span class="fl">80.03</span>, <span class="fl">80.03</span>, <span class="fl">80.04</span>,<span class="fl">79.97</span>, <span class="fl">80.05</span>, <span class="fl">80.03</span>, <span class="fl">80.02</span>, <span class="fl">80.00</span>, <span class="fl">80.02</span>)</span>
+<span id="cb49-2"><a href="#cb49-2" aria-hidden="true" tabindex="-1"></a>y <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="fl">80.02</span>, <span class="fl">79.94</span>, <span class="fl">79.98</span>, <span class="fl">79.97</span>, <span class="fl">80.03</span>, <span class="fl">79.95</span>, <span class="fl">79.97</span>)</span>
+<span id="cb49-3"><a href="#cb49-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb49-4"><a href="#cb49-4" aria-hidden="true" tabindex="-1"></a><span class="fu">wilcox.test</span>(x, y, <span class="at">alternative=</span><span class="st">"two.sided"</span>, <span class="at">mu=</span><span class="dv">0</span>, <span class="at">paired=</span><span class="cn">FALSE</span>, <span class="at">conf.level=</span><span class="fl">0.95</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Warning in wilcox.test.default(x, y, alternative = "two.sided", mu = 0, :
+cannot compute exact p-value with ties</code></pre>
+</div>
+<div class="cell-output cell-output-stdout">
+<pre><code>
+    Wilcoxon rank sum test with continuity correction
+
+data:  x and y
+W = 76.5, p-value = 0.01454
+alternative hypothesis: true location shift is not equal to 0</code></pre>
+</div>
+</div>
+</section>
+</section>
+<section id="interpreting-p-values" class="level2">
+<h2 class="anchored" data-anchor-id="interpreting-p-values">Interpreting p-Values</h2>
+<p>Determine whether hypothesis test results are statistically significant. If p-value is less than significance level, reject null hypothesis and conclude that effect or relationship exists. The p-values are directly connected to null hypothesis.</p>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Note
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>p-values: Probability of observing a sample statistic that is at least as extreme as sample statistic when assuming that null hypothesis is correct</p>
+</div>
+</div>
+<blockquote class="blockquote">
+<p>Note: p-Values Are <strong>not</strong> an Error Rate.</p>
+</blockquote>
+<section id="what-is-true-error-rate" class="level3">
+<h3 class="anchored" data-anchor-id="what-is-true-error-rate">What Is True Error Rate?</h3>
+<p>Can’t directly calculate error rate based on a p-value.</p>
 
 
+</section>
 </section>
 </section>
 
