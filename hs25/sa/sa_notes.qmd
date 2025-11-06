@@ -653,3 +653,115 @@ p-values: Probability of observing a sample statistic that is at least as extrem
 ### What Is True Error Rate?
 
 Can’t directly calculate error rate based on a p-value.
+
+# Week 07: Linear Regression
+
+## Scatter plot
+
+Two observations interpreted and displayed as coordinates of points in a coordinate system.
+
+```{r}
+set.seed(42)
+
+# Generate random data
+x <- rnorm(100)
+y <- rnorm(100)
+
+plot(x, y) # By defaults Scatter Plot
+```
+
+## Dependence and Causality
+
+Caution regarding scatter plots: Do not confuse dependence with causality. Caution regarding scatter plots: Do not confuse dependence with causality.
+
+## Equation of a Line
+
+$$
+y = a+bx
+$$
+
+$$
+b=\dfrac{\Delta y}{\Delta x}
+$$
+
+## Linear Regression
+
+Formula-based relationship between book $x$ and $y$. The Problem is to find a line that fits all points as good as possible.
+
+### Residuals
+
+Distance between points and line.
+
+::: {.callout-note} Residual
+
+A residual $r_i$ is the vertical difference between a data point ($x_i$ , $y_i$ ) and the point ($x_i$ , $a + bx_i$ ) on the sought line:
+
+$$
+r_i = y_i - (a + bx_i) = y_i - a - bx_i
+$$
+
+:::
+
+### Least Squares Method
+
+Determine a and b so that the sum of the squared residuals becomes minimal.
+
+$$
+r_1^2 + r_2^2 * \dots + r_n^2 = \sum_i r_i^2
+$$
+
+### Parameter a, b minimise (least squares method)
+
+$$
+\sum_{i=1}^n (y_i - (a+bx_i))^2
+$$
+
+$$
+b = \frac{\sum_{i=1}^{n} (y_i - \bar{y})(x_i - \bar{x})}{\sum_{i=1}^{n} (x_i - \bar{x})^2}
+$$
+
+$$
+a = \bar{y} - b\bar{x}
+$$
+
+> Note: $\bar{x}$ and $\bar{y}$ are the mean values of the respective data.
+
+```{r}
+set.seed(42)
+
+# Generate random linear data
+x <- rnorm(100)
+y <- x * rbinom(100, size=100, prob=0.5)
+
+plot(x, y)
+abline(lm(y ~ x), col="red") # Regression line
+```
+
+> Note: It is `lm(y~x)` and not `lm(x~y)`.
+
+## Empirical correlation
+
+The empirical correlation is a dimensionless number between −1 and +1 and measures strength and direction of the linear dependency between the dates $x$ and $y$.
+
+```{r}
+set.seet(42)
+
+x <- rnorm(100)
+y <- x * rbinom(100, size=100, prob=0.5)
+
+cor(x, y) # High value because of pos linear data
+```
+
+::: {.callout-warning} Disclaimer
+Empirical correlation only measures the linear correlation.
+:::
+
+## $R^2$ Value
+
+$R^2$-statistics: Value between 0 and 1. It indicates to what proportion of the variability in $Y$ is explained by $X$ using the model. Value close to 1: A large proportion of the variability is explained by the regression. The model therefore describes the data very well.
+
+> Note: $R^2$ can be used for any regression.
+
+```r
+summary(lm(Sales~TV))$r.squared
+```
