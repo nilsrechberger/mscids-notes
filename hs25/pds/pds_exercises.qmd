@@ -760,3 +760,118 @@ nums = [1, 2, 3, 4, 5, 6]
 for i in range(len(nums)):
     print(f"{nums[i] * nums[len(nums) - 1 - i]}")
 ```
+
+# Exercise kwargs
+
+Write a function that accepts an arbitrary number of keyword arguments. The function should number each keyword-value pair and print it in the following format:
+1: keyword -> value
+2: keyword -> value
+...
+n: keyword -> value
+
+```{python}
+def print_pairs(**kwargs): # Takes n parameters
+    # Iterate over dict 
+    for i, (key, value) in enumerate(kwargs.items(), start=1):
+        print(f"{i}: {key} -> {value}")
+
+print_pairs(first=1, second=2, third=3)
+```
+
+# Exercise Animals
+
+## Part a
+
+For each animal, print "Hi, I'm a {animal_type} and my name is {name}!" Solve the exercise by writing a class 'Animal' and adding a method allowing to print the requested string. Note that it is not necessary for this task, to differentiate between animal types!
+
+```{python}
+print("Part a): \n\n")
+
+class Animal:
+
+    def __init__(self, animal_type, name, age, weight, legs):
+        self.animal_type = animal_type
+        self.name = name
+        self.age = age
+        self.weight = weight
+        self.legs = legs
+
+    def __str__(self):
+        return(f"Hi, I'm a {self.animal_type} and my name is {self.name}!")
+
+with open('data/animals.csv') as f:
+    for line in f.readlines()[1:]:
+        animal_type = line.split(", ")[0]
+        name = line.split(", ")[1]
+        age = int(line.split(", ")[2])
+        weight = int(line.split(", ")[3])
+        legs = int(line.split(", ")[4])
+        #create objects
+        obj = Animal(animal_type, name, age, weight, legs)
+        print(obj)
+```
+
+## Part b
+
+Now we are interested in the various sounds the animal types make. Write a separate class for each animal type. Provide a method "speak", which depending on the animal type prints different sounds.
+
+```{python}
+print("\n\nPart b): \n\n")
+
+class Dog():
+
+    def __init__(self, name, age, weight, legs):
+        self.name = name
+        self.age = age
+        self.weight = weight
+        self.legs = legs
+
+    def speak(self):
+        return "Whuff whuff!"
+
+class Cat():
+
+    def __init__(self, name, age, weight, legs):
+        self.name = name
+        self.age = age
+        self.weight = weight
+        self.legs = legs
+
+    def speak(self):
+        return "Mew mew!"
+
+class Snake():
+
+    def __init__(self, name, age, weight, legs):
+        self.name = name
+        self.age = age
+        self.weight = weight
+        self.legs = legs
+
+    def speak(self):
+        return "Sssssss!"
+
+
+# solution with file loop
+obj_list = []
+with open('data/animals.csv') as f:
+    for line in f.readlines()[1:]:
+        animal_type = line.split(", ")[0]
+        name = line.split(", ")[1]
+        age = int(line.split(", ")[2])
+        weight = int(line.split(", ")[3])
+        legs = int(line.split(", ")[4])
+        #create objects
+        if animal_type == 'dog':
+            obj = Dog(name, age, weight, legs)
+            obj_list.append(obj)
+        if animal_type == 'cat':
+            obj = Cat(name, age, weight, legs)
+            obj_list.append(obj)
+        if animal_type == 'snake':
+            obj = Snake(name, age, weight, legs)
+            obj_list.append(obj)
+
+for elem in obj_list:
+    print(elem.speak())
+```
