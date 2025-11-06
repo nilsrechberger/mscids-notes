@@ -4,6 +4,7 @@ project:
 
 website:
   title: "mscids-notes"
+  google-analytics: "G-NZ8462CXQ1"
   navbar:
     left:
       - text: "Home"
