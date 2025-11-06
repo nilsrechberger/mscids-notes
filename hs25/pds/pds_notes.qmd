@@ -488,3 +488,237 @@ file_object = open(file_name, mode)
 ::: {.callout-important}
 The buffer results in unfinished writing process as long as the file stream (file_object) is not flushed by '`file_object.flush()` or `file_object.close()`'.
 :::
+
+# SW07: Functions part II Recursion
+
+## Namespace
+
+Namespace is the definition of the visibility of a unique name for every single object (variables or methods). Object names must only be unique within a given namespace. Hence, the global namespace can have multiple local namespaces having objects with the same naming. The scope of an object refers to the code section from which an object is accessible.
+
+- built-in: encompasses no programmer defined objects. Ends when the application ends.
+- global: programmer defined objects available across the whole script. Ends when the module (i.e. script) is unloaded or the application ends.
+- local: programmer defined objects in function blocks. Ends when the function (i.e. block) has been finished.
+
+## Local and Global Variables
+
+Python allows creating variables without any restricted visibility. This variables in the global scope are accessible in the whole
+script and are called global variables. Local variables being restricted to a specific function block.
+
+```{python}
+global_var = 123 # Free/Global variable
+
+def my_function():
+    local_var = "Hello" # Local variable
+    print(local_var, global_var)
+
+# The function can use both variables
+my_function()
+
+# This is not possible!
+# print(local_var)
+```
+
+### Keyword `global`
+
+In some problem solutions it is meaningful to have a global variable which gets updated from within a local scope of a function.
+
+```{python}
+counter = 10
+print(counter)
+
+def reset():
+    global counter
+    counter = 0
+    print(f"Counter reseted: {counter}")
+
+reset()
+```
+
+> Note: It's best practice to avoid global variables.
+
+### Keyword `nonelocal`
+
+The Python keywords `global` and `nonlocal` target different scope levels when modifying a variable from within a function.
+
+```{python}
+def outer():
+    enclosing_var = 20
+
+    def inner():
+        nonlocal enclosing_var
+        enclosing_var = 200
+
+        global global_var
+        global_var = 100
+
+        print(f"Inner: global_var={global_var}, enclosing_var={enclosing_var}")
+
+    inner()
+    print(f"Outer: global_var={global_var}, enclosing_var={enclosing_var}")
+
+print(f"Start Global: {global_var}")
+outer()
+print(f"End Global: {global_var}")
+```
+
+## Parameter Value
+
+Parameters are always refernces to arguments. An argument can be of a mutable (like lists) or immutable data type. The content of mutable data types can be “globally altered in functions.
+
+```{python}
+def my_add(p):
+    result = p
+    result [-1] = 99 # Change last value to 99
+    return result
+
+var = [9,8,7,6,5,4,3,2,0] # Last value is 0
+print(my_add(var))
+print(var) # List was changed by the function
+```
+
+## Unpacking Arguments (*args and **kwargs)
+
+Python assigns one object to the first and the last variable and packs all the remaining objects into a tuple that is assigned to the variable with the packing operator
+
+```{python}
+var1 = 1
+var2 = ["hello", "-", "world"]
+var3 = 22
+print(var1, var2, var3)
+
+# Using the packing operator
+var1, *var2, var3 = 1, "hello", "-", "world", 22
+print(var1, var2, var3)
+```
+
+- `*args`: packing operator (*) packs all non-keyword arguments into a tuple.
+- `**kwargs`: double packing operator(**) packs all keyword arguments into a dictionary
+
+```{python}
+def my_fun(*args, **kwargs):
+    print(args); print(kwargs)
+    
+my_fun('hello', 'world', arg1=33, arg2=55)
+```
+
+In contrast, lists and tuples can be unpacked using the packing operator (*) and (**) for dictionaries, respectively.
+
+## Recursion
+
+A recursive function is simply a function that calls itself during its execution. It is especially useful to loop through a data set with undefined dimension and undefined iteration count. Despite increased complexity and risks, recursion allows to solve complex problems in a short way.
+
+```{python}
+def factorial(n):
+    if n == 1:
+        return 1
+    else:
+        return n * factorial(n-1)
+
+factorial(5)
+```
+
+# SW08: Object-Orientated Programming
+
+## Definition
+
+Object-Oriented Programming (OOP) is a programming paradigm that structures code around objects rather than functions and logic. It's a powerful way to model real-world entities and relationships in your code, leading to more modular, reusable, and scalable applications.
+
+## Classes
+
+Assembly instructions for box construction are represented by the class. The produced boxes, all with the same set of tools but different property values, are called objects. In Python everything is an object and variables hold references to these objects. This means, when you assign an object to a variable, you actually create a reference to that object in memory.
+
+A class in python consist of several elements:
+- **header** with class name indicates the beginning of a class description.
+- __init__() method: The constructor constructs a new object of the class. 
+- **variables**: class: Variables belonging to the class description. Object: variables belonging to a particular object.
+- **methods** (functions): Class: methods provided by the class description. Object: methods provided by the object.
+- **self** attribute: Reference to the object: required to access object attributes.
+
+```{python}
+class MyClass(): # The class
+    def __init__(self): # Initial function
+        pass
+
+    def my_function(): # Methode of the class object
+        pass
+```
+
+> Note: For class names, we use CamelCase instead of underscores, as in function names.
+
+### `__init__`
+
+Generating a new object, requires calling the class name and defining the specific properties by attributes passed to the constructor. Each time when generating a new object, python calls the constructor and passes the “properties” (attributes) to the __init__() method.
+
+### Methodes and variables
+
+The class definition fully describes the class (i.e. the object). It comprises a mix of all variables and methods provided for the whole class and particular objects. Methods and variables are called with the object or by reference (self-keyword), respectively. Similarly to variables, methods can belong to an object or a class itself. The declaration and call is the same as for regular functions, yet always requires a reference
+
+```{python}
+class MyClass(): # The class
+    def __init__(self): # Initial function
+        pass
+
+    def my_function(self): # Methode of the class object
+        pass
+    
+    @classmethod
+    def class_function(cls): # Methode only of of the class
+        pass
+```
+
+> Note: The keyword `cls` is a convention but not necessary.
+
+### `self`
+
+The self keyword points to the object it belongs to (namely itself). It allows to call or apply a variable and method, respectively, of (on) a particular object.
+
+## Method types
+
+### Object Methods
+
+Belong to a particular object. Modifying object’s state.
+
+```python
+def change_obj_state(self):
+    self.state = "New State"
+    return True
+```
+
+### Class Methods
+
+Belong to a particular class. Modifying class’ state.
+
+```python
+@classmethod
+def change_cls_state(cls):
+    cls.state = "New State"
+    return True
+```
+
+### Static Methods
+
+Don’t belong to object nor class. Provide operations independent of any object or class state.
+
+```python
+@staticmethod
+def utility_func():
+    print("Done")
+    return True
+```
+
+### Dunder Methodes
+
+You are asking for an English summary of the previous topic: Magic Methods (Dunder Methods) in Python.
+
+✨ Magic Methods in Python (Dunder Methods)
+
+Dunder Methods (or Magic methods), are special methods in Python classes marked by double leading and trailing underscores (e.g., `__init__`, `__str__`).
+
+### `__str__()`
+
+By implementing a __str__() method, the programmer can define what is printed when an object of an own class is passed to the print function.
+
+```python
+def __str__(self):
+    return self.cls_name
+```
