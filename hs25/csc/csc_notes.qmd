@@ -178,3 +178,78 @@ Binary search is a search algorithm that finds the position of a target value wi
 ## Low Code Environments
 
 Combines visual program elements like variables, loops or conditional statements rather than specifying them textually.
+
+# Week 6: Visualization
+
+## Data Types
+
+![Data Types](img/data_types.png)
+
+## Visual Variables
+
+- Mark / Shape: Used shapes to distinguish between different types in a plot
+- Position: Position of an object Used to encode data
+- Size (Length, Area and Volume): Sizes to encode data
+- Brightness: Mapping values to the plot
+- Color: Colormap that can be used to encode a data variable
+- Orientation: Used to encode data
+- Texture: Mapping values to the plot
+- Motion: Associated with any of the other visual variables
+
+## Design Principles
+
+::: {.callout-note}
+The purpose of visualization is insight, not pictures.
+:::
+
+- Do not expect the user to spot changes in interactive diagrams
+- Overview first, zoom and filter, then details on demand
+- Similarity in feature space corresponds to similarity in visual space
+- Order between data items corresponds to visual order
+- Choose your coloring wisely
+- The importance of data items corresponds to their visual saliency
+- A single visualization can only reveal one data facet
+- Visualize only the interesting information
+
+# Week 8: Cloud Computing & Virtualization
+
+## Cloud Computing Definition
+
+- Gossmann (2009): Clouds, or clusters of distributed computers, provide on-demand resources and services over a network, usually the Internet, with the scale and reliability of a data center.
+- NIST Definition: Cloud computing is a model for enabling convenient, on-demand network access to a shared pool of configurable computing resources that can be rapidly provisioned and released with minimal management effort or serviceprovider interaction.
+
+### Business Model
+
+- Client: Pay by use instead of provisioning for peak.
+- Provider: Share capabilities.
+
+### Cloud Properties
+
+- Self-managing services: A consumer can provision cloud services as needed and automatically without requiring human interaction with each service’s provider.
+- Accessible and highly available: Cloud resources are available over the network anytime and anywhere.
+
+### Deployment Model
+
+- Public clouds: Owned by cloud service providers who charge for the use of cloud resources (AWS (Amazon), Azure (Microsoft))
+- Private clouds: Cloud infrastructure belongs to and is operated by only one organization
+- Hybrid clouds: Cloud infrastructure is a composition of two or more clouds (private or public). Bound together by standardized or proprietary technology that enables data and application portability.
+
+### IaaS, PaaS and SaaS
+
+- Infrastructure as a Service (IaaS): Servers, Storage, Network
+- Platform as a Service (PaaS): OS, Application Stack
+- Software as a Service (SaaS): Packaged Software
+
+## Virtualization
+
+Virtualization is essentially a way to trick a computer into thinking it is running multiple separate machines, all on the same physical hardware. It lets you run many independent operating systems (called Virtual Machines or VMs) side-by-side. The piece of software that makes this possible is called a Hypervisor.
+
+There are two main types of Hypervisors:
+
+    - Type 1 (Bare-Metal): This is the most powerful type. It is installed directly onto the physical hardware, without needing an operating system underneath it. It manages the server's resources (CPU, RAM, etc.) immediately. Because it has direct access to the hardware, it is very fast, efficient, and secure. This type is used mainly in large data centers and enterprise servers (e.g., VMware ESXi).
+
+    - Type 2 (Hosted): This type is installed like a regular application on top of a host operating system (like Windows or macOS). It relies on the host OS to manage the hardware. This makes it easier for casual use, development, and testing on a personal computer, but it is less efficient and slower than Type 1 (e.g., VirtualBox).
+
+### Key Advantages of Using Virtualization
+
+The main benefit is efficiency. You can run many servers on just one physical machine, which is called server consolidation. This saves a lot of money on buying hardware, paying for electricity (power), and cooling. It also improves security because if one VM gets a virus, the others stay isolated. Finally, it makes tasks like backup and disaster recovery much easier, as you can quickly move or restore an entire VM onto different hardware.
