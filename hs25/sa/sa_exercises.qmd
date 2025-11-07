@@ -1122,7 +1122,7 @@ abline(model, col="red")
 ### a
 
 ```{r}
-?MASS::Boston
+# ?MASS::Boston
 ```
 
 ### b

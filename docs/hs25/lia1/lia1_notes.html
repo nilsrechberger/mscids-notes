@@ -291,6 +291,19 @@ window.Quarto = {
   <li><a href="#rules-of-inverse" id="toc-rules-of-inverse" class="nav-link" data-scroll-target="#rules-of-inverse">Rules of Inverse</a></li>
   </ul></li>
   </ul></li>
+  <li><a href="#week-6-determinant" id="toc-week-6-determinant" class="nav-link" data-scroll-target="#week-6-determinant">Week 6: Determinant</a>
+  <ul class="collapse">
+  <li><a href="#invers-matrix-by-determinant" id="toc-invers-matrix-by-determinant" class="nav-link" data-scroll-target="#invers-matrix-by-determinant">Invers Matrix by Determinant</a></li>
+  <li><a href="#properties-of-determinant" id="toc-properties-of-determinant" class="nav-link" data-scroll-target="#properties-of-determinant">Properties of Determinant</a></li>
+  <li><a href="#times-3-matrices" id="toc-times-3-matrices" class="nav-link" data-scroll-target="#times-3-matrices"><span class="math inline">\(3 \times 3\)</span>-Matrices</a></li>
+  <li><a href="#determinant-of-triangular-matrices" id="toc-determinant-of-triangular-matrices" class="nav-link" data-scroll-target="#determinant-of-triangular-matrices">Determinant of Triangular Matrices</a>
+  <ul class="collapse">
+  <li><a href="#calculation-of-determinant-of-square-matrix-a" id="toc-calculation-of-determinant-of-square-matrix-a" class="nav-link" data-scroll-target="#calculation-of-determinant-of-square-matrix-a">Calculation of Determinant of Square Matrix A</a></li>
+  </ul></li>
+  <li><a href="#rules-for-determinants" id="toc-rules-for-determinants" class="nav-link" data-scroll-target="#rules-for-determinants">Rules for determinants</a></li>
+  <li><a href="#corollary" id="toc-corollary" class="nav-link" data-scroll-target="#corollary">Corollary</a></li>
+  </ul></li>
+  <li><a href="#week-7-linear-systems-with-python" id="toc-week-7-linear-systems-with-python" class="nav-link" data-scroll-target="#week-7-linear-systems-with-python">Week 7: Linear Systems with Python</a></li>
   </ul>
 </nav>
     </div>
@@ -781,10 +794,121 @@ Caution
 <p>Furthermore there is no rule for sum, so no rule for <span class="math inline">\((A + B)^{−1}\)</span>, which could even not exist.</p>
 </div>
 </div>
-
-
 </section>
 </section>
+</section>
+<section id="week-6-determinant" class="level1">
+<h1>Week 6: Determinant</h1>
+<p>The determinant is a special scalar value (a single number) that can only be calculated from a square matrix. This value contains important information about the matrix and the linear transformation it represents. Determinant tells when matrix is invertible or not.</p>
+<p><span class="math display">\[
+\det A = \det \begin{bmatrix} a &amp; b \\ c &amp; d \end{bmatrix} = \begin{vmatrix} a &amp; b \\ c &amp; d \end{vmatrix} = ad - bc
+\]</span></p>
+<section id="invers-matrix-by-determinant" class="level2">
+<h2 class="anchored" data-anchor-id="invers-matrix-by-determinant">Invers Matrix by Determinant</h2>
+<div class="callout callout-style-default callout-important callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Important
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Matrix <span class="math inline">\(A\)</span> is invertible if and only if det <span class="math inline">\(A \ne 0\)</span></p>
+</div>
+</div>
+<p><span class="math display">\[
+A^{-1} = \frac{1}{\det A} \begin{bmatrix} a_{22} &amp; -a_{12} \\ -a_{21} &amp; a_{11} \end{bmatrix}
+\]</span></p>
+</section>
+<section id="properties-of-determinant" class="level2">
+<h2 class="anchored" data-anchor-id="properties-of-determinant">Properties of Determinant</h2>
+<p><span class="math display">\[
+\det(v,w) = − \det(w,v)
+\]</span></p>
+<p><span class="math display">\[
+\det(x \times v,w) = \det(v,x \times w) = x \times \det(v,w)
+\]</span></p>
+<p><span class="math display">\[
+\det(v + x \times w, w) = \det(v, w + x \times v) = \det(v,w)
+\]</span></p>
+</section>
+<section id="times-3-matrices" class="level2">
+<h2 class="anchored" data-anchor-id="times-3-matrices"><span class="math inline">\(3 \times 3\)</span>-Matrices</h2>
+<p><span class="math display">\[
+\begin{vmatrix}
+a_{11} &amp; a_{12} &amp; a_{13} \\
+a_{21} &amp; a_{22} &amp; a_{23} \\
+a_{31} &amp; a_{32} &amp; a_{33}
+\end{vmatrix}
+= a_{11}a_{22}a_{33} + a_{12}a_{23}a_{31} + a_{13}a_{21}a_{32}
+- a_{13}a_{22}a_{31} - a_{11}a_{23}a_{32} - a_{12}a_{21}a_{33}
+\]</span></p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="img/3x3_det.png" class="img-fluid figure-img"></p>
+<figcaption>3x3-Matrices Determinant</figcaption>
+</figure>
+</div>
+</section>
+<section id="determinant-of-triangular-matrices" class="level2">
+<h2 class="anchored" data-anchor-id="determinant-of-triangular-matrices">Determinant of Triangular Matrices</h2>
+<p>Determinant is product of main diagonal elements. If an entry of main diagonal is zero, then det <span class="math inline">\(U = 0\)</span>.</p>
+<div class="callout callout-style-default callout-caution callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Caution
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Sign switched: As many times as row swappings.</p>
+</div>
+</div>
+<section id="calculation-of-determinant-of-square-matrix-a" class="level3">
+<h3 class="anchored" data-anchor-id="calculation-of-determinant-of-square-matrix-a">Calculation of Determinant of Square Matrix A</h3>
+<p>By performing elementary rows operations, bring A into an upper triangular matrix.</p>
+</section>
+</section>
+<section id="rules-for-determinants" class="level2">
+<h2 class="anchored" data-anchor-id="rules-for-determinants">Rules for determinants</h2>
+<p><span class="math display">\[
+\det A^T = \det A
+\]</span></p>
+<p><span class="math display">\[
+\det(sA) = s^n \det A
+\]</span></p>
+<blockquote class="blockquote">
+<p>Note: <span class="math inline">\(n\)</span> is the dimension of the square matrix <span class="math inline">\(A\)</span>.</p>
+</blockquote>
+<p><span class="math display">\[
+\det(AB) = (\det A)(\det B)
+\]</span></p>
+</section>
+<section id="corollary" class="level2">
+<h2 class="anchored" data-anchor-id="corollary">Corollary</h2>
+<p>Product AB of two square matrices of same size is invertible if and only if A and B are both invertible.</p>
+</section>
+</section>
+<section id="week-7-linear-systems-with-python" class="level1">
+<h1>Week 7: Linear Systems with Python</h1>
+<p>Library <code>scipy.linalg</code>:</p>
+<ul>
+<li><code>solve(A,b)</code> : Unique solution of the linear system <span class="math inline">\(Ax = b\)</span> with regular quadratic coefficient matrix <span class="math inline">\(A\)</span></li>
+<li><code>lu_factor(A)</code> : PLU-decomposition of matrix <span class="math inline">\(A\)</span></li>
+<li><code>lu_solve((lu,piv),b)</code> : Unique solution of system <span class="math inline">\(Ax = b\)</span> with output <code>(lu,piv)</code> of <code>lu_factor(A)</code></li>
+<li><code>lstsq(A,b)</code> : (Least-squares) solution of system <span class="math inline">\(Ax = b\)</span> with arbitrary coefficient matrix <span class="math inline">\(A\)</span></li>
+<li><code>null_space()</code> : General solution of homogeneous system <span class="math inline">\(Ax = 0\)</span></li>
+</ul>
+<p>Library <code>numpy.linalg</code>:</p>
+<ul>
+<li><code>matrix_rank(A)</code> : Rank of matrix <span class="math inline">\(A\)</span></li>
+</ul>
+
+
 </section>
 
 </main> <!-- /main -->

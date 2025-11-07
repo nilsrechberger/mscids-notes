@@ -692,7 +692,7 @@ Formula-based relationship between book $x$ and $y$. The Problem is to find a li
 
 Distance between points and line.
 
-::: {.callout-note} Residual
+::: {.callout-note}
 
 A residual $r_i$ is the vertical difference between a data point ($x_i$ , $y_i$ ) and the point ($x_i$ , $a + bx_i$ ) on the sought line:
 
@@ -744,7 +744,7 @@ abline(lm(y ~ x), col="red") # Regression line
 The empirical correlation is a dimensionless number between −1 and +1 and measures strength and direction of the linear dependency between the dates $x$ and $y$.
 
 ```{r}
-set.seet(42)
+set.seed(42)
 
 x <- rnorm(100)
 y <- x * rbinom(100, size=100, prob=0.5)
@@ -752,7 +752,7 @@ y <- x * rbinom(100, size=100, prob=0.5)
 cor(x, y) # High value because of pos linear data
 ```
 
-::: {.callout-warning} Disclaimer
+::: {.callout-warning}
 Empirical correlation only measures the linear correlation.
 :::
 

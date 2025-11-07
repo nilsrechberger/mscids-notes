@@ -458,6 +458,37 @@ window.Quarto = {
   <li><a href="#e-9" id="toc-e-9" class="nav-link" data-scroll-target="#e-9">e</a></li>
   </ul></li>
   </ul></li>
+  <li><a href="#problems-7" id="toc-problems-7" class="nav-link" data-scroll-target="#problems-7">Problems 7</a>
+  <ul class="collapse">
+  <li><a href="#problem-7.1" id="toc-problem-7.1" class="nav-link" data-scroll-target="#problem-7.1">Problem 7.1</a>
+  <ul class="collapse">
+  <li><a href="#a-23" id="toc-a-23" class="nav-link" data-scroll-target="#a-23">a</a></li>
+  <li><a href="#b-23" id="toc-b-23" class="nav-link" data-scroll-target="#b-23">b</a></li>
+  <li><a href="#c-18" id="toc-c-18" class="nav-link" data-scroll-target="#c-18">c</a></li>
+  </ul></li>
+  <li><a href="#d-15" id="toc-d-15" class="nav-link" data-scroll-target="#d-15">d</a></li>
+  <li><a href="#problem-7.2" id="toc-problem-7.2" class="nav-link" data-scroll-target="#problem-7.2">Problem 7.2</a>
+  <ul class="collapse">
+  <li><a href="#a-24" id="toc-a-24" class="nav-link" data-scroll-target="#a-24">a</a></li>
+  <li><a href="#b-24" id="toc-b-24" class="nav-link" data-scroll-target="#b-24">b</a></li>
+  <li><a href="#c-19" id="toc-c-19" class="nav-link" data-scroll-target="#c-19">c</a></li>
+  <li><a href="#d-16" id="toc-d-16" class="nav-link" data-scroll-target="#d-16">d</a></li>
+  <li><a href="#problem-7.3" id="toc-problem-7.3" class="nav-link" data-scroll-target="#problem-7.3">Problem 7.3</a></li>
+  <li><a href="#a-25" id="toc-a-25" class="nav-link" data-scroll-target="#a-25">a</a></li>
+  <li><a href="#bc" id="toc-bc" class="nav-link" data-scroll-target="#bc">b/c</a></li>
+  <li><a href="#d-17" id="toc-d-17" class="nav-link" data-scroll-target="#d-17">d</a></li>
+  <li><a href="#problem-7.4" id="toc-problem-7.4" class="nav-link" data-scroll-target="#problem-7.4">Problem 7.4</a></li>
+  <li><a href="#a-26" id="toc-a-26" class="nav-link" data-scroll-target="#a-26">a</a></li>
+  <li><a href="#b-25" id="toc-b-25" class="nav-link" data-scroll-target="#b-25">b</a></li>
+  <li><a href="#c-20" id="toc-c-20" class="nav-link" data-scroll-target="#c-20">c</a></li>
+  <li><a href="#d-18" id="toc-d-18" class="nav-link" data-scroll-target="#d-18">d</a></li>
+  <li><a href="#e-10" id="toc-e-10" class="nav-link" data-scroll-target="#e-10">e</a></li>
+  <li><a href="#f-5" id="toc-f-5" class="nav-link" data-scroll-target="#f-5">f</a></li>
+  <li><a href="#g-1" id="toc-g-1" class="nav-link" data-scroll-target="#g-1">g</a></li>
+  <li><a href="#h-1" id="toc-h-1" class="nav-link" data-scroll-target="#h-1">h</a></li>
+  <li><a href="#i-4" id="toc-i-4" class="nav-link" data-scroll-target="#i-4">i</a></li>
+  </ul></li>
+  </ul></li>
   </ul>
 </nav>
     </div>
@@ -1780,6 +1811,402 @@ alternative hypothesis: true location shift is greater than 0</code></pre>
 <section id="e-9" class="level3">
 <h3 class="anchored" data-anchor-id="e-9">e</h3>
 <p>True</p>
+</section>
+</section>
+</section>
+<section id="problems-7" class="level1">
+<h1>Problems 7</h1>
+<section id="problem-7.1" class="level2">
+<h2 class="anchored" data-anchor-id="problem-7.1">Problem 7.1</h2>
+<section id="a-23" class="level3">
+<h3 class="anchored" data-anchor-id="a-23">a</h3>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb133"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb133-1"><a href="#cb133-1" aria-hidden="true" tabindex="-1"></a>inc <span class="ot">&lt;-</span> <span class="fu">read.table</span>(<span class="st">"/home/nils/dev/mscids-notes/hs25/sa/data/income.dat"</span>, <span class="at">header=</span><span class="cn">TRUE</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+<section id="b-23" class="level3">
+<h3 class="anchored" data-anchor-id="b-23">b</h3>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb134"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb134-1"><a href="#cb134-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Plot data</span></span>
+<span id="cb134-2"><a href="#cb134-2" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(inc<span class="sc">$</span>Educ, inc<span class="sc">$</span>Income2005)</span>
+<span id="cb134-3"><a href="#cb134-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb134-4"><a href="#cb134-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Add linear reg to plot</span></span>
+<span id="cb134-5"><a href="#cb134-5" aria-hidden="true" tabindex="-1"></a><span class="fu">abline</span>(<span class="fu">lm</span>(inc<span class="sc">$</span>Income2005 <span class="sc">~</span>inc<span class="sc">$</span>Educ), <span class="at">col=</span><span class="st">"red"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="sa_exercises_files/figure-html/unnamed-chunk-63-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+</section>
+<section id="c-18" class="level3">
+<h3 class="anchored" data-anchor-id="c-18">c</h3>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb135"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb135-1"><a href="#cb135-1" aria-hidden="true" tabindex="-1"></a>m <span class="ot">&lt;-</span> <span class="fu">lm</span>(inc<span class="sc">$</span>Income2005 <span class="sc">~</span>inc<span class="sc">$</span>Educ)</span>
+<span id="cb135-2"><a href="#cb135-2" aria-hidden="true" tabindex="-1"></a>m<span class="sc">$</span>coefficients</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>(Intercept)    inc$Educ 
+ -40199.575    6451.475 </code></pre>
+</div>
+</div>
+<ul>
+<li>a: The regression line crosses the <span class="math inline">\(y\)</span> axis at the point <span class="math inline">\(x\)</span> = -40199.575.</li>
+<li>b: Fore one step at the direction <span class="math inline">\(x\)</span> (one year of education), we increase the salary by 6451.475.</li>
+</ul>
+</section>
+</section>
+<section id="d-15" class="level2">
+<h2 class="anchored" data-anchor-id="d-15">d</h2>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb137"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb137-1"><a href="#cb137-1" aria-hidden="true" tabindex="-1"></a><span class="fu">cat</span>(<span class="st">"The correlaiton between the education and income is:"</span>, <span class="fu">cor</span>(inc<span class="sc">$</span>Educ, inc<span class="sc">$</span>Income2005))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>The correlaiton between the education and income is: 0.3456474</code></pre>
+</div>
+</div>
+<p>The corralation value ist near to O. The data points correlate loosly.</p>
+</section>
+<section id="problem-7.2" class="level2">
+<h2 class="anchored" data-anchor-id="problem-7.2">Problem 7.2</h2>
+<section id="a-24" class="level3">
+<h3 class="anchored" data-anchor-id="a-24">a</h3>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb139"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb139-1"><a href="#cb139-1" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(anscombe)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>  x1 x2 x3 x4   y1   y2    y3   y4
+1 10 10 10  8 8.04 9.14  7.46 6.58
+2  8  8  8  8 6.95 8.14  6.77 5.76
+3 13 13 13  8 7.58 8.74 12.74 7.71
+4  9  9  9  8 8.81 8.77  7.11 8.84
+5 11 11 11  8 8.33 9.26  7.81 8.47
+6 14 14 14  8 9.96 8.10  8.84 7.04</code></pre>
+</div>
+</div>
+</section>
+<section id="b-24" class="level3">
+<h3 class="anchored" data-anchor-id="b-24">b</h3>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb141"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb141-1"><a href="#cb141-1" aria-hidden="true" tabindex="-1"></a><span class="fu">par</span>(<span class="at">mfrow=</span><span class="fu">c</span>(<span class="dv">2</span>,<span class="dv">2</span>))</span>
+<span id="cb141-2"><a href="#cb141-2" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(anscombe<span class="sc">$</span>x1, anscombe<span class="sc">$</span>y1)</span>
+<span id="cb141-3"><a href="#cb141-3" aria-hidden="true" tabindex="-1"></a>reg <span class="ot">&lt;-</span> <span class="fu">lm</span>(anscombe<span class="sc">$</span>y1 <span class="sc">~</span> anscombe<span class="sc">$</span>x1)</span>
+<span id="cb141-4"><a href="#cb141-4" aria-hidden="true" tabindex="-1"></a><span class="fu">abline</span>(reg)</span>
+<span id="cb141-5"><a href="#cb141-5" aria-hidden="true" tabindex="-1"></a><span class="fu">title</span>(<span class="st">"x1, y1"</span>)</span>
+<span id="cb141-6"><a href="#cb141-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb141-7"><a href="#cb141-7" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(anscombe<span class="sc">$</span>x2, anscombe<span class="sc">$</span>y2)</span>
+<span id="cb141-8"><a href="#cb141-8" aria-hidden="true" tabindex="-1"></a>reg <span class="ot">&lt;-</span> <span class="fu">lm</span>(anscombe<span class="sc">$</span>y2 <span class="sc">~</span> anscombe<span class="sc">$</span>x2)</span>
+<span id="cb141-9"><a href="#cb141-9" aria-hidden="true" tabindex="-1"></a><span class="fu">abline</span>(reg)</span>
+<span id="cb141-10"><a href="#cb141-10" aria-hidden="true" tabindex="-1"></a><span class="fu">title</span>(<span class="st">"x2, y2"</span>)</span>
+<span id="cb141-11"><a href="#cb141-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb141-12"><a href="#cb141-12" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(anscombe<span class="sc">$</span>x3, anscombe<span class="sc">$</span>y3)</span>
+<span id="cb141-13"><a href="#cb141-13" aria-hidden="true" tabindex="-1"></a>reg <span class="ot">&lt;-</span> <span class="fu">lm</span>(anscombe<span class="sc">$</span>y3 <span class="sc">~</span> anscombe<span class="sc">$</span>x3)</span>
+<span id="cb141-14"><a href="#cb141-14" aria-hidden="true" tabindex="-1"></a><span class="fu">abline</span>(reg)</span>
+<span id="cb141-15"><a href="#cb141-15" aria-hidden="true" tabindex="-1"></a><span class="fu">title</span>(<span class="st">"x3, y3"</span>)</span>
+<span id="cb141-16"><a href="#cb141-16" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb141-17"><a href="#cb141-17" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(anscombe<span class="sc">$</span>x4, anscombe<span class="sc">$</span>y4)</span>
+<span id="cb141-18"><a href="#cb141-18" aria-hidden="true" tabindex="-1"></a>reg <span class="ot">&lt;-</span> <span class="fu">lm</span>(anscombe<span class="sc">$</span>y4 <span class="sc">~</span> anscombe<span class="sc">$</span>x4)</span>
+<span id="cb141-19"><a href="#cb141-19" aria-hidden="true" tabindex="-1"></a><span class="fu">abline</span>(reg)</span>
+<span id="cb141-20"><a href="#cb141-20" aria-hidden="true" tabindex="-1"></a><span class="fu">title</span>(<span class="st">"x4, y4"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="sa_exercises_files/figure-html/unnamed-chunk-67-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+</section>
+<section id="c-19" class="level3">
+<h3 class="anchored" data-anchor-id="c-19">c</h3>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb142"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb142-1"><a href="#cb142-1" aria-hidden="true" tabindex="-1"></a><span class="fu">lm</span>(y1 <span class="sc">~</span> x1, <span class="at">data =</span> anscombe)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>
+Call:
+lm(formula = y1 ~ x1, data = anscombe)
+
+Coefficients:
+(Intercept)           x1  
+     3.0001       0.5001  </code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb144"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb144-1"><a href="#cb144-1" aria-hidden="true" tabindex="-1"></a><span class="fu">lm</span>(y2 <span class="sc">~</span> x2, <span class="at">data =</span> anscombe)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>
+Call:
+lm(formula = y2 ~ x2, data = anscombe)
+
+Coefficients:
+(Intercept)           x2  
+      3.001        0.500  </code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb146"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb146-1"><a href="#cb146-1" aria-hidden="true" tabindex="-1"></a><span class="fu">lm</span>(y3 <span class="sc">~</span> x3, <span class="at">data =</span> anscombe)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>
+Call:
+lm(formula = y3 ~ x3, data = anscombe)
+
+Coefficients:
+(Intercept)           x3  
+     3.0025       0.4997  </code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb148"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb148-1"><a href="#cb148-1" aria-hidden="true" tabindex="-1"></a><span class="fu">lm</span>(y4 <span class="sc">~</span> x4, <span class="at">data =</span> anscombe)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>
+Call:
+lm(formula = y4 ~ x4, data = anscombe)
+
+Coefficients:
+(Intercept)           x4  
+     3.0017       0.4999  </code></pre>
+</div>
+</div>
+<p>The model coefficients are almost identical.</p>
+</section>
+<section id="d-16" class="level3">
+<h3 class="anchored" data-anchor-id="d-16">d</h3>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb150"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb150-1"><a href="#cb150-1" aria-hidden="true" tabindex="-1"></a><span class="fu">cat</span>(<span class="st">"The correlaiton between the x1 and y1 is:"</span>, <span class="fu">cor</span>(anscombe<span class="sc">$</span>x1, anscombe<span class="sc">$</span>y1), <span class="st">"</span><span class="sc">\n</span><span class="st">"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>The correlaiton between the x1 and y1 is: 0.8164205 </code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb152"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb152-1"><a href="#cb152-1" aria-hidden="true" tabindex="-1"></a><span class="fu">cat</span>(<span class="st">"The correlaiton between the x2 and y2 is:"</span>, <span class="fu">cor</span>(anscombe<span class="sc">$</span>x2, anscombe<span class="sc">$</span>y2), <span class="st">"</span><span class="sc">\n</span><span class="st">"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>The correlaiton between the x2 and y2 is: 0.8162365 </code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb154"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb154-1"><a href="#cb154-1" aria-hidden="true" tabindex="-1"></a><span class="fu">cat</span>(<span class="st">"The correlaiton between the x3 and y3 is:"</span>, <span class="fu">cor</span>(anscombe<span class="sc">$</span>x3, anscombe<span class="sc">$</span>y3), <span class="st">"</span><span class="sc">\n</span><span class="st">"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>The correlaiton between the x3 and y3 is: 0.8162867 </code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb156"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb156-1"><a href="#cb156-1" aria-hidden="true" tabindex="-1"></a><span class="fu">cat</span>(<span class="st">"The correlaiton between the x4 and y4 is:"</span>, <span class="fu">cor</span>(anscombe<span class="sc">$</span>x4, anscombe<span class="sc">$</span>y4))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>The correlaiton between the x4 and y4 is: 0.8165214</code></pre>
+</div>
+</div>
+<p>The correlation value is almost identical.</p>
+</section>
+<section id="problem-7.3" class="level3">
+<h3 class="anchored" data-anchor-id="problem-7.3">Problem 7.3</h3>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb158"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb158-1"><a href="#cb158-1" aria-hidden="true" tabindex="-1"></a><span class="co"># install.packages("ISLR")</span></span>
+<span id="cb158-2"><a href="#cb158-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ISLR)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+<section id="a-25" class="level3">
+<h3 class="anchored" data-anchor-id="a-25">a</h3>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb159"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb159-1"><a href="#cb159-1" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(Auto)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>  mpg cylinders displacement horsepower weight acceleration year origin
+1  18         8          307        130   3504         12.0   70      1
+2  15         8          350        165   3693         11.5   70      1
+3  18         8          318        150   3436         11.0   70      1
+4  16         8          304        150   3433         12.0   70      1
+5  17         8          302        140   3449         10.5   70      1
+6  15         8          429        198   4341         10.0   70      1
+                       name
+1 chevrolet chevelle malibu
+2         buick skylark 320
+3        plymouth satellite
+4             amc rebel sst
+5               ford torino
+6          ford galaxie 500</code></pre>
+</div>
+</div>
+</section>
+<section id="bc" class="level3">
+<h3 class="anchored" data-anchor-id="bc">b/c</h3>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb161"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb161-1"><a href="#cb161-1" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(Auto<span class="sc">$</span>horsepower, Auto<span class="sc">$</span>mpg)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="sa_exercises_files/figure-html/unnamed-chunk-72-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+<div class="sourceCode cell-code" id="cb162"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb162-1"><a href="#cb162-1" aria-hidden="true" tabindex="-1"></a>model <span class="ot">&lt;-</span> <span class="fu">lm</span>(mpg <span class="sc">~</span> horsepower, <span class="at">data=</span>Auto)</span>
+<span id="cb162-2"><a href="#cb162-2" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(model)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>
+Call:
+lm(formula = mpg ~ horsepower, data = Auto)
+
+Residuals:
+     Min       1Q   Median       3Q      Max 
+-13.5710  -3.2592  -0.3435   2.7630  16.9240 
+
+Coefficients:
+             Estimate Std. Error t value Pr(&gt;|t|)    
+(Intercept) 39.935861   0.717499   55.66   &lt;2e-16 ***
+horsepower  -0.157845   0.006446  -24.49   &lt;2e-16 ***
+---
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
+
+Residual standard error: 4.906 on 390 degrees of freedom
+Multiple R-squared:  0.6059,    Adjusted R-squared:  0.6049 
+F-statistic: 599.7 on 1 and 390 DF,  p-value: &lt; 2.2e-16</code></pre>
+</div>
+</div>
+<section id="i-3" class="level4">
+<h4 class="anchored" data-anchor-id="i-3">I</h4>
+<p>The fuel consumption depends on the horsepower.</p>
+</section>
+<section id="ii-3" class="level4">
+<h4 class="anchored" data-anchor-id="ii-3">II</h4>
+<p>The <span class="math inline">\(y\)</span> value at position <span class="math inline">\(x\)</span> = 0 value has no practical meaning here.</p>
+</section>
+<section id="iii-3" class="level4">
+<h4 class="anchored" data-anchor-id="iii-3">III</h4>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb164"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb164-1"><a href="#cb164-1" aria-hidden="true" tabindex="-1"></a><span class="fu">confint</span>(model)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>                2.5 %     97.5 %
+(Intercept) 38.525212 41.3465103
+horsepower  -0.170517 -0.1451725</code></pre>
+</div>
+</div>
+<p>The confidence interval indicates the most likely range of values.</p>
+</section>
+<section id="iv-2" class="level4">
+<h4 class="anchored" data-anchor-id="iv-2">IV</h4>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb166"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb166-1"><a href="#cb166-1" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(model)<span class="sc">$</span>r.squared</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 0.6059483</code></pre>
+</div>
+</div>
+<p>The <span class="math inline">\(R^2\)</span> value is 0.606. This indicates that the variability to 60 % is through the model.</p>
+</section>
+</section>
+<section id="d-17" class="level3">
+<h3 class="anchored" data-anchor-id="d-17">d</h3>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb168"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb168-1"><a href="#cb168-1" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(Auto<span class="sc">$</span>horsepower, Auto<span class="sc">$</span>mpg)</span>
+<span id="cb168-2"><a href="#cb168-2" aria-hidden="true" tabindex="-1"></a>model <span class="ot">&lt;-</span> <span class="fu">lm</span>(mpg <span class="sc">~</span> horsepower, <span class="at">data=</span>Auto)</span>
+<span id="cb168-3"><a href="#cb168-3" aria-hidden="true" tabindex="-1"></a><span class="fu">abline</span>(model, <span class="at">col=</span><span class="st">"red"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="sa_exercises_files/figure-html/unnamed-chunk-75-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+</section>
+<section id="problem-7.4" class="level3">
+<h3 class="anchored" data-anchor-id="problem-7.4">Problem 7.4</h3>
+</section>
+<section id="a-26" class="level3">
+<h3 class="anchored" data-anchor-id="a-26">a</h3>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb169"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb169-1"><a href="#cb169-1" aria-hidden="true" tabindex="-1"></a><span class="co"># ?MASS::Boston</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+<section id="b-25" class="level3">
+<h3 class="anchored" data-anchor-id="b-25">b</h3>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb170"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb170-1"><a href="#cb170-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(MASS)</span>
+<span id="cb170-2"><a href="#cb170-2" aria-hidden="true" tabindex="-1"></a><span class="fu">colnames</span>(Boston)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code> [1] "crim"    "zn"      "indus"   "chas"    "nox"     "rm"      "age"    
+ [8] "dis"     "rad"     "tax"     "ptratio" "black"   "lstat"   "medv"   </code></pre>
+</div>
+</div>
+</section>
+<section id="c-20" class="level3">
+<h3 class="anchored" data-anchor-id="c-20">c</h3>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb172"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb172-1"><a href="#cb172-1" aria-hidden="true" tabindex="-1"></a><span class="fu">attach</span>(Boston)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+<section id="d-18" class="level3">
+<h3 class="anchored" data-anchor-id="d-18">d</h3>
+<section id="iii-4" class="level4">
+<h4 class="anchored" data-anchor-id="iii-4">I/II</h4>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb173"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb173-1"><a href="#cb173-1" aria-hidden="true" tabindex="-1"></a>model <span class="ot">&lt;-</span> <span class="fu">lm</span>(medv <span class="sc">~</span> lstat, <span class="at">data=</span>Boston)</span>
+<span id="cb173-2"><a href="#cb173-2" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(model)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>
+Call:
+lm(formula = medv ~ lstat, data = Boston)
+
+Residuals:
+    Min      1Q  Median      3Q     Max 
+-15.168  -3.990  -1.318   2.034  24.500 
+
+Coefficients:
+            Estimate Std. Error t value Pr(&gt;|t|)    
+(Intercept) 34.55384    0.56263   61.41   &lt;2e-16 ***
+lstat       -0.95005    0.03873  -24.53   &lt;2e-16 ***
+---
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
+
+Residual standard error: 6.216 on 504 degrees of freedom
+Multiple R-squared:  0.5441,    Adjusted R-squared:  0.5432 
+F-statistic: 601.6 on 1 and 504 DF,  p-value: &lt; 2.2e-16</code></pre>
+</div>
+</div>
+</section>
+</section>
+<section id="e-10" class="level3">
+<h3 class="anchored" data-anchor-id="e-10">e</h3>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb175"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb175-1"><a href="#cb175-1" aria-hidden="true" tabindex="-1"></a><span class="fu">names</span>(model)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code> [1] "coefficients"  "residuals"     "effects"       "rank"         
+ [5] "fitted.values" "assign"        "qr"            "df.residual"  
+ [9] "xlevels"       "call"          "terms"         "model"        </code></pre>
+</div>
+</div>
+</section>
+<section id="f-5" class="level3">
+<h3 class="anchored" data-anchor-id="f-5">f</h3>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb177"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb177-1"><a href="#cb177-1" aria-hidden="true" tabindex="-1"></a><span class="fu">coef</span>(model)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>(Intercept)       lstat 
+ 34.5538409  -0.9500494 </code></pre>
+</div>
+</div>
+<p>At the data point <span class="math inline">\(x\)</span> = 0, we start at a value of 34.6. Fore every step in <span class="math inline">\(x\)</span> direction, we lose -0.95. The p-value for <code>lstat</code> is close to 0 and therefore highly significant.</p>
+</section>
+<section id="g-1" class="level3">
+<h3 class="anchored" data-anchor-id="g-1">g</h3>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb179"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb179-1"><a href="#cb179-1" aria-hidden="true" tabindex="-1"></a><span class="fu">confint</span>(model)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>                2.5 %     97.5 %
+(Intercept) 33.448457 35.6592247
+lstat       -1.026148 -0.8739505</code></pre>
+</div>
+</div>
+<p>The model shows that the true <span class="math inline">\(x\)</span> and <span class="math inline">\(y\)</span> values lies between this ranges.</p>
+</section>
+<section id="h-1" class="level3">
+<h3 class="anchored" data-anchor-id="h-1">h</h3>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb181"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb181-1"><a href="#cb181-1" aria-hidden="true" tabindex="-1"></a><span class="fu">par</span>(<span class="at">mfrow=</span><span class="fu">c</span>(<span class="dv">1</span>,<span class="dv">1</span>))</span>
+<span id="cb181-2"><a href="#cb181-2" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(Boston<span class="sc">$</span>medv, Boston<span class="sc">$</span>lstat)</span>
+<span id="cb181-3"><a href="#cb181-3" aria-hidden="true" tabindex="-1"></a><span class="fu">abline</span>(model, <span class="at">col=</span><span class="st">"red"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="sa_exercises_files/figure-html/unnamed-chunk-83-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+</section>
+<section id="i-4" class="level3">
+<h3 class="anchored" data-anchor-id="i-4">i</h3>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb182"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb182-1"><a href="#cb182-1" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(model)<span class="sc">$</span>r.squared</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 0.5441463</code></pre>
+</div>
+</div>
+<p>The <span class="math inline">\(R^2\)</span>-value is 0.5441, so about 54 % of the variability is explained by the model.</p>
 
 
 </section>

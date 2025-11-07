@@ -365,6 +365,20 @@ window.Quarto = {
   <li><a href="#what-is-true-error-rate" id="toc-what-is-true-error-rate" class="nav-link" data-scroll-target="#what-is-true-error-rate">What Is True Error Rate?</a></li>
   </ul></li>
   </ul></li>
+  <li><a href="#week-07-linear-regression" id="toc-week-07-linear-regression" class="nav-link" data-scroll-target="#week-07-linear-regression">Week 07: Linear Regression</a>
+  <ul class="collapse">
+  <li><a href="#scatter-plot" id="toc-scatter-plot" class="nav-link" data-scroll-target="#scatter-plot">Scatter plot</a></li>
+  <li><a href="#dependence-and-causality" id="toc-dependence-and-causality" class="nav-link" data-scroll-target="#dependence-and-causality">Dependence and Causality</a></li>
+  <li><a href="#equation-of-a-line" id="toc-equation-of-a-line" class="nav-link" data-scroll-target="#equation-of-a-line">Equation of a Line</a></li>
+  <li><a href="#linear-regression" id="toc-linear-regression" class="nav-link" data-scroll-target="#linear-regression">Linear Regression</a>
+  <ul class="collapse">
+  <li><a href="#residuals" id="toc-residuals" class="nav-link" data-scroll-target="#residuals">Residuals</a></li>
+  <li><a href="#least-squares-method" id="toc-least-squares-method" class="nav-link" data-scroll-target="#least-squares-method">Least Squares Method</a></li>
+  <li><a href="#parameter-a-b-minimise-least-squares-method" id="toc-parameter-a-b-minimise-least-squares-method" class="nav-link" data-scroll-target="#parameter-a-b-minimise-least-squares-method">Parameter a, b minimise (least squares method)</a></li>
+  </ul></li>
+  <li><a href="#empirical-correlation" id="toc-empirical-correlation" class="nav-link" data-scroll-target="#empirical-correlation">Empirical correlation</a></li>
+  <li><a href="#r2-value" id="toc-r2-value" class="nav-link" data-scroll-target="#r2-value"><span class="math inline">\(R^2\)</span> Value</a></li>
+  </ul></li>
   </ul>
 </nav>
     </div>
@@ -1212,9 +1226,147 @@ Note
 <section id="what-is-true-error-rate" class="level3">
 <h3 class="anchored" data-anchor-id="what-is-true-error-rate">What Is True Error Rate?</h3>
 <p>Can’t directly calculate error rate based on a p-value.</p>
-
-
 </section>
+</section>
+</section>
+<section id="week-07-linear-regression" class="level1">
+<h1>Week 07: Linear Regression</h1>
+<section id="scatter-plot" class="level2">
+<h2 class="anchored" data-anchor-id="scatter-plot">Scatter plot</h2>
+<p>Two observations interpreted and displayed as coordinates of points in a coordinate system.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb52"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb52-1"><a href="#cb52-1" aria-hidden="true" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">42</span>)</span>
+<span id="cb52-2"><a href="#cb52-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb52-3"><a href="#cb52-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Generate random data</span></span>
+<span id="cb52-4"><a href="#cb52-4" aria-hidden="true" tabindex="-1"></a>x <span class="ot">&lt;-</span> <span class="fu">rnorm</span>(<span class="dv">100</span>)</span>
+<span id="cb52-5"><a href="#cb52-5" aria-hidden="true" tabindex="-1"></a>y <span class="ot">&lt;-</span> <span class="fu">rnorm</span>(<span class="dv">100</span>)</span>
+<span id="cb52-6"><a href="#cb52-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb52-7"><a href="#cb52-7" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(x, y) <span class="co"># By defaults Scatter Plot</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="sa_notes_files/figure-html/unnamed-chunk-25-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+</section>
+<section id="dependence-and-causality" class="level2">
+<h2 class="anchored" data-anchor-id="dependence-and-causality">Dependence and Causality</h2>
+<p>Caution regarding scatter plots: Do not confuse dependence with causality. Caution regarding scatter plots: Do not confuse dependence with causality.</p>
+</section>
+<section id="equation-of-a-line" class="level2">
+<h2 class="anchored" data-anchor-id="equation-of-a-line">Equation of a Line</h2>
+<p><span class="math display">\[
+y = a+bx
+\]</span></p>
+<p><span class="math display">\[
+b=\dfrac{\Delta y}{\Delta x}
+\]</span></p>
+</section>
+<section id="linear-regression" class="level2">
+<h2 class="anchored" data-anchor-id="linear-regression">Linear Regression</h2>
+<p>Formula-based relationship between book <span class="math inline">\(x\)</span> and <span class="math inline">\(y\)</span>. The Problem is to find a line that fits all points as good as possible.</p>
+<section id="residuals" class="level3">
+<h3 class="anchored" data-anchor-id="residuals">Residuals</h3>
+<p>Distance between points and line.</p>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Note
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>A residual <span class="math inline">\(r_i\)</span> is the vertical difference between a data point (<span class="math inline">\(x_i\)</span> , <span class="math inline">\(y_i\)</span> ) and the point (<span class="math inline">\(x_i\)</span> , <span class="math inline">\(a + bx_i\)</span> ) on the sought line:</p>
+<p><span class="math display">\[
+r_i = y_i - (a + bx_i) = y_i - a - bx_i
+\]</span></p>
+</div>
+</div>
+</section>
+<section id="least-squares-method" class="level3">
+<h3 class="anchored" data-anchor-id="least-squares-method">Least Squares Method</h3>
+<p>Determine a and b so that the sum of the squared residuals becomes minimal.</p>
+<p><span class="math display">\[
+r_1^2 + r_2^2 * \dots + r_n^2 = \sum_i r_i^2
+\]</span></p>
+</section>
+<section id="parameter-a-b-minimise-least-squares-method" class="level3">
+<h3 class="anchored" data-anchor-id="parameter-a-b-minimise-least-squares-method">Parameter a, b minimise (least squares method)</h3>
+<p><span class="math display">\[
+\sum_{i=1}^n (y_i - (a+bx_i))^2
+\]</span></p>
+<p><span class="math display">\[
+b = \frac{\sum_{i=1}^{n} (y_i - \bar{y})(x_i - \bar{x})}{\sum_{i=1}^{n} (x_i - \bar{x})^2}
+\]</span></p>
+<p><span class="math display">\[
+a = \bar{y} - b\bar{x}
+\]</span></p>
+<blockquote class="blockquote">
+<p>Note: <span class="math inline">\(\bar{x}\)</span> and <span class="math inline">\(\bar{y}\)</span> are the mean values of the respective data.</p>
+</blockquote>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb53"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb53-1"><a href="#cb53-1" aria-hidden="true" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">42</span>)</span>
+<span id="cb53-2"><a href="#cb53-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb53-3"><a href="#cb53-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Generate random linear data</span></span>
+<span id="cb53-4"><a href="#cb53-4" aria-hidden="true" tabindex="-1"></a>x <span class="ot">&lt;-</span> <span class="fu">rnorm</span>(<span class="dv">100</span>)</span>
+<span id="cb53-5"><a href="#cb53-5" aria-hidden="true" tabindex="-1"></a>y <span class="ot">&lt;-</span> x <span class="sc">*</span> <span class="fu">rbinom</span>(<span class="dv">100</span>, <span class="at">size=</span><span class="dv">100</span>, <span class="at">prob=</span><span class="fl">0.5</span>)</span>
+<span id="cb53-6"><a href="#cb53-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb53-7"><a href="#cb53-7" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(x, y)</span>
+<span id="cb53-8"><a href="#cb53-8" aria-hidden="true" tabindex="-1"></a><span class="fu">abline</span>(<span class="fu">lm</span>(y <span class="sc">~</span> x), <span class="at">col=</span><span class="st">"red"</span>) <span class="co"># Regression line</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="sa_notes_files/figure-html/unnamed-chunk-26-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+<blockquote class="blockquote">
+<p>Note: It is <code>lm(y~x)</code> and not <code>lm(x~y)</code>.</p>
+</blockquote>
+</section>
+</section>
+<section id="empirical-correlation" class="level2">
+<h2 class="anchored" data-anchor-id="empirical-correlation">Empirical correlation</h2>
+<p>The empirical correlation is a dimensionless number between −1 and +1 and measures strength and direction of the linear dependency between the dates <span class="math inline">\(x\)</span> and <span class="math inline">\(y\)</span>.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb54"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb54-1"><a href="#cb54-1" aria-hidden="true" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">42</span>)</span>
+<span id="cb54-2"><a href="#cb54-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb54-3"><a href="#cb54-3" aria-hidden="true" tabindex="-1"></a>x <span class="ot">&lt;-</span> <span class="fu">rnorm</span>(<span class="dv">100</span>)</span>
+<span id="cb54-4"><a href="#cb54-4" aria-hidden="true" tabindex="-1"></a>y <span class="ot">&lt;-</span> x <span class="sc">*</span> <span class="fu">rbinom</span>(<span class="dv">100</span>, <span class="at">size=</span><span class="dv">100</span>, <span class="at">prob=</span><span class="fl">0.5</span>)</span>
+<span id="cb54-5"><a href="#cb54-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb54-6"><a href="#cb54-6" aria-hidden="true" tabindex="-1"></a><span class="fu">cor</span>(x, y) <span class="co"># High value because of pos linear data</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 0.9953896</code></pre>
+</div>
+</div>
+<div class="callout callout-style-default callout-warning callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Warning
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Empirical correlation only measures the linear correlation.</p>
+</div>
+</div>
+</section>
+<section id="r2-value" class="level2">
+<h2 class="anchored" data-anchor-id="r2-value"><span class="math inline">\(R^2\)</span> Value</h2>
+<p><span class="math inline">\(R^2\)</span>-statistics: Value between 0 and 1. It indicates to what proportion of the variability in <span class="math inline">\(Y\)</span> is explained by <span class="math inline">\(X\)</span> using the model. Value close to 1: A large proportion of the variability is explained by the regression. The model therefore describes the data very well.</p>
+<blockquote class="blockquote">
+<p>Note: <span class="math inline">\(R^2\)</span> can be used for any regression.</p>
+</blockquote>
+<div class="sourceCode" id="cb56"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb56-1"><a href="#cb56-1" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(<span class="fu">lm</span>(Sales<span class="sc">~</span>TV))<span class="sc">$</span>r.squared</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+
+
 </section>
 </section>
 

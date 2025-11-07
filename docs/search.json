@@ -427,18 +427,39 @@
     "text": "Problem 6.8\n\na\nTrue\n\n\nb\nTrue\n\n\nc\nTrue\n\n\nd\nTrue\n\n\ne\nTrue"
   },
   {
+    "objectID": "hs25/sa/sa_exercises.html#problem-7.1",
+    "href": "hs25/sa/sa_exercises.html#problem-7.1",
+    "title": "Classical and Bayesian Statistics - Exercises",
+    "section": "Problem 7.1",
+    "text": "Problem 7.1\n\na\n\ninc &lt;- read.table(\"/home/nils/dev/mscids-notes/hs25/sa/data/income.dat\", header=TRUE)\n\n\n\nb\n\n# Plot data\nplot(inc$Educ, inc$Income2005)\n\n# Add linear reg to plot\nabline(lm(inc$Income2005 ~inc$Educ), col=\"red\")\n\n\n\n\n\n\n\n\n\n\nc\n\nm &lt;- lm(inc$Income2005 ~inc$Educ)\nm$coefficients\n\n(Intercept)    inc$Educ \n -40199.575    6451.475 \n\n\n\na: The regression line crosses the \\(y\\) axis at the point \\(x\\) = -40199.575.\nb: Fore one step at the direction \\(x\\) (one year of education), we increase the salary by 6451.475."
+  },
+  {
+    "objectID": "hs25/sa/sa_exercises.html#d-15",
+    "href": "hs25/sa/sa_exercises.html#d-15",
+    "title": "Classical and Bayesian Statistics - Exercises",
+    "section": "d",
+    "text": "d\n\ncat(\"The correlaiton between the education and income is:\", cor(inc$Educ, inc$Income2005))\n\nThe correlaiton between the education and income is: 0.3456474\n\n\nThe corralation value ist near to O. The data points correlate loosly."
+  },
+  {
+    "objectID": "hs25/sa/sa_exercises.html#problem-7.2",
+    "href": "hs25/sa/sa_exercises.html#problem-7.2",
+    "title": "Classical and Bayesian Statistics - Exercises",
+    "section": "Problem 7.2",
+    "text": "Problem 7.2\n\na\n\nhead(anscombe)\n\n  x1 x2 x3 x4   y1   y2    y3   y4\n1 10 10 10  8 8.04 9.14  7.46 6.58\n2  8  8  8  8 6.95 8.14  6.77 5.76\n3 13 13 13  8 7.58 8.74 12.74 7.71\n4  9  9  9  8 8.81 8.77  7.11 8.84\n5 11 11 11  8 8.33 9.26  7.81 8.47\n6 14 14 14  8 9.96 8.10  8.84 7.04\n\n\n\n\nb\n\npar(mfrow=c(2,2))\nplot(anscombe$x1, anscombe$y1)\nreg &lt;- lm(anscombe$y1 ~ anscombe$x1)\nabline(reg)\ntitle(\"x1, y1\")\n\nplot(anscombe$x2, anscombe$y2)\nreg &lt;- lm(anscombe$y2 ~ anscombe$x2)\nabline(reg)\ntitle(\"x2, y2\")\n\nplot(anscombe$x3, anscombe$y3)\nreg &lt;- lm(anscombe$y3 ~ anscombe$x3)\nabline(reg)\ntitle(\"x3, y3\")\n\nplot(anscombe$x4, anscombe$y4)\nreg &lt;- lm(anscombe$y4 ~ anscombe$x4)\nabline(reg)\ntitle(\"x4, y4\")\n\n\n\n\n\n\n\n\n\n\nc\n\nlm(y1 ~ x1, data = anscombe)\n\n\nCall:\nlm(formula = y1 ~ x1, data = anscombe)\n\nCoefficients:\n(Intercept)           x1  \n     3.0001       0.5001  \n\nlm(y2 ~ x2, data = anscombe)\n\n\nCall:\nlm(formula = y2 ~ x2, data = anscombe)\n\nCoefficients:\n(Intercept)           x2  \n      3.001        0.500  \n\nlm(y3 ~ x3, data = anscombe)\n\n\nCall:\nlm(formula = y3 ~ x3, data = anscombe)\n\nCoefficients:\n(Intercept)           x3  \n     3.0025       0.4997  \n\nlm(y4 ~ x4, data = anscombe)\n\n\nCall:\nlm(formula = y4 ~ x4, data = anscombe)\n\nCoefficients:\n(Intercept)           x4  \n     3.0017       0.4999  \n\n\nThe model coefficients are almost identical.\n\n\nd\n\ncat(\"The correlaiton between the x1 and y1 is:\", cor(anscombe$x1, anscombe$y1), \"\\n\")\n\nThe correlaiton between the x1 and y1 is: 0.8164205 \n\ncat(\"The correlaiton between the x2 and y2 is:\", cor(anscombe$x2, anscombe$y2), \"\\n\")\n\nThe correlaiton between the x2 and y2 is: 0.8162365 \n\ncat(\"The correlaiton between the x3 and y3 is:\", cor(anscombe$x3, anscombe$y3), \"\\n\")\n\nThe correlaiton between the x3 and y3 is: 0.8162867 \n\ncat(\"The correlaiton between the x4 and y4 is:\", cor(anscombe$x4, anscombe$y4))\n\nThe correlaiton between the x4 and y4 is: 0.8165214\n\n\nThe correlation value is almost identical.\n\n\nProblem 7.3\n\n# install.packages(\"ISLR\")\nlibrary(ISLR)\n\n\n\na\n\nhead(Auto)\n\n  mpg cylinders displacement horsepower weight acceleration year origin\n1  18         8          307        130   3504         12.0   70      1\n2  15         8          350        165   3693         11.5   70      1\n3  18         8          318        150   3436         11.0   70      1\n4  16         8          304        150   3433         12.0   70      1\n5  17         8          302        140   3449         10.5   70      1\n6  15         8          429        198   4341         10.0   70      1\n                       name\n1 chevrolet chevelle malibu\n2         buick skylark 320\n3        plymouth satellite\n4             amc rebel sst\n5               ford torino\n6          ford galaxie 500\n\n\n\n\nb/c\n\nplot(Auto$horsepower, Auto$mpg)\n\n\n\n\n\n\n\nmodel &lt;- lm(mpg ~ horsepower, data=Auto)\nsummary(model)\n\n\nCall:\nlm(formula = mpg ~ horsepower, data = Auto)\n\nResiduals:\n     Min       1Q   Median       3Q      Max \n-13.5710  -3.2592  -0.3435   2.7630  16.9240 \n\nCoefficients:\n             Estimate Std. Error t value Pr(&gt;|t|)    \n(Intercept) 39.935861   0.717499   55.66   &lt;2e-16 ***\nhorsepower  -0.157845   0.006446  -24.49   &lt;2e-16 ***\n---\nSignif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1\n\nResidual standard error: 4.906 on 390 degrees of freedom\nMultiple R-squared:  0.6059,    Adjusted R-squared:  0.6049 \nF-statistic: 599.7 on 1 and 390 DF,  p-value: &lt; 2.2e-16\n\n\n\nI\nThe fuel consumption depends on the horsepower.\n\n\nII\nThe \\(y\\) value at position \\(x\\) = 0 value has no practical meaning here.\n\n\nIII\n\nconfint(model)\n\n                2.5 %     97.5 %\n(Intercept) 38.525212 41.3465103\nhorsepower  -0.170517 -0.1451725\n\n\nThe confidence interval indicates the most likely range of values.\n\n\nIV\n\nsummary(model)$r.squared\n\n[1] 0.6059483\n\n\nThe \\(R^2\\) value is 0.606. This indicates that the variability to 60 % is through the model.\n\n\n\nd\n\nplot(Auto$horsepower, Auto$mpg)\nmodel &lt;- lm(mpg ~ horsepower, data=Auto)\nabline(model, col=\"red\")\n\n\n\n\n\n\n\n\n\n\nProblem 7.4\n\n\na\n\n# ?MASS::Boston\n\n\n\nb\n\nlibrary(MASS)\ncolnames(Boston)\n\n [1] \"crim\"    \"zn\"      \"indus\"   \"chas\"    \"nox\"     \"rm\"      \"age\"    \n [8] \"dis\"     \"rad\"     \"tax\"     \"ptratio\" \"black\"   \"lstat\"   \"medv\"   \n\n\n\n\nc\n\nattach(Boston)\n\n\n\nd\n\nI/II\n\nmodel &lt;- lm(medv ~ lstat, data=Boston)\nsummary(model)\n\n\nCall:\nlm(formula = medv ~ lstat, data = Boston)\n\nResiduals:\n    Min      1Q  Median      3Q     Max \n-15.168  -3.990  -1.318   2.034  24.500 \n\nCoefficients:\n            Estimate Std. Error t value Pr(&gt;|t|)    \n(Intercept) 34.55384    0.56263   61.41   &lt;2e-16 ***\nlstat       -0.95005    0.03873  -24.53   &lt;2e-16 ***\n---\nSignif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1\n\nResidual standard error: 6.216 on 504 degrees of freedom\nMultiple R-squared:  0.5441,    Adjusted R-squared:  0.5432 \nF-statistic: 601.6 on 1 and 504 DF,  p-value: &lt; 2.2e-16\n\n\n\n\n\ne\n\nnames(model)\n\n [1] \"coefficients\"  \"residuals\"     \"effects\"       \"rank\"         \n [5] \"fitted.values\" \"assign\"        \"qr\"            \"df.residual\"  \n [9] \"xlevels\"       \"call\"          \"terms\"         \"model\"        \n\n\n\n\nf\n\ncoef(model)\n\n(Intercept)       lstat \n 34.5538409  -0.9500494 \n\n\nAt the data point \\(x\\) = 0, we start at a value of 34.6. Fore every step in \\(x\\) direction, we lose -0.95. The p-value for lstat is close to 0 and therefore highly significant.\n\n\ng\n\nconfint(model)\n\n                2.5 %     97.5 %\n(Intercept) 33.448457 35.6592247\nlstat       -1.026148 -0.8739505\n\n\nThe model shows that the true \\(x\\) and \\(y\\) values lies between this ranges.\n\n\nh\n\npar(mfrow=c(1,1))\nplot(Boston$medv, Boston$lstat)\nabline(model, col=\"red\")\n\n\n\n\n\n\n\n\n\n\ni\n\nsummary(model)$r.squared\n\n[1] 0.5441463\n\n\nThe \\(R^2\\)-value is 0.5441, so about 54 % of the variability is explained by the model."
+  },
+  {
     "objectID": "hs25/pds/pds_exercises.html",
     "href": "hs25/pds/pds_exercises.html",
     "title": "Python for Data Science - Exercises",
     "section": "",
-    "text": "print(f\"10 + 10 + 10 = {10 + 10 + 10}\")\nprint(f\"10 - 3       = {10 - 3}\")\nprint(f\"10 * 2       = {10 * 2}\")\nprint(f\"5 / 2        = {5 / 2}\")\nprint(f\"5.0 / 2      = {5.0 / 2}\")\nprint(f\"5 % 2        = {5 % 2}\")\nprint(f\"10 % 3       = {10 % 3}\")\nprint(f\"3 ** 3       = {3 ** 3}\")\nprint(f\"9 ** 0.5     = {9 ** 0.5}\")\nprint(f\"10 + 3 * 3   = {10 + 3 * 3}\")\nprint(f\"(10 + 3) * 3 = {(10 + 3) * 3}\")\n\n10 + 10 + 10 = 30\n10 - 3       = 7\n10 * 2       = 20\n5 / 2        = 2.5\n5.0 / 2      = 2.5\n5 % 2        = 1\n10 % 3       = 1\n3 ** 3       = 27\n9 ** 0.5     = 3.0\n10 + 3 * 3   = 19\n(10 + 3) * 3 = 39\n\n\n\n\n\n\na = 23\nb = 23\nprint(f\"a = {a}\")\nprint(f\"The ID of a is {id(a)}\") # Prints memory address of the variable a\nprint(f\"a is of type {type(a)}\") # Prints the data type of the variable a\n\na = 23\nThe ID of a is 11761384\na is of type &lt;class 'int'&gt;\n\n\n\nNote: id() corresponds to the objects memory address during its lifetime.\n\n\nprint(f\"b = {b}\")\nprint(f\"The ID of b is {id(b)}\")\nprint(f\"b is of type {type(a)}\")\n\nb = 23\nThe ID of b is 11761384\nb is of type &lt;class 'int'&gt;\n\n\n\n\n\n\na = 123 # Reassign var a to int 123\nprint(f\"a = {a}\")\nprint(f\"The ID of a is {id(a)}\")\nprint(f\"a is of type {type(a)}\")\n\na = 123\nThe ID of a is 11764584\na is of type &lt;class 'int'&gt;\n\n\n\n\n\n\nc = 23\nprint(f\"c = {c}\")\nprint(f\"The ID of a is {id(c)}\")\nprint(f\"c is of type {type(c)}\")\n\nc = 23\nThe ID of a is 11761384\nc is of type &lt;class 'int'&gt;\n\n\nWe assign the variable c to the value 23 and check its data type and memory location.\n\n\n\n\nd = 3.142\nprint(f\"d = {d}\")\nprint(f\"The ID of a is {id(d)}\")\nprint(f\"d is of type {type(d)}\")\n\nd = 3.142\nThe ID of a is 135414040665296\nd is of type &lt;class 'float'&gt;\n\n\n\n\n\n\nprint (\"HSLU's Python course is cool\")\n\nprint(\"This is Line 1\")\nprint(\"This is Line 2\")\n\nprint(\"\\nWhat does the \\\\n control character do? Are you sure?\") # \\n is a line break\n\nprint(\"\\tWhat does the \\\\t control character do? Are you sure?\") # \\t is a tabulator\n\nprint(\"I want to learn python because....\")\nprint(\"\\n\\n\\t....it's a cool data science programming language. Ok - there are also others ;-) !\")\n\nprint(\"What \" + \"is \" + \"wrong?\" + \"\\nAdd some space between the words without removing the '+' signs!\") # Add spaces after the string\n\nHSLU's Python course is cool\nThis is Line 1\nThis is Line 2\n\nWhat does the \\n control character do? Are you sure?\n    What does the \\t control character do? Are you sure?\nI want to learn python because....\n\n\n    ....it's a cool data science programming language. Ok - there are also others ;-) !\nWhat is wrong?\nAdd some space between the words without removing the '+' signs!\n\n\n\n\n\n\ng=h='hslu'      # Assign the var g and h to the string \"hslu\"\nprint(g)        # Prints hslu\nprint(h)        # Print hslu\nh=456           # Reassign h to int 456\nprint(h)        # Prints 456\nh=h+1           # Calculates 456 + 1 = 457\nprint(h)        # Prints 457\nh+=1            # Calculates 457 + 1 = 458\nprint(h)        # Prints 458\np='hslu'        # Assign the var p to the string \"hslu\"\nq=p             # Copies the var p (hlsu) to the var q\nprint(p==q)     # Compare the var p and q (Output: True)\nprint(p is q)   # Compare the var p and q (Output: True)\n\nhslu\nhslu\n456\n457\n458\nTrue\nTrue"
+    "text": "print(f\"10 + 10 + 10 = {10 + 10 + 10}\")\nprint(f\"10 - 3       = {10 - 3}\")\nprint(f\"10 * 2       = {10 * 2}\")\nprint(f\"5 / 2        = {5 / 2}\")\nprint(f\"5.0 / 2      = {5.0 / 2}\")\nprint(f\"5 % 2        = {5 % 2}\")\nprint(f\"10 % 3       = {10 % 3}\")\nprint(f\"3 ** 3       = {3 ** 3}\")\nprint(f\"9 ** 0.5     = {9 ** 0.5}\")\nprint(f\"10 + 3 * 3   = {10 + 3 * 3}\")\nprint(f\"(10 + 3) * 3 = {(10 + 3) * 3}\")\n\n10 + 10 + 10 = 30\n10 - 3       = 7\n10 * 2       = 20\n5 / 2        = 2.5\n5.0 / 2      = 2.5\n5 % 2        = 1\n10 % 3       = 1\n3 ** 3       = 27\n9 ** 0.5     = 3.0\n10 + 3 * 3   = 19\n(10 + 3) * 3 = 39\n\n\n\n\n\n\na = 23\nb = 23\nprint(f\"a = {a}\")\nprint(f\"The ID of a is {id(a)}\") # Prints memory address of the variable a\nprint(f\"a is of type {type(a)}\") # Prints the data type of the variable a\n\na = 23\nThe ID of a is 11761384\na is of type &lt;class 'int'&gt;\n\n\n\nNote: id() corresponds to the objects memory address during its lifetime.\n\n\nprint(f\"b = {b}\")\nprint(f\"The ID of b is {id(b)}\")\nprint(f\"b is of type {type(a)}\")\n\nb = 23\nThe ID of b is 11761384\nb is of type &lt;class 'int'&gt;\n\n\n\n\n\n\na = 123 # Reassign var a to int 123\nprint(f\"a = {a}\")\nprint(f\"The ID of a is {id(a)}\")\nprint(f\"a is of type {type(a)}\")\n\na = 123\nThe ID of a is 11764584\na is of type &lt;class 'int'&gt;\n\n\n\n\n\n\nc = 23\nprint(f\"c = {c}\")\nprint(f\"The ID of a is {id(c)}\")\nprint(f\"c is of type {type(c)}\")\n\nc = 23\nThe ID of a is 11761384\nc is of type &lt;class 'int'&gt;\n\n\nWe assign the variable c to the value 23 and check its data type and memory location.\n\n\n\n\nd = 3.142\nprint(f\"d = {d}\")\nprint(f\"The ID of a is {id(d)}\")\nprint(f\"d is of type {type(d)}\")\n\nd = 3.142\nThe ID of a is 129536731389072\nd is of type &lt;class 'float'&gt;\n\n\n\n\n\n\nprint (\"HSLU's Python course is cool\")\n\nprint(\"This is Line 1\")\nprint(\"This is Line 2\")\n\nprint(\"\\nWhat does the \\\\n control character do? Are you sure?\") # \\n is a line break\n\nprint(\"\\tWhat does the \\\\t control character do? Are you sure?\") # \\t is a tabulator\n\nprint(\"I want to learn python because....\")\nprint(\"\\n\\n\\t....it's a cool data science programming language. Ok - there are also others ;-) !\")\n\nprint(\"What \" + \"is \" + \"wrong?\" + \"\\nAdd some space between the words without removing the '+' signs!\") # Add spaces after the string\n\nHSLU's Python course is cool\nThis is Line 1\nThis is Line 2\n\nWhat does the \\n control character do? Are you sure?\n    What does the \\t control character do? Are you sure?\nI want to learn python because....\n\n\n    ....it's a cool data science programming language. Ok - there are also others ;-) !\nWhat is wrong?\nAdd some space between the words without removing the '+' signs!\n\n\n\n\n\n\ng=h='hslu'      # Assign the var g and h to the string \"hslu\"\nprint(g)        # Prints hslu\nprint(h)        # Print hslu\nh=456           # Reassign h to int 456\nprint(h)        # Prints 456\nh=h+1           # Calculates 456 + 1 = 457\nprint(h)        # Prints 457\nh+=1            # Calculates 457 + 1 = 458\nprint(h)        # Prints 458\np='hslu'        # Assign the var p to the string \"hslu\"\nq=p             # Copies the var p (hlsu) to the var q\nprint(p==q)     # Compare the var p and q (Output: True)\nprint(p is q)   # Compare the var p and q (Output: True)\n\nhslu\nhslu\n456\n457\n458\nTrue\nTrue"
   },
   {
     "objectID": "hs25/pds/pds_exercises.html#exercises-1",
     "href": "hs25/pds/pds_exercises.html#exercises-1",
     "title": "Python for Data Science - Exercises",
     "section": "",
-    "text": "print(f\"10 + 10 + 10 = {10 + 10 + 10}\")\nprint(f\"10 - 3       = {10 - 3}\")\nprint(f\"10 * 2       = {10 * 2}\")\nprint(f\"5 / 2        = {5 / 2}\")\nprint(f\"5.0 / 2      = {5.0 / 2}\")\nprint(f\"5 % 2        = {5 % 2}\")\nprint(f\"10 % 3       = {10 % 3}\")\nprint(f\"3 ** 3       = {3 ** 3}\")\nprint(f\"9 ** 0.5     = {9 ** 0.5}\")\nprint(f\"10 + 3 * 3   = {10 + 3 * 3}\")\nprint(f\"(10 + 3) * 3 = {(10 + 3) * 3}\")\n\n10 + 10 + 10 = 30\n10 - 3       = 7\n10 * 2       = 20\n5 / 2        = 2.5\n5.0 / 2      = 2.5\n5 % 2        = 1\n10 % 3       = 1\n3 ** 3       = 27\n9 ** 0.5     = 3.0\n10 + 3 * 3   = 19\n(10 + 3) * 3 = 39\n\n\n\n\n\n\na = 23\nb = 23\nprint(f\"a = {a}\")\nprint(f\"The ID of a is {id(a)}\") # Prints memory address of the variable a\nprint(f\"a is of type {type(a)}\") # Prints the data type of the variable a\n\na = 23\nThe ID of a is 11761384\na is of type &lt;class 'int'&gt;\n\n\n\nNote: id() corresponds to the objects memory address during its lifetime.\n\n\nprint(f\"b = {b}\")\nprint(f\"The ID of b is {id(b)}\")\nprint(f\"b is of type {type(a)}\")\n\nb = 23\nThe ID of b is 11761384\nb is of type &lt;class 'int'&gt;\n\n\n\n\n\n\na = 123 # Reassign var a to int 123\nprint(f\"a = {a}\")\nprint(f\"The ID of a is {id(a)}\")\nprint(f\"a is of type {type(a)}\")\n\na = 123\nThe ID of a is 11764584\na is of type &lt;class 'int'&gt;\n\n\n\n\n\n\nc = 23\nprint(f\"c = {c}\")\nprint(f\"The ID of a is {id(c)}\")\nprint(f\"c is of type {type(c)}\")\n\nc = 23\nThe ID of a is 11761384\nc is of type &lt;class 'int'&gt;\n\n\nWe assign the variable c to the value 23 and check its data type and memory location.\n\n\n\n\nd = 3.142\nprint(f\"d = {d}\")\nprint(f\"The ID of a is {id(d)}\")\nprint(f\"d is of type {type(d)}\")\n\nd = 3.142\nThe ID of a is 135414040665296\nd is of type &lt;class 'float'&gt;\n\n\n\n\n\n\nprint (\"HSLU's Python course is cool\")\n\nprint(\"This is Line 1\")\nprint(\"This is Line 2\")\n\nprint(\"\\nWhat does the \\\\n control character do? Are you sure?\") # \\n is a line break\n\nprint(\"\\tWhat does the \\\\t control character do? Are you sure?\") # \\t is a tabulator\n\nprint(\"I want to learn python because....\")\nprint(\"\\n\\n\\t....it's a cool data science programming language. Ok - there are also others ;-) !\")\n\nprint(\"What \" + \"is \" + \"wrong?\" + \"\\nAdd some space between the words without removing the '+' signs!\") # Add spaces after the string\n\nHSLU's Python course is cool\nThis is Line 1\nThis is Line 2\n\nWhat does the \\n control character do? Are you sure?\n    What does the \\t control character do? Are you sure?\nI want to learn python because....\n\n\n    ....it's a cool data science programming language. Ok - there are also others ;-) !\nWhat is wrong?\nAdd some space between the words without removing the '+' signs!\n\n\n\n\n\n\ng=h='hslu'      # Assign the var g and h to the string \"hslu\"\nprint(g)        # Prints hslu\nprint(h)        # Print hslu\nh=456           # Reassign h to int 456\nprint(h)        # Prints 456\nh=h+1           # Calculates 456 + 1 = 457\nprint(h)        # Prints 457\nh+=1            # Calculates 457 + 1 = 458\nprint(h)        # Prints 458\np='hslu'        # Assign the var p to the string \"hslu\"\nq=p             # Copies the var p (hlsu) to the var q\nprint(p==q)     # Compare the var p and q (Output: True)\nprint(p is q)   # Compare the var p and q (Output: True)\n\nhslu\nhslu\n456\n457\n458\nTrue\nTrue"
+    "text": "print(f\"10 + 10 + 10 = {10 + 10 + 10}\")\nprint(f\"10 - 3       = {10 - 3}\")\nprint(f\"10 * 2       = {10 * 2}\")\nprint(f\"5 / 2        = {5 / 2}\")\nprint(f\"5.0 / 2      = {5.0 / 2}\")\nprint(f\"5 % 2        = {5 % 2}\")\nprint(f\"10 % 3       = {10 % 3}\")\nprint(f\"3 ** 3       = {3 ** 3}\")\nprint(f\"9 ** 0.5     = {9 ** 0.5}\")\nprint(f\"10 + 3 * 3   = {10 + 3 * 3}\")\nprint(f\"(10 + 3) * 3 = {(10 + 3) * 3}\")\n\n10 + 10 + 10 = 30\n10 - 3       = 7\n10 * 2       = 20\n5 / 2        = 2.5\n5.0 / 2      = 2.5\n5 % 2        = 1\n10 % 3       = 1\n3 ** 3       = 27\n9 ** 0.5     = 3.0\n10 + 3 * 3   = 19\n(10 + 3) * 3 = 39\n\n\n\n\n\n\na = 23\nb = 23\nprint(f\"a = {a}\")\nprint(f\"The ID of a is {id(a)}\") # Prints memory address of the variable a\nprint(f\"a is of type {type(a)}\") # Prints the data type of the variable a\n\na = 23\nThe ID of a is 11761384\na is of type &lt;class 'int'&gt;\n\n\n\nNote: id() corresponds to the objects memory address during its lifetime.\n\n\nprint(f\"b = {b}\")\nprint(f\"The ID of b is {id(b)}\")\nprint(f\"b is of type {type(a)}\")\n\nb = 23\nThe ID of b is 11761384\nb is of type &lt;class 'int'&gt;\n\n\n\n\n\n\na = 123 # Reassign var a to int 123\nprint(f\"a = {a}\")\nprint(f\"The ID of a is {id(a)}\")\nprint(f\"a is of type {type(a)}\")\n\na = 123\nThe ID of a is 11764584\na is of type &lt;class 'int'&gt;\n\n\n\n\n\n\nc = 23\nprint(f\"c = {c}\")\nprint(f\"The ID of a is {id(c)}\")\nprint(f\"c is of type {type(c)}\")\n\nc = 23\nThe ID of a is 11761384\nc is of type &lt;class 'int'&gt;\n\n\nWe assign the variable c to the value 23 and check its data type and memory location.\n\n\n\n\nd = 3.142\nprint(f\"d = {d}\")\nprint(f\"The ID of a is {id(d)}\")\nprint(f\"d is of type {type(d)}\")\n\nd = 3.142\nThe ID of a is 129536731389072\nd is of type &lt;class 'float'&gt;\n\n\n\n\n\n\nprint (\"HSLU's Python course is cool\")\n\nprint(\"This is Line 1\")\nprint(\"This is Line 2\")\n\nprint(\"\\nWhat does the \\\\n control character do? Are you sure?\") # \\n is a line break\n\nprint(\"\\tWhat does the \\\\t control character do? Are you sure?\") # \\t is a tabulator\n\nprint(\"I want to learn python because....\")\nprint(\"\\n\\n\\t....it's a cool data science programming language. Ok - there are also others ;-) !\")\n\nprint(\"What \" + \"is \" + \"wrong?\" + \"\\nAdd some space between the words without removing the '+' signs!\") # Add spaces after the string\n\nHSLU's Python course is cool\nThis is Line 1\nThis is Line 2\n\nWhat does the \\n control character do? Are you sure?\n    What does the \\t control character do? Are you sure?\nI want to learn python because....\n\n\n    ....it's a cool data science programming language. Ok - there are also others ;-) !\nWhat is wrong?\nAdd some space between the words without removing the '+' signs!\n\n\n\n\n\n\ng=h='hslu'      # Assign the var g and h to the string \"hslu\"\nprint(g)        # Prints hslu\nprint(h)        # Print hslu\nh=456           # Reassign h to int 456\nprint(h)        # Prints 456\nh=h+1           # Calculates 456 + 1 = 457\nprint(h)        # Prints 457\nh+=1            # Calculates 457 + 1 = 458\nprint(h)        # Prints 458\np='hslu'        # Assign the var p to the string \"hslu\"\nq=p             # Copies the var p (hlsu) to the var q\nprint(p==q)     # Compare the var p and q (Output: True)\nprint(p is q)   # Compare the var p and q (Output: True)\n\nhslu\nhslu\n456\n457\n458\nTrue\nTrue"
   },
   {
     "objectID": "hs25/pds/pds_exercises.html#task-1",
@@ -487,7 +508,7 @@
     "href": "hs25/pds/pds_exercises.html#exercise-5",
     "title": "Python for Data Science - Exercises",
     "section": "Exercise 5",
-    "text": "Exercise 5\nWrite a Python program to guess a number between 1 to 10. First: Use the predefined code block to create a random number Second: The user is prompted to enter a guess. If the guess is wrong a message “to big” or “to small” is printed to the console and the prompt (user input) appears again until the guess is correct. If the guess is correct, “Well guessed!” will be printed and the program ends. Extension: The number of trials should be prompted as well: “Well done - you have tried it 4 times!”\n\n# Code block to create a random number\nfrom random import randint\nrandom_number = randint(1,10)\n# End code block to create a random number\n\ntrials = 0\n\nwhile True: # Infinitive loop till break\n    # Unsing fake user input\n    user_input = randint(1,10) # Also random\n    trials += 1 # Count trials\n    if user_input == random_number:\n        print(f\"Well done - you have tried it {trials} times!\")\n        break\n    elif user_input &lt; random_number:\n        print(\"Guess to low...\")\n    else:\n        print(\"Guess to high...\")\n\nWell done - you have tried it 1 times!"
+    "text": "Exercise 5\nWrite a Python program to guess a number between 1 to 10. First: Use the predefined code block to create a random number Second: The user is prompted to enter a guess. If the guess is wrong a message “to big” or “to small” is printed to the console and the prompt (user input) appears again until the guess is correct. If the guess is correct, “Well guessed!” will be printed and the program ends. Extension: The number of trials should be prompted as well: “Well done - you have tried it 4 times!”\n\n# Code block to create a random number\nfrom random import randint\nrandom_number = randint(1,10)\n# End code block to create a random number\n\ntrials = 0\n\nwhile True: # Infinitive loop till break\n    # Unsing fake user input\n    user_input = randint(1,10) # Also random\n    trials += 1 # Count trials\n    if user_input == random_number:\n        print(f\"Well done - you have tried it {trials} times!\")\n        break\n    elif user_input &lt; random_number:\n        print(\"Guess to low...\")\n    else:\n        print(\"Guess to high...\")\n\nGuess to high...\nGuess to high...\nWell done - you have tried it 3 times!"
   },
   {
     "objectID": "hs25/pds/pds_exercises.html#exercise-6",
@@ -501,7 +522,7 @@
     "href": "hs25/pds/pds_exercises.html#exercise-1-1",
     "title": "Python for Data Science - Exercises",
     "section": "Exercise 1",
-    "text": "Exercise 1\nWrite a Python program to guess a number between 1 to 10. First: Use the predefined code block to create a random number Second: The user is prompted to enter a guess. If the guess is wrong a message “to big” or “to small” is printed to the console and the prompt (user input) appears again until the guess is correct. If the guess is correct, “Well guessed!” will be printed and the program ends. Extension: The number of trials should be prompted as well: “Well done - you have tried it 4 times!”\n\n# Code block to create a random number\nfrom random import randint\nrandom_number = randint(1,10)\n# End code block to create a random number\n\ntrials = 0\n\nwhile True: # Infinitive loop till break\n    # Unsing fake user input\n    user_input = randint(1,10) # Also random\n    trials += 1 # Count trials\n    if user_input == random_number:\n        print(f\"Well done - you have tried it {trials} times!\")\n        break\n    elif user_input &lt; random_number:\n        print(\"Guess to low...\")\n    else:\n        print(\"Guess to high...\")\n\nGuess to low...\nGuess to high...\nGuess to low...\nGuess to low...\nWell done - you have tried it 5 times!"
+    "text": "Exercise 1\nWrite a Python program to guess a number between 1 to 10. First: Use the predefined code block to create a random number Second: The user is prompted to enter a guess. If the guess is wrong a message “to big” or “to small” is printed to the console and the prompt (user input) appears again until the guess is correct. If the guess is correct, “Well guessed!” will be printed and the program ends. Extension: The number of trials should be prompted as well: “Well done - you have tried it 4 times!”\n\n# Code block to create a random number\nfrom random import randint\nrandom_number = randint(1,10)\n# End code block to create a random number\n\ntrials = 0\n\nwhile True: # Infinitive loop till break\n    # Unsing fake user input\n    user_input = randint(1,10) # Also random\n    trials += 1 # Count trials\n    if user_input == random_number:\n        print(f\"Well done - you have tried it {trials} times!\")\n        break\n    elif user_input &lt; random_number:\n        print(\"Guess to low...\")\n    else:\n        print(\"Guess to high...\")\n\nGuess to high...\nGuess to high...\nGuess to high...\nWell done - you have tried it 4 times!"
   },
   {
     "objectID": "hs25/pds/pds_exercises.html#exercise-1-2",
@@ -740,6 +761,27 @@
     "title": "Design of Experiments",
     "section": "Standard Error",
     "text": "Standard Error\nThe standard error is a measure of the variability of the sample means among many samples. It quantifies the spread of sample means from repeated random samples of the same size around the population mean \\(\\mu_0\\)\n\\[\n\\hat{\\sigma}_{\\bar{X}} = \\sqrt{\\dfrac{s^2}{n}} = \\dfrac{s}{\\sqrt{n}}\n\\]\nThe larger the sample size, the smaller the standard error, and therefore, the larger the sample size, the more precise the sample mean is as an estimator of the population mean."
+  },
+  {
+    "objectID": "hs25/doe/doe_notes.html#statistical-significance-and-importance-of-an-effect",
+    "href": "hs25/doe/doe_notes.html#statistical-significance-and-importance-of-an-effect",
+    "title": "Design of Experiments",
+    "section": "Statistical significance and importance of an effect",
+    "text": "Statistical significance and importance of an effect\nThe chance of having a significant result in a hypothesis test is:\n\nlarger if sample size \\(n\\) increases.\nsmaller if standard deviation \\(s\\) increases.\n\nAn effect in the population can be specified by an effect measurement. This measurement results in what is referred to as effect size.\n\nNote: The name effect size (ES) comes from Cohen (1992)"
+  },
+  {
+    "objectID": "hs25/doe/doe_notes.html#effect-size",
+    "href": "hs25/doe/doe_notes.html#effect-size",
+    "title": "Design of Experiments",
+    "section": "Effect size",
+    "text": "Effect size\nEffect size is a statistical measure that quantifies the magnitude (or strength) of a phenomenon. A tiny p-value in a very large study might show a difference that is statistically significant, but practically meaningless. Effect size helps to evaluate exactly this. It expresses this difference in terms of standard deviations.\n\nA Cohen’s d of 1.0 means the means of the two groups are separated by exactly one standard deviation.\nA Cohen’s d of 0.0 means there is no difference between the means."
+  },
+  {
+    "objectID": "hs25/doe/doe_notes.html#power-analysis",
+    "href": "hs25/doe/doe_notes.html#power-analysis",
+    "title": "Design of Experiments",
+    "section": "Power analysis",
+    "text": "Power analysis\nPower analysis is the crucial step in research design that connects your expected effect size with your desired power (80%) and significance (5%) to determine the minimum sample size you need to run a valid study.\n\nDetermining the sample size with R\n\n# install.packages(\"pwr\")\nlibrary(pwr)\npwr.t.test(d = 0.5, power = 0.80, sig.level = 0.05)\n\n\n     Two-sample t test power calculation \n\n              n = 63.76561\n              d = 0.5\n      sig.level = 0.05\n          power = 0.8\n    alternative = two.sided\n\nNOTE: n is number in *each* group"
   },
   {
     "objectID": "hs25/pds/pds_notes.html",
@@ -1267,6 +1309,48 @@
     "text": "Interpreting p-Values\nDetermine whether hypothesis test results are statistically significant. If p-value is less than significance level, reject null hypothesis and conclude that effect or relationship exists. The p-values are directly connected to null hypothesis.\n\n\n\n\n\n\nNote\n\n\n\np-values: Probability of observing a sample statistic that is at least as extreme as sample statistic when assuming that null hypothesis is correct\n\n\n\nNote: p-Values Are not an Error Rate.\n\n\nWhat Is True Error Rate?\nCan’t directly calculate error rate based on a p-value."
   },
   {
+    "objectID": "hs25/sa/sa_notes.html#scatter-plot",
+    "href": "hs25/sa/sa_notes.html#scatter-plot",
+    "title": "Classical and Bayesian Statistics - Notes",
+    "section": "Scatter plot",
+    "text": "Scatter plot\nTwo observations interpreted and displayed as coordinates of points in a coordinate system.\n\nset.seed(42)\n\n# Generate random data\nx &lt;- rnorm(100)\ny &lt;- rnorm(100)\n\nplot(x, y) # By defaults Scatter Plot"
+  },
+  {
+    "objectID": "hs25/sa/sa_notes.html#dependence-and-causality",
+    "href": "hs25/sa/sa_notes.html#dependence-and-causality",
+    "title": "Classical and Bayesian Statistics - Notes",
+    "section": "Dependence and Causality",
+    "text": "Dependence and Causality\nCaution regarding scatter plots: Do not confuse dependence with causality. Caution regarding scatter plots: Do not confuse dependence with causality."
+  },
+  {
+    "objectID": "hs25/sa/sa_notes.html#equation-of-a-line",
+    "href": "hs25/sa/sa_notes.html#equation-of-a-line",
+    "title": "Classical and Bayesian Statistics - Notes",
+    "section": "Equation of a Line",
+    "text": "Equation of a Line\n\\[\ny = a+bx\n\\]\n\\[\nb=\\dfrac{\\Delta y}{\\Delta x}\n\\]"
+  },
+  {
+    "objectID": "hs25/sa/sa_notes.html#linear-regression",
+    "href": "hs25/sa/sa_notes.html#linear-regression",
+    "title": "Classical and Bayesian Statistics - Notes",
+    "section": "Linear Regression",
+    "text": "Linear Regression\nFormula-based relationship between book \\(x\\) and \\(y\\). The Problem is to find a line that fits all points as good as possible.\n\nResiduals\nDistance between points and line.\n\n\n\n\n\n\nNote\n\n\n\nA residual \\(r_i\\) is the vertical difference between a data point (\\(x_i\\) , \\(y_i\\) ) and the point (\\(x_i\\) , \\(a + bx_i\\) ) on the sought line:\n\\[\nr_i = y_i - (a + bx_i) = y_i - a - bx_i\n\\]\n\n\n\n\nLeast Squares Method\nDetermine a and b so that the sum of the squared residuals becomes minimal.\n\\[\nr_1^2 + r_2^2 * \\dots + r_n^2 = \\sum_i r_i^2\n\\]\n\n\nParameter a, b minimise (least squares method)\n\\[\n\\sum_{i=1}^n (y_i - (a+bx_i))^2\n\\]\n\\[\nb = \\frac{\\sum_{i=1}^{n} (y_i - \\bar{y})(x_i - \\bar{x})}{\\sum_{i=1}^{n} (x_i - \\bar{x})^2}\n\\]\n\\[\na = \\bar{y} - b\\bar{x}\n\\]\n\nNote: \\(\\bar{x}\\) and \\(\\bar{y}\\) are the mean values of the respective data.\n\n\nset.seed(42)\n\n# Generate random linear data\nx &lt;- rnorm(100)\ny &lt;- x * rbinom(100, size=100, prob=0.5)\n\nplot(x, y)\nabline(lm(y ~ x), col=\"red\") # Regression line\n\n\n\n\n\n\n\n\n\nNote: It is lm(y~x) and not lm(x~y)."
+  },
+  {
+    "objectID": "hs25/sa/sa_notes.html#empirical-correlation",
+    "href": "hs25/sa/sa_notes.html#empirical-correlation",
+    "title": "Classical and Bayesian Statistics - Notes",
+    "section": "Empirical correlation",
+    "text": "Empirical correlation\nThe empirical correlation is a dimensionless number between −1 and +1 and measures strength and direction of the linear dependency between the dates \\(x\\) and \\(y\\).\n\nset.seed(42)\n\nx &lt;- rnorm(100)\ny &lt;- x * rbinom(100, size=100, prob=0.5)\n\ncor(x, y) # High value because of pos linear data\n\n[1] 0.9953896\n\n\n\n\n\n\n\n\nWarning\n\n\n\nEmpirical correlation only measures the linear correlation."
+  },
+  {
+    "objectID": "hs25/sa/sa_notes.html#r2-value",
+    "href": "hs25/sa/sa_notes.html#r2-value",
+    "title": "Classical and Bayesian Statistics - Notes",
+    "section": "\\(R^2\\) Value",
+    "text": "\\(R^2\\) Value\n\\(R^2\\)-statistics: Value between 0 and 1. It indicates to what proportion of the variability in \\(Y\\) is explained by \\(X\\) using the model. Value close to 1: A large proportion of the variability is explained by the regression. The model therefore describes the data very well.\n\nNote: \\(R^2\\) can be used for any regression.\n\nsummary(lm(Sales~TV))$r.squared"
+  },
+  {
     "objectID": "hs25/csc/csc_notes.html",
     "href": "hs25/csc/csc_notes.html",
     "title": "Comuter Science Concepts for Data Science - Notes",
@@ -1370,6 +1454,41 @@
     "title": "Comuter Science Concepts for Data Science - Notes",
     "section": "Low Code Environments",
     "text": "Low Code Environments\nCombines visual program elements like variables, loops or conditional statements rather than specifying them textually."
+  },
+  {
+    "objectID": "hs25/csc/csc_notes.html#data-types",
+    "href": "hs25/csc/csc_notes.html#data-types",
+    "title": "Comuter Science Concepts for Data Science - Notes",
+    "section": "Data Types",
+    "text": "Data Types\n\n\n\nData Types"
+  },
+  {
+    "objectID": "hs25/csc/csc_notes.html#visual-variables",
+    "href": "hs25/csc/csc_notes.html#visual-variables",
+    "title": "Comuter Science Concepts for Data Science - Notes",
+    "section": "Visual Variables",
+    "text": "Visual Variables\n\nMark / Shape: Used shapes to distinguish between different types in a plot\nPosition: Position of an object Used to encode data\nSize (Length, Area and Volume): Sizes to encode data\nBrightness: Mapping values to the plot\nColor: Colormap that can be used to encode a data variable\nOrientation: Used to encode data\nTexture: Mapping values to the plot\nMotion: Associated with any of the other visual variables"
+  },
+  {
+    "objectID": "hs25/csc/csc_notes.html#design-principles",
+    "href": "hs25/csc/csc_notes.html#design-principles",
+    "title": "Comuter Science Concepts for Data Science - Notes",
+    "section": "Design Principles",
+    "text": "Design Principles\n\n\n\n\n\n\nNote\n\n\n\nThe purpose of visualization is insight, not pictures.\n\n\n\nDo not expect the user to spot changes in interactive diagrams\nOverview first, zoom and filter, then details on demand\nSimilarity in feature space corresponds to similarity in visual space\nOrder between data items corresponds to visual order\nChoose your coloring wisely\nThe importance of data items corresponds to their visual saliency\nA single visualization can only reveal one data facet\nVisualize only the interesting information"
+  },
+  {
+    "objectID": "hs25/csc/csc_notes.html#cloud-computing-definition",
+    "href": "hs25/csc/csc_notes.html#cloud-computing-definition",
+    "title": "Comuter Science Concepts for Data Science - Notes",
+    "section": "Cloud Computing Definition",
+    "text": "Cloud Computing Definition\n\nGossmann (2009): Clouds, or clusters of distributed computers, provide on-demand resources and services over a network, usually the Internet, with the scale and reliability of a data center.\nNIST Definition: Cloud computing is a model for enabling convenient, on-demand network access to a shared pool of configurable computing resources that can be rapidly provisioned and released with minimal management effort or serviceprovider interaction.\n\n\nBusiness Model\n\nClient: Pay by use instead of provisioning for peak.\nProvider: Share capabilities.\n\n\n\nCloud Properties\n\nSelf-managing services: A consumer can provision cloud services as needed and automatically without requiring human interaction with each service’s provider.\nAccessible and highly available: Cloud resources are available over the network anytime and anywhere.\n\n\n\nDeployment Model\n\nPublic clouds: Owned by cloud service providers who charge for the use of cloud resources (AWS (Amazon), Azure (Microsoft))\nPrivate clouds: Cloud infrastructure belongs to and is operated by only one organization\nHybrid clouds: Cloud infrastructure is a composition of two or more clouds (private or public). Bound together by standardized or proprietary technology that enables data and application portability.\n\n\n\nIaaS, PaaS and SaaS\n\nInfrastructure as a Service (IaaS): Servers, Storage, Network\nPlatform as a Service (PaaS): OS, Application Stack\nSoftware as a Service (SaaS): Packaged Software"
+  },
+  {
+    "objectID": "hs25/csc/csc_notes.html#virtualization",
+    "href": "hs25/csc/csc_notes.html#virtualization",
+    "title": "Comuter Science Concepts for Data Science - Notes",
+    "section": "Virtualization",
+    "text": "Virtualization\nVirtualization is essentially a way to trick a computer into thinking it is running multiple separate machines, all on the same physical hardware. It lets you run many independent operating systems (called Virtual Machines or VMs) side-by-side. The piece of software that makes this possible is called a Hypervisor.\nThere are two main types of Hypervisors:\n- Type 1 (Bare-Metal): This is the most powerful type. It is installed directly onto the physical hardware, without needing an operating system underneath it. It manages the server's resources (CPU, RAM, etc.) immediately. Because it has direct access to the hardware, it is very fast, efficient, and secure. This type is used mainly in large data centers and enterprise servers (e.g., VMware ESXi).\n\n- Type 2 (Hosted): This type is installed like a regular application on top of a host operating system (like Windows or macOS). It relies on the host OS to manage the hardware. This makes it easier for casual use, development, and testing on a personal computer, but it is less efficient and slower than Type 1 (e.g., VirtualBox).\n\nKey Advantages of Using Virtualization\nThe main benefit is efficiency. You can run many servers on just one physical machine, which is called server consolidation. This saves a lot of money on buying hardware, paying for electricity (power), and cooling. It also improves security because if one VM gets a virus, the others stay isolated. Finally, it makes tasks like backup and disaster recovery much easier, as you can quickly move or restore an entire VM onto different hardware."
   },
   {
     "objectID": "hs25/lia1/lia1_notes.html",
@@ -1496,6 +1615,48 @@
     "title": "Linear Algebra 01",
     "section": "Calculate the Inverse Matrix",
     "text": "Calculate the Inverse Matrix\n\\[\n[A|I_n]\n\\]\nBy using elementary rows transformations transform left term A to row echelon form.\n\\[\n[I_n|\\tilde{A}]\n\\]\n\nRules of Inverse\nLet \\(A\\) and \\(B\\) be invertible (\\(n \\times n\\))-matrices and \\(s \\ne 0\\) a scalar. Then \\(A^{−1}\\), \\(sA\\), \\(AB\\) and \\(A^\\)T are invertible and the following hold:\n\n\\((A^{-1})^{-1} = A\\)\n\\((sA)^{-1} = s^{-1}A^{-1}\\)\n\\((AB)^{-1} = B^{-1}A^{-1}\\)\n\\((A^T)^{-1} = (A^{-1})^T\\)\n\n\n\n\n\n\n\nCaution\n\n\n\nGenerally: \\[\n(AB)^{−1} \\ne A^{−1}B^{−1}\n\\]\nFurthermore there is no rule for sum, so no rule for \\((A + B)^{−1}\\), which could even not exist."
+  },
+  {
+    "objectID": "hs25/lia1/lia1_notes.html#invers-matrix-by-determinant",
+    "href": "hs25/lia1/lia1_notes.html#invers-matrix-by-determinant",
+    "title": "Linear Algebra 01",
+    "section": "Invers Matrix by Determinant",
+    "text": "Invers Matrix by Determinant\n\n\n\n\n\n\nImportant\n\n\n\nMatrix \\(A\\) is invertible if and only if det \\(A \\ne 0\\)\n\n\n\\[\nA^{-1} = \\frac{1}{\\det A} \\begin{bmatrix} a_{22} & -a_{12} \\\\ -a_{21} & a_{11} \\end{bmatrix}\n\\]"
+  },
+  {
+    "objectID": "hs25/lia1/lia1_notes.html#properties-of-determinant",
+    "href": "hs25/lia1/lia1_notes.html#properties-of-determinant",
+    "title": "Linear Algebra 01",
+    "section": "Properties of Determinant",
+    "text": "Properties of Determinant\n\\[\n\\det(v,w) = − \\det(w,v)\n\\]\n\\[\n\\det(x \\times v,w) = \\det(v,x \\times w) = x \\times \\det(v,w)\n\\]\n\\[\n\\det(v + x \\times w, w) = \\det(v, w + x \\times v) = \\det(v,w)\n\\]"
+  },
+  {
+    "objectID": "hs25/lia1/lia1_notes.html#times-3-matrices",
+    "href": "hs25/lia1/lia1_notes.html#times-3-matrices",
+    "title": "Linear Algebra 01",
+    "section": "\\(3 \\times 3\\)-Matrices",
+    "text": "\\(3 \\times 3\\)-Matrices\n\\[\n\\begin{vmatrix}\na_{11} & a_{12} & a_{13} \\\\\na_{21} & a_{22} & a_{23} \\\\\na_{31} & a_{32} & a_{33}\n\\end{vmatrix}\n= a_{11}a_{22}a_{33} + a_{12}a_{23}a_{31} + a_{13}a_{21}a_{32}\n- a_{13}a_{22}a_{31} - a_{11}a_{23}a_{32} - a_{12}a_{21}a_{33}\n\\]\n\n\n\n3x3-Matrices Determinant"
+  },
+  {
+    "objectID": "hs25/lia1/lia1_notes.html#determinant-of-triangular-matrices",
+    "href": "hs25/lia1/lia1_notes.html#determinant-of-triangular-matrices",
+    "title": "Linear Algebra 01",
+    "section": "Determinant of Triangular Matrices",
+    "text": "Determinant of Triangular Matrices\nDeterminant is product of main diagonal elements. If an entry of main diagonal is zero, then det \\(U = 0\\).\n\n\n\n\n\n\nCaution\n\n\n\nSign switched: As many times as row swappings.\n\n\n\nCalculation of Determinant of Square Matrix A\nBy performing elementary rows operations, bring A into an upper triangular matrix."
+  },
+  {
+    "objectID": "hs25/lia1/lia1_notes.html#rules-for-determinants",
+    "href": "hs25/lia1/lia1_notes.html#rules-for-determinants",
+    "title": "Linear Algebra 01",
+    "section": "Rules for determinants",
+    "text": "Rules for determinants\n\\[\n\\det A^T = \\det A\n\\]\n\\[\n\\det(sA) = s^n \\det A\n\\]\n\nNote: \\(n\\) is the dimension of the square matrix \\(A\\).\n\n\\[\n\\det(AB) = (\\det A)(\\det B)\n\\]"
+  },
+  {
+    "objectID": "hs25/lia1/lia1_notes.html#corollary",
+    "href": "hs25/lia1/lia1_notes.html#corollary",
+    "title": "Linear Algebra 01",
+    "section": "Corollary",
+    "text": "Corollary\nProduct AB of two square matrices of same size is invertible if and only if A and B are both invertible."
   },
   {
     "objectID": "sources.html",
