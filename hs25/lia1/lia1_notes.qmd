@@ -468,3 +468,96 @@ $$
 
 Furthermore there is no rule for sum, so no rule for $(A + B)^{−1}$, which could even not exist.
 :::
+
+# Week 6: Determinant
+
+The determinant is a special scalar value (a single number) that can only be calculated from a square matrix. This value contains important information about the matrix and the linear transformation it represents. Determinant tells when matrix is invertible or not.
+
+$$
+\det A = \det \begin{bmatrix} a & b \\ c & d \end{bmatrix} = \begin{vmatrix} a & b \\ c & d \end{vmatrix} = ad - bc
+$$
+
+## Invers Matrix by Determinant
+
+::: {.callout-important}
+Matrix $A$ is invertible if and only if det $A \ne 0$
+:::
+
+$$
+A^{-1} = \frac{1}{\det A} \begin{bmatrix} a_{22} & -a_{12} \\ -a_{21} & a_{11} \end{bmatrix}
+$$
+
+
+## Properties of Determinant
+
+$$
+\det(v,w) = − \det(w,v)
+$$
+
+$$
+\det(x \times v,w) = \det(v,x \times w) = x \times \det(v,w)
+$$
+
+$$
+\det(v + x \times w, w) = \det(v, w + x \times v) = \det(v,w)
+$$
+
+## $3 \times 3$-Matrices
+
+$$
+\begin{vmatrix}
+a_{11} & a_{12} & a_{13} \\
+a_{21} & a_{22} & a_{23} \\
+a_{31} & a_{32} & a_{33}
+\end{vmatrix}
+= a_{11}a_{22}a_{33} + a_{12}a_{23}a_{31} + a_{13}a_{21}a_{32}
+- a_{13}a_{22}a_{31} - a_{11}a_{23}a_{32} - a_{12}a_{21}a_{33}
+$$
+
+![3x3-Matrices Determinant](img/3x3_det.png)
+
+## Determinant of Triangular Matrices
+
+Determinant is product of main diagonal elements. If an entry of main diagonal is zero, then det $U = 0$.
+
+::: {.callout-caution}
+Sign switched: As many times as row swappings.
+:::
+
+### Calculation of Determinant of Square Matrix A
+
+By performing elementary rows operations, bring A into an upper triangular matrix.
+
+## Rules for determinants
+
+$$
+\det A^T = \det A
+$$
+
+$$
+\det(sA) = s^n \det A
+$$
+
+> Note: $n$ is the dimension of the square matrix $A$.
+
+$$
+\det(AB) = (\det A)(\det B)
+$$
+
+## Corollary
+
+Product AB of two square matrices of same size is invertible if and only if A and B are both invertible.
+
+# Week 7: Linear Systems with Python
+
+Library `scipy.linalg`:
+
+- `solve(A,b)` : Unique solution of the linear system $Ax = b$ with regular quadratic coefficient matrix $A$
+- `lu_factor(A)` : PLU-decomposition of matrix $A$
+- `lu_solve((lu,piv),b)` : Unique solution of system $Ax = b$ with output `(lu,piv)` of `lu_factor(A)`
+- `lstsq(A,b)` : (Least-squares) solution of system $Ax = b$ with arbitrary coefficient matrix $A$
+- `null_space()` : General solution of homogeneous system $Ax = 0$ 
+
+Library `numpy.linalg`:
+
+- `matrix_rank(A)` : Rank of matrix $A$
