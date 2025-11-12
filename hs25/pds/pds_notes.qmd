@@ -708,10 +708,6 @@ def utility_func():
 
 ### Dunder Methodes
 
-You are asking for an English summary of the previous topic: Magic Methods (Dunder Methods) in Python.
-
-✨ Magic Methods in Python (Dunder Methods)
-
 Dunder Methods (or Magic methods), are special methods in Python classes marked by double leading and trailing underscores (e.g., `__init__`, `__str__`).
 
 ### `__str__()`
