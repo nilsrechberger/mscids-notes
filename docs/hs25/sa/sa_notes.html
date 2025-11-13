@@ -245,8 +245,8 @@ window.Quarto = {
     </ul>
   </li>
   <li class="nav-item">
-    <a class="nav-link" href="../../sources.html"> 
-<span class="menu-text">Sources</span></a>
+    <a class="nav-link" href="../../resources.html"> 
+<span class="menu-text">Resources</span></a>
   </li>  
 </ul>
           </div> <!-- /navcollapse -->
@@ -378,6 +378,16 @@ window.Quarto = {
   </ul></li>
   <li><a href="#empirical-correlation" id="toc-empirical-correlation" class="nav-link" data-scroll-target="#empirical-correlation">Empirical correlation</a></li>
   <li><a href="#r2-value" id="toc-r2-value" class="nav-link" data-scroll-target="#r2-value"><span class="math inline">\(R^2\)</span> Value</a></li>
+  </ul></li>
+  <li><a href="#week-08-multiple-linear-regression" id="toc-week-08-multiple-linear-regression" class="nav-link" data-scroll-target="#week-08-multiple-linear-regression">Week 08: Multiple Linear Regression</a>
+  <ul class="collapse">
+  <li><a href="#interpretation-of-coefficients" id="toc-interpretation-of-coefficients" class="nav-link" data-scroll-target="#interpretation-of-coefficients">Interpretation of Coefficients</a>
+  <ul class="collapse">
+  <li><a href="#estimation-of-regression-coefficients" id="toc-estimation-of-regression-coefficients" class="nav-link" data-scroll-target="#estimation-of-regression-coefficients">Estimation of Regression Coefficients</a></li>
+  <li><a href="#correlation-coefficients" id="toc-correlation-coefficients" class="nav-link" data-scroll-target="#correlation-coefficients">Correlation coefficients</a></li>
+  </ul></li>
+  <li><a href="#relationship-between-predictors-and-response-variable" id="toc-relationship-between-predictors-and-response-variable" class="nav-link" data-scroll-target="#relationship-between-predictors-and-response-variable">Relationship between Predictors and Response Variable</a></li>
+  <li><a href="#no-linear-regression" id="toc-no-linear-regression" class="nav-link" data-scroll-target="#no-linear-regression">No Linear Regression</a></li>
   </ul></li>
   </ul>
 </nav>
@@ -1365,6 +1375,69 @@ Warning
 <p>Note: <span class="math inline">\(R^2\)</span> can be used for any regression.</p>
 </blockquote>
 <div class="sourceCode" id="cb56"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb56-1"><a href="#cb56-1" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(<span class="fu">lm</span>(Sales<span class="sc">~</span>TV))<span class="sc">$</span>r.squared</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</section>
+</section>
+<section id="week-08-multiple-linear-regression" class="level1">
+<h1>Week 08: Multiple Linear Regression</h1>
+<p>Simple linear regression are useful procedure to predict output based on one single predictor. In practice the output often depends on more than one predictor. Multiple linear model generalises simple linear model. Calculations and interpretations for multiple model similar, although usually more complicated than linear model</p>
+<p><span class="math display">\[
+Y = \beta_0 + \beta_1 X_1 + \beta_2 X_2 + \dots + \beta_p X_p + \varepsilon \tag{Multiple linear regression model}
+\]</span></p>
+<div class="sourceCode" id="cb57"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb57-1"><a href="#cb57-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Same syntax as in linear models</span></span>
+<span id="cb57-2"><a href="#cb57-2" aria-hidden="true" tabindex="-1"></a>model <span class="ot">&lt;-</span> <span class="fu">lm</span>(Sales <span class="sc">~</span> TV <span class="sc">+</span> Radio <span class="sc">+</span> Newspaper)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<section id="interpretation-of-coefficients" class="level2">
+<h2 class="anchored" data-anchor-id="interpretation-of-coefficients">Interpretation of Coefficients</h2>
+<p>The interpretation of the coefficients is similar to the interpretation in a linear regression model.</p>
+<ul>
+<li><span class="math inline">\(\beta_0\)</span>​ (Intercept): <span class="math inline">\(\beta_0\)</span>​ represents the estimated mean value of the dependent variable <span class="math inline">\(Y\)</span> when all predictor variables <span class="math inline">\((X_1​, X:2​, \dots, X_p​)\)</span> are equal to zero.</li>
+<li><span class="math inline">\(\beta_i\)</span>​ (Partial Effect): A coefficient <span class="math inline">\(\beta_i\)</span> represents the estimated change in the mean of <span class="math inline">\(Y\)</span> for a one-unit increase in the predictor variable <span class="math inline">\(X_i​\)</span>, while holding all other predictor variables constant.</li>
+</ul>
+<section id="estimation-of-regression-coefficients" class="level3">
+<h3 class="anchored" data-anchor-id="estimation-of-regression-coefficients">Estimation of Regression Coefficients</h3>
+<p>The regression coefficients <span class="math inline">\(\beta_0, \beta_1, \dots, \beta_p\)</span> generally unknown. We estimate those based on the data by using a a cost function like RSS.</p>
+<p><span class="math display">\[
+RSS = \sum_{i=1}^n r_i^2 = \sum_{i=1}^{n} (y_i - \hat{\beta}_1 x_{i1} - \hat{\beta}_2 x_{i2} - \dots - \hat{\beta}_p x_{ip})^2
+\]</span></p>
+<div class="sourceCode" id="cb58"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb58-1"><a href="#cb58-1" aria-hidden="true" tabindex="-1"></a><span class="fu">coef</span>(<span class="fu">lm</span>(Sales <span class="sc">~</span> TV <span class="sc">+</span> Radio <span class="sc">+</span> Newspaper))</span>
+<span id="cb58-2"><a href="#cb58-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb58-3"><a href="#cb58-3" aria-hidden="true" tabindex="-1"></a><span class="do">## (Intercept) TV          Radio       Newspaper</span></span>
+<span id="cb58-4"><a href="#cb58-4" aria-hidden="true" tabindex="-1"></a><span class="do">## 2.938889369 0.045764645 0.188530017 -0.001037493</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="callout callout-style-default callout-important callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Important
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Slope for <em>Newspaper</em> describes change in response <em>Sales</em> when spending <em>CHF 1000</em> more on newspaper advertising, <strong>while other two predictors <em>TV</em> and <em>radio</em> are hold constant</strong></p>
+</div>
+</div>
+</section>
+<section id="correlation-coefficients" class="level3">
+<h3 class="anchored" data-anchor-id="correlation-coefficients">Correlation coefficients</h3>
+<div class="sourceCode" id="cb59"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb59-1"><a href="#cb59-1" aria-hidden="true" tabindex="-1"></a><span class="fu">cor</span>(<span class="fu">data.frame</span>(TV, Radio, Newspaper, Sales))</span>
+<span id="cb59-2"><a href="#cb59-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb59-3"><a href="#cb59-3" aria-hidden="true" tabindex="-1"></a><span class="do">##           TV         Radio      Newspaper  Sales</span></span>
+<span id="cb59-4"><a href="#cb59-4" aria-hidden="true" tabindex="-1"></a><span class="do">## TV        1.00000000 0.05480866 0.05664787 0.7822244</span></span>
+<span id="cb59-5"><a href="#cb59-5" aria-hidden="true" tabindex="-1"></a><span class="do">## Radio     0.05480866 1.00000000 0.35410375 0.5762226</span></span>
+<span id="cb59-6"><a href="#cb59-6" aria-hidden="true" tabindex="-1"></a><span class="do">## Newspaper 0.05664787 0.35410375 1.00000000 0.2282990</span></span>
+<span id="cb59-7"><a href="#cb59-7" aria-hidden="true" tabindex="-1"></a><span class="do">## Sales     0.78222442 0.57622257 0.22829903 1.0000000</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</section>
+</section>
+<section id="relationship-between-predictors-and-response-variable" class="level2">
+<h2 class="anchored" data-anchor-id="relationship-between-predictors-and-response-variable">Relationship between Predictors and Response Variable</h2>
+<p>Multiple linear regression with <span class="math inline">\(p\)</span> predictors: All regression coefficients except <span class="math inline">\(\beta_0\)</span> are zero, no variable has influence (Null hypothesis). As a alternative hypothesis: At least one <span class="math inline">\(\beta_i\)</span> is not equal to <span class="math inline">\(0\)</span>.</p>
+</section>
+<section id="no-linear-regression" class="level2">
+<h2 class="anchored" data-anchor-id="no-linear-regression">No Linear Regression</h2>
+<p>The moderated effect, often referred to as an interaction effect, summarizes a statistical relationship where the influence of one variable is not constant but instead depends on the value of a second variable.</p>
+<div class="sourceCode" id="cb60"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb60-1"><a href="#cb60-1" aria-hidden="true" tabindex="-1"></a>model <span class="ot">-&gt;</span> <span class="fu">lm</span>(Sales <span class="sc">~</span> TV <span class="sc">+</span> Radio <span class="sc">+</span> TV <span class="sc">*</span> Radio)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<blockquote class="blockquote">
+<p>Note: The asterisk <span class="math inline">\(*\)</span> in R is an abbreviation for the addition of the main effects AND the interaction term.</p>
+</blockquote>
 
 
 </section>
