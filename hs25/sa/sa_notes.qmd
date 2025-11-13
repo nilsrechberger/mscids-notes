@@ -771,7 +771,7 @@ summary(lm(Sales~TV))$r.squared
 Simple linear regression are useful procedure to predict output based on one single predictor. In practice the output often depends on more than one predictor. Multiple linear model generalises simple linear model. Calculations and interpretations for multiple model similar, although usually more complicated than linear model
 
 $$
-Y = \beta_0 + \beta_1 X_1 + \beta_2 X_2 + \dots + \beta_p X_p + \varepsilon \tag{Multiple linear regression model}
+Y = \beta_0 + \beta_1 X_1 + \beta_2 X_2 + \dots + \beta_p X_p + \varepsilon
 $$
 
 ```r
