@@ -72,3 +72,7 @@ Here is a quick list of the most frequently used commands:
 # Do I Really Need All This?
 
 The short answer: Yes. There will be a time when you need to use the Terminal. Example: You have to use a Server for a study project. Servers often lack a graphical User Interface (UI) where you can click around with your mouse. The Terminal is often the only tool you can use to work on a server, manage files, and execute programs.
+
+::: {.callout-tip}
+Check out the [Linux Cheat Sheet](../data/cheat_sheet_linux.pdf) by Mathis et al.
+:::

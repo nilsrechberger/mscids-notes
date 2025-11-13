@@ -50,6 +50,10 @@ transposed = matrix.T
 print(transposed)
 ```
 
+::: {.callout-tip}
+Check out the [Numpy Cheat Sheet](../data/cheat_sheet_numpy.pdf).
+:::
+
 # Pandas
 
 Working with structured data in native Python is possible, but quickly becomes complicated and error-prone with larger data sets. Even simply summarizing a table already requires a considerable amount of code and manual data processing.
@@ -93,6 +97,10 @@ df = pd.read_csv("data/pandasTable.csv")
 df.describe()
 ```
 
+::: {.callout-tip}
+Check out the [Pandas Cheat Sheet](../data/cheat_sheet_pandas.pdf).
+:::
+
 # Matplotlib
 
 Data visualization in pure Python is a challenge, as the language was not designed for drawing diagrams without specialized packages.
@@ -126,6 +134,10 @@ plt.ylabel('Value')
 
 plt.show()
 ```
+
+::: {.callout-tip}
+Check out the [Matplotlib Cheat Sheet](../data/cheat_sheet_matplotlib.pdf).
+:::
 
 # More to explore
 
