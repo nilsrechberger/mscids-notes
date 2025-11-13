@@ -410,10 +410,154 @@ Power analysis is the crucial step in research design that connects your expecte
 
 ### Determining the sample size with R
 
-
-
 ```{r}
 # install.packages("pwr")
 library(pwr)
 pwr.t.test(d = 0.5, power = 0.80, sig.level = 0.05)
 ```
+
+# Lecture 07: Paradigms
+
+## The Fourth Paradigm
+
+1. Empirical Science: Description of natural phenomena.
+2. Theoretical Science: Modelling and generalization.
+3. Computational Science: Simulation of complex phenomena.
+4. Data-Intensive Science (eScience): Synthesis of information technology and science.
+
+## Quantitative empirical research
+
+1. Formulation of teh research of the study
+2. Planning and preparation of the study
+3. Data collection
+4. Data Analysis
+5. Reporting
+
+::: {.callout-note}
+Deductive approach → Conclusion from the general to the specific.
+:::
+
+### Limitations of quantitative empirical research
+
+- Meaning of significant hypotheses vs. meaning of effect size.
+- p-hacking (looking for data subsets and configurations until the p-value is less than 5%).
+- Assumptions about the distribution of variables are violated.
+- Assumption of homogeneity of variance is violated.
+
+## Data-driven research
+
+- Visual Analytics: Exploratory Data Analysis & Descriptive Statistics.
+- Machine Learning and Predictive Modelling: Regression / Classification / Decision Trees.
+- Advanced Analytics for Unstructured Data.
+
+::: {.callout-note}
+Inductive approach → Conclusion from the specific to the general
+:::
+
+### Limitations of data-driven research
+
+- Big Data Hubris: Correlation is understood as causality.
+- Sparse data: Although the data basis is "big," it contains little information.
+- Data analysis: A whole range of methodical errors.
+
+## Abductive approach and combination of approaches
+
+Induction: Search and generation of theories that fit the research context. Induction shows that something actually is operative.
+Deduction: Verification or falsification of existing theories. Deduction proves that something must be.
+Abduction: Search and generation of new, also speculative theories. Abduction merely suggests that something may be.
+
+> Note: Ideally, all three methods are used cyclically.
+
+## ANOVA
+
+The Analysis of Variance (ANOVA) is a statistical test used to determine whether there are any statistically significant differences between the means of three or more independent (unrelated) groups.
+
+- One-Way ANOVA: Used when comparing means across groups based on one single categorical independent variable (factor).
+- Two-Way ANOVA: Used when comparing means based on two or more independent variables (factors), allowing for the testing of interaction effects between the factors.
+
+## Key Steps in Analysis of Variance
+
+1. Design of experiment
+2. Calculating differences and sum of squares
+3. Verification of the model
+4. Considering other aspects (post hoc tests)
+5. Testing of assumptions (homogeneity of variance, etc.)
+6. Interpretation of the model and reporting (profile plots)
+
+> Note: Step 2 is done by the ANOVA model
+
+## One-way ANOVA in R
+
+```r
+oneway.test(salary ~ factor(experience), var.equal=TRUE, data=data)
+```
+
+```r
+fit <- aov(salary ~ factor(experience), data=data)
+summary(fit, intercept=TRUE)
+```
+
+## Two-Way ANOVA in R
+
+```r
+# Only main effects, no interaction
+fit <- avo(salary ~ factor(experience) + factor(position), data=data)
+summary(fit, intercept=TRUE)
+
+# With Interaction
+fit <- avo(salary ~ factor(experience) * factor(position), data=data)
+summary(fit, intercept=TRUE)
+```
+
+## Main Effects
+
+The direct effect of an independent variable on the dependent variable is called main effect. Profile plots are used as visualization.
+
+![Profile Plots of Main Effect](img/profile_plot_main_effect.png)
+
+::: {.callout-note}
+If the profile plot shows a (nearly) horizontal line, the main effect in question is probably not significant.
+:::
+
+## Interaction Effect
+
+An interaction between experience and position means there is dependency between the two variables. The independent variables have a complex influence on the dependent variable. The factors do not just function additively but act together in a different manner.
+
+![Profile Plot of Interaction Effect](img/profile_plot_interaction_effect.png)
+
+
+::: {.callout-note}
+If there is no interaction, the lines are parallel. If there is an interaction, the lines are not parallel.
+:::
+
+## Prerequisites of ANOVA
+
+- Sampling: Randomly assigning participants to the treatment or control groups.
+- Distribution of residuals: Residuals (= error) are normally distributed.
+- Homogeneity of variances: Residuals (= error) have constant variance
+- Balanced design: Same sample size in all groups.
+
+> Note: ANOVA is relatively robust against violations of prerequisites.
+
+## Post Hoc Tests
+
+There are different methods to compare groups in pairs. All methods are similar, however, in that they solve the problem of multiple testing.
+
+```r
+pairwise.t.test(x, y, p.adj="bonf")
+```
+
+## Effect size
+
+Partial eta squared ${\eta_p}^2$ relates the variance explained by one factor to the variance not explained by other factors in the model.
+
+```r
+library(effectsize)
+eta_squared(fit)$Eta2 # Use your ANOVA fit
+```
+
+## Overview over Statistical Hypothesis Tests
+
+Choosing the type of analysis depending on level of measurement
+
+![Overview over Statistical Hypothesis Tests](img/hyp_test_overview.png)
