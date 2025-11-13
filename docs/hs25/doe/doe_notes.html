@@ -371,6 +371,29 @@ window.Quarto = {
   <li><a href="#determining-the-sample-size-with-r" id="toc-determining-the-sample-size-with-r" class="nav-link" data-scroll-target="#determining-the-sample-size-with-r">Determining the sample size with R</a></li>
   </ul></li>
   </ul></li>
+  <li><a href="#lecture-07-paradigms" id="toc-lecture-07-paradigms" class="nav-link" data-scroll-target="#lecture-07-paradigms">Lecture 07: Paradigms</a>
+  <ul class="collapse">
+  <li><a href="#the-fourth-paradigm" id="toc-the-fourth-paradigm" class="nav-link" data-scroll-target="#the-fourth-paradigm">The Fourth Paradigm</a></li>
+  <li><a href="#quantitative-empirical-research" id="toc-quantitative-empirical-research" class="nav-link" data-scroll-target="#quantitative-empirical-research">Quantitative empirical research</a>
+  <ul class="collapse">
+  <li><a href="#limitations-of-quantitative-empirical-research" id="toc-limitations-of-quantitative-empirical-research" class="nav-link" data-scroll-target="#limitations-of-quantitative-empirical-research">Limitations of quantitative empirical research</a></li>
+  </ul></li>
+  <li><a href="#data-driven-research" id="toc-data-driven-research" class="nav-link" data-scroll-target="#data-driven-research">Data-driven research</a>
+  <ul class="collapse">
+  <li><a href="#limitations-of-data-driven-research" id="toc-limitations-of-data-driven-research" class="nav-link" data-scroll-target="#limitations-of-data-driven-research">Limitations of data-driven research</a></li>
+  </ul></li>
+  <li><a href="#abductive-approach-and-combination-of-approaches" id="toc-abductive-approach-and-combination-of-approaches" class="nav-link" data-scroll-target="#abductive-approach-and-combination-of-approaches">Abductive approach and combination of approaches</a></li>
+  <li><a href="#anova" id="toc-anova" class="nav-link" data-scroll-target="#anova">ANOVA</a></li>
+  <li><a href="#key-steps-in-analysis-of-variance" id="toc-key-steps-in-analysis-of-variance" class="nav-link" data-scroll-target="#key-steps-in-analysis-of-variance">Key Steps in Analysis of Variance</a></li>
+  <li><a href="#one-way-anova-in-r" id="toc-one-way-anova-in-r" class="nav-link" data-scroll-target="#one-way-anova-in-r">One-way ANOVA in R</a></li>
+  <li><a href="#two-way-anova-in-r" id="toc-two-way-anova-in-r" class="nav-link" data-scroll-target="#two-way-anova-in-r">Two-Way ANOVA in R</a></li>
+  <li><a href="#main-effects" id="toc-main-effects" class="nav-link" data-scroll-target="#main-effects">Main Effects</a></li>
+  <li><a href="#interaction-effect" id="toc-interaction-effect" class="nav-link" data-scroll-target="#interaction-effect">Interaction Effect</a></li>
+  <li><a href="#prerequisites-of-anova" id="toc-prerequisites-of-anova" class="nav-link" data-scroll-target="#prerequisites-of-anova">Prerequisites of ANOVA</a></li>
+  <li><a href="#post-hoc-tests" id="toc-post-hoc-tests" class="nav-link" data-scroll-target="#post-hoc-tests">Post Hoc Tests</a></li>
+  <li><a href="#effect-size-1" id="toc-effect-size-1" class="nav-link" data-scroll-target="#effect-size-1">Effect size</a></li>
+  <li><a href="#overview-over-statistical-hypothesis-tests" id="toc-overview-over-statistical-hypothesis-tests" class="nav-link" data-scroll-target="#overview-over-statistical-hypothesis-tests">Overview over Statistical Hypothesis Tests</a></li>
+  </ul></li>
   </ul>
 </nav>
     </div>
@@ -892,9 +915,206 @@ Important
 NOTE: n is number in *each* group</code></pre>
 </div>
 </div>
-
-
 </section>
+</section>
+</section>
+<section id="lecture-07-paradigms" class="level1">
+<h1>Lecture 07: Paradigms</h1>
+<section id="the-fourth-paradigm" class="level2">
+<h2 class="anchored" data-anchor-id="the-fourth-paradigm">The Fourth Paradigm</h2>
+<ol type="1">
+<li>Empirical Science: Description of natural phenomena.</li>
+<li>Theoretical Science: Modelling and generalization.</li>
+<li>Computational Science: Simulation of complex phenomena.</li>
+<li>Data-Intensive Science (eScience): Synthesis of information technology and science.</li>
+</ol>
+</section>
+<section id="quantitative-empirical-research" class="level2">
+<h2 class="anchored" data-anchor-id="quantitative-empirical-research">Quantitative empirical research</h2>
+<ol type="1">
+<li>Formulation of teh research of the study</li>
+<li>Planning and preparation of the study</li>
+<li>Data collection</li>
+<li>Data Analysis</li>
+<li>Reporting</li>
+</ol>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Note
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Deductive approach → Conclusion from the general to the specific.</p>
+</div>
+</div>
+<section id="limitations-of-quantitative-empirical-research" class="level3">
+<h3 class="anchored" data-anchor-id="limitations-of-quantitative-empirical-research">Limitations of quantitative empirical research</h3>
+<ul>
+<li>Meaning of significant hypotheses vs.&nbsp;meaning of effect size.</li>
+<li>p-hacking (looking for data subsets and configurations until the p-value is less than 5%).</li>
+<li>Assumptions about the distribution of variables are violated.</li>
+<li>Assumption of homogeneity of variance is violated.</li>
+</ul>
+</section>
+</section>
+<section id="data-driven-research" class="level2">
+<h2 class="anchored" data-anchor-id="data-driven-research">Data-driven research</h2>
+<ul>
+<li>Visual Analytics: Exploratory Data Analysis &amp; Descriptive Statistics.</li>
+<li>Machine Learning and Predictive Modelling: Regression / Classification / Decision Trees.</li>
+<li>Advanced Analytics for Unstructured Data.</li>
+</ul>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Note
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Inductive approach → Conclusion from the specific to the general</p>
+</div>
+</div>
+<section id="limitations-of-data-driven-research" class="level3">
+<h3 class="anchored" data-anchor-id="limitations-of-data-driven-research">Limitations of data-driven research</h3>
+<ul>
+<li>Big Data Hubris: Correlation is understood as causality.</li>
+<li>Sparse data: Although the data basis is “big,” it contains little information.</li>
+<li>Data analysis: A whole range of methodical errors.</li>
+</ul>
+</section>
+</section>
+<section id="abductive-approach-and-combination-of-approaches" class="level2">
+<h2 class="anchored" data-anchor-id="abductive-approach-and-combination-of-approaches">Abductive approach and combination of approaches</h2>
+<p>Induction: Search and generation of theories that fit the research context. Induction shows that something actually is operative. Deduction: Verification or falsification of existing theories. Deduction proves that something must be. Abduction: Search and generation of new, also speculative theories. Abduction merely suggests that something may be.</p>
+<blockquote class="blockquote">
+<p>Note: Ideally, all three methods are used cyclically.</p>
+</blockquote>
+</section>
+<section id="anova" class="level2">
+<h2 class="anchored" data-anchor-id="anova">ANOVA</h2>
+<p>The Analysis of Variance (ANOVA) is a statistical test used to determine whether there are any statistically significant differences between the means of three or more independent (unrelated) groups.</p>
+<ul>
+<li>One-Way ANOVA: Used when comparing means across groups based on one single categorical independent variable (factor).</li>
+<li>Two-Way ANOVA: Used when comparing means based on two or more independent variables (factors), allowing for the testing of interaction effects between the factors.</li>
+</ul>
+</section>
+<section id="key-steps-in-analysis-of-variance" class="level2">
+<h2 class="anchored" data-anchor-id="key-steps-in-analysis-of-variance">Key Steps in Analysis of Variance</h2>
+<ol type="1">
+<li>Design of experiment</li>
+<li>Calculating differences and sum of squares</li>
+<li>Verification of the model</li>
+<li>Considering other aspects (post hoc tests)</li>
+<li>Testing of assumptions (homogeneity of variance, etc.)</li>
+<li>Interpretation of the model and reporting (profile plots)</li>
+</ol>
+<blockquote class="blockquote">
+<p>Note: Step 2 is done by the ANOVA model</p>
+</blockquote>
+</section>
+<section id="one-way-anova-in-r" class="level2">
+<h2 class="anchored" data-anchor-id="one-way-anova-in-r">One-way ANOVA in R</h2>
+<div class="sourceCode" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="fu">oneway.test</span>(salary <span class="sc">~</span> <span class="fu">factor</span>(experience), <span class="at">var.equal=</span><span class="cn">TRUE</span>, <span class="at">data=</span>data)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>fit <span class="ot">&lt;-</span> <span class="fu">aov</span>(salary <span class="sc">~</span> <span class="fu">factor</span>(experience), <span class="at">data=</span>data)</span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(fit, <span class="at">intercept=</span><span class="cn">TRUE</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</section>
+<section id="two-way-anova-in-r" class="level2">
+<h2 class="anchored" data-anchor-id="two-way-anova-in-r">Two-Way ANOVA in R</h2>
+<div class="sourceCode" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Only main effects, no interaction</span></span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>fit <span class="ot">&lt;-</span> <span class="fu">avo</span>(salary <span class="sc">~</span> <span class="fu">factor</span>(experience) <span class="sc">+</span> <span class="fu">factor</span>(position), <span class="at">data=</span>data)</span>
+<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(fit, <span class="at">intercept=</span><span class="cn">TRUE</span>)</span>
+<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a><span class="co"># With Interaction</span></span>
+<span id="cb6-6"><a href="#cb6-6" aria-hidden="true" tabindex="-1"></a>fit <span class="ot">&lt;-</span> <span class="fu">avo</span>(salary <span class="sc">~</span> <span class="fu">factor</span>(experience) <span class="sc">*</span> <span class="fu">factor</span>(position), <span class="at">data=</span>data)</span>
+<span id="cb6-7"><a href="#cb6-7" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(fit, <span class="at">intercept=</span><span class="cn">TRUE</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</section>
+<section id="main-effects" class="level2">
+<h2 class="anchored" data-anchor-id="main-effects">Main Effects</h2>
+<p>The direct effect of an independent variable on the dependent variable is called main effect. Profile plots are used as visualization.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="img/profile_plot_main_effect.png" class="img-fluid figure-img"></p>
+<figcaption>Profile Plots of Main Effect</figcaption>
+</figure>
+</div>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Note
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>If the profile plot shows a (nearly) horizontal line, the main effect in question is probably not significant.</p>
+</div>
+</div>
+</section>
+<section id="interaction-effect" class="level2">
+<h2 class="anchored" data-anchor-id="interaction-effect">Interaction Effect</h2>
+<p>An interaction between experience and position means there is dependency between the two variables. The independent variables have a complex influence on the dependent variable. The factors do not just function additively but act together in a different manner.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="img/profile_plot_interaction_effect.png" class="img-fluid figure-img"></p>
+<figcaption>Profile Plot of Interaction Effect</figcaption>
+</figure>
+</div>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Note
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>If there is no interaction, the lines are parallel. If there is an interaction, the lines are not parallel.</p>
+</div>
+</div>
+</section>
+<section id="prerequisites-of-anova" class="level2">
+<h2 class="anchored" data-anchor-id="prerequisites-of-anova">Prerequisites of ANOVA</h2>
+<ul>
+<li>Sampling: Randomly assigning participants to the treatment or control groups.</li>
+<li>Distribution of residuals: Residuals (= error) are normally distributed.</li>
+<li>Homogeneity of variances: Residuals (= error) have constant variance</li>
+<li>Balanced design: Same sample size in all groups.</li>
+</ul>
+<blockquote class="blockquote">
+<p>Note: ANOVA is relatively robust against violations of prerequisites.</p>
+</blockquote>
+</section>
+<section id="post-hoc-tests" class="level2">
+<h2 class="anchored" data-anchor-id="post-hoc-tests">Post Hoc Tests</h2>
+<p>There are different methods to compare groups in pairs. All methods are similar, however, in that they solve the problem of multiple testing.</p>
+<div class="sourceCode" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="fu">pairwise.t.test</span>(x, y, <span class="at">p.adj=</span><span class="st">"bonf"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</section>
+<section id="effect-size-1" class="level2">
+<h2 class="anchored" data-anchor-id="effect-size-1">Effect size</h2>
+<p>Partial eta squared <span class="math inline">\({\eta_p}^2\)</span> relates the variance explained by one factor to the variance not explained by other factors in the model.</p>
+<div class="sourceCode" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(effectsize)</span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a><span class="fu">eta_squared</span>(fit)<span class="sc">$</span>Eta2 <span class="co"># Use your ANOVA fit</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</section>
+<section id="overview-over-statistical-hypothesis-tests" class="level2">
+<h2 class="anchored" data-anchor-id="overview-over-statistical-hypothesis-tests">Overview over Statistical Hypothesis Tests</h2>
+<p>Choosing the type of analysis depending on level of measurement</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="img/hyp_test_overview.png" class="img-fluid figure-img"></p>
+<figcaption>Overview over Statistical Hypothesis Tests</figcaption>
+</figure>
+</div>
+
+
 </section>
 </section>
 
