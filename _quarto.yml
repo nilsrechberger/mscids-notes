@@ -43,8 +43,8 @@ website:
             href: "howTo/pythonPackages.qmd"
           - text: "Python Project"
             href: "howTo/pythonProject.qmd"
-      - text: "Sources"
-        href: sources.qmd
+      - text: "Resources"
+        href: resources.qmd
 format:
   html:
     theme: cosmo
