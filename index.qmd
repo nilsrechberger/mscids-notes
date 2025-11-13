@@ -1,5 +1,6 @@
 ---
 title: "mscids-notes"
+toc: false
 ---
 
 # Hey there, fellow students! 👋
