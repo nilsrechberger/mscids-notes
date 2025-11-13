@@ -765,3 +765,68 @@ $R^2$-statistics: Value between 0 and 1. It indicates to what proportion of the 
 ```r
 summary(lm(Sales~TV))$r.squared
 ```
+
+# Week 08: Multiple Linear Regression
+
+Simple linear regression are useful procedure to predict output based on one single predictor. In practice the output often depends on more than one predictor. Multiple linear model generalises simple linear model. Calculations and interpretations for multiple model similar, although usually more complicated than linear model
+
+$$
+Y = \beta_0 + \beta_1 X_1 + \beta_2 X_2 + \dots + \beta_p X_p + \varepsilon \tag{Multiple linear regression model}
+$$
+
+```r
+# Same syntax as in linear models
+model <- lm(Sales ~ TV + Radio + Newspaper)
+```
+
+## Interpretation of Coefficients
+
+The interpretation of the coefficients is similar to the interpretation in a linear regression model.
+
+- $\beta_0$​ (Intercept): $\beta_0$​ represents the estimated mean value of the dependent variable $Y$ when all predictor variables $(X_1​, X:2​, \dots, X_p​)$ are equal to zero.
+- $\beta_i$​ (Partial Effect): A coefficient $\beta_i$ represents the estimated change in the mean of $Y$ for a one-unit increase in the predictor variable $X_i​$, while holding all other predictor variables constant.
+
+### Estimation of Regression Coefficients
+
+The regression coefficients $\beta_0, \beta_1, \dots, \beta_p$ generally unknown. We estimate those based on the data by using a a cost function like RSS.
+
+$$
+RSS = \sum_{i=1}^n r_i^2 = \sum_{i=1}^{n} (y_i - \hat{\beta}_1 x_{i1} - \hat{\beta}_2 x_{i2} - \dots - \hat{\beta}_p x_{ip})^2
+$$
+
+```r
+coef(lm(Sales ~ TV + Radio + Newspaper))
+
+## (Intercept) TV          Radio       Newspaper
+## 2.938889369 0.045764645 0.188530017 -0.001037493
+```
+
+::: {.callout-important}
+Slope for *Newspaper* describes change in response *Sales* when spending *CHF 1000* more on newspaper advertising, **while other two predictors *TV* and *radio* are hold constant**
+:::
+
+### Correlation coefficients
+
+```r
+cor(data.frame(TV, Radio, Newspaper, Sales))
+
+##           TV         Radio      Newspaper  Sales
+## TV        1.00000000 0.05480866 0.05664787 0.7822244
+## Radio     0.05480866 1.00000000 0.35410375 0.5762226
+## Newspaper 0.05664787 0.35410375 1.00000000 0.2282990
+## Sales     0.78222442 0.57622257 0.22829903 1.0000000
+```
+
+## Relationship between Predictors and Response Variable
+
+Multiple linear regression with $p$ predictors: All regression coefficients except $\beta_0$ are zero, no variable has influence (Null hypothesis). As a alternative hypothesis: At least one $\beta_i$ is not equal to $0$.
+
+## No Linear Regression
+
+The moderated effect, often referred to as an interaction effect, summarizes a statistical relationship where the influence of one variable is not constant but instead depends on the value of a second variable.
+
+```r
+model -> lm(Sales ~ TV + Radio + TV * Radio)
+```
+
+> Note: The asterisk $*$ in R is an abbreviation for the addition of the main effects AND the interaction term.
