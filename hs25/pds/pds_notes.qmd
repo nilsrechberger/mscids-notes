@@ -718,3 +718,60 @@ By implementing a __str__() method, the programmer can define what is printed wh
 def __str__(self):
     return self.cls_name
 ```
+# SW09: Object-Orientated Programming II
+
+## Inheritance
+
+Inheritance creates a hierarchy of classes. This avoids code redundance and increase maintainability. Use the function `sinstance(object, classinfo)` or `issubclass(class, classinfo)` to check if an instance is a subclass of a other class. Child classes get all properties (attributes) from parent class. This means, class or object variables or methods defined in the parent class also hold in the child classes. Typically, child classes extend parent classes. In some cases, a child class can override variables or methods from parent class.
+
+```python
+class Animal:
+    def __init__(self, weight):
+    self.weight = weight
+
+class Bird(Animal):
+    def __init__(self, weight):
+    super().__init__(weight) # Inheritance from the parent class
+```
+
+When extending functionality of parent class by overriding a method (or in general to use parent’s methods), they can be referred to using super() or parent’s class name.
+
+```python
+class Animal:
+    def __init__(self, weight):
+    self.weight = weight
+
+    def get_weight(self):
+    return self.weight
+
+class Bird(Animal):
+    def __init__(self, weight):
+    super().__init__(weight)
+
+    def get_weight(self):
+    return super().get_weight()/10
+```
+
+### The Class “object”
+
+This is the ultimate base class of all other classes. It has methods that are common to all instances of Python classes. When the constructor is called, it returns a new featureless object. The constructor does not accept any arguments.
+
+## Multiple Inheritance
+
+- Single inheritance: **one** child class inherits from **one** parent class.
+- Multiple single inheritance: **multiple** child classes inherit from **one** parent (the same) class.
+- Multiple inheritance: **one** child class inherits from **multiple** parent classes.
+
+## Method Resolution Order (MRO)
+
+The Method Resolution Order (MRO) is the order in which Python searches for methods and attributes in a class hierarchy. It dictates the sequence of base classes that are checked when a method is called on an object of a derived class, especially in cases of multiple inheritance (where a class inherits from more than one parent). The MRO is essential for making multiple inheritance reliable and predictable.
+
+::: {.callout-note}
+The `super()` function relies entirely on the MRO. When you call `super().method()`, Python uses the MRO list to find the next class in the hierarchy after the current class that implements `method()`, ensuring that base class methods are called in the correct, standardized order.
+:::
+
+## Access Modifiers
+
+Since Python is a script language and does not compile code in advance to execution, it lacks of keywords defining attribute’s accessibility. Yet, there is a convention in the naming of attributes using `_` for protected and for `__` private attributes for treating access restrictions.
+
+> Note: This is only a convention. Python has no hard restrictions and allows to access all attributes on object level.
