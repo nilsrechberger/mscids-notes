@@ -253,3 +253,61 @@ There are two main types of Hypervisors:
 ### Key Advantages of Using Virtualization
 
 The main benefit is efficiency. You can run many servers on just one physical machine, which is called server consolidation. This saves a lot of money on buying hardware, paying for electricity (power), and cooling. It also improves security because if one VM gets a virus, the others stay isolated. Finally, it makes tasks like backup and disaster recovery much easier, as you can quickly move or restore an entire VM onto different hardware.
+
+
+# Week 9: Big Data Processing
+
+## Processing Data
+
+::: {.callout-note}
+All Linux commands consist of three parts:
+
+- command (e.g., grep)
+- options: to modify the behavior of the command
+- arguments: objects upon which the command acts
+:::
+
+### `grep`
+
+Take a stream of text or data, perform operations on it, and produce a modified version of that stream as output.
+
+```bash
+grep -e <REGEX_PATTERN> <FILE>
+```
+
+### `cut`
+
+Selects portions of each line (as specified by list) from each file and writes them to the output.
+
+```bash
+cut -d <DELIMITER> -f <FIELD_SELECTION> <FILE>
+```
+
+### `wget`
+
+Wget is a free utility for non-interactive download of files and whole websites (follows links) from the Internet.
+
+### Pipes & Filters Pattern
+
+A pipe is used in Linux to send the output of one command/process to another command/process for further processing. Decompose a task that performs complex processing into a series of separate processing steps that can be reused.
+
+```bash
+grep -e <REGEX_PATTERN> <FILE> | cut -d <DELIMITER> -f <FIELD_SELECTION> <FILE>
+```
+
+## 5V-Model
+
+The 5 V's of big data are Volume, Velocity, Variety, Veracity, and Value. These characteristics help define the challenges and opportunities associated with managing and analyzing large data sets.
+
+## Regular Expressions
+
+A regular expression, often shortened to regex, is a sequence of characters that defines a search pattern. It uses a specific syntax combining literal characters (e.g., a, 1) and metacharacters (e.g., . , *, []) which have special meaning.
+
+### Essetials
+
+- Metacharacters: These are the building blocks, defining rules like matching any character (.), the start of a line (^), or the end of a line ($).
+- Quantifiers: Symbols like * (zero or more), + (one or more), and ? (zero or one) specify how many times the preceding element must occur.
+- Character Classes/Sets: Square brackets [] define a set of characters, matching any one character within the set (e.g., [0-9] matches any digit).
+- Anchors: Characters like ^, $, and \b (word boundary) match a position within the text, not an actual character.
+- Grouping: Parentheses () are used to combine parts of the pattern and create capturing groups, allowing the extraction of specific matched sub-strings.
+- Applications: Primarily used for data validation (e.g., emails, phone numbers), complex search and replace operations, and parsing/extracting data from text.
