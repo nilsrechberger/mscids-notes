@@ -680,8 +680,8 @@ Belong to a particular object. Modifying object’s state.
 
 ```python
 def change_obj_state(self):
-    self.state = "New State"
-    return True
+        self.state = "New State"
+        return True
 ```
 
 ### Class Methods
@@ -727,11 +727,11 @@ Inheritance creates a hierarchy of classes. This avoids code redundance and incr
 ```python
 class Animal:
     def __init__(self, weight):
-    self.weight = weight
+        self.weight = weight
 
 class Bird(Animal):
     def __init__(self, weight):
-    super().__init__(weight) # Inheritance from the parent class
+        super().__init__(weight) # Inheritance from the parent class
 ```
 
 When extending functionality of parent class by overriding a method (or in general to use parent’s methods), they can be referred to using super() or parent’s class name.
@@ -739,17 +739,17 @@ When extending functionality of parent class by overriding a method (or in gener
 ```python
 class Animal:
     def __init__(self, weight):
-    self.weight = weight
+        self.weight = weight
 
     def get_weight(self):
-    return self.weight
+        return self.weight
 
 class Bird(Animal):
     def __init__(self, weight):
-    super().__init__(weight)
+        super().__init__(weight)
 
     def get_weight(self):
-    return super().get_weight()/10
+        return super().get_weight()/10
 ```
 
 ### The Class “object”
