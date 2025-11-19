@@ -489,6 +489,33 @@ window.Quarto = {
   <li><a href="#i-4" id="toc-i-4" class="nav-link" data-scroll-target="#i-4">i</a></li>
   </ul></li>
   </ul></li>
+  <li><a href="#problems-8" id="toc-problems-8" class="nav-link" data-scroll-target="#problems-8">Problems 8</a>
+  <ul class="collapse">
+  <li><a href="#problem-8.1" id="toc-problem-8.1" class="nav-link" data-scroll-target="#problem-8.1">Problem 8.1</a>
+  <ul class="collapse">
+  <li><a href="#a-27" id="toc-a-27" class="nav-link" data-scroll-target="#a-27">a</a></li>
+  <li><a href="#b-26" id="toc-b-26" class="nav-link" data-scroll-target="#b-26">b</a></li>
+  <li><a href="#c-21" id="toc-c-21" class="nav-link" data-scroll-target="#c-21">c</a></li>
+  <li><a href="#d-19" id="toc-d-19" class="nav-link" data-scroll-target="#d-19">d</a></li>
+  </ul></li>
+  <li><a href="#problem-8.2" id="toc-problem-8.2" class="nav-link" data-scroll-target="#problem-8.2">Problem 8.2</a>
+  <ul class="collapse">
+  <li><a href="#a-28" id="toc-a-28" class="nav-link" data-scroll-target="#a-28">a</a></li>
+  <li><a href="#b-27" id="toc-b-27" class="nav-link" data-scroll-target="#b-27">b</a></li>
+  <li><a href="#c-22" id="toc-c-22" class="nav-link" data-scroll-target="#c-22">c</a></li>
+  <li><a href="#d-20" id="toc-d-20" class="nav-link" data-scroll-target="#d-20">d</a></li>
+  </ul></li>
+  <li><a href="#problem-8.3" id="toc-problem-8.3" class="nav-link" data-scroll-target="#problem-8.3">Problem 8.3</a>
+  <ul class="collapse">
+  <li><a href="#a-29" id="toc-a-29" class="nav-link" data-scroll-target="#a-29">a</a></li>
+  <li><a href="#b-28" id="toc-b-28" class="nav-link" data-scroll-target="#b-28">b</a></li>
+  <li><a href="#c-23" id="toc-c-23" class="nav-link" data-scroll-target="#c-23">c</a></li>
+  <li><a href="#d-21" id="toc-d-21" class="nav-link" data-scroll-target="#d-21">d</a></li>
+  <li><a href="#e-11" id="toc-e-11" class="nav-link" data-scroll-target="#e-11">e</a></li>
+  <li><a href="#f-6" id="toc-f-6" class="nav-link" data-scroll-target="#f-6">f</a></li>
+  <li><a href="#g-2" id="toc-g-2" class="nav-link" data-scroll-target="#g-2">g</a></li>
+  </ul></li>
+  </ul></li>
   </ul>
 </nav>
     </div>
@@ -2207,6 +2234,422 @@ lstat       -1.026148 -0.8739505</code></pre>
 </div>
 </div>
 <p>The <span class="math inline">\(R^2\)</span>-value is 0.5441, so about 54 % of the variability is explained by the model.</p>
+</section>
+</section>
+</section>
+<section id="problems-8" class="level1">
+<h1>Problems 8</h1>
+<section id="problem-8.1" class="level2">
+<h2 class="anchored" data-anchor-id="problem-8.1">Problem 8.1</h2>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb184"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb184-1"><a href="#cb184-1" aria-hidden="true" tabindex="-1"></a>Auto <span class="ot">&lt;-</span> <span class="fu">read.csv</span>(<span class="st">"/home/nils/dev/mscids-notes/hs25/sa/data/auto.csv"</span>)</span>
+<span id="cb184-2"><a href="#cb184-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb184-3"><a href="#cb184-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Read data</span></span>
+<span id="cb184-4"><a href="#cb184-4" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(Auto)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>  X mpg cylinders displacement horsepower weight acceleration year origin
+1 1  18         8          307        130   3504         12.0   70      1
+2 2  15         8          350        165   3693         11.5   70      1
+3 3  18         8          318        150   3436         11.0   70      1
+4 4  16         8          304        150   3433         12.0   70      1
+5 5  17         8          302        140   3449         10.5   70      1
+6 6  15         8          429        198   4341         10.0   70      1
+                       name
+1 chevrolet chevelle malibu
+2         buick skylark 320
+3        plymouth satellite
+4             amc rebel sst
+5               ford torino
+6          ford galaxie 500</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb186"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb186-1"><a href="#cb186-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Remove var "name"</span></span>
+<span id="cb186-2"><a href="#cb186-2" aria-hidden="true" tabindex="-1"></a>Auto_1 <span class="ot">&lt;-</span> <span class="fu">within</span>(Auto, <span class="fu">rm</span>(name))</span>
+<span id="cb186-3"><a href="#cb186-3" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(Auto_1)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>  X mpg cylinders displacement horsepower weight acceleration year origin
+1 1  18         8          307        130   3504         12.0   70      1
+2 2  15         8          350        165   3693         11.5   70      1
+3 3  18         8          318        150   3436         11.0   70      1
+4 4  16         8          304        150   3433         12.0   70      1
+5 5  17         8          302        140   3449         10.5   70      1
+6 6  15         8          429        198   4341         10.0   70      1</code></pre>
+</div>
+</div>
+<section id="a-27" class="level3">
+<h3 class="anchored" data-anchor-id="a-27">a</h3>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb188"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb188-1"><a href="#cb188-1" aria-hidden="true" tabindex="-1"></a><span class="fu">pairs</span>(Auto_1)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="sa_exercises_files/figure-html/unnamed-chunk-86-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+</section>
+<section id="b-26" class="level3">
+<h3 class="anchored" data-anchor-id="b-26">b</h3>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb189"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb189-1"><a href="#cb189-1" aria-hidden="true" tabindex="-1"></a><span class="fu">cor</span>(Auto_1)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>                      X        mpg  cylinders displacement horsepower
+X             1.0000000  0.5863298 -0.3602752   -0.3871458 -0.4229250
+mpg           0.5863298  1.0000000 -0.7776175   -0.8051269 -0.7784268
+cylinders    -0.3602752 -0.7776175  1.0000000    0.9508233  0.8429834
+displacement -0.3871458 -0.8051269  0.9508233    1.0000000  0.8972570
+horsepower   -0.4229250 -0.7784268  0.8429834    0.8972570  1.0000000
+weight       -0.3217474 -0.8322442  0.8975273    0.9329944  0.8645377
+acceleration  0.2909849  0.4233285 -0.5046834   -0.5438005 -0.6891955
+year          0.9967805  0.5805410 -0.3456474   -0.3698552 -0.4163615
+origin        0.2005760  0.5652088 -0.5689316   -0.6145351 -0.4551715
+                 weight acceleration       year     origin
+X            -0.3217474    0.2909849  0.9967805  0.2005760
+mpg          -0.8322442    0.4233285  0.5805410  0.5652088
+cylinders     0.8975273   -0.5046834 -0.3456474 -0.5689316
+displacement  0.9329944   -0.5438005 -0.3698552 -0.6145351
+horsepower    0.8645377   -0.6891955 -0.4163615 -0.4551715
+weight        1.0000000   -0.4168392 -0.3091199 -0.5850054
+acceleration -0.4168392    1.0000000  0.2903161  0.2127458
+year         -0.3091199    0.2903161  1.0000000  0.1815277
+origin       -0.5850054    0.2127458  0.1815277  1.0000000</code></pre>
+</div>
+</div>
+<p>The scatter plot and correlation value show a high positive correlation between the <code>horsepower</code> and <code>displacement</code> variables.</p>
+</section>
+<section id="c-21" class="level3">
+<h3 class="anchored" data-anchor-id="c-21">c</h3>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb191"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb191-1"><a href="#cb191-1" aria-hidden="true" tabindex="-1"></a>model <span class="ot">&lt;-</span> <span class="fu">lm</span>(mpg <span class="sc">~</span> ., <span class="at">data=</span>Auto_1)</span>
+<span id="cb191-2"><a href="#cb191-2" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(model)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>
+Call:
+lm(formula = mpg ~ ., data = Auto_1)
+
+Residuals:
+    Min      1Q  Median      3Q     Max 
+-9.6234 -2.1948 -0.1499  1.8294 12.9947 
+
+Coefficients:
+               Estimate Std. Error t value Pr(&gt;|t|)    
+(Intercept)  -7.800e+01  4.259e+01  -1.831  0.06785 .  
+X            -2.829e-02  1.971e-02  -1.436  0.15196    
+cylinders    -4.564e-01  3.239e-01  -1.409  0.15956    
+displacement  1.715e-02  7.744e-03   2.215  0.02735 *  
+horsepower   -1.431e-02  1.389e-02  -1.030  0.30348    
+weight       -6.378e-03  6.546e-04  -9.745  &lt; 2e-16 ***
+acceleration  7.505e-02  9.878e-02   0.760  0.44790    
+year          1.622e+00  6.092e-01   2.663  0.00807 ** 
+origin        1.455e+00  2.785e-01   5.224 2.88e-07 ***
+---
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
+
+Residual standard error: 3.323 on 383 degrees of freedom
+Multiple R-squared:  0.8224,    Adjusted R-squared:  0.8187 
+F-statistic: 221.7 on 8 and 383 DF,  p-value: &lt; 2.2e-16</code></pre>
+</div>
+</div>
+<section id="i-5" class="level4">
+<h4 class="anchored" data-anchor-id="i-5">I</h4>
+<p>The variables predict the response variable, <code>mpg</code>, statistically.</p>
+</section>
+<section id="ii-4" class="level4">
+<h4 class="anchored" data-anchor-id="ii-4">II</h4>
+<p>It seems that the variables <code>horsepower</code> and <code>year</code> have the greatest impact on the response variable <code>mpg</code>.</p>
+</section>
+<section id="iii-5" class="level4">
+<h4 class="anchored" data-anchor-id="iii-5">III</h4>
+<p>The variable <code>year</code> indicates a high positive correlation with the response variable <code>mpg</code>.</p>
+</section>
+</section>
+<section id="d-19" class="level3">
+<h3 class="anchored" data-anchor-id="d-19">d</h3>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb193"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb193-1"><a href="#cb193-1" aria-hidden="true" tabindex="-1"></a>model <span class="ot">&lt;-</span> <span class="fu">lm</span>(mpg <span class="sc">~</span> weight <span class="sc">*</span> year, <span class="at">data=</span>Auto_1)</span>
+<span id="cb193-2"><a href="#cb193-2" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(model)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>
+Call:
+lm(formula = mpg ~ weight * year, data = Auto_1)
+
+Residuals:
+    Min      1Q  Median      3Q     Max 
+-8.0397 -1.9956 -0.0983  1.6525 12.9896 
+
+Coefficients:
+              Estimate Std. Error t value Pr(&gt;|t|)    
+(Intercept) -1.105e+02  1.295e+01  -8.531 3.30e-16 ***
+weight       2.755e-02  4.413e-03   6.242 1.14e-09 ***
+year         2.040e+00  1.718e-01  11.876  &lt; 2e-16 ***
+weight:year -4.579e-04  5.907e-05  -7.752 8.02e-14 ***
+---
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
+
+Residual standard error: 3.193 on 388 degrees of freedom
+Multiple R-squared:  0.8339,    Adjusted R-squared:  0.8326 
+F-statistic: 649.3 on 3 and 388 DF,  p-value: &lt; 2.2e-16</code></pre>
+</div>
+</div>
+</section>
+</section>
+<section id="problem-8.2" class="level2">
+<h2 class="anchored" data-anchor-id="problem-8.2">Problem 8.2</h2>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb195"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb195-1"><a href="#cb195-1" aria-hidden="true" tabindex="-1"></a>boston <span class="ot">&lt;-</span> <span class="fu">read.csv</span>(<span class="st">"/home/nils/dev/mscids-notes/hs25/sa/data/boston.csv"</span>)</span>
+<span id="cb195-2"><a href="#cb195-2" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(boston)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>  X    crim zn indus chas   nox    rm  age    dis rad tax ptratio  black lstat
+1 1 0.00632 18  2.31    0 0.538 6.575 65.2 4.0900   1 296    15.3 396.90  4.98
+2 2 0.02731  0  7.07    0 0.469 6.421 78.9 4.9671   2 242    17.8 396.90  9.14
+3 3 0.02729  0  7.07    0 0.469 7.185 61.1 4.9671   2 242    17.8 392.83  4.03
+4 4 0.03237  0  2.18    0 0.458 6.998 45.8 6.0622   3 222    18.7 394.63  2.94
+5 5 0.06905  0  2.18    0 0.458 7.147 54.2 6.0622   3 222    18.7 396.90  5.33
+6 6 0.02985  0  2.18    0 0.458 6.430 58.7 6.0622   3 222    18.7 394.12  5.21
+  medv
+1 24.0
+2 21.6
+3 34.7
+4 33.4
+5 36.2
+6 28.7</code></pre>
+</div>
+</div>
+<section id="a-28" class="level3">
+<h3 class="anchored" data-anchor-id="a-28">a</h3>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb197"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb197-1"><a href="#cb197-1" aria-hidden="true" tabindex="-1"></a><span class="fu">pairs</span>(boston)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="sa_exercises_files/figure-html/unnamed-chunk-91-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+<div class="sourceCode cell-code" id="cb198"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb198-1"><a href="#cb198-1" aria-hidden="true" tabindex="-1"></a>model <span class="ot">&lt;-</span> <span class="fu">lm</span>(medv <span class="sc">~</span> lstat <span class="sc">+</span> age, <span class="at">data=</span>boston)</span>
+<span id="cb198-2"><a href="#cb198-2" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(model)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>
+Call:
+lm(formula = medv ~ lstat + age, data = boston)
+
+Residuals:
+    Min      1Q  Median      3Q     Max 
+-15.981  -3.978  -1.283   1.968  23.158 
+
+Coefficients:
+            Estimate Std. Error t value Pr(&gt;|t|)    
+(Intercept) 33.22276    0.73085  45.458  &lt; 2e-16 ***
+lstat       -1.03207    0.04819 -21.416  &lt; 2e-16 ***
+age          0.03454    0.01223   2.826  0.00491 ** 
+---
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
+
+Residual standard error: 6.173 on 503 degrees of freedom
+Multiple R-squared:  0.5513,    Adjusted R-squared:  0.5495 
+F-statistic:   309 on 2 and 503 DF,  p-value: &lt; 2.2e-16</code></pre>
+</div>
+</div>
+<ul>
+<li><span class="math inline">\(\hat{\beta}_0\)</span> = 33.22: In neighborhoods where there is no population of lower status and no units build before 1940, the medium value of houses is $ 33 220.</li>
+<li><span class="math inline">\(\hat{\beta}_1\)</span> = −1.03: For each additional percent of population of lower status, the medium value decreases by $ 1030.</li>
+<li><span class="math inline">\(\hat{\beta}_2\)</span> = 0.03: For each additional percent of units build before 1949, the medium value increases by $ 30.</li>
+<li>All p-values are significant (below the significance level of 5 %), so all esti mates individually contribute significantly to the model.</li>
+<li>The <span class="math inline">\(R^2\)</span> value is 0.5513, therefore about 55 % of the variation is explained by the model.</li>
+<li>The p-value of the F value is below the significance level and therefore significant. The null hypothesis is rejected.</li>
+</ul>
+</section>
+<section id="b-27" class="level3">
+<h3 class="anchored" data-anchor-id="b-27">b</h3>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb200"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb200-1"><a href="#cb200-1" aria-hidden="true" tabindex="-1"></a>model <span class="ot">&lt;-</span> <span class="fu">lm</span>(medv <span class="sc">~</span> ., <span class="at">data=</span>boston)</span>
+<span id="cb200-2"><a href="#cb200-2" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(model)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>
+Call:
+lm(formula = medv ~ ., data = boston)
+
+Residuals:
+     Min       1Q   Median       3Q      Max 
+-15.8948  -2.7585  -0.4663   1.7963  26.0911 
+
+Coefficients:
+              Estimate Std. Error t value Pr(&gt;|t|)    
+(Intercept)  36.461352   5.100994   7.148 3.21e-12 ***
+X            -0.002526   0.002080  -1.215 0.225046    
+crim         -0.108762   0.032855  -3.310 0.001000 ** 
+zn            0.048031   0.013785   3.484 0.000538 ***
+indus         0.019932   0.061468   0.324 0.745871    
+chas          2.705245   0.861298   3.141 0.001786 ** 
+nox         -17.541602   3.822390  -4.589 5.66e-06 ***
+rm            3.839225   0.418422   9.175  &lt; 2e-16 ***
+age          -0.001938   0.013380  -0.145 0.884866    
+dis          -1.493304   0.199892  -7.471 3.68e-13 ***
+rad           0.324925   0.068111   4.771 2.43e-06 ***
+tax          -0.011598   0.003807  -3.046 0.002443 ** 
+ptratio      -0.947985   0.130822  -7.246 1.67e-12 ***
+black         0.009357   0.002685   3.485 0.000536 ***
+lstat        -0.526184   0.050704 -10.377  &lt; 2e-16 ***
+---
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
+
+Residual standard error: 4.743 on 491 degrees of freedom
+Multiple R-squared:  0.7414,    Adjusted R-squared:  0.734 
+F-statistic: 100.6 on 14 and 491 DF,  p-value: &lt; 2.2e-16</code></pre>
+</div>
+</div>
+<p>The p-value is almost 1, so not significant at all. But in the first model, the p-value is 0.005, which is significant. That means that the variable age must correlate strongly with other variables.</p>
+</section>
+<section id="c-22" class="level3">
+<h3 class="anchored" data-anchor-id="c-22">c</h3>
+<p>The more variables you have the bigger the <span class="math inline">\(R^2\)</span> value. That means that the <span class="math inline">\(R^2\)</span> is not a good indicator to compare different models.</p>
+</section>
+<section id="d-20" class="level3">
+<h3 class="anchored" data-anchor-id="d-20">d</h3>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb202"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb202-1"><a href="#cb202-1" aria-hidden="true" tabindex="-1"></a>model <span class="ot">&lt;-</span> <span class="fu">lm</span>(medv <span class="sc">~</span> lstat <span class="sc">*</span> age, <span class="at">data=</span>boston)</span>
+<span id="cb202-2"><a href="#cb202-2" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(model)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>
+Call:
+lm(formula = medv ~ lstat * age, data = boston)
+
+Residuals:
+    Min      1Q  Median      3Q     Max 
+-15.806  -4.045  -1.333   2.085  27.552 
+
+Coefficients:
+              Estimate Std. Error t value Pr(&gt;|t|)    
+(Intercept) 36.0885359  1.4698355  24.553  &lt; 2e-16 ***
+lstat       -1.3921168  0.1674555  -8.313 8.78e-16 ***
+age         -0.0007209  0.0198792  -0.036   0.9711    
+lstat:age    0.0041560  0.0018518   2.244   0.0252 *  
+---
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
+
+Residual standard error: 6.149 on 502 degrees of freedom
+Multiple R-squared:  0.5557,    Adjusted R-squared:  0.5531 
+F-statistic: 209.3 on 3 and 502 DF,  p-value: &lt; 2.2e-16</code></pre>
+</div>
+</div>
+<ul>
+<li><span class="math inline">\(\hat{\beta}_0\)</span> = 36.10: In neighborhoods where there is no population of lower status and no units build before 1940, the medium value of houses is $ 36 100.</li>
+<li><span class="math inline">\(\hat{\beta}_1\)</span> = −1.39: For each additional percent of population of lower status, the medium value decreases by $ 1930.</li>
+<li><span class="math inline">\(\hat{\beta}_2\)</span> = −0.00072: For each additional percent of units build before 1949, the medium value decreases by $ 0.27. As you can imagine, this value is not significant, as you can see from the output.</li>
+<li><span class="math inline">\(\hat{\beta}_{12}\)</span> = 0.004: This coefficient is somewhat difficult to interpret and we didn’t do it in class.</li>
+<li>Not all p-values are significant (below the significance level of 5 %) any- more.</li>
+<li>The <span class="math inline">\(R^2\)</span> value is 0.56, therefore about 56 % of the variation is explained by the model.</li>
+<li>The p-value of the F value is below the significance level and therefore significant. The null hypothesis H0 is rejected.</li>
+</ul>
+</section>
+</section>
+<section id="problem-8.3" class="level2">
+<h2 class="anchored" data-anchor-id="problem-8.3">Problem 8.3</h2>
+<section id="a-29" class="level3">
+<h3 class="anchored" data-anchor-id="a-29">a</h3>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb204"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb204-1"><a href="#cb204-1" aria-hidden="true" tabindex="-1"></a>cs <span class="ot">&lt;-</span> <span class="fu">read.csv</span>(<span class="st">"/home/nils/dev/mscids-notes/hs25/sa/data/carseats.csv"</span>)</span>
+<span id="cb204-2"><a href="#cb204-2" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(cs)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>  X Sales CompPrice Income Advertising Population Price ShelveLoc Age Education
+1 1  9.50       138     73          11        276   120       Bad  42        17
+2 2 11.22       111     48          16        260    83      Good  65        10
+3 3 10.06       113     35          10        269    80    Medium  59        12
+4 4  7.40       117    100           4        466    97    Medium  55        14
+5 5  4.15       141     64           3        340   128       Bad  38        13
+6 6 10.81       124    113          13        501    72       Bad  78        16
+  Urban  US
+1   Yes Yes
+2   Yes Yes
+3   Yes Yes
+4   Yes Yes
+5   Yes  No
+6    No Yes</code></pre>
+</div>
+</div>
+</section>
+<section id="b-28" class="level3">
+<h3 class="anchored" data-anchor-id="b-28">b</h3>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb206"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb206-1"><a href="#cb206-1" aria-hidden="true" tabindex="-1"></a>model <span class="ot">&lt;-</span> <span class="fu">lm</span>(Sales <span class="sc">~</span> Price <span class="sc">+</span> Urban <span class="sc">+</span> US, <span class="at">data=</span>cs)</span>
+<span id="cb206-2"><a href="#cb206-2" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(model)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>
+Call:
+lm(formula = Sales ~ Price + Urban + US, data = cs)
+
+Residuals:
+    Min      1Q  Median      3Q     Max 
+-6.9206 -1.6220 -0.0564  1.5786  7.0581 
+
+Coefficients:
+             Estimate Std. Error t value Pr(&gt;|t|)    
+(Intercept) 13.043469   0.651012  20.036  &lt; 2e-16 ***
+Price       -0.054459   0.005242 -10.389  &lt; 2e-16 ***
+UrbanYes    -0.021916   0.271650  -0.081    0.936    
+USYes        1.200573   0.259042   4.635 4.86e-06 ***
+---
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
+
+Residual standard error: 2.472 on 396 degrees of freedom
+Multiple R-squared:  0.2393,    Adjusted R-squared:  0.2335 
+F-statistic: 41.52 on 3 and 396 DF,  p-value: &lt; 2.2e-16</code></pre>
+</div>
+</div>
+</section>
+<section id="c-23" class="level3">
+<h3 class="anchored" data-anchor-id="c-23">c</h3>
+<ul>
+<li>According to the model, 13.04 this is the average sales figures in shops reached in rural areas outside the USA, with the price of child seats still being $0 (not very realis-tic).</li>
+<li>The coefficient −0.05 indicates that for an increase of one dollar, an average of 0.05 units of child seats are sold less.</li>
+<li>The coefficient −0.021 means that on average 0.021 less units are sold in urban areas compared to rural areas. However, the p value is very high, so this is more of a random variation.</li>
+<li>The 1.2 coefficient means that 1.2 more units are sold within the US compared to shops outside the USA. Perhaps child seats are compulsory in the USA.</li>
+</ul>
+</section>
+<section id="d-21" class="level3">
+<h3 class="anchored" data-anchor-id="d-21">d</h3>
+<p><span class="math display">\[
+\text{Sales} = \beta_0 + \beta_1 \cdot \text{Price} + \beta_2 \cdot \text{Urban} + \beta_3 \cdot \text{US}
+\]</span></p>
+<blockquote class="blockquote">
+<p>Note: General model!</p>
+</blockquote>
+</section>
+<section id="e-11" class="level3">
+<h3 class="anchored" data-anchor-id="e-11">e</h3>
+<p>For all except <code>Urban</code>.</p>
+</section>
+<section id="f-6" class="level3">
+<h3 class="anchored" data-anchor-id="f-6">f</h3>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb208"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb208-1"><a href="#cb208-1" aria-hidden="true" tabindex="-1"></a>model <span class="ot">&lt;-</span> <span class="fu">lm</span>(Sales <span class="sc">~</span> Price <span class="sc">+</span> Urban, <span class="at">data=</span>cs)</span>
+<span id="cb208-2"><a href="#cb208-2" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(model)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>
+Call:
+lm(formula = Sales ~ Price + Urban, data = cs)
+
+Residuals:
+    Min      1Q  Median      3Q     Max 
+-6.5324 -1.8441 -0.1443  1.6662  7.5000 
+
+Coefficients:
+             Estimate Std. Error t value Pr(&gt;|t|)    
+(Intercept) 13.621458   0.655230  20.789   &lt;2e-16 ***
+Price       -0.053104   0.005367  -9.895   &lt;2e-16 ***
+UrbanYes     0.034095   0.278293   0.123    0.903    
+---
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
+
+Residual standard error: 2.535 on 397 degrees of freedom
+Multiple R-squared:  0.198, Adjusted R-squared:  0.194 
+F-statistic: 49.01 on 2 and 397 DF,  p-value: &lt; 2.2e-16</code></pre>
+</div>
+</div>
+</section>
+<section id="g-2" class="level3">
+<h3 class="anchored" data-anchor-id="g-2">g</h3>
+<p>The model <code>lm(Sales ~ Price + Urban + US, data=cs)</code> is a mutible regression while the smaller model <code>model &lt;- lm(Sales ~ Price + Urban, data=cs)</code> is a simple liniear regression.</p>
 
 
 </section>
