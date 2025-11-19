@@ -1184,3 +1184,157 @@ summary(model)$r.squared
 ```
 
 The $R^2$-value is 0.5441, so about 54 % of the variability is explained by the model.
+
+# Problems 8
+
+## Problem 8.1
+
+```{r}
+Auto <- read.csv("/home/nils/dev/mscids-notes/hs25/sa/data/auto.csv")
+
+# Read data
+head(Auto)
+
+# Remove var "name"
+Auto_1 <- within(Auto, rm(name))
+head(Auto_1)
+```
+
+### a
+
+```{r}
+pairs(Auto_1)
+```
+
+### b
+
+```{r}
+cor(Auto_1)
+```
+
+The scatter plot and correlation value show a high positive correlation between the `horsepower` and `displacement` variables.
+
+### c
+
+```{r}
+model <- lm(mpg ~ ., data=Auto_1)
+summary(model)
+```
+
+#### I
+
+The variables predict the response variable, `mpg`, statistically.
+
+#### II
+
+It seems that the variables `horsepower` and `year` have the greatest impact on the response variable `mpg`.
+
+#### III
+
+The variable `year` indicates a high positive correlation with the response variable `mpg`.
+
+### d
+
+```{r}
+model <- lm(mpg ~ weight * year, data=Auto_1)
+summary(model)
+```
+
+## Problem 8.2
+
+```{r}
+boston <- read.csv("/home/nils/dev/mscids-notes/hs25/sa/data/boston.csv")
+head(boston)
+```
+
+### a
+
+```{r}
+pairs(boston)
+model <- lm(medv ~ lstat + age, data=boston)
+summary(model)
+```
+
+- $\hat{\beta}_0$ = 33.22: In neighborhoods where there is no population of lower status and no units build before 1940, the medium value of houses is $ 33 220.
+- $\hat{\beta}_1$ = −1.03: For each additional percent of population of lower status, the medium value decreases by $ 1030.
+- $\hat{\beta}_2$ = 0.03: For each additional percent of units build before 1949, the medium value increases by $ 30.
+- All p-values are significant (below the significance level of 5 %), so all esti mates individually contribute significantly to the model.
+- The $R^2$ value is 0.5513, therefore about 55 % of the variation is explained by the model.
+- The p-value of the F value is below the significance level and therefore significant. The null hypothesis is rejected.
+
+### b
+
+```{r}
+model <- lm(medv ~ ., data=boston)
+summary(model)
+```
+
+The p-value is almost 1, so not significant at all. But in the first model, the p-value is 0.005, which is significant. That means that the variable age must correlate strongly with other variables.
+
+### c
+
+The more variables you have the bigger the $R^2$ value. That means that the $R^2$ is not a good indicator to compare different models.
+
+### d
+
+```{r}
+model <- lm(medv ~ lstat * age, data=boston)
+summary(model)
+```
+
+- $\hat{\beta}_0$ = 36.10: In neighborhoods where there is no population of lower status and no units build before 1940, the medium value of houses is $ 36 100.
+- $\hat{\beta}_1$ = −1.39: For each additional percent of population of lower status, the medium value decreases by $ 1930.
+- $\hat{\beta}_2$ = −0.00072: For each additional percent of units build before 1949, the medium value decreases by $ 0.27. As you can imagine, this value is not significant, as you can see from the output.
+- $\hat{\beta}_{12}$ = 0.004: This coefficient is somewhat difficult to interpret and we didn’t do it in class.
+- Not all p-values are significant (below the significance level of 5 %) any-
+more.
+- The $R^2$ value is 0.56, therefore about 56 % of the variation is explained by the model.
+- The p-value of the F value is below the significance level and therefore significant. The null hypothesis H0 is rejected.
+
+## Problem 8.3
+
+### a
+
+```{r}
+cs <- read.csv("/home/nils/dev/mscids-notes/hs25/sa/data/carseats.csv")
+head(cs)
+```
+
+### b
+
+```{r}
+model <- lm(Sales ~ Price + Urban + US, data=cs)
+summary(model)
+```
+
+### c
+
+- According to the model, 13.04 this is the average sales figures in shops reached in rural areas outside the USA, with the price of child seats still being $0 (not very realis-tic).
+- The coefficient −0.05 indicates that for an increase of one dollar, an average of 0.05 units of child seats are sold less.
+- The coefficient −0.021 means that on average 0.021 less units are sold in urban areas compared to rural areas. However, the p value is very high, so
+this is more of a random variation.
+- The 1.2 coefficient means that 1.2 more units are sold within the US compared to shops outside the USA. Perhaps child seats are compulsory in the
+USA.
+
+### d
+
+$$
+\text{Sales} = \beta_0 + \beta_1 \cdot \text{Price} + \beta_2 \cdot \text{Urban} + \beta_3 \cdot \text{US}
+$$
+
+> Note: General model!
+
+### e
+
+For all except `Urban`.
+
+### f
+
+```{r}
+model <- lm(Sales ~ Price + Urban, data=cs)
+summary(model)
+```
+
+### g
+
+The model `lm(Sales ~ Price + Urban + US, data=cs)` is a mutible regression while the smaller model `model <- lm(Sales ~ Price + Urban, data=cs)` is a simple liniear regression.
