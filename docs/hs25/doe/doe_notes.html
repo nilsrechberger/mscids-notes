@@ -394,6 +394,17 @@ window.Quarto = {
   <li><a href="#effect-size-1" id="toc-effect-size-1" class="nav-link" data-scroll-target="#effect-size-1">Effect size</a></li>
   <li><a href="#overview-over-statistical-hypothesis-tests" id="toc-overview-over-statistical-hypothesis-tests" class="nav-link" data-scroll-target="#overview-over-statistical-hypothesis-tests">Overview over Statistical Hypothesis Tests</a></li>
   </ul></li>
+  <li><a href="#lecture-08-ab-testing" id="toc-lecture-08-ab-testing" class="nav-link" data-scroll-target="#lecture-08-ab-testing">Lecture 08: A/B Testing</a>
+  <ul class="collapse">
+  <li><a href="#what-is-ab-testing" id="toc-what-is-ab-testing" class="nav-link" data-scroll-target="#what-is-ab-testing">What is A/B testing?</a></li>
+  <li><a href="#carrying-out-ab-testing" id="toc-carrying-out-ab-testing" class="nav-link" data-scroll-target="#carrying-out-ab-testing">Carrying out A/B testing</a></li>
+  <li><a href="#bandit-algorithm" id="toc-bandit-algorithm" class="nav-link" data-scroll-target="#bandit-algorithm">Bandit algorithm</a></li>
+  <li><a href="#measurement-metrics-kpi" id="toc-measurement-metrics-kpi" class="nav-link" data-scroll-target="#measurement-metrics-kpi">Measurement / Metrics / KPI</a></li>
+  <li><a href="#error-sources-and-pitfalls" id="toc-error-sources-and-pitfalls" class="nav-link" data-scroll-target="#error-sources-and-pitfalls">Error sources and pitfalls</a>
+  <ul class="collapse">
+  <li><a href="#dark-pattern-deceptive-pattern" id="toc-dark-pattern-deceptive-pattern" class="nav-link" data-scroll-target="#dark-pattern-deceptive-pattern">Dark Pattern / Deceptive Pattern</a></li>
+  </ul></li>
+  </ul></li>
   </ul>
 </nav>
     </div>
@@ -1113,8 +1124,65 @@ Note
 <figcaption>Overview over Statistical Hypothesis Tests</figcaption>
 </figure>
 </div>
+</section>
+</section>
+<section id="lecture-08-ab-testing" class="level1">
+<h1>Lecture 08: A/B Testing</h1>
+<section id="what-is-ab-testing" class="level2">
+<h2 class="anchored" data-anchor-id="what-is-ab-testing">What is A/B testing?</h2>
+<p>A/B testing (also bucket testing or split-run testing) is an experiment. The research questions are applied to two (A/B) or more randomized groups. The statistical analysis is done by t-test, ANOVA and more advanced methods.</p>
+</section>
+<section id="carrying-out-ab-testing" class="level2">
+<h2 class="anchored" data-anchor-id="carrying-out-ab-testing">Carrying out A/B testing</h2>
+<p>The aim is to determine which version achieves a better result, in terms of click-through rate etc. Two versions A and B are tested in parallel in a live environment. The generated data becomes the basis for decisions. Depending on the experiment, the test can be applyed to all users of a website or only a subset.</p>
+</section>
+<section id="bandit-algorithm" class="level2">
+<h2 class="anchored" data-anchor-id="bandit-algorithm">Bandit algorithm</h2>
+<p>Several variants (treatments A, B, C, …) are run in parallel. The variant with the highest “success” (according to metrics) get more data traffic. Other variants are refined and tested with proportionally less traffic. Traffic allocation is continuously adjusted based on the observed success. As the test progresses, more and more information about the performance of the variants becomes available, so that the most successful variant can be identified dynamically.</p>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Note
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>A key advantage of bandit algorithms is that they can achieve higher overall profit while still collecting data on the other variants.</p>
+</div>
+</div>
+</section>
+<section id="measurement-metrics-kpi" class="level2">
+<h2 class="anchored" data-anchor-id="measurement-metrics-kpi">Measurement / Metrics / KPI</h2>
+<ul>
+<li>Measurement: Method for obtaining one or more measured values that can be assigned to a quantity</li>
+<li>Metrics: Calculation from measured values</li>
+<li>KPI: Quantifiable metric that shows how effectively the most important company goals are achieved</li>
+</ul>
+</section>
+<section id="error-sources-and-pitfalls" class="level2">
+<h2 class="anchored" data-anchor-id="error-sources-and-pitfalls">Error sources and pitfalls</h2>
+<p>A/B testing cannot be used in all research questions → Example: For a complete website redesign (further elements have to be included). Population is unknown, sampling procedure is not suitable, sampling bias, ect.</p>
+<section id="dark-pattern-deceptive-pattern" class="level3">
+<h3 class="anchored" data-anchor-id="dark-pattern-deceptive-pattern">Dark Pattern / Deceptive Pattern</h3>
+<p>Dark / deceptive patterns are patterns of persuasion and influence. They may increase short-term gains for the provider but can harm brand image, user experience, and customer satisfaction. A/B testers must ensure that the variants they test are ethically acceptable and aim to create genuine added value for the user.</p>
+<div class="callout callout-style-default callout-caution callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Caution
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>The problem with testing dark patterns is that A/B tests typically measure short-term metrics (such as clicks or conversions). They are not good at capturing long-term damage.</p>
+</div>
+</div>
 
 
+</section>
 </section>
 </section>
 

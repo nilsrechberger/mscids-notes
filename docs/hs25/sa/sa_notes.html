@@ -389,6 +389,11 @@ window.Quarto = {
   <li><a href="#relationship-between-predictors-and-response-variable" id="toc-relationship-between-predictors-and-response-variable" class="nav-link" data-scroll-target="#relationship-between-predictors-and-response-variable">Relationship between Predictors and Response Variable</a></li>
   <li><a href="#no-linear-regression" id="toc-no-linear-regression" class="nav-link" data-scroll-target="#no-linear-regression">No Linear Regression</a></li>
   </ul></li>
+  <li><a href="#week-09-conditional-probability" id="toc-week-09-conditional-probability" class="nav-link" data-scroll-target="#week-09-conditional-probability">Week 09: Conditional Probability</a>
+  <ul class="collapse">
+  <li><a href="#bayes-theorem" id="toc-bayes-theorem" class="nav-link" data-scroll-target="#bayes-theorem">Bayes Theorem</a></li>
+  <li><a href="#law-of-total-probability" id="toc-law-of-total-probability" class="nav-link" data-scroll-target="#law-of-total-probability">Law of Total Probability</a></li>
+  </ul></li>
   </ul>
 </nav>
     </div>
@@ -1438,6 +1443,42 @@ Important
 <blockquote class="blockquote">
 <p>Note: The asterisk <span class="math inline">\(*\)</span> in R is an abbreviation for the addition of the main effects AND the interaction term.</p>
 </blockquote>
+</section>
+</section>
+<section id="week-09-conditional-probability" class="level1">
+<h1>Week 09: Conditional Probability</h1>
+<p>Conditional probability is probability that event A occurs when one already knows that B has occurred</p>
+<p>General formula: <span class="math display">\[
+P(A \cap B) = \dfrac{A \cap B}{\Omega}
+\]</span></p>
+<p>Formula is used to define conditional probability: <span class="math display">\[
+P(A | B) = \dfrac{P(A \cap B)}{P(S)}
+\]</span></p>
+<div class="callout callout-style-default callout-caution callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Caution
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p><span class="math inline">\(P(A|B) \ne P(B|A)\)</span></p>
+</div>
+</div>
+<section id="bayes-theorem" class="level2">
+<h2 class="anchored" data-anchor-id="bayes-theorem">Bayes Theorem</h2>
+<p><span class="math display">\[
+P(A | B) = \dfrac{P(B | A) P(A)}{P(B)}
+\]</span></p>
+</section>
+<section id="law-of-total-probability" class="level2">
+<h2 class="anchored" data-anchor-id="law-of-total-probability">Law of Total Probability</h2>
+<p>f <span class="math inline">\(A_1, \dots, A_k\)</span> is a partition of A and B an event, then:</p>
+<p><span class="math display">\[
+\sum_{i=1}^k P(B | A_k) P(A_k)
+\]</span></p>
 
 
 </section>
