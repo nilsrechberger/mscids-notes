@@ -775,3 +775,70 @@ The `super()` function relies entirely on the MRO. When you call `super().method
 Since Python is a script language and does not compile code in advance to execution, it lacks of keywords defining attribute’s accessibility. Yet, there is a convention in the naming of attributes using `_` for protected and for `__` private attributes for treating access restrictions.
 
 > Note: This is only a convention. Python has no hard restrictions and allows to access all attributes on object level.
+
+# SW10: Modules and Packages
+
+## Modules
+
+A module is a file containing Python definitions and statements. We can use modules for better structuring the source code of the whole application.
+
+### Import
+
+In order to access content of other modules, they can be imported to a module as whole or parts of it.
+
+```python
+import numpy                # Declares reference to module 
+import numpy as np          # Renames reference to
+from numpy import array     # Declares reference to specific attribute
+from numpy import *         # Declares references to “all” attributes
+```
+
+When imported, attributes of external modules are accessed differently, depending on the import.
+
+::: {.callout-note}
+When it comes to aliases for frequently used modules, there are conventions.
+
+```python
+import numpy as np
+import pandas as pd
+from matplotplib import pyplot as plt
+```
+:::
+
+Referring to external modules and files require either absolute or relative references. By default, root is set to the main executed script. The main executed script only allows absolute path. By default, imported modules are searched relative to the script path. For this case, the module sys allows to extend the search space for imported modules.
+
+```python
+sys.path.append('C:\\Users\\additional\\location')      # Windows
+sys.path.append('/home/username/additional/location')   # Linux
+```
+
+## `If __name__ == “__main__”:`
+
+The `If __name__ == “__main__”:` block determines how a Python file is being executed.
+
+- If the file is run directly (as the main script), the variable `__name__` is set to `"__main__"`, and the code inside the block runs. This is where you put your application's main execution logic (e.g., calling your primary function).
+- If the file is imported as a module into another script, `__name__` is set to the module's name, and the code inside the block is skipped. This allows the file to be used as a reusable library without triggering unwanted side effects.
+
+This structure allows a single Python file to be both runnable and importable.
+
+## Packaging
+
+Python enables to structure project resources using packages. a folder becomes a package as soon as it comprises
+a script named `__init__.py`
+
+> Note: Since Python 3.3, there has been no need to declare an `__init__.py` file for packages, but it is still good practice.
+
+### The `__init__.py` Script
+
+Objects defined in the __init__.py are bound to names in the package’s namespace.
+
+## External Packages
+
+The Python Software Foundation hosts an own repository for official Python packages called [PyPI](pypi.org). `pip` is a command-line interface (CLI) tool for installing Python packages.
+
+```python
+pip install <packages>
+pip unistall <packages>
+pip list
+pip freeze # Output in requirement format
+```
