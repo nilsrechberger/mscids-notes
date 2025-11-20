@@ -561,3 +561,39 @@ eta_squared(fit)$Eta2 # Use your ANOVA fit
 Choosing the type of analysis depending on level of measurement
 
 ![Overview over Statistical Hypothesis Tests](img/hyp_test_overview.png)
+
+# Lecture 08: A/B Testing
+
+## What is A/B testing?
+
+A/B testing (also bucket testing or split-run testing) is an experiment. The research questions are applied to two (A/B) or more randomized groups. The statistical analysis is done by t-test, ANOVA and more advanced methods.
+
+## Carrying out A/B testing
+
+The aim is to determine which version achieves a better result, in terms of click-through rate etc. Two versions A and B are tested in parallel in a live environment. The generated data becomes the basis for decisions. Depending on the experiment, the test can be applyed to all users of a website or only a subset.
+
+## Bandit algorithm
+
+Several variants (treatments A, B, C, ...) are run in parallel. The variant with the highest "success" (according to metrics) get more data traffic. Other variants are refined and tested with proportionally less traffic. Traffic allocation is continuously adjusted based on the observed success. As the test progresses, more and more information about the performance of the variants becomes available, so that the most successful variant can be identified dynamically.
+
+::: {.callout-note}
+A key advantage of bandit algorithms is that they can achieve higher overall profit while still collecting data on the other variants.
+:::
+
+## Measurement / Metrics / KPI
+
+- Measurement: Method for obtaining one or more measured values that can be assigned to a quantity
+- Metrics: Calculation from measured values
+- KPI: Quantifiable metric that shows how effectively the most important company goals are achieved
+
+## Error sources and pitfalls
+
+A/B testing cannot be used in all research questions → Example: For a complete website redesign (further elements have to be included). Population is unknown, sampling procedure is not suitable, sampling bias, ect.
+
+### Dark Pattern / Deceptive Pattern
+
+Dark / deceptive patterns are patterns of persuasion and influence. They may increase short-term gains for the provider but can harm brand image, user experience, and customer satisfaction. A/B testers must ensure that the variants they test are ethically acceptable and aim to create genuine added value for the user.
+
+::: {.callout-caution}
+The problem with testing dark patterns is that A/B tests typically measure short-term metrics (such as clicks or conversions). They are not good at capturing long-term damage.
+:::
