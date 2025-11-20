@@ -830,3 +830,36 @@ model -> lm(Sales ~ TV + Radio + TV * Radio)
 ```
 
 > Note: The asterisk $*$ in R is an abbreviation for the addition of the main effects AND the interaction term.
+
+# Week 09: Conditional Probability
+
+Conditional probability is probability that event A occurs when
+one already knows that B has occurred
+
+General formula:
+$$
+P(A \cap B) = \dfrac{A \cap B}{\Omega}
+$$
+
+Formula is used to define conditional probability:
+$$
+P(A | B) = \dfrac{P(A \cap B)}{P(S)}
+$$
+
+::: {.callout-caution}
+$P(A|B) \ne P(B|A)$
+:::
+
+## Bayes Theorem
+
+$$
+P(A | B) = \dfrac{P(B | A) P(A)}{P(B)}
+$$
+
+## Law of Total Probability
+
+f $A_1, \dots, A_k$ is a partition of A and B an event, then:
+
+$$
+\sum_{i=1}^k P(B | A_k) P(A_k)
+$$
