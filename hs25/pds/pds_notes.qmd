@@ -842,3 +842,63 @@ pip unistall <packages>
 pip list
 pip freeze # Output in requirement format
 ```
+
+# SW11: Must have Data Science Packages
+
+## Data Manipulation
+
+### Numpy
+
+NumPy is the fundamental package for scientific computing in Python. It is a Python library that provides a multidimensional array object, various derived objects, and an assortment of routines for fast operations on arrays.
+
+#### Multidimensional Array objects 
+
+Multidimensional array object (`ndarray`) are sequences, matrices or multidimensional matrices of numerical values. Important differences between NumPy arrays and the standard Python sequences are:
+
+- Fixed size at creation. Changing size of `ndarray` creates new array.
+- All elements are required to be of the same data type.
+- NumPy arrays facilitate advanced mathematical and other types of operations on large numbers of data.
+
+### Pandas
+
+Pandas is a fast, powerful, flexible and easy to use open source data analysis and manipulation tool, built on top of the Python programming language.
+
+- **Fast DataFrame Object:** A core, efficient object for data manipulation with **integrated indexing**.
+- **I/O Capabilities:** Easy **reading and writing** of data across various formats (CSV, Excel, SQL, HDF5).
+- **Data Handling:** **Intelligent data alignment** and integrated **missing data handling**.
+- **Aggregation:** A powerful **group by engine** for split-apply-combine operations.
+
+#### Data Frames
+
+Data frames are tabular data structure commonly used in data analysis and statistical computing.
+
+- Columns represent variables (features).
+- Rows represent observations (records).
+- Indexing by labels or numerical indices: [row, col]
+
+::: {.callout-note}
+A series is a one dimensional data (index and one column of a data frame).
+:::
+
+## Data Visualization
+
+### Matplotlib
+
+Matplotlib is a low-level library that provides a lot of flexibility and control over the creation of plots. Matplotlib has three fundamental components used for creating and managing plots:
+
+- Pyplot: a collection of functions to create figures.
+- Figure object: represents the entire figure in which you can plot one or more axes.
+- Axes object: represents a single or a set of plots within a figure. This is the area where data is plotted.
+
+### Seaborn
+
+Built on top of Matplotlib, Seaborn is a high-level library specifically designed for statistical data visualization. Since seaborn builds on top of matplotlib, it is mandatory to import pyplot from matplotlib in order to add titles or show the plot directly.
+
+## Jupyter Notebook
+
+Jupyter Notebook is an open-source web application that allows you to create and share documents that contain code, equations, visualizations, and narrative text. It is widely used for data analysis, scientific research, machine learning, and educational purposes.
+
+- Interactive Code Execution: write and execute code in a cell-based format, allowing for iterative development and testing.
+- Rich Text Support: include [Markdown](https://www.markdownguide.org/) for formatting text, including headings, lists, links, and images.
+- Visualizations: create and display plots and figures inline, making it easy to visualize data alongside your code.
+- Report: export the notebook as HTML or PDF, allows for having a report always ready.
