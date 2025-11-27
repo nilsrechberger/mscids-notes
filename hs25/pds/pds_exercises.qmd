@@ -1136,3 +1136,135 @@ name = 'Andreas'
 print(greet_somebody(reverse(name)))
 #OUT: Hello saerdnA
 ```
+
+# Exercise: Jupyter Notebook
+
+::: {.callout-note}
+We skip the part about creating a Jupyter notebook and go straight to the coding part.
+:::
+
+## 2. Import
+
+```bash
+pip install numpy pandas matplotlib
+```
+
+```{python}
+# Use of convention aliases
+import numpy as np
+import pandas as pd
+
+# df means Data Frame
+df = pd.read_csv('/home/nils/dev/mscids-notes/hs25/pds/data/airquality.csv')
+
+# Preview
+df.head(n=10)
+```
+
+## 3. Stats
+
+```{python}
+# Select column "Temp" from df
+df['Temp'].describe()
+```
+
+## 4. Outlier
+
+```{python}
+# Get overview
+df['Temp'].hist() # -200 is a outlier
+
+valid_mean = df[df['Temp'] >= 0]['Temp'].mean() # Mean without outlier
+old_temp_mean = np.mean(df['Temp'])
+
+# Correction
+df['Temp'] = np.where( (df['Temp'] < 0 ), valid_mean, df['Temp'])
+
+new_temp_mean = np.mean(df['Temp'])
+
+print(f'Old mean {old_temp_mean} vs. new mean {new_temp_mean}')
+```
+
+## 5. Plotting
+
+```{python}
+from matplotlib import pyplot as plt
+
+fig, ax = plt.subplots() # Main construction
+
+ax.hist(df['Temp'], bins=20) # Main Plot
+
+ax.set_title("Temperature Distribution")
+ax.set_xlabel("Temp [*F]")
+ax.set_ylabel("Value Count")
+
+plt.show()
+```
+
+> Note: Since we corrected the outlier, the plot looks pretty good.
+
+## 6. Define Temp Converter
+
+```{python}
+def fahrenheit_to_celsius(temp: int) -> int:
+    """ Converts Fahrenheit to Celsius """
+    result = np.round((temp-32)*5/9, 1)
+    return result
+```
+
+## 7. Fahrenheit to Cerlsius
+
+```{python}
+# We can directly define a new column
+df['Temp_C'] = df['Temp'].map(fahrenheit_to_celsius)
+df.head(n=10)
+```
+
+## 8. Double-Plot
+
+```{python}
+fig, ax = plt.subplots(ncols=2) # Define two cols
+
+# First plot (ax[0])
+ax[0].hist(df['Temp'], bins=20)
+ax[0].set_title("Temperature Distribution F")
+ax[0].set_xlabel("Temp [*F]")
+ax[0].set_ylabel("Value Count")
+
+# Second plot (ax[1])
+ax[1].hist(df['Temp_C'], bins=20)
+ax[1].set_title("Temperature Distribution C")
+ax[1].set_xlabel("Temp [*C]")
+ax[1].set_ylabel("Value Count")
+
+plt.show()
+```
+
+## 9. & 10. Class “AirQualityReport”
+
+```{python}
+class AirQualityReport:
+    def __init__(self, df: pd.DataFrame):
+        for col_name, data in df.items():
+            if pd.api.types.is_numeric_dtype(data):
+                mean_value = data.mean()
+                setattr(self, f"_{col_name}", mean_value)
+
+    def calculate_max_value(self):
+        max_so_far = -float('inf')
+        max_column_name = None
+
+        for attr_name, attr_value in self.__dict__.items():
+            if attr_name.startswith('_') and isinstance(attr_value, (int, float)):
+                if attr_value > max_so_far:
+                    max_so_far = attr_value
+                    max_column_name = attr_name[1:] 
+
+        return {
+            "column_name": max_column_name,
+            "max_value": max_so_far
+        }
+
+report = AirQualityReport(df)
+print(report.__dict__)
+```
