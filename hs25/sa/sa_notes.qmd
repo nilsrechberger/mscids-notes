@@ -870,6 +870,28 @@ $$
 
 Bayesian statistics is a theory in the field of statistics based on the Bayesian interpretation of probability, where probability expresses a degree of belief in an event.
 
+In general:
+
+$$
+P(r \cap c) = P(r | c)P(c)
+$$
+
+But also:
+
+$$
+P(r \cap c) = P(c | r)P(r)
+$$
+
+Therefore:
+$$
+P(c | r)P(r) = P(r | c)P(c)
+$$
+
+Hence:
+$$
+P(c | r) = \dfrac{P(r | c)P(c)}{P(r)}
+$$
+
 ## Bayes’ Theorem: Prior, Likelihood, Posterior
 
 Introduce the following terms:
