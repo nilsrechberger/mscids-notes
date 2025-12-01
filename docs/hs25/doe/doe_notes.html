@@ -405,6 +405,19 @@ window.Quarto = {
   <li><a href="#dark-pattern-deceptive-pattern" id="toc-dark-pattern-deceptive-pattern" class="nav-link" data-scroll-target="#dark-pattern-deceptive-pattern">Dark Pattern / Deceptive Pattern</a></li>
   </ul></li>
   </ul></li>
+  <li><a href="#lecture-09-factorial-designs" id="toc-lecture-09-factorial-designs" class="nav-link" data-scroll-target="#lecture-09-factorial-designs">Lecture 09: Factorial designs</a>
+  <ul class="collapse">
+  <li><a href="#full-factorial-designs-1" id="toc-full-factorial-designs-1" class="nav-link" data-scroll-target="#full-factorial-designs-1">Full factorial designs</a>
+  <ul class="collapse">
+  <li><a href="#single-factorial-one" id="toc-single-factorial-one" class="nav-link" data-scroll-target="#single-factorial-one">Single factorial (One)</a></li>
+  <li><a href="#multifactorial-several" id="toc-multifactorial-several" class="nav-link" data-scroll-target="#multifactorial-several">Multifactorial (Several)</a></li>
+  </ul></li>
+  <li><a href="#fractional-factorial-designs-1" id="toc-fractional-factorial-designs-1" class="nav-link" data-scroll-target="#fractional-factorial-designs-1">Fractional factorial designs</a>
+  <ul class="collapse">
+  <li><a href="#in-principle-multifactorial-several" id="toc-in-principle-multifactorial-several" class="nav-link" data-scroll-target="#in-principle-multifactorial-several">In principle multifactorial (Several)</a></li>
+  </ul></li>
+  <li><a href="#latin-square" id="toc-latin-square" class="nav-link" data-scroll-target="#latin-square">Latin square</a></li>
+  </ul></li>
   </ul>
 </nav>
     </div>
@@ -1180,9 +1193,81 @@ Caution
 <p>The problem with testing dark patterns is that A/B tests typically measure short-term metrics (such as clicks or conversions). They are not good at capturing long-term damage.</p>
 </div>
 </div>
-
-
 </section>
+</section>
+</section>
+<section id="lecture-09-factorial-designs" class="level1">
+<h1>Lecture 09: Factorial designs</h1>
+<section id="full-factorial-designs-1" class="level2">
+<h2 class="anchored" data-anchor-id="full-factorial-designs-1">Full factorial designs</h2>
+<section id="single-factorial-one" class="level3">
+<h3 class="anchored" data-anchor-id="single-factorial-one">Single factorial (One)</h3>
+<p>One independent variable IV (factor) acts on the dependent variable DV. Two groups are compared:</p>
+<ul>
+<li>1 IV: one IV with two levels (dichotomous)</li>
+<li>1 DV: metric scaled</li>
+<li>Examples: A/B test, RCT with treatment and control or two treatments</li>
+<li>Analysis: One-way ANOVA</li>
+</ul>
+<p>One independent variable IV (factor) acts on the dependent variable DV. Several groups are compared:</p>
+<ul>
+<li>1 IV: one IV with several levels</li>
+<li>1 DV: metric scaled</li>
+<li>Examples: RCT with combinations of more than two treatments and control</li>
+<li>Analysis: One-way ANOVA</li>
+</ul>
+</section>
+<section id="multifactorial-several" class="level3">
+<h3 class="anchored" data-anchor-id="multifactorial-several">Multifactorial (Several)</h3>
+<p>Several factors act on the dependent variable DV. Several groups are compared:</p>
+<ul>
+<li>X IV → several IV with two or more levels each</li>
+<li>1 DV → metric scaled</li>
+<li>Examples: Dwell time with two IV</li>
+<li>Analysis: Multi-factorial ANOVA (two-way ANOVA, three-way ANOVA, …)</li>
+</ul>
+</section>
+</section>
+<section id="fractional-factorial-designs-1" class="level2">
+<h2 class="anchored" data-anchor-id="fractional-factorial-designs-1">Fractional factorial designs</h2>
+<p>The more factors and the more characteristics, the larger the number of groups. Provided that there are no interactions, the experiment can also be conducted successfully with a reduced number of groups. By using Latin squares or related designs, the number of groups required can be significantly reduced compared to full factorial designs.</p>
+<section id="in-principle-multifactorial-several" class="level3">
+<h3 class="anchored" data-anchor-id="in-principle-multifactorial-several">In principle multifactorial (Several)</h3>
+<p>Several factors act on the dependent variable DV. Several groups are compared: - X IV → several IV with two or more levels each - 1 DV → metric scaled - BUT Not all possible combinations are considered</p>
+</section>
+</section>
+<section id="latin-square" class="level2">
+<h2 class="anchored" data-anchor-id="latin-square">Latin square</h2>
+<p>A Latin squares design makes it possible to study the main effects of factors without having to observe all combinations of treatment levels.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="img/latin_square_normal.png" class="img-fluid figure-img"></p>
+<figcaption>Combination Table</figcaption>
+</figure>
+</div>
+<p>All combinations lead to a total of 27 (full factorial).</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="img/latin_square.png" class="img-fluid figure-img"></p>
+<figcaption>Latin Square</figcaption>
+</figure>
+</div>
+<p>Here we only use 9 combinations (fractional factorial).</p>
+<div class="callout callout-style-default callout-caution callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Caution
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>A Latin squares design can only be used if it follows from theory or empirical evidence that the joint effect of the factors does not produce interactions.</p>
+</div>
+</div>
+
+
 </section>
 </section>
 

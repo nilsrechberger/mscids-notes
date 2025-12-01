@@ -516,6 +516,17 @@ window.Quarto = {
   <li><a href="#g-2" id="toc-g-2" class="nav-link" data-scroll-target="#g-2">g</a></li>
   </ul></li>
   </ul></li>
+  <li><a href="#problems-10" id="toc-problems-10" class="nav-link" data-scroll-target="#problems-10">Problems 10</a>
+  <ul class="collapse">
+  <li><a href="#problem-10.1" id="toc-problem-10.1" class="nav-link" data-scroll-target="#problem-10.1">Problem 10.1</a></li>
+  <li><a href="#problem-10.2" id="toc-problem-10.2" class="nav-link" data-scroll-target="#problem-10.2">Problem 10.2</a>
+  <ul class="collapse">
+  <li><a href="#a-30" id="toc-a-30" class="nav-link" data-scroll-target="#a-30">a</a></li>
+  <li><a href="#b-29" id="toc-b-29" class="nav-link" data-scroll-target="#b-29">b</a></li>
+  </ul></li>
+  <li><a href="#problem-10.4" id="toc-problem-10.4" class="nav-link" data-scroll-target="#problem-10.4">Problem 10.4</a></li>
+  <li><a href="#problem-10.5" id="toc-problem-10.5" class="nav-link" data-scroll-target="#problem-10.5">Problem 10.5</a></li>
+  </ul></li>
   </ul>
 </nav>
     </div>
@@ -2650,9 +2661,153 @@ F-statistic: 49.01 on 2 and 397 DF,  p-value: &lt; 2.2e-16</code></pre>
 <section id="g-2" class="level3">
 <h3 class="anchored" data-anchor-id="g-2">g</h3>
 <p>The model <code>lm(Sales ~ Price + Urban + US, data=cs)</code> is a mutible regression while the smaller model <code>model &lt;- lm(Sales ~ Price + Urban, data=cs)</code> is a simple liniear regression.</p>
-
-
 </section>
+</section>
+</section>
+<section id="problems-10" class="level1">
+<h1>Problems 10</h1>
+<section id="problem-10.1" class="level2">
+<h2 class="anchored" data-anchor-id="problem-10.1">Problem 10.1</h2>
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th></th>
+<th>Pop</th>
+<th>Lib</th>
+<th>NotLib</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>A</td>
+<td>40%</td>
+<td>50%</td>
+<td>50%</td>
+</tr>
+<tr class="even">
+<td>B</td>
+<td>25%</td>
+<td>60%</td>
+<td>40%</td>
+</tr>
+<tr class="odd">
+<td>C</td>
+<td>35%</td>
+<td>35%</td>
+<td>65%</td>
+</tr>
+</tbody>
+</table>
+<p><span class="math display">\[
+P(B|L) = \dfrac{P(L|B)P(B)}{P(L)}
+\]</span></p>
+<ul>
+<li><span class="math inline">\(P(L|B) = 60\%\)</span></li>
+<li><span class="math inline">\(P(B)\)</span> = 25%$</li>
+<li><span class="math inline">\(P(L) = [P(L∣A)⋅P(A)]+[P(L∣B)⋅P(B)]+[P(L∣C)⋅P(C)] = 0.20+0.15+0.1225=0.4725\)</span></li>
+</ul>
+<p><span class="math display">\[
+P(B|L) = \dfrac{0.6 \cdot 0.25}{0.4725} \approx 0.3175 = 31.75\%
+\]</span></p>
+</section>
+<section id="problem-10.2" class="level2">
+<h2 class="anchored" data-anchor-id="problem-10.2">Problem 10.2</h2>
+<section id="a-30" class="level3">
+<h3 class="anchored" data-anchor-id="a-30">a</h3>
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th></th>
+<th>1</th>
+<th>2</th>
+<th>3</th>
+<th>4</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Model A</td>
+<td>1/4</td>
+<td>1/4</td>
+<td>1/4</td>
+<td>1/4</td>
+</tr>
+<tr class="even">
+<td>Model B</td>
+<td>1/10</td>
+<td>2/10</td>
+<td>3/10</td>
+<td>4/10</td>
+</tr>
+<tr class="odd">
+<td>Model C</td>
+<td>12/25</td>
+<td>12/50</td>
+<td>12/75</td>
+<td>12/100</td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li>Model A: Fairest model since all values have the same likelihood.</li>
+<li>Model B: Unfair model. Value 4 has the highest chance of appearing.</li>
+<li>Model C: Unfair model. Value 1 has the highest chance of appearing.</li>
+</ul>
+</section>
+<section id="b-29" class="level3">
+<h3 class="anchored" data-anchor-id="b-29">b</h3>
+<p>First try: After 100 throws, the results seem evenly distributed and reflect the distribution from model A. Second try: We can see that value 1 appears much more frequently than value 4. It resembles model C.</p>
+</section>
+</section>
+<section id="problem-10.4" class="level2">
+<h2 class="anchored" data-anchor-id="problem-10.4">Problem 10.4</h2>
+<p>Since we don’t know whether it’s heads or tails, we need to assume a priori a 50% probability for each outcome.</p>
+</section>
+<section id="problem-10.5" class="level2">
+<h2 class="anchored" data-anchor-id="problem-10.5">Problem 10.5</h2>
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th></th>
+<th>Ice Creame</th>
+<th>Fruits</th>
+<th>French Fries</th>
+<th>Pop</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>1st graders</td>
+<td>0.3</td>
+<td>0.6</td>
+<td>0.1</td>
+<td>0.2</td>
+</tr>
+<tr class="even">
+<td>6th graders</td>
+<td>0.6</td>
+<td>0.3</td>
+<td>0.1</td>
+<td>0.2</td>
+</tr>
+<tr class="odd">
+<td>11th graders</td>
+<td>0.3</td>
+<td>0.1</td>
+<td>0.6</td>
+<td>0.6</td>
+</tr>
+<tr class="even">
+<td>Overall</td>
+<td>0.36</td>
+<td>0.24</td>
+<td>0.4</td>
+<td>1</td>
+</tr>
+</tbody>
+</table>
+
+
 </section>
 </section>
 
