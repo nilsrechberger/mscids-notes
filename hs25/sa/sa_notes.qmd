@@ -863,3 +863,18 @@ f $A_1, \dots, A_k$ is a partition of A and B an event, then:
 $$
 \sum_{i=1}^k P(B | A_k) P(A_k)
 $$
+
+# Week 10: Bayesian Statistics Introduction
+
+## Bayesian Statistics
+
+Bayesian statistics is a theory in the field of statistics based on the Bayesian interpretation of probability, where probability expresses a degree of belief in an event.
+
+## Bayes’ Theorem: Prior, Likelihood, Posterior
+
+Introduce the following terms:
+
+- $P(M)$: Prior probability
+- $P(M | +)$: Posterior probability
+- $P(+ | M)$: Likelihood function
+
