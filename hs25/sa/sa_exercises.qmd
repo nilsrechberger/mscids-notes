@@ -1338,3 +1338,57 @@ summary(model)
 ### g
 
 The model `lm(Sales ~ Price + Urban + US, data=cs)` is a mutible regression while the smaller model `model <- lm(Sales ~ Price + Urban, data=cs)` is a simple liniear regression.
+
+# Problems 10
+
+## Problem 10.1
+
+|   | Pop | Lib | NotLib |
+|---|-----|-----|--------|
+| A | 40% | 50% | 50%    |
+| B | 25% | 60% | 40%    |
+| C | 35% | 35% | 65%    |
+
+$$
+P(B|L) = \dfrac{P(L|B)P(B)}{P(L)}
+$$
+
+- $P(L|B) = 60\%$
+- $P(B)$ = 25\%$
+- $P(L) = [P(L∣A)⋅P(A)]+[P(L∣B)⋅P(B)]+[P(L∣C)⋅P(C)] = 0.20+0.15+0.1225=0.4725$
+
+$$
+P(B|L) = \dfrac{0.6 \cdot 0.25}{0.4725} \approx 0.3175 = 31.75\%
+$$
+
+## Problem 10.2
+
+### a
+
+|         | 1     | 2     | 3     | 4      |
+|---------|-------|-------|-------|--------|
+| Model A | 1/4   | 1/4   | 1/4   | 1/4    |
+| Model B | 1/10  | 2/10  | 3/10  | 4/10   |
+| Model C | 12/25 | 12/50 | 12/75 | 12/100 |
+
+- Model A: Fairest model since all values have the same likelihood.
+- Model B: Unfair model. Value 4 has the highest chance of appearing.
+- Model C: Unfair model. Value 1 has the highest chance of appearing.
+
+### b
+
+First try: After 100 throws, the results seem evenly distributed and reflect the distribution from model A.
+Second try: We can see that value 1 appears much more frequently than value 4. It resembles model C.
+
+## Problem 10.4
+
+Since we don't know whether it's heads or tails, we need to assume a priori a 50% probability for each outcome.
+
+## Problem 10.5
+
+|              | Ice Creame | Fruits | French Fries | Pop |
+|--------------|------------|--------|--------------|-----|
+| 1st graders  | 0.3        | 0.6    | 0.1          | 0.2 |
+| 6th graders  | 0.6        | 0.3    | 0.1          | 0.2 |
+| 11th graders | 0.3        | 0.1    | 0.6          | 0.6 |
+| Overall      | 0.36       | 0.24   | 0.4          | 1   |
