@@ -597,3 +597,60 @@ Dark / deceptive patterns are patterns of persuasion and influence. They may inc
 ::: {.callout-caution}
 The problem with testing dark patterns is that A/B tests typically measure short-term metrics (such as clicks or conversions). They are not good at capturing long-term damage.
 :::
+
+# Lecture 09: Factorial designs
+
+## Full factorial designs
+
+### Single factorial (One)
+
+One independent variable IV (factor) acts on the dependent variable DV. Two groups are compared:
+
+- 1 IV: one IV with two levels (dichotomous)
+- 1 DV: metric scaled
+- Examples: A/B test, RCT with treatment and control or two treatments
+- Analysis: One-way ANOVA
+
+One independent variable IV (factor) acts on the dependent variable DV. Several groups are compared:
+
+- 1 IV: one IV with several levels
+- 1 DV: metric scaled
+- Examples: RCT with combinations of more than two treatments and control
+- Analysis: One-way ANOVA
+
+### Multifactorial (Several)
+
+Several factors act on the dependent variable DV. Several groups are compared:
+
+- X IV → several IV with two or more levels each
+- 1 DV → metric scaled
+- Examples: Dwell time with two IV
+- Analysis: Multi-factorial ANOVA (two-way ANOVA, three-way ANOVA, ...)
+
+## Fractional factorial designs
+
+The more factors and the more characteristics, the larger the number of groups. Provided that there are no interactions, the experiment can also be conducted successfully
+with a reduced number of groups. By using Latin squares or related designs, the number of groups required can be significantly reduced compared to full factorial designs.
+
+### In principle multifactorial (Several)
+
+Several factors act on the dependent variable DV. Several groups are compared:
+- X IV → several IV with two or more levels each
+- 1 DV → metric scaled
+- BUT Not all possible combinations are considered
+
+## Latin square
+
+A Latin squares design makes it possible to study the main effects of factors without having to observe all combinations of treatment levels.
+
+![Combination Table](img/latin_square_normal.png)
+
+All combinations lead to a total of 27 (full factorial).
+
+![Latin Square](img/latin_square.png)
+
+Here we only use 9 combinations (fractional factorial).
+
+::: {.callout-caution}
+A Latin squares design can only be used if it follows from theory or empirical evidence that the joint effect of the factors does not produce interactions.
+:::
