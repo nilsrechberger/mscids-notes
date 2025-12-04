@@ -900,3 +900,100 @@ Introduce the following terms:
 - $P(M | +)$: Posterior probability
 - $P(+ | M)$: Likelihood function
 
+# Week 11: Beta distribution
+
+## Evidence `P(D)`
+
+Calculate evidence P(D) with law total probability.
+
+$$
+\sum_{i=1}^n P(D|\theta_i)P(\theta_i)
+$$
+
+Use probability density functions instead of probabilities and sums become integrals.
+
+$$
+P(D) = \int P(D \mid \theta^*) p(\theta^*) d\theta^*
+$$
+
+> Note: Areas under probability density curves correspond to probabilities. Total ares under the curve is 1.
+
+## Bernoulli distribution
+
+### Likelihood function for coin tosses
+
+If N denotes number of tosses, $z$ number of $H$ and $N − z$ number
+of $T$, then probability distribution:
+
+$$
+P(\{y_i\} \mid \theta) = \theta^{Z}(1 - \theta)^{N - Z}
+$$
+
+## Description of Probabilities: Beta Distribution
+
+The Beta distribution ($Beta(α,β)$) is a continuous probability distribution defined over the interval $[0,1]$. The Beta distribution is controlled by two positive shape parameters, typically denoted as $α$ and $β$. By changing $α$ and $β$, the distribution can take on a wide range of shapes, including symmetric, skewed left or right, or even U-shaped.
+
+### Central Tendency
+
+Our goal is to transform a prior belief, which is expressed in terms of tendency and uncertainty, into corresponding parameter values $a$ and $b$ in the beta distribution.
+
+### Mean
+
+$$
+\mu = \dfrac{a}{a+b}
+$$
+
+### Mode
+
+$$
+\omega = \dfrac{a-1}{a+b-2}
+$$
+
+### Spread
+
+$$
+k = a + b
+$$
+
+For $a$ and $b$ in terms of mean $μ$ and concentration $κ$
+
+$$
+a = \muκ
+$$
+
+$$
+b = (1-\mu)κ
+$$
+
+For $a$ and $b$ in terms of mode $ω$ and concentration $κ$
+
+$$
+a = \omega(κ − 2) + 1 
+$$
+
+$$
+b = (1 − \omega)(κ − 2) + 1 \text{ for } κ > 2
+$$
+
+## Posterior Beta
+
+If prior distribution is beta distribution Beta(θ | a, b), and data show z heads in N tosses, then posterior distribution is again beta distribution.
+
+$$
+p(\theta \mid z, N) = \text{Beta}(\theta \mid z + a, N - z + b)
+$$
+
+## Highest Density Interval (HDI)
+
+To summarise a distribution, use highest density interval (HDI). It indicates which points of a distribution are most credible and
+which represent largest part of the distributio.
+
+::: {.callout-note}
+Since this normal distribution is symmetric about zero, the 95 %-HDI extends from −1.96 to +1.96.
+:::
+
+> Note: HDI has nothing to do with confidence interval.
+
+## Influence of prior on posterior distribution
+
+Practical relevance: It does not matter whether choice $a = b = 10$ or $a = b = 15$ for prior distribution. It does matter whether $a$ = b = 1$ or $a = b = 10$ or $a = b = 100$. If we have no idea about coin: Choose $a = b = 1$. If we have examined the coin more closely and find that it is very symmetrical, we may choose $a = b = 100$.
