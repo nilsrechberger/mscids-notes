@@ -399,6 +399,24 @@ window.Quarto = {
   <li><a href="#bayesian-statistics" id="toc-bayesian-statistics" class="nav-link" data-scroll-target="#bayesian-statistics">Bayesian Statistics</a></li>
   <li><a href="#bayes-theorem-prior-likelihood-posterior" id="toc-bayes-theorem-prior-likelihood-posterior" class="nav-link" data-scroll-target="#bayes-theorem-prior-likelihood-posterior">Bayes’ Theorem: Prior, Likelihood, Posterior</a></li>
   </ul></li>
+  <li><a href="#week-11-beta-distribution" id="toc-week-11-beta-distribution" class="nav-link" data-scroll-target="#week-11-beta-distribution">Week 11: Beta distribution</a>
+  <ul class="collapse">
+  <li><a href="#evidence-pd" id="toc-evidence-pd" class="nav-link" data-scroll-target="#evidence-pd">Evidence <code>P(D)</code></a></li>
+  <li><a href="#bernoulli-distribution" id="toc-bernoulli-distribution" class="nav-link" data-scroll-target="#bernoulli-distribution">Bernoulli distribution</a>
+  <ul class="collapse">
+  <li><a href="#likelihood-function-for-coin-tosses" id="toc-likelihood-function-for-coin-tosses" class="nav-link" data-scroll-target="#likelihood-function-for-coin-tosses">Likelihood function for coin tosses</a></li>
+  </ul></li>
+  <li><a href="#description-of-probabilities-beta-distribution" id="toc-description-of-probabilities-beta-distribution" class="nav-link" data-scroll-target="#description-of-probabilities-beta-distribution">Description of Probabilities: Beta Distribution</a>
+  <ul class="collapse">
+  <li><a href="#central-tendency" id="toc-central-tendency" class="nav-link" data-scroll-target="#central-tendency">Central Tendency</a></li>
+  <li><a href="#mean" id="toc-mean" class="nav-link" data-scroll-target="#mean">Mean</a></li>
+  <li><a href="#mode" id="toc-mode" class="nav-link" data-scroll-target="#mode">Mode</a></li>
+  <li><a href="#spread" id="toc-spread" class="nav-link" data-scroll-target="#spread">Spread</a></li>
+  </ul></li>
+  <li><a href="#posterior-beta" id="toc-posterior-beta" class="nav-link" data-scroll-target="#posterior-beta">Posterior Beta</a></li>
+  <li><a href="#highest-density-interval-hdi" id="toc-highest-density-interval-hdi" class="nav-link" data-scroll-target="#highest-density-interval-hdi">Highest Density Interval (HDI)</a></li>
+  <li><a href="#influence-of-prior-on-posterior-distribution" id="toc-influence-of-prior-on-posterior-distribution" class="nav-link" data-scroll-target="#influence-of-prior-on-posterior-distribution">Influence of prior on posterior distribution</a></li>
+  </ul></li>
   </ul>
 </nav>
     </div>
@@ -1514,6 +1532,104 @@ P(c | r) = \dfrac{P(r | c)P(c)}{P(r)}
 <li><span class="math inline">\(P(M | +)\)</span>: Posterior probability</li>
 <li><span class="math inline">\(P(+ | M)\)</span>: Likelihood function</li>
 </ul>
+</section>
+</section>
+<section id="week-11-beta-distribution" class="level1">
+<h1>Week 11: Beta distribution</h1>
+<section id="evidence-pd" class="level2">
+<h2 class="anchored" data-anchor-id="evidence-pd">Evidence <code>P(D)</code></h2>
+<p>Calculate evidence P(D) with law total probability.</p>
+<p><span class="math display">\[
+\sum_{i=1}^n P(D|\theta_i)P(\theta_i)
+\]</span></p>
+<p>Use probability density functions instead of probabilities and sums become integrals.</p>
+<p><span class="math display">\[
+P(D) = \int P(D \mid \theta^*) p(\theta^*) d\theta^*
+\]</span></p>
+<blockquote class="blockquote">
+<p>Note: Areas under probability density curves correspond to probabilities. Total ares under the curve is 1.</p>
+</blockquote>
+</section>
+<section id="bernoulli-distribution" class="level2">
+<h2 class="anchored" data-anchor-id="bernoulli-distribution">Bernoulli distribution</h2>
+<section id="likelihood-function-for-coin-tosses" class="level3">
+<h3 class="anchored" data-anchor-id="likelihood-function-for-coin-tosses">Likelihood function for coin tosses</h3>
+<p>If N denotes number of tosses, <span class="math inline">\(z\)</span> number of <span class="math inline">\(H\)</span> and <span class="math inline">\(N − z\)</span> number of <span class="math inline">\(T\)</span>, then probability distribution:</p>
+<p><span class="math display">\[
+P(\{y_i\} \mid \theta) = \theta^{Z}(1 - \theta)^{N - Z}
+\]</span></p>
+</section>
+</section>
+<section id="description-of-probabilities-beta-distribution" class="level2">
+<h2 class="anchored" data-anchor-id="description-of-probabilities-beta-distribution">Description of Probabilities: Beta Distribution</h2>
+<p>The Beta distribution (<span class="math inline">\(Beta(α,β)\)</span>) is a continuous probability distribution defined over the interval <span class="math inline">\([0,1]\)</span>. The Beta distribution is controlled by two positive shape parameters, typically denoted as <span class="math inline">\(α\)</span> and <span class="math inline">\(β\)</span>. By changing <span class="math inline">\(α\)</span> and <span class="math inline">\(β\)</span>, the distribution can take on a wide range of shapes, including symmetric, skewed left or right, or even U-shaped.</p>
+<section id="central-tendency" class="level3">
+<h3 class="anchored" data-anchor-id="central-tendency">Central Tendency</h3>
+<p>Our goal is to transform a prior belief, which is expressed in terms of tendency and uncertainty, into corresponding parameter values <span class="math inline">\(a\)</span> and <span class="math inline">\(b\)</span> in the beta distribution.</p>
+</section>
+<section id="mean" class="level3">
+<h3 class="anchored" data-anchor-id="mean">Mean</h3>
+<p><span class="math display">\[
+\mu = \dfrac{a}{a+b}
+\]</span></p>
+</section>
+<section id="mode" class="level3">
+<h3 class="anchored" data-anchor-id="mode">Mode</h3>
+<p><span class="math display">\[
+\omega = \dfrac{a-1}{a+b-2}
+\]</span></p>
+</section>
+<section id="spread" class="level3">
+<h3 class="anchored" data-anchor-id="spread">Spread</h3>
+<p><span class="math display">\[
+k = a + b
+\]</span></p>
+<p>For <span class="math inline">\(a\)</span> and <span class="math inline">\(b\)</span> in terms of mean <span class="math inline">\(μ\)</span> and concentration <span class="math inline">\(κ\)</span></p>
+<p><span class="math display">\[
+a = \muκ
+\]</span></p>
+<p><span class="math display">\[
+b = (1-\mu)κ
+\]</span></p>
+<p>For <span class="math inline">\(a\)</span> and <span class="math inline">\(b\)</span> in terms of mode <span class="math inline">\(ω\)</span> and concentration <span class="math inline">\(κ\)</span></p>
+<p><span class="math display">\[
+a = \omega(κ − 2) + 1
+\]</span></p>
+<p><span class="math display">\[
+b = (1 − \omega)(κ − 2) + 1 \text{ for } κ &gt; 2
+\]</span></p>
+</section>
+</section>
+<section id="posterior-beta" class="level2">
+<h2 class="anchored" data-anchor-id="posterior-beta">Posterior Beta</h2>
+<p>If prior distribution is beta distribution Beta(θ | a, b), and data show z heads in N tosses, then posterior distribution is again beta distribution.</p>
+<p><span class="math display">\[
+p(\theta \mid z, N) = \text{Beta}(\theta \mid z + a, N - z + b)
+\]</span></p>
+</section>
+<section id="highest-density-interval-hdi" class="level2">
+<h2 class="anchored" data-anchor-id="highest-density-interval-hdi">Highest Density Interval (HDI)</h2>
+<p>To summarise a distribution, use highest density interval (HDI). It indicates which points of a distribution are most credible and which represent largest part of the distributio.</p>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Note
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Since this normal distribution is symmetric about zero, the 95 %-HDI extends from −1.96 to +1.96.</p>
+</div>
+</div>
+<blockquote class="blockquote">
+<p>Note: HDI has nothing to do with confidence interval.</p>
+</blockquote>
+</section>
+<section id="influence-of-prior-on-posterior-distribution" class="level2">
+<h2 class="anchored" data-anchor-id="influence-of-prior-on-posterior-distribution">Influence of prior on posterior distribution</h2>
+<p>Practical relevance: It does not matter whether choice <span class="math inline">\(a = b = 10\)</span> or <span class="math inline">\(a = b = 15\)</span> for prior distribution. It does matter whether <span class="math inline">\(a\)</span> = b = 1$ or <span class="math inline">\(a = b = 10\)</span> or <span class="math inline">\(a = b = 100\)</span>. If we have no idea about coin: Choose <span class="math inline">\(a = b = 1\)</span>. If we have examined the coin more closely and find that it is very symmetrical, we may choose <span class="math inline">\(a = b = 100\)</span>.</p>
 
 
 </section>
