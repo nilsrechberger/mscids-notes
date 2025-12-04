@@ -902,3 +902,162 @@ Jupyter Notebook is an open-source web application that allows you to create and
 - Rich Text Support: include [Markdown](https://www.markdownguide.org/) for formatting text, including headings, lists, links, and images.
 - Visualizations: create and display plots and figures inline, making it easy to visualize data alongside your code.
 - Report: export the notebook as HTML or PDF, allows for having a report always ready.
+
+# SW12: Short Functions
+
+## Deep vs. Shallow Copy
+
+Python only has objects and references to them. So, variables are always references to objects stored in the memory in one
+or more storage cells. Consequently, when copying a variable, we copy the reference to a particular object – not the object itself.
+
+```{python}
+# Define a var
+x = 123
+y = x # Copy x to y
+
+# Both vars have the same memory location
+print(id(x))
+print(id(y))
+```
+
+To create a copy of a sequence object with a new reference (ie. id), sequence objects implement the `copy()` method.
+
+> Note: The method `copy()` is only available for mutable objects.
+
+Copying a sequence returns a shallow copy of the object only. References to sub-sequences still remain the same and are affected by the same side-effect as when duplicating the reference by reassignment.
+
+## Lambda Function
+
+### Concept
+
+When associating a function to a variable, this can be done directly without function declaration first. Associated to a variable, they can be called as regular functions by the variable as reference instead of the function name. are typically used for expressions in combination with filter functions such as for the `map()` or `sort()` functions.
+
+#### `map()`-Function
+
+Applies a function to every single item of an iterable.
+
+```{python}
+my_list = [2, 4, 6, 8, 10]
+# Divide every value from the list by 2
+new_list = list(map(lambda x: int(x/2), my_list))
+print(my_list)
+print(new_list)
+```
+
+#### `sort()`-Function
+
+Sorts an iterable based on a given comparator.
+
+```{python}
+my_list = [4, 10, 6, 2, 8]
+# Sort the values in reverse order
+my_list.sort(key=lambda x: -x)
+print(my_list)
+```
+
+## List Comprehension
+
+Instead iterating a list with a for loop for applying a single expression on each element, a single expression can be applied in a simpler way on one line using a list comprehension.
+
+```{python}
+my_list = [1, 2, 3]
+new_list = []
+# Iterate over a list
+for value in my_list:
+    new_list.append(value * 2)
+print(f"Original list: {my_list}")
+print(f"New list with loop: {new_list}")
+
+### IS THE SAME AS ###
+
+my_list = [value * 2 for value in my_list]
+print(f"New list with comprehension {my_list}")
+```
+
+::: {.callout-note}
+Comprehensions can be applied in-place
+:::
+
+Comprehensions only apply a single expression on each list element. However, it provides the option defining conditions for the elements on that it should be applied.
+
+```{python}
+my_list = [1, 2, 3, 4]
+# Only double even values from the list
+my_list = [value * 2 if value % 2 == 0 else value for value in my_list]
+print(my_list)
+```
+
+> Note: The single expression can also be a regular function
+
+### Nested Loops
+
+comprehension allow to apply expressions to multi-dimensional lists – nested list comprehension.
+
+```{python}
+my_list = [[1, 1], [2, 2], [3, 3]]
+new_list = []
+# Iterate over both lists
+for coordinate in my_list:
+    new_coordinate = []
+    for entry in coordinate:
+        new_coordinate.append(entry * 2)
+    new_list.append(new_coordinate)
+print(f"Original list: {my_list}")
+print(f"New list with loop: {new_list}")
+
+### IS THE SAME AS ###
+
+my_list = [[entry * 2 for entry in coordinate] for coordinate in my_list]
+print(f"New list with comprehension {my_list}")
+```
+
+### Tuples
+
+Despite the similarity between tuple and list in Python, there exist no tuple comprehension.Generating a tuple with a comprehension requires an explicit typecast `tuple()` or a tweak using unpacking operator for variable assignment.
+
+```{python}
+my_tuple = (1, 2, 3, 4)
+
+x = tuple([i*2 for i in my_tuple])
+print(f"With typecast: {x}")
+
+y = *[i*2 for i in my_tuple],
+print(f"With unpacking operator: {y}")
+```
+
+### Dictionary
+
+Dictionary comprehension requires the format of dictionary elements as expression results.
+
+```{python}
+x = [1, 2, 3, 4, 5]
+
+d1 = {i:i for i in x}
+print(d1)
+d2 = {k:v for (k,v) in enumerate(x)}
+print(d2)
+d3 = {k:v for (k,v) in zip(["a", "b", "c", "d", "e"], x)}
+print(d3)
+```
+
+## Type Annotation
+
+The Python runtime does not enforce function and variable type annotations. They can be used by third party tools such as type checkers, IDEs, linters, etc. In particular, we only define the type (any Python class) of references separated by colon (`:`) and arrows (`->`).
+
+```python
+x: int = 10 # Var x is an integer
+def my_function(x: int) # The param x has to be an integer
+def my_function(x) -> int: # The function returns an integer
+```
+
+## Assert Function
+
+Python’s `assert` statement allows you to write sanity checks in your code. These checks are known as assertions, and you can use them to test if certain assumptions remain true while you’re developing your code. If any of your assertions turn false, it indicates a bug by raising an `AssertionError`.
+
+```{python}
+def division(a, b):
+    assert b != 0, "Division by Zero" # Divider can't be Zero
+    
+    res = a / b
+    return res
+```
