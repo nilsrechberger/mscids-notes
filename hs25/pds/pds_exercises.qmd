@@ -1268,3 +1268,119 @@ class AirQualityReport:
 report = AirQualityReport(df)
 print(report.__dict__)
 ```
+
+# Exercise: Comprehension & Lambda I
+
+## Task 1.
+
+```{python}
+nums = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20]
+
+# Task 1: copy all even elements from 'nums' into a new list.
+print("\n---- Task 1 ----")
+my_list = []
+for n in nums:
+    if not n%2:
+        my_list.append(n)
+print(f"for loop: {my_list=}")
+
+# solution with list comprehension:
+my_list = [num for num in nums if num % 2 == 0]
+print(f"comprehension: {my_list=}")
+```
+
+## Task 2.
+
+```{python}
+# Task 2: calculate the square of each element in the list 'nums'.
+nums = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20]
+
+print("\n---- Task 2 ----")
+my_list = []
+for n in nums:
+  my_list.append(n*n)
+print(f"for loop: {my_list=}")
+
+# solution with list comprehension:
+my_list = [num*num for num in nums]
+print(f"comprehension: {my_list=}")
+```
+
+## Task 3.
+
+```{python}
+# Task 3: calculate the square of each element in the list 'nums' by applying
+# a lambda function on the list (using map function).
+nums = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20]
+
+print("\n---- Task 3 ----")
+my_list = []
+for n in nums:
+  my_list.append(n*n)
+print(f"for loop: {my_list=}")
+
+# solution with list comprehension:
+my_list = list(map(lambda x: x*x, nums))
+print(f"lambda: {my_list=}")
+```
+
+## Task 4.
+
+```{python}
+# Task 4: create nested lists comprising all lower prime numbers up to the 
+# given number in 'nums'.
+nums = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20]
+primes = [1, 2, 3, 5, 7, 11, 13, 17, 19, 23]
+
+print("\n---- Task 4 ----")
+my_list = []
+for n in nums:
+  p_list = []
+  for p in primes:
+    if p <= n:
+      p_list.append(p)
+  my_list.append(p_list)
+print(f"for loop: {my_list=}")
+
+# solution with list comprehension:
+my_list = [[p for p in primes if p <= n] for n in nums]
+print(f"comprehension: {my_list=}")
+```
+
+# Exercise: Comprehension & Lambda II
+
+## Task 1.
+
+```{python}
+# The variable 'chars' provides a list of all possible lower case characters.
+# And the method count of a str object counts the number of occurrence for a 
+# particular object.
+
+import string
+chars = string.ascii_lowercase
+
+lorem = """Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed
+diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat,
+sed diam voluptua. At vero eos et accusam et justo duo dolores et ea
+rebum. Stet clita gubergren, no sea takimata sanctus est Lorem ipsum dolor
+sit amet."""
+
+# Task 1: use the map function to apply a lambda function for counting all
+# characters in the text.
+count1 = {}
+count1 = dict(map(lambda char: (char, lorem.count(char)), chars))
+
+print(count1)
+print(count1["e"])
+```
+
+## Task 2.
+
+```{python}
+# Task 2: solve the same problem by means of a dictionary comprehension.
+count2 = {}
+count2 = {char: lorem.count(char) for char in chars}
+
+print(count2)
+print(count2["e"])
+```
