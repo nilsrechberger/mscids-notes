@@ -1,3 +1,8 @@
+# Cached files
+*quarto_ipynb*
+*/*quarto_ipynb*
+*/*/*quarto_ipynb*
+
 # Quarto
 /.quarto/
 
