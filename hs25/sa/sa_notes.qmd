@@ -997,3 +997,26 @@ Since this normal distribution is symmetric about zero, the 95 %-HDI extends fro
 ## Influence of prior on posterior distribution
 
 Practical relevance: It does not matter whether choice $a = b = 10$ or $a = b = 15$ for prior distribution. It does matter whether $a$ = b = 1$ or $a = b = 10$ or $a = b = 100$. If we have no idea about coin: Choose $a = b = 1$. If we have examined the coin more closely and find that it is very symmetrical, we may choose $a = b = 100$.
+
+# Week 12: General Metropolis Algorithm
+
+## Markov Chain Monte Carlo (MCMC)
+
+Present methods to generate good approximations of Bayes’ posterior distributions. Method described starts from two assumptions:
+
+- Prior distribution: Function that can be easily evaluated by a computer.
+- Likelihood function: Function that can be easily evaluated by a computer.
+
+Posterior distribution is estimated by randomly generating a set of $\theta$ values from it
+
+## Approximation of a Distribution Mean Large Samples
+
+Concept of representing a distribution using a large sample of representative $\theta$ values is fundamental to approach to Bayesian analysis of complex models. The larger the sample, the better the estimate.
+
+## Metropolis Algorithm
+
+Approximation of continuous posterior distribution. Metropolis algorithm generates many representative $\theta$ values whose histogram approximates posterior distribution given a sufficiently large number of sample $\theta$ values.
+
+## Region of Practical Equivalence (ROPE)
+
+Specifies a small range of parameter values that is considered practically equivalent to null value for purposes of a particular application.
