@@ -18,7 +18,7 @@ website:
           - text: "Mock Exam Solution"
             href: hs25/pds/pds_mock_exam.qmd
           - text: "Modul Exam FS2023"
-            href: hs25/pds/psd_modul_exam_fs23.qmd
+            href: hs25/pds/pds_modul_exam_fs23.qmd
       - text: "Classical and Bayesian Statistics"
         menu:
           - text: "Notes"
