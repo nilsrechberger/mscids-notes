@@ -421,6 +421,13 @@ window.Quarto = {
   <li><a href="#highest-density-interval-hdi" id="toc-highest-density-interval-hdi" class="nav-link" data-scroll-target="#highest-density-interval-hdi">Highest Density Interval (HDI)</a></li>
   <li><a href="#influence-of-prior-on-posterior-distribution" id="toc-influence-of-prior-on-posterior-distribution" class="nav-link" data-scroll-target="#influence-of-prior-on-posterior-distribution">Influence of prior on posterior distribution</a></li>
   </ul></li>
+  <li><a href="#week-12-general-metropolis-algorithm" id="toc-week-12-general-metropolis-algorithm" class="nav-link" data-scroll-target="#week-12-general-metropolis-algorithm">Week 12: General Metropolis Algorithm</a>
+  <ul class="collapse">
+  <li><a href="#markov-chain-monte-carlo-mcmc" id="toc-markov-chain-monte-carlo-mcmc" class="nav-link" data-scroll-target="#markov-chain-monte-carlo-mcmc">Markov Chain Monte Carlo (MCMC)</a></li>
+  <li><a href="#approximation-of-a-distribution-mean-large-samples" id="toc-approximation-of-a-distribution-mean-large-samples" class="nav-link" data-scroll-target="#approximation-of-a-distribution-mean-large-samples">Approximation of a Distribution Mean Large Samples</a></li>
+  <li><a href="#metropolis-algorithm" id="toc-metropolis-algorithm" class="nav-link" data-scroll-target="#metropolis-algorithm">Metropolis Algorithm</a></li>
+  <li><a href="#region-of-practical-equivalence-rope" id="toc-region-of-practical-equivalence-rope" class="nav-link" data-scroll-target="#region-of-practical-equivalence-rope">Region of Practical Equivalence (ROPE)</a></li>
+  </ul></li>
   </ul>
 </nav>
     </div>
@@ -1634,6 +1641,30 @@ Note
 <section id="influence-of-prior-on-posterior-distribution" class="level2">
 <h2 class="anchored" data-anchor-id="influence-of-prior-on-posterior-distribution">Influence of prior on posterior distribution</h2>
 <p>Practical relevance: It does not matter whether choice <span class="math inline">\(a = b = 10\)</span> or <span class="math inline">\(a = b = 15\)</span> for prior distribution. It does matter whether <span class="math inline">\(a\)</span> = b = 1$ or <span class="math inline">\(a = b = 10\)</span> or <span class="math inline">\(a = b = 100\)</span>. If we have no idea about coin: Choose <span class="math inline">\(a = b = 1\)</span>. If we have examined the coin more closely and find that it is very symmetrical, we may choose <span class="math inline">\(a = b = 100\)</span>.</p>
+</section>
+</section>
+<section id="week-12-general-metropolis-algorithm" class="level1">
+<h1>Week 12: General Metropolis Algorithm</h1>
+<section id="markov-chain-monte-carlo-mcmc" class="level2">
+<h2 class="anchored" data-anchor-id="markov-chain-monte-carlo-mcmc">Markov Chain Monte Carlo (MCMC)</h2>
+<p>Present methods to generate good approximations of Bayes’ posterior distributions. Method described starts from two assumptions:</p>
+<ul>
+<li>Prior distribution: Function that can be easily evaluated by a computer.</li>
+<li>Likelihood function: Function that can be easily evaluated by a computer.</li>
+</ul>
+<p>Posterior distribution is estimated by randomly generating a set of <span class="math inline">\(\theta\)</span> values from it</p>
+</section>
+<section id="approximation-of-a-distribution-mean-large-samples" class="level2">
+<h2 class="anchored" data-anchor-id="approximation-of-a-distribution-mean-large-samples">Approximation of a Distribution Mean Large Samples</h2>
+<p>Concept of representing a distribution using a large sample of representative <span class="math inline">\(\theta\)</span> values is fundamental to approach to Bayesian analysis of complex models. The larger the sample, the better the estimate.</p>
+</section>
+<section id="metropolis-algorithm" class="level2">
+<h2 class="anchored" data-anchor-id="metropolis-algorithm">Metropolis Algorithm</h2>
+<p>Approximation of continuous posterior distribution. Metropolis algorithm generates many representative <span class="math inline">\(\theta\)</span> values whose histogram approximates posterior distribution given a sufficiently large number of sample <span class="math inline">\(\theta\)</span> values.</p>
+</section>
+<section id="region-of-practical-equivalence-rope" class="level2">
+<h2 class="anchored" data-anchor-id="region-of-practical-equivalence-rope">Region of Practical Equivalence (ROPE)</h2>
+<p>Specifies a small range of parameter values that is considered practically equivalent to null value for purposes of a particular application.</p>
 
 
 </section>
