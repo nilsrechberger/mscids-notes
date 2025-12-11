@@ -351,7 +351,7 @@ Generated username: amei98
 ```{python}
 first_name = "Anna"
 last_name = "Meier"
-birth_year = 1998
+birth_year = "1998"
 username = "%s%s%s" % (first_name[0].lower(), last_name[:3].lower(), birth_year[-2:])
 
 print("Generated username: %s" % username)
