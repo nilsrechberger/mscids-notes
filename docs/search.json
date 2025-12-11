@@ -501,14 +501,14 @@
     "href": "hs25/pds/pds_exercises.html",
     "title": "Python for Data Science - Exercises",
     "section": "",
-    "text": "print(f\"10 + 10 + 10 = {10 + 10 + 10}\")\nprint(f\"10 - 3       = {10 - 3}\")\nprint(f\"10 * 2       = {10 * 2}\")\nprint(f\"5 / 2        = {5 / 2}\")\nprint(f\"5.0 / 2      = {5.0 / 2}\")\nprint(f\"5 % 2        = {5 % 2}\")\nprint(f\"10 % 3       = {10 % 3}\")\nprint(f\"3 ** 3       = {3 ** 3}\")\nprint(f\"9 ** 0.5     = {9 ** 0.5}\")\nprint(f\"10 + 3 * 3   = {10 + 3 * 3}\")\nprint(f\"(10 + 3) * 3 = {(10 + 3) * 3}\")\n\n10 + 10 + 10 = 30\n10 - 3       = 7\n10 * 2       = 20\n5 / 2        = 2.5\n5.0 / 2      = 2.5\n5 % 2        = 1\n10 % 3       = 1\n3 ** 3       = 27\n9 ** 0.5     = 3.0\n10 + 3 * 3   = 19\n(10 + 3) * 3 = 39\n\n\n\n\n\n\na = 23\nb = 23\nprint(f\"a = {a}\")\nprint(f\"The ID of a is {id(a)}\") # Prints memory address of the variable a\nprint(f\"a is of type {type(a)}\") # Prints the data type of the variable a\n\na = 23\nThe ID of a is 11761384\na is of type &lt;class 'int'&gt;\n\n\n\nNote: id() corresponds to the objects memory address during its lifetime.\n\n\nprint(f\"b = {b}\")\nprint(f\"The ID of b is {id(b)}\")\nprint(f\"b is of type {type(a)}\")\n\nb = 23\nThe ID of b is 11761384\nb is of type &lt;class 'int'&gt;\n\n\n\n\n\n\na = 123 # Reassign var a to int 123\nprint(f\"a = {a}\")\nprint(f\"The ID of a is {id(a)}\")\nprint(f\"a is of type {type(a)}\")\n\na = 123\nThe ID of a is 11764584\na is of type &lt;class 'int'&gt;\n\n\n\n\n\n\nc = 23\nprint(f\"c = {c}\")\nprint(f\"The ID of a is {id(c)}\")\nprint(f\"c is of type {type(c)}\")\n\nc = 23\nThe ID of a is 11761384\nc is of type &lt;class 'int'&gt;\n\n\nWe assign the variable c to the value 23 and check its data type and memory location.\n\n\n\n\nd = 3.142\nprint(f\"d = {d}\")\nprint(f\"The ID of a is {id(d)}\")\nprint(f\"d is of type {type(d)}\")\n\nd = 3.142\nThe ID of a is 130266774264976\nd is of type &lt;class 'float'&gt;\n\n\n\n\n\n\nprint (\"HSLU's Python course is cool\")\n\nprint(\"This is Line 1\")\nprint(\"This is Line 2\")\n\nprint(\"\\nWhat does the \\\\n control character do? Are you sure?\") # \\n is a line break\n\nprint(\"\\tWhat does the \\\\t control character do? Are you sure?\") # \\t is a tabulator\n\nprint(\"I want to learn python because....\")\nprint(\"\\n\\n\\t....it's a cool data science programming language. Ok - there are also others ;-) !\")\n\nprint(\"What \" + \"is \" + \"wrong?\" + \"\\nAdd some space between the words without removing the '+' signs!\") # Add spaces after the string\n\nHSLU's Python course is cool\nThis is Line 1\nThis is Line 2\n\nWhat does the \\n control character do? Are you sure?\n    What does the \\t control character do? Are you sure?\nI want to learn python because....\n\n\n    ....it's a cool data science programming language. Ok - there are also others ;-) !\nWhat is wrong?\nAdd some space between the words without removing the '+' signs!\n\n\n\n\n\n\ng=h='hslu'      # Assign the var g and h to the string \"hslu\"\nprint(g)        # Prints hslu\nprint(h)        # Print hslu\nh=456           # Reassign h to int 456\nprint(h)        # Prints 456\nh=h+1           # Calculates 456 + 1 = 457\nprint(h)        # Prints 457\nh+=1            # Calculates 457 + 1 = 458\nprint(h)        # Prints 458\np='hslu'        # Assign the var p to the string \"hslu\"\nq=p             # Copies the var p (hlsu) to the var q\nprint(p==q)     # Compare the var p and q (Output: True)\nprint(p is q)   # Compare the var p and q (Output: True)\n\nhslu\nhslu\n456\n457\n458\nTrue\nTrue"
+    "text": "print(f\"10 + 10 + 10 = {10 + 10 + 10}\")\nprint(f\"10 - 3       = {10 - 3}\")\nprint(f\"10 * 2       = {10 * 2}\")\nprint(f\"5 / 2        = {5 / 2}\")\nprint(f\"5.0 / 2      = {5.0 / 2}\")\nprint(f\"5 % 2        = {5 % 2}\")\nprint(f\"10 % 3       = {10 % 3}\")\nprint(f\"3 ** 3       = {3 ** 3}\")\nprint(f\"9 ** 0.5     = {9 ** 0.5}\")\nprint(f\"10 + 3 * 3   = {10 + 3 * 3}\")\nprint(f\"(10 + 3) * 3 = {(10 + 3) * 3}\")\n\n10 + 10 + 10 = 30\n10 - 3       = 7\n10 * 2       = 20\n5 / 2        = 2.5\n5.0 / 2      = 2.5\n5 % 2        = 1\n10 % 3       = 1\n3 ** 3       = 27\n9 ** 0.5     = 3.0\n10 + 3 * 3   = 19\n(10 + 3) * 3 = 39\n\n\n\n\n\n\na = 23\nb = 23\nprint(f\"a = {a}\")\nprint(f\"The ID of a is {id(a)}\") # Prints memory address of the variable a\nprint(f\"a is of type {type(a)}\") # Prints the data type of the variable a\n\na = 23\nThe ID of a is 11761384\na is of type &lt;class 'int'&gt;\n\n\n\nNote: id() corresponds to the objects memory address during its lifetime.\n\n\nprint(f\"b = {b}\")\nprint(f\"The ID of b is {id(b)}\")\nprint(f\"b is of type {type(a)}\")\n\nb = 23\nThe ID of b is 11761384\nb is of type &lt;class 'int'&gt;\n\n\n\n\n\n\na = 123 # Reassign var a to int 123\nprint(f\"a = {a}\")\nprint(f\"The ID of a is {id(a)}\")\nprint(f\"a is of type {type(a)}\")\n\na = 123\nThe ID of a is 11764584\na is of type &lt;class 'int'&gt;\n\n\n\n\n\n\nc = 23\nprint(f\"c = {c}\")\nprint(f\"The ID of a is {id(c)}\")\nprint(f\"c is of type {type(c)}\")\n\nc = 23\nThe ID of a is 11761384\nc is of type &lt;class 'int'&gt;\n\n\nWe assign the variable c to the value 23 and check its data type and memory location.\n\n\n\n\nd = 3.142\nprint(f\"d = {d}\")\nprint(f\"The ID of a is {id(d)}\")\nprint(f\"d is of type {type(d)}\")\n\nd = 3.142\nThe ID of a is 140174982929552\nd is of type &lt;class 'float'&gt;\n\n\n\n\n\n\nprint (\"HSLU's Python course is cool\")\n\nprint(\"This is Line 1\")\nprint(\"This is Line 2\")\n\nprint(\"\\nWhat does the \\\\n control character do? Are you sure?\") # \\n is a line break\n\nprint(\"\\tWhat does the \\\\t control character do? Are you sure?\") # \\t is a tabulator\n\nprint(\"I want to learn python because....\")\nprint(\"\\n\\n\\t....it's a cool data science programming language. Ok - there are also others ;-) !\")\n\nprint(\"What \" + \"is \" + \"wrong?\" + \"\\nAdd some space between the words without removing the '+' signs!\") # Add spaces after the string\n\nHSLU's Python course is cool\nThis is Line 1\nThis is Line 2\n\nWhat does the \\n control character do? Are you sure?\n    What does the \\t control character do? Are you sure?\nI want to learn python because....\n\n\n    ....it's a cool data science programming language. Ok - there are also others ;-) !\nWhat is wrong?\nAdd some space between the words without removing the '+' signs!\n\n\n\n\n\n\ng=h='hslu'      # Assign the var g and h to the string \"hslu\"\nprint(g)        # Prints hslu\nprint(h)        # Print hslu\nh=456           # Reassign h to int 456\nprint(h)        # Prints 456\nh=h+1           # Calculates 456 + 1 = 457\nprint(h)        # Prints 457\nh+=1            # Calculates 457 + 1 = 458\nprint(h)        # Prints 458\np='hslu'        # Assign the var p to the string \"hslu\"\nq=p             # Copies the var p (hlsu) to the var q\nprint(p==q)     # Compare the var p and q (Output: True)\nprint(p is q)   # Compare the var p and q (Output: True)\n\nhslu\nhslu\n456\n457\n458\nTrue\nTrue"
   },
   {
     "objectID": "hs25/pds/pds_exercises.html#exercises-1",
     "href": "hs25/pds/pds_exercises.html#exercises-1",
     "title": "Python for Data Science - Exercises",
     "section": "",
-    "text": "print(f\"10 + 10 + 10 = {10 + 10 + 10}\")\nprint(f\"10 - 3       = {10 - 3}\")\nprint(f\"10 * 2       = {10 * 2}\")\nprint(f\"5 / 2        = {5 / 2}\")\nprint(f\"5.0 / 2      = {5.0 / 2}\")\nprint(f\"5 % 2        = {5 % 2}\")\nprint(f\"10 % 3       = {10 % 3}\")\nprint(f\"3 ** 3       = {3 ** 3}\")\nprint(f\"9 ** 0.5     = {9 ** 0.5}\")\nprint(f\"10 + 3 * 3   = {10 + 3 * 3}\")\nprint(f\"(10 + 3) * 3 = {(10 + 3) * 3}\")\n\n10 + 10 + 10 = 30\n10 - 3       = 7\n10 * 2       = 20\n5 / 2        = 2.5\n5.0 / 2      = 2.5\n5 % 2        = 1\n10 % 3       = 1\n3 ** 3       = 27\n9 ** 0.5     = 3.0\n10 + 3 * 3   = 19\n(10 + 3) * 3 = 39\n\n\n\n\n\n\na = 23\nb = 23\nprint(f\"a = {a}\")\nprint(f\"The ID of a is {id(a)}\") # Prints memory address of the variable a\nprint(f\"a is of type {type(a)}\") # Prints the data type of the variable a\n\na = 23\nThe ID of a is 11761384\na is of type &lt;class 'int'&gt;\n\n\n\nNote: id() corresponds to the objects memory address during its lifetime.\n\n\nprint(f\"b = {b}\")\nprint(f\"The ID of b is {id(b)}\")\nprint(f\"b is of type {type(a)}\")\n\nb = 23\nThe ID of b is 11761384\nb is of type &lt;class 'int'&gt;\n\n\n\n\n\n\na = 123 # Reassign var a to int 123\nprint(f\"a = {a}\")\nprint(f\"The ID of a is {id(a)}\")\nprint(f\"a is of type {type(a)}\")\n\na = 123\nThe ID of a is 11764584\na is of type &lt;class 'int'&gt;\n\n\n\n\n\n\nc = 23\nprint(f\"c = {c}\")\nprint(f\"The ID of a is {id(c)}\")\nprint(f\"c is of type {type(c)}\")\n\nc = 23\nThe ID of a is 11761384\nc is of type &lt;class 'int'&gt;\n\n\nWe assign the variable c to the value 23 and check its data type and memory location.\n\n\n\n\nd = 3.142\nprint(f\"d = {d}\")\nprint(f\"The ID of a is {id(d)}\")\nprint(f\"d is of type {type(d)}\")\n\nd = 3.142\nThe ID of a is 130266774264976\nd is of type &lt;class 'float'&gt;\n\n\n\n\n\n\nprint (\"HSLU's Python course is cool\")\n\nprint(\"This is Line 1\")\nprint(\"This is Line 2\")\n\nprint(\"\\nWhat does the \\\\n control character do? Are you sure?\") # \\n is a line break\n\nprint(\"\\tWhat does the \\\\t control character do? Are you sure?\") # \\t is a tabulator\n\nprint(\"I want to learn python because....\")\nprint(\"\\n\\n\\t....it's a cool data science programming language. Ok - there are also others ;-) !\")\n\nprint(\"What \" + \"is \" + \"wrong?\" + \"\\nAdd some space between the words without removing the '+' signs!\") # Add spaces after the string\n\nHSLU's Python course is cool\nThis is Line 1\nThis is Line 2\n\nWhat does the \\n control character do? Are you sure?\n    What does the \\t control character do? Are you sure?\nI want to learn python because....\n\n\n    ....it's a cool data science programming language. Ok - there are also others ;-) !\nWhat is wrong?\nAdd some space between the words without removing the '+' signs!\n\n\n\n\n\n\ng=h='hslu'      # Assign the var g and h to the string \"hslu\"\nprint(g)        # Prints hslu\nprint(h)        # Print hslu\nh=456           # Reassign h to int 456\nprint(h)        # Prints 456\nh=h+1           # Calculates 456 + 1 = 457\nprint(h)        # Prints 457\nh+=1            # Calculates 457 + 1 = 458\nprint(h)        # Prints 458\np='hslu'        # Assign the var p to the string \"hslu\"\nq=p             # Copies the var p (hlsu) to the var q\nprint(p==q)     # Compare the var p and q (Output: True)\nprint(p is q)   # Compare the var p and q (Output: True)\n\nhslu\nhslu\n456\n457\n458\nTrue\nTrue"
+    "text": "print(f\"10 + 10 + 10 = {10 + 10 + 10}\")\nprint(f\"10 - 3       = {10 - 3}\")\nprint(f\"10 * 2       = {10 * 2}\")\nprint(f\"5 / 2        = {5 / 2}\")\nprint(f\"5.0 / 2      = {5.0 / 2}\")\nprint(f\"5 % 2        = {5 % 2}\")\nprint(f\"10 % 3       = {10 % 3}\")\nprint(f\"3 ** 3       = {3 ** 3}\")\nprint(f\"9 ** 0.5     = {9 ** 0.5}\")\nprint(f\"10 + 3 * 3   = {10 + 3 * 3}\")\nprint(f\"(10 + 3) * 3 = {(10 + 3) * 3}\")\n\n10 + 10 + 10 = 30\n10 - 3       = 7\n10 * 2       = 20\n5 / 2        = 2.5\n5.0 / 2      = 2.5\n5 % 2        = 1\n10 % 3       = 1\n3 ** 3       = 27\n9 ** 0.5     = 3.0\n10 + 3 * 3   = 19\n(10 + 3) * 3 = 39\n\n\n\n\n\n\na = 23\nb = 23\nprint(f\"a = {a}\")\nprint(f\"The ID of a is {id(a)}\") # Prints memory address of the variable a\nprint(f\"a is of type {type(a)}\") # Prints the data type of the variable a\n\na = 23\nThe ID of a is 11761384\na is of type &lt;class 'int'&gt;\n\n\n\nNote: id() corresponds to the objects memory address during its lifetime.\n\n\nprint(f\"b = {b}\")\nprint(f\"The ID of b is {id(b)}\")\nprint(f\"b is of type {type(a)}\")\n\nb = 23\nThe ID of b is 11761384\nb is of type &lt;class 'int'&gt;\n\n\n\n\n\n\na = 123 # Reassign var a to int 123\nprint(f\"a = {a}\")\nprint(f\"The ID of a is {id(a)}\")\nprint(f\"a is of type {type(a)}\")\n\na = 123\nThe ID of a is 11764584\na is of type &lt;class 'int'&gt;\n\n\n\n\n\n\nc = 23\nprint(f\"c = {c}\")\nprint(f\"The ID of a is {id(c)}\")\nprint(f\"c is of type {type(c)}\")\n\nc = 23\nThe ID of a is 11761384\nc is of type &lt;class 'int'&gt;\n\n\nWe assign the variable c to the value 23 and check its data type and memory location.\n\n\n\n\nd = 3.142\nprint(f\"d = {d}\")\nprint(f\"The ID of a is {id(d)}\")\nprint(f\"d is of type {type(d)}\")\n\nd = 3.142\nThe ID of a is 140174982929552\nd is of type &lt;class 'float'&gt;\n\n\n\n\n\n\nprint (\"HSLU's Python course is cool\")\n\nprint(\"This is Line 1\")\nprint(\"This is Line 2\")\n\nprint(\"\\nWhat does the \\\\n control character do? Are you sure?\") # \\n is a line break\n\nprint(\"\\tWhat does the \\\\t control character do? Are you sure?\") # \\t is a tabulator\n\nprint(\"I want to learn python because....\")\nprint(\"\\n\\n\\t....it's a cool data science programming language. Ok - there are also others ;-) !\")\n\nprint(\"What \" + \"is \" + \"wrong?\" + \"\\nAdd some space between the words without removing the '+' signs!\") # Add spaces after the string\n\nHSLU's Python course is cool\nThis is Line 1\nThis is Line 2\n\nWhat does the \\n control character do? Are you sure?\n    What does the \\t control character do? Are you sure?\nI want to learn python because....\n\n\n    ....it's a cool data science programming language. Ok - there are also others ;-) !\nWhat is wrong?\nAdd some space between the words without removing the '+' signs!\n\n\n\n\n\n\ng=h='hslu'      # Assign the var g and h to the string \"hslu\"\nprint(g)        # Prints hslu\nprint(h)        # Print hslu\nh=456           # Reassign h to int 456\nprint(h)        # Prints 456\nh=h+1           # Calculates 456 + 1 = 457\nprint(h)        # Prints 457\nh+=1            # Calculates 457 + 1 = 458\nprint(h)        # Prints 458\np='hslu'        # Assign the var p to the string \"hslu\"\nq=p             # Copies the var p (hlsu) to the var q\nprint(p==q)     # Compare the var p and q (Output: True)\nprint(p is q)   # Compare the var p and q (Output: True)\n\nhslu\nhslu\n456\n457\n458\nTrue\nTrue"
   },
   {
     "objectID": "hs25/pds/pds_exercises.html#task-1",
@@ -557,7 +557,7 @@
     "href": "hs25/pds/pds_exercises.html#exercise-5",
     "title": "Python for Data Science - Exercises",
     "section": "Exercise 5",
-    "text": "Exercise 5\nWrite a Python program to guess a number between 1 to 10. First: Use the predefined code block to create a random number Second: The user is prompted to enter a guess. If the guess is wrong a message “to big” or “to small” is printed to the console and the prompt (user input) appears again until the guess is correct. If the guess is correct, “Well guessed!” will be printed and the program ends. Extension: The number of trials should be prompted as well: “Well done - you have tried it 4 times!”\n\n# Code block to create a random number\nfrom random import randint\nrandom_number = randint(1,10)\n# End code block to create a random number\n\ntrials = 0\n\nwhile True: # Infinitive loop till break\n    # Unsing fake user input\n    user_input = randint(1,10) # Also random\n    trials += 1 # Count trials\n    if user_input == random_number:\n        print(f\"Well done - you have tried it {trials} times!\")\n        break\n    elif user_input &lt; random_number:\n        print(\"Guess to low...\")\n    else:\n        print(\"Guess to high...\")\n\nGuess to high...\nGuess to high...\nGuess to high...\nGuess to high...\nGuess to high...\nWell done - you have tried it 6 times!"
+    "text": "Exercise 5\nWrite a Python program to guess a number between 1 to 10. First: Use the predefined code block to create a random number Second: The user is prompted to enter a guess. If the guess is wrong a message “to big” or “to small” is printed to the console and the prompt (user input) appears again until the guess is correct. If the guess is correct, “Well guessed!” will be printed and the program ends. Extension: The number of trials should be prompted as well: “Well done - you have tried it 4 times!”\n\n# Code block to create a random number\nfrom random import randint\nrandom_number = randint(1,10)\n# End code block to create a random number\n\ntrials = 0\n\nwhile True: # Infinitive loop till break\n    # Unsing fake user input\n    user_input = randint(1,10) # Also random\n    trials += 1 # Count trials\n    if user_input == random_number:\n        print(f\"Well done - you have tried it {trials} times!\")\n        break\n    elif user_input &lt; random_number:\n        print(\"Guess to low...\")\n    else:\n        print(\"Guess to high...\")\n\nGuess to low...\nGuess to low...\nGuess to low...\nGuess to low...\nWell done - you have tried it 5 times!"
   },
   {
     "objectID": "hs25/pds/pds_exercises.html#exercise-6",
@@ -571,7 +571,7 @@
     "href": "hs25/pds/pds_exercises.html#exercise-1-1",
     "title": "Python for Data Science - Exercises",
     "section": "Exercise 1",
-    "text": "Exercise 1\nWrite a Python program to guess a number between 1 to 10. First: Use the predefined code block to create a random number Second: The user is prompted to enter a guess. If the guess is wrong a message “to big” or “to small” is printed to the console and the prompt (user input) appears again until the guess is correct. If the guess is correct, “Well guessed!” will be printed and the program ends. Extension: The number of trials should be prompted as well: “Well done - you have tried it 4 times!”\n\n# Code block to create a random number\nfrom random import randint\nrandom_number = randint(1,10)\n# End code block to create a random number\n\ntrials = 0\n\nwhile True: # Infinitive loop till break\n    # Unsing fake user input\n    user_input = randint(1,10) # Also random\n    trials += 1 # Count trials\n    if user_input == random_number:\n        print(f\"Well done - you have tried it {trials} times!\")\n        break\n    elif user_input &lt; random_number:\n        print(\"Guess to low...\")\n    else:\n        print(\"Guess to high...\")\n\nGuess to high...\nGuess to high...\nGuess to high...\nGuess to high...\nGuess to high...\nGuess to high...\nGuess to low...\nGuess to high...\nGuess to high...\nWell done - you have tried it 10 times!"
+    "text": "Exercise 1\nWrite a Python program to guess a number between 1 to 10. First: Use the predefined code block to create a random number Second: The user is prompted to enter a guess. If the guess is wrong a message “to big” or “to small” is printed to the console and the prompt (user input) appears again until the guess is correct. If the guess is correct, “Well guessed!” will be printed and the program ends. Extension: The number of trials should be prompted as well: “Well done - you have tried it 4 times!”\n\n# Code block to create a random number\nfrom random import randint\nrandom_number = randint(1,10)\n# End code block to create a random number\n\ntrials = 0\n\nwhile True: # Infinitive loop till break\n    # Unsing fake user input\n    user_input = randint(1,10) # Also random\n    trials += 1 # Count trials\n    if user_input == random_number:\n        print(f\"Well done - you have tried it {trials} times!\")\n        break\n    elif user_input &lt; random_number:\n        print(\"Guess to low...\")\n    else:\n        print(\"Guess to high...\")\n\nGuess to low...\nGuess to low...\nGuess to low...\nGuess to low...\nWell done - you have tried it 5 times!"
   },
   {
     "objectID": "hs25/pds/pds_exercises.html#exercise-1-2",
@@ -585,7 +585,7 @@
     "href": "hs25/pds/pds_exercises.html#exercice-2",
     "title": "Python for Data Science - Exercises",
     "section": "Exercice 2",
-    "text": "Exercice 2\nWrite a function accepts a list as input and returns the unique values contained in that list as a list. Hint: you can use the “set” method to check your solution.\n\ndef get_unique_values(value_list: list) -&gt; set:\n    \"\"\"\n    Return a set (unique values) from a given list\n\n    Args:\n        value_list: List with different values\n    \n    Returns:\n        set: Unique values from value_list\n    \"\"\"\n    return set(value_list)\n\nuniques = get_unique_values((1, 2, 2, 3, \"Hello\", \"Hello\", \"Bye\"))\nprint(uniques)\n\n{'Bye', 1, 2, 3, 'Hello'}"
+    "text": "Exercice 2\nWrite a function accepts a list as input and returns the unique values contained in that list as a list. Hint: you can use the “set” method to check your solution.\n\ndef get_unique_values(value_list: list) -&gt; set:\n    \"\"\"\n    Return a set (unique values) from a given list\n\n    Args:\n        value_list: List with different values\n    \n    Returns:\n        set: Unique values from value_list\n    \"\"\"\n    return set(value_list)\n\nuniques = get_unique_values((1, 2, 2, 3, \"Hello\", \"Hello\", \"Bye\"))\nprint(uniques)\n\n{1, 2, 3, 'Hello', 'Bye'}"
   },
   {
     "objectID": "hs25/pds/pds_exercises.html#exercise-3-1",
@@ -775,356 +775,6 @@
     "title": "Python for Data Science - Exercises",
     "section": "Task 2.",
     "text": "Task 2.\n\n# Task 2: solve the same problem by means of a dictionary comprehension.\ncount2 = {}\ncount2 = {char: lorem.count(char) for char in chars}\n\nprint(count2)\nprint(count2[\"e\"])\n\n{'a': 21, 'b': 3, 'c': 6, 'd': 12, 'e': 28, 'f': 0, 'g': 4, 'h': 0, 'i': 15, 'j': 1, 'k': 1, 'l': 9, 'm': 16, 'n': 10, 'o': 21, 'p': 5, 'q': 1, 'r': 16, 's': 17, 't': 25, 'u': 15, 'v': 3, 'w': 0, 'x': 0, 'y': 2, 'z': 0}\n28"
-  },
-  {
-    "objectID": "hs25/doe/doe_notes.html",
-    "href": "hs25/doe/doe_notes.html",
-    "title": "Design of Experiments",
-    "section": "",
-    "text": "The fundamental difference between observational studies and experimental research designs is that in the former, researchers simply observe and measure variables without actively intervening. In the latter, variables are purposefully manipulated to determine a cause-and-effect relationship.\n\n\n\nThe effect and aim of randomisation is to eliminate selection bias and confounding factors, and to ensure comparability between groups at the start of the study (baseline data).\n\n\n\nConfounding occurs when a factor (confounder) that has not been investigated is associated with both the independent and dependent variables, causing a spurious correlation between them.\n\n\n\nThe problem is distortion due to knowledge about the treatment. Blinding is a suitable technique for avoiding such distortions. It eliminates conscious and unconscious influences on the treatment result.\n\n\n\nOpen: No blining\nSingle-blind: Participants don’t know their group assignment (e.g., whether they’re receiving the real treatment or a placebo).\nDouble-blind: Neither the participants nor the researchers administering the treatment know the group assignments.\nTriple-blind: Participants, researchers, and the data analysts are all unaware of the group assignments."
-  },
-  {
-    "objectID": "hs25/doe/doe_notes.html#observational-vs.-experimental",
-    "href": "hs25/doe/doe_notes.html#observational-vs.-experimental",
-    "title": "Design of Experiments",
-    "section": "",
-    "text": "The fundamental difference between observational studies and experimental research designs is that in the former, researchers simply observe and measure variables without actively intervening. In the latter, variables are purposefully manipulated to determine a cause-and-effect relationship."
-  },
-  {
-    "objectID": "hs25/doe/doe_notes.html#randomization",
-    "href": "hs25/doe/doe_notes.html#randomization",
-    "title": "Design of Experiments",
-    "section": "",
-    "text": "The effect and aim of randomisation is to eliminate selection bias and confounding factors, and to ensure comparability between groups at the start of the study (baseline data)."
-  },
-  {
-    "objectID": "hs25/doe/doe_notes.html#confounder",
-    "href": "hs25/doe/doe_notes.html#confounder",
-    "title": "Design of Experiments",
-    "section": "",
-    "text": "Confounding occurs when a factor (confounder) that has not been investigated is associated with both the independent and dependent variables, causing a spurious correlation between them."
-  },
-  {
-    "objectID": "hs25/doe/doe_notes.html#blinding",
-    "href": "hs25/doe/doe_notes.html#blinding",
-    "title": "Design of Experiments",
-    "section": "",
-    "text": "The problem is distortion due to knowledge about the treatment. Blinding is a suitable technique for avoiding such distortions. It eliminates conscious and unconscious influences on the treatment result.\n\n\n\nOpen: No blining\nSingle-blind: Participants don’t know their group assignment (e.g., whether they’re receiving the real treatment or a placebo).\nDouble-blind: Neither the participants nor the researchers administering the treatment know the group assignments.\nTriple-blind: Participants, researchers, and the data analysts are all unaware of the group assignments."
-  },
-  {
-    "objectID": "hs25/doe/doe_notes.html#introduction-to-scientific-theory",
-    "href": "hs25/doe/doe_notes.html#introduction-to-scientific-theory",
-    "title": "Design of Experiments",
-    "section": "Introduction to scientific theory",
-    "text": "Introduction to scientific theory\n\nScientific Theory\nExamines whether and how scientific knowledge can be obtained. It is a branch of philosophy that deals with the theory of scientific knowledge and scientific methods, as well as with research. It also analyzes the practices that generate scientific knowledge and examines the institutional and social contexts in which these take place.\n\n\nMethodology\nIt focuses on the underlying considerations, decisions, and justifications of the approach used in scientific research projects. It provides the instructional framework on how to proceed in order to gain scientific knowledge. It does not comprise a strictly formal set of rules but offers a diverse and pragmatic set of choices that are linked to human action.\n\n\nResearch Methodes\nSystematized procedures and approaches for obtaining knowledge.\n\n\nSelection of positions held in scientific theory\n\nClassical rationalism: Reason precedes experience and there are so-called “innate” concepts of reason.\nInductive empiricism: Findings are derived inductively based on observations and experiences.\nLogical positivism: The use of logic makes it possible to separate science from metaphysics.\nCritical rationalism: Findings are derived deductively based on observations.\n(Social) constructivism: Individuals construct their reality by relating their thinking and actions.\n\n\nNote: Inductive empiricism and critical rationalism belong to empirical research.\n\n\n\nWhat is empirical research?\nKnowledge can be gained only through observation, experiment, and experience. Empirical research examines the environment by means of observation and experiment. There are many research methods for conducting observations and experiments:\n\nInterview\nCase study\nSurvey study\nExperiment\n\n\n\nLandscape of empirical research\n\n\n\nLandscape of empirical research\n\n\n\n\nQuantitative Methodes\nResearch that uses quantitative methods is designed around the principles of critical rationalism. The approach assumes that a theory can never be finally verified, it can only be falsified.\n\n\nDescriptive statistics\n\nDescribes the data to be analyzed.\nIs limited to a sample as a subset of the population.\nDoes not allow for conclusions to be drawn about the population.\n\n\n\nInferential statistics\n\nFor drawing conclusions about the population based on information obtained from a sample.\nUse statistical hypothesis tests, especially, as the main component.\n\n\n\nHypothesis Testing\nHypothesis testing is a statistical method used to determine if there is enough evidence in a sample of data to support a specific hypothesis about a population. It involves formulating a null hypothesis and an alternative hypothesis, analyzing sample data, and making a decision based on the results, often using a p-value to assess significance.\n\nAlternative hypothesis (\\(H_A\\)): Research hypothesis to be tested that postulates the presence of a certain effect (e.g. a difference) in the population.\nNull hypothesis (\\(H_0\\)): Postulates the opposite, namely the absence of an effect."
-  },
-  {
-    "objectID": "hs25/doe/doe_notes.html#research-process",
-    "href": "hs25/doe/doe_notes.html#research-process",
-    "title": "Design of Experiments",
-    "section": "Research process",
-    "text": "Research process\n\nPhases\n\nFormulation of the research problem & study design\nPlanning and preparation of the study\nData collection\nData Analysis\nReporting\n\n\n\nMeasuring Instrument\nA process that uses a given set of circumstances to define and specify subsequent research steps with a view to better understanding these circumstances.\n\n\nSampling procedure\nA selection of cases derived from the population and compiled for research purposes results in statements as part of an empirical study. Sampling often involves people, but objects of all kinds (e.g., websites, newspaper articles, companies, countries) can also form a population. Sample surveys are typical of empirical social research. Only rarely are censuses used that examine all cases associated with the population."
-  },
-  {
-    "objectID": "hs25/doe/doe_notes.html#definition-properties-of-study-design",
-    "href": "hs25/doe/doe_notes.html#definition-properties-of-study-design",
-    "title": "Design of Experiments",
-    "section": "Definition & properties of study design",
-    "text": "Definition & properties of study design\nThe choice of a suitable research design determines the scientific quality of a study. The planning of the analysis depends on the research design.\n\nStudy types\n\nDescriptive study: Descriptive character. Suitable for forming hypotheses (Surveys).\nAnalytical study: Identification and quantification of effects / verification of relationships. Not fully suitable for hypothesis testing (Cohot).\nRandomized controlled: Suitable for hypothesis testing (RCT)."
-  },
-  {
-    "objectID": "hs25/doe/doe_notes.html#cause-and-effect",
-    "href": "hs25/doe/doe_notes.html#cause-and-effect",
-    "title": "Design of Experiments",
-    "section": "Cause and Effect",
-    "text": "Cause and Effect\nA trial / experiment is carried out to discover a cause-and-effect relationship in a process.\n\nTerms\n\nInput: Trial objects, test objects, test persons, ect.\nProcess: Process in which controllable and non-controllable factors influence the input.\nOutput (aka. Dependet variable: DV): Input changed by the process, result of the test/experiment.\nControllable factors (aka Independet variables: IV): Influencing factors whose strength can be adjusted within defined limits.\nNon-controllable factors: Influencing factors whose strength cannot be determined but that can be measured / cannot be determined and that cannot be measured."
-  },
-  {
-    "objectID": "hs25/doe/doe_notes.html#non-controllable-factors",
-    "href": "hs25/doe/doe_notes.html#non-controllable-factors",
-    "title": "Design of Experiments",
-    "section": "Non-controllable factors",
-    "text": "Non-controllable factors\nNon-controllable factors are also referred to as nuisance variables in a general context or nuisance factors in the context of blocking\n\nNote: Blocking = arranging of experimental units in groups (blocks)"
-  },
-  {
-    "objectID": "hs25/doe/doe_notes.html#causality-in-observational-and-experimental-study-designs",
-    "href": "hs25/doe/doe_notes.html#causality-in-observational-and-experimental-study-designs",
-    "title": "Design of Experiments",
-    "section": "Causality in observational and experimental study designs",
-    "text": "Causality in observational and experimental study designs\nObservational studies cannot directly prove causality, but only show correlations or associations. Since the assignment is not random, there is always a risk that the results are distorted by unknown confounding factors.\nExperimental studies (e.g. RCTs) can prove causality because they control for confounding factors through randomisation, thereby isolating the effect of the cause. They are the gold standard."
-  },
-  {
-    "objectID": "hs25/doe/doe_notes.html#variance",
-    "href": "hs25/doe/doe_notes.html#variance",
-    "title": "Design of Experiments",
-    "section": "Variance",
-    "text": "Variance\nThe variance describes the mean square deviation of the individual measured values from the empirical mean.\n\nPrimary variance: Impact of (experimental) factors in an experiment on the change / variation of the output to be examined.\nSecondary variance: Variation of the output to be examined, caused by nuisance variables. Not in the focus of the study.\nError variance: Variation caused by measurement errors and random processes.\n\n\nNote: Secondary and error variances are grouped to the residual variance.\n\n\nVariantion of Variance\nThe variance of the dependent variable (DV) (primary variance) should be attributed to the systematic variation of the independent variable (IV). The secondary variance should be controlled and the error variance minimized.\n\n\n\nSummary Variance\n\n\n\nMaximizing the primary variance\n\nRelationship is linear: Selecting of extreme values in the IV.\nRelationship were curvilinear: Selecting optimal increments of IV.\nRelationship were unknown: Selecting as many increments of IV in the smallest steps as possible.\n\n\n\nControl of the secondary variance\n\nKeeping constant: Keeping the experimental setup constant.\nRepetition: Several measurements are repeated on the same trial objects.\nRandomization: Trial objects are assigned randomly to Treatment and Control groups to eliminate systematic bias\nBlocking: Trial objects are grouped into homogeneous blocks based on one or more influential variables to reduce variability.\nCovariate adjustment: Nuisance variables are included as covariates in the statistical model to account for their effects.\n\n\n\nMinimizing the error variance\n\nReliable measurement setup: Standardization of the experimental conditions\nSample size: Larger sample sizes reduce the impact of individual measurement errors\nSuitable analytical methods: Use of robust estimators to account for heterogeneous error variance\n\n\n\n\nProperties of measurement instruments\n\nObjectivity: Objectivity of an instrument is given when the results are independent of personnel and calculation methods.\nReliability: Reliability is the degree to which an instrument produces the same result each time under comparable conditions.\nValidity: Validity is the extent to which an instrument measures what was intended."
-  },
-  {
-    "objectID": "hs25/doe/doe_notes.html#design-of-experiments-types",
-    "href": "hs25/doe/doe_notes.html#design-of-experiments-types",
-    "title": "Design of Experiments",
-    "section": "Design of Experiments Types",
-    "text": "Design of Experiments Types\n\nTrial and error\nCombination of parameters have no structure and are mixed randomly. No idea what factors influence how.\n\n\nOne-factor-at-a-time\nVary the first factor and then measure fuel consumption. Keep the setting with the lowest consumption and then vary the next factor. Easy to implement, but interaction between factors are not recognized. Research question is answered neither systematically nor exhaustively.\n\n\nFull factorial design\nTwo levels (+/-) are defined per factor. All possible combinations of factor levels are varied. All main effects and all interactions can be determined. Can be used as a screening experiment to identify potentially important variables. The effort involved increases rapidly as the number of factors increases. Each additional factor doubles the number of combinations.\n\nProfile Plot\nImpact of the factors on the dependent variable \\(x\\). Based model:\n\\[\ny = \\beta_0 + \\beta_1 x_1 + \\beta_2 x_2 \\dots + \\beta_n x_n\n\\]"
-  },
-  {
-    "objectID": "hs25/doe/doe_notes.html#factorial-design-with-interactions",
-    "href": "hs25/doe/doe_notes.html#factorial-design-with-interactions",
-    "title": "Design of Experiments",
-    "section": "Factorial design with interactions",
-    "text": "Factorial design with interactions\nInteractions can occur in experiments with two or more independent variables. An interaction of two factors means that the two factors interact in a complex way. If there is an interaction, the effect of one factor depends on the levels of the other factor. Interaction terms are written as multiplication.\n\nTwo way interaction: \\(x_1 \\times x_2\\)\nThree way interaction: \\(x_1 \\times x_2 \\times x_3\\)\n\n\\[\ny = \\beta_0 + \\beta_1 x_1 + \\beta_2 x_2 + \\beta_3 x_1 \\times x_2\n\\]\n\nFull factorial designs\nGeneralization of two-level full factorial design with \\(k\\) factors and \\(n\\) levels. All possible factor combinations are varied.\n\\[\n\\text{combinations} = n^k\n\\]\n\n\nFractional factorial designs\nOnly a (balanced) part of the possible combinations of factors are varied.\n\\[\n\\text{combinations} = n^{k-1}\n\\]\n\nDesign\n\nProcedure: The factor levels are determined before the experiment\nFactor combinations: Only a part of the possible combinations of factors are selected\nRestrictions: In fractional factorial designs, interactions can only be partially measured because not all possible combinations of factor levels are tested.\nAdvantages: The effort involved is significantly lower compared to full factorial designs\nStatistical analysis: As in the case of full factorial design, but without interactions"
-  },
-  {
-    "objectID": "hs25/doe/doe_notes.html#quality-criteria-of-experiments",
-    "href": "hs25/doe/doe_notes.html#quality-criteria-of-experiments",
-    "title": "Design of Experiments",
-    "section": "Quality criteria of experiments",
-    "text": "Quality criteria of experiments\n\nInternal Validity\nExists when changes in dependent variables (DV) are attributed to independent variables (IV). Increases with decreasing impact of nuisance variables.\n\nPopulation Validity\nDegree to which the results of a study can be generalized from the sample to the whole population.\n\n\nSituation Validity\nDegree to which the findings of a study can be applied to different situations.\n\n\n\nExternal Validity\nExists when experimental results from a sample can be generalized to the entire population. Increases with increasing naturalness.\n\n\nConstruct Validity\nEffectiveness of the measurement methods in precisely capturing the intended construct\n\n\nRelationship between Internal vs. External Validity\n\n\n\nRelationship between Internal vs. External Validity\n\n\nThe lowest general level of validity is at the bottom left for the quasi-experimental laboratory study, and the highest is at the top right for the experimental field study. A well-controlled lab experiment may maximize internal validity by eliminating confounding variables."
-  },
-  {
-    "objectID": "hs25/doe/doe_notes.html#population",
-    "href": "hs25/doe/doe_notes.html#population",
-    "title": "Design of Experiments",
-    "section": "Population",
-    "text": "Population\nSet of all (potentially explorable) elements that have a common characteristic or a common combination of characteristics. The observation units (individuals, households, etc.) must be defined before the research start. In order to define the population, clear differentiation criteria must be formulated, so that for each observation unit it can be determined whether it is part of the population.\n\nDifferentiation in geographical aspects\nDifferentiation of temporal aspects (point in time or period)\nDifferentiation in factual / content-related aspects"
-  },
-  {
-    "objectID": "hs25/doe/doe_notes.html#generalizing-from-a-sample-to-the-population",
-    "href": "hs25/doe/doe_notes.html#generalizing-from-a-sample-to-the-population",
-    "title": "Design of Experiments",
-    "section": "Generalizing from a sample to the population",
-    "text": "Generalizing from a sample to the population\nThe population is often very large or not fully accessible. The population can be defined but not identified.\n\nCharacteristics of a sample\nA sample is a subset of all observation units and should reflect the relevant aspects of the population as accurately as possible. Three elements contribute to creating or describing representativeness:\n\nThe sample is drawn randomly.\nEstimation procedure for generalizing from the sample to the population is reported.\nAccuracy is reported, which is influenced by the sample size, among other things\n\n\n\nPoint estimate of the mean\nAn “estimator” is a function that calculates a value.\n\n\\(\\bar{x}\\): Mean of the sample\n\\(\\mu_0\\): True mean in the population (generally unknown)\n\n\n\n\n\n\n\nImportant\n\n\n\nThe mean value x of a sample is an unbiased, efficient and consistent estimator of the true mean value in the population: \\(\\mu_0 = E(\\bar{x})\\)"
-  },
-  {
-    "objectID": "hs25/doe/doe_notes.html#sampling-methods",
-    "href": "hs25/doe/doe_notes.html#sampling-methods",
-    "title": "Design of Experiments",
-    "section": "Sampling methods",
-    "text": "Sampling methods\n\nProbabilistic (random) sampling procedures: Selecting elements based on a random mechanism\nNon-probabilistic (non-random, purposive, arbitrary) sampling procedures: Selection of the elements is not based on a random mechanism, but is made by certain decisions (purposive or arbitrary selection of elements)\n\n\nSampling Map\n\n\n\nSampling procedure Overview\n\n\n\n\nSimple random sampling (SRS)\nRandom selection of n elements from the N elements of the population. Each element has the same probability of being included in the sample.\n\ndata &lt;- rnorm(100) # 100 random numbers\nView(data)\n\ndata_sample &lt;- sample(data, 10, replace=FALSE) # Take 10 random sample from data\nView(data_sample)\n\n\n\nStratified random sampling\nStructure of the population regarding certain characteristics is known in advance. The population is stratified in accordance with these characteristics.\n\nProportional: Selection set in each Disproportional: Selection rate per stratum stratum is the same (self-weighting)\nDisproportional: Selection rate per stratum stratum is the same (self-weighting) is different (samples will be weighted)\n\n\n\nCluster sampling\nThe elements are selected at a higher level. Variability within clusters is small (cluster elements are very similar) while variability between clusters is large (clusters differ greatly).\n\n\nArbitrary sampling\nArbitrary sampling occurs when a sample is selected based on the researcher’s discretion, convenience or ease of availability, without applying a specific, structured or random procedure.\n\n\nTargeted sampling\nFor populations that are difficult to reach and whose members are not closely networked. Preferred locations or places of residence of the members are identified and then systematically recruited on site.\n\n\nRespondent Driven Sampling\nMultiple waves of peer-to-peer recruitment with statistical adjustments are conducted to approximate a random sample. Recruited individuals are only allowed to recruit a limited number of other individuals and are only rewarded for each person actually recruited."
-  },
-  {
-    "objectID": "hs25/doe/doe_notes.html#representativeness",
-    "href": "hs25/doe/doe_notes.html#representativeness",
-    "title": "Design of Experiments",
-    "section": "Representativeness",
-    "text": "Representativeness\nThe degree of representativeness is not measurable. The sample should be representative with regard to key characteristics of the study."
-  },
-  {
-    "objectID": "hs25/doe/doe_notes.html#sampling-errors",
-    "href": "hs25/doe/doe_notes.html#sampling-errors",
-    "title": "Design of Experiments",
-    "section": "Sampling errors",
-    "text": "Sampling errors\n\nNon-sampling error\nDifference in the mean value between the defined ideal population and the real population that cannot be attributed to deficiencies in the random selection of the sample.\n\nCoverage error*: Part of the population cannot be identified.\nSystematic non-response: Lack of information on certain individual elements.\n\n\n\nSampling Error\nDifference between the estimated mean value from a randomly drawn sample and the real mean value of the population.\n\nSelection error: Not all elements of the population have the same selection probability.\nUse of an unsuitable estimator."
-  },
-  {
-    "objectID": "hs25/doe/doe_notes.html#variability-of-sample-means",
-    "href": "hs25/doe/doe_notes.html#variability-of-sample-means",
-    "title": "Design of Experiments",
-    "section": "Variability of Sample Means",
-    "text": "Variability of Sample Means\nIn randomly drawn equal samples, the sample means vary depending on:\n\nAttribute: The more heterogeneously an attribute is distributed in the population, the greater the variability of the sample means among many samples.\nSample size: The smaller the sample size, the greater the variability of sample means among many samples."
-  },
-  {
-    "objectID": "hs25/doe/doe_notes.html#standard-error",
-    "href": "hs25/doe/doe_notes.html#standard-error",
-    "title": "Design of Experiments",
-    "section": "Standard Error",
-    "text": "Standard Error\nThe standard error is a measure of the variability of the sample means among many samples. It quantifies the spread of sample means from repeated random samples of the same size around the population mean \\(\\mu_0\\)\n\\[\n\\hat{\\sigma}_{\\bar{X}} = \\sqrt{\\dfrac{s^2}{n}} = \\dfrac{s}{\\sqrt{n}}\n\\]\nThe larger the sample size, the smaller the standard error, and therefore, the larger the sample size, the more precise the sample mean is as an estimator of the population mean."
-  },
-  {
-    "objectID": "hs25/doe/doe_notes.html#statistical-significance-and-importance-of-an-effect",
-    "href": "hs25/doe/doe_notes.html#statistical-significance-and-importance-of-an-effect",
-    "title": "Design of Experiments",
-    "section": "Statistical significance and importance of an effect",
-    "text": "Statistical significance and importance of an effect\nThe chance of having a significant result in a hypothesis test is:\n\nlarger if sample size \\(n\\) increases.\nsmaller if standard deviation \\(s\\) increases.\n\nAn effect in the population can be specified by an effect measurement. This measurement results in what is referred to as effect size.\n\nNote: The name effect size (ES) comes from Cohen (1992)"
-  },
-  {
-    "objectID": "hs25/doe/doe_notes.html#effect-size",
-    "href": "hs25/doe/doe_notes.html#effect-size",
-    "title": "Design of Experiments",
-    "section": "Effect size",
-    "text": "Effect size\nEffect size is a statistical measure that quantifies the magnitude (or strength) of a phenomenon. A tiny p-value in a very large study might show a difference that is statistically significant, but practically meaningless. Effect size helps to evaluate exactly this. It expresses this difference in terms of standard deviations.\n\nA Cohen’s d of 1.0 means the means of the two groups are separated by exactly one standard deviation.\nA Cohen’s d of 0.0 means there is no difference between the means."
-  },
-  {
-    "objectID": "hs25/doe/doe_notes.html#power-analysis",
-    "href": "hs25/doe/doe_notes.html#power-analysis",
-    "title": "Design of Experiments",
-    "section": "Power analysis",
-    "text": "Power analysis\nPower analysis is the crucial step in research design that connects your expected effect size with your desired power (80%) and significance (5%) to determine the minimum sample size you need to run a valid study.\n\nDetermining the sample size with R\n\n# install.packages(\"pwr\")\nlibrary(pwr)\npwr.t.test(d = 0.5, power = 0.80, sig.level = 0.05)\n\n\n     Two-sample t test power calculation \n\n              n = 63.76561\n              d = 0.5\n      sig.level = 0.05\n          power = 0.8\n    alternative = two.sided\n\nNOTE: n is number in *each* group"
-  },
-  {
-    "objectID": "hs25/doe/doe_notes.html#the-fourth-paradigm",
-    "href": "hs25/doe/doe_notes.html#the-fourth-paradigm",
-    "title": "Design of Experiments",
-    "section": "The Fourth Paradigm",
-    "text": "The Fourth Paradigm\n\nEmpirical Science: Description of natural phenomena.\nTheoretical Science: Modelling and generalization.\nComputational Science: Simulation of complex phenomena.\nData-Intensive Science (eScience): Synthesis of information technology and science."
-  },
-  {
-    "objectID": "hs25/doe/doe_notes.html#quantitative-empirical-research",
-    "href": "hs25/doe/doe_notes.html#quantitative-empirical-research",
-    "title": "Design of Experiments",
-    "section": "Quantitative empirical research",
-    "text": "Quantitative empirical research\n\nFormulation of teh research of the study\nPlanning and preparation of the study\nData collection\nData Analysis\nReporting\n\n\n\n\n\n\n\nNote\n\n\n\nDeductive approach → Conclusion from the general to the specific.\n\n\n\nLimitations of quantitative empirical research\n\nMeaning of significant hypotheses vs. meaning of effect size.\np-hacking (looking for data subsets and configurations until the p-value is less than 5%).\nAssumptions about the distribution of variables are violated.\nAssumption of homogeneity of variance is violated."
-  },
-  {
-    "objectID": "hs25/doe/doe_notes.html#data-driven-research",
-    "href": "hs25/doe/doe_notes.html#data-driven-research",
-    "title": "Design of Experiments",
-    "section": "Data-driven research",
-    "text": "Data-driven research\n\nVisual Analytics: Exploratory Data Analysis & Descriptive Statistics.\nMachine Learning and Predictive Modelling: Regression / Classification / Decision Trees.\nAdvanced Analytics for Unstructured Data.\n\n\n\n\n\n\n\nNote\n\n\n\nInductive approach → Conclusion from the specific to the general\n\n\n\nLimitations of data-driven research\n\nBig Data Hubris: Correlation is understood as causality.\nSparse data: Although the data basis is “big,” it contains little information.\nData analysis: A whole range of methodical errors."
-  },
-  {
-    "objectID": "hs25/doe/doe_notes.html#abductive-approach-and-combination-of-approaches",
-    "href": "hs25/doe/doe_notes.html#abductive-approach-and-combination-of-approaches",
-    "title": "Design of Experiments",
-    "section": "Abductive approach and combination of approaches",
-    "text": "Abductive approach and combination of approaches\nInduction: Search and generation of theories that fit the research context. Induction shows that something actually is operative. Deduction: Verification or falsification of existing theories. Deduction proves that something must be. Abduction: Search and generation of new, also speculative theories. Abduction merely suggests that something may be.\n\nNote: Ideally, all three methods are used cyclically."
-  },
-  {
-    "objectID": "hs25/doe/doe_notes.html#anova",
-    "href": "hs25/doe/doe_notes.html#anova",
-    "title": "Design of Experiments",
-    "section": "ANOVA",
-    "text": "ANOVA\nThe Analysis of Variance (ANOVA) is a statistical test used to determine whether there are any statistically significant differences between the means of three or more independent (unrelated) groups.\n\nOne-Way ANOVA: Used when comparing means across groups based on one single categorical independent variable (factor).\nTwo-Way ANOVA: Used when comparing means based on two or more independent variables (factors), allowing for the testing of interaction effects between the factors."
-  },
-  {
-    "objectID": "hs25/doe/doe_notes.html#key-steps-in-analysis-of-variance",
-    "href": "hs25/doe/doe_notes.html#key-steps-in-analysis-of-variance",
-    "title": "Design of Experiments",
-    "section": "Key Steps in Analysis of Variance",
-    "text": "Key Steps in Analysis of Variance\n\nDesign of experiment\nCalculating differences and sum of squares\nVerification of the model\nConsidering other aspects (post hoc tests)\nTesting of assumptions (homogeneity of variance, etc.)\nInterpretation of the model and reporting (profile plots)\n\n\nNote: Step 2 is done by the ANOVA model"
-  },
-  {
-    "objectID": "hs25/doe/doe_notes.html#one-way-anova-in-r",
-    "href": "hs25/doe/doe_notes.html#one-way-anova-in-r",
-    "title": "Design of Experiments",
-    "section": "One-way ANOVA in R",
-    "text": "One-way ANOVA in R\noneway.test(salary ~ factor(experience), var.equal=TRUE, data=data)\nfit &lt;- aov(salary ~ factor(experience), data=data)\nsummary(fit, intercept=TRUE)"
-  },
-  {
-    "objectID": "hs25/doe/doe_notes.html#two-way-anova-in-r",
-    "href": "hs25/doe/doe_notes.html#two-way-anova-in-r",
-    "title": "Design of Experiments",
-    "section": "Two-Way ANOVA in R",
-    "text": "Two-Way ANOVA in R\n# Only main effects, no interaction\nfit &lt;- avo(salary ~ factor(experience) + factor(position), data=data)\nsummary(fit, intercept=TRUE)\n\n# With Interaction\nfit &lt;- avo(salary ~ factor(experience) * factor(position), data=data)\nsummary(fit, intercept=TRUE)"
-  },
-  {
-    "objectID": "hs25/doe/doe_notes.html#main-effects",
-    "href": "hs25/doe/doe_notes.html#main-effects",
-    "title": "Design of Experiments",
-    "section": "Main Effects",
-    "text": "Main Effects\nThe direct effect of an independent variable on the dependent variable is called main effect. Profile plots are used as visualization.\n\n\n\nProfile Plots of Main Effect\n\n\n\n\n\n\n\n\nNote\n\n\n\nIf the profile plot shows a (nearly) horizontal line, the main effect in question is probably not significant."
-  },
-  {
-    "objectID": "hs25/doe/doe_notes.html#interaction-effect",
-    "href": "hs25/doe/doe_notes.html#interaction-effect",
-    "title": "Design of Experiments",
-    "section": "Interaction Effect",
-    "text": "Interaction Effect\nAn interaction between experience and position means there is dependency between the two variables. The independent variables have a complex influence on the dependent variable. The factors do not just function additively but act together in a different manner.\n\n\n\nProfile Plot of Interaction Effect\n\n\n\n\n\n\n\n\nNote\n\n\n\nIf there is no interaction, the lines are parallel. If there is an interaction, the lines are not parallel."
-  },
-  {
-    "objectID": "hs25/doe/doe_notes.html#prerequisites-of-anova",
-    "href": "hs25/doe/doe_notes.html#prerequisites-of-anova",
-    "title": "Design of Experiments",
-    "section": "Prerequisites of ANOVA",
-    "text": "Prerequisites of ANOVA\n\nSampling: Randomly assigning participants to the treatment or control groups.\nDistribution of residuals: Residuals (= error) are normally distributed.\nHomogeneity of variances: Residuals (= error) have constant variance\nBalanced design: Same sample size in all groups.\n\n\nNote: ANOVA is relatively robust against violations of prerequisites."
-  },
-  {
-    "objectID": "hs25/doe/doe_notes.html#post-hoc-tests",
-    "href": "hs25/doe/doe_notes.html#post-hoc-tests",
-    "title": "Design of Experiments",
-    "section": "Post Hoc Tests",
-    "text": "Post Hoc Tests\nThere are different methods to compare groups in pairs. All methods are similar, however, in that they solve the problem of multiple testing.\npairwise.t.test(x, y, p.adj=\"bonf\")"
-  },
-  {
-    "objectID": "hs25/doe/doe_notes.html#effect-size-1",
-    "href": "hs25/doe/doe_notes.html#effect-size-1",
-    "title": "Design of Experiments",
-    "section": "Effect size",
-    "text": "Effect size\nPartial eta squared \\({\\eta_p}^2\\) relates the variance explained by one factor to the variance not explained by other factors in the model.\nlibrary(effectsize)\neta_squared(fit)$Eta2 # Use your ANOVA fit"
-  },
-  {
-    "objectID": "hs25/doe/doe_notes.html#overview-over-statistical-hypothesis-tests",
-    "href": "hs25/doe/doe_notes.html#overview-over-statistical-hypothesis-tests",
-    "title": "Design of Experiments",
-    "section": "Overview over Statistical Hypothesis Tests",
-    "text": "Overview over Statistical Hypothesis Tests\nChoosing the type of analysis depending on level of measurement\n\n\n\nOverview over Statistical Hypothesis Tests"
-  },
-  {
-    "objectID": "hs25/doe/doe_notes.html#what-is-ab-testing",
-    "href": "hs25/doe/doe_notes.html#what-is-ab-testing",
-    "title": "Design of Experiments",
-    "section": "What is A/B testing?",
-    "text": "What is A/B testing?\nA/B testing (also bucket testing or split-run testing) is an experiment. The research questions are applied to two (A/B) or more randomized groups. The statistical analysis is done by t-test, ANOVA and more advanced methods."
-  },
-  {
-    "objectID": "hs25/doe/doe_notes.html#carrying-out-ab-testing",
-    "href": "hs25/doe/doe_notes.html#carrying-out-ab-testing",
-    "title": "Design of Experiments",
-    "section": "Carrying out A/B testing",
-    "text": "Carrying out A/B testing\nThe aim is to determine which version achieves a better result, in terms of click-through rate etc. Two versions A and B are tested in parallel in a live environment. The generated data becomes the basis for decisions. Depending on the experiment, the test can be applyed to all users of a website or only a subset."
-  },
-  {
-    "objectID": "hs25/doe/doe_notes.html#bandit-algorithm",
-    "href": "hs25/doe/doe_notes.html#bandit-algorithm",
-    "title": "Design of Experiments",
-    "section": "Bandit algorithm",
-    "text": "Bandit algorithm\nSeveral variants (treatments A, B, C, …) are run in parallel. The variant with the highest “success” (according to metrics) get more data traffic. Other variants are refined and tested with proportionally less traffic. Traffic allocation is continuously adjusted based on the observed success. As the test progresses, more and more information about the performance of the variants becomes available, so that the most successful variant can be identified dynamically.\n\n\n\n\n\n\nNote\n\n\n\nA key advantage of bandit algorithms is that they can achieve higher overall profit while still collecting data on the other variants."
-  },
-  {
-    "objectID": "hs25/doe/doe_notes.html#measurement-metrics-kpi",
-    "href": "hs25/doe/doe_notes.html#measurement-metrics-kpi",
-    "title": "Design of Experiments",
-    "section": "Measurement / Metrics / KPI",
-    "text": "Measurement / Metrics / KPI\n\nMeasurement: Method for obtaining one or more measured values that can be assigned to a quantity\nMetrics: Calculation from measured values\nKPI: Quantifiable metric that shows how effectively the most important company goals are achieved"
-  },
-  {
-    "objectID": "hs25/doe/doe_notes.html#error-sources-and-pitfalls",
-    "href": "hs25/doe/doe_notes.html#error-sources-and-pitfalls",
-    "title": "Design of Experiments",
-    "section": "Error sources and pitfalls",
-    "text": "Error sources and pitfalls\nA/B testing cannot be used in all research questions → Example: For a complete website redesign (further elements have to be included). Population is unknown, sampling procedure is not suitable, sampling bias, ect.\n\nDark Pattern / Deceptive Pattern\nDark / deceptive patterns are patterns of persuasion and influence. They may increase short-term gains for the provider but can harm brand image, user experience, and customer satisfaction. A/B testers must ensure that the variants they test are ethically acceptable and aim to create genuine added value for the user.\n\n\n\n\n\n\nCaution\n\n\n\nThe problem with testing dark patterns is that A/B tests typically measure short-term metrics (such as clicks or conversions). They are not good at capturing long-term damage."
-  },
-  {
-    "objectID": "hs25/doe/doe_notes.html#full-factorial-designs-1",
-    "href": "hs25/doe/doe_notes.html#full-factorial-designs-1",
-    "title": "Design of Experiments",
-    "section": "Full factorial designs",
-    "text": "Full factorial designs\n\nSingle factorial (One)\nOne independent variable IV (factor) acts on the dependent variable DV. Two groups are compared:\n\n1 IV: one IV with two levels (dichotomous)\n1 DV: metric scaled\nExamples: A/B test, RCT with treatment and control or two treatments\nAnalysis: One-way ANOVA\n\nOne independent variable IV (factor) acts on the dependent variable DV. Several groups are compared:\n\n1 IV: one IV with several levels\n1 DV: metric scaled\nExamples: RCT with combinations of more than two treatments and control\nAnalysis: One-way ANOVA\n\n\n\nMultifactorial (Several)\nSeveral factors act on the dependent variable DV. Several groups are compared:\n\nX IV → several IV with two or more levels each\n1 DV → metric scaled\nExamples: Dwell time with two IV\nAnalysis: Multi-factorial ANOVA (two-way ANOVA, three-way ANOVA, …)"
-  },
-  {
-    "objectID": "hs25/doe/doe_notes.html#fractional-factorial-designs-1",
-    "href": "hs25/doe/doe_notes.html#fractional-factorial-designs-1",
-    "title": "Design of Experiments",
-    "section": "Fractional factorial designs",
-    "text": "Fractional factorial designs\nThe more factors and the more characteristics, the larger the number of groups. Provided that there are no interactions, the experiment can also be conducted successfully with a reduced number of groups. By using Latin squares or related designs, the number of groups required can be significantly reduced compared to full factorial designs.\n\nIn principle multifactorial (Several)\nSeveral factors act on the dependent variable DV. Several groups are compared: - X IV → several IV with two or more levels each - 1 DV → metric scaled - BUT Not all possible combinations are considered"
-  },
-  {
-    "objectID": "hs25/doe/doe_notes.html#latin-square",
-    "href": "hs25/doe/doe_notes.html#latin-square",
-    "title": "Design of Experiments",
-    "section": "Latin square",
-    "text": "Latin square\nA Latin squares design makes it possible to study the main effects of factors without having to observe all combinations of treatment levels.\n\n\n\nCombination Table\n\n\nAll combinations lead to a total of 27 (full factorial).\n\n\n\nLatin Square\n\n\nHere we only use 9 combinations (fractional factorial).\n\n\n\n\n\n\nCaution\n\n\n\nA Latin squares design can only be used if it follows from theory or empirical evidence that the joint effect of the factors does not produce interactions."
-  },
-  {
-    "objectID": "hs25/doe/doe_notes.html#what-are-large-data-quantities",
-    "href": "hs25/doe/doe_notes.html#what-are-large-data-quantities",
-    "title": "Design of Experiments",
-    "section": "What are large data quantities?",
-    "text": "What are large data quantities?\n\nSamples are taken as part of a study. Primary goal: To answer research questions\nAdministrative data are collected for various reasons. Primary goal: To serve documentary and administrative purposes\nGrey area Data from full surveys (census), from social media and from “representative” surveys lie somewhat between data from a sample and administrative data.\n\nThis terminology has become established in many fields of research: - Made data → Data is generated by researchers (“made”). - Found data → Data are obtained administratively and technically (“found”)"
-  },
-  {
-    "objectID": "hs25/doe/doe_notes.html#what-is-bias",
-    "href": "hs25/doe/doe_notes.html#what-is-bias",
-    "title": "Design of Experiments",
-    "section": "What is bias?",
-    "text": "What is bias?\nDeviation between mean \\(\\mu_0\\) in the population and sample mean \\(\\bar{x}\\). Three elements determine the bias:\n\nData quality measure\nData quantity measure\nProblem difficulty measure\n\n\nHow can bias be quantified?\n\\[\n\\text{Bias} = \\bar{x} - \\mu_0 = \\rho_{R,G} \\times \\sqrt{\\frac{1-f}{f}} \\times \\sigma_G\n\\]\n\n\\(\\rho_{R,G}\\): Data Quality\n\\(\\sqrt{\\frac{1-f}{f}}\\): Data Quantity\n\\(\\sigma_G\\): Problem Difficulty\n\n\n\nData defect correlation \\(\\rho_{R,G}\\)\nIn \\(\\rho_{R,G}\\) the \\(R\\) is a function that shows how data is obtained from the population. In simple random sampling, the \\(R\\) function generates a randomly generated sequence of elements drawn from the population. Because of the random process, the selection of an element is independent of \\(G\\).\n\n\nStatistical paradises and paradoxes in relation to administrative data sets\nMeasure for the size of the bias → Mean-squared error (MSE). The MSE measures the deviation (bias) of the estimator \\(\\bar{x}\\) from the mean \\(\\mu_0\\) in the population. The bias goes to \\(0\\) only, if the size \\(n\\) of the administrative dataset goes against \\(N\\) (\\(n\\) → \\(N\\)).\n\n\n\n\n\n\nImportant\n\n\n\nThe absolute size \\(n\\) of the administrative dataset is meaningless without specifying \\(N\\)."
-  },
-  {
-    "objectID": "hs25/doe/doe_notes.html#spurious-correlation",
-    "href": "hs25/doe/doe_notes.html#spurious-correlation",
-    "title": "Design of Experiments",
-    "section": "Spurious Correlation",
-    "text": "Spurious Correlation\nA spurious correlation is a relationship between two variables that appears to be statistically significant and related, but is not actually caused by one another. The relationship is deceptive or coincidental, and often results from either a hidden factor or simply random chance. The primary risk of spurious correlation is that people might mistakenly conclude that a causal relationship exists based solely on the correlation, leading to incorrect policies or decisions."
   },
   {
     "objectID": "hs25/pds/pds_notes.html",
@@ -1482,6 +1132,412 @@
     "title": "Python for Data Science - Notes",
     "section": "Assert Function",
     "text": "Assert Function\nPython’s assert statement allows you to write sanity checks in your code. These checks are known as assertions, and you can use them to test if certain assumptions remain true while you’re developing your code. If any of your assertions turn false, it indicates a bug by raising an AssertionError.\n\ndef division(a, b):\n    assert b != 0, \"Division by Zero\" # Divider can't be Zero\n    \n    res = a / b\n    return res"
+  },
+  {
+    "objectID": "hs25/doe/doe_notes.html",
+    "href": "hs25/doe/doe_notes.html",
+    "title": "Design of Experiments",
+    "section": "",
+    "text": "The fundamental difference between observational studies and experimental research designs is that in the former, researchers simply observe and measure variables without actively intervening. In the latter, variables are purposefully manipulated to determine a cause-and-effect relationship.\n\n\n\nThe effect and aim of randomisation is to eliminate selection bias and confounding factors, and to ensure comparability between groups at the start of the study (baseline data).\n\n\n\nConfounding occurs when a factor (confounder) that has not been investigated is associated with both the independent and dependent variables, causing a spurious correlation between them.\n\n\n\nThe problem is distortion due to knowledge about the treatment. Blinding is a suitable technique for avoiding such distortions. It eliminates conscious and unconscious influences on the treatment result.\n\n\n\nOpen: No blining\nSingle-blind: Participants don’t know their group assignment (e.g., whether they’re receiving the real treatment or a placebo).\nDouble-blind: Neither the participants nor the researchers administering the treatment know the group assignments.\nTriple-blind: Participants, researchers, and the data analysts are all unaware of the group assignments."
+  },
+  {
+    "objectID": "hs25/doe/doe_notes.html#observational-vs.-experimental",
+    "href": "hs25/doe/doe_notes.html#observational-vs.-experimental",
+    "title": "Design of Experiments",
+    "section": "",
+    "text": "The fundamental difference between observational studies and experimental research designs is that in the former, researchers simply observe and measure variables without actively intervening. In the latter, variables are purposefully manipulated to determine a cause-and-effect relationship."
+  },
+  {
+    "objectID": "hs25/doe/doe_notes.html#randomization",
+    "href": "hs25/doe/doe_notes.html#randomization",
+    "title": "Design of Experiments",
+    "section": "",
+    "text": "The effect and aim of randomisation is to eliminate selection bias and confounding factors, and to ensure comparability between groups at the start of the study (baseline data)."
+  },
+  {
+    "objectID": "hs25/doe/doe_notes.html#confounder",
+    "href": "hs25/doe/doe_notes.html#confounder",
+    "title": "Design of Experiments",
+    "section": "",
+    "text": "Confounding occurs when a factor (confounder) that has not been investigated is associated with both the independent and dependent variables, causing a spurious correlation between them."
+  },
+  {
+    "objectID": "hs25/doe/doe_notes.html#blinding",
+    "href": "hs25/doe/doe_notes.html#blinding",
+    "title": "Design of Experiments",
+    "section": "",
+    "text": "The problem is distortion due to knowledge about the treatment. Blinding is a suitable technique for avoiding such distortions. It eliminates conscious and unconscious influences on the treatment result.\n\n\n\nOpen: No blining\nSingle-blind: Participants don’t know their group assignment (e.g., whether they’re receiving the real treatment or a placebo).\nDouble-blind: Neither the participants nor the researchers administering the treatment know the group assignments.\nTriple-blind: Participants, researchers, and the data analysts are all unaware of the group assignments."
+  },
+  {
+    "objectID": "hs25/doe/doe_notes.html#introduction-to-scientific-theory",
+    "href": "hs25/doe/doe_notes.html#introduction-to-scientific-theory",
+    "title": "Design of Experiments",
+    "section": "Introduction to scientific theory",
+    "text": "Introduction to scientific theory\n\nScientific Theory\nExamines whether and how scientific knowledge can be obtained. It is a branch of philosophy that deals with the theory of scientific knowledge and scientific methods, as well as with research. It also analyzes the practices that generate scientific knowledge and examines the institutional and social contexts in which these take place.\n\n\nMethodology\nIt focuses on the underlying considerations, decisions, and justifications of the approach used in scientific research projects. It provides the instructional framework on how to proceed in order to gain scientific knowledge. It does not comprise a strictly formal set of rules but offers a diverse and pragmatic set of choices that are linked to human action.\n\n\nResearch Methodes\nSystematized procedures and approaches for obtaining knowledge.\n\n\nSelection of positions held in scientific theory\n\nClassical rationalism: Reason precedes experience and there are so-called “innate” concepts of reason.\nInductive empiricism: Findings are derived inductively based on observations and experiences.\nLogical positivism: The use of logic makes it possible to separate science from metaphysics.\nCritical rationalism: Findings are derived deductively based on observations.\n(Social) constructivism: Individuals construct their reality by relating their thinking and actions.\n\n\nNote: Inductive empiricism and critical rationalism belong to empirical research.\n\n\n\nWhat is empirical research?\nKnowledge can be gained only through observation, experiment, and experience. Empirical research examines the environment by means of observation and experiment. There are many research methods for conducting observations and experiments:\n\nInterview\nCase study\nSurvey study\nExperiment\n\n\n\nLandscape of empirical research\n\n\n\nLandscape of empirical research\n\n\n\n\nQuantitative Methodes\nResearch that uses quantitative methods is designed around the principles of critical rationalism. The approach assumes that a theory can never be finally verified, it can only be falsified.\n\n\nDescriptive statistics\n\nDescribes the data to be analyzed.\nIs limited to a sample as a subset of the population.\nDoes not allow for conclusions to be drawn about the population.\n\n\n\nInferential statistics\n\nFor drawing conclusions about the population based on information obtained from a sample.\nUse statistical hypothesis tests, especially, as the main component.\n\n\n\nHypothesis Testing\nHypothesis testing is a statistical method used to determine if there is enough evidence in a sample of data to support a specific hypothesis about a population. It involves formulating a null hypothesis and an alternative hypothesis, analyzing sample data, and making a decision based on the results, often using a p-value to assess significance.\n\nAlternative hypothesis (\\(H_A\\)): Research hypothesis to be tested that postulates the presence of a certain effect (e.g. a difference) in the population.\nNull hypothesis (\\(H_0\\)): Postulates the opposite, namely the absence of an effect."
+  },
+  {
+    "objectID": "hs25/doe/doe_notes.html#research-process",
+    "href": "hs25/doe/doe_notes.html#research-process",
+    "title": "Design of Experiments",
+    "section": "Research process",
+    "text": "Research process\n\nPhases\n\nFormulation of the research problem & study design\nPlanning and preparation of the study\nData collection\nData Analysis\nReporting\n\n\n\nMeasuring Instrument\nA process that uses a given set of circumstances to define and specify subsequent research steps with a view to better understanding these circumstances.\n\n\nSampling procedure\nA selection of cases derived from the population and compiled for research purposes results in statements as part of an empirical study. Sampling often involves people, but objects of all kinds (e.g., websites, newspaper articles, companies, countries) can also form a population. Sample surveys are typical of empirical social research. Only rarely are censuses used that examine all cases associated with the population."
+  },
+  {
+    "objectID": "hs25/doe/doe_notes.html#definition-properties-of-study-design",
+    "href": "hs25/doe/doe_notes.html#definition-properties-of-study-design",
+    "title": "Design of Experiments",
+    "section": "Definition & properties of study design",
+    "text": "Definition & properties of study design\nThe choice of a suitable research design determines the scientific quality of a study. The planning of the analysis depends on the research design.\n\nStudy types\n\nDescriptive study: Descriptive character. Suitable for forming hypotheses (Surveys).\nAnalytical study: Identification and quantification of effects / verification of relationships. Not fully suitable for hypothesis testing (Cohot).\nRandomized controlled: Suitable for hypothesis testing (RCT)."
+  },
+  {
+    "objectID": "hs25/doe/doe_notes.html#cause-and-effect",
+    "href": "hs25/doe/doe_notes.html#cause-and-effect",
+    "title": "Design of Experiments",
+    "section": "Cause and Effect",
+    "text": "Cause and Effect\nA trial / experiment is carried out to discover a cause-and-effect relationship in a process.\n\nTerms\n\nInput: Trial objects, test objects, test persons, ect.\nProcess: Process in which controllable and non-controllable factors influence the input.\nOutput (aka. Dependet variable: DV): Input changed by the process, result of the test/experiment.\nControllable factors (aka Independet variables: IV): Influencing factors whose strength can be adjusted within defined limits.\nNon-controllable factors: Influencing factors whose strength cannot be determined but that can be measured / cannot be determined and that cannot be measured."
+  },
+  {
+    "objectID": "hs25/doe/doe_notes.html#non-controllable-factors",
+    "href": "hs25/doe/doe_notes.html#non-controllable-factors",
+    "title": "Design of Experiments",
+    "section": "Non-controllable factors",
+    "text": "Non-controllable factors\nNon-controllable factors are also referred to as nuisance variables in a general context or nuisance factors in the context of blocking\n\nNote: Blocking = arranging of experimental units in groups (blocks)"
+  },
+  {
+    "objectID": "hs25/doe/doe_notes.html#causality-in-observational-and-experimental-study-designs",
+    "href": "hs25/doe/doe_notes.html#causality-in-observational-and-experimental-study-designs",
+    "title": "Design of Experiments",
+    "section": "Causality in observational and experimental study designs",
+    "text": "Causality in observational and experimental study designs\nObservational studies cannot directly prove causality, but only show correlations or associations. Since the assignment is not random, there is always a risk that the results are distorted by unknown confounding factors.\nExperimental studies (e.g. RCTs) can prove causality because they control for confounding factors through randomisation, thereby isolating the effect of the cause. They are the gold standard."
+  },
+  {
+    "objectID": "hs25/doe/doe_notes.html#variance",
+    "href": "hs25/doe/doe_notes.html#variance",
+    "title": "Design of Experiments",
+    "section": "Variance",
+    "text": "Variance\nThe variance describes the mean square deviation of the individual measured values from the empirical mean.\n\nPrimary variance: Impact of (experimental) factors in an experiment on the change / variation of the output to be examined.\nSecondary variance: Variation of the output to be examined, caused by nuisance variables. Not in the focus of the study.\nError variance: Variation caused by measurement errors and random processes.\n\n\nNote: Secondary and error variances are grouped to the residual variance.\n\n\nVariantion of Variance\nThe variance of the dependent variable (DV) (primary variance) should be attributed to the systematic variation of the independent variable (IV). The secondary variance should be controlled and the error variance minimized.\n\n\n\nSummary Variance\n\n\n\nMaximizing the primary variance\n\nRelationship is linear: Selecting of extreme values in the IV.\nRelationship were curvilinear: Selecting optimal increments of IV.\nRelationship were unknown: Selecting as many increments of IV in the smallest steps as possible.\n\n\n\nControl of the secondary variance\n\nKeeping constant: Keeping the experimental setup constant.\nRepetition: Several measurements are repeated on the same trial objects.\nRandomization: Trial objects are assigned randomly to Treatment and Control groups to eliminate systematic bias\nBlocking: Trial objects are grouped into homogeneous blocks based on one or more influential variables to reduce variability.\nCovariate adjustment: Nuisance variables are included as covariates in the statistical model to account for their effects.\n\n\n\nMinimizing the error variance\n\nReliable measurement setup: Standardization of the experimental conditions\nSample size: Larger sample sizes reduce the impact of individual measurement errors\nSuitable analytical methods: Use of robust estimators to account for heterogeneous error variance\n\n\n\n\nProperties of measurement instruments\n\nObjectivity: Objectivity of an instrument is given when the results are independent of personnel and calculation methods.\nReliability: Reliability is the degree to which an instrument produces the same result each time under comparable conditions.\nValidity: Validity is the extent to which an instrument measures what was intended."
+  },
+  {
+    "objectID": "hs25/doe/doe_notes.html#design-of-experiments-types",
+    "href": "hs25/doe/doe_notes.html#design-of-experiments-types",
+    "title": "Design of Experiments",
+    "section": "Design of Experiments Types",
+    "text": "Design of Experiments Types\n\nTrial and error\nCombination of parameters have no structure and are mixed randomly. No idea what factors influence how.\n\n\nOne-factor-at-a-time\nVary the first factor and then measure fuel consumption. Keep the setting with the lowest consumption and then vary the next factor. Easy to implement, but interaction between factors are not recognized. Research question is answered neither systematically nor exhaustively.\n\n\nFull factorial design\nTwo levels (+/-) are defined per factor. All possible combinations of factor levels are varied. All main effects and all interactions can be determined. Can be used as a screening experiment to identify potentially important variables. The effort involved increases rapidly as the number of factors increases. Each additional factor doubles the number of combinations.\n\nProfile Plot\nImpact of the factors on the dependent variable \\(x\\). Based model:\n\\[\ny = \\beta_0 + \\beta_1 x_1 + \\beta_2 x_2 \\dots + \\beta_n x_n\n\\]"
+  },
+  {
+    "objectID": "hs25/doe/doe_notes.html#factorial-design-with-interactions",
+    "href": "hs25/doe/doe_notes.html#factorial-design-with-interactions",
+    "title": "Design of Experiments",
+    "section": "Factorial design with interactions",
+    "text": "Factorial design with interactions\nInteractions can occur in experiments with two or more independent variables. An interaction of two factors means that the two factors interact in a complex way. If there is an interaction, the effect of one factor depends on the levels of the other factor. Interaction terms are written as multiplication.\n\nTwo way interaction: \\(x_1 \\times x_2\\)\nThree way interaction: \\(x_1 \\times x_2 \\times x_3\\)\n\n\\[\ny = \\beta_0 + \\beta_1 x_1 + \\beta_2 x_2 + \\beta_3 x_1 \\times x_2\n\\]\n\nFull factorial designs\nGeneralization of two-level full factorial design with \\(k\\) factors and \\(n\\) levels. All possible factor combinations are varied.\n\\[\n\\text{combinations} = n^k\n\\]\n\n\nFractional factorial designs\nOnly a (balanced) part of the possible combinations of factors are varied.\n\\[\n\\text{combinations} = n^{k-1}\n\\]\n\nDesign\n\nProcedure: The factor levels are determined before the experiment\nFactor combinations: Only a part of the possible combinations of factors are selected\nRestrictions: In fractional factorial designs, interactions can only be partially measured because not all possible combinations of factor levels are tested.\nAdvantages: The effort involved is significantly lower compared to full factorial designs\nStatistical analysis: As in the case of full factorial design, but without interactions"
+  },
+  {
+    "objectID": "hs25/doe/doe_notes.html#quality-criteria-of-experiments",
+    "href": "hs25/doe/doe_notes.html#quality-criteria-of-experiments",
+    "title": "Design of Experiments",
+    "section": "Quality criteria of experiments",
+    "text": "Quality criteria of experiments\n\nInternal Validity\nExists when changes in dependent variables (DV) are attributed to independent variables (IV). Increases with decreasing impact of nuisance variables.\n\nPopulation Validity\nDegree to which the results of a study can be generalized from the sample to the whole population.\n\n\nSituation Validity\nDegree to which the findings of a study can be applied to different situations.\n\n\n\nExternal Validity\nExists when experimental results from a sample can be generalized to the entire population. Increases with increasing naturalness.\n\n\nConstruct Validity\nEffectiveness of the measurement methods in precisely capturing the intended construct\n\n\nRelationship between Internal vs. External Validity\n\n\n\nRelationship between Internal vs. External Validity\n\n\nThe lowest general level of validity is at the bottom left for the quasi-experimental laboratory study, and the highest is at the top right for the experimental field study. A well-controlled lab experiment may maximize internal validity by eliminating confounding variables."
+  },
+  {
+    "objectID": "hs25/doe/doe_notes.html#population",
+    "href": "hs25/doe/doe_notes.html#population",
+    "title": "Design of Experiments",
+    "section": "Population",
+    "text": "Population\nSet of all (potentially explorable) elements that have a common characteristic or a common combination of characteristics. The observation units (individuals, households, etc.) must be defined before the research start. In order to define the population, clear differentiation criteria must be formulated, so that for each observation unit it can be determined whether it is part of the population.\n\nDifferentiation in geographical aspects\nDifferentiation of temporal aspects (point in time or period)\nDifferentiation in factual / content-related aspects"
+  },
+  {
+    "objectID": "hs25/doe/doe_notes.html#generalizing-from-a-sample-to-the-population",
+    "href": "hs25/doe/doe_notes.html#generalizing-from-a-sample-to-the-population",
+    "title": "Design of Experiments",
+    "section": "Generalizing from a sample to the population",
+    "text": "Generalizing from a sample to the population\nThe population is often very large or not fully accessible. The population can be defined but not identified.\n\nCharacteristics of a sample\nA sample is a subset of all observation units and should reflect the relevant aspects of the population as accurately as possible. Three elements contribute to creating or describing representativeness:\n\nThe sample is drawn randomly.\nEstimation procedure for generalizing from the sample to the population is reported.\nAccuracy is reported, which is influenced by the sample size, among other things\n\n\n\nPoint estimate of the mean\nAn “estimator” is a function that calculates a value.\n\n\\(\\bar{x}\\): Mean of the sample\n\\(\\mu_0\\): True mean in the population (generally unknown)\n\n\n\n\n\n\n\nImportant\n\n\n\nThe mean value x of a sample is an unbiased, efficient and consistent estimator of the true mean value in the population: \\(\\mu_0 = E(\\bar{x})\\)"
+  },
+  {
+    "objectID": "hs25/doe/doe_notes.html#sampling-methods",
+    "href": "hs25/doe/doe_notes.html#sampling-methods",
+    "title": "Design of Experiments",
+    "section": "Sampling methods",
+    "text": "Sampling methods\n\nProbabilistic (random) sampling procedures: Selecting elements based on a random mechanism\nNon-probabilistic (non-random, purposive, arbitrary) sampling procedures: Selection of the elements is not based on a random mechanism, but is made by certain decisions (purposive or arbitrary selection of elements)\n\n\nSampling Map\n\n\n\nSampling procedure Overview\n\n\n\n\nSimple random sampling (SRS)\nRandom selection of n elements from the N elements of the population. Each element has the same probability of being included in the sample.\n\ndata &lt;- rnorm(100) # 100 random numbers\nView(data)\n\ndata_sample &lt;- sample(data, 10, replace=FALSE) # Take 10 random sample from data\nView(data_sample)\n\n\n\nStratified random sampling\nStructure of the population regarding certain characteristics is known in advance. The population is stratified in accordance with these characteristics.\n\nProportional: Selection set in each Disproportional: Selection rate per stratum stratum is the same (self-weighting)\nDisproportional: Selection rate per stratum stratum is the same (self-weighting) is different (samples will be weighted)\n\n\n\nCluster sampling\nThe elements are selected at a higher level. Variability within clusters is small (cluster elements are very similar) while variability between clusters is large (clusters differ greatly).\n\n\nArbitrary sampling\nArbitrary sampling occurs when a sample is selected based on the researcher’s discretion, convenience or ease of availability, without applying a specific, structured or random procedure.\n\n\nTargeted sampling\nFor populations that are difficult to reach and whose members are not closely networked. Preferred locations or places of residence of the members are identified and then systematically recruited on site.\n\n\nRespondent Driven Sampling\nMultiple waves of peer-to-peer recruitment with statistical adjustments are conducted to approximate a random sample. Recruited individuals are only allowed to recruit a limited number of other individuals and are only rewarded for each person actually recruited."
+  },
+  {
+    "objectID": "hs25/doe/doe_notes.html#representativeness",
+    "href": "hs25/doe/doe_notes.html#representativeness",
+    "title": "Design of Experiments",
+    "section": "Representativeness",
+    "text": "Representativeness\nThe degree of representativeness is not measurable. The sample should be representative with regard to key characteristics of the study."
+  },
+  {
+    "objectID": "hs25/doe/doe_notes.html#sampling-errors",
+    "href": "hs25/doe/doe_notes.html#sampling-errors",
+    "title": "Design of Experiments",
+    "section": "Sampling errors",
+    "text": "Sampling errors\n\nNon-sampling error\nDifference in the mean value between the defined ideal population and the real population that cannot be attributed to deficiencies in the random selection of the sample.\n\nCoverage error*: Part of the population cannot be identified.\nSystematic non-response: Lack of information on certain individual elements.\n\n\n\nSampling Error\nDifference between the estimated mean value from a randomly drawn sample and the real mean value of the population.\n\nSelection error: Not all elements of the population have the same selection probability.\nUse of an unsuitable estimator."
+  },
+  {
+    "objectID": "hs25/doe/doe_notes.html#variability-of-sample-means",
+    "href": "hs25/doe/doe_notes.html#variability-of-sample-means",
+    "title": "Design of Experiments",
+    "section": "Variability of Sample Means",
+    "text": "Variability of Sample Means\nIn randomly drawn equal samples, the sample means vary depending on:\n\nAttribute: The more heterogeneously an attribute is distributed in the population, the greater the variability of the sample means among many samples.\nSample size: The smaller the sample size, the greater the variability of sample means among many samples."
+  },
+  {
+    "objectID": "hs25/doe/doe_notes.html#standard-error",
+    "href": "hs25/doe/doe_notes.html#standard-error",
+    "title": "Design of Experiments",
+    "section": "Standard Error",
+    "text": "Standard Error\nThe standard error is a measure of the variability of the sample means among many samples. It quantifies the spread of sample means from repeated random samples of the same size around the population mean \\(\\mu_0\\)\n\\[\n\\hat{\\sigma}_{\\bar{X}} = \\sqrt{\\dfrac{s^2}{n}} = \\dfrac{s}{\\sqrt{n}}\n\\]\nThe larger the sample size, the smaller the standard error, and therefore, the larger the sample size, the more precise the sample mean is as an estimator of the population mean."
+  },
+  {
+    "objectID": "hs25/doe/doe_notes.html#statistical-significance-and-importance-of-an-effect",
+    "href": "hs25/doe/doe_notes.html#statistical-significance-and-importance-of-an-effect",
+    "title": "Design of Experiments",
+    "section": "Statistical significance and importance of an effect",
+    "text": "Statistical significance and importance of an effect\nThe chance of having a significant result in a hypothesis test is:\n\nlarger if sample size \\(n\\) increases.\nsmaller if standard deviation \\(s\\) increases.\n\nAn effect in the population can be specified by an effect measurement. This measurement results in what is referred to as effect size.\n\nNote: The name effect size (ES) comes from Cohen (1992)"
+  },
+  {
+    "objectID": "hs25/doe/doe_notes.html#effect-size",
+    "href": "hs25/doe/doe_notes.html#effect-size",
+    "title": "Design of Experiments",
+    "section": "Effect size",
+    "text": "Effect size\nEffect size is a statistical measure that quantifies the magnitude (or strength) of a phenomenon. A tiny p-value in a very large study might show a difference that is statistically significant, but practically meaningless. Effect size helps to evaluate exactly this. It expresses this difference in terms of standard deviations.\n\nA Cohen’s d of 1.0 means the means of the two groups are separated by exactly one standard deviation.\nA Cohen’s d of 0.0 means there is no difference between the means."
+  },
+  {
+    "objectID": "hs25/doe/doe_notes.html#power-analysis",
+    "href": "hs25/doe/doe_notes.html#power-analysis",
+    "title": "Design of Experiments",
+    "section": "Power analysis",
+    "text": "Power analysis\nPower analysis is the crucial step in research design that connects your expected effect size with your desired power (80%) and significance (5%) to determine the minimum sample size you need to run a valid study.\n\nDetermining the sample size with R\n\n# install.packages(\"pwr\")\nlibrary(pwr)\npwr.t.test(d = 0.5, power = 0.80, sig.level = 0.05)\n\n\n     Two-sample t test power calculation \n\n              n = 63.76561\n              d = 0.5\n      sig.level = 0.05\n          power = 0.8\n    alternative = two.sided\n\nNOTE: n is number in *each* group"
+  },
+  {
+    "objectID": "hs25/doe/doe_notes.html#the-fourth-paradigm",
+    "href": "hs25/doe/doe_notes.html#the-fourth-paradigm",
+    "title": "Design of Experiments",
+    "section": "The Fourth Paradigm",
+    "text": "The Fourth Paradigm\n\nEmpirical Science: Description of natural phenomena.\nTheoretical Science: Modelling and generalization.\nComputational Science: Simulation of complex phenomena.\nData-Intensive Science (eScience): Synthesis of information technology and science."
+  },
+  {
+    "objectID": "hs25/doe/doe_notes.html#quantitative-empirical-research",
+    "href": "hs25/doe/doe_notes.html#quantitative-empirical-research",
+    "title": "Design of Experiments",
+    "section": "Quantitative empirical research",
+    "text": "Quantitative empirical research\n\nFormulation of teh research of the study\nPlanning and preparation of the study\nData collection\nData Analysis\nReporting\n\n\n\n\n\n\n\nNote\n\n\n\nDeductive approach → Conclusion from the general to the specific.\n\n\n\nLimitations of quantitative empirical research\n\nMeaning of significant hypotheses vs. meaning of effect size.\np-hacking (looking for data subsets and configurations until the p-value is less than 5%).\nAssumptions about the distribution of variables are violated.\nAssumption of homogeneity of variance is violated."
+  },
+  {
+    "objectID": "hs25/doe/doe_notes.html#data-driven-research",
+    "href": "hs25/doe/doe_notes.html#data-driven-research",
+    "title": "Design of Experiments",
+    "section": "Data-driven research",
+    "text": "Data-driven research\n\nVisual Analytics: Exploratory Data Analysis & Descriptive Statistics.\nMachine Learning and Predictive Modelling: Regression / Classification / Decision Trees.\nAdvanced Analytics for Unstructured Data.\n\n\n\n\n\n\n\nNote\n\n\n\nInductive approach → Conclusion from the specific to the general\n\n\n\nLimitations of data-driven research\n\nBig Data Hubris: Correlation is understood as causality.\nSparse data: Although the data basis is “big,” it contains little information.\nData analysis: A whole range of methodical errors."
+  },
+  {
+    "objectID": "hs25/doe/doe_notes.html#abductive-approach-and-combination-of-approaches",
+    "href": "hs25/doe/doe_notes.html#abductive-approach-and-combination-of-approaches",
+    "title": "Design of Experiments",
+    "section": "Abductive approach and combination of approaches",
+    "text": "Abductive approach and combination of approaches\nInduction: Search and generation of theories that fit the research context. Induction shows that something actually is operative. Deduction: Verification or falsification of existing theories. Deduction proves that something must be. Abduction: Search and generation of new, also speculative theories. Abduction merely suggests that something may be.\n\nNote: Ideally, all three methods are used cyclically."
+  },
+  {
+    "objectID": "hs25/doe/doe_notes.html#anova",
+    "href": "hs25/doe/doe_notes.html#anova",
+    "title": "Design of Experiments",
+    "section": "ANOVA",
+    "text": "ANOVA\nThe Analysis of Variance (ANOVA) is a statistical test used to determine whether there are any statistically significant differences between the means of three or more independent (unrelated) groups.\n\nOne-Way ANOVA: Used when comparing means across groups based on one single categorical independent variable (factor).\nTwo-Way ANOVA: Used when comparing means based on two or more independent variables (factors), allowing for the testing of interaction effects between the factors."
+  },
+  {
+    "objectID": "hs25/doe/doe_notes.html#key-steps-in-analysis-of-variance",
+    "href": "hs25/doe/doe_notes.html#key-steps-in-analysis-of-variance",
+    "title": "Design of Experiments",
+    "section": "Key Steps in Analysis of Variance",
+    "text": "Key Steps in Analysis of Variance\n\nDesign of experiment\nCalculating differences and sum of squares\nVerification of the model\nConsidering other aspects (post hoc tests)\nTesting of assumptions (homogeneity of variance, etc.)\nInterpretation of the model and reporting (profile plots)\n\n\nNote: Step 2 is done by the ANOVA model"
+  },
+  {
+    "objectID": "hs25/doe/doe_notes.html#one-way-anova-in-r",
+    "href": "hs25/doe/doe_notes.html#one-way-anova-in-r",
+    "title": "Design of Experiments",
+    "section": "One-way ANOVA in R",
+    "text": "One-way ANOVA in R\noneway.test(salary ~ factor(experience), var.equal=TRUE, data=data)\nfit &lt;- aov(salary ~ factor(experience), data=data)\nsummary(fit, intercept=TRUE)"
+  },
+  {
+    "objectID": "hs25/doe/doe_notes.html#two-way-anova-in-r",
+    "href": "hs25/doe/doe_notes.html#two-way-anova-in-r",
+    "title": "Design of Experiments",
+    "section": "Two-Way ANOVA in R",
+    "text": "Two-Way ANOVA in R\n# Only main effects, no interaction\nfit &lt;- avo(salary ~ factor(experience) + factor(position), data=data)\nsummary(fit, intercept=TRUE)\n\n# With Interaction\nfit &lt;- avo(salary ~ factor(experience) * factor(position), data=data)\nsummary(fit, intercept=TRUE)"
+  },
+  {
+    "objectID": "hs25/doe/doe_notes.html#main-effects",
+    "href": "hs25/doe/doe_notes.html#main-effects",
+    "title": "Design of Experiments",
+    "section": "Main Effects",
+    "text": "Main Effects\nThe direct effect of an independent variable on the dependent variable is called main effect. Profile plots are used as visualization.\n\n\n\nProfile Plots of Main Effect\n\n\n\n\n\n\n\n\nNote\n\n\n\nIf the profile plot shows a (nearly) horizontal line, the main effect in question is probably not significant."
+  },
+  {
+    "objectID": "hs25/doe/doe_notes.html#interaction-effect",
+    "href": "hs25/doe/doe_notes.html#interaction-effect",
+    "title": "Design of Experiments",
+    "section": "Interaction Effect",
+    "text": "Interaction Effect\nAn interaction between experience and position means there is dependency between the two variables. The independent variables have a complex influence on the dependent variable. The factors do not just function additively but act together in a different manner.\n\n\n\nProfile Plot of Interaction Effect\n\n\n\n\n\n\n\n\nNote\n\n\n\nIf there is no interaction, the lines are parallel. If there is an interaction, the lines are not parallel."
+  },
+  {
+    "objectID": "hs25/doe/doe_notes.html#prerequisites-of-anova",
+    "href": "hs25/doe/doe_notes.html#prerequisites-of-anova",
+    "title": "Design of Experiments",
+    "section": "Prerequisites of ANOVA",
+    "text": "Prerequisites of ANOVA\n\nSampling: Randomly assigning participants to the treatment or control groups.\nDistribution of residuals: Residuals (= error) are normally distributed.\nHomogeneity of variances: Residuals (= error) have constant variance\nBalanced design: Same sample size in all groups.\n\n\nNote: ANOVA is relatively robust against violations of prerequisites."
+  },
+  {
+    "objectID": "hs25/doe/doe_notes.html#post-hoc-tests",
+    "href": "hs25/doe/doe_notes.html#post-hoc-tests",
+    "title": "Design of Experiments",
+    "section": "Post Hoc Tests",
+    "text": "Post Hoc Tests\nThere are different methods to compare groups in pairs. All methods are similar, however, in that they solve the problem of multiple testing.\npairwise.t.test(x, y, p.adj=\"bonf\")"
+  },
+  {
+    "objectID": "hs25/doe/doe_notes.html#effect-size-1",
+    "href": "hs25/doe/doe_notes.html#effect-size-1",
+    "title": "Design of Experiments",
+    "section": "Effect size",
+    "text": "Effect size\nPartial eta squared \\({\\eta_p}^2\\) relates the variance explained by one factor to the variance not explained by other factors in the model.\nlibrary(effectsize)\neta_squared(fit)$Eta2 # Use your ANOVA fit"
+  },
+  {
+    "objectID": "hs25/doe/doe_notes.html#overview-over-statistical-hypothesis-tests",
+    "href": "hs25/doe/doe_notes.html#overview-over-statistical-hypothesis-tests",
+    "title": "Design of Experiments",
+    "section": "Overview over Statistical Hypothesis Tests",
+    "text": "Overview over Statistical Hypothesis Tests\nChoosing the type of analysis depending on level of measurement\n\n\n\nOverview over Statistical Hypothesis Tests"
+  },
+  {
+    "objectID": "hs25/doe/doe_notes.html#what-is-ab-testing",
+    "href": "hs25/doe/doe_notes.html#what-is-ab-testing",
+    "title": "Design of Experiments",
+    "section": "What is A/B testing?",
+    "text": "What is A/B testing?\nA/B testing (also bucket testing or split-run testing) is an experiment. The research questions are applied to two (A/B) or more randomized groups. The statistical analysis is done by t-test, ANOVA and more advanced methods."
+  },
+  {
+    "objectID": "hs25/doe/doe_notes.html#carrying-out-ab-testing",
+    "href": "hs25/doe/doe_notes.html#carrying-out-ab-testing",
+    "title": "Design of Experiments",
+    "section": "Carrying out A/B testing",
+    "text": "Carrying out A/B testing\nThe aim is to determine which version achieves a better result, in terms of click-through rate etc. Two versions A and B are tested in parallel in a live environment. The generated data becomes the basis for decisions. Depending on the experiment, the test can be applyed to all users of a website or only a subset."
+  },
+  {
+    "objectID": "hs25/doe/doe_notes.html#bandit-algorithm",
+    "href": "hs25/doe/doe_notes.html#bandit-algorithm",
+    "title": "Design of Experiments",
+    "section": "Bandit algorithm",
+    "text": "Bandit algorithm\nSeveral variants (treatments A, B, C, …) are run in parallel. The variant with the highest “success” (according to metrics) get more data traffic. Other variants are refined and tested with proportionally less traffic. Traffic allocation is continuously adjusted based on the observed success. As the test progresses, more and more information about the performance of the variants becomes available, so that the most successful variant can be identified dynamically.\n\n\n\n\n\n\nNote\n\n\n\nA key advantage of bandit algorithms is that they can achieve higher overall profit while still collecting data on the other variants."
+  },
+  {
+    "objectID": "hs25/doe/doe_notes.html#measurement-metrics-kpi",
+    "href": "hs25/doe/doe_notes.html#measurement-metrics-kpi",
+    "title": "Design of Experiments",
+    "section": "Measurement / Metrics / KPI",
+    "text": "Measurement / Metrics / KPI\n\nMeasurement: Method for obtaining one or more measured values that can be assigned to a quantity\nMetrics: Calculation from measured values\nKPI: Quantifiable metric that shows how effectively the most important company goals are achieved"
+  },
+  {
+    "objectID": "hs25/doe/doe_notes.html#error-sources-and-pitfalls",
+    "href": "hs25/doe/doe_notes.html#error-sources-and-pitfalls",
+    "title": "Design of Experiments",
+    "section": "Error sources and pitfalls",
+    "text": "Error sources and pitfalls\nA/B testing cannot be used in all research questions → Example: For a complete website redesign (further elements have to be included). Population is unknown, sampling procedure is not suitable, sampling bias, ect.\n\nDark Pattern / Deceptive Pattern\nDark / deceptive patterns are patterns of persuasion and influence. They may increase short-term gains for the provider but can harm brand image, user experience, and customer satisfaction. A/B testers must ensure that the variants they test are ethically acceptable and aim to create genuine added value for the user.\n\n\n\n\n\n\nCaution\n\n\n\nThe problem with testing dark patterns is that A/B tests typically measure short-term metrics (such as clicks or conversions). They are not good at capturing long-term damage."
+  },
+  {
+    "objectID": "hs25/doe/doe_notes.html#full-factorial-designs-1",
+    "href": "hs25/doe/doe_notes.html#full-factorial-designs-1",
+    "title": "Design of Experiments",
+    "section": "Full factorial designs",
+    "text": "Full factorial designs\n\nSingle factorial (One)\nOne independent variable IV (factor) acts on the dependent variable DV. Two groups are compared:\n\n1 IV: one IV with two levels (dichotomous)\n1 DV: metric scaled\nExamples: A/B test, RCT with treatment and control or two treatments\nAnalysis: One-way ANOVA\n\nOne independent variable IV (factor) acts on the dependent variable DV. Several groups are compared:\n\n1 IV: one IV with several levels\n1 DV: metric scaled\nExamples: RCT with combinations of more than two treatments and control\nAnalysis: One-way ANOVA\n\n\n\nMultifactorial (Several)\nSeveral factors act on the dependent variable DV. Several groups are compared:\n\nX IV → several IV with two or more levels each\n1 DV → metric scaled\nExamples: Dwell time with two IV\nAnalysis: Multi-factorial ANOVA (two-way ANOVA, three-way ANOVA, …)"
+  },
+  {
+    "objectID": "hs25/doe/doe_notes.html#fractional-factorial-designs-1",
+    "href": "hs25/doe/doe_notes.html#fractional-factorial-designs-1",
+    "title": "Design of Experiments",
+    "section": "Fractional factorial designs",
+    "text": "Fractional factorial designs\nThe more factors and the more characteristics, the larger the number of groups. Provided that there are no interactions, the experiment can also be conducted successfully with a reduced number of groups. By using Latin squares or related designs, the number of groups required can be significantly reduced compared to full factorial designs.\n\nIn principle multifactorial (Several)\nSeveral factors act on the dependent variable DV. Several groups are compared: - X IV → several IV with two or more levels each - 1 DV → metric scaled - BUT Not all possible combinations are considered"
+  },
+  {
+    "objectID": "hs25/doe/doe_notes.html#latin-square",
+    "href": "hs25/doe/doe_notes.html#latin-square",
+    "title": "Design of Experiments",
+    "section": "Latin square",
+    "text": "Latin square\nA Latin squares design makes it possible to study the main effects of factors without having to observe all combinations of treatment levels.\n\n\n\nCombination Table\n\n\nAll combinations lead to a total of 27 (full factorial).\n\n\n\nLatin Square\n\n\nHere we only use 9 combinations (fractional factorial).\n\n\n\n\n\n\nCaution\n\n\n\nA Latin squares design can only be used if it follows from theory or empirical evidence that the joint effect of the factors does not produce interactions."
+  },
+  {
+    "objectID": "hs25/doe/doe_notes.html#what-are-large-data-quantities",
+    "href": "hs25/doe/doe_notes.html#what-are-large-data-quantities",
+    "title": "Design of Experiments",
+    "section": "What are large data quantities?",
+    "text": "What are large data quantities?\n\nSamples are taken as part of a study. Primary goal: To answer research questions\nAdministrative data are collected for various reasons. Primary goal: To serve documentary and administrative purposes\nGrey area Data from full surveys (census), from social media and from “representative” surveys lie somewhat between data from a sample and administrative data.\n\nThis terminology has become established in many fields of research: - Made data → Data is generated by researchers (“made”). - Found data → Data are obtained administratively and technically (“found”)"
+  },
+  {
+    "objectID": "hs25/doe/doe_notes.html#what-is-bias",
+    "href": "hs25/doe/doe_notes.html#what-is-bias",
+    "title": "Design of Experiments",
+    "section": "What is bias?",
+    "text": "What is bias?\nDeviation between mean \\(\\mu_0\\) in the population and sample mean \\(\\bar{x}\\). Three elements determine the bias:\n\nData quality measure\nData quantity measure\nProblem difficulty measure\n\n\nHow can bias be quantified?\n\\[\n\\text{Bias} = \\bar{x} - \\mu_0 = \\rho_{R,G} \\times \\sqrt{\\frac{1-f}{f}} \\times \\sigma_G\n\\]\n\n\\(\\rho_{R,G}\\): Data Quality\n\\(\\sqrt{\\frac{1-f}{f}}\\): Data Quantity\n\\(\\sigma_G\\): Problem Difficulty\n\n\n\nData defect correlation \\(\\rho_{R,G}\\)\nIn \\(\\rho_{R,G}\\) the \\(R\\) is a function that shows how data is obtained from the population. In simple random sampling, the \\(R\\) function generates a randomly generated sequence of elements drawn from the population. Because of the random process, the selection of an element is independent of \\(G\\).\n\n\nStatistical paradises and paradoxes in relation to administrative data sets\nMeasure for the size of the bias → Mean-squared error (MSE). The MSE measures the deviation (bias) of the estimator \\(\\bar{x}\\) from the mean \\(\\mu_0\\) in the population. The bias goes to \\(0\\) only, if the size \\(n\\) of the administrative dataset goes against \\(N\\) (\\(n\\) → \\(N\\)).\n\n\n\n\n\n\nImportant\n\n\n\nThe absolute size \\(n\\) of the administrative dataset is meaningless without specifying \\(N\\)."
+  },
+  {
+    "objectID": "hs25/doe/doe_notes.html#spurious-correlation",
+    "href": "hs25/doe/doe_notes.html#spurious-correlation",
+    "title": "Design of Experiments",
+    "section": "Spurious Correlation",
+    "text": "Spurious Correlation\nA spurious correlation is a relationship between two variables that appears to be statistically significant and related, but is not actually caused by one another. The relationship is deceptive or coincidental, and often results from either a hidden factor or simply random chance. The primary risk of spurious correlation is that people might mistakenly conclude that a causal relationship exists based solely on the correlation, leading to incorrect policies or decisions."
+  },
+  {
+    "objectID": "hs25/pds/pds_mock_exam.html",
+    "href": "hs25/pds/pds_mock_exam.html",
+    "title": "Python for Data Science - Mock Exam",
+    "section": "",
+    "text": "The following script is given:\nvar1 = (42, 0.34)\nvar2 = 0.34\nvar3 = {elem:1 for elem in var1}\nvar4 = set(list(range(3)))\n\nWhat data type is var1: tuple\nWhat data type is var2: float\nWhat data type is var3: dict\nWhat data type is var4: set\n\n\n\n\nvar1 = (42, 0.34)\nprint(type(var1))\n\nvar2 = 0.34\nprint(type(var2))\n\nvar3 = {elem:1 for elem in var1}\nprint(type(var3))\n\nvar4 = set(list(range(3)))\nprint(type(var4))\n\n&lt;class 'tuple'&gt;\n&lt;class 'float'&gt;\n&lt;class 'dict'&gt;\n&lt;class 'set'&gt;\n\n\n\n\n\n\nWhat does the script below print to the console?\na = 14\nb = \"this variable\"\nc = \"formatting\"\nmylist = [a,b,c]\nmystring = \"Hello, {} used {} syntax '.format'.\" .format(mylist[1], mylist[2])\nprint(mystring)\nOutput:\nHello, this variable used formatting syntax '.format'.\n\n\n\na = 14\nb = \"this variable\"\nc = \"formatting\"\nmylist = [a,b,c]\nmystring = \"Hello, {} used {} syntax '.format'.\" .format(mylist[1], mylist[2])\nprint(mystring)\n\nHello, this variable used formatting syntax '.format'.\n\n\n\n\n\n\nGiven the following script:\na = \"a\"\nmystring = \"I'm just {} normal sentence {}\".format(__FILL_ONE__, __FILL_TWO__)\nprint(mystring)\nPlease provide suitable replacements for __FILL_ONE__ and __FILL_TWO__ such that the script prints: I’m just a normal sentence !\n\n__FILL_ONE__: a\n__FILL_TWO__: “!”\n\n\n\n\na = \"a\"\nmystring = \"I'm just {} normal sentence {}\".format(a, \"!\")\nprint(mystring)\n\nI'm just a normal sentence !\n\n\n\n\n\n\n\n\n\nWhat does the script below print to the console?\na = 2\nb = 5\n\ndef mathematical_fun(a, b):\n    return a+b\n\nprint(a, mathematical_fun(a, b))\nOutput:\n2 7\n\n\n\na = 2\nb = 5\n\ndef mathematical_fun(a, b):\n    return a+b\n\nprint(a, mathematical_fun(a, b))\n\n2 7\n\n\n\n\n\n\nWhat does the script below print to the console?\na = 3\n\ndef mathematical_fun(a, b=2):\n    return a+b\n\nresult = mathematical_fun(a)\nprint(result)\nOutput:\n5\n\n\n\na = 3\n\ndef mathematical_fun(a, b=2):\n    return a+b\n\nresult = mathematical_fun(a)\nprint(result)\n\n5\n\n\n\n\n\n\nWhat does the script below print to the console?\nvar = 2\n\ndef change_value(var):\n    print(var)\n    var = 3\n    return var\n\nprint(var)\nOutput:\n2\n\n\n\nvar = 2\n\ndef change_value(var):\n    print(var)\n    var = 3\n    return var\n\nprint(var)\n\n2\n\n\n\n\n\n\nWhat does the script below print to the console?\nMODULE_VAR = 2\n\ndef module_function(a):\n    global MODULE_VAR\n    print(MODULE_VAR)\n    MODULE_VAR = a\n\nmodule_function(3)\nprint(MODULE_VAR)\nOutput:\n2\n3\n\n\n\nMODULE_VAR = 2\n\ndef module_function(a):\n    global MODULE_VAR\n    print(MODULE_VAR)\n    MODULE_VAR = a\n\nmodule_function(3)\nprint(MODULE_VAR)\n\n2\n3\n\n\n\n\n\n\n\n\n\nWhat does the script below print to the console?\nfor elem in range(2):\n    print(elem)\nOutput:\n0\n1\n\n\n\nfor elem in range(2):\n    print(elem)\n\n0\n1\n\n\n\n\n\n\nWhat does the script below print to the console?\nmylist = [1,2,3]\nfor ind, elem in enumerate(mylist):\n    print(ind)\nprint(elem)\nOutput:\n0\n1\n2\n3\n\n\n\nmylist = [1,2,3]\nfor ind, elem in enumerate(mylist):\n    print(ind)\nprint(elem)\n\n0\n1\n2\n3\n\n\n\n\n\n\nWhat does the script below print to the console?\na = 21\nb = 2\nif len(\"155kl\") &gt; 4:\n    while a &lt; 24:\n        print(a)\n        if b &lt;= 2:\n            break\n        a += 1\nelse:\n    while a &lt; 23:\n        print(a + 1)\n        if b &lt;= 2:\n            break\n        a += 1\nOutput:\n21\n\n\n\na = 21\nb = 2\nif len(\"155kl\") &gt; 4:\n    while a &lt; 24:\n        print(a)\n        if b &lt;= 2:\n            break\n        a += 1\nelse:\n    while a &lt; 23:\n        print(a + 1)\n        if b &lt;= 2:\n            break\n        a += 1\n\n21\n\n\n\n\n\n\n\n\n\nWhat does the script below print to the console?\nclass MyClass ():\n    number = 3\n\n    def __init__(self, number):\n        self.number = number\n\nobj = MyClass(4)\nprint(MyClass.number)\nOutput:\n3\n\n\n\nclass MyClass ():\n    number = 3\n\n    def __init__(self, number):\n        self.number = number\n\nobj = MyClass(4)\nprint(MyClass.number)\n\n3\n\n\n\n\n\n\nWhat does the script below print to the console?\nclass MyNumber():\n    def __init__(self, number):\n        self.number = number\n\n    def my_method(self):\n        self.number = self.number + 1\n        return self.number\n\ni = 0\nobj = MyNumber(i)\nwhile i &lt;= 3:\n    i = obj.my_method()\n    print(i)\nelse:\n    print(\"?\")\nOutput:\n1\n2\n3\n4\n?\n\n\n\nclass MyNumber():\n    def __init__(self, number):\n        self.number = number\n\n    def my_method(self):\n        self.number = self.number + 1\n        return self.number\n\ni = 0\nobj = MyNumber(i)\nwhile i &lt;= 3:\n    i = obj.my_method()\n    print(i)\nelse:\n    print(\"?\")\n\n1\n2\n3\n4\n?\n\n\n\n\n\n\nWhat does the script below print to the console?\nclass MyBaseClass():\n    def __init__(self, number):\n        self.number = number\n\n    def my_method(self):\n        self.number = self.number + 10\n        return self.number\n\nclass MyClass(MyBaseClass):\n    def __init__(self, number):\n        super().__init__(number)\n\n    def my_method(self):\n        self.number = self.number + 1\n        return self.number\n\nobj = MyClass(3)\nprint(obj.number)\nprint(obj.my_method())\nprint(obj.number)\nOutput:\n3\n4\n4\n\n\n\nclass MyBaseClass():\n    def __init__(self, number):\n        self.number = number\n\n    def my_method(self):\n        self.number = self.number + 10\n        return self.number\n\nclass MyClass(MyBaseClass):\n    def __init__(self, number):\n        super().__init__(number)\n\n    def my_method(self):\n        self.number = self.number + 1\n        return self.number\n\nobj = MyClass(3)\nprint(obj.number)\nprint(obj.my_method())\nprint(obj.number)\n\n3\n4\n4\n\n\n\n\n\n\n\n\n\nWhich of the following statements about Python dictionaries are correct?\n\nNote: At least one statement must be marked, otherwise you will get 0 points.\n\n\n[✓] You can modify the value associated with a key in a dictionary after it has been created.\n[o] Keys in a dictionary must be strings.\n[o] Values in a dictionary must be of the same data type.\n[o] A dictionary can contain duplicate keys.\n[✓] Dictionaries can form nested structures.\n\n\n\n\nWhich of the following statements about Python classes/objects are correct?\n\nNote: At least one statement must be marked, otherwise you will get 0 points.\n\n\n[✓] A class is a blueprint for creating objects.\n[✓] An object can have attributes and methods.\n[✓] A class can be instantiated multiple times to create different objects.\n[o] All objects in Python are instances of built-in classes only.\n[✓] Inheritance allows a class to inherit attributes and methods from another class."
+  },
+  {
+    "objectID": "hs25/pds/pds_mock_exam.html#assignment-1-basics",
+    "href": "hs25/pds/pds_mock_exam.html#assignment-1-basics",
+    "title": "Python for Data Science - Mock Exam",
+    "section": "",
+    "text": "The following script is given:\nvar1 = (42, 0.34)\nvar2 = 0.34\nvar3 = {elem:1 for elem in var1}\nvar4 = set(list(range(3)))\n\nWhat data type is var1: tuple\nWhat data type is var2: float\nWhat data type is var3: dict\nWhat data type is var4: set\n\n\n\n\nvar1 = (42, 0.34)\nprint(type(var1))\n\nvar2 = 0.34\nprint(type(var2))\n\nvar3 = {elem:1 for elem in var1}\nprint(type(var3))\n\nvar4 = set(list(range(3)))\nprint(type(var4))\n\n&lt;class 'tuple'&gt;\n&lt;class 'float'&gt;\n&lt;class 'dict'&gt;\n&lt;class 'set'&gt;\n\n\n\n\n\n\nWhat does the script below print to the console?\na = 14\nb = \"this variable\"\nc = \"formatting\"\nmylist = [a,b,c]\nmystring = \"Hello, {} used {} syntax '.format'.\" .format(mylist[1], mylist[2])\nprint(mystring)\nOutput:\nHello, this variable used formatting syntax '.format'.\n\n\n\na = 14\nb = \"this variable\"\nc = \"formatting\"\nmylist = [a,b,c]\nmystring = \"Hello, {} used {} syntax '.format'.\" .format(mylist[1], mylist[2])\nprint(mystring)\n\nHello, this variable used formatting syntax '.format'.\n\n\n\n\n\n\nGiven the following script:\na = \"a\"\nmystring = \"I'm just {} normal sentence {}\".format(__FILL_ONE__, __FILL_TWO__)\nprint(mystring)\nPlease provide suitable replacements for __FILL_ONE__ and __FILL_TWO__ such that the script prints: I’m just a normal sentence !\n\n__FILL_ONE__: a\n__FILL_TWO__: “!”\n\n\n\n\na = \"a\"\nmystring = \"I'm just {} normal sentence {}\".format(a, \"!\")\nprint(mystring)\n\nI'm just a normal sentence !"
+  },
+  {
+    "objectID": "hs25/pds/pds_mock_exam.html#assignment-2-functions",
+    "href": "hs25/pds/pds_mock_exam.html#assignment-2-functions",
+    "title": "Python for Data Science - Mock Exam",
+    "section": "",
+    "text": "What does the script below print to the console?\na = 2\nb = 5\n\ndef mathematical_fun(a, b):\n    return a+b\n\nprint(a, mathematical_fun(a, b))\nOutput:\n2 7\n\n\n\na = 2\nb = 5\n\ndef mathematical_fun(a, b):\n    return a+b\n\nprint(a, mathematical_fun(a, b))\n\n2 7\n\n\n\n\n\n\nWhat does the script below print to the console?\na = 3\n\ndef mathematical_fun(a, b=2):\n    return a+b\n\nresult = mathematical_fun(a)\nprint(result)\nOutput:\n5\n\n\n\na = 3\n\ndef mathematical_fun(a, b=2):\n    return a+b\n\nresult = mathematical_fun(a)\nprint(result)\n\n5\n\n\n\n\n\n\nWhat does the script below print to the console?\nvar = 2\n\ndef change_value(var):\n    print(var)\n    var = 3\n    return var\n\nprint(var)\nOutput:\n2\n\n\n\nvar = 2\n\ndef change_value(var):\n    print(var)\n    var = 3\n    return var\n\nprint(var)\n\n2\n\n\n\n\n\n\nWhat does the script below print to the console?\nMODULE_VAR = 2\n\ndef module_function(a):\n    global MODULE_VAR\n    print(MODULE_VAR)\n    MODULE_VAR = a\n\nmodule_function(3)\nprint(MODULE_VAR)\nOutput:\n2\n3\n\n\n\nMODULE_VAR = 2\n\ndef module_function(a):\n    global MODULE_VAR\n    print(MODULE_VAR)\n    MODULE_VAR = a\n\nmodule_function(3)\nprint(MODULE_VAR)\n\n2\n3"
+  },
+  {
+    "objectID": "hs25/pds/pds_mock_exam.html#assignment-3-control-structures",
+    "href": "hs25/pds/pds_mock_exam.html#assignment-3-control-structures",
+    "title": "Python for Data Science - Mock Exam",
+    "section": "",
+    "text": "What does the script below print to the console?\nfor elem in range(2):\n    print(elem)\nOutput:\n0\n1\n\n\n\nfor elem in range(2):\n    print(elem)\n\n0\n1\n\n\n\n\n\n\nWhat does the script below print to the console?\nmylist = [1,2,3]\nfor ind, elem in enumerate(mylist):\n    print(ind)\nprint(elem)\nOutput:\n0\n1\n2\n3\n\n\n\nmylist = [1,2,3]\nfor ind, elem in enumerate(mylist):\n    print(ind)\nprint(elem)\n\n0\n1\n2\n3\n\n\n\n\n\n\nWhat does the script below print to the console?\na = 21\nb = 2\nif len(\"155kl\") &gt; 4:\n    while a &lt; 24:\n        print(a)\n        if b &lt;= 2:\n            break\n        a += 1\nelse:\n    while a &lt; 23:\n        print(a + 1)\n        if b &lt;= 2:\n            break\n        a += 1\nOutput:\n21\n\n\n\na = 21\nb = 2\nif len(\"155kl\") &gt; 4:\n    while a &lt; 24:\n        print(a)\n        if b &lt;= 2:\n            break\n        a += 1\nelse:\n    while a &lt; 23:\n        print(a + 1)\n        if b &lt;= 2:\n            break\n        a += 1\n\n21"
+  },
+  {
+    "objectID": "hs25/pds/pds_mock_exam.html#assignment-4-complex-scripts-oop",
+    "href": "hs25/pds/pds_mock_exam.html#assignment-4-complex-scripts-oop",
+    "title": "Python for Data Science - Mock Exam",
+    "section": "",
+    "text": "What does the script below print to the console?\nclass MyClass ():\n    number = 3\n\n    def __init__(self, number):\n        self.number = number\n\nobj = MyClass(4)\nprint(MyClass.number)\nOutput:\n3\n\n\n\nclass MyClass ():\n    number = 3\n\n    def __init__(self, number):\n        self.number = number\n\nobj = MyClass(4)\nprint(MyClass.number)\n\n3\n\n\n\n\n\n\nWhat does the script below print to the console?\nclass MyNumber():\n    def __init__(self, number):\n        self.number = number\n\n    def my_method(self):\n        self.number = self.number + 1\n        return self.number\n\ni = 0\nobj = MyNumber(i)\nwhile i &lt;= 3:\n    i = obj.my_method()\n    print(i)\nelse:\n    print(\"?\")\nOutput:\n1\n2\n3\n4\n?\n\n\n\nclass MyNumber():\n    def __init__(self, number):\n        self.number = number\n\n    def my_method(self):\n        self.number = self.number + 1\n        return self.number\n\ni = 0\nobj = MyNumber(i)\nwhile i &lt;= 3:\n    i = obj.my_method()\n    print(i)\nelse:\n    print(\"?\")\n\n1\n2\n3\n4\n?\n\n\n\n\n\n\nWhat does the script below print to the console?\nclass MyBaseClass():\n    def __init__(self, number):\n        self.number = number\n\n    def my_method(self):\n        self.number = self.number + 10\n        return self.number\n\nclass MyClass(MyBaseClass):\n    def __init__(self, number):\n        super().__init__(number)\n\n    def my_method(self):\n        self.number = self.number + 1\n        return self.number\n\nobj = MyClass(3)\nprint(obj.number)\nprint(obj.my_method())\nprint(obj.number)\nOutput:\n3\n4\n4\n\n\n\nclass MyBaseClass():\n    def __init__(self, number):\n        self.number = number\n\n    def my_method(self):\n        self.number = self.number + 10\n        return self.number\n\nclass MyClass(MyBaseClass):\n    def __init__(self, number):\n        super().__init__(number)\n\n    def my_method(self):\n        self.number = self.number + 1\n        return self.number\n\nobj = MyClass(3)\nprint(obj.number)\nprint(obj.my_method())\nprint(obj.number)\n\n3\n4\n4"
+  },
+  {
+    "objectID": "hs25/pds/pds_mock_exam.html#assignment-5-multiple-choice",
+    "href": "hs25/pds/pds_mock_exam.html#assignment-5-multiple-choice",
+    "title": "Python for Data Science - Mock Exam",
+    "section": "",
+    "text": "Which of the following statements about Python dictionaries are correct?\n\nNote: At least one statement must be marked, otherwise you will get 0 points.\n\n\n[✓] You can modify the value associated with a key in a dictionary after it has been created.\n[o] Keys in a dictionary must be strings.\n[o] Values in a dictionary must be of the same data type.\n[o] A dictionary can contain duplicate keys.\n[✓] Dictionaries can form nested structures.\n\n\n\n\nWhich of the following statements about Python classes/objects are correct?\n\nNote: At least one statement must be marked, otherwise you will get 0 points.\n\n\n[✓] A class is a blueprint for creating objects.\n[✓] An object can have attributes and methods.\n[✓] A class can be instantiated multiple times to create different objects.\n[o] All objects in Python are instances of built-in classes only.\n[✓] Inheritance allows a class to inherit attributes and methods from another class."
+  },
+  {
+    "objectID": "hs25/pds/pds_mock_exam.html#assignment-1-quick-questions",
+    "href": "hs25/pds/pds_mock_exam.html#assignment-1-quick-questions",
+    "title": "Python for Data Science - Mock Exam",
+    "section": "Assignment 1: Quick Questions",
+    "text": "Assignment 1: Quick Questions\n\nQuestion 1\n\nQ: Is the data_processor.py module depending on any other custom modules?\nA: No, there is no explicit dependency on any other custom modules.\n\n\n\nQuestion 2\n\nQ: How many and which classes inherit from DataProcessor class?\nA: There is one class that inherits from the DataProcessor class in the provided module: DataAnalyzer.\n\n\n\nQuestion 3\n\nQ: Would the methods from DataLoader class still work if the first import statement (first line) of the module data_loader.py was missing? Justify your answer in one statement.\nA: No, the load_data method would fail because it explicitly relies on the csv module."
+  },
+  {
+    "objectID": "hs25/pds/pds_mock_exam.html#assignment-2-code-completions",
+    "href": "hs25/pds/pds_mock_exam.html#assignment-2-code-completions",
+    "title": "Python for Data Science - Mock Exam",
+    "section": "Assignment 2: Code Completions",
+    "text": "Assignment 2: Code Completions\n\nToDo 1\nImport the classes DataProcessor and DataAnalyzer.\nfrom data_processor import DataProcessor, DataAnalyzer\n\n\nToDo 2\nCall the method load_data from loader object.\nloader.load_data()\n\n\nToDo 3\nWhat is the data type of the resulting data variable?\ndict\n\n\nToDo 4\nIs it possible to print an object of type ExcelDataLoader? Justify your answer with one statement.\nShort Answer: Yes, the __str__ method (and also __repr__) is defined by default for every class in Python, because all classes implicitly inherit from the base class object.\nLong Answer and Justification: If you do not define your own__str__ method in a class like ExcelDataLoader, the implementation from the base class object is used. However, this default implementation is very general and usually only provides a technical description of the object, such as:\n&lt;__main__.ExcelDataLoader object at 0x105a30e80&gt;\nThis output is rarely helpful to the user, as it provides no meaningful information about the content or state of the object (e.g., the loaded data or the file_path).\n\n\nToDo 5\nHow do you print the object analyzer and what output do you expect (sketch it down)?\nprint(analyzer)\nOutput:\nsepal_length        sepal_width         petal_length        petal_width         species\n4.4                 3.0                 1.3                 0.2                 setosa\n7.2                 3.2                 6.0                 1.8                 virginica\n6.4                 3.1                 5.5                 1.8                 virginica\n4.9                 NA                  1.4                 0.2                 setosa\n5.7                 3.8                 1.7                 0.3                 setosa\n\n\nToDo 6\nWrite a function double_fun, that doubles a value (parameter input) and returns it.\ndef double_func(value):\n    return value*2\n\n\nToDo 7\nApply the function double_fun together with the analyzer object to double all values of petal_length.\nanalyzer.apply_function(\"petal_length\", double_func)\n\n\nToDo 8\nCount the number of versicolor entries in the list species: 4 Points\n\n\n\n\n\n\nNote\n\n\n\nOnly one of the following alternatives is evaluated: * If you solve TODO 8 using list comprehension -&gt; (4 points) * If you solve TODO 8 without list comprehension -&gt; (3 points) * If you have problems with the previous definitions or dependencies, solve the independent task: TODO 8 B: Count the number of zeros in zeros -&gt; (2 points)\n\n\nres = sum(1 for i in species if i == \"versicolor\")"
   },
   {
     "objectID": "hs25/sa/sa_notes.html",
