@@ -15,6 +15,8 @@ website:
             href: hs25/pds/pds_notes.qmd
           - text: "Exercises"
             href: hs25/pds/pds_exercises.qmd
+          - text: "Mock Exam Solution"
+            href: hs25/pds/pds_mock_exam.qmd
       - text: "Classical and Bayesian Statistics"
         menu:
           - text: "Notes"
