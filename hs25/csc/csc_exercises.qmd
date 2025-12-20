@@ -72,7 +72,7 @@ $$
 
 ## Exercise 3: Domains, Hosts and URLs
 
-```{mermaid}
+```{bash}
 flowchart TD
     A(Root) --> B(edu)
     B --> C[umass]

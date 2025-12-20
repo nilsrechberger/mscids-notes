@@ -159,11 +159,11 @@ window.Quarto = {
     </a>
     <ul class="dropdown-menu" aria-labelledby="nav-menu-classical-and-bayesian-statistics">    
         <li>
-    <a class="dropdown-item" href="../../hs25/sa/sa_notes.html">
+    <a class="dropdown-item" href="../../hs25/sa/sa_notes.pdf">
  <span class="dropdown-text">Notes</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="../../hs25/sa/sa_exercises.html">
+    <a class="dropdown-item" href="../../hs25/sa/sa_exercises.pdf">
  <span class="dropdown-text">Exercises</span></a>
   </li>  
     </ul>
@@ -313,7 +313,7 @@ window.Quarto = {
   </ul></li>
   <li><a href="#week-7-linear-systems-with-python" id="toc-week-7-linear-systems-with-python" class="nav-link" data-scroll-target="#week-7-linear-systems-with-python">Week 7: Linear Systems with Python</a></li>
   </ul>
-</nav>
+<div class="quarto-alternate-formats"><h2>Other Formats</h2><ul><li><a href="lia1_notes.pdf"><i class="bi bi-file-pdf"></i>PDF</a></li></ul></div></nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
@@ -405,7 +405,7 @@ window.Quarto = {
 <h3 class="anchored" data-anchor-id="magniture-norm">Magniture (Norm)</h3>
 <p>The magnitude (or norm) of a vector <span class="math inline">\(\overrightarrow{a}\)</span> is its length, and it is denoted by <span class="math inline">\(|\overrightarrow{a}|\)</span>.</p>
 <p><span class="math display">\[
-\lvert \vec{a} \rvert = \sqrt{a_x^2 + a_y^2}
+\lvert \vec{a} \rvert = \sqrt{a_x^{2} + a_y^{2}}
 \]</span></p>
 <blockquote class="blockquote">
 <p>Note: Length of vector is never negative: <span class="math inline">\(\lvert \overrightarrow{a} \rvert \ge 0\)</span>.</p>
@@ -517,10 +517,10 @@ ax + bx = c \text{, where } a, b, c \in \mathbb{R}
 <h2 class="anchored" data-anchor-id="matrix-notifications">Matrix Notifications</h2>
 <p>To generalize determination of solutions of linear equations, we can use the matrix notification.</p>
 <p><span class="math display">\[
-\begin{multline}
-2x + 3y = 10 \\
+2x + 3y = 10
+\]</span></p>
+<p><span class="math display">\[
 x - y = -5
-\end{multline}
 \]</span></p>
 <p>Short hand notation by writing down coefficients only.</p>
 <p><span class="math display">\[
@@ -607,19 +607,19 @@ a_{m1} &amp; \dots &amp; a_{mn}
 <li>Diagonal matrix: Only entries in main diagonal can be nonzero.</li>
 </ul>
 <blockquote class="blockquote">
-<p>Note: Set of all <span class="math inline">\(n\)</span>-vectors with real entries: <span class="math inline">\(\mathbb{R}^n\)</span></p>
+<p>Note: Set of all <span class="math inline">\(n\)</span>-vectors with real entries: <span class="math inline">\(\mathbb{R}^{n}\)</span></p>
 </blockquote>
 </section>
 <section id="matrix-operations" class="level2">
 <h2 class="anchored" data-anchor-id="matrix-operations">Matrix Operations</h2>
 <section id="transposition" class="level3">
 <h3 class="anchored" data-anchor-id="transposition">Transposition</h3>
-<p>Transposing a matrix means swapping rows and columns. If <span class="math inline">\(A\)</span> is a matrix, then its transposed matrix <span class="math inline">\(A^T\)</span> is defined by:</p>
+<p>Transposing a matrix means swapping rows and columns. If <span class="math inline">\(A\)</span> is a matrix, then its transposed matrix <span class="math inline">\(A^{T}\)</span> is defined by:</p>
 <p><span class="math display">\[
-(A^T)_{ij} = A_{ji}
+(A^{T})_{ij} = A_{ji}
 \]</span></p>
 <blockquote class="blockquote">
-<p>Note: Square matrix <span class="math inline">\(A\)</span> is symmetric, if: <span class="math inline">\(A^T = A\)</span></p>
+<p>Note: Square matrix <span class="math inline">\(A\)</span> is symmetric, if: <span class="math inline">\(A^{T} = A\)</span></p>
 </blockquote>
 </section>
 <section id="addition-and-subtraction" class="level3">
@@ -641,7 +641,7 @@ a_{m1} &amp; \dots &amp; a_{mn}
 <li><span class="math inline">\((r+s)A = rA+sA\)</span> (Distributivity)</li>
 <li><span class="math inline">\(r(A+B) = rA+rB\)</span> (Distributivity)</li>
 <li><span class="math inline">\(1 \cdot A = A\)</span> (Neutral element of scalar mult.)</li>
-<li><span class="math inline">\((A+B)^T = A^T+B^T\)</span></li>
+<li><span class="math inline">\((A+B)^{T} = A^{T}+B^{T}\)</span></li>
 </ol>
 </section>
 </section>
@@ -667,7 +667,7 @@ a_{m1} &amp; \dots &amp; a_{mn}
 <li><span class="math inline">\((rA)B = A(rB) = r(AB)\)</span> for <span class="math inline">\(r \in \mathbb{R}\)</span></li>
 <li><span class="math inline">\(A \cdot \mathcal{O}_{n,q} = \mathcal{O}_{m,q}\)</span> and <span class="math inline">\(\mathcal{O}_{p,m} \cdot A = \mathcal{O}_{p,n}\)</span> for <span class="math inline">\(A \in \mathbb{R}^{m \times n}\)</span></li>
 <li><span class="math inline">\(I_m \cdot A = A \cdot I_n = A\)</span> for <span class="math inline">\(A \in \mathbb{R}^{m \times n}\)</span> (Neutr. El.)</li>
-<li><span class="math inline">\((AB)^T = B^T A^T\)</span></li>
+<li><span class="math inline">\((AB)^{T} = B^{T} A^{T}\)</span></li>
 </ol>
 </section>
 </section>
@@ -681,13 +681,13 @@ a_{m1} &amp; \dots &amp; a_{mn}
 </section>
 <section id="linear-systems-on-vector-form" class="level2">
 <h2 class="anchored" data-anchor-id="linear-systems-on-vector-form">Linear Systems on Vector Form</h2>
-<p>The system can be presented in form <span class="math inline">\(x_aa_1 + \dots x_na_n = b\)</span>. If <span class="math inline">\(x \in \mathbb{R^n}\)</span> is a solution of system, then b is a linear combination of column vectors <span class="math inline">\(a_1, \dots, a_n\)</span>.</p>
+<p>The system can be presented in form <span class="math inline">\(x_aa_1 + \dots x_na_n = b\)</span>. If <span class="math inline">\(x \in \mathbb{R^{n}}\)</span> is a solution of system, then b is a linear combination of column vectors <span class="math inline">\(a_1, \dots, a_n\)</span>.</p>
 </section>
 <section id="homogeneous-systems" class="level2">
 <h2 class="anchored" data-anchor-id="homogeneous-systems">Homogeneous Systems</h2>
 <p>A linear system is homogeneous, if right-hand side is zero vector: <span class="math inline">\(Ax = 0\)</span>, where <span class="math inline">\(A \in \mathbb{R}^{m \times n}\)</span> and <span class="math inline">\(x\)</span> is a vector of unknowns.</p>
 <blockquote class="blockquote">
-<p>Note: Zero vector <span class="math inline">\(x = 0 \in \mathbb{R^n}\)</span> is trivially a solution of a homogeneous system</p>
+<p>Note: Zero vector <span class="math inline">\(x = 0 \in \mathbb{R^{n}}\)</span> is trivially a solution of a homogeneous system</p>
 </blockquote>
 <section id="information-in-a-linear-system" class="level3">
 <h3 class="anchored" data-anchor-id="information-in-a-linear-system">Information in a Linear System</h3>
@@ -779,12 +779,12 @@ I =
 \]</span></p>
 <section id="rules-of-inverse" class="level3">
 <h3 class="anchored" data-anchor-id="rules-of-inverse">Rules of Inverse</h3>
-<p>Let <span class="math inline">\(A\)</span> and <span class="math inline">\(B\)</span> be invertible (<span class="math inline">\(n \times n\)</span>)-matrices and <span class="math inline">\(s \ne 0\)</span> a scalar. Then <span class="math inline">\(A^{−1}\)</span>, <span class="math inline">\(sA\)</span>, <span class="math inline">\(AB\)</span> and <span class="math inline">\(A^\)</span>T are invertible and the following hold:</p>
+<p>Let <span class="math inline">\(A\)</span> and <span class="math inline">\(B\)</span> be invertible (<span class="math inline">\(n \times n\)</span>)-matrices and <span class="math inline">\(s \ne 0\)</span> a scalar. Then <span class="math inline">\(A^{−1}\)</span>, <span class="math inline">\(sA\)</span>, <span class="math inline">\(AB\)</span> and <span class="math inline">\(A^{T}\)</span> are invertible and the following hold:</p>
 <ul>
 <li><span class="math inline">\((A^{-1})^{-1} = A\)</span></li>
 <li><span class="math inline">\((sA)^{-1} = s^{-1}A^{-1}\)</span></li>
 <li><span class="math inline">\((AB)^{-1} = B^{-1}A^{-1}\)</span></li>
-<li><span class="math inline">\((A^T)^{-1} = (A^{-1})^T\)</span></li>
+<li><span class="math inline">\((A^{T})^{-1} = (A^{-1})^{T}\)</span></li>
 </ul>
 <div class="callout callout-style-default callout-caution callout-titled">
 <div class="callout-header d-flex align-content-center">
@@ -884,10 +884,10 @@ Caution
 <section id="rules-for-determinants" class="level2">
 <h2 class="anchored" data-anchor-id="rules-for-determinants">Rules for determinants</h2>
 <p><span class="math display">\[
-\det A^T = \det A
+\det A^{T} = \det A
 \]</span></p>
 <p><span class="math display">\[
-\det(sA) = s^n \det A
+\det(sA) = s^{n} \det A
 \]</span></p>
 <blockquote class="blockquote">
 <p>Note: <span class="math inline">\(n\)</span> is the dimension of the square matrix <span class="math inline">\(A\)</span>.</p>

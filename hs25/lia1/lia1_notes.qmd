@@ -76,7 +76,7 @@ $$
 The magnitude (or norm) of a vector $\overrightarrow{a}$ is its length, and it is denoted by $|\overrightarrow{a}|$.
 
 $$
-\lvert \vec{a} \rvert = \sqrt{a_x^2 + a_y^2}
+\lvert \vec{a} \rvert = \sqrt{a_x^{2} + a_y^{2}}
 $$
 
 > Note: Length of vector is never negative: $\lvert \overrightarrow{a} \rvert \ge 0$.
@@ -194,10 +194,11 @@ A system of linear equations with two variables can only have one of the followi
 To generalize determination of solutions of linear equations, we can use the matrix notification.
 
 $$
-\begin{multline}
-2x + 3y = 10 \\
+2x + 3y = 10
+$$
+
+$$
 x - y = -5
-\end{multline}
 $$
 
 Short hand notation by writing down coefficients only.
@@ -280,19 +281,19 @@ Two matrices $A$ and $B$ are equal, if:
 - Upper/Lower square matrix
 - Diagonal matrix: Only entries in main diagonal can be nonzero.
 
-> Note: Set of all $n$-vectors with real entries: $\mathbb{R}^n$
+> Note: Set of all $n$-vectors with real entries: $\mathbb{R}^{n}$
 
 ## Matrix Operations
 
 ### Transposition
 
-Transposing a matrix means swapping rows and columns. If $A$ is a matrix, then its transposed matrix $A^T$ is defined by:
+Transposing a matrix means swapping rows and columns. If $A$ is a matrix, then its transposed matrix $A^{T}$ is defined by:
 
 $$
-(A^T)_{ij} = A_{ji}
+(A^{T})_{ij} = A_{ji}
 $$
 
-> Note: Square matrix $A$ is symmetric, if: $A^T = A$
+> Note: Square matrix $A$ is symmetric, if: $A^{T} = A$
 
 ### Addition and Subtraction
 
@@ -315,7 +316,7 @@ Let $A, B, C \in \mathbb{R}^{m \times n}$ and $r, s \in \mathbb{R}$:
 6.  $(r+s)A = rA+sA$ (Distributivity)
 7.  $r(A+B) = rA+rB$ (Distributivity)
 8.  $1 \cdot A = A$ (Neutral element of scalar mult.)
-9.  $(A+B)^T = A^T+B^T$
+9.  $(A+B)^{T} = A^{T}+B^{T}$
 
 ### Matrix Multiplication
 
@@ -339,23 +340,22 @@ Let $A, B, C$ matrices such that following matrix multiplications exist:
 4.  $(rA)B = A(rB) = r(AB)$ for $r \in \mathbb{R}$
 5.  $A \cdot \mathcal{O}_{n,q} = \mathcal{O}_{m,q}$ and $\mathcal{O}_{p,m} \cdot A = \mathcal{O}_{p,n}$ for $A \in \mathbb{R}^{m \times n}$
 6.  $I_m \cdot A = A \cdot I_n = A$ for $A \in \mathbb{R}^{m \times n}$ (Neutr. El.)
-7.  $(AB)^T = B^T A^T$
+7.  $(AB)^{T} = B^{T} A^{T}$
 
 # Week 4: Matrices and Linear Systems
 
-## Linear Sytsems in Matrice Form 
-
+## Linear Sytsems in Matrice Form
 System with m equations and n unknowns can be expressed in form $Ax = b$, where A is the coefficient matrix and b is the right-hand side of the system.
 
 ## Linear Systems on Vector Form
 
-The system can be presented in form $x_aa_1 + \dots x_na_n = b$. If $x \in \mathbb{R^n}$ is a solution of system, then b is a linear combination of column vectors $a_1, \dots, a_n$.
+The system can be presented in form $x_aa_1 + \dots x_na_n = b$. If $x \in \mathbb{R^{n}}$ is a solution of system, then b is a linear combination of column vectors $a_1, \dots, a_n$.
 
 ## Homogeneous Systems
 
 A linear system is homogeneous, if right-hand side is zero vector: $Ax = 0$, where $A \in \mathbb{R}^{m \times n}$ and $x$ is a vector of unknowns.
 
-> Note: Zero vector $x = 0 \in \mathbb{R^n}$ is trivially a solution of a homogeneous system
+> Note: Zero vector $x = 0 \in \mathbb{R^{n}}$ is trivially a solution of a homogeneous system
 
 ### Information in a Linear System
 
@@ -453,12 +453,12 @@ $$
 
 ### Rules of Inverse
 
-Let $A$ and $B$ be invertible ($n \times n$)-matrices and $s \ne 0$ a scalar. Then $A^{−1}$, $sA$, $AB$ and $A^$T are invertible and the following hold:
+Let $A$ and $B$ be invertible ($n \times n$)-matrices and $s \ne 0$ a scalar. Then $A^{−1}$, $sA$, $AB$ and $A^{T}$ are invertible and the following hold:
 
 - $(A^{-1})^{-1} = A$
 - $(sA)^{-1} = s^{-1}A^{-1}$
 - $(AB)^{-1} = B^{-1}A^{-1}$
-- $(A^T)^{-1} = (A^{-1})^T$
+- $(A^{T})^{-1} = (A^{-1})^{T}$
 
 ::: {.callout-caution}
 Generally:
@@ -531,11 +531,11 @@ By performing elementary rows operations, bring A into an upper triangular matri
 ## Rules for determinants
 
 $$
-\det A^T = \det A
+\det A^{T} = \det A
 $$
 
 $$
-\det(sA) = s^n \det A
+\det(sA) = s^{n} \det A
 $$
 
 > Note: $n$ is the dimension of the square matrix $A$.

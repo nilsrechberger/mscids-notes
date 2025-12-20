@@ -1,6 +1,12 @@
 ---
 title: "Classical and Bayesian Statistics - Notes"
 toc: true
+format:
+  pdf:
+    include-in-header:
+      - text: |
+          \newcommand{\lt}{<}
+          \newcommand{\gt}{>}
 ---
 
 # Introduction
@@ -422,7 +428,7 @@ $$
 Probability density function f(x) has the properties:
 
 - Function is not negative: $f(x) \ge 0$
-- Probability corresponds to area between $a$ and $b$ under $f(x)$: $P(a \lt X \le b )$
+- Probability corresponds to area between $a$ and $b$ under $f(x)= P(a \lt X \le b )$
 - Total area under curve is $1$
 
 > Note: Values of f(x) are not probabilities, only areas are.

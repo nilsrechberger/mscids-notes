@@ -1,6 +1,12 @@
 ---
 title: "Classical and Bayesian Statistics - Exercises"
 toc: true
+format:
+  pdf:
+    include-in-header:
+      - text: |
+          \newcommand{\lt}{<}
+          \newcommand{\gt}{>}
 ---
 
 # Problems 1
