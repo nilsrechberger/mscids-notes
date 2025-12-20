@@ -2,6 +2,7 @@
 title: "Classical and Bayesian Statistics - Exercises"
 toc: true
 format:
+  html: default
   pdf:
     include-in-header:
       - text: |
