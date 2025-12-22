@@ -123,6 +123,23 @@ $$
 
 This will be used to generalize definition of linear independence.
 
+#### Collinearity by Determinant
+
+We can check if two vectors are collinear by calculating the determinant:
+
+$$
+\det(\vec{a}, \vec{b}) = 
+\begin{vmatrix} 
+a_1 & b_1 \\ 
+a_2 & b_2 
+\end{vmatrix} = 
+a_1 \cdot b_2 - a_2 \cdot b_1 = 0
+$$
+
+If $\det(\vec{a}, \vec{b}) = 0$ the vectors are collinear.
+
+> Note: Only holds for $\mathbb{R}^2$
+
 ### Normalization
 
 For every non-zero vector $\overrightarrow{a}$, there is exactly one unit vector ($\overrightarrow{e}_a$) with the same direction. This process is called normalizing a vector.
