@@ -1,0 +1,104 @@
+---
+title: Design of Experiments
+autho: Nils Rechberger
+---
+
+# Research Design
+
+## Observational vs. Experimental
+
+Researchers simply observe and measure variables without actively intervening. In experiments, variables are purposefully manipulated to determine a cause-and-effect relationship.
+
+## Randomization
+
+The effect and aim of randomisation is to eliminate selection bias and confounding factors, and to ensure comparability between groups at the start of the study (baseline data).
+
+## Confounder
+
+Confounding occurs when a factor (confounder) that has not been investigated is associated with both the independent and dependent variables, causing a spurious correlation between them.
+
+## Blinding
+
+Blinding is a suitable technique for avoiding distortions. It eliminates conscious and unconscious influences on the treatment result.
+
+### Types of blinding
+
+- Open: No blinding
+- Single-blind: Participants don't know their group assignment (e.g., whether they're receiving the real treatment or a placebo).
+- Double-blind: Neither the participants nor the researchers administering the treatment know the group assignments.
+- Triple-blind: Participants, researchers, and the data analysts are all unaware of the group assignments.
+
+# Principles
+
+##  Introduction to scientific theory
+
+### Scientific Theory
+
+It is a branch of philosophy that deals with the theory of scientific knowledge and scientific methods, as well as with research.
+
+### Methodology
+
+Provides the instructional framework on how to proceed in order to gain scientific knowledge. Systematized procedures and approaches for obtaining knowledge.
+
+### Selection of positions held in scientific theory
+
+- Classical rationalism: Reason precedes experience and there are so-called "innate" concepts of reason.
+- Inductive empiricism: Findings are derived inductively based on observations and experiences.
+- Logical positivism: The use of logic makes it possible to separate science from metaphysics.
+- Critical rationalism: Findings are derived deductively based on observations.
+- (Social) constructivism: Individuals construct their reality by relating their thinking and actions.
+
+> Note: Inductive empiricism and critical rationalism belong to **empirical research**.
+
+### What is empirical research?
+
+Empirical research examines the environment by means of observation and experiment. There are many research methods for conducting observations and experiments (Interview, Case study, Survey, experiments, etc.)
+
+### Landscape of empirical research
+
+![Landscape of empirical research](img/landscape_of_empirical_research.png)
+
+### Quantitative Methodes
+
+The approach assumes that a theory can never be finally verified, it can only be falsified.
+
+### Descriptive statistics
+
+Describes the data to be analyzed. Is limited to a sample as a subset of the population. Does not allow for conclusions to be drawn about the population.
+
+### Inferential statistics
+
+For drawing conclusions about the population based on information obtained from a sample. Use statistical hypothesis tests, especially, as the main component.
+
+### Hypothesis Testing
+
+Hypothesis testing is a statistical method used to determine if there is enough evidence in a sample of data to support a specific hypothesis about a population.
+
+- Alternative hypothesis ($H_A$): Research hypothesis to be tested that postulates the presence of a certain effect (e.g. a difference) in the population.
+- Null hypothesis ($H_0$): Postulates the opposite, namely the absence of an effect.
+
+## Research process
+
+### Phases
+
+1. Formulation of the research problem & study design
+2. Planning and preparation of the study
+3. Data collection
+4. Data Analysis
+5. Reporting
+
+### Measuring Instrument
+
+A process that uses a given set of circumstances to define and specify subsequent research steps with a view to better understanding these circumstances.
+
+### Sampling procedure
+
+Process of selecting a representative subset of cases from a larger population to draw empirical conclusions about the whole.
+
+### Study types
+
+- Descriptive study: Descriptive character. Suitable for forming hypotheses (Surveys).
+- Analytical study: Identification and quantification of effects / verification of relationships. Not fully suitable for hypothesis testing (Cohot).
+- Randomized controlled: Suitable for hypothesis testing (RCT).
+
+# Continuous lecture 3...
