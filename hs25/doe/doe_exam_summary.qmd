@@ -1,6 +1,7 @@
 ---
 title: Design of Experiments
 autho: Nils Rechberger
+toc: false
 ---
 
 # Research Design
@@ -101,4 +102,256 @@ Process of selecting a representative subset of cases from a larger population t
 - Analytical study: Identification and quantification of effects / verification of relationships. Not fully suitable for hypothesis testing (Cohot).
 - Randomized controlled: Suitable for hypothesis testing (RCT).
 
-# Continuous lecture 3...
+# Introduction to Design of Experiments (DoE)
+
+## Cause and Effect
+
+A trial / experiment is carried out to discover a cause-and-effect relationship in a process.
+
+### Terms
+
+- Input: Trial objects, test objects, test persons, ect.
+- Process: Process in which controllable and non-controllable factors influence the input.
+- Output (aka. **Dependet variable: DV**): Input changed by the process, result of the test/experiment.
+- Controllable factors (aka **Independet variables: IV**): Influencing factors whose strength can be adjusted within defined limits.
+- Non-controllable factors (aka. **Nuisance variables**): Influencing factors whose strength cannot be determined but that can be measured / cannot be determined and that cannot be measured.
+
+## Causality in observational and experimental study designs
+
+Observational studies cannot directly prove causality, but only show correlations or associations. Since the assignment is not random, there is always a risk that the results are distorted by unknown confounding factors. Experimental studies (e.g. RCTs) can prove causality because they control for confounding factors through randomisation, thereby isolating the effect of the cause. **They are the gold standard**.
+
+## Variance
+
+The variance describes the mean square deviation of the individual measured values from the empirical mean.
+
+- Primary variance: Impact of (experimental) factors in an experiment on
+the change / variation of the output to be examined.
+- Secondary variance: Variation of the output to be examined, caused by nuisance variables.
+Not in the focus of the study.
+- Error variance: Variation caused by measurement errors and random processes.
+
+> Note: Secondary and error variances are grouped to the residual variance.
+
+### Variation of Variance
+
+The variance of the dependent variable (DV) (primary variance) should be attributed to the systematic variation of the independent variable (IV). The secondary variance should be controlled and the error variance minimized.
+
+![Summary Variance](img/var_summary.png)
+
+#### Maximizing the primary variance
+
+- Relationship is linear: Selecting of extreme values in the IV. 
+- Relationship were curvilinear: Selecting optimal increments of IV.
+- Relationship were unknown: Selecting as many increments of IV in the smallest steps as possible.
+
+#### Control of the secondary variance
+
+- Keeping constant: Keeping the experimental setup constant.
+- Repetition: Several measurements are repeated on the same trial objects.
+- Randomization: Trial objects are assigned randomly to Treatment and Control groups to eliminate systematic bias
+- Blocking: Trial objects are grouped into homogeneous blocks based on one or more influential
+variables to reduce variability.
+- Covariate adjustment: Nuisance variables are included as covariates in the statistical model to account for their effects.
+
+#### Minimizing the error variance
+
+- Reliable measurement setup: Standardization of the experimental conditions
+- Sample size: Larger sample sizes reduce the impact of individual measurement errors
+- Suitable analytical methods: Use of robust estimators to account for heterogeneous error variance
+
+### Properties of measurement instruments
+
+- Objectivity: Objectivity of an instrument is given when the results are independent of personnel and calculation methods.
+- Reliability: Reliability is the degree to which an instrument produces the same result each time under comparable conditions.
+- Validity: Validity is the extent to which an instrument measures what was intended.
+
+# Properties of DoE
+
+## Design of Experiments Types
+
+### Trial and error
+
+Combination of parameters have no structure and are mixed randomly. No idea what factors influence how.
+
+### One-factor-at-a-time
+
+Vary the first factor and then measure fuel consumption. Keep the setting with the lowest consumption and then vary the next factor. Easy to implement, but interaction between factors are not recognized. Research question is answered neither systematically nor exhaustively.
+
+### Full factorial design
+
+Two levels (+/-) are defined per factor. All possible combinations of factor levels are varied. All main effects and all interactions can be determined. Can be used as a screening experiment to identify potentially important variables. The effort involved increases rapidly as the number of factors increases. Each additional factor doubles the number of combinations.
+
+#### Profile Plot
+
+Impact of the factors on the dependent variable $x$. Based model:
+
+$$
+y = \beta_0 + \beta_1 x_1 + \beta_2 x_2 \dots + \beta_n x_n 
+$$
+
+## Factorial design with interactions
+
+Interactions can occur in experiments with two or more independent variables. An interaction of two factors means that the two factors interact in a complex way. If there is an interaction, the effect of one factor depends on the levels of the other factor. Interaction terms are written as multiplication.
+
+- Two way interaction: $x_1 \times x_2$
+- Three way interaction: $x_1 \times x_2 \times x_3$
+
+$$
+y = \beta_0 + \beta_1 x_1 + \beta_2 x_2 + \beta_3 x_1 \times x_2
+$$
+
+### Full factorial designs
+Generalization of two-level full factorial design with $k$ factors and $n$ levels. All possible factor combinations are varied.
+
+$$
+\text{combinations} = n^k
+$$
+
+### Fractional factorial designs
+
+Only a (balanced) part of the possible combinations of factors are varied.
+
+$$
+\text{combinations} = n^{k-1}
+$$
+
+#### Design
+
+- Procedure: The factor levels are determined before the experiment
+- Factor combinations: Only a part of the possible combinations of factors are selected
+- Restrictions: In fractional factorial designs, interactions can only be partially measured because not all possible combinations of factor levels are tested.
+- Advantages: The effort involved is significantly lower compared to full factorial designs
+- Statistical analysis: As in the case of full factorial design, but without interactions
+
+## Quality criteria of experiments
+
+### Internal Validity
+
+Exists when changes in dependent variables (DV) are attributed to independent variables (IV). Increases with decreasing impact of nuisance variables.
+
+#### Population Validity
+
+Degree to which the results of a study can be generalized from the sample to the whole population.
+
+#### Situation Validity
+
+Degree to which the findings of a study can be applied to different situations.
+
+### External Validity
+
+Exists when experimental results from a sample can be generalized to the entire population. Increases with increasing naturalness.
+
+### Construct Validity
+
+Effectiveness of the measurement methods in precisely capturing the intended construct
+
+### Relationship between Internal vs. External Validity
+
+![Relationship between Internal vs. External Validity](img/internal_vs_external_validity.png)
+
+The lowest general level of validity is at the bottom left for the quasi-experimental laboratory study, and the highest is at the top right for the experimental field study. A well-controlled lab experiment may maximize internal validity by eliminating confounding variables.
+
+# Sampling
+
+## Population
+
+Set of all (potentially explorable) elements that have a common characteristic or a common combination of characteristics. The population is often very large or not fully accessible. The population can be defined but not identified.
+
+### Characteristics of a sample
+
+A sample is a subset of all observation units and should reflect the relevant aspects of the population as accurately as possible. Three elements contribute to creating or describing representativeness:
+
+- The sample is drawn randomly.
+- Estimation procedure for generalizing from the sample to the population is reported.
+- Accuracy is reported, which is influenced by the sample size, among other things.
+
+### Point estimate of the mean
+
+An "estimator" is a function that calculates a value.
+
+- $\bar{x}$: Mean of the sample
+- $\mu_0$: True mean in the population (generally unknown)
+
+The mean value x of a sample is an unbiased, efficient and consistent estimator of the true mean value in the population: $\mu_0 = E(\bar{x})$
+
+## Sampling methods
+
+- Probabilistic (random) sampling procedures: Selecting elements based on a random mechanism
+- Non-probabilistic (non-random, purposive, arbitrary) sampling procedures: Selection of the elements is not based on a random mechanism, but is made by certain decisions (purposive or arbitrary selection of elements)
+
+### Sampling Map
+
+![Sampling procedure Overview](img/sampling_map.png)
+
+### Simple random sampling (SRS)
+
+Random selection of n elements from the N elements of the population. Each element has the same probability of being included in the sample.
+
+```{r}
+data <- rnorm(100) # 100 random numbers
+View(data)
+
+data_sample <- sample(data, 10, replace=FALSE) # Take 10 random sample from data
+View(data_sample)
+```
+
+### Stratified random sampling
+
+Structure of the population regarding certain characteristics is known in advance. The population is stratified in accordance with these characteristics.
+
+- Proportional: Selection set in each Disproportional: Selection rate per stratum is the same (self-weighting)
+- Disproportional: Selection rate per stratum is the same (self-weighting) is different (samples will be weighted)
+
+### Cluster sampling
+ 
+The elements are selected at a higher level. Variability within clusters is small (cluster elements are very similar) while variability between clusters is large (clusters differ greatly).
+
+### Arbitrary sampling
+
+Arbitrary sampling occurs when a sample is selected based on the researcher's discretion, convenience or ease of availability, without applying a specific, structured or random procedure.
+
+### Targeted sampling
+
+For populations that are difficult to reach and whose members are not closely networked. Preferred locations or places of residence of the members are identified and then systematically recruited on site.
+
+### Respondent Driven Sampling
+
+Multiple waves of peer-to-peer recruitment with statistical adjustments are conducted to approximate a random sample. Recruited individuals are only allowed to recruit a limited number of other individuals and are only rewarded for each person actually recruited.
+
+## Representativeness
+
+The degree of representativeness is not measurable. The sample should be representative with regard to key characteristics of the study.
+
+## Sampling errors
+
+### Non-sampling error
+
+Difference in the mean value between the defined ideal population and the real population that cannot be attributed to deficiencies in the random selection of the sample.
+
+- Coverage error: Part of the population cannot be identified.
+- Systematic non-response: Lack of information on certain individual elements.
+
+### Sampling Error
+
+Difference between the estimated mean value from a randomly drawn sample and the real mean value of the population.
+
+- Selection error: Not all elements of the population have the same selection probability.
+- Use of an unsuitable estimator.
+
+## Variability of Sample Means
+
+In randomly drawn equal samples, the sample means vary depending on:
+
+- Attribute: The more heterogeneously an attribute is distributed in the population, the greater the variability of the sample means among many samples.
+- Sample size: The smaller the sample size, the greater the variability of sample means among many samples.
+
+## Standard Error
+
+The standard error is a measure of the variability of the sample means among many samples. It quantifies the spread of sample means from repeated random samples of the same size
+around the population mean $\mu_0$
+
+$$
+\hat{\sigma}_{\bar{X}} = \sqrt{\dfrac{s^2}{n}} = \dfrac{s}{\sqrt{n}}
+$$
+
+The larger the sample size, the smaller the standard error, and therefore, the larger the sample size, the more precise the sample mean is as an estimator of the population mean.
