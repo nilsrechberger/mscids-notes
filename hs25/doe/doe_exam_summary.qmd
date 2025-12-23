@@ -65,7 +65,7 @@ Empirical research examines the environment by means of observation and experime
 
 ### Landscape of empirical research
 
-![Landscape of empirical research](img/landscape_of_empirical_research.png)
+![Landscape of empirical research](img/landscape_of_empirical_research.png){width=50%}
 
 ### Quantitative Methodes
 
@@ -144,7 +144,7 @@ Not in the focus of the study.
 
 The variance of the dependent variable (DV) (primary variance) should be attributed to the systematic variation of the independent variable (IV). The secondary variance should be controlled and the error variance minimized.
 
-![Summary Variance](img/var_summary.png)
+![Summary Variance](img/var_summary.png){width=50%}
 
 #### Maximizing the primary variance
 
@@ -255,7 +255,7 @@ Effectiveness of the measurement methods in precisely capturing the intended con
 
 ### Relationship between Internal vs. External Validity
 
-![Relationship between Internal vs. External Validity](img/internal_vs_external_validity.png)
+![Relationship between Internal vs. External Validity](img/internal_vs_external_validity.png){width=50%}
 
 The lowest general level of validity is at the bottom left for the quasi-experimental laboratory study, and the highest is at the top right for the experimental field study. A well-controlled lab experiment may maximize internal validity by eliminating confounding variables.
 
@@ -289,7 +289,7 @@ The mean value x of a sample is an unbiased, efficient and consistent estimator 
 
 ### Sampling Map
 
-![Sampling procedure Overview](img/sampling_map.png)
+![Sampling procedure Overview](img/sampling_map.png){width=50%}
 
 ### Simple random sampling (SRS)
 
@@ -489,7 +489,7 @@ summary(fit, intercept=TRUE)
 
 The direct effect of an independent variable on the dependent variable is called main effect. Profile plots are used as visualization.
 
-![Profile Plots of Main Effect](img/profile_plot_main_effect.png)
+![Profile Plots of Main Effect](img/profile_plot_main_effect.png){width=50%}
 
 > Note: If the profile plot shows a (nearly) horizontal line, the main effect in question is probably not significant.
 
@@ -497,7 +497,7 @@ The direct effect of an independent variable on the dependent variable is called
 
 An interaction between experience and position means there is dependency between the two variables. The independent variables have a complex influence on the dependent variable. The factors do not just function additively but act together in a different manner.
 
-![Profile Plot of Interaction Effect](img/profile_plot_interaction_effect.png)
+![Profile Plot of Interaction Effect](img/profile_plot_interaction_effect.png){width=50%}
 
 > Note: If there is no interaction, the lines are parallel. If there is an interaction, the lines are not parallel.
 
@@ -531,7 +531,7 @@ eta_squared(fit)$Eta2 # Use your ANOVA fit
 
 Choosing the type of analysis depending on level of measurement
 
-![Overview over Statistical Hypothesis Tests](img/hyp_test_overview.png)
+![Overview over Statistical Hypothesis Tests](img/hyp_test_overview.png){width=50%}
 
 # A/B Testing
 
@@ -608,11 +608,11 @@ Several factors act on the dependent variable DV. Several groups are compared:
 
 A Latin squares design makes it possible to study the main effects of factors without having to observe all combinations of treatment levels.
 
-![Combination Table](img/latin_square_normal.png)
+![Combination Table](img/latin_square_normal.png){width=50%}
 
 All combinations lead to a total of 27 (full factorial).
 
-![Latin Square](img/latin_square.png)
+![Latin Square](img/latin_square.png){width=50%}
 
 Here we only use 9 combinations (fractional factorial).
 
