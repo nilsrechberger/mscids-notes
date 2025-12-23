@@ -206,10 +206,21 @@ window.Quarto = {
     <a class="nav-link" href="../../hs25/lia1/lia1_notes.html"> 
 <span class="menu-text">Linear Algebra 01</span></a>
   </li>  
-  <li class="nav-item">
-    <a class="nav-link active" href="../../hs25/doe/doe_notes.html" aria-current="page"> 
-<span class="menu-text">Design of Experiments</span></a>
+  <li class="nav-item dropdown ">
+    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-design-of-experiments" role="link" data-bs-toggle="dropdown" aria-expanded="false">
+ <span class="menu-text">Design of Experiments</span>
+    </a>
+    <ul class="dropdown-menu" aria-labelledby="nav-menu-design-of-experiments">    
+        <li>
+    <a class="dropdown-item" href="../../hs25/doe/doe_notes.html">
+ <span class="dropdown-text">Notes</span></a>
   </li>  
+        <li>
+    <a class="dropdown-item" href="../../hs25/doe/doe_exam_summary.pdf">
+ <span class="dropdown-text">Exam Summary</span></a>
+  </li>  
+    </ul>
+  </li>
   <li class="nav-item dropdown ">
     <a class="nav-link dropdown-toggle" href="#" id="nav-menu-computer-science-concepts-for-data-scientists" role="link" data-bs-toggle="dropdown" aria-expanded="false">
  <span class="menu-text">Computer Science Concepts for Data Scientists</span>
@@ -436,6 +447,19 @@ window.Quarto = {
   <li><a href="#statistical-paradises-and-paradoxes-in-relation-to-administrative-data-sets" id="toc-statistical-paradises-and-paradoxes-in-relation-to-administrative-data-sets" class="nav-link" data-scroll-target="#statistical-paradises-and-paradoxes-in-relation-to-administrative-data-sets">Statistical paradises and paradoxes in relation to administrative data sets</a></li>
   </ul></li>
   <li><a href="#spurious-correlation" id="toc-spurious-correlation" class="nav-link" data-scroll-target="#spurious-correlation">Spurious Correlation</a></li>
+  </ul></li>
+  <li><a href="#lecture-11-experiments-in-social-media" id="toc-lecture-11-experiments-in-social-media" class="nav-link" data-scroll-target="#lecture-11-experiments-in-social-media">Lecture 11: Experiments in social media</a>
+  <ul class="collapse">
+  <li><a href="#what-is-some" id="toc-what-is-some" class="nav-link" data-scroll-target="#what-is-some">What is SoMe</a></li>
+  <li><a href="#communication-in-some" id="toc-communication-in-some" class="nav-link" data-scroll-target="#communication-in-some">Communication in SoMe</a>
+  <ul class="collapse">
+  <li><a href="#mode" id="toc-mode" class="nav-link" data-scroll-target="#mode">Mode</a></li>
+  </ul></li>
+  <li><a href="#population-bias-selection-bias" id="toc-population-bias-selection-bias" class="nav-link" data-scroll-target="#population-bias-selection-bias">Population bias / Selection bias</a></li>
+  <li><a href="#sources-of-bias-in-social-media" id="toc-sources-of-bias-in-social-media" class="nav-link" data-scroll-target="#sources-of-bias-in-social-media">Sources of bias in social media</a></li>
+  <li><a href="#standardization-of-bias-in-social-media" id="toc-standardization-of-bias-in-social-media" class="nav-link" data-scroll-target="#standardization-of-bias-in-social-media">Standardization of bias in social media</a></li>
+  <li><a href="#research-with-social-media" id="toc-research-with-social-media" class="nav-link" data-scroll-target="#research-with-social-media">Research with social media</a></li>
+  <li><a href="#methods-of-data-collection-in-some" id="toc-methods-of-data-collection-in-some" class="nav-link" data-scroll-target="#methods-of-data-collection-in-some">Methods of data collection in SoMe</a></li>
   </ul></li>
   </ul>
 <div class="quarto-alternate-formats"><h2>Other Formats</h2><ul><li><a href="doe_notes.pdf"><i class="bi bi-file-pdf"></i>PDF</a></li></ul></div></nav>
@@ -1342,6 +1366,63 @@ Important
 <section id="spurious-correlation" class="level2">
 <h2 class="anchored" data-anchor-id="spurious-correlation">Spurious Correlation</h2>
 <p>A spurious correlation is a relationship between two variables that appears to be statistically significant and related, but is not actually caused by one another. The relationship is deceptive or coincidental, and often results from either a hidden factor or simply random chance. The primary risk of spurious correlation is that people might mistakenly conclude that a causal relationship exists based solely on the correlation, leading to incorrect policies or decisions.</p>
+</section>
+</section>
+<section id="lecture-11-experiments-in-social-media" class="level1">
+<h1>Lecture 11: Experiments in social media</h1>
+<section id="what-is-some" class="level2">
+<h2 class="anchored" data-anchor-id="what-is-some">What is SoMe</h2>
+<p>Social media are interactive internet-based applications. It support user-generated content such as images, text, videos, and status updates and enable users to connect with one another through various interaction mechanisms, such as follows and likes (X), sharing and viewing reels (Instagram), engaging with trends (TikTok), or forming friendship connections (Facebook).</p>
+</section>
+<section id="communication-in-some" class="level2">
+<h2 class="anchored" data-anchor-id="communication-in-some">Communication in SoMe</h2>
+<ul>
+<li>One – e.g.&nbsp;X: Specific information is sent from one source to «everyone»</li>
+<li>Two – e.g.&nbsp;SMS / WhatsApp: Exchange of information between two individuals via a certain medium.</li>
+<li>Many – e.g.&nbsp;Facebook / WhatsApp: Information is exchanged in a group via social media actively or passively</li>
+</ul>
+<section id="mode" class="level3">
+<h3 class="anchored" data-anchor-id="mode">Mode</h3>
+<p>The mode of interaction is also changed during a session. Users can speak, text, email, video chat, and post items on social media channels or blogs. The communication / interaction is not always carried out in the same mode. For example, a telephone call can be answered with a text message.</p>
+</section>
+</section>
+<section id="population-bias-selection-bias" class="level2">
+<h2 class="anchored" data-anchor-id="population-bias-selection-bias">Population bias / Selection bias</h2>
+<p>Bias essentially means that the population being examined does not correspond to the defined population. If the defined population refers to the entire population and their subgroups, social media is by definition subject to bias. This is mainly due Sampling frame and Sampling procedure. Certain manifestations of these elements can be observed mainly (in some cases exclusively) in social media.</p>
+</section>
+<section id="sources-of-bias-in-social-media" class="level2">
+<h2 class="anchored" data-anchor-id="sources-of-bias-in-social-media">Sources of bias in social media</h2>
+<ul>
+<li>Activity bias I: Active (only) at the time of the study / data collection / storage.</li>
+<li>Activity bias II: A few users are very active on social media, while most users use social media only passively.</li>
+<li>Activity with bots: Programs that behave like users or react to specific triggers.</li>
+</ul>
+</section>
+<section id="standardization-of-bias-in-social-media" class="level2">
+<h2 class="anchored" data-anchor-id="standardization-of-bias-in-social-media">Standardization of bias in social media</h2>
+<ul>
+<li>Medium &amp; platform: Restrictions on access to data / (unknown) ways and methods on how data is stored</li>
+<li>Survey / sampling &amp; representativeness: Not taking into account the circumstances, e.g.&nbsp;in the case of a storm on X</li>
+<li>Ways of managing data and sources: Reproducibility limited by restrictive access to data / by deletion of items</li>
+</ul>
+</section>
+<section id="research-with-social-media" class="level2">
+<h2 class="anchored" data-anchor-id="research-with-social-media">Research with social media</h2>
+<p>Studies using data from social media have great potential for investigating research questions in social science / psychological research questions that are new or place special demands on the study design.</p>
+<ul>
+<li>Rapid availability of data / information and continuous updating</li>
+<li>Simple and low-cost extraction processes compared to classical surveys</li>
+</ul>
+<blockquote class="blockquote">
+<p>Note: Data from social media is most likely «found data».</p>
+</blockquote>
+</section>
+<section id="methods-of-data-collection-in-some" class="level2">
+<h2 class="anchored" data-anchor-id="methods-of-data-collection-in-some">Methods of data collection in SoMe</h2>
+<ul>
+<li>Using the functionalities of social media: Use individual snowball sampling</li>
+<li>Paid access to survey: Place ads in social media, Use survey tools or Include specialized platforms (Amazon Mechanical Turk)</li>
+</ul>
 
 
 </section>
