@@ -700,3 +700,49 @@ The absolute size $n$ of the administrative dataset is meaningless without speci
 ## Spurious Correlation
 
 A spurious correlation is a relationship between two variables that appears to be statistically significant and related, but is not actually caused by one another. The relationship is deceptive or coincidental, and often results from either a hidden factor or simply random chance. The primary risk of spurious correlation is that people might mistakenly conclude that a causal relationship exists based solely on the correlation, leading to incorrect policies or decisions.
+
+# Lecture 11: Experiments in social media
+
+## What is SoMe
+
+Social media are interactive internet-based applications. It support user-generated content such as images, text, videos, and status updates and enable users to connect with one another through various interaction mechanisms, such as follows and likes (X), sharing and viewing reels (Instagram), engaging with trends (TikTok), or forming friendship connections (Facebook).
+
+## Communication in SoMe
+
+- One – e.g. X: Specific information is sent from one source to «everyone»
+- Two – e.g. SMS / WhatsApp: Exchange of information between two individuals via a certain medium.
+- Many – e.g. Facebook / WhatsApp: Information is exchanged in a group via social media actively or passively
+
+### Mode
+
+The mode of interaction is also changed during a session. Users can speak, text, email, video chat, and post items on social media channels or blogs. The communication / interaction is not always carried out in the same mode. For example, a telephone call can be answered with a text message.
+
+## Population bias / Selection bias
+
+Bias essentially means that the population being examined does not correspond to the defined population. If the defined population refers to the entire population and their subgroups, social media is by definition subject to bias. This is mainly due Sampling frame and Sampling procedure. Certain manifestations of these elements can be observed mainly (in some cases exclusively) in social media.
+
+## Sources of bias in social media
+
+- Activity bias I: Active (only) at the time of the study / data collection / storage.
+- Activity bias II: A few users are very active on social media, while most users use social media only passively.
+- Activity with bots: Programs that behave like users or react to specific triggers.
+
+## Standardization of bias in social media
+
+- Medium & platform: Restrictions on access to data / (unknown) ways and methods on how data is stored
+- Survey / sampling & representativeness: Not taking into account the circumstances, e.g. in the case of a storm on X
+- Ways of managing data and sources: Reproducibility limited by restrictive access to data / by deletion of items
+
+## Research with social media
+
+Studies using data from social media have great potential for investigating research questions in social science / psychological research questions that are new or place special demands on the study design.
+
+- Rapid availability of data / information and continuous updating
+- Simple and low-cost extraction processes compared to classical surveys
+
+> Note: Data from social media is most likely «found data».
+
+## Methods of data collection in SoMe
+
+- Using the functionalities of social media: Use individual snowball sampling
+- Paid access to survey: Place ads in social media, Use survey tools or Include specialized platforms (Amazon Mechanical Turk)
