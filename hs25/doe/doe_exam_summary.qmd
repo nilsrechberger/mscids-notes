@@ -26,6 +26,10 @@ The effect and aim of randomisation is to eliminate selection bias and confoundi
 
 Confounding occurs when a factor (confounder) that has not been investigated is associated with both the independent and dependent variables, causing a spurious correlation between them.
 
+![Example Confounder](img/exp_confounder.png)
+
+![Randomized Controlled Tree](img/random_tree.png)
+
 ## Blinding
 
 Blinding is a suitable technique for avoiding distortions. It eliminates conscious and unconscious influences on the treatment result.
@@ -36,6 +40,10 @@ Blinding is a suitable technique for avoiding distortions. It eliminates conscio
 - Single-blind: Participants don't know their group assignment (e.g., whether they're receiving the real treatment or a placebo).
 - Double-blind: Neither the participants nor the researchers administering the treatment know the group assignments.
 - Triple-blind: Participants, researchers, and the data analysts are all unaware of the group assignments.
+
+## Decision Tree for Research Design
+
+![Decision Tree for Research Design](img/decision_tree_for_research_design.png)
 
 # Principles
 

@@ -1,0 +1,1008 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.6.39">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+<meta name="author" content="Nils Rechberger">
+
+<title>Design of Experiments - Exercises – mscids-notes</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+/* CSS for syntax highlighting */
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { display: inline-block; text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+</style>
+
+
+<script src="../../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../../">
+<script src="../../site_libs/quarto-html/quarto.js"></script>
+<script src="../../site_libs/quarto-html/popper.min.js"></script>
+<script src="../../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-e26003cea8cd680ca0c55a263523d882.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../../site_libs/bootstrap/bootstrap-8ef023257421bb572a6b5600f0392161.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "navbar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "end",
+  "type": "overlay",
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-text-placeholder": "",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
+  }
+}</script>
+<script async="" src="https://www.googletagmanager.com/gtag/js?id=G-NZ8462CXQ1"></script>
+
+<script type="text/javascript">
+
+window.dataLayer = window.dataLayer || [];
+function gtag(){dataLayer.push(arguments);}
+gtag('js', new Date());
+gtag('config', 'G-NZ8462CXQ1', { 'anonymize_ip': true});
+</script>
+
+
+<link rel="stylesheet" href="../../styles.css">
+</head>
+
+<body class="nav-fixed">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+    <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
+      <div class="navbar-container container-fluid">
+      <div class="navbar-brand-container mx-auto">
+    <a class="navbar-brand" href="../../index.html">
+    <span class="navbar-title">mscids-notes</span>
+    </a>
+  </div>
+            <div id="quarto-search" class="" title="Search"></div>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" role="menu" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+  <span class="navbar-toggler-icon"></span>
+</button>
+          <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav navbar-nav-scroll me-auto">
+  <li class="nav-item">
+    <a class="nav-link" href="../../index.html"> 
+<span class="menu-text">Home</span></a>
+  </li>  
+  <li class="nav-item dropdown ">
+    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-python-for-data-science" role="link" data-bs-toggle="dropdown" aria-expanded="false">
+ <span class="menu-text">Python for Data Science</span>
+    </a>
+    <ul class="dropdown-menu" aria-labelledby="nav-menu-python-for-data-science">    
+        <li>
+    <a class="dropdown-item" href="../../hs25/pds/pds_notes.html">
+ <span class="dropdown-text">Notes</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../hs25/pds/pds_exercises.html">
+ <span class="dropdown-text">Exercises</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../hs25/pds/pds_mock_exam.html">
+ <span class="dropdown-text">Mock Exam Solution</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../hs25/pds/pds_modul_exam_fs23.html">
+ <span class="dropdown-text">Modul Exam FS2023</span></a>
+  </li>  
+    </ul>
+  </li>
+  <li class="nav-item dropdown ">
+    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-classical-and-bayesian-statistics" role="link" data-bs-toggle="dropdown" aria-expanded="false">
+ <span class="menu-text">Classical and Bayesian Statistics</span>
+    </a>
+    <ul class="dropdown-menu" aria-labelledby="nav-menu-classical-and-bayesian-statistics">    
+        <li>
+    <a class="dropdown-item" href="../../hs25/sa/sa_notes.html">
+ <span class="dropdown-text">Notes</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../hs25/sa/sa_exercises.html">
+ <span class="dropdown-text">Exercises</span></a>
+  </li>  
+    </ul>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link" href="../../hs25/lia1/lia1_notes.html"> 
+<span class="menu-text">Linear Algebra 01</span></a>
+  </li>  
+  <li class="nav-item dropdown ">
+    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-design-of-experiments" role="link" data-bs-toggle="dropdown" aria-expanded="false">
+ <span class="menu-text">Design of Experiments</span>
+    </a>
+    <ul class="dropdown-menu" aria-labelledby="nav-menu-design-of-experiments">    
+        <li>
+    <a class="dropdown-item" href="../../hs25/doe/doe_notes.html">
+ <span class="dropdown-text">Notes</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../hs25/doe/doe_exam_summary.pdf">
+ <span class="dropdown-text">Exam Summary</span></a>
+  </li>  
+    </ul>
+  </li>
+  <li class="nav-item dropdown ">
+    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-computer-science-concepts-for-data-scientists" role="link" data-bs-toggle="dropdown" aria-expanded="false">
+ <span class="menu-text">Computer Science Concepts for Data Scientists</span>
+    </a>
+    <ul class="dropdown-menu" aria-labelledby="nav-menu-computer-science-concepts-for-data-scientists">    
+        <li>
+    <a class="dropdown-item" href="../../hs25/csc/csc_notes.html">
+ <span class="dropdown-text">Notes</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../hs25/csc/csc_exercises.html">
+ <span class="dropdown-text">Exercises</span></a>
+  </li>  
+    </ul>
+  </li>
+  <li class="nav-item dropdown ">
+    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-how-to" role="link" data-bs-toggle="dropdown" aria-expanded="false">
+ <span class="menu-text">How to</span>
+    </a>
+    <ul class="dropdown-menu" aria-labelledby="nav-menu-how-to">    
+        <li>
+    <a class="dropdown-item" href="../../howTo/terminal.html">
+ <span class="dropdown-text">Terminal</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../howTo/git.html">
+ <span class="dropdown-text">Git/GitHub</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../howTo/python.html">
+ <span class="dropdown-text">Python</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../howTo/pythonPackages.html">
+ <span class="dropdown-text">Python Packages</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../howTo/pythonProject.html">
+ <span class="dropdown-text">Python Project</span></a>
+  </li>  
+    </ul>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link" href="../../resources.html"> 
+<span class="menu-text">Resources</span></a>
+  </li>  
+</ul>
+          </div> <!-- /navcollapse -->
+            <div class="quarto-navbar-tools">
+</div>
+      </div> <!-- /container-fluid -->
+    </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
+<!-- sidebar -->
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#tasks-for-exercise-01-introduction" id="toc-tasks-for-exercise-01-introduction" class="nav-link active" data-scroll-target="#tasks-for-exercise-01-introduction">Tasks for Exercise 01: Introduction</a>
+  <ul class="collapse">
+  <li><a href="#task-01" id="toc-task-01" class="nav-link" data-scroll-target="#task-01">Task 01</a>
+  <ul class="collapse">
+  <li><a href="#answer" id="toc-answer" class="nav-link" data-scroll-target="#answer">Answer</a></li>
+  </ul></li>
+  <li><a href="#task-02" id="toc-task-02" class="nav-link" data-scroll-target="#task-02">Task 02</a>
+  <ul class="collapse">
+  <li><a href="#answer-1" id="toc-answer-1" class="nav-link" data-scroll-target="#answer-1">Answer</a></li>
+  </ul></li>
+  </ul></li>
+  <li><a href="#tasks-for-exercise-02-principles" id="toc-tasks-for-exercise-02-principles" class="nav-link" data-scroll-target="#tasks-for-exercise-02-principles">Tasks for Exercise 02: Principles</a>
+  <ul class="collapse">
+  <li><a href="#task-01-1" id="toc-task-01-1" class="nav-link" data-scroll-target="#task-01-1">Task 01</a>
+  <ul class="collapse">
+  <li><a href="#description-of-the-study-summary" id="toc-description-of-the-study-summary" class="nav-link" data-scroll-target="#description-of-the-study-summary">Description of the study – summary</a></li>
+  <li><a href="#description-of-the-study-summary-1" id="toc-description-of-the-study-summary-1" class="nav-link" data-scroll-target="#description-of-the-study-summary-1">Description of the study – summary</a></li>
+  <li><a href="#description-of-the-study-summary-2" id="toc-description-of-the-study-summary-2" class="nav-link" data-scroll-target="#description-of-the-study-summary-2">Description of the study – summary</a></li>
+  </ul></li>
+  <li><a href="#task-02-1" id="toc-task-02-1" class="nav-link" data-scroll-target="#task-02-1">Task 02</a>
+  <ul class="collapse">
+  <li><a href="#answer-5" id="toc-answer-5" class="nav-link" data-scroll-target="#answer-5">Answer</a></li>
+  </ul></li>
+  </ul></li>
+  <li><a href="#tasks-for-exercise-03-introduction-to-design-of-experiments-doe" id="toc-tasks-for-exercise-03-introduction-to-design-of-experiments-doe" class="nav-link" data-scroll-target="#tasks-for-exercise-03-introduction-to-design-of-experiments-doe">Tasks for Exercise 03: Introduction to Design of Experiments (DoE)</a>
+  <ul class="collapse">
+  <li><a href="#task-01-2" id="toc-task-01-2" class="nav-link" data-scroll-target="#task-01-2">Task 01</a>
+  <ul class="collapse">
+  <li><a href="#answer-6" id="toc-answer-6" class="nav-link" data-scroll-target="#answer-6">Answer</a></li>
+  </ul></li>
+  <li><a href="#task-02-2" id="toc-task-02-2" class="nav-link" data-scroll-target="#task-02-2">Task 02</a>
+  <ul class="collapse">
+  <li><a href="#description-of-the-study-summary-3" id="toc-description-of-the-study-summary-3" class="nav-link" data-scroll-target="#description-of-the-study-summary-3">Description of the study – Summary</a></li>
+  <li><a href="#description-of-the-study-summary-4" id="toc-description-of-the-study-summary-4" class="nav-link" data-scroll-target="#description-of-the-study-summary-4">Description of the study – Summary</a></li>
+  <li><a href="#answer-8" id="toc-answer-8" class="nav-link" data-scroll-target="#answer-8">Answer</a></li>
+  </ul></li>
+  </ul></li>
+  <li><a href="#tasks-for-exercise-04-properties-of-doe" id="toc-tasks-for-exercise-04-properties-of-doe" class="nav-link" data-scroll-target="#tasks-for-exercise-04-properties-of-doe">Tasks for Exercise 04: Properties of DoE</a>
+  <ul class="collapse">
+  <li><a href="#task-01-3" id="toc-task-01-3" class="nav-link" data-scroll-target="#task-01-3">Task 01</a>
+  <ul class="collapse">
+  <li><a href="#answer-9" id="toc-answer-9" class="nav-link" data-scroll-target="#answer-9">Answer</a></li>
+  </ul></li>
+  <li><a href="#task-02-3" id="toc-task-02-3" class="nav-link" data-scroll-target="#task-02-3">Task 02</a>
+  <ul class="collapse">
+  <li><a href="#answer-10" id="toc-answer-10" class="nav-link" data-scroll-target="#answer-10">Answer</a></li>
+  </ul></li>
+  </ul></li>
+  <li><a href="#tasks-for-exercise-05-sampling" id="toc-tasks-for-exercise-05-sampling" class="nav-link" data-scroll-target="#tasks-for-exercise-05-sampling">Tasks for Exercise 05: Sampling</a>
+  <ul class="collapse">
+  <li><a href="#task-01-4" id="toc-task-01-4" class="nav-link" data-scroll-target="#task-01-4">Task 01</a>
+  <ul class="collapse">
+  <li><a href="#answer-11" id="toc-answer-11" class="nav-link" data-scroll-target="#answer-11">Answer</a></li>
+  </ul></li>
+  <li><a href="#task-02-4" id="toc-task-02-4" class="nav-link" data-scroll-target="#task-02-4">Task 02</a>
+  <ul class="collapse">
+  <li><a href="#answer-12" id="toc-answer-12" class="nav-link" data-scroll-target="#answer-12">Answer</a></li>
+  </ul></li>
+  <li><a href="#task-03" id="toc-task-03" class="nav-link" data-scroll-target="#task-03">Task 03</a></li>
+  </ul></li>
+  </ul>
+<div class="quarto-alternate-formats"><h2>Other Formats</h2><ul><li><a href="doe_exercises.pdf"><i class="bi bi-file-pdf"></i>PDF</a></li></ul></div></nav>
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title">Design of Experiments - Exercises</h1>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    <div>
+    <div class="quarto-title-meta-heading">Author</div>
+    <div class="quarto-title-meta-contents">
+             <p>Nils Rechberger </p>
+          </div>
+  </div>
+    
+  
+    
+  </div>
+  
+
+
+</header>
+
+
+<section id="tasks-for-exercise-01-introduction" class="level1">
+<h1>Tasks for Exercise 01: Introduction</h1>
+<section id="task-01" class="level2">
+<h2 class="anchored" data-anchor-id="task-01">Task 01</h2>
+<p>Sir Austin Bradford Hill, called Tony Hill, (* July 8, 1897 in London; † April 18, 1991) was a British epidemiologist, statistician and pioneer of clinical trials. Together with Richard Doll, he was the first to establish a relation between smoking and lung cancer. In 1948, Hill published the results of a study1 he had conducted on the treatment of tuberculosis with the antibiotic streptomycin. Have a look at Table II from the publication and discuss a possible research design that Hill may have chosen and the results of the study.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="img/doe_ex01_studyTable.png" class="img-fluid figure-img"></p>
+<figcaption>Study Table</figcaption>
+</figure>
+</div>
+<section id="answer" class="level3">
+<h3 class="anchored" data-anchor-id="answer">Answer</h3>
+<p>Bradford and Doll may have used an experimental study design with randomization and Blinding to ensure the most authentic results.</p>
+</section>
+</section>
+<section id="task-02" class="level2">
+<h2 class="anchored" data-anchor-id="task-02">Task 02</h2>
+<p>Confounding means that a factor (confounder) that is not directly investigated is associated with both the independent variable and the dependent variable and accordingly causes the relationship between the two variables (Spurious Correlation). Given the definition above, interpret the following three statements</p>
+<section id="answer-1" class="level3">
+<h3 class="anchored" data-anchor-id="answer-1">Answer</h3>
+<ul>
+<li><p>The more firefighters fight a fire, the greater is the damage: We look at this statement in the wrong direction. The greater the damage (caused by a big fire), the more fire fighter are necessary to extinguish a fire.</p></li>
+<li><p>The fewer storks nest in an area, the lower the human birth rate is in that area: No, smaller areas provide less space for humans and storks, which can cause fewer stork nests and lower birth rate</p></li>
+<li><p>The more books a family owns, the better the children are able to read: Maybe, but it’s manly cause by the level of education instead of the number of book. Educated families are more likely to own more books than less educated families.</p></li>
+</ul>
+</section>
+</section>
+</section>
+<section id="tasks-for-exercise-02-principles" class="level1">
+<h1>Tasks for Exercise 02: Principles</h1>
+<section id="task-01-1" class="level2">
+<h2 class="anchored" data-anchor-id="task-01-1">Task 01</h2>
+<p>Which study design would you choose?</p>
+<section id="description-of-the-study-summary" class="level3">
+<h3 class="anchored" data-anchor-id="description-of-the-study-summary">Description of the study – summary</h3>
+<p>Research question: Which title for the quarterly newsletter for current customers (made at least one purchase) will increase the open rate? There are three versions for the newsletter: The current title, a title that announces a competi- tion, and a title that announces a gift. The mailing list has approx. 12,000 customer names.</p>
+<section id="answer-2" class="level4">
+<h4 class="anchored" data-anchor-id="answer-2">Answer</h4>
+<p>We are going to run a experimnet. We can allocaed the suer randomly. So we use a A/B test, RCT with 3 versions.</p>
+</section>
+</section>
+<section id="description-of-the-study-summary-1" class="level3">
+<h3 class="anchored" data-anchor-id="description-of-the-study-summary-1">Description of the study – summary</h3>
+<p>In an article the newspaper «Blick» wants to know how its readers are doing. Readers interested in the question can access this page with one click</p>
+<section id="answer-3" class="level4">
+<h4 class="anchored" data-anchor-id="answer-3">Answer</h4>
+<p>We run an observation. Without group comparison. So we use a Descriptive Study -&gt; Survey Study.</p>
+</section>
+</section>
+<section id="description-of-the-study-summary-2" class="level3">
+<h3 class="anchored" data-anchor-id="description-of-the-study-summary-2">Description of the study – summary</h3>
+<p>Swisscom is updating its «TV Air» browser for laptops and desktops. Three weeks after the release, it evaluates the user responses by the «community». The responses are divided into «satisfied users» and «unsatisfied users.» Their profiles make it possible to extract the following information, among other things: Browser type, operating system, download speed.</p>
+<section id="answer-4" class="level4">
+<h4 class="anchored" data-anchor-id="answer-4">Answer</h4>
+<p>We run an observation. In this cas with group comparison. So we use a Analytical Study -&gt; Case Study.</p>
+</section>
+</section>
+</section>
+<section id="task-02-1" class="level2">
+<h2 class="anchored" data-anchor-id="task-02-1">Task 02</h2>
+<p>A study will be conducted to answer these research questions:</p>
+<ul>
+<li>Do different language learning media affect the intensity of situational interest of two-year-old children?</li>
+<li>How do different language learning media affect vocabulary growth?</li>
+<li>Does adult company while using language learning media have an impact on vocabulary growth?</li>
+</ul>
+<p>These two language learning media are in focus:</p>
+<ul>
+<li>App for learning vocabulary</li>
+<li>Viewing of picture cards</li>
+</ul>
+<p>Which study type would you choose? In which areas of empirical research would you situate the study?</p>
+<section id="answer-5" class="level3">
+<h3 class="anchored" data-anchor-id="answer-5">Answer</h3>
+<p>To answer the research questions, we will run an experiment. We randomly allocated the users to the different learning media. So we run randomized controlled (suitable for hypothesis testing).</p>
+</section>
+</section>
+</section>
+<section id="tasks-for-exercise-03-introduction-to-design-of-experiments-doe" class="level1">
+<h1>Tasks for Exercise 03: Introduction to Design of Experiments (DoE)</h1>
+<section id="task-01-2" class="level2">
+<h2 class="anchored" data-anchor-id="task-01-2">Task 01</h2>
+<p>A study on sustainable development focuses on measuring climate data at a specific location. Among other things, the daytime temperature on a winter day is recorded over a period of 24</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="img/doe_task3_temp.png" class="img-fluid figure-img"></p>
+<figcaption>Daytime Temp</figcaption>
+</figure>
+</div>
+<p>Two independent research teams, A and B, conduct temperature measurements. In retrospect, it turns out that the thermometers were defective: Team A: Thermometer always measures 6° C, regardless of actual temperature. Team B: Thermometer consistently measures 2° C too high. The research teams do not know that the thermometers are defective. Which research team delivers the “better” measurement results?</p>
+<section id="answer-6" class="level3">
+<h3 class="anchored" data-anchor-id="answer-6">Answer</h3>
+<p>On the one hand, we could argue that Team B delivers ‘better’ results than Team A, as Team B can still identify a global pattern in their data. Conversely, Team A’s results would produce a straight line in the plot, indicating a measurement error. Team A would be much more likely to detect the error than Team B.</p>
+</section>
+</section>
+<section id="task-02-2" class="level2">
+<h2 class="anchored" data-anchor-id="task-02-2">Task 02</h2>
+<p>Show how variance can be maximized, controlled and minimized in the following descriptions of studies. First determine the relevant variables:</p>
+<ul>
+<li>Dependent variable (DV)</li>
+<li>Central independent variable(s) (IV)</li>
+<li>Nuisance variables</li>
+</ul>
+<section id="description-of-the-study-summary-3" class="level3">
+<h3 class="anchored" data-anchor-id="description-of-the-study-summary-3">Description of the study – Summary</h3>
+<p>Research question: What title for a quarterly newsletter to existing customers (who have made at least one purchase) will increase the open rate? There are three title variations: The current title, a title that announces a competition, and a title that announces a gift. The mailing list has approx. 12,000 customer names.</p>
+<section id="answer-7" class="level4">
+<h4 class="anchored" data-anchor-id="answer-7">Answer</h4>
+<ul>
+<li>How can primary variance be maximized?: Use 3 distinct title variations.</li>
+<li>How can secondary variance be controlled?: Random allocate the customers to the the variants.</li>
+<li>How can error variance be minimized?: Use all possible customers.</li>
+</ul>
+</section>
+</section>
+<section id="description-of-the-study-summary-4" class="level3">
+<h3 class="anchored" data-anchor-id="description-of-the-study-summary-4">Description of the study – Summary</h3>
+<p>Research question: Can tuberculosis be cured by treating patients with the antibiotic streptomycin? Two groups of patients are planned: Treated (Streptomycin) vs.&nbsp;Control (No treatment). The total sample size includes 100 patients</p>
+</section>
+<section id="answer-8" class="level3">
+<h3 class="anchored" data-anchor-id="answer-8">Answer</h3>
+<ul>
+<li>How can primary variance be maximized?: The two manifestations of the central independent variable maximize “automatically” the primary variance as much as possible, since they are predetermined.</li>
+<li>How can secondary variance be controlled?: Random allocate the patients to one of the groups.</li>
+<li>How can error variance be minimized?: Increase the sample size</li>
+</ul>
+</section>
+</section>
+</section>
+<section id="tasks-for-exercise-04-properties-of-doe" class="level1">
+<h1>Tasks for Exercise 04: Properties of DoE</h1>
+<section id="task-01-3" class="level2">
+<h2 class="anchored" data-anchor-id="task-01-3">Task 01</h2>
+<p>Compare the descriptions and the advantages and disadvantages of the following DoE types.</p>
+<section id="answer-9" class="level3">
+<h3 class="anchored" data-anchor-id="answer-9">Answer</h3>
+<section id="trial-and-error" class="level4">
+<h4 class="anchored" data-anchor-id="trial-and-error">Trial and error</h4>
+<ul>
+<li>Description: Combination of parameters have no structure and are mixed randomly.</li>
+<li>Advantages: Easy to implement und run.</li>
+<li>Disadvantages: No idea what factors influence how.</li>
+</ul>
+</section>
+<section id="one-factor-at-a-time-ofat" class="level4">
+<h4 class="anchored" data-anchor-id="one-factor-at-a-time-ofat">One-factor-at-a-time (OFAT)</h4>
+<ul>
+<li>Description: Vary the first factor and then measure fuel consumption. Keep the setting with the lowest consumption and then vary the next factor.</li>
+<li>Advantages: Easy to implement and run</li>
+<li>Disadvantages: Interaction between factors are not recognized. Research question is answered neither systematically nor exhaustively.</li>
+</ul>
+</section>
+<section id="full-factorial-design-e.g.-2k-factorial-design" class="level4">
+<h4 class="anchored" data-anchor-id="full-factorial-design-e.g.-2k-factorial-design">Full factorial design – e.g.&nbsp;2k factorial design</h4>
+<ul>
+<li>Description: Two levels (+/-) are defined per factor. All possible combinations of factor levels are varied.</li>
+<li>Advantages: All main effects and all interactions can be determined. Can be used as a screening experiment to identify potentially important variables.</li>
+<li>Disadvantages: he effort involved increases rapidly as the number of factors increases. Each additional factor doubles the number of combinations.</li>
+</ul>
+</section>
+</section>
+</section>
+<section id="task-02-3" class="level2">
+<h2 class="anchored" data-anchor-id="task-02-3">Task 02</h2>
+<p>Develop two experiments, A and B, with these features</p>
+<ul>
+<li>Experiment A → External and internal validity are both minimal</li>
+<li>Experiment B → External and internal validity are both maximal</li>
+</ul>
+<p>Explain your choice.</p>
+<section id="answer-10" class="level3">
+<h3 class="anchored" data-anchor-id="answer-10">Answer</h3>
+<section id="experiment-a" class="level4">
+<h4 class="anchored" data-anchor-id="experiment-a">Experiment A</h4>
+<ul>
+<li>Description: Exists when changes in dependent variables (DV) are attributed to independent variables (IV). Increases with decreasing impact of nuisance variables.</li>
+<li>Explanation: Laboratory Study</li>
+</ul>
+</section>
+<section id="experiment-b" class="level4">
+<h4 class="anchored" data-anchor-id="experiment-b">Experiment B</h4>
+<ul>
+<li>Description: Exists when experimental results from a sample can be generalized to the entire population. Increases with increasing naturalness.</li>
+<li>Explanation: Field Study</li>
+</ul>
+</section>
+</section>
+</section>
+</section>
+<section id="tasks-for-exercise-05-sampling" class="level1">
+<h1>Tasks for Exercise 05: Sampling</h1>
+<section id="task-01-4" class="level2">
+<h2 class="anchored" data-anchor-id="task-01-4">Task 01</h2>
+<p>You want to conduct a survey that involves all residents of the city of Zurich. Discuss the criteria you would choose in order to define the population</p>
+<section id="answer-11" class="level3">
+<h3 class="anchored" data-anchor-id="answer-11">Answer</h3>
+<ol type="1">
+<li>In terms of geographical aspects: Only involving all residents of the <strong>city of Zurich</strong>.</li>
+<li>In terms of temporal aspects: Only <strong>residents</strong> of the city of Zurich (e. g. no guests)</li>
+<li>In terms of factual / content-related aspects: What happens to those who live in collective households?</li>
+</ol>
+</section>
+</section>
+<section id="task-02-4" class="level2">
+<h2 class="anchored" data-anchor-id="task-02-4">Task 02</h2>
+<p>Evaluate the effect of the following sampling restrictions on the type of sampling error</p>
+<ol type="1">
+<li>Non-sampling error</li>
+<li>Sampling error</li>
+<li>Variability of sample means</li>
+</ol>
+<section id="answer-12" class="level3">
+<h3 class="anchored" data-anchor-id="answer-12">Answer</h3>
+<ol type="1">
+<li>You are using an incorrect equation to calculate the mean -&gt; <strong>Sampling error</strong></li>
+<li>You are conducting a survey with a sample of n = 5 -&gt; <strong>Sampling error</strong></li>
+<li>You take an online survey on cosmetic products and ask, among others, about the age of the interviewee at the beginning of the questionnaire. -&gt; <strong>Non-sampling error</strong></li>
+<li>You conduct a telephone survey for a lifestyle product 20% of the 20 to 39-year-olds can no longer be reached via landline phone. -&gt; <strong>Sampling error</strong></li>
+<li>The city of Zurich is conducting a study on the topic of sustainability. Attitudes towards sustainability are also surveyed in a neighborhood with high unemployment, poverty, a high proportion of illegal migrants, etc. -&gt; <strong>Non-sampling error</strong></li>
+<li>A local television station conducts a telephone survey during the evening news, which is only announced in this broadcast. -&gt; <strong>Variability of sample means</strong></li>
+</ol>
+</section>
+</section>
+<section id="task-03" class="level2">
+<h2 class="anchored" data-anchor-id="task-03">Task 03</h2>
+<p>Given is an address list address.csv Use R to draw a simple random sample with n = 50 elements from this data set. Insert also the R-code, the R-output and if necessary, R-plots in your answer.</p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(readr)</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>data <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">"address.csv"</span>)</span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>data_sample <span class="ot">&lt;-</span> <span class="fu">sample</span>(data, <span class="dv">50</span>, <span class="at">replace=</span><span class="cn">FALSE</span>) <span class="co"># Take 50 random sample from data</span></span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="fu">View</span>(data_sample)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+
+
+</section>
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const toggleBodyColorMode = (bsSheetEl) => {
+    const mode = bsSheetEl.getAttribute("data-mode");
+    const bodyEl = window.document.querySelector("body");
+    if (mode === "dark") {
+      bodyEl.classList.add("quarto-dark");
+      bodyEl.classList.remove("quarto-light");
+    } else {
+      bodyEl.classList.add("quarto-light");
+      bodyEl.classList.remove("quarto-dark");
+    }
+  }
+  const toggleBodyColorPrimary = () => {
+    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+    if (bsSheetEl) {
+      toggleBodyColorMode(bsSheetEl);
+    }
+  }
+  toggleBodyColorPrimary();  
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const isCodeAnnotation = (el) => {
+    for (const clz of el.classList) {
+      if (clz.startsWith('code-annotation-')) {                     
+        return true;
+      }
+    }
+    return false;
+  }
+  const onCopySuccess = function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Copied!");
+    let tooltip;
+    if (window.bootstrap) {
+      button.setAttribute("data-bs-toggle", "tooltip");
+      button.setAttribute("data-bs-placement", "left");
+      button.setAttribute("data-bs-title", "Copied!");
+      tooltip = new bootstrap.Tooltip(button, 
+        { trigger: "manual", 
+          customClass: "code-copy-button-tooltip",
+          offset: [0, -8]});
+      tooltip.show();    
+    }
+    setTimeout(function() {
+      if (tooltip) {
+        tooltip.hide();
+        button.removeAttribute("data-bs-title");
+        button.removeAttribute("data-bs-toggle");
+        button.removeAttribute("data-bs-placement");
+      }
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  }
+  const getTextToCopy = function(trigger) {
+      const codeEl = trigger.previousElementSibling.cloneNode(true);
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+  }
+  const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+    text: getTextToCopy
+  });
+  clipboard.on('success', onCopySuccess);
+  if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+    const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+      text: getTextToCopy,
+      container: window.document.getElementById('quarto-embedded-source-code-modal')
+    });
+    clipboardModal.on('success', onCopySuccess);
+  }
+    var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+    var mailtoRegex = new RegExp(/^mailto:/);
+      var filterRegex = new RegExp('/' + window.location.host + '/');
+    var isInternal = (href) => {
+        return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+    }
+    // Inspect non-navigation links and adorn them if external
+ 	var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+    for (var i=0; i<links.length; i++) {
+      const link = links[i];
+      if (!isInternal(link.href)) {
+        // undo the damage that might have been done by quarto-nav.js in the case of
+        // links that we want to consider external
+        if (link.dataset.originalHref !== undefined) {
+          link.href = link.dataset.originalHref;
+        }
+      }
+    }
+  function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+    const config = {
+      allowHTML: true,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start',
+    };
+    if (contentFn) {
+      config.content = contentFn;
+    }
+    if (onTriggerFn) {
+      config.onTrigger = onTriggerFn;
+    }
+    if (onUntriggerFn) {
+      config.onUntrigger = onUntriggerFn;
+    }
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      // use id or data attribute instead here
+      let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      if (note) {
+        return note.innerHTML;
+      } else {
+        return "";
+      }
+    });
+  }
+  const xrefs = window.document.querySelectorAll('a.quarto-xref');
+  const processXRef = (id, note) => {
+    // Strip column container classes
+    const stripColumnClz = (el) => {
+      el.classList.remove("page-full", "page-columns");
+      if (el.children) {
+        for (const child of el.children) {
+          stripColumnClz(child);
+        }
+      }
+    }
+    stripColumnClz(note)
+    if (id === null || id.startsWith('sec-')) {
+      // Special case sections, only their first couple elements
+      const container = document.createElement("div");
+      if (note.children && note.children.length > 2) {
+        container.appendChild(note.children[0].cloneNode(true));
+        for (let i = 1; i < note.children.length; i++) {
+          const child = note.children[i];
+          if (child.tagName === "P" && child.innerText === "") {
+            continue;
+          } else {
+            container.appendChild(child.cloneNode(true));
+            break;
+          }
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(container);
+        }
+        return container.innerHTML
+      } else {
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        return note.innerHTML;
+      }
+    } else {
+      // Remove any anchor links if they are present
+      const anchorLink = note.querySelector('a.anchorjs-link');
+      if (anchorLink) {
+        anchorLink.remove();
+      }
+      if (window.Quarto?.typesetMath) {
+        window.Quarto.typesetMath(note);
+      }
+      if (note.classList.contains("callout")) {
+        return note.outerHTML;
+      } else {
+        return note.innerHTML;
+      }
+    }
+  }
+  for (var i=0; i<xrefs.length; i++) {
+    const xref = xrefs[i];
+    tippyHover(xref, undefined, function(instance) {
+      instance.disable();
+      let url = xref.getAttribute('href');
+      let hash = undefined; 
+      if (url.startsWith('#')) {
+        hash = url;
+      } else {
+        try { hash = new URL(url).hash; } catch {}
+      }
+      if (hash) {
+        const id = hash.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note !== null) {
+          try {
+            const html = processXRef(id, note.cloneNode(true));
+            instance.setContent(html);
+          } finally {
+            instance.enable();
+            instance.show();
+          }
+        } else {
+          // See if we can fetch this
+          fetch(url.split('#')[0])
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.getElementById(id);
+            if (note !== null) {
+              const html = processXRef(id, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      } else {
+        // See if we can fetch a full url (with no hash to target)
+        // This is a special case and we should probably do some content thinning / targeting
+        fetch(url)
+        .then(res => res.text())
+        .then(html => {
+          const parser = new DOMParser();
+          const htmlDoc = parser.parseFromString(html, "text/html");
+          const note = htmlDoc.querySelector('main.content');
+          if (note !== null) {
+            // This should only happen for chapter cross references
+            // (since there is no id in the URL)
+            // remove the first header
+            if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+              note.children[0].remove();
+            }
+            const html = processXRef(null, note);
+            instance.setContent(html);
+          } 
+        }).finally(() => {
+          instance.enable();
+          instance.show();
+        });
+      }
+    }, function(instance) {
+    });
+  }
+      let selectedAnnoteEl;
+      const selectorForAnnotation = ( cell, annotation) => {
+        let cellAttr = 'data-code-cell="' + cell + '"';
+        let lineAttr = 'data-code-annotation="' +  annotation + '"';
+        const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+        return selector;
+      }
+      const selectCodeLines = (annoteEl) => {
+        const doc = window.document;
+        const targetCell = annoteEl.getAttribute("data-target-cell");
+        const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+        const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+        const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+        const lineIds = lines.map((line) => {
+          return targetCell + "-" + line;
+        })
+        let top = null;
+        let height = null;
+        let parent = null;
+        if (lineIds.length > 0) {
+            //compute the position of the single el (top and bottom and make a div)
+            const el = window.document.getElementById(lineIds[0]);
+            top = el.offsetTop;
+            height = el.offsetHeight;
+            parent = el.parentElement.parentElement;
+          if (lineIds.length > 1) {
+            const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+            const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+            height = bottom - top;
+          }
+          if (top !== null && height !== null && parent !== null) {
+            // cook up a div (if necessary) and position it 
+            let div = window.document.getElementById("code-annotation-line-highlight");
+            if (div === null) {
+              div = window.document.createElement("div");
+              div.setAttribute("id", "code-annotation-line-highlight");
+              div.style.position = 'absolute';
+              parent.appendChild(div);
+            }
+            div.style.top = top - 2 + "px";
+            div.style.height = height + 4 + "px";
+            div.style.left = 0;
+            let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+            if (gutterDiv === null) {
+              gutterDiv = window.document.createElement("div");
+              gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+              gutterDiv.style.position = 'absolute';
+              const codeCell = window.document.getElementById(targetCell);
+              const gutter = codeCell.querySelector('.code-annotation-gutter');
+              gutter.appendChild(gutterDiv);
+            }
+            gutterDiv.style.top = top - 2 + "px";
+            gutterDiv.style.height = height + 4 + "px";
+          }
+          selectedAnnoteEl = annoteEl;
+        }
+      };
+      const unselectCodeLines = () => {
+        const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+        elementsIds.forEach((elId) => {
+          const div = window.document.getElementById(elId);
+          if (div) {
+            div.remove();
+          }
+        });
+        selectedAnnoteEl = undefined;
+      };
+        // Handle positioning of the toggle
+    window.addEventListener(
+      "resize",
+      throttle(() => {
+        elRect = undefined;
+        if (selectedAnnoteEl) {
+          selectCodeLines(selectedAnnoteEl);
+        }
+      }, 10)
+    );
+    function throttle(fn, ms) {
+    let throttle = false;
+    let timer;
+      return (...args) => {
+        if(!throttle) { // first call gets through
+            fn.apply(this, args);
+            throttle = true;
+        } else { // all the others get throttled
+            if(timer) clearTimeout(timer); // cancel #2
+            timer = setTimeout(() => {
+              fn.apply(this, args);
+              timer = throttle = false;
+            }, ms);
+        }
+      };
+    }
+      // Attach click handler to the DT
+      const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+      for (const annoteDlNode of annoteDls) {
+        annoteDlNode.addEventListener('click', (event) => {
+          const clickedEl = event.target;
+          if (clickedEl !== selectedAnnoteEl) {
+            unselectCodeLines();
+            const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+            if (activeEl) {
+              activeEl.classList.remove('code-annotation-active');
+            }
+            selectCodeLines(clickedEl);
+            clickedEl.classList.add('code-annotation-active');
+          } else {
+            // Unselect the line
+            unselectCodeLines();
+            clickedEl.classList.remove('code-annotation-active');
+          }
+        });
+      }
+  const findCites = (el) => {
+    const parentEl = el.parentElement;
+    if (parentEl) {
+      const cites = parentEl.dataset.cites;
+      if (cites) {
+        return {
+          el,
+          cites: cites.split(' ')
+        };
+      } else {
+        return findCites(el.parentElement)
+      }
+    } else {
+      return undefined;
+    }
+  };
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const citeInfo = findCites(ref);
+    if (citeInfo) {
+      tippyHover(citeInfo.el, function() {
+        var popup = window.document.createElement('div');
+        citeInfo.cites.forEach(function(cite) {
+          var citeDiv = window.document.createElement('div');
+          citeDiv.classList.add('hanging-indent');
+          citeDiv.classList.add('csl-entry');
+          var biblioDiv = window.document.getElementById('ref-' + cite);
+          if (biblioDiv) {
+            citeDiv.innerHTML = biblioDiv.innerHTML;
+          }
+          popup.appendChild(citeDiv);
+        });
+        return popup.innerHTML;
+      });
+    }
+  }
+});
+</script>
+</div> <!-- /content -->
+
+
+
+
+</body></html>

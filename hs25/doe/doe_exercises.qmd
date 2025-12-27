@@ -1,0 +1,238 @@
+---
+title: Design of Experiments - Exercises
+author: Nils Rechberger
+toc: true
+---
+
+# Tasks for Exercise 01: Introduction
+
+## Task 01
+
+Sir Austin Bradford Hill, called Tony Hill, (* July 8, 1897 in London; † April 18, 1991) was a
+British epidemiologist, statistician and pioneer of clinical trials. Together with Richard Doll, he
+was the first to establish a relation between smoking and lung cancer.
+In 1948, Hill published the results of a study1 he had conducted on the treatment of tuberculosis
+with the antibiotic streptomycin.
+Have a look at Table II from the publication and discuss a possible research design that Hill
+may have chosen and the results of the study.
+
+![Study Table](img/doe_ex01_studyTable.png)
+
+### Answer
+
+Bradford and Doll may have used an experimental study design with randomization and Blinding to ensure the most authentic results.
+
+## Task 02
+
+Confounding means that a factor (confounder) that is not directly investigated is associated with
+both the independent variable and the dependent variable and accordingly causes the
+relationship between the two variables (Spurious Correlation).
+Given the definition above, interpret the following three statements
+
+### Answer
+
+- The more firefighters fight a fire, the greater is the damage: We look at this statement in the wrong direction. The greater the damage (caused by a big fire), the more fire fighter are necessary to extinguish a fire.
+
+- The fewer storks nest in an area, the lower the human birth rate is in that area: No, smaller areas provide less space for humans and storks, which can cause fewer stork nests and lower birth rate
+
+- The more books a family owns, the better the children are able to read: Maybe, but it's manly cause by the level of education instead of the number of book. Educated families are more likely to own more books than less educated families.
+
+# Tasks for Exercise 02: Principles
+
+## Task 01
+
+Which study design would you choose?
+
+### Description of the study – summary
+
+Research question: Which title for the quarterly newsletter for current customers (made at least
+one purchase) will increase the open rate?
+There are three versions for the newsletter: The current title, a title that announces a competi-
+tion, and a title that announces a gift. The mailing list has approx. 12,000 customer names.
+
+#### Answer
+
+We are going to run a experimnet. We can allocaed the suer randomly. So we use a A/B test, RCT with 3 versions.
+
+### Description of the study – summary
+
+In an article the newspaper «Blick» wants to know how its readers are doing.
+Readers interested in the question can access this page with one click
+
+#### Answer
+
+We run an observation. Without group comparison. So we use a Descriptive Study -> Survey Study.
+
+### Description of the study – summary
+
+Swisscom is updating its «TV Air» browser for laptops and desktops. Three weeks after the
+release, it evaluates the user responses by the «community». The responses are divided into
+«satisfied users» and «unsatisfied users.» Their profiles make it possible to extract the following
+information, among other things: Browser type, operating system, download speed.
+
+#### Answer
+
+We run an observation. In this cas with group comparison. So we use a Analytical Study -> Case Study.
+
+## Task 02
+
+A study will be conducted to answer these research questions:
+
+- Do different language learning media affect the intensity of situational interest of two-year-old children?
+- How do different language learning media affect vocabulary growth?
+- Does adult company while using language learning media have an impact on vocabulary growth?
+
+These two language learning media are in focus:
+
+- App for learning vocabulary
+- Viewing of picture cards
+
+Which study type would you choose?
+In which areas of empirical research would you situate the study?
+
+### Answer
+
+To answer the research questions, we will run an experiment. We randomly allocated the users to the different learning media. So we run randomized controlled (suitable for hypothesis testing).
+
+# Tasks for Exercise 03: Introduction to Design of Experiments (DoE)
+
+## Task 01
+
+A study on sustainable development focuses on measuring climate data at a specific location.
+Among other things, the daytime temperature on a winter day is recorded over a period of 24
+
+![Daytime Temp](img/doe_task3_temp.png)
+
+Two independent research teams, A and B, conduct temperature measurements.
+In retrospect, it turns out that the thermometers were defective:
+Team A: Thermometer always measures 6° C, regardless of actual temperature.
+Team B: Thermometer consistently measures 2° C too high.
+The research teams do not know that the thermometers are defective.
+Which research team delivers the "better" measurement results?
+
+### Answer
+
+On the one hand, we could argue that Team B delivers 'better' results than Team A, as Team B can still identify a global pattern in their data. Conversely, Team A's results would produce a straight line in the plot, indicating a measurement error. Team A would be much more likely to detect the error than Team B.
+
+## Task 02
+
+Show how variance can be maximized, controlled and minimized in the following
+descriptions of studies.
+First determine the relevant variables:
+
+- Dependent variable (DV)
+- Central independent variable(s) (IV)
+- Nuisance variables
+
+### Description of the study – Summary
+Research question: What title for a quarterly newsletter to existing customers (who have made
+at least one purchase) will increase the open rate?
+There are three title variations: The current title, a title that announces a competition, and a title
+that announces a gift. The mailing list has approx. 12,000 customer names.
+
+#### Answer
+
+- How can primary variance be maximized?: Use 3 distinct title variations.
+- How can secondary variance be controlled?: Random allocate the customers to the the variants.
+- How can error variance be minimized?: Use all possible customers.
+
+### Description of the study – Summary
+Research question: Can tuberculosis be cured by treating patients with the antibiotic streptomycin?
+Two groups of patients are planned: Treated (Streptomycin) vs. Control (No treatment).
+The total sample size includes 100 patients
+
+
+### Answer
+
+- How can primary variance be maximized?: The two manifestations of the central independent variable maximize "automatically" the primary variance as much as possible, since they are predetermined.
+- How can secondary variance be controlled?: Random allocate the patients to one of the groups.
+- How can error variance be minimized?: Increase the sample size
+
+# Tasks for Exercise 04: Properties of DoE
+
+## Task 01
+
+Compare the descriptions and the advantages and disadvantages of the following DoE types.
+
+### Answer
+
+#### Trial and error
+
+- Description: Combination of parameters have no structure and are mixed randomly.
+- Advantages: Easy to implement und run.
+- Disadvantages: No idea what factors influence how.
+
+#### One-factor-at-a-time (OFAT)
+
+- Description: Vary the first factor and then measure fuel consumption. Keep the setting with the lowest consumption and then vary the next factor.
+- Advantages: Easy to implement and run
+- Disadvantages: Interaction between factors are not recognized. Research question is answered neither systematically nor exhaustively.
+
+#### Full factorial design – e.g. 2k factorial design
+
+- Description: Two levels (+/-) are defined per factor. All possible combinations of factor levels are varied. 
+- Advantages: All main effects and all interactions can be determined. Can be used as a screening experiment to identify potentially important variables. 
+- Disadvantages: he effort involved increases rapidly as the number of factors increases. Each additional factor doubles the number of combinations.
+
+## Task 02
+
+Develop two experiments, A and B, with these features
+
+- Experiment A → External and internal validity are both minimal
+- Experiment B → External and internal validity are both maximal
+
+Explain your choice.
+
+### Answer
+
+#### Experiment A
+
+- Description: Exists when changes in dependent variables (DV) are attributed to independent variables (IV). Increases with decreasing impact of nuisance variables.
+- Explanation: Laboratory Study
+
+#### Experiment B
+
+- Description: Exists when experimental results from a sample can be generalized to the entire population. Increases with increasing naturalness.
+- Explanation: Field Study
+
+# Tasks for Exercise 05: Sampling
+
+## Task 01
+You want to conduct a survey that involves all residents of the city of Zurich.
+Discuss the criteria you would choose in order to define the population
+
+### Answer
+
+1. In terms of geographical aspects: Only involving all residents of the **city of Zurich**.
+2. In terms of temporal aspects: Only **residents** of the city of Zurich (e. g. no guests)
+3. In terms of factual / content-related aspects: What happens to those who live in collective households?
+
+## Task 02
+
+Evaluate the effect of the following sampling restrictions on the type of sampling error
+
+1. Non-sampling error
+2. Sampling error
+3. Variability of sample means
+
+### Answer
+
+1. You are using an incorrect equation to calculate the mean -> **Sampling error**
+2. You are conducting a survey with a sample of n = 5 -> **Sampling error**
+3. You take an online survey on cosmetic products and ask, among others, about the age of the interviewee at the beginning of the questionnaire. -> **Non-sampling error**
+4. You conduct a telephone survey for a lifestyle product 20% of the 20 to 39-year-olds can no longer be reached via landline phone. -> **Sampling error**
+5. The city of Zurich is conducting a study on the topic of sustainability. Attitudes towards sustainability are also surveyed in a neighborhood with high unemployment, poverty, a high proportion of illegal migrants, etc. -> **Non-sampling error**
+6. A local television station conducts a telephone survey during the evening news, which is only announced in this broadcast. -> **Variability of sample means**
+
+## Task 03
+
+Given is an address list address.csv
+Use R to draw a simple random sample with n = 50 elements from this data set.
+Insert also the R-code, the R-output and if necessary, R-plots in your answer.
+
+```r
+library(readr)
+data <- read_csv("address.csv")
+data_sample <- sample(data, 50, replace=FALSE) # Take 50 random sample from data
+View(data_sample)
+```
