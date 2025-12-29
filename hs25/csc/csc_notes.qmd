@@ -16,29 +16,44 @@ To do so, data has to be processec, visialized, tranferd storaged and used in a 
 
 A computer network is build of several components:
 
-- Coneccted devises: Hosts (end stystems).
-- Communications linsk: Wired and wireless.
+- Connected devises: Hosts (end systems).
+- Communications links: Wired and wireless.
 - Protocols: Sending and receiving data.
 - Packet switches: routers and switches.
 
-### Example Net
+### Example Net: Enterprise Network (Ethernet)
 
 ![Enterprise Network](img/enterprise_net.png)
 
+### Important basic terms explained briefly
+
+- LAN (Local Area Network): A local network, e.g., your home network or the network in an office building.
+- WAN (Wide Area Network): A wide-ranging network that connects cities or countries. The internet is the largest WAN in the world.
+- IP address: Your device's “address” on the network. Without this address, data packets would not know where to go.
+- Router: The “traffic cop.” It connects your local network (LAN) to the global network (Internet) and forwards the data to the correct device.
+
 ## Packet Switching
 
-The Host dates applicatins messages and breaks them into smaller chunks (aka. packets) of length $L$ bits. The packets are transmitted into access network at rate $R$, called link capacity/bandwith.
+The Host dates applications messages and breaks them into smaller chunks (aka. packets) of length $L$ bits. The packets are transmitted into access network at rate $R$, called link capacity/bandwidth.
 
 ### Packaet Transmission Delay
 
-- $L$: Packet lenght (bits).
-- $R$: Link bandwith (dps).
+This is the time required by the transmitter to push all bits of a data packet onto the cable (or medium).
+
+- $L$: Packet length (bits).
+- $R$: Link bandwidth (dps).
 
 $$
 d_{\text{trans}} = \dfrac{L \quad \text{(bits)}}{R \quad \text{(bits/sec)}}
 $$
 
+::: {.callout-note}
+Also called link capacity or link bandwidth.
+:::
+
 ### Propagation delay
+
+This is the time it takes for a single bit to physically travel from point A to point B.
 
 - $d$: Length of physical link.
 - $s$: Propagation speed in medium.
@@ -64,6 +79,22 @@ Protocols define format, order of msgs sent and received among network entities,
 - Link: Ethernet, WiFi.
 - Physical: Ethernet, WiFi.
 
+![OSI Model & TCP/IP Model](img/protocol_layers.jpeg)
+
+### Advantages and disadvantages of Protocol Layers
+
+#### Advantage
+
+- Flexibility: Individual parts are replaceable.    
+- Simplicity: Focus on a specific task.    
+- Interoperability: All devices understand each other.
+
+#### Disadvantage
+
+- Overhead: Data packets become larger due to multiple headers.
+- Performance: “Packaging” and “unpackaging” takes time.
+- Duplication: Some functions are performed multiple times.
+
 ## Addressing in Computer Networks
 
 ### Domain Name System
@@ -80,10 +111,13 @@ Translates domain names to numerical IP addresses.
 
 Each device is assigned a unique IP address build up by `Net ID` + `Host ID`
 
+![IP Addressing in Computer Networks](img/net_ids.png)
+
 ## Switch
 
-A network switch is a central component in almost every wired network, especially in local area networks (LANs). It acts as an intelligent distribution station for data traffic. Based on incoming frames
-switch “learns” location of sender. Records sender/location pair in switch table.
+A network switch is a central component in almost every wired network, especially in local area networks (LANs). It acts as an intelligent distribution station for data traffic. Based on incoming frames switch “learns” location of sender. Records sender/location pair in switch table.
+
+![Example Switch Table](img/switch_table.png)
 
 > Note: Layer 2 – Data Link Layer
 
@@ -98,6 +132,8 @@ A router is a network device that forwards data packets between different networ
 ## Client Server Communication Pattern
 
 Clients (e.g. Browser) send service requests. Servers (e.g. Web, Database) wait for requests to arrive from clients and then respond to. Client receive service responses from centralized server.
+
+![Client - Server Communication](img/client_server_communication.png)
 
 ## Uniform Resource Locator (URL)
 
@@ -144,15 +180,22 @@ Website.
 - `<head> </head>`: Meta data about the HTML document
 - `<body> </body>`: All content of the HTML document
 
+![Example HTML Site](img/example_html_site.png)
+
 ## CSS
 
 CSS is a stylesheet language that is primarily used to describe the appearance and formatting of a document written in a markup language such as HTML.
+
+![CSS Code](img/css_code.png)
+
+![CSS Usage](img/css_usage.png)
 
 # Week 4: Algorithms & Programming Language Concepts
 
 ## Algorithms
 
 A computational problem specifies an input-output relationship. An algorithm is an exact specification of how to solve a computational problem. Algorithms must be:
+
 - Correct: For each input produce an appropriate output
 - Efficient: Run as quickly as possible, and use as little memory as possible
 
