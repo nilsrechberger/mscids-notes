@@ -151,35 +151,35 @@
     "href": "hs25/csc/csc_notes.html#fundaments-of-computer-networks",
     "title": "Comuter Science Concepts for Data Science - Notes",
     "section": "Fundaments of Computer Networks",
-    "text": "Fundaments of Computer Networks\nA computer network is build of several components:\n\nConeccted devises: Hosts (end stystems).\nCommunications linsk: Wired and wireless.\nProtocols: Sending and receiving data.\nPacket switches: routers and switches.\n\n\nExample Net\n\n\n\nEnterprise Network"
+    "text": "Fundaments of Computer Networks\nA computer network is build of several components:\n\nConnected devises: Hosts (end systems).\nCommunications links: Wired and wireless.\nProtocols: Sending and receiving data.\nPacket switches: routers and switches.\n\n\nExample Net: Enterprise Network (Ethernet)\n\n\n\nEnterprise Network\n\n\n\n\nImportant basic terms explained briefly\n\nLAN (Local Area Network): A local network, e.g., your home network or the network in an office building.\nWAN (Wide Area Network): A wide-ranging network that connects cities or countries. The internet is the largest WAN in the world.\nIP address: Your device’s “address” on the network. Without this address, data packets would not know where to go.\nRouter: The “traffic cop.” It connects your local network (LAN) to the global network (Internet) and forwards the data to the correct device."
   },
   {
     "objectID": "hs25/csc/csc_notes.html#packet-switching",
     "href": "hs25/csc/csc_notes.html#packet-switching",
     "title": "Comuter Science Concepts for Data Science - Notes",
     "section": "Packet Switching",
-    "text": "Packet Switching\nThe Host dates applicatins messages and breaks them into smaller chunks (aka. packets) of length \\(L\\) bits. The packets are transmitted into access network at rate \\(R\\), called link capacity/bandwith.\n\nPackaet Transmission Delay\n\n\\(L\\): Packet lenght (bits).\n\\(R\\): Link bandwith (dps).\n\n\\[\nd_{\\text{trans}} = \\dfrac{L \\quad \\text{(bits)}}{R \\quad \\text{(bits/sec)}}\n\\]\n\n\nPropagation delay\n\n\\(d\\): Length of physical link.\n\\(s\\): Propagation speed in medium.\n\n\\[\nd_{\\text{prop}} = \\dfrac{d}{s}\n\\]\n\n\nRate\nRate (bits/time unit) at which bits transferred between sender/receiver. We disquinsh between:\n\nInstantaneous: Rate at given point in time.\nAverage: Rate over longer period of time."
+    "text": "Packet Switching\nThe Host dates applications messages and breaks them into smaller chunks (aka. packets) of length \\(L\\) bits. The packets are transmitted into access network at rate \\(R\\), called link capacity/bandwidth.\n\nPackaet Transmission Delay\nThis is the time required by the transmitter to push all bits of a data packet onto the cable (or medium).\n\n\\(L\\): Packet length (bits).\n\\(R\\): Link bandwidth (dps).\n\n\\[\nd_{\\text{trans}} = \\dfrac{L \\quad \\text{(bits)}}{R \\quad \\text{(bits/sec)}}\n\\]\n\n\n\n\n\n\nNote\n\n\n\nAlso called link capacity or link bandwidth.\n\n\n\n\nPropagation delay\nThis is the time it takes for a single bit to physically travel from point A to point B.\n\n\\(d\\): Length of physical link.\n\\(s\\): Propagation speed in medium.\n\n\\[\nd_{\\text{prop}} = \\dfrac{d}{s}\n\\]\n\n\nRate\nRate (bits/time unit) at which bits transferred between sender/receiver. We disquinsh between:\n\nInstantaneous: Rate at given point in time.\nAverage: Rate over longer period of time."
   },
   {
     "objectID": "hs25/csc/csc_notes.html#protocol-layers",
     "href": "hs25/csc/csc_notes.html#protocol-layers",
     "title": "Comuter Science Concepts for Data Science - Notes",
     "section": "Protocol Layers",
-    "text": "Protocol Layers\nProtocols define format, order of msgs sent and received among network entities, and actions taken on msg transmission, receipt.\n\nApplications: FTP, SMTP, HTTP.\nTransport: TCP, UDP.\nNetwork: IP, routing protocols.\nLink: Ethernet, WiFi.\nPhysical: Ethernet, WiFi."
+    "text": "Protocol Layers\nProtocols define format, order of msgs sent and received among network entities, and actions taken on msg transmission, receipt.\n\nApplications: FTP, SMTP, HTTP.\nTransport: TCP, UDP.\nNetwork: IP, routing protocols.\nLink: Ethernet, WiFi.\nPhysical: Ethernet, WiFi.\n\n\n\n\nOSI Model & TCP/IP Model\n\n\n\nAdvantages and disadvantages of Protocol Layers\n\nAdvantage\n\nFlexibility: Individual parts are replaceable.\n\nSimplicity: Focus on a specific task.\n\nInteroperability: All devices understand each other.\n\n\n\nDisadvantage\n\nOverhead: Data packets become larger due to multiple headers.\nPerformance: “Packaging” and “unpackaging” takes time.\nDuplication: Some functions are performed multiple times."
   },
   {
     "objectID": "hs25/csc/csc_notes.html#addressing-in-computer-networks",
     "href": "hs25/csc/csc_notes.html#addressing-in-computer-networks",
     "title": "Comuter Science Concepts for Data Science - Notes",
     "section": "Addressing in Computer Networks",
-    "text": "Addressing in Computer Networks\n\nDomain Name System\nTranslates domain names to numerical IP addresses.\n\nDNS Recursor (Client Side): Initiates the query. It’s the first stop and acts as a librarian trying to find the IP address.\nRoot Nameserver (The Dot ‘.’): The starting point. It directs the Recursor to the correct Top-Level Domain (TLD) Nameserver.\nTLD Nameserver (e.g., .com, .de, .org): Manages all domains under its specific extension. It points the Recursor to the Authoritative Nameserver for the specific domain requested.\nAuthoritative Nameserver: Holds the definitive DNS records (A, CNAME, MX, etc.) for the requested domain. It provides the actual IP address back to the Recursor.\nDNS Recursor / Client: Receives the IP address and finally connects to the web server to load the website.\n\n\n\nIP Addressing\nEach device is assigned a unique IP address build up by Net ID + Host ID"
+    "text": "Addressing in Computer Networks\n\nDomain Name System\nTranslates domain names to numerical IP addresses.\n\nDNS Recursor (Client Side): Initiates the query. It’s the first stop and acts as a librarian trying to find the IP address.\nRoot Nameserver (The Dot ‘.’): The starting point. It directs the Recursor to the correct Top-Level Domain (TLD) Nameserver.\nTLD Nameserver (e.g., .com, .de, .org): Manages all domains under its specific extension. It points the Recursor to the Authoritative Nameserver for the specific domain requested.\nAuthoritative Nameserver: Holds the definitive DNS records (A, CNAME, MX, etc.) for the requested domain. It provides the actual IP address back to the Recursor.\nDNS Recursor / Client: Receives the IP address and finally connects to the web server to load the website.\n\n\n\nIP Addressing\nEach device is assigned a unique IP address build up by Net ID + Host ID\n\n\n\nIP Addressing in Computer Networks"
   },
   {
     "objectID": "hs25/csc/csc_notes.html#switch",
     "href": "hs25/csc/csc_notes.html#switch",
     "title": "Comuter Science Concepts for Data Science - Notes",
     "section": "Switch",
-    "text": "Switch\nA network switch is a central component in almost every wired network, especially in local area networks (LANs). It acts as an intelligent distribution station for data traffic. Based on incoming frames switch “learns” location of sender. Records sender/location pair in switch table.\n\nNote: Layer 2 – Data Link Layer"
+    "text": "Switch\nA network switch is a central component in almost every wired network, especially in local area networks (LANs). It acts as an intelligent distribution station for data traffic. Based on incoming frames switch “learns” location of sender. Records sender/location pair in switch table.\n\n\n\nExample Switch Table\n\n\n\nNote: Layer 2 – Data Link Layer"
   },
   {
     "objectID": "hs25/csc/csc_notes.html#router",
@@ -193,7 +193,7 @@
     "href": "hs25/csc/csc_notes.html#client-server-communication-pattern",
     "title": "Comuter Science Concepts for Data Science - Notes",
     "section": "Client Server Communication Pattern",
-    "text": "Client Server Communication Pattern\nClients (e.g. Browser) send service requests. Servers (e.g. Web, Database) wait for requests to arrive from clients and then respond to. Client receive service responses from centralized server."
+    "text": "Client Server Communication Pattern\nClients (e.g. Browser) send service requests. Servers (e.g. Web, Database) wait for requests to arrive from clients and then respond to. Client receive service responses from centralized server.\n\n\n\nClient - Server Communication"
   },
   {
     "objectID": "hs25/csc/csc_notes.html#uniform-resource-locator-url",
@@ -207,21 +207,21 @@
     "href": "hs25/csc/csc_notes.html#html",
     "title": "Comuter Science Concepts for Data Science - Notes",
     "section": "HTML",
-    "text": "HTML\nDescriptive Language HTML, with a set of HTML elements/tags, is used to create Websites and publish content on the Internet in a simple and standardized way. The Hypertext Transfer Protocol (HTTP) ensures that content on a Web server can be accessed and interpreted by a Web client and thus displayed within a browser.\n\nElements & Tags\nMost HTML Elements are characterized by having a start and end tag.\n&lt;h1&gt;Header 1&lt;/h1&gt;\n&lt;p&gt;Paragraph&lt;/p&gt; \n\nHeadings: Headings are text size pre-sets ranging from &lt;h1&gt; to &lt;h6&gt;\nParagraphs: Paragraphs are used to create text blocks with &lt;p&gt;content&lt;/p&gt;\nBold: With &lt;b&gt; text &lt;/b&gt; text can be set to bold.\nItalic: With &lt;i&gt; text &lt;/i&gt; text can be set to italic.\nUnderline: With &lt;u&gt; text &lt;/u&gt; text can be underlined.\nHyperlinks: Using the anchor tag with an link as attribute: &lt;a href=\"Reference target\"&gt; Text &lt;/a&gt;\nImages: Image tag with at least a source attribute: &lt;img src = \"path/file\" &gt;\n\n\nNested Elements\nIt is possible to include elements within elements. Such constructs are being referred to as nested elements.\n&lt;p&gt;Star&lt;b&gt;Wars&lt;/b&gt;&lt;/p&gt;\n\n\nStructural Elements\nThe structural elements can be considered as the core setup of any HTML Website.\n\n&lt;!DOCTYPE html&gt;: Declares using HTML5\n&lt;html&gt; &lt;/html&gt;: Defines the root of an HTML document\n&lt;head&gt; &lt;/head&gt;: Meta data about the HTML document\n&lt;body&gt; &lt;/body&gt;: All content of the HTML document"
+    "text": "HTML\nDescriptive Language HTML, with a set of HTML elements/tags, is used to create Websites and publish content on the Internet in a simple and standardized way. The Hypertext Transfer Protocol (HTTP) ensures that content on a Web server can be accessed and interpreted by a Web client and thus displayed within a browser.\n\nElements & Tags\nMost HTML Elements are characterized by having a start and end tag.\n&lt;h1&gt;Header 1&lt;/h1&gt;\n&lt;p&gt;Paragraph&lt;/p&gt; \n\nHeadings: Headings are text size pre-sets ranging from &lt;h1&gt; to &lt;h6&gt;\nParagraphs: Paragraphs are used to create text blocks with &lt;p&gt;content&lt;/p&gt;\nBold: With &lt;b&gt; text &lt;/b&gt; text can be set to bold.\nItalic: With &lt;i&gt; text &lt;/i&gt; text can be set to italic.\nUnderline: With &lt;u&gt; text &lt;/u&gt; text can be underlined.\nHyperlinks: Using the anchor tag with an link as attribute: &lt;a href=\"Reference target\"&gt; Text &lt;/a&gt;\nImages: Image tag with at least a source attribute: &lt;img src = \"path/file\" &gt;\n\n\nNested Elements\nIt is possible to include elements within elements. Such constructs are being referred to as nested elements.\n&lt;p&gt;Star&lt;b&gt;Wars&lt;/b&gt;&lt;/p&gt;\n\n\nStructural Elements\nThe structural elements can be considered as the core setup of any HTML Website.\n\n&lt;!DOCTYPE html&gt;: Declares using HTML5\n&lt;html&gt; &lt;/html&gt;: Defines the root of an HTML document\n&lt;head&gt; &lt;/head&gt;: Meta data about the HTML document\n&lt;body&gt; &lt;/body&gt;: All content of the HTML document\n\n\n\n\nExample HTML Site"
   },
   {
     "objectID": "hs25/csc/csc_notes.html#css",
     "href": "hs25/csc/csc_notes.html#css",
     "title": "Comuter Science Concepts for Data Science - Notes",
     "section": "CSS",
-    "text": "CSS\nCSS is a stylesheet language that is primarily used to describe the appearance and formatting of a document written in a markup language such as HTML."
+    "text": "CSS\nCSS is a stylesheet language that is primarily used to describe the appearance and formatting of a document written in a markup language such as HTML.\n\n\n\nCSS Code\n\n\n\n\n\nCSS Usage"
   },
   {
     "objectID": "hs25/csc/csc_notes.html#algorithms",
     "href": "hs25/csc/csc_notes.html#algorithms",
     "title": "Comuter Science Concepts for Data Science - Notes",
     "section": "Algorithms",
-    "text": "Algorithms\nA computational problem specifies an input-output relationship. An algorithm is an exact specification of how to solve a computational problem. Algorithms must be: - Correct: For each input produce an appropriate output - Efficient: Run as quickly as possible, and use as little memory as possible\n\nDesigning Algorithms\nBreak problem up into smaller (easier) sub-problems. Think only about how to use the smaller solution to get the larger one Do not worry about how to solve to smaller problem (it will be solved using an even smaller one).\n\n\nRecursion\nRecursion is a method of solving a problem where the solution depends on solutions to smaller instances of the same problem. This allows programming in a style that reflects divide-n-conquer algorithmic thinking."
+    "text": "Algorithms\nA computational problem specifies an input-output relationship. An algorithm is an exact specification of how to solve a computational problem. Algorithms must be:\n\nCorrect: For each input produce an appropriate output\nEfficient: Run as quickly as possible, and use as little memory as possible\n\n\nDesigning Algorithms\nBreak problem up into smaller (easier) sub-problems. Think only about how to use the smaller solution to get the larger one Do not worry about how to solve to smaller problem (it will be solved using an even smaller one).\n\n\nRecursion\nRecursion is a method of solving a problem where the solution depends on solutions to smaller instances of the same problem. This allows programming in a style that reflects divide-n-conquer algorithmic thinking."
   },
   {
     "objectID": "hs25/csc/csc_notes.html#search-algorithms",

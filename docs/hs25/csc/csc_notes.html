@@ -291,7 +291,8 @@ window.Quarto = {
   <ul class="collapse">
   <li><a href="#fundaments-of-computer-networks" id="toc-fundaments-of-computer-networks" class="nav-link" data-scroll-target="#fundaments-of-computer-networks">Fundaments of Computer Networks</a>
   <ul class="collapse">
-  <li><a href="#example-net" id="toc-example-net" class="nav-link" data-scroll-target="#example-net">Example Net</a></li>
+  <li><a href="#example-net-enterprise-network-ethernet" id="toc-example-net-enterprise-network-ethernet" class="nav-link" data-scroll-target="#example-net-enterprise-network-ethernet">Example Net: Enterprise Network (Ethernet)</a></li>
+  <li><a href="#important-basic-terms-explained-briefly" id="toc-important-basic-terms-explained-briefly" class="nav-link" data-scroll-target="#important-basic-terms-explained-briefly">Important basic terms explained briefly</a></li>
   </ul></li>
   <li><a href="#packet-switching" id="toc-packet-switching" class="nav-link" data-scroll-target="#packet-switching">Packet Switching</a>
   <ul class="collapse">
@@ -299,7 +300,10 @@ window.Quarto = {
   <li><a href="#propagation-delay" id="toc-propagation-delay" class="nav-link" data-scroll-target="#propagation-delay">Propagation delay</a></li>
   <li><a href="#rate" id="toc-rate" class="nav-link" data-scroll-target="#rate">Rate</a></li>
   </ul></li>
-  <li><a href="#protocol-layers" id="toc-protocol-layers" class="nav-link" data-scroll-target="#protocol-layers">Protocol Layers</a></li>
+  <li><a href="#protocol-layers" id="toc-protocol-layers" class="nav-link" data-scroll-target="#protocol-layers">Protocol Layers</a>
+  <ul class="collapse">
+  <li><a href="#advantages-and-disadvantages-of-protocol-layers" id="toc-advantages-and-disadvantages-of-protocol-layers" class="nav-link" data-scroll-target="#advantages-and-disadvantages-of-protocol-layers">Advantages and disadvantages of Protocol Layers</a></li>
+  </ul></li>
   <li><a href="#addressing-in-computer-networks" id="toc-addressing-in-computer-networks" class="nav-link" data-scroll-target="#addressing-in-computer-networks">Addressing in Computer Networks</a>
   <ul class="collapse">
   <li><a href="#domain-name-system" id="toc-domain-name-system" class="nav-link" data-scroll-target="#domain-name-system">Domain Name System</a></li>
@@ -407,13 +411,13 @@ window.Quarto = {
 <h2 class="anchored" data-anchor-id="fundaments-of-computer-networks">Fundaments of Computer Networks</h2>
 <p>A computer network is build of several components:</p>
 <ul>
-<li>Coneccted devises: Hosts (end stystems).</li>
-<li>Communications linsk: Wired and wireless.</li>
+<li>Connected devises: Hosts (end systems).</li>
+<li>Communications links: Wired and wireless.</li>
 <li>Protocols: Sending and receiving data.</li>
 <li>Packet switches: routers and switches.</li>
 </ul>
-<section id="example-net" class="level3">
-<h3 class="anchored" data-anchor-id="example-net">Example Net</h3>
+<section id="example-net-enterprise-network-ethernet" class="level3">
+<h3 class="anchored" data-anchor-id="example-net-enterprise-network-ethernet">Example Net: Enterprise Network (Ethernet)</h3>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
 <p><img src="img/enterprise_net.png" class="img-fluid figure-img"></p>
@@ -421,22 +425,46 @@ window.Quarto = {
 </figure>
 </div>
 </section>
+<section id="important-basic-terms-explained-briefly" class="level3">
+<h3 class="anchored" data-anchor-id="important-basic-terms-explained-briefly">Important basic terms explained briefly</h3>
+<ul>
+<li>LAN (Local Area Network): A local network, e.g., your home network or the network in an office building.</li>
+<li>WAN (Wide Area Network): A wide-ranging network that connects cities or countries. The internet is the largest WAN in the world.</li>
+<li>IP address: Your device’s “address” on the network. Without this address, data packets would not know where to go.</li>
+<li>Router: The “traffic cop.” It connects your local network (LAN) to the global network (Internet) and forwards the data to the correct device.</li>
+</ul>
+</section>
 </section>
 <section id="packet-switching" class="level2">
 <h2 class="anchored" data-anchor-id="packet-switching">Packet Switching</h2>
-<p>The Host dates applicatins messages and breaks them into smaller chunks (aka. packets) of length <span class="math inline">\(L\)</span> bits. The packets are transmitted into access network at rate <span class="math inline">\(R\)</span>, called link capacity/bandwith.</p>
+<p>The Host dates applications messages and breaks them into smaller chunks (aka. packets) of length <span class="math inline">\(L\)</span> bits. The packets are transmitted into access network at rate <span class="math inline">\(R\)</span>, called link capacity/bandwidth.</p>
 <section id="packaet-transmission-delay" class="level3">
 <h3 class="anchored" data-anchor-id="packaet-transmission-delay">Packaet Transmission Delay</h3>
+<p>This is the time required by the transmitter to push all bits of a data packet onto the cable (or medium).</p>
 <ul>
-<li><span class="math inline">\(L\)</span>: Packet lenght (bits).</li>
-<li><span class="math inline">\(R\)</span>: Link bandwith (dps).</li>
+<li><span class="math inline">\(L\)</span>: Packet length (bits).</li>
+<li><span class="math inline">\(R\)</span>: Link bandwidth (dps).</li>
 </ul>
 <p><span class="math display">\[
 d_{\text{trans}} = \dfrac{L \quad \text{(bits)}}{R \quad \text{(bits/sec)}}
 \]</span></p>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Note
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Also called link capacity or link bandwidth.</p>
+</div>
+</div>
 </section>
 <section id="propagation-delay" class="level3">
 <h3 class="anchored" data-anchor-id="propagation-delay">Propagation delay</h3>
+<p>This is the time it takes for a single bit to physically travel from point A to point B.</p>
 <ul>
 <li><span class="math inline">\(d\)</span>: Length of physical link.</li>
 <li><span class="math inline">\(s\)</span>: Propagation speed in medium.</li>
@@ -464,6 +492,33 @@ d_{\text{prop}} = \dfrac{d}{s}
 <li>Link: Ethernet, WiFi.</li>
 <li>Physical: Ethernet, WiFi.</li>
 </ul>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="img/protocol_layers.jpeg" class="img-fluid figure-img"></p>
+<figcaption>OSI Model &amp; TCP/IP Model</figcaption>
+</figure>
+</div>
+<section id="advantages-and-disadvantages-of-protocol-layers" class="level3">
+<h3 class="anchored" data-anchor-id="advantages-and-disadvantages-of-protocol-layers">Advantages and disadvantages of Protocol Layers</h3>
+<section id="advantage" class="level4">
+<h4 class="anchored" data-anchor-id="advantage">Advantage</h4>
+<ul>
+<li>Flexibility: Individual parts are replaceable.<br>
+</li>
+<li>Simplicity: Focus on a specific task.<br>
+</li>
+<li>Interoperability: All devices understand each other.</li>
+</ul>
+</section>
+<section id="disadvantage" class="level4">
+<h4 class="anchored" data-anchor-id="disadvantage">Disadvantage</h4>
+<ul>
+<li>Overhead: Data packets become larger due to multiple headers.</li>
+<li>Performance: “Packaging” and “unpackaging” takes time.</li>
+<li>Duplication: Some functions are performed multiple times.</li>
+</ul>
+</section>
+</section>
 </section>
 <section id="addressing-in-computer-networks" class="level2">
 <h2 class="anchored" data-anchor-id="addressing-in-computer-networks">Addressing in Computer Networks</h2>
@@ -481,11 +536,23 @@ d_{\text{prop}} = \dfrac{d}{s}
 <section id="ip-addressing" class="level3">
 <h3 class="anchored" data-anchor-id="ip-addressing">IP Addressing</h3>
 <p>Each device is assigned a unique IP address build up by <code>Net ID</code> + <code>Host ID</code></p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="img/net_ids.png" class="img-fluid figure-img"></p>
+<figcaption>IP Addressing in Computer Networks</figcaption>
+</figure>
+</div>
 </section>
 </section>
 <section id="switch" class="level2">
 <h2 class="anchored" data-anchor-id="switch">Switch</h2>
 <p>A network switch is a central component in almost every wired network, especially in local area networks (LANs). It acts as an intelligent distribution station for data traffic. Based on incoming frames switch “learns” location of sender. Records sender/location pair in switch table.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="img/switch_table.png" class="img-fluid figure-img"></p>
+<figcaption>Example Switch Table</figcaption>
+</figure>
+</div>
 <blockquote class="blockquote">
 <p>Note: Layer 2 – Data Link Layer</p>
 </blockquote>
@@ -503,6 +570,12 @@ d_{\text{prop}} = \dfrac{d}{s}
 <section id="client-server-communication-pattern" class="level2">
 <h2 class="anchored" data-anchor-id="client-server-communication-pattern">Client Server Communication Pattern</h2>
 <p>Clients (e.g.&nbsp;Browser) send service requests. Servers (e.g.&nbsp;Web, Database) wait for requests to arrive from clients and then respond to. Client receive service responses from centralized server.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="img/client_server_communication.png" class="img-fluid figure-img"></p>
+<figcaption>Client - Server Communication</figcaption>
+</figure>
+</div>
 </section>
 <section id="uniform-resource-locator-url" class="level2">
 <h2 class="anchored" data-anchor-id="uniform-resource-locator-url">Uniform Resource Locator (URL)</h2>
@@ -545,19 +618,41 @@ d_{\text{prop}} = \dfrac{d}{s}
 <li><code>&lt;head&gt; &lt;/head&gt;</code>: Meta data about the HTML document</li>
 <li><code>&lt;body&gt; &lt;/body&gt;</code>: All content of the HTML document</li>
 </ul>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="img/example_html_site.png" class="img-fluid figure-img"></p>
+<figcaption>Example HTML Site</figcaption>
+</figure>
+</div>
 </section>
 </section>
 </section>
 <section id="css" class="level2">
 <h2 class="anchored" data-anchor-id="css">CSS</h2>
 <p>CSS is a stylesheet language that is primarily used to describe the appearance and formatting of a document written in a markup language such as HTML.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="img/css_code.png" class="img-fluid figure-img"></p>
+<figcaption>CSS Code</figcaption>
+</figure>
+</div>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="img/css_usage.png" class="img-fluid figure-img"></p>
+<figcaption>CSS Usage</figcaption>
+</figure>
+</div>
 </section>
 </section>
 <section id="week-4-algorithms-programming-language-concepts" class="level1">
 <h1>Week 4: Algorithms &amp; Programming Language Concepts</h1>
 <section id="algorithms" class="level2">
 <h2 class="anchored" data-anchor-id="algorithms">Algorithms</h2>
-<p>A computational problem specifies an input-output relationship. An algorithm is an exact specification of how to solve a computational problem. Algorithms must be: - Correct: For each input produce an appropriate output - Efficient: Run as quickly as possible, and use as little memory as possible</p>
+<p>A computational problem specifies an input-output relationship. An algorithm is an exact specification of how to solve a computational problem. Algorithms must be:</p>
+<ul>
+<li>Correct: For each input produce an appropriate output</li>
+<li>Efficient: Run as quickly as possible, and use as little memory as possible</li>
+</ul>
 <section id="designing-algorithms" class="level3">
 <h3 class="anchored" data-anchor-id="designing-algorithms">Designing Algorithms</h3>
 <p>Break problem up into smaller (easier) sub-problems. Think only about how to use the smaller solution to get the larger one Do not worry about how to solve to smaller problem (it will be solved using an even smaller one).</p>
