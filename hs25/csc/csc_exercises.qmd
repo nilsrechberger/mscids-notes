@@ -35,12 +35,51 @@ toc: true
 - **Fraction:** `0110`
 - **Final (12-Bit):** `001011010110`
 
+## Binary to Decimal Conversion
+
+**Example: `11001.1101`**
+
+### 1. Integer Part (`11001`)
+- **Calculation:**
+  - `1 * 2^4` -> 16
+  - `1 * 2^3` -> 8
+  - `0 * 2^2` -> 0
+  - `0 * 2^1` -> 0
+    `1 * 2^0` -> 1
+
+**Total** = `25`
+
+### 2. Fractional Part (`.1101`)
+- **Calculation:**
+  - `1 * 2^-1` -> 0.5
+  - `1 * 2^-2` -> 0.25
+  - `0 * 2^-3` -> 0
+  - `1 * 2^-4` -> 0.0625
+
+**Total** = 0.8125
+
+### 3. Combine
+
+- **Integer:** `25`
+- **Fraction:** `0.8125`
+- **Final (12-Bit):** `25.8125`
+
 #### Special Case: Loss of Precision (Ex: `2.3`)
 - Not every fraction can be represented exactly.
 - **Integer `2` -> `00000010`**
 - **Fraction `0.3` -> `0.010011...` (repeating)**
 - **Truncated to 4 bits:** `0100` (which represents `0.25`)
 - **Final result for 2.3:** `000000100100` (represents `2.25`)
+
+## Bits and Bites
+
+### Conversion logic (short form)
+1. Decimal system (base 1000) – standard among hardware manufacturers:
+- B -> KB -> MB -> GB -> TB
+- Calculation: Value ÷ 1,000 (upwards) or × 1,000 (downwards).
+2. Binary system (base 1024) – standard in operating systems (Windows):
+- B -> KiB -> MiB -> GiB -> TiB
+- Calculation: Value ÷ 1,024 (upwards) or × 1,024 (downwards).
 
 # Week 2: Computer Networks
 
