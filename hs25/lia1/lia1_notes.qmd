@@ -378,8 +378,8 @@ A linear system is homogeneous, if right-hand side is zero vector: $Ax = 0$, whe
 
 Let $A$ be an ($m \times n$)-matrix and $T$ be a row echelon form obtained from $A$ using elementary row operations.
 
-- Rank of $A$: Number of pivot-elements in $T$.
-- Nullity of $A$: Number of columns of $T$ without pivot-elements.
+- Rank of $A$: Number of pivot-elements in $T$. Simply count how many rows contain at least one number other than zero (these are the rows with the so-called “pivots” or step numbers).
+- Nullity of $A$: Number of columns of $T$ without pivot-elements. The defect corresponds to the number of columns without a pivot element. Simpler: If your matrix has n columns, simply subtract the rank from it.
 
 > Note: Rank of matrix $A$ is denoted by rk $A$ and nullity of $A$ by nullity $A$.
 
@@ -388,7 +388,6 @@ Therefore
 $$
 \text{rk } A + \text{nullity } A = n = \textsf{number of cols of } A
 $$
-
 
 ## Inhomogeneous Systems
 
@@ -497,7 +496,7 @@ $$
 ## Invers Matrix by Determinant
 
 ::: {.callout-important}
-Matrix $A$ is invertible if and only if det $A \ne 0$
+Matrix $A$ is invertible if and only if det $A \ne 0$. A matrix is regular if and only if its determinant is not zero.
 :::
 
 $$
