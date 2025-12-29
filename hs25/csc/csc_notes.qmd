@@ -107,6 +107,8 @@ Translates domain names to numerical IP addresses.
 - Authoritative Nameserver: Holds the definitive DNS records (A, CNAME, MX, etc.) for the requested domain. It provides the actual IP address back to the Recursor.
 - DNS Recursor / Client: Receives the IP address and finally connects to the web server to load the website.
 
+![Domain Tree](img/domain_tree.png)
+
 ### IP Addressing
 
 Each device is assigned a unique IP address build up by `Net ID` + `Host ID`
@@ -354,3 +356,12 @@ A regular expression, often shortened to regex, is a sequence of characters that
 - Anchors: Characters like ^, $, and \b (word boundary) match a position within the text, not an actual character.
 - Grouping: Parentheses () are used to combine parts of the pattern and create capturing groups, allowing the extraction of specific matched sub-strings.
 - Applications: Primarily used for data validation (e.g., emails, phone numbers), complex search and replace operations, and parsing/extracting data from text.
+
+```{python}
+def f(n1, n2, delta):
+    if n1 <= n2:
+        return n2
+    return n1 * f(n1 - delta, n2, delta)
+
+print(f(35, 15, 5))
+```
