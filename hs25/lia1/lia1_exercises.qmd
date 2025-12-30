@@ -144,28 +144,3 @@ b = np.array(
 res = np.linalg.solve(A, b)
 print(res)
 ```
-
-```{python}
-import numpy as np
-
-A = np.array(
-    [
-        [4, 2, 0, 2],
-        [1, 4, 2, 1],
-        [1, 4, 2, 1],
-        [2, 1, 1, 4]
-    ]
-)
-
-b = np.array(
-    [
-        [350],
-        [300],
-        [130],
-        [400]
-    ]
-)
-
-res = np.linalg.solve(A, b)
-print(res)
-```

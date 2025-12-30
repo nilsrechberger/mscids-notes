@@ -288,6 +288,16 @@ window.Quarto = {
   <li><a href="#integer-part-45" id="toc-integer-part-45" class="nav-link" data-scroll-target="#integer-part-45">1. Integer Part (<code>45</code>)</a></li>
   <li><a href="#fractional-part-0.375" id="toc-fractional-part-0.375" class="nav-link" data-scroll-target="#fractional-part-0.375">2. Fractional Part (<code>0.375</code>)</a></li>
   <li><a href="#combine" id="toc-combine" class="nav-link" data-scroll-target="#combine">3. Combine</a></li>
+  <li><a href="#binary-to-decimal-conversion" id="toc-binary-to-decimal-conversion" class="nav-link" data-scroll-target="#binary-to-decimal-conversion">Binary to Decimal Conversion</a>
+  <ul class="collapse">
+  <li><a href="#integer-part-11001" id="toc-integer-part-11001" class="nav-link" data-scroll-target="#integer-part-11001">1. Integer Part (<code>11001</code>)</a></li>
+  <li><a href="#fractional-part-.1101" id="toc-fractional-part-.1101" class="nav-link" data-scroll-target="#fractional-part-.1101">2. Fractional Part (<code>.1101</code>)</a></li>
+  <li><a href="#combine-1" id="toc-combine-1" class="nav-link" data-scroll-target="#combine-1">3. Combine</a></li>
+  </ul></li>
+  <li><a href="#bits-and-bites" id="toc-bits-and-bites" class="nav-link" data-scroll-target="#bits-and-bites">Bits and Bites</a>
+  <ul class="collapse">
+  <li><a href="#conversion-logic-short-form" id="toc-conversion-logic-short-form" class="nav-link" data-scroll-target="#conversion-logic-short-form">Conversion logic (short form)</a></li>
+  </ul></li>
   </ul></li>
   <li><a href="#week-2-computer-networks" id="toc-week-2-computer-networks" class="nav-link" data-scroll-target="#week-2-computer-networks">Week 2: Computer Networks</a>
   <ul class="collapse">
@@ -382,6 +392,43 @@ window.Quarto = {
 <li><strong>Fraction:</strong> <code>0110</code></li>
 <li><strong>Final (12-Bit):</strong> <code>001011010110</code></li>
 </ul>
+</section>
+<section id="binary-to-decimal-conversion" class="level2">
+<h2 class="anchored" data-anchor-id="binary-to-decimal-conversion">Binary to Decimal Conversion</h2>
+<p><strong>Example: <code>11001.1101</code></strong></p>
+<section id="integer-part-11001" class="level3">
+<h3 class="anchored" data-anchor-id="integer-part-11001">1. Integer Part (<code>11001</code>)</h3>
+<ul>
+<li><strong>Calculation:</strong>
+<ul>
+<li><code>1 * 2^4</code> -&gt; 16</li>
+<li><code>1 * 2^3</code> -&gt; 8</li>
+<li><code>0 * 2^2</code> -&gt; 0</li>
+<li><code>0 * 2^1</code> -&gt; 0 <code>1 * 2^0</code> -&gt; 1</li>
+</ul></li>
+</ul>
+<p><strong>Total</strong> = <code>25</code></p>
+</section>
+<section id="fractional-part-.1101" class="level3">
+<h3 class="anchored" data-anchor-id="fractional-part-.1101">2. Fractional Part (<code>.1101</code>)</h3>
+<ul>
+<li><strong>Calculation:</strong>
+<ul>
+<li><code>1 * 2^-1</code> -&gt; 0.5</li>
+<li><code>1 * 2^-2</code> -&gt; 0.25</li>
+<li><code>0 * 2^-3</code> -&gt; 0</li>
+<li><code>1 * 2^-4</code> -&gt; 0.0625</li>
+</ul></li>
+</ul>
+<p><strong>Total</strong> = 0.8125</p>
+</section>
+<section id="combine-1" class="level3">
+<h3 class="anchored" data-anchor-id="combine-1">3. Combine</h3>
+<ul>
+<li><strong>Integer:</strong> <code>25</code></li>
+<li><strong>Fraction:</strong> <code>0.8125</code></li>
+<li><strong>Final (12-Bit):</strong> <code>25.8125</code></li>
+</ul>
 <section id="special-case-loss-of-precision-ex-2.3" class="level4">
 <h4 class="anchored" data-anchor-id="special-case-loss-of-precision-ex-2.3">Special Case: Loss of Precision (Ex: <code>2.3</code>)</h4>
 <ul>
@@ -390,6 +437,27 @@ window.Quarto = {
 <li><strong>Fraction <code>0.3</code> -&gt; <code>0.010011...</code> (repeating)</strong></li>
 <li><strong>Truncated to 4 bits:</strong> <code>0100</code> (which represents <code>0.25</code>)</li>
 <li><strong>Final result for 2.3:</strong> <code>000000100100</code> (represents <code>2.25</code>)</li>
+</ul>
+</section>
+</section>
+</section>
+<section id="bits-and-bites" class="level2">
+<h2 class="anchored" data-anchor-id="bits-and-bites">Bits and Bites</h2>
+<section id="conversion-logic-short-form" class="level3">
+<h3 class="anchored" data-anchor-id="conversion-logic-short-form">Conversion logic (short form)</h3>
+<ol type="1">
+<li>Decimal system (base 1000) – standard among hardware manufacturers:</li>
+</ol>
+<ul>
+<li>B -&gt; KB -&gt; MB -&gt; GB -&gt; TB</li>
+<li>Calculation: Value ÷ 1,000 (upwards) or × 1,000 (downwards).</li>
+</ul>
+<ol start="2" type="1">
+<li>Binary system (base 1024) – standard in operating systems (Windows):</li>
+</ol>
+<ul>
+<li>B -&gt; KiB -&gt; MiB -&gt; GiB -&gt; TiB</li>
+<li>Calculation: Value ÷ 1,024 (upwards) or × 1,024 (downwards).</li>
 </ul>
 </section>
 </section>
@@ -541,7 +609,7 @@ R_s = 1\text{Mbit/sec} = \dfrac{32000}{1000} = 32\text{sec}
 <section id="exercise-1" class="level2">
 <h2 class="anchored" data-anchor-id="exercise-1">Exercise 1</h2>
 <p>Develop a recursive algorithm for the function <code>power(x, n)</code>.</p>
-<div id="20b6ce26" class="cell" data-execution_count="1">
+<div id="7588a5bb" class="cell" data-execution_count="1">
 <div class="sourceCode cell-code" id="cb6"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> power(x, n):</span>
 <span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> n <span class="op">==</span> <span class="dv">0</span>:</span>
 <span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a>        <span class="cf">return</span> <span class="dv">1</span></span>
@@ -558,7 +626,7 @@ R_s = 1\text{Mbit/sec} = \dfrac{32000}{1000} = 32\text{sec}
 <section id="exercise-2" class="level2">
 <h2 class="anchored" data-anchor-id="exercise-2">Exercise 2</h2>
 <p>Develop a recursive algorithm for the product of the natural odd numbers from <code>m</code> to <code>n</code>: <code>product(m, n)</code>.</p>
-<div id="0feff3ba" class="cell" data-execution_count="2">
+<div id="aa3cbe3c" class="cell" data-execution_count="2">
 <div class="sourceCode cell-code" id="cb8"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> product(m: <span class="bu">int</span>, n: <span class="bu">int</span>) <span class="op">-&gt;</span> <span class="bu">int</span>:</span>
 <span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a>  <span class="co">""" Returns the product of the odd numbers from m to n """</span></span>
 <span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Check for only odd number inputs</span></span>

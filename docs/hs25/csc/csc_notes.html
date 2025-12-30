@@ -532,6 +532,12 @@ d_{\text{prop}} = \dfrac{d}{s}
 <li>Authoritative Nameserver: Holds the definitive DNS records (A, CNAME, MX, etc.) for the requested domain. It provides the actual IP address back to the Recursor.</li>
 <li>DNS Recursor / Client: Receives the IP address and finally connects to the web server to load the website.</li>
 </ul>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="img/domain_tree.png" class="img-fluid figure-img"></p>
+<figcaption>Domain Tree</figcaption>
+</figure>
+</div>
 </section>
 <section id="ip-addressing" class="level3">
 <h3 class="anchored" data-anchor-id="ip-addressing">IP Addressing</h3>
@@ -840,6 +846,17 @@ Note
 <li>Grouping: Parentheses () are used to combine parts of the pattern and create capturing groups, allowing the extraction of specific matched sub-strings.</li>
 <li>Applications: Primarily used for data validation (e.g., emails, phone numbers), complex search and replace operations, and parsing/extracting data from text.</li>
 </ul>
+<div id="807599ce" class="cell" data-execution_count="1">
+<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> f(n1, n2, delta):</span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> n1 <span class="op">&lt;=</span> n2:</span>
+<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a>        <span class="cf">return</span> n2</span>
+<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> n1 <span class="op">*</span> f(n1 <span class="op">-</span> delta, n2, delta)</span>
+<span id="cb7-5"><a href="#cb7-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-6"><a href="#cb7-6" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(f(<span class="dv">35</span>, <span class="dv">15</span>, <span class="dv">5</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>7875000</code></pre>
+</div>
+</div>
 
 
 </section>

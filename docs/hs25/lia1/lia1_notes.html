@@ -720,8 +720,8 @@ a_{m1} &amp; \dots &amp; a_{mn}
 <h3 class="anchored" data-anchor-id="information-in-a-linear-system">Information in a Linear System</h3>
 <p>Let <span class="math inline">\(A\)</span> be an (<span class="math inline">\(m \times n\)</span>)-matrix and <span class="math inline">\(T\)</span> be a row echelon form obtained from <span class="math inline">\(A\)</span> using elementary row operations.</p>
 <ul>
-<li>Rank of <span class="math inline">\(A\)</span>: Number of pivot-elements in <span class="math inline">\(T\)</span>.</li>
-<li>Nullity of <span class="math inline">\(A\)</span>: Number of columns of <span class="math inline">\(T\)</span> without pivot-elements.</li>
+<li>Rank of <span class="math inline">\(A\)</span>: Number of pivot-elements in <span class="math inline">\(T\)</span>. Simply count how many rows contain at least one number other than zero (these are the rows with the so-called “pivots” or step numbers).</li>
+<li>Nullity of <span class="math inline">\(A\)</span>: Number of columns of <span class="math inline">\(T\)</span> without pivot-elements. The defect corresponds to the number of columns without a pivot element. Simpler: If your matrix has n columns, simply subtract the rank from it.</li>
 </ul>
 <blockquote class="blockquote">
 <p>Note: Rank of matrix <span class="math inline">\(A\)</span> is denoted by rk <span class="math inline">\(A\)</span> and nullity of <span class="math inline">\(A\)</span> by nullity <span class="math inline">\(A\)</span>.</p>
@@ -850,7 +850,7 @@ Important
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>Matrix <span class="math inline">\(A\)</span> is invertible if and only if det <span class="math inline">\(A \ne 0\)</span></p>
+<p>Matrix <span class="math inline">\(A\)</span> is invertible if and only if det <span class="math inline">\(A \ne 0\)</span>. A matrix is regular if and only if its determinant is not zero.</p>
 </div>
 </div>
 <p><span class="math display">\[
