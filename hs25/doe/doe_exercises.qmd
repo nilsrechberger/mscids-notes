@@ -236,3 +236,286 @@ data <- read_csv("address.csv")
 data_sample <- sample(data, 50, replace=FALSE) # Take 50 random sample from data
 View(data_sample)
 ```
+
+# Tasks for Exercise 06: Effect size & Power analysis
+
+## Task 01
+
+For a research project the sample size is to be determined.
+In an experiment a new teaching method is to be tested against the old teaching method.
+The variable to be measured is the grade point average in the final exam.
+The project has the following characteristics
+
+- Randomized controlled trial (RCT): Compare the new teaching method against the old one
+- Analysis with t-test
+- Significance level = $5\%$
+- Cohen: Level of = $20%$ → Power = $1- \beta$ = $80%$
+
+Important difference
+
+- From empirical studies, expert interviews, and based on theoretical considerations, a difference of one grade unit is considered to be important.
+
+Other measurements
+- Validated studies have shown that the standard deviation of exam grades in a comparable population has the value $\sigma_0 = 1.5$ grade units.
+
+Procedure
+
+First step
+Determine effect size d that is relevant for the study.
+
+Second step
+How large does the total sample have to be for
+- significance level = 5%
+- power = 80%
+- effect size d relevant for the study
+
+to obtain a significant t-test if the change in the grade at the final exam is in fact one grade or more?
+Use G*Power to calculate the sample size.
+
+### Answer
+
+#### Effect Size
+
+$$
+\hat{d} = \dfrac{|\bar{x}_\text{new} - \bar{x}_\text{current}|}{\sigma_0} = \dfrac{1.0}{1.5} = 0.67
+$$
+
+
+## Task 02
+
+The task is the same as Task 01.
+Use R to determine the sample size.
+Describe the results – insert also the R-code, the R-output and if necessary, R-plots
+
+### Answer
+
+```{r}
+library(pwr)
+
+alpha <- 0.05
+beta <- 0.2
+power <- 1 - beta
+mean <- 1.0
+sigma <- 1.5
+d <- mean/sigma
+
+pwr.t.test(d = d, power = power, sig.level = alpha)
+# n = 36.3 -> 72.6
+```
+
+## Task 03
+
+The results of an RCT study are to be evaluated with an analysis of variance (ANOVA).
+A fictitious study on the effects of memory training serves as an example.
+
+- Dependent variable (DV): Assessment of the memory capacity on a scale of 1 to 100.
+- Independent variable (IV): Memory training received "Yes" or "No".
+How large must the total sample be for
+
+- significance level $\alpha$ = 5%
+- power = 80%
+- effect size medium
+
+to obtain a significant analysis of variance?
+The f-value for the effect size can be found in Cohen (1992) in Table 1 – see below.
+Describe the results – insert also the R-code, the R-output and if necessary, R-plots.
+
+### Answer
+
+```{r}
+library(pwr)
+
+alpha <- 0.05
+beta <- 0.2
+power <- 1 - beta
+d <- 0.5 # From table
+
+pwr.anova.test(f = 0.25, k = 2, power = power, sig.level = alpha)
+# n = 63.8 -> 127.6
+```
+
+# Tasks for Exercise 08: A/B Testing
+
+## Task 01
+
+What are the characteristics of "classical" A/B testing procedures and of the dynamic-algorithmic
+procedure?
+Please use one example for the "classical" A/B testing and one for a dynamic-algorithmic procedure and describe the advantages and disadvantages for each.
+
+### Answer
+
+#### Classical A/B-Testing
+
+A/B testing is an experiment. The research questions are applied to two (A/B) or more randomized groups. The statistical analysis
+is done by t-test, ANOVA and more advanced methods. Example: The aim is to determine which version achieves a better result, in terms of click-through rate etc. Two versions A and B are tested in parallel in a live environment. The generated data becomes the basis for decisions.
+
+A/B testing ist simple to implement/run but cannot be used in all research questions. Example: For a complete website redesign (further elements have to be included). Population is unknown, sampling procedure is not suitable, sampling bias, ect. Dark / deceptive patterns are patterns of persuasion and influence. They may increase short-term gains for the provider but can harm brand image, user experience, and customer satisfaction.
+
+#### Dynamic-Algorithmic
+
+Several variants (treatments A, B, C, …) are run in parallel. The variant with the highest “success” (according to metrics) get
+more data traffic. Other variants are refined and tested with proportionally less traffic. Traffic allocation is continuously adjusted
+based on the observed success. As the test progresses, more and more information about the performance of the variants becomes
+available, so that the most successful variant can be identified dynamically. Th dynamic version is harder to implement and needs to run long enough.
+
+# Task 02
+
+A multivariate test for a website was carried out.
+The test measured the average click rate (number of clicks on advertising banners) on a website.
+How do the design variants (factor IV1) affect the click rate (DV)?
+
+- DV = click rate [s] → output with metric scaling
+- IV1 = design variants [1,2,3] → factor with 3 levels
+
+Use a univariate ANOVA to answer the question.
+Describe the results – insert also the R-code, the R-output and if necessary, R-plots.
+Data set: clickrate.xlsx → ILIAS → "Data Resources & R Files"
+
+## Answer
+
+```{r}
+# install.packages("readxl")
+library(readxl)
+data <- read_excel(path="/home/nils/dev/mscids-notes/hs25/doe/data/clickrate.xlsx")
+oneway.test(DV ~ factor(IV1), var.equal=TRUE, data=data)
+fit <- aov(DV ~ factor(IV1), data=data)
+summary(fit, intercept=TRUE)
+```
+
+# Tasks for Exercise 09: Factorial Designs
+
+## Task 01
+
+There are full factorial and fractional factorial designs.
+Please give one example of a full factorial design and one example of a fractional factorial design and explain the advantages and disadvantages of each.
+
+### Answer
+
+#### Full Factorial
+
+A full factorial design tests every possible combination of all factor levels. Easy to implement/run but resources intensive when increasing the factors size.
+
+#### Fractional Factorial
+
+The more factors and the more characteristics, the larger the number of groups. Provided that there are no interactions, the
+experiment can also be conducted successfully with a reduced number of groups. By using Latin squares or related designs, the
+number of groups required can be significantly reduced compared to full factorial designs.
+
+## Task 02
+
+In the appendix of the lecture notes you will find details of a research project:
+First, read through all the 3 slides in the appendix.
+Use R to create the missing Latin square on Slide 28 and interpret its output.
+Use R to replicate the ANOVA shown on Slide 29 and interpret its output.
+Use key words to interpret the Latin square and the ANOVA.
+
+### Answer
+
+#### Latin Square
+
+```{r}
+# install.packages("agricolae")
+library(agricolae)
+my_design_lsd <- design.lsd(trt = c("c1","c2","c3"))
+my_design_lsd$sketch
+```
+
+The column names of the Latin square ([,1] [,2] [,3]) correspond to the levels of factor A.
+The row names of the Latin square ([1,] [2,] [3,]) correspond to the levels of factor B.
+The content in the cells of the Latin square ("c1", "c2", "c3") correspond to the levels of factor C
+We can reduce the combination of experiments from 27 (Full Factorial) to 9 (Fractional Factorial).
+
+#### ANOVA
+
+```{r}
+library(readxl)
+
+dwelltime_Latin <- read_excel("/home/nils/dev/mscids-notes/hs25/doe/data/dwelltime_latin.xlsx")
+View(dwelltime_Latin)
+
+fit <- aov(DV ~ factor(A) + factor(B) + factor(C), data = dwelltime_Latin)
+summary(fit)
+```
+
+There is a main effect on A, B and C. Even with p = .034 the factor C is relatively close to the significance limit of p = .050.
+
+# Tasks for Exercise 10: Large Data Quantities
+
+## Task 1
+
+There is a distinction between made data and found data.
+Develop examples and explain your choices based on the distinction made data vs. found data.
+Estimate the size and complexity of the data set (e.g. number of variables, sub-populations).
+
+### Answer
+
+- Made data → Data is generated by researchers (“made”). 
+- Found data → Data are obtained administratively and technically (“found”)
+
+## Task 2
+
+When considering administrative data sets, it is necessary to take into account the proportion:
+
+$$
+f = \dfrac{n}{N}
+$$
+
+Proportion of sample size of the administrative dataset in the population
+Develop three typical examples that differ significantly in terms of their $f$ proportion.
+
+### Answer
+
+#### Small $f$
+
+$$
+f = \dfrac{100}{8000000}
+$$
+
+Do a survey and ask 100 random people in Switzerland.
+
+#### Medium $f$
+
+$$
+f = \dfrac{1500}{3000}
+$$
+
+Do a survey and ask the half of all students at HSLU.
+
+#### Large $f$
+
+$$
+f = \dfrac{90}{100}
+$$
+
+Do a survey and ask 90 of the top 100 clients of a KMU.
+
+# Tasks for Exercise 11: Experiments in Social Media
+
+## Task 01
+
+Assume you are given this research question:
+In a month's time, the Swiss will elect a new National Council (parliament).
+The 200 party seats of the parliament are currently distributed as follows:
+SVP 25.6% / Greens 21.0% / SP 16.8% / FDP 15.1% / CVP 11.4% / BDP 2.4% / Other 7.6%
+What proportions can be expected in the election of the new National Council?
+The research question is to be answered with data obtained from social media.
+Work through the following steps to design a study to answer
+the research question:
+- Choose the design
+- Define the population
+- Reflect on population bias
+- Determine the procedure for sampling / data collection
+- Implement the study
+- What else do you need to consider?
+
+Create a presentation for a professional audience and explain your approach and thoughts.
+The main goal is to start a discussion.
+
+### Answer
+
+- Choose the design: Survey
+- Define the population: SoMe User over 18 with premission to vote.
+- Reflect on population bias: We can controll the actual age or nationality of the users.
+- Determine the procedure for sampling / data collection: Survey tools.
+- Implement the study: Run a survey by a given tool.
+- What else do you need to consider?: Older voters may be excluded since mostly young people use SoMe.
