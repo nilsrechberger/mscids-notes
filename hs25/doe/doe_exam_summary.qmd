@@ -392,6 +392,8 @@ Effect size is a statistical measure that quantifies the magnitude (or strength)
 - A Cohen's d of 1.0 means the means of the two groups are separated by exactly one standard deviation.
 - A Cohen's d of 0.0 means there is no difference between the means.
 
+![Effect Size Table](img/effect_size_table.png)
+
 ## Power analysis 
 
 Power analysis is the crucial step in research design that connects your expected effect size with your desired power (80%) and significance (5%) to determine the minimum **sample size** you need to run a valid study.
@@ -575,6 +577,8 @@ Dark / deceptive patterns are patterns of persuasion and influence. They may inc
 
 ## Full factorial designs
 
+A full factorial design tests every possible combination of all factor levels.
+
 ### Single factorial (One)
 
 One independent variable IV (factor) acts on the dependent variable DV. Two groups are compared:
@@ -601,6 +605,8 @@ Several factors act on the dependent variable DV. Several groups are compared:
 - Analysis: Multi-factorial ANOVA (two-way ANOVA, three-way ANOVA, ...)
 
 ## Fractional factorial designs
+
+A fractional factorial design tests only a carefully selected subset (a fraction) of the possible combinations.
 
 The more factors and the more characteristics, the larger the number of groups. Provided that there are no interactions, the experiment can also be conducted successfully
 with a reduced number of groups. By using Latin squares or related designs, the number of groups required can be significantly reduced compared to full factorial designs.

@@ -404,6 +404,8 @@ Effect size is a statistical measure that quantifies the magnitude (or strength)
 - A Cohen's d of 1.0 means the means of the two groups are separated by exactly one standard deviation.
 - A Cohen's d of 0.0 means there is no difference between the means.
 
+![Effect Size Table](img/effect_size_table.png)
+
 ## Power analysis 
 
 Power analysis is the crucial step in research design that connects your expected effect size with your desired power (80%) and significance (5%) to determine the minimum sample size you need to run a valid study.
