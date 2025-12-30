@@ -31,6 +31,8 @@ website:
         menu:
           - text: "Notes"
             href: hs25/doe/doe_notes.qmd
+          - text: "Exercises"
+            href: hs25/doe/doe_exercises.qmd
           - text: "Exam Summary"
             href: hs25/doe/doe_exam_summary.qmd
       - text: "Computer Science Concepts for Data Scientists"
