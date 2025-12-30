@@ -111,6 +111,35 @@ gtag('js', new Date());
 gtag('config', 'G-NZ8462CXQ1', { 'anonymize_ip': true});
 </script>
 
+  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN") {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
 
 <link rel="stylesheet" href="../../styles.css">
 </head>
@@ -186,6 +215,10 @@ gtag('config', 'G-NZ8462CXQ1', { 'anonymize_ip': true});
         <li>
     <a class="dropdown-item" href="../../hs25/doe/doe_notes.html">
  <span class="dropdown-text">Notes</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../hs25/doe/doe_exercises.html">
+ <span class="dropdown-text">Exercises</span></a>
   </li>  
         <li>
     <a class="dropdown-item" href="../../hs25/doe/doe_exam_summary.pdf">
@@ -314,6 +347,61 @@ gtag('config', 'G-NZ8462CXQ1', { 'anonymize_ip': true});
   <li><a href="#answer-12" id="toc-answer-12" class="nav-link" data-scroll-target="#answer-12">Answer</a></li>
   </ul></li>
   <li><a href="#task-03" id="toc-task-03" class="nav-link" data-scroll-target="#task-03">Task 03</a></li>
+  </ul></li>
+  <li><a href="#tasks-for-exercise-06-effect-size-power-analysis" id="toc-tasks-for-exercise-06-effect-size-power-analysis" class="nav-link" data-scroll-target="#tasks-for-exercise-06-effect-size-power-analysis">Tasks for Exercise 06: Effect size &amp; Power analysis</a>
+  <ul class="collapse">
+  <li><a href="#task-01-5" id="toc-task-01-5" class="nav-link" data-scroll-target="#task-01-5">Task 01</a>
+  <ul class="collapse">
+  <li><a href="#answer-13" id="toc-answer-13" class="nav-link" data-scroll-target="#answer-13">Answer</a></li>
+  </ul></li>
+  <li><a href="#task-02-5" id="toc-task-02-5" class="nav-link" data-scroll-target="#task-02-5">Task 02</a>
+  <ul class="collapse">
+  <li><a href="#answer-14" id="toc-answer-14" class="nav-link" data-scroll-target="#answer-14">Answer</a></li>
+  </ul></li>
+  <li><a href="#task-03-1" id="toc-task-03-1" class="nav-link" data-scroll-target="#task-03-1">Task 03</a>
+  <ul class="collapse">
+  <li><a href="#answer-15" id="toc-answer-15" class="nav-link" data-scroll-target="#answer-15">Answer</a></li>
+  </ul></li>
+  </ul></li>
+  <li><a href="#tasks-for-exercise-08-ab-testing" id="toc-tasks-for-exercise-08-ab-testing" class="nav-link" data-scroll-target="#tasks-for-exercise-08-ab-testing">Tasks for Exercise 08: A/B Testing</a>
+  <ul class="collapse">
+  <li><a href="#task-01-6" id="toc-task-01-6" class="nav-link" data-scroll-target="#task-01-6">Task 01</a>
+  <ul class="collapse">
+  <li><a href="#answer-16" id="toc-answer-16" class="nav-link" data-scroll-target="#answer-16">Answer</a></li>
+  </ul></li>
+  </ul></li>
+  <li><a href="#task-02-6" id="toc-task-02-6" class="nav-link" data-scroll-target="#task-02-6">Task 02</a>
+  <ul class="collapse">
+  <li><a href="#answer-17" id="toc-answer-17" class="nav-link" data-scroll-target="#answer-17">Answer</a></li>
+  </ul></li>
+  <li><a href="#tasks-for-exercise-09-factorial-designs" id="toc-tasks-for-exercise-09-factorial-designs" class="nav-link" data-scroll-target="#tasks-for-exercise-09-factorial-designs">Tasks for Exercise 09: Factorial Designs</a>
+  <ul class="collapse">
+  <li><a href="#task-01-7" id="toc-task-01-7" class="nav-link" data-scroll-target="#task-01-7">Task 01</a>
+  <ul class="collapse">
+  <li><a href="#answer-18" id="toc-answer-18" class="nav-link" data-scroll-target="#answer-18">Answer</a></li>
+  </ul></li>
+  <li><a href="#task-02-7" id="toc-task-02-7" class="nav-link" data-scroll-target="#task-02-7">Task 02</a>
+  <ul class="collapse">
+  <li><a href="#answer-19" id="toc-answer-19" class="nav-link" data-scroll-target="#answer-19">Answer</a></li>
+  </ul></li>
+  </ul></li>
+  <li><a href="#tasks-for-exercise-10-large-data-quantities" id="toc-tasks-for-exercise-10-large-data-quantities" class="nav-link" data-scroll-target="#tasks-for-exercise-10-large-data-quantities">Tasks for Exercise 10: Large Data Quantities</a>
+  <ul class="collapse">
+  <li><a href="#task-1" id="toc-task-1" class="nav-link" data-scroll-target="#task-1">Task 1</a>
+  <ul class="collapse">
+  <li><a href="#answer-20" id="toc-answer-20" class="nav-link" data-scroll-target="#answer-20">Answer</a></li>
+  </ul></li>
+  <li><a href="#task-2" id="toc-task-2" class="nav-link" data-scroll-target="#task-2">Task 2</a>
+  <ul class="collapse">
+  <li><a href="#answer-21" id="toc-answer-21" class="nav-link" data-scroll-target="#answer-21">Answer</a></li>
+  </ul></li>
+  </ul></li>
+  <li><a href="#tasks-for-exercise-11-experiments-in-social-media" id="toc-tasks-for-exercise-11-experiments-in-social-media" class="nav-link" data-scroll-target="#tasks-for-exercise-11-experiments-in-social-media">Tasks for Exercise 11: Experiments in Social Media</a>
+  <ul class="collapse">
+  <li><a href="#task-01-8" id="toc-task-01-8" class="nav-link" data-scroll-target="#task-01-8">Task 01</a>
+  <ul class="collapse">
+  <li><a href="#answer-22" id="toc-answer-22" class="nav-link" data-scroll-target="#answer-22">Answer</a></li>
+  </ul></li>
   </ul></li>
   </ul>
 <div class="quarto-alternate-formats"><h2>Other Formats</h2><ul><li><a href="doe_exercises.pdf"><i class="bi bi-file-pdf"></i>PDF</a></li></ul></div></nav>
@@ -577,8 +665,291 @@ gtag('config', 'G-NZ8462CXQ1', { 'anonymize_ip': true});
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>data <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">"address.csv"</span>)</span>
 <span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>data_sample <span class="ot">&lt;-</span> <span class="fu">sample</span>(data, <span class="dv">50</span>, <span class="at">replace=</span><span class="cn">FALSE</span>) <span class="co"># Take 50 random sample from data</span></span>
 <span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="fu">View</span>(data_sample)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</section>
+</section>
+<section id="tasks-for-exercise-06-effect-size-power-analysis" class="level1">
+<h1>Tasks for Exercise 06: Effect size &amp; Power analysis</h1>
+<section id="task-01-5" class="level2">
+<h2 class="anchored" data-anchor-id="task-01-5">Task 01</h2>
+<p>For a research project the sample size is to be determined. In an experiment a new teaching method is to be tested against the old teaching method. The variable to be measured is the grade point average in the final exam. The project has the following characteristics</p>
+<ul>
+<li>Randomized controlled trial (RCT): Compare the new teaching method against the old one</li>
+<li>Analysis with t-test</li>
+<li>Significance level = <span class="math inline">\(5\%\)</span></li>
+<li>Cohen: Level of = <span class="math inline">\(20%\)</span> → Power = <span class="math inline">\(1- \beta\)</span> = <span class="math inline">\(80%\)</span></li>
+</ul>
+<p>Important difference</p>
+<ul>
+<li>From empirical studies, expert interviews, and based on theoretical considerations, a difference of one grade unit is considered to be important.</li>
+</ul>
+<p>Other measurements - Validated studies have shown that the standard deviation of exam grades in a comparable population has the value <span class="math inline">\(\sigma_0 = 1.5\)</span> grade units.</p>
+<p>Procedure</p>
+<p>First step Determine effect size d that is relevant for the study.</p>
+<p>Second step How large does the total sample have to be for - significance level = 5% - power = 80% - effect size d relevant for the study</p>
+<p>to obtain a significant t-test if the change in the grade at the final exam is in fact one grade or more? Use G*Power to calculate the sample size.</p>
+<section id="answer-13" class="level3">
+<h3 class="anchored" data-anchor-id="answer-13">Answer</h3>
+<section id="effect-size" class="level4">
+<h4 class="anchored" data-anchor-id="effect-size">Effect Size</h4>
+<p><span class="math display">\[
+\hat{d} = \dfrac{|\bar{x}_\text{new} - \bar{x}_\text{current}|}{\sigma_0} = \dfrac{1.0}{1.5} = 0.67
+\]</span></p>
+</section>
+</section>
+</section>
+<section id="task-02-5" class="level2">
+<h2 class="anchored" data-anchor-id="task-02-5">Task 02</h2>
+<p>The task is the same as Task 01. Use R to determine the sample size. Describe the results – insert also the R-code, the R-output and if necessary, R-plots</p>
+<section id="answer-14" class="level3">
+<h3 class="anchored" data-anchor-id="answer-14">Answer</h3>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(pwr)</span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>alpha <span class="ot">&lt;-</span> <span class="fl">0.05</span></span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a>beta <span class="ot">&lt;-</span> <span class="fl">0.2</span></span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a>power <span class="ot">&lt;-</span> <span class="dv">1</span> <span class="sc">-</span> beta</span>
+<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a>mean <span class="ot">&lt;-</span> <span class="fl">1.0</span></span>
+<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a>sigma <span class="ot">&lt;-</span> <span class="fl">1.5</span></span>
+<span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a>d <span class="ot">&lt;-</span> mean<span class="sc">/</span>sigma</span>
+<span id="cb2-9"><a href="#cb2-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-10"><a href="#cb2-10" aria-hidden="true" tabindex="-1"></a><span class="fu">pwr.t.test</span>(<span class="at">d =</span> d, <span class="at">power =</span> power, <span class="at">sig.level =</span> alpha)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>
+     Two-sample t test power calculation 
+
+              n = 36.30569
+              d = 0.6666667
+      sig.level = 0.05
+          power = 0.8
+    alternative = two.sided
+
+NOTE: n is number in *each* group</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="co"># n = 36.3 -&gt; 72.6</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+</section>
+<section id="task-03-1" class="level2">
+<h2 class="anchored" data-anchor-id="task-03-1">Task 03</h2>
+<p>The results of an RCT study are to be evaluated with an analysis of variance (ANOVA). A fictitious study on the effects of memory training serves as an example.</p>
+<ul>
+<li><p>Dependent variable (DV): Assessment of the memory capacity on a scale of 1 to 100.</p></li>
+<li><p>Independent variable (IV): Memory training received “Yes” or “No”. How large must the total sample be for</p></li>
+<li><p>significance level <span class="math inline">\(\alpha\)</span> = 5%</p></li>
+<li><p>power = 80%</p></li>
+<li><p>effect size medium</p></li>
+</ul>
+<p>to obtain a significant analysis of variance? The f-value for the effect size can be found in Cohen (1992) in Table 1 – see below. Describe the results – insert also the R-code, the R-output and if necessary, R-plots.</p>
+<section id="answer-15" class="level3">
+<h3 class="anchored" data-anchor-id="answer-15">Answer</h3>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(pwr)</span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>alpha <span class="ot">&lt;-</span> <span class="fl">0.05</span></span>
+<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a>beta <span class="ot">&lt;-</span> <span class="fl">0.2</span></span>
+<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a>power <span class="ot">&lt;-</span> <span class="dv">1</span> <span class="sc">-</span> beta</span>
+<span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a>d <span class="ot">&lt;-</span> <span class="fl">0.5</span> <span class="co"># From table</span></span>
+<span id="cb5-7"><a href="#cb5-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-8"><a href="#cb5-8" aria-hidden="true" tabindex="-1"></a><span class="fu">pwr.anova.test</span>(<span class="at">f =</span> <span class="fl">0.25</span>, <span class="at">k =</span> <span class="dv">2</span>, <span class="at">power =</span> power, <span class="at">sig.level =</span> alpha)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>
+     Balanced one-way analysis of variance power calculation 
+
+              k = 2
+              n = 63.76561
+              f = 0.25
+      sig.level = 0.05
+          power = 0.8
+
+NOTE: n is number in each group</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="co"># n = 63.8 -&gt; 127.6</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+</section>
+</section>
+<section id="tasks-for-exercise-08-ab-testing" class="level1">
+<h1>Tasks for Exercise 08: A/B Testing</h1>
+<section id="task-01-6" class="level2">
+<h2 class="anchored" data-anchor-id="task-01-6">Task 01</h2>
+<p>What are the characteristics of “classical” A/B testing procedures and of the dynamic-algorithmic procedure? Please use one example for the “classical” A/B testing and one for a dynamic-algorithmic procedure and describe the advantages and disadvantages for each.</p>
+<section id="answer-16" class="level3">
+<h3 class="anchored" data-anchor-id="answer-16">Answer</h3>
+<section id="classical-ab-testing" class="level4">
+<h4 class="anchored" data-anchor-id="classical-ab-testing">Classical A/B-Testing</h4>
+<p>A/B testing is an experiment. The research questions are applied to two (A/B) or more randomized groups. The statistical analysis is done by t-test, ANOVA and more advanced methods. Example: The aim is to determine which version achieves a better result, in terms of click-through rate etc. Two versions A and B are tested in parallel in a live environment. The generated data becomes the basis for decisions.</p>
+<p>A/B testing ist simple to implement/run but cannot be used in all research questions. Example: For a complete website redesign (further elements have to be included). Population is unknown, sampling procedure is not suitable, sampling bias, ect. Dark / deceptive patterns are patterns of persuasion and influence. They may increase short-term gains for the provider but can harm brand image, user experience, and customer satisfaction.</p>
+</section>
+<section id="dynamic-algorithmic" class="level4">
+<h4 class="anchored" data-anchor-id="dynamic-algorithmic">Dynamic-Algorithmic</h4>
+<p>Several variants (treatments A, B, C, …) are run in parallel. The variant with the highest “success” (according to metrics) get more data traffic. Other variants are refined and tested with proportionally less traffic. Traffic allocation is continuously adjusted based on the observed success. As the test progresses, more and more information about the performance of the variants becomes available, so that the most successful variant can be identified dynamically. Th dynamic version is harder to implement and needs to run long enough.</p>
+</section>
+</section>
+</section>
+</section>
+<section id="task-02-6" class="level1">
+<h1>Task 02</h1>
+<p>A multivariate test for a website was carried out. The test measured the average click rate (number of clicks on advertising banners) on a website. How do the design variants (factor IV1) affect the click rate (DV)?</p>
+<ul>
+<li>DV = click rate [s] → output with metric scaling</li>
+<li>IV1 = design variants [1,2,3] → factor with 3 levels</li>
+</ul>
+<p>Use a univariate ANOVA to answer the question. Describe the results – insert also the R-code, the R-output and if necessary, R-plots. Data set: clickrate.xlsx → ILIAS → “Data Resources &amp; R Files”</p>
+<section id="answer-17" class="level2">
+<h2 class="anchored" data-anchor-id="answer-17">Answer</h2>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="co"># install.packages("readxl")</span></span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(readxl)</span>
+<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a>data <span class="ot">&lt;-</span> <span class="fu">read_excel</span>(<span class="at">path=</span><span class="st">"/home/nils/dev/mscids-notes/hs25/doe/data/clickrate.xlsx"</span>)</span>
+<span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a><span class="fu">oneway.test</span>(DV <span class="sc">~</span> <span class="fu">factor</span>(IV1), <span class="at">var.equal=</span><span class="cn">TRUE</span>, <span class="at">data=</span>data)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>
+    One-way analysis of means
+
+data:  DV and factor(IV1)
+F = 77.928, num df = 2, denom df = 2301, p-value &lt; 2.2e-16</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a>fit <span class="ot">&lt;-</span> <span class="fu">aov</span>(DV <span class="sc">~</span> <span class="fu">factor</span>(IV1), <span class="at">data=</span>data)</span>
+<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(fit, <span class="at">intercept=</span><span class="cn">TRUE</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>              Df  Sum Sq Mean Sq  F value Pr(&gt;F)    
+(Intercept)    1 3509768 3509768 41265.38 &lt;2e-16 ***
+factor(IV1)    2   13256    6628    77.93 &lt;2e-16 ***
+Residuals   2301  195708      85                    
+---
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1</code></pre>
+</div>
+</div>
+</section>
+</section>
+<section id="tasks-for-exercise-09-factorial-designs" class="level1">
+<h1>Tasks for Exercise 09: Factorial Designs</h1>
+<section id="task-01-7" class="level2">
+<h2 class="anchored" data-anchor-id="task-01-7">Task 01</h2>
+<p>There are full factorial and fractional factorial designs. Please give one example of a full factorial design and one example of a fractional factorial design and explain the advantages and disadvantages of each.</p>
+<section id="answer-18" class="level3">
+<h3 class="anchored" data-anchor-id="answer-18">Answer</h3>
+<section id="full-factorial" class="level4">
+<h4 class="anchored" data-anchor-id="full-factorial">Full Factorial</h4>
+<p>A full factorial design tests every possible combination of all factor levels. Easy to implement/run but resources intensive when increasing the factors size.</p>
+</section>
+<section id="fractional-factorial" class="level4">
+<h4 class="anchored" data-anchor-id="fractional-factorial">Fractional Factorial</h4>
+<p>The more factors and the more characteristics, the larger the number of groups. Provided that there are no interactions, the experiment can also be conducted successfully with a reduced number of groups. By using Latin squares or related designs, the number of groups required can be significantly reduced compared to full factorial designs.</p>
+</section>
+</section>
+</section>
+<section id="task-02-7" class="level2">
+<h2 class="anchored" data-anchor-id="task-02-7">Task 02</h2>
+<p>In the appendix of the lecture notes you will find details of a research project: First, read through all the 3 slides in the appendix. Use R to create the missing Latin square on Slide 28 and interpret its output. Use R to replicate the ANOVA shown on Slide 29 and interpret its output. Use key words to interpret the Latin square and the ANOVA.</p>
+<section id="answer-19" class="level3">
+<h3 class="anchored" data-anchor-id="answer-19">Answer</h3>
+<section id="latin-square" class="level4">
+<h4 class="anchored" data-anchor-id="latin-square">Latin Square</h4>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="co"># install.packages("agricolae")</span></span>
+<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(agricolae)</span>
+<span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a>my_design_lsd <span class="ot">&lt;-</span> <span class="fu">design.lsd</span>(<span class="at">trt =</span> <span class="fu">c</span>(<span class="st">"c1"</span>,<span class="st">"c2"</span>,<span class="st">"c3"</span>))</span>
+<span id="cb12-4"><a href="#cb12-4" aria-hidden="true" tabindex="-1"></a>my_design_lsd<span class="sc">$</span>sketch</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>     [,1] [,2] [,3]
+[1,] "c2" "c3" "c1"
+[2,] "c1" "c2" "c3"
+[3,] "c3" "c1" "c2"</code></pre>
+</div>
+</div>
+<p>The column names of the Latin square ([,1] [,2] [,3]) correspond to the levels of factor A. The row names of the Latin square ([1,] [2,] [3,]) correspond to the levels of factor B. The content in the cells of the Latin square (“c1”, “c2”, “c3”) correspond to the levels of factor C We can reduce the combination of experiments from 27 (Full Factorial) to 9 (Fractional Factorial).</p>
+</section>
+<section id="anova" class="level4">
+<h4 class="anchored" data-anchor-id="anova">ANOVA</h4>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb14"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(readxl)</span>
+<span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb14-3"><a href="#cb14-3" aria-hidden="true" tabindex="-1"></a>dwelltime_Latin <span class="ot">&lt;-</span> <span class="fu">read_excel</span>(<span class="st">"/home/nils/dev/mscids-notes/hs25/doe/data/dwelltime_latin.xlsx"</span>)</span>
+<span id="cb14-4"><a href="#cb14-4" aria-hidden="true" tabindex="-1"></a><span class="fu">View</span>(dwelltime_Latin)</span>
+<span id="cb14-5"><a href="#cb14-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb14-6"><a href="#cb14-6" aria-hidden="true" tabindex="-1"></a>fit <span class="ot">&lt;-</span> <span class="fu">aov</span>(DV <span class="sc">~</span> <span class="fu">factor</span>(A) <span class="sc">+</span> <span class="fu">factor</span>(B) <span class="sc">+</span> <span class="fu">factor</span>(C), <span class="at">data =</span> dwelltime_Latin)</span>
+<span id="cb14-7"><a href="#cb14-7" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(fit)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>               Df Sum Sq Mean Sq F value Pr(&gt;F)    
+factor(A)       2  76057   38028 465.761 &lt;2e-16 ***
+factor(B)       2  27159   13580 166.320 &lt;2e-16 ***
+factor(C)       2    552     276   3.383  0.034 *  
+Residuals   10338 844075      82                   
+---
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1</code></pre>
+</div>
+</div>
+<p>There is a main effect on A, B and C. Even with p = .034 the factor C is relatively close to the significance limit of p = .050.</p>
+</section>
+</section>
+</section>
+</section>
+<section id="tasks-for-exercise-10-large-data-quantities" class="level1">
+<h1>Tasks for Exercise 10: Large Data Quantities</h1>
+<section id="task-1" class="level2">
+<h2 class="anchored" data-anchor-id="task-1">Task 1</h2>
+<p>There is a distinction between made data and found data. Develop examples and explain your choices based on the distinction made data vs.&nbsp;found data. Estimate the size and complexity of the data set (e.g.&nbsp;number of variables, sub-populations).</p>
+<section id="answer-20" class="level3">
+<h3 class="anchored" data-anchor-id="answer-20">Answer</h3>
+<ul>
+<li>Made data → Data is generated by researchers (“made”).</li>
+<li>Found data → Data are obtained administratively and technically (“found”)</li>
+</ul>
+</section>
+</section>
+<section id="task-2" class="level2">
+<h2 class="anchored" data-anchor-id="task-2">Task 2</h2>
+<p>When considering administrative data sets, it is necessary to take into account the proportion:</p>
+<p><span class="math display">\[
+f = \dfrac{n}{N}
+\]</span></p>
+<p>Proportion of sample size of the administrative dataset in the population Develop three typical examples that differ significantly in terms of their <span class="math inline">\(f\)</span> proportion.</p>
+<section id="answer-21" class="level3">
+<h3 class="anchored" data-anchor-id="answer-21">Answer</h3>
+<section id="small-f" class="level4">
+<h4 class="anchored" data-anchor-id="small-f">Small <span class="math inline">\(f\)</span></h4>
+<p><span class="math display">\[
+f = \dfrac{100}{8000000}
+\]</span></p>
+<p>Do a survey and ask 100 random people in Switzerland.</p>
+</section>
+<section id="medium-f" class="level4">
+<h4 class="anchored" data-anchor-id="medium-f">Medium <span class="math inline">\(f\)</span></h4>
+<p><span class="math display">\[
+f = \dfrac{1500}{3000}
+\]</span></p>
+<p>Do a survey and ask the half of all students at HSLU.</p>
+</section>
+<section id="large-f" class="level4">
+<h4 class="anchored" data-anchor-id="large-f">Large <span class="math inline">\(f\)</span></h4>
+<p><span class="math display">\[
+f = \dfrac{90}{100}
+\]</span></p>
+<p>Do a survey and ask 90 of the top 100 clients of a KMU.</p>
+</section>
+</section>
+</section>
+</section>
+<section id="tasks-for-exercise-11-experiments-in-social-media" class="level1">
+<h1>Tasks for Exercise 11: Experiments in Social Media</h1>
+<section id="task-01-8" class="level2">
+<h2 class="anchored" data-anchor-id="task-01-8">Task 01</h2>
+<p>Assume you are given this research question: In a month’s time, the Swiss will elect a new National Council (parliament). The 200 party seats of the parliament are currently distributed as follows: SVP 25.6% / Greens 21.0% / SP 16.8% / FDP 15.1% / CVP 11.4% / BDP 2.4% / Other 7.6% What proportions can be expected in the election of the new National Council? The research question is to be answered with data obtained from social media. Work through the following steps to design a study to answer the research question: - Choose the design - Define the population - Reflect on population bias - Determine the procedure for sampling / data collection - Implement the study - What else do you need to consider?</p>
+<p>Create a presentation for a professional audience and explain your approach and thoughts. The main goal is to start a discussion.</p>
+<section id="answer-22" class="level3">
+<h3 class="anchored" data-anchor-id="answer-22">Answer</h3>
+<ul>
+<li>Choose the design: Survey</li>
+<li>Define the population: SoMe User over 18 with premission to vote.</li>
+<li>Reflect on population bias: We can controll the actual age or nationality of the users.</li>
+<li>Determine the procedure for sampling / data collection: Survey tools.</li>
+<li>Implement the study: Run a survey by a given tool.</li>
+<li>What else do you need to consider?: Older voters may be excluded since mostly young people use SoMe.</li>
+</ul>
 
 
+</section>
 </section>
 </section>
 
