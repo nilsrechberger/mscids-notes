@@ -258,6 +258,26 @@ The purpose of visualization is insight, not pictures.
 
 # Week 8: Cloud Computing & Virtualization
 
+## Central Processing Unit (CPU)
+
+The CPU is the primary component of a computer that acts as its "brain," responsible for interpreting and carrying out most of the commands from the hardware and software. It performs basic arithmetic, logic, and input/output operations to process data and manage the system's overall performance.
+
+### Fetch
+
+In this initial stage, the CPU retrieves a program instruction from the computer's memory (RAM). The instruction's location is identified by a program counter, which then prepares the processor for the next step in the cycle.
+
+### Decode
+
+Once the instruction is fetched, the control unit breaks it down into signals that the CPU's internal components can understand. This process determines what action is required, such as performing a math calculation or moving data between registers.
+
+### Execute
+
+During the final stage, the CPU carries out the decoded instruction by performing the necessary operations. The result is then stored in a register or written back to the memory before the cycle begins again.
+
+## Random Access Memory (RAM)
+
+RAM is a form of high-speed, volatile storage that holds the data and instructions currently being used by the CPU. Unlike a hard drive, it allows for nearly instantaneous access to information, though all stored data is lost once the computer is powered off.
+
 ## Cloud Computing Definition
 
 - Gossmann (2009): Clouds, or clusters of distributed computers, provide on-demand resources and services over a network, usually the Internet, with the scale and reliability of a data center.
