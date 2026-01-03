@@ -280,16 +280,10 @@ print(res)
 
 ## Exercise 3
 
-::: {.columns}
-::: {.column}
 ### Linear Search
 
 Linear search sequentially checks each element of the list until a match is found or the whole list has been searched. For a list of length $n$ results a complexity of $O(n)$.
 
-:::
-::: {.column}
 ### Binary Search
 
 Binary search compares the target value to the middle element of the list. For a list of length $n$ results a complexity of $O(\log(n))$.
-
-:::
