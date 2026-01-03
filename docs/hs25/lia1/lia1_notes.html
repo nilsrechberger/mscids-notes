@@ -327,6 +327,7 @@ window.Quarto = {
   <li><a href="#corollary" id="toc-corollary" class="nav-link" data-scroll-target="#corollary">Corollary</a></li>
   </ul></li>
   <li><a href="#week-7-linear-systems-with-python" id="toc-week-7-linear-systems-with-python" class="nav-link" data-scroll-target="#week-7-linear-systems-with-python">Week 7: Linear Systems with Python</a></li>
+  <li><a href="#glossary" id="toc-glossary" class="nav-link" data-scroll-target="#glossary">Glossary</a></li>
   </ul>
 <div class="quarto-alternate-formats"><h2>Other Formats</h2><ul><li><a href="lia1_notes.pdf"><i class="bi bi-file-pdf"></i>PDF</a></li></ul></div></nav>
     </div>
@@ -934,6 +935,15 @@ Caution
 </section>
 <section id="week-7-linear-systems-with-python" class="level1">
 <h1>Week 7: Linear Systems with Python</h1>
+<p>Library <code>Numpy</code>:</p>
+<ul>
+<li><code>np.array()</code>: For matrices build from numbers</li>
+<li><code>np.block()</code>: For matrices build from sub-matrices</li>
+<li><code>np.diag()</code>: For diagonal matrices</li>
+<li><code>np.full([dim],value)</code>: Filled matrices with given dimension and value</li>
+<li><code>np.zeros([dim])</code>: Zero matrices</li>
+<li><code>np.ones([dim])</code>: Ones matrices</li>
+</ul>
 <p>Library <code>scipy.linalg</code>:</p>
 <ul>
 <li><code>solve(A,b)</code> : Unique solution of the linear system <span class="math inline">\(Ax = b\)</span> with regular quadratic coefficient matrix <span class="math inline">\(A\)</span></li>
@@ -945,6 +955,13 @@ Caution
 <p>Library <code>numpy.linalg</code>:</p>
 <ul>
 <li><code>matrix_rank(A)</code> : Rank of matrix <span class="math inline">\(A\)</span></li>
+</ul>
+</section>
+<section id="glossary" class="level1">
+<h1>Glossary</h1>
+<ul>
+<li>Symmetric: A square matrix A is symmetric if it is mirrored across its main diagonal.</li>
+<li>Regular: A matrix is called regular (or invertible or non-singular) if it is “reversible.” This means that there exists an inverse matrix <span class="math inline">\(A^{−1}\)</span> such that <span class="math inline">\(AA^{−1}=I\)</span> (where <span class="math inline">\(I\)</span> is the identity matrix).</li>
 </ul>
 
 

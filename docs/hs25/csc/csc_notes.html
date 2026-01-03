@@ -350,16 +350,26 @@ window.Quarto = {
   </ul></li>
   <li><a href="#week-8-cloud-computing-virtualization" id="toc-week-8-cloud-computing-virtualization" class="nav-link" data-scroll-target="#week-8-cloud-computing-virtualization">Week 8: Cloud Computing &amp; Virtualization</a>
   <ul class="collapse">
+  <li><a href="#central-processing-unit-cpu" id="toc-central-processing-unit-cpu" class="nav-link" data-scroll-target="#central-processing-unit-cpu">Central Processing Unit (CPU)</a>
+  <ul class="collapse">
+  <li><a href="#fetch" id="toc-fetch" class="nav-link" data-scroll-target="#fetch">Fetch</a></li>
+  <li><a href="#decode" id="toc-decode" class="nav-link" data-scroll-target="#decode">Decode</a></li>
+  <li><a href="#execute" id="toc-execute" class="nav-link" data-scroll-target="#execute">Execute</a></li>
+  </ul></li>
+  <li><a href="#random-access-memory-ram" id="toc-random-access-memory-ram" class="nav-link" data-scroll-target="#random-access-memory-ram">Random Access Memory (RAM)</a></li>
   <li><a href="#cloud-computing-definition" id="toc-cloud-computing-definition" class="nav-link" data-scroll-target="#cloud-computing-definition">Cloud Computing Definition</a>
   <ul class="collapse">
   <li><a href="#business-model" id="toc-business-model" class="nav-link" data-scroll-target="#business-model">Business Model</a></li>
   <li><a href="#cloud-properties" id="toc-cloud-properties" class="nav-link" data-scroll-target="#cloud-properties">Cloud Properties</a></li>
   <li><a href="#deployment-model" id="toc-deployment-model" class="nav-link" data-scroll-target="#deployment-model">Deployment Model</a></li>
-  <li><a href="#iaas-paas-and-saas" id="toc-iaas-paas-and-saas" class="nav-link" data-scroll-target="#iaas-paas-and-saas">IaaS, PaaS and SaaS</a></li>
+  <li><a href="#infrastructure-as-a-service-iaas" id="toc-infrastructure-as-a-service-iaas" class="nav-link" data-scroll-target="#infrastructure-as-a-service-iaas">Infrastructure as a Service (IaaS)</a></li>
+  <li><a href="#platform-as-a-service-paas" id="toc-platform-as-a-service-paas" class="nav-link" data-scroll-target="#platform-as-a-service-paas">Platform as a Service (PaaS)</a></li>
+  <li><a href="#software-as-a-service-saas" id="toc-software-as-a-service-saas" class="nav-link" data-scroll-target="#software-as-a-service-saas">Software as a Service (SaaS)</a></li>
   </ul></li>
   <li><a href="#virtualization" id="toc-virtualization" class="nav-link" data-scroll-target="#virtualization">Virtualization</a>
   <ul class="collapse">
-  <li><a href="#key-advantages-of-using-virtualization" id="toc-key-advantages-of-using-virtualization" class="nav-link" data-scroll-target="#key-advantages-of-using-virtualization">Key Advantages of Using Virtualization</a></li>
+  <li><a href="#key-advantages-of-virtualization" id="toc-key-advantages-of-virtualization" class="nav-link" data-scroll-target="#key-advantages-of-virtualization">Key Advantages of Virtualization</a></li>
+  <li><a href="#key-disadvantages-of-virtualization" id="toc-key-disadvantages-of-virtualization" class="nav-link" data-scroll-target="#key-disadvantages-of-virtualization">Key Disadvantages of Virtualization</a></li>
   </ul></li>
   </ul></li>
   <li><a href="#week-9-big-data-processing" id="toc-week-9-big-data-processing" class="nav-link" data-scroll-target="#week-9-big-data-processing">Week 9: Big Data Processing</a>
@@ -741,6 +751,26 @@ Note
 </section>
 <section id="week-8-cloud-computing-virtualization" class="level1">
 <h1>Week 8: Cloud Computing &amp; Virtualization</h1>
+<section id="central-processing-unit-cpu" class="level2">
+<h2 class="anchored" data-anchor-id="central-processing-unit-cpu">Central Processing Unit (CPU)</h2>
+<p>The CPU is the primary component of a computer that acts as its “brain,” responsible for interpreting and carrying out most of the commands from the hardware and software. It performs basic arithmetic, logic, and input/output operations to process data and manage the system’s overall performance.</p>
+<section id="fetch" class="level3">
+<h3 class="anchored" data-anchor-id="fetch">Fetch</h3>
+<p>In this initial stage, the CPU retrieves a program instruction from the computer’s memory (RAM). The instruction’s location is identified by a program counter, which then prepares the processor for the next step in the cycle.</p>
+</section>
+<section id="decode" class="level3">
+<h3 class="anchored" data-anchor-id="decode">Decode</h3>
+<p>Once the instruction is fetched, the control unit breaks it down into signals that the CPU’s internal components can understand. This process determines what action is required, such as performing a math calculation or moving data between registers.</p>
+</section>
+<section id="execute" class="level3">
+<h3 class="anchored" data-anchor-id="execute">Execute</h3>
+<p>During the final stage, the CPU carries out the decoded instruction by performing the necessary operations. The result is then stored in a register or written back to the memory before the cycle begins again.</p>
+</section>
+</section>
+<section id="random-access-memory-ram" class="level2">
+<h2 class="anchored" data-anchor-id="random-access-memory-ram">Random Access Memory (RAM)</h2>
+<p>RAM is a form of high-speed, volatile storage that holds the data and instructions currently being used by the CPU. Unlike a hard drive, it allows for nearly instantaneous access to information, though all stored data is lost once the computer is powered off.</p>
+</section>
 <section id="cloud-computing-definition" class="level2">
 <h2 class="anchored" data-anchor-id="cloud-computing-definition">Cloud Computing Definition</h2>
 <ul>
@@ -769,13 +799,26 @@ Note
 <li>Hybrid clouds: Cloud infrastructure is a composition of two or more clouds (private or public). Bound together by standardized or proprietary technology that enables data and application portability.</li>
 </ul>
 </section>
-<section id="iaas-paas-and-saas" class="level3">
-<h3 class="anchored" data-anchor-id="iaas-paas-and-saas">IaaS, PaaS and SaaS</h3>
-<ul>
-<li>Infrastructure as a Service (IaaS): Servers, Storage, Network</li>
-<li>Platform as a Service (PaaS): OS, Application Stack</li>
-<li>Software as a Service (SaaS): Packaged Software</li>
-</ul>
+<section id="infrastructure-as-a-service-iaas" class="level3">
+<h3 class="anchored" data-anchor-id="infrastructure-as-a-service-iaas">Infrastructure as a Service (IaaS)</h3>
+<p>IaaS provides the fundamental building blocks of cloud IT, offering on-demand access to virtualized servers, storage, and networking. It gives you the highest level of flexibility and control over your IT resources, as you are responsible for managing the operating system, middleware, and applications.</p>
+</section>
+<section id="platform-as-a-service-paas" class="level3">
+<h3 class="anchored" data-anchor-id="platform-as-a-service-paas">Platform as a Service (PaaS)</h3>
+<p>PaaS removes the need for you to manage underlying infrastructure (hardware and OS), allowing you to focus solely on the deployment and management of your applications. It typically includes the application stack, development tools, and database management systems, which helps increase developer efficiency.</p>
+</section>
+<section id="software-as-a-service-saas" class="level3">
+<h3 class="anchored" data-anchor-id="software-as-a-service-saas">Software as a Service (SaaS)</h3>
+<p>SaaS provides a complete, ready-to-use software product that is run and managed by the service provider. You don’t have to worry about how the service is maintained or how the underlying infrastructure is managed; you simply access the application via a web browser or API.</p>
+<section id="comparison" class="level4">
+<h4 class="anchored" data-anchor-id="comparison">Comparison</h4>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="img/cloud_comp_services.png" class="img-fluid figure-img"></p>
+<figcaption>Comparison Summary of Cloud Services</figcaption>
+</figure>
+</div>
+</section>
 </section>
 </section>
 <section id="virtualization" class="level2">
@@ -785,9 +828,23 @@ Note
 <pre><code>- Type 1 (Bare-Metal): This is the most powerful type. It is installed directly onto the physical hardware, without needing an operating system underneath it. It manages the server's resources (CPU, RAM, etc.) immediately. Because it has direct access to the hardware, it is very fast, efficient, and secure. This type is used mainly in large data centers and enterprise servers (e.g., VMware ESXi).
 
 - Type 2 (Hosted): This type is installed like a regular application on top of a host operating system (like Windows or macOS). It relies on the host OS to manage the hardware. This makes it easier for casual use, development, and testing on a personal computer, but it is less efficient and slower than Type 1 (e.g., VirtualBox).</code></pre>
-<section id="key-advantages-of-using-virtualization" class="level3">
-<h3 class="anchored" data-anchor-id="key-advantages-of-using-virtualization">Key Advantages of Using Virtualization</h3>
-<p>The main benefit is efficiency. You can run many servers on just one physical machine, which is called server consolidation. This saves a lot of money on buying hardware, paying for electricity (power), and cooling. It also improves security because if one VM gets a virus, the others stay isolated. Finally, it makes tasks like backup and disaster recovery much easier, as you can quickly move or restore an entire VM onto different hardware.</p>
+<section id="key-advantages-of-virtualization" class="level3">
+<h3 class="anchored" data-anchor-id="key-advantages-of-virtualization">Key Advantages of Virtualization</h3>
+<ul>
+<li>Efficiency &amp; Consolidation: Run multiple virtual servers on a single physical machine to maximize hardware utilization.</li>
+<li>Cost Savings: Significantly reduces expenses for hardware, power consumption, and cooling infrastructure.</li>
+<li>Isolation &amp; Security: Enhances security by isolating VMs; if one system is compromised, the others remain unaffected.</li>
+<li>Disaster Recovery: Simplifies backups and recovery by allowing entire VMs to be moved or restored across different hardware instantly.</li>
+</ul>
+</section>
+<section id="key-disadvantages-of-virtualization" class="level3">
+<h3 class="anchored" data-anchor-id="key-disadvantages-of-virtualization">Key Disadvantages of Virtualization</h3>
+<ul>
+<li>Single Point of Failure: If the underlying physical server (the host) fails, all virtual machines running on it will crash simultaneously.</li>
+<li>Performance Overhead: Because the hypervisor requires resources to manage the VMs, there is a slight performance loss compared to running on “bare metal.”</li>
+<li>Complexity: Managing a virtualized environment requires specialized software and expertise, which can increase administrative overhead.</li>
+<li>Resource Contention: If too many VMs are running, they may compete for the same CPU or RAM, leading to “bottlenecks” and slowed performance.</li>
+</ul>
 </section>
 </section>
 </section>
@@ -850,7 +907,7 @@ Note
 <li>Grouping: Parentheses () are used to combine parts of the pattern and create capturing groups, allowing the extraction of specific matched sub-strings.</li>
 <li>Applications: Primarily used for data validation (e.g., emails, phone numbers), complex search and replace operations, and parsing/extracting data from text.</li>
 </ul>
-<div id="df180299" class="cell" data-execution_count="1">
+<div id="33caa8f4" class="cell" data-execution_count="1">
 <div class="sourceCode cell-code" id="cb7"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> f(n1, n2, delta):</span>
 <span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> n1 <span class="op">&lt;=</span> n2:</span>
 <span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a>        <span class="cf">return</span> n2</span>

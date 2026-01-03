@@ -327,7 +327,11 @@ window.Quarto = {
   <ul class="collapse">
   <li><a href="#exercise-1" id="toc-exercise-1" class="nav-link" data-scroll-target="#exercise-1">Exercise 1</a></li>
   <li><a href="#exercise-2" id="toc-exercise-2" class="nav-link" data-scroll-target="#exercise-2">Exercise 2</a></li>
-  <li><a href="#exercise-3" id="toc-exercise-3" class="nav-link" data-scroll-target="#exercise-3">Exercise 3</a></li>
+  <li><a href="#exercise-3" id="toc-exercise-3" class="nav-link" data-scroll-target="#exercise-3">Exercise 3</a>
+  <ul class="collapse">
+  <li><a href="#linear-search" id="toc-linear-search" class="nav-link" data-scroll-target="#linear-search">Linear Search</a></li>
+  <li><a href="#binary-search" id="toc-binary-search" class="nav-link" data-scroll-target="#binary-search">Binary Search</a></li>
+  </ul></li>
   </ul></li>
   </ul>
 <div class="quarto-alternate-formats"><h2>Other Formats</h2><ul><li><a href="csc_exercises.pdf"><i class="bi bi-file-pdf"></i>PDF</a></li></ul></div></nav>
@@ -613,7 +617,7 @@ R_s = 1\text{Mbit/sec} = \dfrac{32000}{1000} = 32\text{sec}
 <section id="exercise-1" class="level2">
 <h2 class="anchored" data-anchor-id="exercise-1">Exercise 1</h2>
 <p>Develop a recursive algorithm for the function <code>power(x, n)</code>.</p>
-<div id="1e3b0975" class="cell" data-execution_count="1">
+<div id="e65c45ce" class="cell" data-execution_count="1">
 <div class="sourceCode cell-code" id="cb6"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> power(x, n):</span>
 <span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> n <span class="op">==</span> <span class="dv">0</span>:</span>
 <span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a>        <span class="cf">return</span> <span class="dv">1</span></span>
@@ -630,7 +634,7 @@ R_s = 1\text{Mbit/sec} = \dfrac{32000}{1000} = 32\text{sec}
 <section id="exercise-2" class="level2">
 <h2 class="anchored" data-anchor-id="exercise-2">Exercise 2</h2>
 <p>Develop a recursive algorithm for the product of the natural odd numbers from <code>m</code> to <code>n</code>: <code>product(m, n)</code>.</p>
-<div id="a036af33" class="cell" data-execution_count="2">
+<div id="5fde723d" class="cell" data-execution_count="2">
 <div class="sourceCode cell-code" id="cb8"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> product(m: <span class="bu">int</span>, n: <span class="bu">int</span>) <span class="op">-&gt;</span> <span class="bu">int</span>:</span>
 <span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a>  <span class="co">""" Returns the product of the odd numbers from m to n """</span></span>
 <span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Check for only odd number inputs</span></span>
@@ -652,19 +656,16 @@ R_s = 1\text{Mbit/sec} = \dfrac{32000}{1000} = 32\text{sec}
 </section>
 <section id="exercise-3" class="level2">
 <h2 class="anchored" data-anchor-id="exercise-3">Exercise 3</h2>
-<div class="columns">
-<div class="column">
 <section id="linear-search" class="level3">
 <h3 class="anchored" data-anchor-id="linear-search">Linear Search</h3>
 <p>Linear search sequentially checks each element of the list until a match is found or the whole list has been searched. For a list of length <span class="math inline">\(n\)</span> results a complexity of <span class="math inline">\(O(n)\)</span>.</p>
 </section>
-</div><div class="column">
 <section id="binary-search" class="level3">
 <h3 class="anchored" data-anchor-id="binary-search">Binary Search</h3>
 <p>Binary search compares the target value to the middle element of the list. For a list of length <span class="math inline">\(n\)</span> results a complexity of <span class="math inline">\(O(\log(n))\)</span>.</p>
+
+
 </section>
-</div>
-</div>
 </section>
 </section>
 
