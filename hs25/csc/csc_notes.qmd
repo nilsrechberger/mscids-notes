@@ -299,11 +299,21 @@ RAM is a form of high-speed, volatile storage that holds the data and instructio
 - Private clouds: Cloud infrastructure belongs to and is operated by only one organization
 - Hybrid clouds: Cloud infrastructure is a composition of two or more clouds (private or public). Bound together by standardized or proprietary technology that enables data and application portability.
 
-### IaaS, PaaS and SaaS
+### Infrastructure as a Service (IaaS)
 
-- Infrastructure as a Service (IaaS): Servers, Storage, Network
-- Platform as a Service (PaaS): OS, Application Stack
-- Software as a Service (SaaS): Packaged Software
+IaaS provides the fundamental building blocks of cloud IT, offering on-demand access to virtualized servers, storage, and networking. It gives you the highest level of flexibility and control over your IT resources, as you are responsible for managing the operating system, middleware, and applications.
+
+### Platform as a Service (PaaS)
+
+PaaS removes the need for you to manage underlying infrastructure (hardware and OS), allowing you to focus solely on the deployment and management of your applications. It typically includes the application stack, development tools, and database management systems, which helps increase developer efficiency.
+
+### Software as a Service (SaaS)
+
+SaaS provides a complete, ready-to-use software product that is run and managed by the service provider. You don't have to worry about how the service is maintained or how the underlying infrastructure is managed; you simply access the application via a web browser or API.
+
+#### Comparison
+
+![Comparison Summary of Cloud Services](img/cloud_comp_services.png)
 
 ## Virtualization
 
@@ -315,10 +325,19 @@ There are two main types of Hypervisors:
 
     - Type 2 (Hosted): This type is installed like a regular application on top of a host operating system (like Windows or macOS). It relies on the host OS to manage the hardware. This makes it easier for casual use, development, and testing on a personal computer, but it is less efficient and slower than Type 1 (e.g., VirtualBox).
 
-### Key Advantages of Using Virtualization
+### Key Advantages of Virtualization
 
-The main benefit is efficiency. You can run many servers on just one physical machine, which is called server consolidation. This saves a lot of money on buying hardware, paying for electricity (power), and cooling. It also improves security because if one VM gets a virus, the others stay isolated. Finally, it makes tasks like backup and disaster recovery much easier, as you can quickly move or restore an entire VM onto different hardware.
+- Efficiency & Consolidation: Run multiple virtual servers on a single physical machine to maximize hardware utilization.
+- Cost Savings: Significantly reduces expenses for hardware, power consumption, and cooling infrastructure.
+- Isolation & Security: Enhances security by isolating VMs; if one system is compromised, the others remain unaffected.
+- Disaster Recovery: Simplifies backups and recovery by allowing entire VMs to be moved or restored across different hardware instantly.
 
+### Key Disadvantages of Virtualization
+
+- Single Point of Failure: If the underlying physical server (the host) fails, all virtual machines running on it will crash simultaneously.
+- Performance Overhead: Because the hypervisor requires resources to manage the VMs, there is a slight performance loss compared to running on "bare metal."
+- Complexity: Managing a virtualized environment requires specialized software and expertise, which can increase administrative overhead.
+- Resource Contention: If too many VMs are running, they may compete for the same CPU or RAM, leading to "bottlenecks" and slowed performance.
 
 # Week 9: Big Data Processing
 
