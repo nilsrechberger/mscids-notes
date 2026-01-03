@@ -566,6 +566,15 @@ Product AB of two square matrices of same size is invertible if and only if A an
 
 # Week 7: Linear Systems with Python
 
+Library `Numpy`:
+
+- `np.array()`: For matrices build from numbers
+- `np.block()`: For matrices build from sub-matrices
+- `np.diag()`: For diagonal matrices
+- `np.full([dim],value)`: Filled matrices with given dimension and value
+- `np.zeros([dim])`: Zero matrices
+- `np.ones([dim])`: Ones matrices 
+
 Library `scipy.linalg`:
 
 - `solve(A,b)` : Unique solution of the linear system $Ax = b$ with regular quadratic coefficient matrix $A$
@@ -577,3 +586,8 @@ Library `scipy.linalg`:
 Library `numpy.linalg`:
 
 - `matrix_rank(A)` : Rank of matrix $A$
+
+# Glossary
+
+- Symmetric: A square matrix A is symmetric if it is mirrored across its main diagonal.
+- Regular: A matrix is called regular (or invertible or non-singular) if it is “reversible.” This means that there exists an inverse matrix $A^{−1}$ such that $AA^{−1}=I$ (where $I$ is the identity matrix).
