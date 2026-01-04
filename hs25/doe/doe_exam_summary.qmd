@@ -1,17 +1,15 @@
 ---
-title: Design of Experiments - Exam Summary
-autho: Nils Rechberger
 toc: false
 format:
   pdf:
-    fontsize: 9pt
+    fontsize: 8pt
     geometry:
       - top=15mm
       - bottom=15mm
       - left=15mm
       - right=15mm
 ---
-
+# Design of Experiments - Exam Summary
 # Research Design
 
 ## Observational vs. Experimental
@@ -24,11 +22,9 @@ The effect and aim of randomisation is to eliminate selection bias and confoundi
 
 ## Confounder
 
-Confounding occurs when a factor (confounder) that has not been investigated is associated with both the independent and dependent variables, causing a spurious correlation between them.
+Confounding occurs when a factor (confounder) that has not been investigated is associated with both the independent and dependent variables, causing a spurious correlation between them. (Example: Firefighters -> Damage, Confounder = Size of Fire)
 
-![Example Confounder](img/exp_confounder.png)
-
-![Randomized Controlled Tree](img/random_tree.png)
+![Randomized Controlled Tree](img/random_tree.png){width=50%}
 
 ## Blinding
 
@@ -43,7 +39,7 @@ Blinding is a suitable technique for avoiding distortions. It eliminates conscio
 
 ## Decision Tree for Research Design
 
-![Decision Tree for Research Design](img/decision_tree_for_research_design.png)
+![Decision Tree for Research Design](img/decision_tree_for_research_design.png){width=50%}
 
 # Principles
 
@@ -392,19 +388,11 @@ Effect size is a statistical measure that quantifies the magnitude (or strength)
 - A Cohen's d of 1.0 means the means of the two groups are separated by exactly one standard deviation.
 - A Cohen's d of 0.0 means there is no difference between the means.
 
-![Effect Size Table](img/effect_size_table.png)
+![Effect Size Table](img/effect_size_table.png){width=60%}
 
 ## Power analysis 
 
 Power analysis is the crucial step in research design that connects your expected effect size with your desired power (80%) and significance (5%) to determine the minimum **sample size** you need to run a valid study.
-
-### Determining the sample size with R
-
-```{r}
-# install.packages("pwr")
-library(pwr)
-pwr.t.test(d = 0.5, power = 0.80, sig.level = 0.05)
-```
 
 # Paradigms
 
@@ -499,7 +487,7 @@ summary(fit, intercept=TRUE)
 
 The direct effect of an independent variable on the dependent variable is called main effect. Profile plots are used as visualization.
 
-![Profile Plots of Main Effect](img/profile_plot_main_effect.png){width=50%}
+![Profile Plots of Main Effect](img/profile_plot_main_effect.png){width=30%}
 
 > Note: If the profile plot shows a (nearly) horizontal line, the main effect in question is probably not significant.
 
@@ -507,7 +495,7 @@ The direct effect of an independent variable on the dependent variable is called
 
 An interaction between experience and position means there is dependency between the two variables. The independent variables have a complex influence on the dependent variable. The factors do not just function additively but act together in a different manner.
 
-![Profile Plot of Interaction Effect](img/profile_plot_interaction_effect.png){width=50%}
+![Profile Plot of Interaction Effect](img/profile_plot_interaction_effect.png){width=30%}
 
 > Note: If there is no interaction, the lines are parallel. If there is an interaction, the lines are not parallel.
 
@@ -620,11 +608,7 @@ Several factors act on the dependent variable DV. Several groups are compared:
 
 ## Latin square
 
-A Latin squares design makes it possible to study the main effects of factors without having to observe all combinations of treatment levels.
-
-![Combination Table](img/latin_square_normal.png){width=50%}
-
-All combinations lead to a total of 27 (full factorial).
+A Latin squares design makes it possible to study the main effects of factors without having to observe all combinations of treatment levels. All combinations lead to a total of 27 (full factorial).
 
 ![Latin Square](img/latin_square.png){width=50%}
 
@@ -715,3 +699,85 @@ Studies using data from social media have great potential for investigating rese
 
 - Using the functionalities of social media: Use individual snowball sampling
 - Paid access to survey: Place ads in social media, Use survey tools or Include specialized platforms (Amazon Mechanical Turk)
+
+# Exercises
+
+## 5.3 - Data Sampling
+
+Given is an address list address.csv
+Use R to draw a simple random sample with n = 50 elements from this data set.
+Insert also the R-code, the R-output and if necessary, R-plots in your answer.
+
+```r
+library(readr)
+data <- read_csv("address.csv")
+data_sample <- sample(data, 50, replace=FALSE) # Take 50 random sample from data
+View(data_sample)
+```
+
+## 6.1: Effect Size
+
+$$
+\hat{d} = \dfrac{|\bar{x}_\text{new} - \bar{x}_\text{current}|}{\sigma_0} = \dfrac{1.0}{1.5} = 0.67
+$$
+
+## 6.2 - Sample Size in R
+
+```{r}
+library(pwr)
+alpha <- 0.05
+beta <- 0.2
+power <- 1 - beta
+mean <- 1.0
+sigma <- 1.5
+d <- mean/sigma
+pwr.t.test(d = d, power = power, sig.level = alpha)
+# n = 36.3 -> 72.6
+```
+
+## 6.3 - Sample Size ANOVA
+
+```{r}
+library(pwr)
+alpha <- 0.05
+beta <- 0.2
+power <- 1 - beta
+d <- 0.5 # From table
+pwr.anova.test(f = 0.25, k = 2, power = power, sig.level = alpha)
+# n = 63.8 -> 127.6
+```
+
+## 8.2 - Effect Analysis with ANOVA
+
+```{r}
+# install.packages("readxl")
+library(readxl)
+data <- read_excel(path="/home/nils/dev/mscids-notes/hs25/doe/data/clickrate.xlsx")
+oneway.test(DV ~ factor(IV1), var.equal=TRUE, data=data)
+fit <- aov(DV ~ factor(IV1), data=data)
+summary(fit, intercept=TRUE)
+```
+
+## 9.2 - Latin Square
+
+```{r}
+# install.packages("agricolae")
+library(agricolae)
+my_design_lsd <- design.lsd(trt = c("c1","c2","c3"))
+my_design_lsd$sketch
+```
+
+he column names of the Latin square ([,1] [,2] [,3]) correspond to the levels of factor A.
+The row names of the Latin square ([1,] [2,] [3,]) correspond to the levels of factor B.
+The content in the cells of the Latin square ("c1", "c2", "c3") correspond to the levels of factor C
+We can reduce the combination of experiments from 27 (Full Factorial) to 9 (Fractional Factorial).
+
+```{r}
+library(readxl)
+dwelltime_Latin <- read_excel("/home/nils/dev/mscids-notes/hs25/doe/data/dwelltime_latin.xlsx")
+View(dwelltime_Latin)
+fit <- aov(DV ~ factor(A) + factor(B) + factor(C), data = dwelltime_Latin)
+summary(fit)
+```
+
+There is a main effect on A, B and C. Even with p = .034 the factor C is relatively close to the significance limit of p = .050.
