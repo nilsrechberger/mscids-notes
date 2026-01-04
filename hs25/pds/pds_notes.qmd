@@ -1061,3 +1061,93 @@ def division(a, b):
     res = a / b
     return res
 ```
+
+# SW 14: Exceptions, Generators, Decorators
+
+## Exceptions
+
+```python
+try:
+    num = input('Enter a number: ')
+    frac = 1/int(num)
+except ValueError as e:
+    print('no number given:', e)
+except ZeroDivisionError:
+    print('can not divide by 0')
+except:
+    print('any other error happend')
+else:
+    print(f'the fraction is: {frac}')
+finally:
+    print('leaving try-except clause')
+```
+
+### Custom Error
+
+```python
+class CustError(Exception):
+    def __init__(self, message):
+        super().__init__(message)
+        # customize error code...
+        self.errors = "custom error"
+```
+
+An error can be raised at any position in the script using the keyword: `raise`
+
+```python
+if input(‘enter number: ‘) == ‘0’:
+    raise CustError(‘customized error message’)
+```
+
+## Assert Statement
+
+`assert` can be useful for sanity checks in development, testing, and debugging phase but can get optimized away in production code (proper exception handling).
+
+```python
+x = 21
+assert isinstance(x, int), 'Value should be of type int'
+```
+
+## Generators
+
+Imagine you have a list with a billion numbers. If you save this as a normal list, your working memory (RAM) would immediately become full. An iterator, on the other hand, only calculates or loads the element that is currently needed. The generator function is like a regular function, yet using the `yield` keyword instead of `return`. To understand the concept in Python, this distinction helps:
+
+- Iterable: An object that you can use in a for loop (e.g., list, string, dictionary). It has the __iter__ method.
+- Iterator: The object that actually does the work. It has the __next__ method and returns the values to you one after the other.
+
+## Decorators
+
+Technically speaking, a decorator is a function that takes another function as an argument, extends its behavior, and then returns it.
+
+```python
+import time
+from functools import wraps
+
+def timer(func):
+    """A decorator that measures the execution time of a function."""
+    @wraps(func) # Best practice: keeps the original function's name and docstring
+    def wrapper(*args, **kwargs):
+        # 1. Action before the function call
+        start_time = time.time()
+        
+        # 2. Execute the actual function
+        result = func(*args, **kwargs)
+        
+        # 3. Action after the function call
+        end_time = time.time()
+        duration = end_time - start_time
+        print(f"Duration of {func.__name__}: {duration:.4f} seconds")
+        
+        # 4. Return the result of the original function
+        return result
+    return wrapper
+
+@timer
+def long_computation():
+    """Simulates a heavy task."""
+    time.sleep(2)
+    print("Computation finished!")
+
+# Calling the decorated function
+long_computation()
+```
