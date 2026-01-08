@@ -256,8 +256,11 @@ The pivot element is a key element chosen at each step of an algorithm used to s
 ### Types of Row Echelon Forms
 
 1. In all rows and in all columns there is a pivot: System has unique solutions
+![Type I](img/type_1_pivot.png)
 2. In all rows there is a pivot, but not in all columns: Free variables, so system has infinitely many solutions.
+![Type II](img/type_2_pivot.png)
 3. Some row has no pivot: System is inconsistent (no solutions).
+![Type III](img/type_3_pivot.png)
 
 ## Set of Solutions
 
