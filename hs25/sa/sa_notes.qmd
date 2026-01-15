@@ -948,6 +948,24 @@ $$
 
 The Beta distribution ($Beta(α,β)$) is a continuous probability distribution defined over the interval $[0,1]$. The Beta distribution is controlled by two positive shape parameters, typically denoted as $α$ and $β$. By changing $α$ and $β$, the distribution can take on a wide range of shapes, including symmetric, skewed left or right, or even U-shaped.
 
+The ratio of $\alpha$ to $\beta$ determines where the peak (the mode) lies on the x-axis.
+
+* **$a > b$:** There are more successes than failures. The probability $\theta$ is likely high.
+    * **Effect:** The peak shifts to the **right** (above 0.5).
+* **$b > a$:** There are more failures than successes. The probability $\theta$ is likely low.
+    * **Effect:** The peak shifts to the **left** (below 0.5).
+* **$a = b$:** Successes and failures balance each other out.
+    * **Effect:** The peak is exactly in the **middle** (at 0.5).
+
+The sum $\alpha+\beta$ (often called $n$ or concentration) determines how narrow or wide the curve is. This is the "weight" of your experience.
+
+* **$a$ and $b$ are small (e.g., 2 and 2):**
+    * You have hardly seen any data. Although it's 50/50, you are uncertain.
+    * **Shape:** A flat, wide bump. The HDI is huge.
+* **$a$ and $b$ are large (e.g., 100 and 100):**
+    * You have seen a lot of data. You are very sure that it is 50/50.
+    * **Shape:** A tall, sharp needle. The HDI is tiny.
+
 ### Central Tendency
 
 Our goal is to transform a prior belief, which is expressed in terms of tendency and uncertainty, into corresponding parameter values $a$ and $b$ in the beta distribution.
@@ -1003,11 +1021,25 @@ $$
 To summarise a distribution, use highest density interval (HDI). It indicates which points of a distribution are most credible and
 which represent largest part of the distributio.
 
+- Wide HDI (large distance between start and end): There are many different values that could be plausible. The probability is distributed “widely” across the x-axis. We cannot narrow down the true value very well.
+
+- Narrow HDI (small distance): The probability is concentrated in a very small range. We are very certain where the true value lies.
+
 ::: {.callout-note}
 Since this normal distribution is symmetric about zero, the 95 %-HDI extends from −1.96 to +1.96.
 :::
 
 > Note: HDI has nothing to do with confidence interval.
+
+## ROPE
+
+The ROPE is the “range of tolerance” that you define before the experiment. It prevents us from misinterpreting tiny, insignificant deviations as “significant” just because we have a lot of data.
+
+| Relationship between HDI and ROPE | Interpretation | Decision |
+| :--- | :--- | :--- |
+| **HDI is completely inside the ROPE** | The entire range of credible values is practically equivalent to the null value. | **Accept** the null value (practical equivalence). |
+| **HDI is completely outside the ROPE** | The entire range of credible values is different from the null value. | **Reject** the null value. |
+| **HDI and ROPE overlap** | Some credible values are practically equivalent, others are not. | **Undecided / Inconclusive** (more data needed). |
 
 ## Influence of prior on posterior distribution
 
