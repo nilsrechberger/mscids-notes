@@ -1,6 +1,12 @@
 ---
-title: "CSC - Exam Summary"
-author: "Nils Rechberger"
+format:
+  pdf:
+    fontsize: 10pt
+    geometry:
+      - top=15mm
+      - bottom=15mm
+      - left=15mm
+      - right=15mm
 ---
 
 # Bits
@@ -182,7 +188,7 @@ ping www.google.ch
 
 ### Domain Name System
 
-![Domain Tree](img/domain_tree.png)
+![Domain Tree](img/domain_tree.png){width=70%}
 
 # HTML
 
@@ -190,7 +196,7 @@ ping www.google.ch
 
 Reference to a web resource that specifies its location in a computer network (e.g. web page, video, image, etc.)
 
-![URL Structure](img/url_structure.png)
+![URL Structure](img/url_structure.png){width=70%}
 
 ## HTML Quick Summary
 
