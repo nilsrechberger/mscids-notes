@@ -773,6 +773,14 @@ $R^2$-statistics: Value between 0 and 1. It indicates to what proportion of the 
 summary(lm(Sales~TV))$r.squared
 ```
 
+## F-Statistic
+
+The F-statistic is a value resulting from an F-test, which evaluates the overall significance of a regression model. Unlike the t-test, which looks at individual predictors, the F-test looks at the model as a whole.
+
+- High F-value: Indicates that the model explains a significant amount of the variation in the data.
+
+- Low F-value (near 1): Suggests that the observed patterns could likely be due to random chance.
+
 # Week 08: Multiple Linear Regression
 
 Simple linear regression are useful procedure to predict output based on one single predictor. In practice the output often depends on more than one predictor. Multiple linear model generalises simple linear model. Calculations and interpretations for multiple model similar, although usually more complicated than linear model
