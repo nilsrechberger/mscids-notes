@@ -401,6 +401,7 @@ window.Quarto = {
   </ul></li>
   <li><a href="#empirical-correlation" id="toc-empirical-correlation" class="nav-link" data-scroll-target="#empirical-correlation">Empirical correlation</a></li>
   <li><a href="#r2-value" id="toc-r2-value" class="nav-link" data-scroll-target="#r2-value"><span class="math inline">\(R^2\)</span> Value</a></li>
+  <li><a href="#f-statistic" id="toc-f-statistic" class="nav-link" data-scroll-target="#f-statistic">F-Statistic</a></li>
   </ul></li>
   <li><a href="#week-08-multiple-linear-regression" id="toc-week-08-multiple-linear-regression" class="nav-link" data-scroll-target="#week-08-multiple-linear-regression">Week 08: Multiple Linear Regression</a>
   <ul class="collapse">
@@ -438,6 +439,7 @@ window.Quarto = {
   </ul></li>
   <li><a href="#posterior-beta" id="toc-posterior-beta" class="nav-link" data-scroll-target="#posterior-beta">Posterior Beta</a></li>
   <li><a href="#highest-density-interval-hdi" id="toc-highest-density-interval-hdi" class="nav-link" data-scroll-target="#highest-density-interval-hdi">Highest Density Interval (HDI)</a></li>
+  <li><a href="#rope" id="toc-rope" class="nav-link" data-scroll-target="#rope">ROPE</a></li>
   <li><a href="#influence-of-prior-on-posterior-distribution" id="toc-influence-of-prior-on-posterior-distribution" class="nav-link" data-scroll-target="#influence-of-prior-on-posterior-distribution">Influence of prior on posterior distribution</a></li>
   </ul></li>
   <li><a href="#week-12-general-metropolis-algorithm" id="toc-week-12-general-metropolis-algorithm" class="nav-link" data-scroll-target="#week-12-general-metropolis-algorithm">Week 12: General Metropolis Algorithm</a>
@@ -1434,6 +1436,14 @@ Warning
 </blockquote>
 <div class="sourceCode" id="cb56"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb56-1"><a href="#cb56-1" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(<span class="fu">lm</span>(Sales<span class="sc">~</span>TV))<span class="sc">$</span>r.squared</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </section>
+<section id="f-statistic" class="level2">
+<h2 class="anchored" data-anchor-id="f-statistic">F-Statistic</h2>
+<p>The F-statistic is a value resulting from an F-test, which evaluates the overall significance of a regression model. Unlike the t-test, which looks at individual predictors, the F-test looks at the model as a whole.</p>
+<ul>
+<li><p>High F-value: Indicates that the model explains a significant amount of the variation in the data.</p></li>
+<li><p>Low F-value (near 1): Suggests that the observed patterns could likely be due to random chance.</p></li>
+</ul>
+</section>
 </section>
 <section id="week-08-multiple-linear-regression" class="level1">
 <h1>Week 08: Multiple Linear Regression</h1>
@@ -1593,6 +1603,34 @@ P(\{y_i\} \mid \theta) = \theta^{Z}(1 - \theta)^{N - Z}
 <section id="description-of-probabilities-beta-distribution" class="level2">
 <h2 class="anchored" data-anchor-id="description-of-probabilities-beta-distribution">Description of Probabilities: Beta Distribution</h2>
 <p>The Beta distribution (<span class="math inline">\(Beta(α,β)\)</span>) is a continuous probability distribution defined over the interval <span class="math inline">\([0,1]\)</span>. The Beta distribution is controlled by two positive shape parameters, typically denoted as <span class="math inline">\(α\)</span> and <span class="math inline">\(β\)</span>. By changing <span class="math inline">\(α\)</span> and <span class="math inline">\(β\)</span>, the distribution can take on a wide range of shapes, including symmetric, skewed left or right, or even U-shaped.</p>
+<p>The ratio of <span class="math inline">\(\alpha\)</span> to <span class="math inline">\(\beta\)</span> determines where the peak (the mode) lies on the x-axis.</p>
+<ul>
+<li><strong><span class="math inline">\(a &gt; b\)</span>:</strong> There are more successes than failures. The probability <span class="math inline">\(\theta\)</span> is likely high.
+<ul>
+<li><strong>Effect:</strong> The peak shifts to the <strong>right</strong> (above 0.5).</li>
+</ul></li>
+<li><strong><span class="math inline">\(b &gt; a\)</span>:</strong> There are more failures than successes. The probability <span class="math inline">\(\theta\)</span> is likely low.
+<ul>
+<li><strong>Effect:</strong> The peak shifts to the <strong>left</strong> (below 0.5).</li>
+</ul></li>
+<li><strong><span class="math inline">\(a = b\)</span>:</strong> Successes and failures balance each other out.
+<ul>
+<li><strong>Effect:</strong> The peak is exactly in the <strong>middle</strong> (at 0.5).</li>
+</ul></li>
+</ul>
+<p>The sum <span class="math inline">\(\alpha+\beta\)</span> (often called <span class="math inline">\(n\)</span> or concentration) determines how narrow or wide the curve is. This is the “weight” of your experience.</p>
+<ul>
+<li><strong><span class="math inline">\(a\)</span> and <span class="math inline">\(b\)</span> are small (e.g., 2 and 2):</strong>
+<ul>
+<li>You have hardly seen any data. Although it’s 50/50, you are uncertain.</li>
+<li><strong>Shape:</strong> A flat, wide bump. The HDI is huge.</li>
+</ul></li>
+<li><strong><span class="math inline">\(a\)</span> and <span class="math inline">\(b\)</span> are large (e.g., 100 and 100):</strong>
+<ul>
+<li>You have seen a lot of data. You are very sure that it is 50/50.</li>
+<li><strong>Shape:</strong> A tall, sharp needle. The HDI is tiny.</li>
+</ul></li>
+</ul>
 <section id="central-tendency" class="level3">
 <h3 class="anchored" data-anchor-id="central-tendency">Central Tendency</h3>
 <p>Our goal is to transform a prior belief, which is expressed in terms of tendency and uncertainty, into corresponding parameter values <span class="math inline">\(a\)</span> and <span class="math inline">\(b\)</span> in the beta distribution.</p>
@@ -1640,6 +1678,10 @@ p(\theta \mid z, N) = \text{Beta}(\theta \mid z + a, N - z + b)
 <section id="highest-density-interval-hdi" class="level2">
 <h2 class="anchored" data-anchor-id="highest-density-interval-hdi">Highest Density Interval (HDI)</h2>
 <p>To summarise a distribution, use highest density interval (HDI). It indicates which points of a distribution are most credible and which represent largest part of the distributio.</p>
+<ul>
+<li><p>Wide HDI (large distance between start and end): There are many different values that could be plausible. The probability is distributed “widely” across the x-axis. We cannot narrow down the true value very well.</p></li>
+<li><p>Narrow HDI (small distance): The probability is concentrated in a very small range. We are very certain where the true value lies.</p></li>
+</ul>
 <div class="callout callout-style-default callout-note callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
@@ -1656,6 +1698,41 @@ Note
 <blockquote class="blockquote">
 <p>Note: HDI has nothing to do with confidence interval.</p>
 </blockquote>
+</section>
+<section id="rope" class="level2">
+<h2 class="anchored" data-anchor-id="rope">ROPE</h2>
+<p>The ROPE is the “range of tolerance” that you define before the experiment. It prevents us from misinterpreting tiny, insignificant deviations as “significant” just because we have a lot of data.</p>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 33%">
+<col style="width: 33%">
+<col style="width: 33%">
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: left;">Relationship between HDI and ROPE</th>
+<th style="text-align: left;">Interpretation</th>
+<th style="text-align: left;">Decision</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;"><strong>HDI is completely inside the ROPE</strong></td>
+<td style="text-align: left;">The entire range of credible values is practically equivalent to the null value.</td>
+<td style="text-align: left;"><strong>Accept</strong> the null value (practical equivalence).</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><strong>HDI is completely outside the ROPE</strong></td>
+<td style="text-align: left;">The entire range of credible values is different from the null value.</td>
+<td style="text-align: left;"><strong>Reject</strong> the null value.</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"><strong>HDI and ROPE overlap</strong></td>
+<td style="text-align: left;">Some credible values are practically equivalent, others are not.</td>
+<td style="text-align: left;"><strong>Undecided / Inconclusive</strong> (more data needed).</td>
+</tr>
+</tbody>
+</table>
 </section>
 <section id="influence-of-prior-on-posterior-distribution" class="level2">
 <h2 class="anchored" data-anchor-id="influence-of-prior-on-posterior-distribution">Influence of prior on posterior distribution</h2>
