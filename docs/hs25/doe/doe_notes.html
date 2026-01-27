@@ -241,7 +241,7 @@ window.Quarto = {
     </ul>
   </li>
   <li class="nav-item">
-    <a class="nav-link" href="../../hs25/r_bootcamp/r_bootcamp_notes.pdf"> 
+    <a class="nav-link" href="../../hs25/r_bootcamp/r_bootcamp_notes.html"> 
 <span class="menu-text">R-Bootcamp</span></a>
   </li>  
   <li class="nav-item dropdown ">
@@ -979,7 +979,7 @@ Important
 <p>Power analysis is the crucial step in research design that connects your expected effect size with your desired power (80%) and significance (5%) to determine the minimum sample size you need to run a valid study.</p>
 <section id="determining-the-sample-size-with-r" class="level3">
 <h3 class="anchored" data-anchor-id="determining-the-sample-size-with-r">Determining the sample size with R</h3>
-<div class="sourceCode" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="co"># install.packages("pwr")</span></span>
+<div class="sourceCode" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="fu">install.packages</span>(<span class="st">"pwr"</span>)</span>
 <span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(pwr)</span>
 <span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a><span class="fu">pwr.t.test</span>(<span class="at">d =</span> <span class="fl">0.5</span>, <span class="at">power =</span> <span class="fl">0.80</span>, <span class="at">sig.level =</span> <span class="fl">0.05</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </section>
