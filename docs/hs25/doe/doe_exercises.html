@@ -241,6 +241,10 @@ window.Quarto = {
   </li>  
     </ul>
   </li>
+  <li class="nav-item">
+    <a class="nav-link" href="../../hs25/r_bootcamp/r_bootcamp_notes.pdf"> 
+<span class="menu-text">R-Bootcamp</span></a>
+  </li>  
   <li class="nav-item dropdown ">
     <a class="nav-link dropdown-toggle" href="#" id="nav-menu-how-to" role="link" data-bs-toggle="dropdown" aria-expanded="false">
  <span class="menu-text">How to</span>
@@ -702,8 +706,7 @@ window.Quarto = {
 <p>The task is the same as Task 01. Use R to determine the sample size. Describe the results – insert also the R-code, the R-output and if necessary, R-plots</p>
 <section id="answer-14" class="level3">
 <h3 class="anchored" data-anchor-id="answer-14">Answer</h3>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(pwr)</span>
+<div class="sourceCode" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(pwr)</span>
 <span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>alpha <span class="ot">&lt;-</span> <span class="fl">0.05</span></span>
 <span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a>beta <span class="ot">&lt;-</span> <span class="fl">0.2</span></span>
@@ -712,21 +715,8 @@ window.Quarto = {
 <span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a>sigma <span class="ot">&lt;-</span> <span class="fl">1.5</span></span>
 <span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a>d <span class="ot">&lt;-</span> mean<span class="sc">/</span>sigma</span>
 <span id="cb2-9"><a href="#cb2-9" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-10"><a href="#cb2-10" aria-hidden="true" tabindex="-1"></a><span class="fu">pwr.t.test</span>(<span class="at">d =</span> d, <span class="at">power =</span> power, <span class="at">sig.level =</span> alpha)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>
-     Two-sample t test power calculation 
-
-              n = 36.30569
-              d = 0.6666667
-      sig.level = 0.05
-          power = 0.8
-    alternative = two.sided
-
-NOTE: n is number in *each* group</code></pre>
-</div>
-<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="co"># n = 36.3 -&gt; 72.6</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
+<span id="cb2-10"><a href="#cb2-10" aria-hidden="true" tabindex="-1"></a><span class="fu">pwr.t.test</span>(<span class="at">d =</span> d, <span class="at">power =</span> power, <span class="at">sig.level =</span> alpha)</span>
+<span id="cb2-11"><a href="#cb2-11" aria-hidden="true" tabindex="-1"></a><span class="co"># n = 36.3 -&gt; 72.6</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </section>
 </section>
 <section id="task-03-1" class="level2">
@@ -742,29 +732,15 @@ NOTE: n is number in *each* group</code></pre>
 <p>to obtain a significant analysis of variance? The f-value for the effect size can be found in Cohen (1992) in Table 1 – see below. Describe the results – insert also the R-code, the R-output and if necessary, R-plots.</p>
 <section id="answer-15" class="level3">
 <h3 class="anchored" data-anchor-id="answer-15">Answer</h3>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(pwr)</span>
-<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>alpha <span class="ot">&lt;-</span> <span class="fl">0.05</span></span>
-<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a>beta <span class="ot">&lt;-</span> <span class="fl">0.2</span></span>
-<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a>power <span class="ot">&lt;-</span> <span class="dv">1</span> <span class="sc">-</span> beta</span>
-<span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a>d <span class="ot">&lt;-</span> <span class="fl">0.5</span> <span class="co"># From table</span></span>
-<span id="cb5-7"><a href="#cb5-7" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb5-8"><a href="#cb5-8" aria-hidden="true" tabindex="-1"></a><span class="fu">pwr.anova.test</span>(<span class="at">f =</span> <span class="fl">0.25</span>, <span class="at">k =</span> <span class="dv">2</span>, <span class="at">power =</span> power, <span class="at">sig.level =</span> alpha)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>
-     Balanced one-way analysis of variance power calculation 
-
-              k = 2
-              n = 63.76561
-              f = 0.25
-      sig.level = 0.05
-          power = 0.8
-
-NOTE: n is number in each group</code></pre>
-</div>
-<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="co"># n = 63.8 -&gt; 127.6</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
+<div class="sourceCode" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(pwr)</span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>alpha <span class="ot">&lt;-</span> <span class="fl">0.05</span></span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a>beta <span class="ot">&lt;-</span> <span class="fl">0.2</span></span>
+<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a>power <span class="ot">&lt;-</span> <span class="dv">1</span> <span class="sc">-</span> beta</span>
+<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a>d <span class="ot">&lt;-</span> <span class="fl">0.5</span> <span class="co"># From table</span></span>
+<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-8"><a href="#cb3-8" aria-hidden="true" tabindex="-1"></a><span class="fu">pwr.anova.test</span>(<span class="at">f =</span> <span class="fl">0.25</span>, <span class="at">k =</span> <span class="dv">2</span>, <span class="at">power =</span> power, <span class="at">sig.level =</span> alpha)</span>
+<span id="cb3-9"><a href="#cb3-9" aria-hidden="true" tabindex="-1"></a><span class="co"># n = 63.8 -&gt; 127.6</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </section>
 </section>
 </section>
@@ -798,10 +774,10 @@ NOTE: n is number in each group</code></pre>
 <section id="answer-17" class="level2">
 <h2 class="anchored" data-anchor-id="answer-17">Answer</h2>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="co"># install.packages("readxl")</span></span>
-<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(readxl)</span>
-<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a>data <span class="ot">&lt;-</span> <span class="fu">read_excel</span>(<span class="at">path=</span><span class="st">"/home/nils/dev/mscids-notes/hs25/doe/data/clickrate.xlsx"</span>)</span>
-<span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a><span class="fu">oneway.test</span>(DV <span class="sc">~</span> <span class="fu">factor</span>(IV1), <span class="at">var.equal=</span><span class="cn">TRUE</span>, <span class="at">data=</span>data)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="co"># install.packages("readxl")</span></span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(readxl)</span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>data <span class="ot">&lt;-</span> <span class="fu">read_excel</span>(<span class="at">path=</span><span class="st">"/home/nils/dev/mscids-notes/hs25/doe/data/clickrate.xlsx"</span>)</span>
+<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a><span class="fu">oneway.test</span>(DV <span class="sc">~</span> <span class="fu">factor</span>(IV1), <span class="at">var.equal=</span><span class="cn">TRUE</span>, <span class="at">data=</span>data)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>
     One-way analysis of means
@@ -809,8 +785,8 @@ NOTE: n is number in each group</code></pre>
 data:  DV and factor(IV1)
 F = 77.928, num df = 2, denom df = 2301, p-value &lt; 2.2e-16</code></pre>
 </div>
-<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a>fit <span class="ot">&lt;-</span> <span class="fu">aov</span>(DV <span class="sc">~</span> <span class="fu">factor</span>(IV1), <span class="at">data=</span>data)</span>
-<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(fit, <span class="at">intercept=</span><span class="cn">TRUE</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>fit <span class="ot">&lt;-</span> <span class="fu">aov</span>(DV <span class="sc">~</span> <span class="fu">factor</span>(IV1), <span class="at">data=</span>data)</span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(fit, <span class="at">intercept=</span><span class="cn">TRUE</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>              Df  Sum Sq Mean Sq  F value Pr(&gt;F)    
 (Intercept)    1 3509768 3509768 41265.38 &lt;2e-16 ***
@@ -846,30 +822,22 @@ Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1</code></pre>
 <h3 class="anchored" data-anchor-id="answer-19">Answer</h3>
 <section id="latin-square" class="level4">
 <h4 class="anchored" data-anchor-id="latin-square">Latin Square</h4>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="co"># install.packages("agricolae")</span></span>
-<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(agricolae)</span>
-<span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a>my_design_lsd <span class="ot">&lt;-</span> <span class="fu">design.lsd</span>(<span class="at">trt =</span> <span class="fu">c</span>(<span class="st">"c1"</span>,<span class="st">"c2"</span>,<span class="st">"c3"</span>))</span>
-<span id="cb12-4"><a href="#cb12-4" aria-hidden="true" tabindex="-1"></a>my_design_lsd<span class="sc">$</span>sketch</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>     [,1] [,2] [,3]
-[1,] "c1" "c3" "c2"
-[2,] "c3" "c2" "c1"
-[3,] "c2" "c1" "c3"</code></pre>
-</div>
-</div>
+<div class="sourceCode" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="co"># install.packages("agricolae")</span></span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(agricolae)</span>
+<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a>my_design_lsd <span class="ot">&lt;-</span> <span class="fu">design.lsd</span>(<span class="at">trt =</span> <span class="fu">c</span>(<span class="st">"c1"</span>,<span class="st">"c2"</span>,<span class="st">"c3"</span>))</span>
+<span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a>my_design_lsd<span class="sc">$</span>sketch</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>The column names of the Latin square ([,1] [,2] [,3]) correspond to the levels of factor A. The row names of the Latin square ([1,] [2,] [3,]) correspond to the levels of factor B. The content in the cells of the Latin square (“c1”, “c2”, “c3”) correspond to the levels of factor C We can reduce the combination of experiments from 27 (Full Factorial) to 9 (Fractional Factorial).</p>
 </section>
 <section id="anova" class="level4">
 <h4 class="anchored" data-anchor-id="anova">ANOVA</h4>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb14"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(readxl)</span>
-<span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb14-3"><a href="#cb14-3" aria-hidden="true" tabindex="-1"></a>dwelltime_Latin <span class="ot">&lt;-</span> <span class="fu">read_excel</span>(<span class="st">"/home/nils/dev/mscids-notes/hs25/doe/data/dwelltime_latin.xlsx"</span>)</span>
-<span id="cb14-4"><a href="#cb14-4" aria-hidden="true" tabindex="-1"></a><span class="fu">View</span>(dwelltime_Latin)</span>
-<span id="cb14-5"><a href="#cb14-5" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb14-6"><a href="#cb14-6" aria-hidden="true" tabindex="-1"></a>fit <span class="ot">&lt;-</span> <span class="fu">aov</span>(DV <span class="sc">~</span> <span class="fu">factor</span>(A) <span class="sc">+</span> <span class="fu">factor</span>(B) <span class="sc">+</span> <span class="fu">factor</span>(C), <span class="at">data =</span> dwelltime_Latin)</span>
-<span id="cb14-7"><a href="#cb14-7" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(fit)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(readxl)</span>
+<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a>dwelltime_Latin <span class="ot">&lt;-</span> <span class="fu">read_excel</span>(<span class="st">"/home/nils/dev/mscids-notes/hs25/doe/data/dwelltime_latin.xlsx"</span>)</span>
+<span id="cb9-4"><a href="#cb9-4" aria-hidden="true" tabindex="-1"></a><span class="fu">View</span>(dwelltime_Latin)</span>
+<span id="cb9-5"><a href="#cb9-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-6"><a href="#cb9-6" aria-hidden="true" tabindex="-1"></a>fit <span class="ot">&lt;-</span> <span class="fu">aov</span>(DV <span class="sc">~</span> <span class="fu">factor</span>(A) <span class="sc">+</span> <span class="fu">factor</span>(B) <span class="sc">+</span> <span class="fu">factor</span>(C), <span class="at">data =</span> dwelltime_Latin)</span>
+<span id="cb9-7"><a href="#cb9-7" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(fit)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>               Df Sum Sq Mean Sq F value Pr(&gt;F)    
 factor(A)       2  76057   38028 465.761 &lt;2e-16 ***

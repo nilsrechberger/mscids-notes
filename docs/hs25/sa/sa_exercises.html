@@ -240,6 +240,10 @@ window.Quarto = {
   </li>  
     </ul>
   </li>
+  <li class="nav-item">
+    <a class="nav-link" href="../../hs25/r_bootcamp/r_bootcamp_notes.pdf"> 
+<span class="menu-text">R-Bootcamp</span></a>
+  </li>  
   <li class="nav-item dropdown ">
     <a class="nav-link dropdown-toggle" href="#" id="nav-menu-how-to" role="link" data-bs-toggle="dropdown" aria-expanded="false">
  <span class="menu-text">How to</span>
@@ -2048,14 +2052,18 @@ Coefficients:
 <section id="problem-7.3" class="level3">
 <h3 class="anchored" data-anchor-id="problem-7.3">Problem 7.3</h3>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb158"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb158-1"><a href="#cb158-1" aria-hidden="true" tabindex="-1"></a><span class="co"># install.packages("ISLR")</span></span>
-<span id="cb158-2"><a href="#cb158-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ISLR)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb158"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb158-1"><a href="#cb158-1" aria-hidden="true" tabindex="-1"></a><span class="fu">install.packages</span>(<span class="st">"ISLR"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Installing package into '/home/nils/R/x86_64-pc-linux-gnu-library/4.5'
+(as 'lib' is unspecified)</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb160"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb160-1"><a href="#cb160-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ISLR)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
 <section id="a-25" class="level3">
 <h3 class="anchored" data-anchor-id="a-25">a</h3>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb159"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb159-1"><a href="#cb159-1" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(Auto)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb161"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb161-1"><a href="#cb161-1" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(Auto)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>  mpg cylinders displacement horsepower weight acceleration year origin
 1  18         8          307        130   3504         12.0   70      1
@@ -2077,7 +2085,7 @@ Coefficients:
 <section id="bc" class="level3">
 <h3 class="anchored" data-anchor-id="bc">b/c</h3>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb161"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb161-1"><a href="#cb161-1" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(Auto<span class="sc">$</span>horsepower, Auto<span class="sc">$</span>mpg)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb163"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb163-1"><a href="#cb163-1" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(Auto<span class="sc">$</span>horsepower, Auto<span class="sc">$</span>mpg)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <div>
 <figure class="figure">
@@ -2085,8 +2093,8 @@ Coefficients:
 </figure>
 </div>
 </div>
-<div class="sourceCode cell-code" id="cb162"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb162-1"><a href="#cb162-1" aria-hidden="true" tabindex="-1"></a>model <span class="ot">&lt;-</span> <span class="fu">lm</span>(mpg <span class="sc">~</span> horsepower, <span class="at">data=</span>Auto)</span>
-<span id="cb162-2"><a href="#cb162-2" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(model)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb164"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb164-1"><a href="#cb164-1" aria-hidden="true" tabindex="-1"></a>model <span class="ot">&lt;-</span> <span class="fu">lm</span>(mpg <span class="sc">~</span> horsepower, <span class="at">data=</span>Auto)</span>
+<span id="cb164-2"><a href="#cb164-2" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(model)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>
 Call:
@@ -2119,7 +2127,7 @@ F-statistic: 599.7 on 1 and 390 DF,  p-value: &lt; 2.2e-16</code></pre>
 <section id="iii-3" class="level4">
 <h4 class="anchored" data-anchor-id="iii-3">III</h4>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb164"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb164-1"><a href="#cb164-1" aria-hidden="true" tabindex="-1"></a><span class="fu">confint</span>(model)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb166"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb166-1"><a href="#cb166-1" aria-hidden="true" tabindex="-1"></a><span class="fu">confint</span>(model)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>                2.5 %     97.5 %
 (Intercept) 38.525212 41.3465103
@@ -2131,7 +2139,7 @@ horsepower  -0.170517 -0.1451725</code></pre>
 <section id="iv-2" class="level4">
 <h4 class="anchored" data-anchor-id="iv-2">IV</h4>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb166"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb166-1"><a href="#cb166-1" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(model)<span class="sc">$</span>r.squared</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb168"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb168-1"><a href="#cb168-1" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(model)<span class="sc">$</span>r.squared</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] 0.6059483</code></pre>
 </div>
@@ -2142,9 +2150,9 @@ horsepower  -0.170517 -0.1451725</code></pre>
 <section id="d-17" class="level3">
 <h3 class="anchored" data-anchor-id="d-17">d</h3>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb168"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb168-1"><a href="#cb168-1" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(Auto<span class="sc">$</span>horsepower, Auto<span class="sc">$</span>mpg)</span>
-<span id="cb168-2"><a href="#cb168-2" aria-hidden="true" tabindex="-1"></a>model <span class="ot">&lt;-</span> <span class="fu">lm</span>(mpg <span class="sc">~</span> horsepower, <span class="at">data=</span>Auto)</span>
-<span id="cb168-3"><a href="#cb168-3" aria-hidden="true" tabindex="-1"></a><span class="fu">abline</span>(model, <span class="at">col=</span><span class="st">"red"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb170"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb170-1"><a href="#cb170-1" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(Auto<span class="sc">$</span>horsepower, Auto<span class="sc">$</span>mpg)</span>
+<span id="cb170-2"><a href="#cb170-2" aria-hidden="true" tabindex="-1"></a>model <span class="ot">&lt;-</span> <span class="fu">lm</span>(mpg <span class="sc">~</span> horsepower, <span class="at">data=</span>Auto)</span>
+<span id="cb170-3"><a href="#cb170-3" aria-hidden="true" tabindex="-1"></a><span class="fu">abline</span>(model, <span class="at">col=</span><span class="st">"red"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <div>
 <figure class="figure">
@@ -2160,14 +2168,14 @@ horsepower  -0.170517 -0.1451725</code></pre>
 <section id="a-26" class="level3">
 <h3 class="anchored" data-anchor-id="a-26">a</h3>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb169"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb169-1"><a href="#cb169-1" aria-hidden="true" tabindex="-1"></a><span class="co"># ?MASS::Boston</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb171"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb171-1"><a href="#cb171-1" aria-hidden="true" tabindex="-1"></a><span class="co"># ?MASS::Boston</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
 <section id="b-25" class="level3">
 <h3 class="anchored" data-anchor-id="b-25">b</h3>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb170"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb170-1"><a href="#cb170-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(MASS)</span>
-<span id="cb170-2"><a href="#cb170-2" aria-hidden="true" tabindex="-1"></a><span class="fu">colnames</span>(Boston)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb172"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb172-1"><a href="#cb172-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(MASS)</span>
+<span id="cb172-2"><a href="#cb172-2" aria-hidden="true" tabindex="-1"></a><span class="fu">colnames</span>(Boston)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code> [1] "crim"    "zn"      "indus"   "chas"    "nox"     "rm"      "age"    
  [8] "dis"     "rad"     "tax"     "ptratio" "black"   "lstat"   "medv"   </code></pre>
@@ -2177,7 +2185,7 @@ horsepower  -0.170517 -0.1451725</code></pre>
 <section id="c-20" class="level3">
 <h3 class="anchored" data-anchor-id="c-20">c</h3>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb172"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb172-1"><a href="#cb172-1" aria-hidden="true" tabindex="-1"></a><span class="fu">attach</span>(Boston)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb174"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb174-1"><a href="#cb174-1" aria-hidden="true" tabindex="-1"></a><span class="fu">attach</span>(Boston)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
 <section id="d-18" class="level3">
@@ -2185,8 +2193,8 @@ horsepower  -0.170517 -0.1451725</code></pre>
 <section id="iii-4" class="level4">
 <h4 class="anchored" data-anchor-id="iii-4">I/II</h4>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb173"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb173-1"><a href="#cb173-1" aria-hidden="true" tabindex="-1"></a>model <span class="ot">&lt;-</span> <span class="fu">lm</span>(medv <span class="sc">~</span> lstat, <span class="at">data=</span>Boston)</span>
-<span id="cb173-2"><a href="#cb173-2" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(model)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb175"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb175-1"><a href="#cb175-1" aria-hidden="true" tabindex="-1"></a>model <span class="ot">&lt;-</span> <span class="fu">lm</span>(medv <span class="sc">~</span> lstat, <span class="at">data=</span>Boston)</span>
+<span id="cb175-2"><a href="#cb175-2" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(model)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>
 Call:
@@ -2213,7 +2221,7 @@ F-statistic: 601.6 on 1 and 504 DF,  p-value: &lt; 2.2e-16</code></pre>
 <section id="e-10" class="level3">
 <h3 class="anchored" data-anchor-id="e-10">e</h3>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb175"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb175-1"><a href="#cb175-1" aria-hidden="true" tabindex="-1"></a><span class="fu">names</span>(model)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb177"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb177-1"><a href="#cb177-1" aria-hidden="true" tabindex="-1"></a><span class="fu">names</span>(model)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code> [1] "coefficients"  "residuals"     "effects"       "rank"         
  [5] "fitted.values" "assign"        "qr"            "df.residual"  
@@ -2224,7 +2232,7 @@ F-statistic: 601.6 on 1 and 504 DF,  p-value: &lt; 2.2e-16</code></pre>
 <section id="f-5" class="level3">
 <h3 class="anchored" data-anchor-id="f-5">f</h3>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb177"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb177-1"><a href="#cb177-1" aria-hidden="true" tabindex="-1"></a><span class="fu">coef</span>(model)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb179"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb179-1"><a href="#cb179-1" aria-hidden="true" tabindex="-1"></a><span class="fu">coef</span>(model)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>(Intercept)       lstat 
  34.5538409  -0.9500494 </code></pre>
@@ -2235,7 +2243,7 @@ F-statistic: 601.6 on 1 and 504 DF,  p-value: &lt; 2.2e-16</code></pre>
 <section id="g-1" class="level3">
 <h3 class="anchored" data-anchor-id="g-1">g</h3>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb179"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb179-1"><a href="#cb179-1" aria-hidden="true" tabindex="-1"></a><span class="fu">confint</span>(model)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb181"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb181-1"><a href="#cb181-1" aria-hidden="true" tabindex="-1"></a><span class="fu">confint</span>(model)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>                2.5 %     97.5 %
 (Intercept) 33.448457 35.6592247
@@ -2247,9 +2255,9 @@ lstat       -1.026148 -0.8739505</code></pre>
 <section id="h-1" class="level3">
 <h3 class="anchored" data-anchor-id="h-1">h</h3>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb181"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb181-1"><a href="#cb181-1" aria-hidden="true" tabindex="-1"></a><span class="fu">par</span>(<span class="at">mfrow=</span><span class="fu">c</span>(<span class="dv">1</span>,<span class="dv">1</span>))</span>
-<span id="cb181-2"><a href="#cb181-2" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(Boston<span class="sc">$</span>medv, Boston<span class="sc">$</span>lstat)</span>
-<span id="cb181-3"><a href="#cb181-3" aria-hidden="true" tabindex="-1"></a><span class="fu">abline</span>(model, <span class="at">col=</span><span class="st">"red"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb183"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb183-1"><a href="#cb183-1" aria-hidden="true" tabindex="-1"></a><span class="fu">par</span>(<span class="at">mfrow=</span><span class="fu">c</span>(<span class="dv">1</span>,<span class="dv">1</span>))</span>
+<span id="cb183-2"><a href="#cb183-2" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(Boston<span class="sc">$</span>medv, Boston<span class="sc">$</span>lstat)</span>
+<span id="cb183-3"><a href="#cb183-3" aria-hidden="true" tabindex="-1"></a><span class="fu">abline</span>(model, <span class="at">col=</span><span class="st">"red"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <div>
 <figure class="figure">
@@ -2262,7 +2270,7 @@ lstat       -1.026148 -0.8739505</code></pre>
 <section id="i-4" class="level3">
 <h3 class="anchored" data-anchor-id="i-4">i</h3>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb182"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb182-1"><a href="#cb182-1" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(model)<span class="sc">$</span>r.squared</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb184"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb184-1"><a href="#cb184-1" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(model)<span class="sc">$</span>r.squared</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] 0.5441463</code></pre>
 </div>
@@ -2276,10 +2284,10 @@ lstat       -1.026148 -0.8739505</code></pre>
 <section id="problem-8.1" class="level2">
 <h2 class="anchored" data-anchor-id="problem-8.1">Problem 8.1</h2>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb184"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb184-1"><a href="#cb184-1" aria-hidden="true" tabindex="-1"></a>Auto <span class="ot">&lt;-</span> <span class="fu">read.csv</span>(<span class="st">"/home/nils/dev/mscids-notes/hs25/sa/data/auto.csv"</span>)</span>
-<span id="cb184-2"><a href="#cb184-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb184-3"><a href="#cb184-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Read data</span></span>
-<span id="cb184-4"><a href="#cb184-4" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(Auto)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb186"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb186-1"><a href="#cb186-1" aria-hidden="true" tabindex="-1"></a>Auto <span class="ot">&lt;-</span> <span class="fu">read.csv</span>(<span class="st">"/home/nils/dev/mscids-notes/hs25/sa/data/auto.csv"</span>)</span>
+<span id="cb186-2"><a href="#cb186-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb186-3"><a href="#cb186-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Read data</span></span>
+<span id="cb186-4"><a href="#cb186-4" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(Auto)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>  X mpg cylinders displacement horsepower weight acceleration year origin
 1 1  18         8          307        130   3504         12.0   70      1
@@ -2296,9 +2304,9 @@ lstat       -1.026148 -0.8739505</code></pre>
 5               ford torino
 6          ford galaxie 500</code></pre>
 </div>
-<div class="sourceCode cell-code" id="cb186"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb186-1"><a href="#cb186-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Remove var "name"</span></span>
-<span id="cb186-2"><a href="#cb186-2" aria-hidden="true" tabindex="-1"></a>Auto_1 <span class="ot">&lt;-</span> <span class="fu">within</span>(Auto, <span class="fu">rm</span>(name))</span>
-<span id="cb186-3"><a href="#cb186-3" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(Auto_1)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb188"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb188-1"><a href="#cb188-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Remove var "name"</span></span>
+<span id="cb188-2"><a href="#cb188-2" aria-hidden="true" tabindex="-1"></a>Auto_1 <span class="ot">&lt;-</span> <span class="fu">within</span>(Auto, <span class="fu">rm</span>(name))</span>
+<span id="cb188-3"><a href="#cb188-3" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(Auto_1)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>  X mpg cylinders displacement horsepower weight acceleration year origin
 1 1  18         8          307        130   3504         12.0   70      1
@@ -2312,7 +2320,7 @@ lstat       -1.026148 -0.8739505</code></pre>
 <section id="a-27" class="level3">
 <h3 class="anchored" data-anchor-id="a-27">a</h3>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb188"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb188-1"><a href="#cb188-1" aria-hidden="true" tabindex="-1"></a><span class="fu">pairs</span>(Auto_1)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb190"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb190-1"><a href="#cb190-1" aria-hidden="true" tabindex="-1"></a><span class="fu">pairs</span>(Auto_1)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <div>
 <figure class="figure">
@@ -2325,7 +2333,7 @@ lstat       -1.026148 -0.8739505</code></pre>
 <section id="b-26" class="level3">
 <h3 class="anchored" data-anchor-id="b-26">b</h3>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb189"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb189-1"><a href="#cb189-1" aria-hidden="true" tabindex="-1"></a><span class="fu">cor</span>(Auto_1)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb191"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb191-1"><a href="#cb191-1" aria-hidden="true" tabindex="-1"></a><span class="fu">cor</span>(Auto_1)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>                      X        mpg  cylinders displacement horsepower
 X             1.0000000  0.5863298 -0.3602752   -0.3871458 -0.4229250
@@ -2354,8 +2362,8 @@ origin       -0.5850054    0.2127458  0.1815277  1.0000000</code></pre>
 <section id="c-21" class="level3">
 <h3 class="anchored" data-anchor-id="c-21">c</h3>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb191"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb191-1"><a href="#cb191-1" aria-hidden="true" tabindex="-1"></a>model <span class="ot">&lt;-</span> <span class="fu">lm</span>(mpg <span class="sc">~</span> ., <span class="at">data=</span>Auto_1)</span>
-<span id="cb191-2"><a href="#cb191-2" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(model)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb193"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb193-1"><a href="#cb193-1" aria-hidden="true" tabindex="-1"></a>model <span class="ot">&lt;-</span> <span class="fu">lm</span>(mpg <span class="sc">~</span> ., <span class="at">data=</span>Auto_1)</span>
+<span id="cb193-2"><a href="#cb193-2" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(model)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>
 Call:
@@ -2400,8 +2408,8 @@ F-statistic: 221.7 on 8 and 383 DF,  p-value: &lt; 2.2e-16</code></pre>
 <section id="d-19" class="level3">
 <h3 class="anchored" data-anchor-id="d-19">d</h3>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb193"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb193-1"><a href="#cb193-1" aria-hidden="true" tabindex="-1"></a>model <span class="ot">&lt;-</span> <span class="fu">lm</span>(mpg <span class="sc">~</span> weight <span class="sc">*</span> year, <span class="at">data=</span>Auto_1)</span>
-<span id="cb193-2"><a href="#cb193-2" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(model)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb195"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb195-1"><a href="#cb195-1" aria-hidden="true" tabindex="-1"></a>model <span class="ot">&lt;-</span> <span class="fu">lm</span>(mpg <span class="sc">~</span> weight <span class="sc">*</span> year, <span class="at">data=</span>Auto_1)</span>
+<span id="cb195-2"><a href="#cb195-2" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(model)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>
 Call:
@@ -2430,8 +2438,8 @@ F-statistic: 649.3 on 3 and 388 DF,  p-value: &lt; 2.2e-16</code></pre>
 <section id="problem-8.2" class="level2">
 <h2 class="anchored" data-anchor-id="problem-8.2">Problem 8.2</h2>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb195"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb195-1"><a href="#cb195-1" aria-hidden="true" tabindex="-1"></a>boston <span class="ot">&lt;-</span> <span class="fu">read.csv</span>(<span class="st">"/home/nils/dev/mscids-notes/hs25/sa/data/boston.csv"</span>)</span>
-<span id="cb195-2"><a href="#cb195-2" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(boston)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb197"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb197-1"><a href="#cb197-1" aria-hidden="true" tabindex="-1"></a>boston <span class="ot">&lt;-</span> <span class="fu">read.csv</span>(<span class="st">"/home/nils/dev/mscids-notes/hs25/sa/data/boston.csv"</span>)</span>
+<span id="cb197-2"><a href="#cb197-2" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(boston)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>  X    crim zn indus chas   nox    rm  age    dis rad tax ptratio  black lstat
 1 1 0.00632 18  2.31    0 0.538 6.575 65.2 4.0900   1 296    15.3 396.90  4.98
@@ -2452,7 +2460,7 @@ F-statistic: 649.3 on 3 and 388 DF,  p-value: &lt; 2.2e-16</code></pre>
 <section id="a-28" class="level3">
 <h3 class="anchored" data-anchor-id="a-28">a</h3>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb197"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb197-1"><a href="#cb197-1" aria-hidden="true" tabindex="-1"></a><span class="fu">pairs</span>(boston)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb199"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb199-1"><a href="#cb199-1" aria-hidden="true" tabindex="-1"></a><span class="fu">pairs</span>(boston)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <div>
 <figure class="figure">
@@ -2460,8 +2468,8 @@ F-statistic: 649.3 on 3 and 388 DF,  p-value: &lt; 2.2e-16</code></pre>
 </figure>
 </div>
 </div>
-<div class="sourceCode cell-code" id="cb198"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb198-1"><a href="#cb198-1" aria-hidden="true" tabindex="-1"></a>model <span class="ot">&lt;-</span> <span class="fu">lm</span>(medv <span class="sc">~</span> lstat <span class="sc">+</span> age, <span class="at">data=</span>boston)</span>
-<span id="cb198-2"><a href="#cb198-2" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(model)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb200"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb200-1"><a href="#cb200-1" aria-hidden="true" tabindex="-1"></a>model <span class="ot">&lt;-</span> <span class="fu">lm</span>(medv <span class="sc">~</span> lstat <span class="sc">+</span> age, <span class="at">data=</span>boston)</span>
+<span id="cb200-2"><a href="#cb200-2" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(model)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>
 Call:
@@ -2496,8 +2504,8 @@ F-statistic:   309 on 2 and 503 DF,  p-value: &lt; 2.2e-16</code></pre>
 <section id="b-27" class="level3">
 <h3 class="anchored" data-anchor-id="b-27">b</h3>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb200"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb200-1"><a href="#cb200-1" aria-hidden="true" tabindex="-1"></a>model <span class="ot">&lt;-</span> <span class="fu">lm</span>(medv <span class="sc">~</span> ., <span class="at">data=</span>boston)</span>
-<span id="cb200-2"><a href="#cb200-2" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(model)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb202"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb202-1"><a href="#cb202-1" aria-hidden="true" tabindex="-1"></a>model <span class="ot">&lt;-</span> <span class="fu">lm</span>(medv <span class="sc">~</span> ., <span class="at">data=</span>boston)</span>
+<span id="cb202-2"><a href="#cb202-2" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(model)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>
 Call:
@@ -2541,8 +2549,8 @@ F-statistic: 100.6 on 14 and 491 DF,  p-value: &lt; 2.2e-16</code></pre>
 <section id="d-20" class="level3">
 <h3 class="anchored" data-anchor-id="d-20">d</h3>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb202"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb202-1"><a href="#cb202-1" aria-hidden="true" tabindex="-1"></a>model <span class="ot">&lt;-</span> <span class="fu">lm</span>(medv <span class="sc">~</span> lstat <span class="sc">*</span> age, <span class="at">data=</span>boston)</span>
-<span id="cb202-2"><a href="#cb202-2" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(model)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb204"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb204-1"><a href="#cb204-1" aria-hidden="true" tabindex="-1"></a>model <span class="ot">&lt;-</span> <span class="fu">lm</span>(medv <span class="sc">~</span> lstat <span class="sc">*</span> age, <span class="at">data=</span>boston)</span>
+<span id="cb204-2"><a href="#cb204-2" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(model)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>
 Call:
@@ -2582,8 +2590,8 @@ F-statistic: 209.3 on 3 and 502 DF,  p-value: &lt; 2.2e-16</code></pre>
 <section id="a-29" class="level3">
 <h3 class="anchored" data-anchor-id="a-29">a</h3>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb204"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb204-1"><a href="#cb204-1" aria-hidden="true" tabindex="-1"></a>cs <span class="ot">&lt;-</span> <span class="fu">read.csv</span>(<span class="st">"/home/nils/dev/mscids-notes/hs25/sa/data/carseats.csv"</span>)</span>
-<span id="cb204-2"><a href="#cb204-2" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(cs)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb206"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb206-1"><a href="#cb206-1" aria-hidden="true" tabindex="-1"></a>cs <span class="ot">&lt;-</span> <span class="fu">read.csv</span>(<span class="st">"/home/nils/dev/mscids-notes/hs25/sa/data/carseats.csv"</span>)</span>
+<span id="cb206-2"><a href="#cb206-2" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(cs)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>  X Sales CompPrice Income Advertising Population Price ShelveLoc Age Education
 1 1  9.50       138     73          11        276   120       Bad  42        17
@@ -2605,8 +2613,8 @@ F-statistic: 209.3 on 3 and 502 DF,  p-value: &lt; 2.2e-16</code></pre>
 <section id="b-28" class="level3">
 <h3 class="anchored" data-anchor-id="b-28">b</h3>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb206"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb206-1"><a href="#cb206-1" aria-hidden="true" tabindex="-1"></a>model <span class="ot">&lt;-</span> <span class="fu">lm</span>(Sales <span class="sc">~</span> Price <span class="sc">+</span> Urban <span class="sc">+</span> US, <span class="at">data=</span>cs)</span>
-<span id="cb206-2"><a href="#cb206-2" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(model)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb208"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb208-1"><a href="#cb208-1" aria-hidden="true" tabindex="-1"></a>model <span class="ot">&lt;-</span> <span class="fu">lm</span>(Sales <span class="sc">~</span> Price <span class="sc">+</span> Urban <span class="sc">+</span> US, <span class="at">data=</span>cs)</span>
+<span id="cb208-2"><a href="#cb208-2" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(model)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>
 Call:
@@ -2656,8 +2664,8 @@ F-statistic: 41.52 on 3 and 396 DF,  p-value: &lt; 2.2e-16</code></pre>
 <section id="f-6" class="level3">
 <h3 class="anchored" data-anchor-id="f-6">f</h3>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb208"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb208-1"><a href="#cb208-1" aria-hidden="true" tabindex="-1"></a>model <span class="ot">&lt;-</span> <span class="fu">lm</span>(Sales <span class="sc">~</span> Price <span class="sc">+</span> Urban, <span class="at">data=</span>cs)</span>
-<span id="cb208-2"><a href="#cb208-2" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(model)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb210"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb210-1"><a href="#cb210-1" aria-hidden="true" tabindex="-1"></a>model <span class="ot">&lt;-</span> <span class="fu">lm</span>(Sales <span class="sc">~</span> Price <span class="sc">+</span> Urban, <span class="at">data=</span>cs)</span>
+<span id="cb210-2"><a href="#cb210-2" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(model)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>
 Call:
