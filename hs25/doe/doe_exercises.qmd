@@ -413,8 +413,8 @@ Use key words to interpret the Latin square and the ANOVA.
 
 #### Latin Square
 
-```{r}
-# install.packages("agricolae")
+```r
+install.packages("agricolae")
 library(agricolae)
 my_design_lsd <- design.lsd(trt = c("c1","c2","c3"))
 my_design_lsd$sketch

@@ -413,7 +413,7 @@ Power analysis is the crucial step in research design that connects your expecte
 ### Determining the sample size with R
 
 ```r
-# install.packages("pwr")
+install.packages("pwr")
 library(pwr)
 pwr.t.test(d = 0.5, power = 0.80, sig.level = 0.05)
 ```

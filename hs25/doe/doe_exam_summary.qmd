@@ -723,7 +723,7 @@ $$
 
 ## 6.2 - Sample Size in R
 
-```{r}
+```r
 library(pwr)
 alpha <- 0.05
 beta <- 0.2
@@ -737,7 +737,7 @@ pwr.t.test(d = d, power = power, sig.level = alpha)
 
 ## 6.3 - Sample Size ANOVA
 
-```{r}
+```r
 library(pwr)
 alpha <- 0.05
 beta <- 0.2
@@ -760,8 +760,8 @@ summary(fit, intercept=TRUE)
 
 ## 9.2 - Latin Square
 
-```{r}
-# install.packages("agricolae")
+```r
+install.packages("agricolae")
 library(agricolae)
 my_design_lsd <- design.lsd(trt = c("c1","c2","c3"))
 my_design_lsd$sketch

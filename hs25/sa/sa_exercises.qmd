@@ -1074,7 +1074,7 @@ The correlation value is almost identical.
 ### Problem 7.3
 
 ```{r}
-# install.packages("ISLR")
+install.packages("ISLR")
 library(ISLR)
 ```
 
