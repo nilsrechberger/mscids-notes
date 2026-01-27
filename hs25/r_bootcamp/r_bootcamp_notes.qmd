@@ -1,7 +1,7 @@
 ---
 title: "R-Bootcamp - Notes"
 author: "Nils Rechberger"
-date: "2026-01"
+date: "2026-01-26"
 ---
 
 ## Intro
@@ -666,3 +666,81 @@ Stately, plump Buck Mulligan came from the stairhead, bearing a
 bowl of lather on which a mirror and a razor lay crossed.
 -->
 ```
+
+## knitr
+
+A kntr file (.Rmd) contains R Markdown code and R code.
+
+### In-line R Code
+
+In-line R code is enclosed in an opening \`r and closing backtick \`
+
+### R Chunks
+
+An R chunk begins with \```{r } and ends with \```
+
+#### Chunk Options
+
+| Option | Description |
+| :--- | :--- |
+| `eval` | Evaluate/run the chunk of R code? |
+| `include` | Display the *result* of the R code? |
+| `echo` | Display the *R code itself* in the document? |
+| `message` | Show messages in the document? |
+| `warning` | Show warning messages in the document? |
+| `error` | Show error messages in the document? |
+
+#### Line Numbers for Code Blocks
+
+With the chunk option `attr.source = ".numberLines"` you can add line numbers to code.
+In the YAML section at the beginning of the R Markdown document, a syntax
+highlight theme needs to be provided (notice the mandatory indentation with 2
+and 4 spaces).
+
+```markdown
+output:
+    html_document:
+        highlight: tango
+```
+
+::: {.callout-note}
+For a list of syntax highlight themes, see: https://bookdown.org/yihui/rmarkdown/appearance-and-style-1.html
+:::
+
+#### Set General Options
+
+To set knitr options for the entire document, use the function `opts_chunk$set()`
+
+```r
+library(knitr)
+opts_chunk$set(echo = FALSE, include = FALSE) # Set you default options
+```
+
+### Tables
+
+Creating tables is a bit of a challenge. knitr includes the function `kable()`, which produces simple tables.
+
+```markdown
+iris$noise <- rnorm(n = nrow(iris))
+kable(iris[1:10, -5], digits = 4,
+align = c("llccr"),
+caption = "Tab. 1: First 10 Observations
+in the Famous Iris Data Set.")
+```
+
+### Plots
+
+To include plots in the document, the chunk options need to be set to `include = TRUE`.
+
+```markdown
+plot(sin, -pi, 2 * pi)
+title(main = substitute(paste("Sine from ", -pi, " to 2", pi)))
+```
+
+### Caching
+
+The option cache allows knitr to store the results of the chunk. The next time the file is knitted, the results are obtained from the cache (files on your computer) instead of running the R code again: `cache = TRUE`.
+
+> Note: Cached results can save a lot of time!
+
+The option `dependson` allows to define dependencies. Overrules the option cache: `dependson = "Chunk-1"`.
