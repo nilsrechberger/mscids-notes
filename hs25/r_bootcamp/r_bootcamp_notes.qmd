@@ -2,7 +2,6 @@
 title: "R-Bootcamp - Notes"
 author: "Nils Rechberger"
 date: "2026-01"
-format: pdf
 ---
 
 ## Intro
@@ -454,4 +453,216 @@ ggsave(
     filename = "Loblolly_6.png", # Path
     plot = gg.tmp # Graph object
 )
+```
+
+## Markdown
+
+Markdown is a lightweight markup language used to format plain text into structured documents using simple symbols like asterisks and hashtags. It allows users to create rich content—such as headers, lists, and links—that remains easily readable in its raw form and can be seamlessly converted to HTML.
+
+### R Markdown
+
+R Markdown extends standard Markdown by integrating executable code chunks, allowing you to combine narrative text with live results from R, Python, or SQL. It is a powerful tool for reproducible research, enabling the automatic generation of data-driven reports in formats like PDF, HTML, or Word.
+
+### How to Start
+
+Markdown documents do not need a specific header.
+R Markdown documents begin with a YAML header.
+The basic form is:
+
+```markdown
+---
+title: ""
+author: ""
+date: ""
+output: html_document
+---
+```
+
+### Structuring the Document
+
+#### Headings
+
+Headings for sections can be created using the `#`. You can use up to 6 heading levels.
+
+```markdown
+# Heading level 1
+## Heading level 2
+### Heading level 3
+```
+
+#### Parallel Sections
+
+Sections can be organised in parallel: the content is put under horizontal tabs instead of vertically (less scrolling).
+
+```markdown
+## Results {.tabset}
+### Tables
+...
+### Plots
+...
+## Discussion
+```
+
+The next section heading equal (same number of `#`) or higher (= fewer `#`) than where `{.tabset}` was used turns tabset mode off.
+
+::: {.callout-caution}
+Text search will not find any results in tabs that are not on display!
+:::
+
+#### YAML
+
+The YAML at the beginning allows you to add more options to your file such as a table of content or define multiple output formats.
+
+```markdown
+output:
+    html_document:
+        number_sections: true
+        toc: true
+        toc_float:
+            collapsed: false
+            smooth_scroll: true
+```
+
+#### Cross References
+
+Headings can be labelled and referenced via a link. After the heading, on the same line, add an anchor (also called target or link): `{#marker}`
+
+> Note: Markers in tabs that are not on display can not be reached.
+
+### Style Elements
+
+#### Style Elements
+
+As mark-up, only italic and bold are possible.
+
+```markdown
+_italic_
+**Bold**
+```
+
+> Note: Bold and italic can be combined.
+
+#### Subscript and Superscript
+
+- Subscript: a tilde `~` before and after an expression.
+- Superscript: a caret `^` before and after an expression.
+
+#### Blockquotes
+
+To create a blockquote, add an angle bracket `>`in front of a paragraph. Multiple paragraphs require a `>` on the empty line.
+
+```markdown
+The following quote is from the lost novel of Kleist:
+> Lorem ipsum dolor sit amet, consectetur adipiscing eo,
+> sed do eiusmod tempor incididunt ut labore et dolore:
+>
+>> Exercitation ullamco laboris nisi ut aliquip ex ea
+>> commodo consequat. Duis aute irure dolor in reprehensi
+>
+> Finis terrae hic advenit.
+```
+
+> Note: Nested blockquotes (`>>`) appear only in HTML.
+
+#### Ordered Lists
+
+Ordered lists start with a number, followed by a period.
+
+```markdown
+1. First item
+2. Second item
+3. Third item
+```
+
+Nested ordered lists can be created by inserting 4 spaces for indentation.
+
+#### Ordered Lists
+
+For an unordered list, use hyphens -, plus signs +, or asterisks *.
+
+```markdown
+- Mangos
+- Oranges
+- Apples
+    - Granny Smith
+    - McIntosh
+    - Gala
+```
+
+#### Tables
+
+Tables are created by stating the column names, separated by the pipe sign | and three or more hyphens --- on line 2, thus defining the header.
+
+```markdown
+A nice table
+
+| Col 1     | Col 2      |
+| :-------- | :--------- |
+| word      | number     |
+| booktitle | Quite long |
+```
+
+A colon :-- at the left end of the hyphens aligns the text in the column to the left (default). A colon --: at the right end of the hyphens aligns the column to the right. Colons at both ends :--: center the text.
+
+#### Images
+
+Images with a caption can be inserted anywhere. Syntax: `![caption ](filename "tooltip title ")`
+
+#### Footnotes
+
+A footnote appears as a superscript number and the text is added at the bottom of the page. Within brackets, a is caret followed by an identifier: `[^identifier ]`.
+
+#### Links
+
+To insert a link, use the syntax `[link text ](URL)`
+
+### Mathematical Expressions
+
+R Markdown offers many of LATEX’s mathematical typesetting features.
+
+- Inline-syntax: Enclose the expression within two dollar signs `$ $`
+- Formula-syntax: Use two dollar signs on each side `$$ $$`
+
+| LaTeX Code | Symbol |
+| :--- | :--- |
+| `a^2` | $a^2$ |
+| `e^{c + d}` | $e^{c+d}$ |
+| `x_i` | $x_i$ |
+| `y_{j, k}` | $y_{j,k}$ |
+| `\ldots` | $\ldots$ |
+| `a \cdot b` | $a \cdot b$ |
+| `x_1 \cdots x_n` | $x_1 \cdots x_n$ |
+| `\sum_{i = 1}^n` | $\sum_{i=1}^n$ |
+| `\prod_{i = 1}^n` | $\prod_{i=1}^n$ |
+| `\frac{a + b}{cd}` | $\frac{a+b}{cd}$ |
+| `\leftarrow` | $\leftarrow$ |
+| `\rightarrow` | $\rightarrow$ |
+| `\alpha \ldots \omega` | $\alpha \ldots \omega$ |
+| `A \ldots \Omega` | $A \ldots \Omega$ |
+
+### Escapes, Displaying Code, Line Breaks, Comments, Deep Dive
+
+#### The Great Escape
+
+To display the signs used for controlling Markdown, use the backslash `\` as escape character.
+
+```markdown
+# Header 1
+\# Just a hashtag
+```
+
+#### Display code
+
+Within text, use backtick marks \` before and after: `print("hello World!")`. Or use \``` for a code cell.
+
+#### Commments
+
+Comments are enclosed in `<!-- -->` and can be multiline.
+
+```markdown
+<!-- This is an out-commented line -->
+<!--## Beginning
+Stately, plump Buck Mulligan came from the stairhead, bearing a
+bowl of lather on which a mirror and a razor lay crossed.
+-->
 ```
