@@ -41,6 +41,8 @@ website:
            href: hs25/csc/csc_notes.qmd
          - text: "Exercises"
            href: hs25/csc/csc_exercises.qmd
+      - text: "R-Bootcamp"
+        href: hs25/r_bootcamp/r_bootcamp_notes.qmd
       - text: "How to"
         menu:
           - text: "Terminal"
