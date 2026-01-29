@@ -673,7 +673,7 @@ A kntr file (.Rmd) contains R Markdown code and R code.
 
 ### In-line R Code
 
-In-line R code is enclosed in an opening \`r and closing backtick \`
+In-line R code is enclosed in an opening and closing backtick
 
 ### R Chunks
 
@@ -744,3 +744,217 @@ The option cache allows knitr to store the results of the chunk. The next time t
 > Note: Cached results can save a lot of time!
 
 The option `dependson` allows to define dependencies. Overrules the option cache: `dependson = "Chunk-1"`.
+
+## Coding Style Guidelines
+
+While it may be true that “ugly code runs,” it is also difficult to read, frustrating to extend, and tiring to debug. All code must be human readable. There are a lot of style guides. Just pick the one you like best.
+
+### Comments
+ 
+The more the better! Think about others reading your code. Think also about your future self. It’s worth the effort! In the end, it safes time and avoids errors.
+
+::: {.callout-note}
+Do not explain what the code is doing when it is already self-explanatory.
+
+```r
+# Read Data
+readr::read_csv("data.csv")
+```
+
+Instead, focus on the why—documenting the intent or technical reasoning behind specific choices:
+
+```r
+# Use lazy loading as the dataset size is expected to grow significantly
+readr::read_csv("data.csv", lazy = TRUE)
+```
+:::
+
+## Modeling
+
+### Continuous Variables
+
+#### Linear effects
+
+Very intuitive and simple to interpret. Straight lines as humans wish, nature is often more complex.
+
+$$
+y = \beta_0 + \beta_{\text{Edu}} \cdot x_{\text{Edu}} + \epsilon
+$$
+
+#### Log-linear effect
+
+Intuitive (the effect is linear in the log-scale). Work well in many situations, especially with "amounts". The coefficient interpretation is hard: trade-off between model fit and interpretability.
+
+#### Quadratic effects
+
+Less intuitive than linear or log-linear. Work well in many situations. Are often a fair approximation of true non-linear effects. The coefficient interpretation is harder. One more parameter needs to be estimated: trade-off between model fit and interpretability.
+
+#### Discrete Predictors as a Factor
+
+Fairly intuitive. Makes no assumptions on the form of the effect. Only applicable to discrete variables. Expensive in terms of parameters estimated. 
+
+#### Smoothers
+
+Very flexible as they make no assumptions on the form of the effect. Somehow expensive in terms of parameters estimated coefficients are not directly interpretable are implemented in GAMs (an extension of the Linear Model).
+
+#### Deriving new predictors
+
+Enhances interpretabilty and acceptance. May improve model fit (as closer to reality). It is difficult to choose the “best” new predictor. Leads to temptation.
+
+## Maps
+
+### Basic Elements of Map
+
+- Polygons: closed shapes such as country borders
+- Lines: linear shapes that are not filled
+- Points: used to specify positions
+
+### Mapping Pagages
+
+```r
+library(ggplot2)
+library(dplyr)
+library(maptiles)
+library(sf)
+library(tidyterra)
+```
+
+### Download tiles
+
+Define the map area to download the tiles. Easy option:
+
+- Convert your data (e.g., latitude and longitude of points of interest) into a simple feature object, which can include just the corners of the map area.
+- Use the simple feature object to download the tiles for your area of interest.
+
+```r
+d.lat.long.sf <- st_as_sf(
+    data.frame(
+        Latitude = c(46.18166, 46.1652),
+        Longitude = c(8.92637, 8.96011)
+        ),
+        coords = c("Longitude", "Latitude"),
+        crs = "+proj=lonlat"
+)
+## Download tiles
+example.map <- get_tiles(d.lat.long.sf,
+provider = "OpenStreetMap")
+## Get limits
+bbox.limits <- st_bbox(d.lat.long.sf)
+```
+
+### Plot a map
+
+```r
+ggplot() +
+geom_spatraster_rgb(
+    data = example.map,
+    maxcell = 5e6
+) +
+coord_sf(
+    xlim = bbox.limits[c(1, 3)],
+    ylim = bbox.limits[c(2, 4)]
+)
+```
+
+## R Programming
+
+### Functions
+
+Set of statements organised together to perform a specific task. In R, there are built-in functions, e.g., summary() or mean() As users, we can specify our own functions. Function components:
+
+- Function name: The function is stored in the R environment as an object with this name.
+- Arguments: An argument is a placeholder. When a function is invoked, you pass a value to the argument.
+- Arguments are optional; a function may contain no arguments.
+- Arguments can have default values.
+- Function body − The function body contains a collection of statements that defines what the function does.
+- Return value − The return value of a function is the last expression in the function body.
+
+```{r}
+my.mean <- function(vector) {
+    N <- length(vector)
+    my.sum <- sum(vector)
+    return(my.sum / N)
+}
+my.vec <- c(2, 4, 3, 5.5)
+my.mean(my.vec) ## returns a number
+```
+
+### For-loops
+
+Used when we want to perform a task multiple times of iterate over something (e.g vector).
+
+```{r}
+for (i in 1:3) {
+    print(paste0("iteration number: ", i))
+    vec <- runif(10)
+    print(my.mean(vec))
+}
+```
+
+### `apply()` function
+
+The apply function is based on the same idea as for-loops but optimized for data frames. For each row / column, applies the statement.
+
+```{r}
+## Create a 2 x 4 matrix
+mat.runif <- matrix(runif(8), nrow = 2, ncol = 4)
+## Apply my.mean to each row
+apply(mat.runif, MARGIN = 1, FUN = my.mean)
+```
+
+### If-else statments
+
+Perform assignments depending on conditions. If only one condition (either TRUE or FALSE).
+
+```{r}
+num <- 6
+
+ifelse(num < 6,
+    yes = "less than 6",
+    no = ifelse(num > 6,
+        yes = "greater than 6",
+        no = "equal to 6")
+    )
+```
+
+## Shiny App
+
+R Shiny is an open-source R package that enables the creation of interactive web applications directly from R without requiring HTML, CSS, or JavaScript knowledge. It combines the computational power of R with a reactive user interface, allowing users to explore data and visualize results in real time through a browser.
+
+### Components
+
+- Front end (what the user sees): The UI. defines the ‘look’ of the app (e.g. text, inputs, outputs, etc.)
+- Back end logic (app’s behaviour): the server() function. Contains instructions controlling the outputs, performs all calculations via R command.
+
+The function shinyApp() combines both UI and Server.
+
+```r
+library(shiny)
+## front end
+ui <- fluidPage(
+## nested UI functions
+)
+## back end
+server <- function(input, output, session) {
+## logic how output is generated, input processed, etc.
+}
+## runs app by combining UI and server
+shinyApp(ui, server)
+```
+
+## API
+
+An API (Application Programming Interface) is a set of defined rules and protocols that allows different software applications to communicate and exchange data with each other. It acts as an intermediary, enabling one system to request services or information from another without needing to understand its internal code.
+
+### What is a API
+
+- Sending a Request: You initiate a request to the API, specifying what information or action you need.
+- Processing the Request: The API forwards your request to the server, which processes it and retrieves the necessary data.
+- Receiving a Response: The server sends the response back to the API, which then delivers the information to you.
+
+### Structure
+
+- Endpoint: The specific digital location (URL) where the API receives requests.
+- Method: The HTTP verb (GET, POST, PUT, DELETE) that tells the API what action to perform.
+- Headers: Key-value pairs that provide extra context, such as security tokens or data formats.
+- Body: The payload or data sent to the server, typically formatted in JSON.
