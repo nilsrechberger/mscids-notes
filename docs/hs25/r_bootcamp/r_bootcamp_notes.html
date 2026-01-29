@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 <meta name="author" content="Nils Rechberger">
-<meta name="dcterms.date" content="2026-01-01">
+<meta name="dcterms.date" content="2026-01-26">
 
 <title>R-Bootcamp - Notes – mscids-notes</title>
 <style>
@@ -319,6 +319,45 @@ window.Quarto = {
   <li><a href="#mathematical-expressions" id="toc-mathematical-expressions" class="nav-link" data-scroll-target="#mathematical-expressions">Mathematical Expressions</a></li>
   <li><a href="#escapes-displaying-code-line-breaks-comments-deep-dive" id="toc-escapes-displaying-code-line-breaks-comments-deep-dive" class="nav-link" data-scroll-target="#escapes-displaying-code-line-breaks-comments-deep-dive">Escapes, Displaying Code, Line Breaks, Comments, Deep Dive</a></li>
   </ul></li>
+  <li><a href="#knitr" id="toc-knitr" class="nav-link" data-scroll-target="#knitr">knitr</a>
+  <ul class="collapse">
+  <li><a href="#in-line-r-code" id="toc-in-line-r-code" class="nav-link" data-scroll-target="#in-line-r-code">In-line R Code</a></li>
+  <li><a href="#r-chunks" id="toc-r-chunks" class="nav-link" data-scroll-target="#r-chunks">R Chunks</a></li>
+  <li><a href="#tables-1" id="toc-tables-1" class="nav-link" data-scroll-target="#tables-1">Tables</a></li>
+  <li><a href="#plots" id="toc-plots" class="nav-link" data-scroll-target="#plots">Plots</a></li>
+  <li><a href="#caching" id="toc-caching" class="nav-link" data-scroll-target="#caching">Caching</a></li>
+  </ul></li>
+  <li><a href="#coding-style-guidelines" id="toc-coding-style-guidelines" class="nav-link" data-scroll-target="#coding-style-guidelines">Coding Style Guidelines</a>
+  <ul class="collapse">
+  <li><a href="#comments" id="toc-comments" class="nav-link" data-scroll-target="#comments">Comments</a></li>
+  </ul></li>
+  <li><a href="#modeling" id="toc-modeling" class="nav-link" data-scroll-target="#modeling">Modeling</a>
+  <ul class="collapse">
+  <li><a href="#continuous-variables" id="toc-continuous-variables" class="nav-link" data-scroll-target="#continuous-variables">Continuous Variables</a></li>
+  </ul></li>
+  <li><a href="#maps" id="toc-maps" class="nav-link" data-scroll-target="#maps">Maps</a>
+  <ul class="collapse">
+  <li><a href="#basic-elements-of-map" id="toc-basic-elements-of-map" class="nav-link" data-scroll-target="#basic-elements-of-map">Basic Elements of Map</a></li>
+  <li><a href="#mapping-pagages" id="toc-mapping-pagages" class="nav-link" data-scroll-target="#mapping-pagages">Mapping Pagages</a></li>
+  <li><a href="#download-tiles" id="toc-download-tiles" class="nav-link" data-scroll-target="#download-tiles">Download tiles</a></li>
+  <li><a href="#plot-a-map" id="toc-plot-a-map" class="nav-link" data-scroll-target="#plot-a-map">Plot a map</a></li>
+  </ul></li>
+  <li><a href="#r-programming" id="toc-r-programming" class="nav-link" data-scroll-target="#r-programming">R Programming</a>
+  <ul class="collapse">
+  <li><a href="#functions" id="toc-functions" class="nav-link" data-scroll-target="#functions">Functions</a></li>
+  <li><a href="#for-loops" id="toc-for-loops" class="nav-link" data-scroll-target="#for-loops">For-loops</a></li>
+  <li><a href="#apply-function" id="toc-apply-function" class="nav-link" data-scroll-target="#apply-function"><code>apply()</code> function</a></li>
+  <li><a href="#if-else-statments" id="toc-if-else-statments" class="nav-link" data-scroll-target="#if-else-statments">If-else statments</a></li>
+  </ul></li>
+  <li><a href="#shiny-app" id="toc-shiny-app" class="nav-link" data-scroll-target="#shiny-app">Shiny App</a>
+  <ul class="collapse">
+  <li><a href="#components" id="toc-components" class="nav-link" data-scroll-target="#components">Components</a></li>
+  </ul></li>
+  <li><a href="#api" id="toc-api" class="nav-link" data-scroll-target="#api">API</a>
+  <ul class="collapse">
+  <li><a href="#what-is-a-api" id="toc-what-is-a-api" class="nav-link" data-scroll-target="#what-is-a-api">What is a API</a></li>
+  <li><a href="#structure" id="toc-structure" class="nav-link" data-scroll-target="#structure">Structure</a></li>
+  </ul></li>
   </ul>
 <div class="quarto-alternate-formats"><h2>Other Formats</h2><ul><li><a href="r_bootcamp_notes.pdf"><i class="bi bi-file-pdf"></i>PDF</a></li></ul></div></nav>
     </div>
@@ -344,7 +383,7 @@ window.Quarto = {
     <div>
     <div class="quarto-title-meta-heading">Published</div>
     <div class="quarto-title-meta-contents">
-      <p class="date">January 1, 2026</p>
+      <p class="date">January 26, 2026</p>
     </div>
   </div>
   
@@ -1232,9 +1271,338 @@ Caution
 <span id="cb63-3"><a href="#cb63-3" aria-hidden="true" tabindex="-1"></a><span class="co">Stately, plump Buck Mulligan came from the stairhead, bearing a</span></span>
 <span id="cb63-4"><a href="#cb63-4" aria-hidden="true" tabindex="-1"></a><span class="co">bowl of lather on which a mirror and a razor lay crossed.</span></span>
 <span id="cb63-5"><a href="#cb63-5" aria-hidden="true" tabindex="-1"></a><span class="co">--&gt;</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-
-
 </section>
+</section>
+</section>
+<section id="knitr" class="level2">
+<h2 class="anchored" data-anchor-id="knitr">knitr</h2>
+<p>A kntr file (.Rmd) contains R Markdown code and R code.</p>
+<section id="in-line-r-code" class="level3">
+<h3 class="anchored" data-anchor-id="in-line-r-code">In-line R Code</h3>
+<p>In-line R code is enclosed in an opening and closing backtick</p>
+</section>
+<section id="r-chunks" class="level3">
+<h3 class="anchored" data-anchor-id="r-chunks">R Chunks</h3>
+<p>An R chunk begins with ```{r } and ends with ```</p>
+<section id="chunk-options" class="level4">
+<h4 class="anchored" data-anchor-id="chunk-options">Chunk Options</h4>
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th style="text-align: left;">Option</th>
+<th style="text-align: left;">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;"><code>eval</code></td>
+<td style="text-align: left;">Evaluate/run the chunk of R code?</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><code>include</code></td>
+<td style="text-align: left;">Display the <em>result</em> of the R code?</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"><code>echo</code></td>
+<td style="text-align: left;">Display the <em>R code itself</em> in the document?</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><code>message</code></td>
+<td style="text-align: left;">Show messages in the document?</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"><code>warning</code></td>
+<td style="text-align: left;">Show warning messages in the document?</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><code>error</code></td>
+<td style="text-align: left;">Show error messages in the document?</td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="line-numbers-for-code-blocks" class="level4">
+<h4 class="anchored" data-anchor-id="line-numbers-for-code-blocks">Line Numbers for Code Blocks</h4>
+<p>With the chunk option <code>attr.source = ".numberLines"</code> you can add line numbers to code. In the YAML section at the beginning of the R Markdown document, a syntax highlight theme needs to be provided (notice the mandatory indentation with 2 and 4 spaces).</p>
+<div class="sourceCode" id="cb64"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb64-1"><a href="#cb64-1" aria-hidden="true" tabindex="-1"></a><span class="an">output:</span></span>
+<span id="cb64-2"><a href="#cb64-2" aria-hidden="true" tabindex="-1"></a><span class="co">    html_document:</span></span>
+<span id="cb64-3"><a href="#cb64-3" aria-hidden="true" tabindex="-1"></a><span class="co">        highlight: tango</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Note
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>For a list of syntax highlight themes, see: https://bookdown.org/yihui/rmarkdown/appearance-and-style-1.html</p>
+</div>
+</div>
+</section>
+<section id="set-general-options" class="level4">
+<h4 class="anchored" data-anchor-id="set-general-options">Set General Options</h4>
+<p>To set knitr options for the entire document, use the function <code>opts_chunk$set()</code></p>
+<div class="sourceCode" id="cb65"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb65-1"><a href="#cb65-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(knitr)</span>
+<span id="cb65-2"><a href="#cb65-2" aria-hidden="true" tabindex="-1"></a>opts_chunk<span class="sc">$</span><span class="fu">set</span>(<span class="at">echo =</span> <span class="cn">FALSE</span>, <span class="at">include =</span> <span class="cn">FALSE</span>) <span class="co"># Set you default options</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</section>
+</section>
+<section id="tables-1" class="level3">
+<h3 class="anchored" data-anchor-id="tables-1">Tables</h3>
+<p>Creating tables is a bit of a challenge. knitr includes the function <code>kable()</code>, which produces simple tables.</p>
+<div class="sourceCode" id="cb66"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb66-1"><a href="#cb66-1" aria-hidden="true" tabindex="-1"></a>iris$noise &lt;- rnorm(n = nrow(iris))</span>
+<span id="cb66-2"><a href="#cb66-2" aria-hidden="true" tabindex="-1"></a>kable(iris<span class="co">[</span><span class="ot">1:10, -5</span><span class="co">]</span>, digits = 4,</span>
+<span id="cb66-3"><a href="#cb66-3" aria-hidden="true" tabindex="-1"></a>align = c("llccr"),</span>
+<span id="cb66-4"><a href="#cb66-4" aria-hidden="true" tabindex="-1"></a>caption = "Tab. 1: First 10 Observations</span>
+<span id="cb66-5"><a href="#cb66-5" aria-hidden="true" tabindex="-1"></a>in the Famous Iris Data Set.")</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</section>
+<section id="plots" class="level3">
+<h3 class="anchored" data-anchor-id="plots">Plots</h3>
+<p>To include plots in the document, the chunk options need to be set to <code>include = TRUE</code>.</p>
+<div class="sourceCode" id="cb67"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb67-1"><a href="#cb67-1" aria-hidden="true" tabindex="-1"></a>plot(sin, -pi, 2 * pi)</span>
+<span id="cb67-2"><a href="#cb67-2" aria-hidden="true" tabindex="-1"></a>title(main = substitute(paste("Sine from ", -pi, " to 2", pi)))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</section>
+<section id="caching" class="level3">
+<h3 class="anchored" data-anchor-id="caching">Caching</h3>
+<p>The option cache allows knitr to store the results of the chunk. The next time the file is knitted, the results are obtained from the cache (files on your computer) instead of running the R code again: <code>cache = TRUE</code>.</p>
+<blockquote class="blockquote">
+<p>Note: Cached results can save a lot of time!</p>
+</blockquote>
+<p>The option <code>dependson</code> allows to define dependencies. Overrules the option cache: <code>dependson = "Chunk-1"</code>.</p>
+</section>
+</section>
+<section id="coding-style-guidelines" class="level2">
+<h2 class="anchored" data-anchor-id="coding-style-guidelines">Coding Style Guidelines</h2>
+<p>While it may be true that “ugly code runs,” it is also difficult to read, frustrating to extend, and tiring to debug. All code must be human readable. There are a lot of style guides. Just pick the one you like best.</p>
+<section id="comments" class="level3">
+<h3 class="anchored" data-anchor-id="comments">Comments</h3>
+<p>The more the better! Think about others reading your code. Think also about your future self. It’s worth the effort! In the end, it safes time and avoids errors.</p>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Note
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Do not explain what the code is doing when it is already self-explanatory.</p>
+<div class="sourceCode" id="cb68"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb68-1"><a href="#cb68-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Read Data</span></span>
+<span id="cb68-2"><a href="#cb68-2" aria-hidden="true" tabindex="-1"></a>readr<span class="sc">::</span><span class="fu">read_csv</span>(<span class="st">"data.csv"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>Instead, focus on the why—documenting the intent or technical reasoning behind specific choices:</p>
+<div class="sourceCode" id="cb69"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb69-1"><a href="#cb69-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Use lazy loading as the dataset size is expected to grow significantly</span></span>
+<span id="cb69-2"><a href="#cb69-2" aria-hidden="true" tabindex="-1"></a>readr<span class="sc">::</span><span class="fu">read_csv</span>(<span class="st">"data.csv"</span>, <span class="at">lazy =</span> <span class="cn">TRUE</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</div>
+</section>
+</section>
+<section id="modeling" class="level2">
+<h2 class="anchored" data-anchor-id="modeling">Modeling</h2>
+<section id="continuous-variables" class="level3">
+<h3 class="anchored" data-anchor-id="continuous-variables">Continuous Variables</h3>
+<section id="linear-effects" class="level4">
+<h4 class="anchored" data-anchor-id="linear-effects">Linear effects</h4>
+<p>Very intuitive and simple to interpret. Straight lines as humans wish, nature is often more complex.</p>
+<p><span class="math display">\[
+y = \beta_0 + \beta_{\text{Edu}} \cdot x_{\text{Edu}} + \epsilon
+\]</span></p>
+</section>
+<section id="log-linear-effect" class="level4">
+<h4 class="anchored" data-anchor-id="log-linear-effect">Log-linear effect</h4>
+<p>Intuitive (the effect is linear in the log-scale). Work well in many situations, especially with “amounts”. The coefficient interpretation is hard: trade-off between model fit and interpretability.</p>
+</section>
+<section id="quadratic-effects" class="level4">
+<h4 class="anchored" data-anchor-id="quadratic-effects">Quadratic effects</h4>
+<p>Less intuitive than linear or log-linear. Work well in many situations. Are often a fair approximation of true non-linear effects. The coefficient interpretation is harder. One more parameter needs to be estimated: trade-off between model fit and interpretability.</p>
+</section>
+<section id="discrete-predictors-as-a-factor" class="level4">
+<h4 class="anchored" data-anchor-id="discrete-predictors-as-a-factor">Discrete Predictors as a Factor</h4>
+<p>Fairly intuitive. Makes no assumptions on the form of the effect. Only applicable to discrete variables. Expensive in terms of parameters estimated.</p>
+</section>
+<section id="smoothers" class="level4">
+<h4 class="anchored" data-anchor-id="smoothers">Smoothers</h4>
+<p>Very flexible as they make no assumptions on the form of the effect. Somehow expensive in terms of parameters estimated coefficients are not directly interpretable are implemented in GAMs (an extension of the Linear Model).</p>
+</section>
+<section id="deriving-new-predictors" class="level4">
+<h4 class="anchored" data-anchor-id="deriving-new-predictors">Deriving new predictors</h4>
+<p>Enhances interpretabilty and acceptance. May improve model fit (as closer to reality). It is difficult to choose the “best” new predictor. Leads to temptation.</p>
+</section>
+</section>
+</section>
+<section id="maps" class="level2">
+<h2 class="anchored" data-anchor-id="maps">Maps</h2>
+<section id="basic-elements-of-map" class="level3">
+<h3 class="anchored" data-anchor-id="basic-elements-of-map">Basic Elements of Map</h3>
+<ul>
+<li>Polygons: closed shapes such as country borders</li>
+<li>Lines: linear shapes that are not filled</li>
+<li>Points: used to specify positions</li>
+</ul>
+</section>
+<section id="mapping-pagages" class="level3">
+<h3 class="anchored" data-anchor-id="mapping-pagages">Mapping Pagages</h3>
+<div class="sourceCode" id="cb70"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb70-1"><a href="#cb70-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ggplot2)</span>
+<span id="cb70-2"><a href="#cb70-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(dplyr)</span>
+<span id="cb70-3"><a href="#cb70-3" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(maptiles)</span>
+<span id="cb70-4"><a href="#cb70-4" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(sf)</span>
+<span id="cb70-5"><a href="#cb70-5" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyterra)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</section>
+<section id="download-tiles" class="level3">
+<h3 class="anchored" data-anchor-id="download-tiles">Download tiles</h3>
+<p>Define the map area to download the tiles. Easy option:</p>
+<ul>
+<li>Convert your data (e.g., latitude and longitude of points of interest) into a simple feature object, which can include just the corners of the map area.</li>
+<li>Use the simple feature object to download the tiles for your area of interest.</li>
+</ul>
+<div class="sourceCode" id="cb71"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb71-1"><a href="#cb71-1" aria-hidden="true" tabindex="-1"></a>d.lat.long.sf <span class="ot">&lt;-</span> <span class="fu">st_as_sf</span>(</span>
+<span id="cb71-2"><a href="#cb71-2" aria-hidden="true" tabindex="-1"></a>    <span class="fu">data.frame</span>(</span>
+<span id="cb71-3"><a href="#cb71-3" aria-hidden="true" tabindex="-1"></a>        <span class="at">Latitude =</span> <span class="fu">c</span>(<span class="fl">46.18166</span>, <span class="fl">46.1652</span>),</span>
+<span id="cb71-4"><a href="#cb71-4" aria-hidden="true" tabindex="-1"></a>        <span class="at">Longitude =</span> <span class="fu">c</span>(<span class="fl">8.92637</span>, <span class="fl">8.96011</span>)</span>
+<span id="cb71-5"><a href="#cb71-5" aria-hidden="true" tabindex="-1"></a>        ),</span>
+<span id="cb71-6"><a href="#cb71-6" aria-hidden="true" tabindex="-1"></a>        <span class="at">coords =</span> <span class="fu">c</span>(<span class="st">"Longitude"</span>, <span class="st">"Latitude"</span>),</span>
+<span id="cb71-7"><a href="#cb71-7" aria-hidden="true" tabindex="-1"></a>        <span class="at">crs =</span> <span class="st">"+proj=lonlat"</span></span>
+<span id="cb71-8"><a href="#cb71-8" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb71-9"><a href="#cb71-9" aria-hidden="true" tabindex="-1"></a><span class="do">## Download tiles</span></span>
+<span id="cb71-10"><a href="#cb71-10" aria-hidden="true" tabindex="-1"></a>example.map <span class="ot">&lt;-</span> <span class="fu">get_tiles</span>(d.lat.long.sf,</span>
+<span id="cb71-11"><a href="#cb71-11" aria-hidden="true" tabindex="-1"></a><span class="at">provider =</span> <span class="st">"OpenStreetMap"</span>)</span>
+<span id="cb71-12"><a href="#cb71-12" aria-hidden="true" tabindex="-1"></a><span class="do">## Get limits</span></span>
+<span id="cb71-13"><a href="#cb71-13" aria-hidden="true" tabindex="-1"></a>bbox.limits <span class="ot">&lt;-</span> <span class="fu">st_bbox</span>(d.lat.long.sf)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</section>
+<section id="plot-a-map" class="level3">
+<h3 class="anchored" data-anchor-id="plot-a-map">Plot a map</h3>
+<div class="sourceCode" id="cb72"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb72-1"><a href="#cb72-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>() <span class="sc">+</span></span>
+<span id="cb72-2"><a href="#cb72-2" aria-hidden="true" tabindex="-1"></a><span class="fu">geom_spatraster_rgb</span>(</span>
+<span id="cb72-3"><a href="#cb72-3" aria-hidden="true" tabindex="-1"></a>    <span class="at">data =</span> example.map,</span>
+<span id="cb72-4"><a href="#cb72-4" aria-hidden="true" tabindex="-1"></a>    <span class="at">maxcell =</span> <span class="fl">5e6</span></span>
+<span id="cb72-5"><a href="#cb72-5" aria-hidden="true" tabindex="-1"></a>) <span class="sc">+</span></span>
+<span id="cb72-6"><a href="#cb72-6" aria-hidden="true" tabindex="-1"></a><span class="fu">coord_sf</span>(</span>
+<span id="cb72-7"><a href="#cb72-7" aria-hidden="true" tabindex="-1"></a>    <span class="at">xlim =</span> bbox.limits[<span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">3</span>)],</span>
+<span id="cb72-8"><a href="#cb72-8" aria-hidden="true" tabindex="-1"></a>    <span class="at">ylim =</span> bbox.limits[<span class="fu">c</span>(<span class="dv">2</span>, <span class="dv">4</span>)]</span>
+<span id="cb72-9"><a href="#cb72-9" aria-hidden="true" tabindex="-1"></a>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</section>
+</section>
+<section id="r-programming" class="level2">
+<h2 class="anchored" data-anchor-id="r-programming">R Programming</h2>
+<section id="functions" class="level3">
+<h3 class="anchored" data-anchor-id="functions">Functions</h3>
+<p>Set of statements organised together to perform a specific task. In R, there are built-in functions, e.g., summary() or mean() As users, we can specify our own functions. Function components:</p>
+<ul>
+<li>Function name: The function is stored in the R environment as an object with this name.</li>
+<li>Arguments: An argument is a placeholder. When a function is invoked, you pass a value to the argument.</li>
+<li>Arguments are optional; a function may contain no arguments.</li>
+<li>Arguments can have default values.</li>
+<li>Function body − The function body contains a collection of statements that defines what the function does.</li>
+<li>Return value − The return value of a function is the last expression in the function body.</li>
+</ul>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb73"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb73-1"><a href="#cb73-1" aria-hidden="true" tabindex="-1"></a>my.mean <span class="ot">&lt;-</span> <span class="cf">function</span>(vector) {</span>
+<span id="cb73-2"><a href="#cb73-2" aria-hidden="true" tabindex="-1"></a>    N <span class="ot">&lt;-</span> <span class="fu">length</span>(vector)</span>
+<span id="cb73-3"><a href="#cb73-3" aria-hidden="true" tabindex="-1"></a>    my.sum <span class="ot">&lt;-</span> <span class="fu">sum</span>(vector)</span>
+<span id="cb73-4"><a href="#cb73-4" aria-hidden="true" tabindex="-1"></a>    <span class="fu">return</span>(my.sum <span class="sc">/</span> N)</span>
+<span id="cb73-5"><a href="#cb73-5" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb73-6"><a href="#cb73-6" aria-hidden="true" tabindex="-1"></a>my.vec <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">2</span>, <span class="dv">4</span>, <span class="dv">3</span>, <span class="fl">5.5</span>)</span>
+<span id="cb73-7"><a href="#cb73-7" aria-hidden="true" tabindex="-1"></a><span class="fu">my.mean</span>(my.vec) <span class="do">## returns a number</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 3.625</code></pre>
+</div>
+</div>
+</section>
+<section id="for-loops" class="level3">
+<h3 class="anchored" data-anchor-id="for-loops">For-loops</h3>
+<p>Used when we want to perform a task multiple times of iterate over something (e.g vector).</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb75"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb75-1"><a href="#cb75-1" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> (i <span class="cf">in</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">3</span>) {</span>
+<span id="cb75-2"><a href="#cb75-2" aria-hidden="true" tabindex="-1"></a>    <span class="fu">print</span>(<span class="fu">paste0</span>(<span class="st">"iteration number: "</span>, i))</span>
+<span id="cb75-3"><a href="#cb75-3" aria-hidden="true" tabindex="-1"></a>    vec <span class="ot">&lt;-</span> <span class="fu">runif</span>(<span class="dv">10</span>)</span>
+<span id="cb75-4"><a href="#cb75-4" aria-hidden="true" tabindex="-1"></a>    <span class="fu">print</span>(<span class="fu">my.mean</span>(vec))</span>
+<span id="cb75-5"><a href="#cb75-5" aria-hidden="true" tabindex="-1"></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] "iteration number: 1"
+[1] 0.4766458
+[1] "iteration number: 2"
+[1] 0.5884945
+[1] "iteration number: 3"
+[1] 0.5405363</code></pre>
+</div>
+</div>
+</section>
+<section id="apply-function" class="level3">
+<h3 class="anchored" data-anchor-id="apply-function"><code>apply()</code> function</h3>
+<p>The apply function is based on the same idea as for-loops but optimized for data frames. For each row / column, applies the statement.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb77"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb77-1"><a href="#cb77-1" aria-hidden="true" tabindex="-1"></a><span class="do">## Create a 2 x 4 matrix</span></span>
+<span id="cb77-2"><a href="#cb77-2" aria-hidden="true" tabindex="-1"></a>mat.runif <span class="ot">&lt;-</span> <span class="fu">matrix</span>(<span class="fu">runif</span>(<span class="dv">8</span>), <span class="at">nrow =</span> <span class="dv">2</span>, <span class="at">ncol =</span> <span class="dv">4</span>)</span>
+<span id="cb77-3"><a href="#cb77-3" aria-hidden="true" tabindex="-1"></a><span class="do">## Apply my.mean to each row</span></span>
+<span id="cb77-4"><a href="#cb77-4" aria-hidden="true" tabindex="-1"></a><span class="fu">apply</span>(mat.runif, <span class="at">MARGIN =</span> <span class="dv">1</span>, <span class="at">FUN =</span> my.mean)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 0.5869872 0.6540856</code></pre>
+</div>
+</div>
+</section>
+<section id="if-else-statments" class="level3">
+<h3 class="anchored" data-anchor-id="if-else-statments">If-else statments</h3>
+<p>Perform assignments depending on conditions. If only one condition (either TRUE or FALSE).</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb79"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb79-1"><a href="#cb79-1" aria-hidden="true" tabindex="-1"></a>num <span class="ot">&lt;-</span> <span class="dv">6</span></span>
+<span id="cb79-2"><a href="#cb79-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb79-3"><a href="#cb79-3" aria-hidden="true" tabindex="-1"></a><span class="fu">ifelse</span>(num <span class="sc">&lt;</span> <span class="dv">6</span>,</span>
+<span id="cb79-4"><a href="#cb79-4" aria-hidden="true" tabindex="-1"></a>    <span class="at">yes =</span> <span class="st">"less than 6"</span>,</span>
+<span id="cb79-5"><a href="#cb79-5" aria-hidden="true" tabindex="-1"></a>    <span class="at">no =</span> <span class="fu">ifelse</span>(num <span class="sc">&gt;</span> <span class="dv">6</span>,</span>
+<span id="cb79-6"><a href="#cb79-6" aria-hidden="true" tabindex="-1"></a>        <span class="at">yes =</span> <span class="st">"greater than 6"</span>,</span>
+<span id="cb79-7"><a href="#cb79-7" aria-hidden="true" tabindex="-1"></a>        <span class="at">no =</span> <span class="st">"equal to 6"</span>)</span>
+<span id="cb79-8"><a href="#cb79-8" aria-hidden="true" tabindex="-1"></a>    )</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] "equal to 6"</code></pre>
+</div>
+</div>
+</section>
+</section>
+<section id="shiny-app" class="level2">
+<h2 class="anchored" data-anchor-id="shiny-app">Shiny App</h2>
+<p>R Shiny is an open-source R package that enables the creation of interactive web applications directly from R without requiring HTML, CSS, or JavaScript knowledge. It combines the computational power of R with a reactive user interface, allowing users to explore data and visualize results in real time through a browser.</p>
+<section id="components" class="level3">
+<h3 class="anchored" data-anchor-id="components">Components</h3>
+<ul>
+<li>Front end (what the user sees): The UI. defines the ‘look’ of the app (e.g.&nbsp;text, inputs, outputs, etc.)</li>
+<li>Back end logic (app’s behaviour): the server() function. Contains instructions controlling the outputs, performs all calculations via R command.</li>
+</ul>
+<p>The function shinyApp() combines both UI and Server.</p>
+<div class="sourceCode" id="cb81"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb81-1"><a href="#cb81-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(shiny)</span>
+<span id="cb81-2"><a href="#cb81-2" aria-hidden="true" tabindex="-1"></a><span class="do">## front end</span></span>
+<span id="cb81-3"><a href="#cb81-3" aria-hidden="true" tabindex="-1"></a>ui <span class="ot">&lt;-</span> <span class="fu">fluidPage</span>(</span>
+<span id="cb81-4"><a href="#cb81-4" aria-hidden="true" tabindex="-1"></a><span class="do">## nested UI functions</span></span>
+<span id="cb81-5"><a href="#cb81-5" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb81-6"><a href="#cb81-6" aria-hidden="true" tabindex="-1"></a><span class="do">## back end</span></span>
+<span id="cb81-7"><a href="#cb81-7" aria-hidden="true" tabindex="-1"></a>server <span class="ot">&lt;-</span> <span class="cf">function</span>(input, output, session) {</span>
+<span id="cb81-8"><a href="#cb81-8" aria-hidden="true" tabindex="-1"></a><span class="do">## logic how output is generated, input processed, etc.</span></span>
+<span id="cb81-9"><a href="#cb81-9" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb81-10"><a href="#cb81-10" aria-hidden="true" tabindex="-1"></a><span class="do">## runs app by combining UI and server</span></span>
+<span id="cb81-11"><a href="#cb81-11" aria-hidden="true" tabindex="-1"></a><span class="fu">shinyApp</span>(ui, server)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</section>
+</section>
+<section id="api" class="level2">
+<h2 class="anchored" data-anchor-id="api">API</h2>
+<p>An API (Application Programming Interface) is a set of defined rules and protocols that allows different software applications to communicate and exchange data with each other. It acts as an intermediary, enabling one system to request services or information from another without needing to understand its internal code.</p>
+<section id="what-is-a-api" class="level3">
+<h3 class="anchored" data-anchor-id="what-is-a-api">What is a API</h3>
+<ul>
+<li>Sending a Request: You initiate a request to the API, specifying what information or action you need.</li>
+<li>Processing the Request: The API forwards your request to the server, which processes it and retrieves the necessary data.</li>
+<li>Receiving a Response: The server sends the response back to the API, which then delivers the information to you.</li>
+</ul>
+</section>
+<section id="structure" class="level3">
+<h3 class="anchored" data-anchor-id="structure">Structure</h3>
+<ul>
+<li>Endpoint: The specific digital location (URL) where the API receives requests.</li>
+<li>Method: The HTTP verb (GET, POST, PUT, DELETE) that tells the API what action to perform.</li>
+<li>Headers: Key-value pairs that provide extra context, such as security tokens or data formats.</li>
+<li>Body: The payload or data sent to the server, typically formatted in JSON.</li>
+</ul>
+
+
 </section>
 </section>
 
