@@ -7,17 +7,17 @@ title: "Useful Resources"
 * [**W3Schools**](https://www.w3schools.com/python/default.asp): A great starting point for beginners with Python basics and simple examples.
 * [**Real Python**](https://realpython.com/): Comprehensive tutorials and advanced topics for a deeper dive into the language.
 * [**Geeks for Geeks**](https://www.geeksforgeeks.org/): A comprehensive educational portal that empowers learners across domains.
-* [**Python Cheat Sheet**](data/cheat_sheet_python.pdf): Real Python Pocket Reference for python coding.
-* [**Numpy Cheat Sheet**](data/cheat_sheet_numpy.pdf): A quick reference guide covering essential functions for numerical operations.
-* [**Pandas Cheat Sheet**](data/cheat_sheet_numpy.pdf): Summarizes the core commands for efficient data manipulation and analysis.
-* [**Matplotlib Cheat Sheet**](data/cheat_sheet_numpy.pdf): Overview to create static, animated, and interactive visualizations.
+* [**Python Cheat Sheet**](files/cheat_sheet_python.pdf): Real Python Pocket Reference for python coding.
+* [**Numpy Cheat Sheet**](files/cheat_sheet_numpy.pdf): A quick reference guide covering essential functions for numerical operations.
+* [**Pandas Cheat Sheet**](files/cheat_sheet_numpy.pdf): Summarizes the core commands for efficient data manipulation and analysis.
+* [**Matplotlib Cheat Sheet**](files/cheat_sheet_numpy.pdf): Overview to create static, animated, and interactive visualizations.
 
 ---
 
 # Software Development
 
 * [**W3Schools Git Tutorial**](https://www.w3schools.com/git/default.asp): An easy-to-follow introduction to the fundamentals of version control with Git.
-* [**Linux Cheat Sheet**](data/cheat_sheet_linux.pdf): Overview of the most common Linux terminal commands, written by Maths et al.
+* [**Linux Cheat Sheet**](files/cheat_sheet_linux.pdf): Overview of the most common Linux terminal commands, written by Maths et al.
 
 ---
 
