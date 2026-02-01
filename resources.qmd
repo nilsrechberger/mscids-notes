@@ -13,6 +13,12 @@ title: "Useful Resources"
 * [**Matplotlib Cheat Sheet**](files/cheat_sheet_numpy.pdf): Overview to create static, animated, and interactive visualizations.
 
 ---
+# R
+
+* [**Tidyverse Cheat Sheet**](files/cheat_sheet_tidyverse_ggplot2.pdf): A small Tidyverse for Beginners overview.
+* [**ggplot2 Cheat Sheet**](files/cheat_sheet_ggplot2.pdf.pdf): Plotting with ggplot2 in R.
+
+---
 
 # Software Development
 
@@ -25,6 +31,13 @@ title: "Useful Resources"
 
 * [**Towards Data Science**](https://towardsdatascience.com/): Collection of articles, tutorials, and guides on data analysis, ML, and AI.
 * [**Medium**](https://medium.com/): A knowledge base for technical topics and more.
+
+---
+
+# Documentation
+
+* [**Markdown**](files/cheat_sheet_markdown.pdf): How to use the Markdown language to create documentation.
+* [**Quarto**](files/cheat_sheet_quarto.pdf): A Markdown flavour with additional functionalities.
 
 ---
 
