@@ -51,7 +51,7 @@ print(transposed)
 ```
 
 ::: {.callout-tip}
-Check out the [Numpy Cheat Sheet](../data/cheat_sheet_numpy.pdf).
+Check out the [Numpy Cheat Sheet](../files/cheat_sheet_numpy.pdf).
 :::
 
 # Pandas
@@ -63,7 +63,7 @@ sum_col_a = 0.0
 sum_col_b = 0.0
 count = 0
 
-with open("data/pandasTable.csv", "r") as f:
+with open("files/pandasTable.csv", "r") as f:
     header = f.readline() 
     
     for line in f:
@@ -93,12 +93,12 @@ With Pandas, we can easily read in structured data and retrieve summary statisti
 ```{python}
 import pandas as pd
 
-df = pd.read_csv("data/pandasTable.csv")
+df = pd.read_csv("files/pandasTable.csv")
 df.describe()
 ```
 
 ::: {.callout-tip}
-Check out the [Pandas Cheat Sheet](../data/cheat_sheet_pandas.pdf).
+Check out the [Pandas Cheat Sheet](../files/cheat_sheet_pandas.pdf).
 :::
 
 # Matplotlib
@@ -136,7 +136,7 @@ plt.show()
 ```
 
 ::: {.callout-tip}
-Check out the [Matplotlib Cheat Sheet](../data/cheat_sheet_matplotlib.pdf).
+Check out the [Matplotlib Cheat Sheet](../files/cheat_sheet_matplotlib.pdf).
 :::
 
 # More to explore
