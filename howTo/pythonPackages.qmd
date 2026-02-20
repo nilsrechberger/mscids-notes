@@ -63,7 +63,7 @@ sum_col_a = 0.0
 sum_col_b = 0.0
 count = 0
 
-with open("files/pandasTable.csv", "r") as f:
+with open("data/pandasTable.csv", "r") as f:
     header = f.readline() 
     
     for line in f:
@@ -93,7 +93,7 @@ With Pandas, we can easily read in structured data and retrieve summary statisti
 ```{python}
 import pandas as pd
 
-df = pd.read_csv("files/pandasTable.csv")
+df = pd.read_csv("data/pandasTable.csv")
 df.describe()
 ```
 
