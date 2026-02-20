@@ -2,5 +2,25 @@
 title: Applied Machine Learning and Predictive Modelling 1 - Notes
 author: Nils Rechberger
 date: 2026-02-09
-toc: true
 ---
+
+# Week 01: Linear Models
+
+## Regression
+
+$$
+y = \beta_0 + \beta_1 \cdot x_1 + \epsilon
+$$
+
+$\beta_0$ and $\beta_1$ are the regression parameters:
+
+- $\beta_0$ is also the intercept
+- $\beta_1$ ist the slope
+
+## Coefficients
+
+The coefficients are estimated from data. Estimated regression coefficients are denoted with a hat (e.g. $\hat{\beta_1}$). Fitted values (i.e. what the model predicts) are denoted with a hat as well (i.e. $\hat{y}$). Residuals are the difference between observed and predicted values.
+
+$$
+\text{res} = y - \hat{y}
+$$
