@@ -1,0 +1,11 @@
+{
+  "hash": "8d9cae9f7c14187254e12c6c0c3645e9",
+  "result": {
+    "engine": "jupyter",
+    "markdown": "---\ntitle: \"Python for Data Science - Additional Exercises\"\ntoc: true\n---\n\n\n\n\n\n\n# SW07\n\n## Task\n\nGiven a list with an arbitrary number of nested sublists. The goal of this exercise is to write a recursive function which returns the position of an element in the given list in a specific format.\n\nWrite a recursive function that returns the position of a specific element e as a sequence of numbers. Each number in your sequence refers to the position of the sublist containing the element somewhere in its sub-structure, relative to its parent list.  The last number contains the position of the element in the list which contains the actual element. The function returns None if the element is not in the list nor in any sublist.\n\n\nNote:\nusing the function type(x) in a boolean statement like type(x)==list you can check if a list element x is of type list.\n\nFunction structure:\n\n```python\ndef findValue(l, e):\n    ...\n    findValue(..., ...)\n    ...\n    return ...\n```\n\nYou can test your recursive function using the following code:\n\n```python\nmyList = [1,2,3,[11,22,33],4,[44,55,[111,222],66,77],5,6,[88],7]\nprint(findValue(myList, 222))\n \n#output:\n[5, 2, 1]\n```\n\n## Solution\n\n::: {.cell execution_count=1}\n``` {.python .cell-code}\ndef findValue(myList: list, num: int):\n    \"\"\" Finds the positions of a number in a given list of int. \"\"\"\n    for idx, entry in enumerate(myList):\n        if isinstance(entry, list):\n            res = findValue(entry, num)\n            if res is not None:\n                return [idx] + res\n        else:\n            if entry == num:\n                return [idx]\n    return None\n```\n:::\n\n\n## Testing\n\n::: {.cell execution_count=2}\n``` {.python .cell-code}\nmyList = [1,2,3,[11,22,33],4,[44,55,[111,222],66,77],5,6,[88],7]\nprint(findValue(myList, 222))\n```\n\n::: {.cell-output .cell-output-stdout}\n```\n[5, 2, 1]\n```\n:::\n:::\n\n\n",
+    "supporting": [
+      "pds_additional_exercises_files/figure-pdf"
+    ],
+    "filters": []
+  }
+}
