@@ -1,0 +1,5 @@
+---
+title: Applied Machine Learning and Predictive Modelling 1 - Exercises
+author: Nils Rechberger
+date: 2026-02-21
+---
