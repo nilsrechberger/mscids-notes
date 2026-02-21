@@ -3,3 +3,178 @@ title: Applied Machine Learning and Predictive Modelling 1 - Exercises
 author: Nils Rechberger
 date: 2026-02-21
 ---
+
+# Series 1: Linear Models
+
+In class we fitted a model to the “cats” dataset. You may remember that the interpretation of the intercept was somehow problematic. Let’s get the data, visualise it and refit the model again.
+
+```{r}
+d.cats <- read.csv(
+    file = "/home/nils/dev/mscids-notes/fs26/mpm1/data/Cats.csv",
+    header = TRUE,
+    stringsAsFactors = TRUE
+    )
+
+str(d.cats)
+head(d.cats)
+```
+
+Let’s display the effect of Body.weight.
+
+```{r}
+plot(Heart.weight ~ Body.weight, data = d.cats)
+```
+
+The first model we fitted was:
+
+```{r}
+lm.cats <- lm(Heart.weight ~ Body.weight, data = d.cats)
+```
+
+The estimated coefficients of this model are:
+
+```{r}
+coef(lm.cats)
+```
+
+As mentioned in class, the correct interpretation of the intercept is “a cat with zero body.weight, is expected to have a heart weight of -0.36”. It is obviously nonsensical for two reasons:
+
+1. There is no cat of zero body weight
+2. A negative prediction for the response variable heart.weight is impossible in reality.
+
+## Questions
+
+### Question 1
+
+How would you proceed to simplify the interpretation of the intercept in this model? Hint: try to manipulate the predictor body.weight (e.g. by centering it).
+
+#### Answer
+
+By centering the variable `Body.weight`, we can get a interpretible intercept.
+
+$$
+\text{Body.weight.cent} = \text{Body.weight} - \bar{x}
+$$
+
+```{r}
+d.cats$Body.weight.cent <- d.cats$Body.weight - mean(d.cats$Body.weight)
+plot(Heart.weight ~ Body.weight.cent, data = d.cats)
+```
+
+### Question 2
+
+Let’s turn our attention to the model that contains sex too, but no interaction. Reparametrise this model such that "M" is the reference. Hint: use the relevel() function.
+
+#### Answer
+
+First we check the current level of `Sex`.
+
+```{r}
+levels(d.cats$Sex)
+```
+
+We can see that `F` ist the reference level. To change that:
+
+```{r}
+d.cats$Sex <- relevel(x = d.cats$Sex, ref = "M")
+levels(d.cats$Sex)
+```
+
+Now we need to refit our model:
+
+```{r}
+lm.cats.relevelled <- lm(Heart.weight ~ Sex, data = d.cats)
+coef(lm.cats.relevelled)
+```
+
+### Question 3
+
+When the predictor sex was added to the model, the estimated coefficient for ‘body.weight‘ slightly changed. Refit both models, show the estimated coefficients and write a sentence that correctly describes their "biological interpretation" of the Body.weight predictor in each model.
+
+#### Answer
+
+```{r}
+lm.cats.m <- lm(
+    Heart.weight ~ Body.weight, 
+    data = d.cats, 
+    subset = (Sex == "M")
+    )
+
+lm.cats.f <- lm(
+    Heart.weight ~ Body.weight, 
+    data = d.cats, 
+    subset = (Sex == "F")
+    )
+
+cat("Ceoff for M:", coef(lm.cats.m), "\n")
+cat("Ceoff for M:", coef(lm.cats.f))
+```
+
+It seems that a change in Body weight have a different impact between male and female. This can be caused my the different in mean body size between male and female.
+
+### Question 4
+
+This time we assume that Body.weight was not provided as a continuous variable, but rather as a categorical one. We do this by creating four classes with similar size. With this purpose in mind, we use the `quantil()` and `cut()` functions.
+
+```{r}
+quantiles.Body.weight <- quantile(d.cats$Body.weight)
+quantiles.Body.weight
+
+d.cats$Body.weight.Class <- cut(
+    x = d.cats$Body.weight,
+    breaks = quantiles.Body.weight,
+    include.lowest = TRUE
+    )
+```
+
+Let’s check how many observations are present in each class.
+
+```{r}
+table(d.cats$Body.weight.Class)
+```
+
+Fit a model with Sex and Body.weight.Class and compute a p-value for both predictors.
+
+#### Answer
+
+```{r}
+lm.cats.bodyClass <- lm(
+    Heart.weight ~ Sex + Body.weight.Class,
+    data = d.cats)
+
+summary(lm.cats.bodyClass)
+```
+
+### Question 5
+
+Now run some contrasts to see whether all pair of levels of the Body.weight.Class predictor differ from each other. Comment on the results.
+
+#### Answer
+
+TBD
+
+### Question 6
+
+Ask generative AI to provide the interpretation of
+- the coefficients from a linear model
+- the p-values from a linear model
+
+and compare it with the definitions you find in the lecture materials. Do you think they are different in any way? Which one is easier for you to understand?
+
+#### Answer
+
+Prompt:
+
+```txt
+Provide a interpretation of the coefficients and the p-values from a linear model
+```
+> Note: Used Gemeni 3 Fast
+
+Answer (excerpt) :
+
+```txt
+Interpreting a linear model is all about understanding the "story" the data is telling. When you run a regression, you’re essentially trying to find the best-fitting line through your data points[...]. The p-value tells you whether the relationship you see in the coefficient is statistically significant or if it could have just happened by random chance.[...]
+```
+
+The general statement is accurate, although dividing p-values into “significant” and “not significant” is very bad practice.
+
