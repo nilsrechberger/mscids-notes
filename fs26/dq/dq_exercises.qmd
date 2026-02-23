@@ -5,3 +5,36 @@ date: 2026-02-23
 ---
 
 # Tasks for Exercise 01: Introduction
+
+## Task 01
+
+Data quality describes data characteristics at the meta-level. High-quality data provides a reliable and useful structure for information. Conversely, poor data quality can lead to mistrust and inaccurate outcomes. 
+
+> Note: Personal definition.
+
+## Task 02
+
+Scenario 2: E-Commerce – Inventory Management
+
+### How would incomplete data affect decision-making in your scenario?
+
+Incomplete data can lead to a misunderstanding of consumer behavior and purchasing patterns. Without a full picture, businesses may fail to identify emerging trends or customer needs.
+
+### What could go wrong if the data in your scenario is not accurate?
+
+Inaccurate data can result in supply chain bottlenecks or an oversupply of products. This leads to either lost sales due to stockouts or increased storage costs due to excess inventory.
+
+### How could the fact, that data is not available when required, affect your scenario?
+
+A lack of real-time data availability undermines trust in data-driven processes. If stakeholders cannot access information when needed, they may revert to "gut-feeling" decisions, which are prone to error.
+
+### In what ways does the data need to be reliable and relevant?
+
+To support effective inventory management, data must meet specific quality standards, such as:
+
+- Availability: Data must be accessible to decision-makers at all times.
+- Velocity: Data must be processed and updated at the speed of the business.
+- Completeness: No critical data points (like regional demand) should be missing.
+- Usability: Data must be in a format that is easy to interpret and act upon.
+
+> Note: The answers are not disjunct.
