@@ -1,0 +1,7 @@
+---
+title: Data Quality - Notes
+author: Nils Rechberger
+date: 2026-02-23
+---
+
+# Tasks for Exercise 01: Introduction
