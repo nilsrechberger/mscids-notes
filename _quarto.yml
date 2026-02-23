@@ -13,7 +13,11 @@ website:
       - text: "Home"
         href: index.qmd
       - text: "Applied Machine Learning and Predictive Modelling 1"
-        href: fs26/mpm1/mpm1_notes.qmd
+        menu:
+          - text: "Notes"
+            href: fs26/mpm1/mpm1_notes.qmd
+          - text: "Exercises"
+            href: fs26/mpm1/mpm1_exercises.qmd
       - text: "Data Collection, Integration and Preprocessing"
         href: fs26/cip/cip_notes.qmd
       - text: "Data Quality"
