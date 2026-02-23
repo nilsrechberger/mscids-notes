@@ -50,7 +50,7 @@ How would you proceed to simplify the interpretation of the intercept in this mo
 
 #### Answer
 
-By centering the variable `Body.weight`, we can get a interpretible intercept.
+By centering the variable `Body.weight`, we can get a interpretable intercept.
 
 $$
 \text{Body.weight.cent} = \text{Body.weight} - \bar{x}
@@ -83,7 +83,7 @@ levels(d.cats$Sex)
 Now we need to refit our model:
 
 ```{r}
-lm.cats.relevelled <- lm(Heart.weight ~ Sex, data = d.cats)
+lm.cats.relevelled <- lm(Heart.weight ~ Body.weight + Sex, data = d.cats)
 coef(lm.cats.relevelled)
 ```
 
@@ -94,23 +94,13 @@ When the predictor sex was added to the model, the estimated coefficient for ‘
 #### Answer
 
 ```{r}
-lm.cats.m <- lm(
-    Heart.weight ~ Body.weight, 
-    data = d.cats, 
-    subset = (Sex == "M")
-    )
-
-lm.cats.f <- lm(
-    Heart.weight ~ Body.weight, 
-    data = d.cats, 
-    subset = (Sex == "F")
-    )
-
-cat("Ceoff for M:", coef(lm.cats.m), "\n")
-cat("Ceoff for M:", coef(lm.cats.f))
+cat("Ceoff for without sex:", coef(lm.cats), "\n")
+cat("Ceoff for with sex:", coef(lm.cats.relevelled))
 ```
 
-It seems that a change in Body weight have a different impact between male and female. This can be caused my the different in mean body size between male and female.
+- First model: By increasing by one unit body weight, we expect an increase of 4.03 in the response variable.
+- Second model: By increasing by one unit body weight, while keeping all the other predictors fixed, we expect an increase of 4.08 in the response
+variable.
 
 ### Question 4
 
@@ -142,8 +132,10 @@ lm.cats.bodyClass <- lm(
     Heart.weight ~ Sex + Body.weight.Class,
     data = d.cats)
 
-summary(lm.cats.bodyClass)
+drop1(lm.cats.bodyClass, test = "F")
 ```
+
+Body.weight.Class seems to play a relevant role, while Sex does not. This is in full agreement with the model we have seen last week where Body.weight was taken as a continuous predictor.
 
 ### Question 5
 
@@ -151,7 +143,12 @@ Now run some contrasts to see whether all pair of levels of the Body.weight.Clas
 
 #### Answer
 
-TBD
+```{r}
+require(multcomp)
+glht.1 <- glht(lm.cats.bodyClass, linfct = mcp(Body.weight.Class = "Tukey"))
+##
+summary(glht.1)
+```
 
 ### Question 6
 
@@ -177,4 +174,3 @@ Interpreting a linear model is all about understanding the "story" the data is t
 ```
 
 The general statement is accurate, although dividing p-values into “significant” and “not significant” is very bad practice.
-
