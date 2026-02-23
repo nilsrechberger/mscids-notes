@@ -21,7 +21,11 @@ website:
       - text: "Data Collection, Integration and Preprocessing"
         href: fs26/cip/cip_notes.qmd
       - text: "Data Quality"
-        href: fs26/dq/dq_notes.qmd
+        menu:
+          - text: "Notes"
+            href: fs26/dq/dq_notes.qmd
+          - text: "Exercises"
+            href: fs26/dq/dq_exercises.qmd
       # - text: "Python for Data Science"
       #   menu:
       #     - text: "Notes"
