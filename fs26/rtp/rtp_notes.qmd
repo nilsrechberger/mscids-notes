@@ -1,0 +1,5 @@
+---
+title: Discrete Response, Time Series and Panel Data - Notes
+author: Nils Rechberger
+date: 2026-02-26
+---
