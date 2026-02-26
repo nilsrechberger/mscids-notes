@@ -58,3 +58,39 @@ Continuous (and discrete) variables can be tested via F-tests (with `drop1()`) o
 If an interaction term is shown to be significant, then all terms involved in this interaction play a relevant role. An interaction involving two predictors is called ”two-fold interaction” (e.g. `age * species`)
 
 > Note: An interaction can involve more than two predictor.
+
+# Week 02: Modelling non-linearities
+
+A Model is called to be linear if it is linear on its coeffitinents. By including polynomials (e.g. $x_1 + {x_1}^2$) we can model non-linear relationships with a
+linear model
+
+::: {.callout-caution}
+The term “linear” here does not refer to the shape of the curve you draw in the coordinate system, but to the way the parameters (the coefficients $\beta$) appear in the equation.
+:::
+
+## Non-linear effect
+
+::: {.callout-note}
+Linear models can model non-linear effects!
+:::
+
+Non-linear models are non-linear in their coefficients.
+
+$$
+y = \beta_0 + \beta_1 \cdot x^{\beta_2} + \epsilon
+$$
+
+## Generalise Additive Models (GAM)
+
+GAMs come with advantages and disadvantages compared to e.g. polynomials:
+
+### Advantages
+- the degree of complexity is automatically chosen
+- the ”estimated degrees of freedom” give the user an indication of the complexity of a given smooth term
+- smooth terms can be visualised
+
+### Disadvantages
+
+- GAMs can run into computational issues (e.g. models that do not converge)
+- the use of a quadratic term is simpler to explain than a GAM to a non-technical audience
+- in order to fit and understand the results of a GAM some technical knowledge is required
