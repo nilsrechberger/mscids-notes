@@ -199,6 +199,21 @@ gtag('config', 'G-NZ8462CXQ1', { 'anonymize_ip': true});
   </ul></li>
   <li><a href="#data-quality-dimensions" id="toc-data-quality-dimensions" class="nav-link" data-scroll-target="#data-quality-dimensions">Data Quality Dimensions</a></li>
   </ul></li>
+  <li><a href="#lecutre-02-data-quality-dimensions" id="toc-lecutre-02-data-quality-dimensions" class="nav-link" data-scroll-target="#lecutre-02-data-quality-dimensions">Lecutre 02: Data Quality Dimensions</a>
+  <ul class="collapse">
+  <li><a href="#classification-of-dimensions" id="toc-classification-of-dimensions" class="nav-link" data-scroll-target="#classification-of-dimensions">Classification of Dimensions</a>
+  <ul class="collapse">
+  <li><a href="#objective-vs.-subjective-measurement" id="toc-objective-vs.-subjective-measurement" class="nav-link" data-scroll-target="#objective-vs.-subjective-measurement">Objective vs.&nbsp;subjective measurement</a></li>
+  <li><a href="#data-value-intrinsic-vs.-usage-dependent-contextual" id="toc-data-value-intrinsic-vs.-usage-dependent-contextual" class="nav-link" data-scroll-target="#data-value-intrinsic-vs.-usage-dependent-contextual">Data value (intrinsic) vs.&nbsp;usage-dependent (contextual)</a></li>
+  </ul></li>
+  <li><a href="#popular-dimensions" id="toc-popular-dimensions" class="nav-link" data-scroll-target="#popular-dimensions">Popular Dimensions</a>
+  <ul class="collapse">
+  <li><a href="#quantitative-and-intrinsic-dimensions" id="toc-quantitative-and-intrinsic-dimensions" class="nav-link" data-scroll-target="#quantitative-and-intrinsic-dimensions">Quantitative and intrinsic dimensions</a></li>
+  <li><a href="#quantitative-and-contextual-dimension" id="toc-quantitative-and-contextual-dimension" class="nav-link" data-scroll-target="#quantitative-and-contextual-dimension">Quantitative and contextual dimension</a></li>
+  </ul></li>
+  <li><a href="#role-of-representation" id="toc-role-of-representation" class="nav-link" data-scroll-target="#role-of-representation">Role of Representation</a></li>
+  <li><a href="#role-of-metadata" id="toc-role-of-metadata" class="nav-link" data-scroll-target="#role-of-metadata">Role of Metadata</a></li>
+  </ul></li>
   </ul>
 <div class="quarto-alternate-formats"><h2>Other Formats</h2><ul><li><a href="dq_notes.pdf"><i class="bi bi-file-pdf"></i>PDF</a></li></ul></div></nav>
     </div>
@@ -302,6 +317,126 @@ Note
 <p>Most sources agree that the concept of data quality has several dimensions. But they don’t agree on what these dimensions are.</p>
 </div>
 </div>
+</section>
+</section>
+<section id="lecutre-02-data-quality-dimensions" class="level1">
+<h1>Lecutre 02: Data Quality Dimensions</h1>
+<p>In order to measure a broad concept such as data quality, it needs to be broken down into measurable, actionable dimensions. Each dimension captures one measurable aspect of data quality. Measuring data quality serves to analyze/understand/resolve or minimize data quality problems.</p>
+<blockquote class="blockquote">
+<p>Note: Some of the dimensions are objective/quantitative or subjective/qualitative.</p>
+</blockquote>
+<section id="classification-of-dimensions" class="level2">
+<h2 class="anchored" data-anchor-id="classification-of-dimensions">Classification of Dimensions</h2>
+<section id="objective-vs.-subjective-measurement" class="level3">
+<h3 class="anchored" data-anchor-id="objective-vs.-subjective-measurement">Objective vs.&nbsp;subjective measurement</h3>
+<ul>
+<li>Objective: Verifiable by rules, counts, constraints, timestamps, or comparisons. Independent of user perception.</li>
+<li>Subjective: Depends on human judgment, expectations, or context of use.</li>
+</ul>
+</section>
+<section id="data-value-intrinsic-vs.-usage-dependent-contextual" class="level3">
+<h3 class="anchored" data-anchor-id="data-value-intrinsic-vs.-usage-dependent-contextual">Data value (intrinsic) vs.&nbsp;usage-dependent (contextual)</h3>
+<ul>
+<li>Data value: Intrinsic quality of the dataset itself. Affects correctness, analytical validity, and downstream results even if usage is unknown. E.g. completeness, consistency</li>
+<li>Usage: Quality emerges only in interaction with users, systems, or tasks. Context-dependent.</li>
+</ul>
+</section>
+</section>
+<section id="popular-dimensions" class="level2">
+<h2 class="anchored" data-anchor-id="popular-dimensions">Popular Dimensions</h2>
+<section id="quantitative-and-intrinsic-dimensions" class="level3">
+<h3 class="anchored" data-anchor-id="quantitative-and-intrinsic-dimensions">Quantitative and intrinsic dimensions</h3>
+<ul>
+<li>Completeness: No missing records/field values</li>
+<li>Correctness/accuracy: The data accurately describe the entity in question</li>
+<li>Conformance/validity: Correct types, value ranges, etc.</li>
+</ul>
+</section>
+<section id="quantitative-and-contextual-dimension" class="level3">
+<h3 class="anchored" data-anchor-id="quantitative-and-contextual-dimension">Quantitative and contextual dimension</h3>
+<ul>
+<li>Consistency: No contradictions between different data sets / tables</li>
+<li>Currency: the data are up to date</li>
+</ul>
+<section id="completeness" class="level4">
+<h4 class="anchored" data-anchor-id="completeness">Completeness</h4>
+<p>Completeness is the most fundamental dimension. It simply measures whether data are present or absent. Analysis may be limited to critical/mandatory attributes. Measurement:</p>
+<ul>
+<li>at the field level (per column)</li>
+<li>at the record level (how many rows have any missing fields)</li>
+<li>at the table level (how many records are missing)</li>
+</ul>
+<blockquote class="blockquote">
+<p>Note: The completeness can be calculated as a percentage at the field, record and table levels.</p>
+</blockquote>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Note
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Not all missingness indicates a data quality problem. To record (and therefore measure) qualified missingness in a database, one can use special sentinel values (e.g., <code>-9999</code> for numeric attributes, <code>NA</code> for text attributes)</p>
+</div>
+</div>
+</section>
+<section id="correctnessaccuracy" class="level4">
+<h4 class="anchored" data-anchor-id="correctnessaccuracy">Correctness/accuracy</h4>
+<p>It measures the extent to which data are the true representation of reality. Measurement:</p>
+<ul>
+<li>at the field</li>
+<li>at record level</li>
+</ul>
+</section>
+<section id="conformance-validity" class="level4">
+<h4 class="anchored" data-anchor-id="conformance-validity">Conformance / Validity</h4>
+<p>Conformity (or validity) means compliance of the data with a set of standards, e.g., in terms of:</p>
+<ul>
+<li>Type (“Name” is a string; “Number of children” is an integer)</li>
+<li>Range (“Contractual work hours” is between 0 and 50)</li>
+<li>Format (“Date” in ISO format YYYY-MM-DD, “Email” me{at}example.com)</li>
+<li>Value from a reference list (“CH”, “DE”, …)</li>
+</ul>
+<blockquote class="blockquote">
+<p>Note: But even fully conformant data can be 100% inaccurate.</p>
+</blockquote>
+</section>
+</section>
+</section>
+<section id="role-of-representation" class="level2">
+<h2 class="anchored" data-anchor-id="role-of-representation">Role of Representation</h2>
+<p>Besides conformance/validity, another prerequisite of correctness/accuracy is correct representation.</p>
+<div class="callout callout-style-default callout-caution callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Caution
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<ul>
+<li><strong>December 13, 1941</strong> -&gt; invalid</li>
+<li><strong>1941-13-12</strong> -&gt; valid entry, but wrong representation</li>
+<li><strong>1941-12-13</strong> -&gt; valid, correct representation correct/ accurate (provided the information is intrinsically accurate)</li>
+</ul>
+</div>
+</div>
+</section>
+<section id="role-of-metadata" class="level2">
+<h2 class="anchored" data-anchor-id="role-of-metadata">Role of Metadata</h2>
+<p>Metadata are data about data. Without metadata, it can be difficult to make sense of data. High quality metadata is important for representational effectiveness. Standard database metadata includes:</p>
+<ul>
+<li>Table/ column names and definitions</li>
+<li>Data types and domains of values</li>
+<li>Whether columns can have NULL values</li>
+<li>Rules regarding data relationships</li>
+<li>Cardinality (Number of unique values compared to the total rows, e.g.&nbsp;gender, boolean flags)</li>
+</ul>
 
 
 </section>

@@ -225,6 +225,15 @@ window.Quarto = {
   <li><a href="#interactions" id="toc-interactions" class="nav-link" data-scroll-target="#interactions">Interactions</a></li>
   </ul></li>
   </ul></li>
+  <li><a href="#week-02-modelling-non-linearities" id="toc-week-02-modelling-non-linearities" class="nav-link" data-scroll-target="#week-02-modelling-non-linearities">Week 02: Modelling non-linearities</a>
+  <ul class="collapse">
+  <li><a href="#non-linear-effect" id="toc-non-linear-effect" class="nav-link" data-scroll-target="#non-linear-effect">Non-linear effect</a></li>
+  <li><a href="#generalise-additive-models-gam" id="toc-generalise-additive-models-gam" class="nav-link" data-scroll-target="#generalise-additive-models-gam">Generalise Additive Models (GAM)</a>
+  <ul class="collapse">
+  <li><a href="#advantages" id="toc-advantages" class="nav-link" data-scroll-target="#advantages">Advantages</a></li>
+  <li><a href="#disadvantages" id="toc-disadvantages" class="nav-link" data-scroll-target="#disadvantages">Disadvantages</a></li>
+  </ul></li>
+  </ul></li>
   </ul>
 <div class="quarto-alternate-formats"><h2>Other Formats</h2><ul><li><a href="mpm1_notes.pdf"><i class="bi bi-file-pdf"></i>PDF</a></li></ul></div></nav>
     </div>
@@ -323,6 +332,63 @@ R^2 = corr(y, \hat{y})^2
 <blockquote class="blockquote">
 <p>Note: An interaction can involve more than two predictor.</p>
 </blockquote>
+</section>
+</section>
+</section>
+<section id="week-02-modelling-non-linearities" class="level1">
+<h1>Week 02: Modelling non-linearities</h1>
+<p>A Model is called to be linear if it is linear on its coeffitinents. By including polynomials (e.g.&nbsp;<span class="math inline">\(x_1 + {x_1}^2\)</span>) we can model non-linear relationships with a linear model</p>
+<div class="callout callout-style-default callout-caution callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Caution
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>The term “linear” here does not refer to the shape of the curve you draw in the coordinate system, but to the way the parameters (the coefficients <span class="math inline">\(\beta\)</span>) appear in the equation.</p>
+</div>
+</div>
+<section id="non-linear-effect" class="level2">
+<h2 class="anchored" data-anchor-id="non-linear-effect">Non-linear effect</h2>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Note
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Linear models can model non-linear effects!</p>
+</div>
+</div>
+<p>Non-linear models are non-linear in their coefficients.</p>
+<p><span class="math display">\[
+y = \beta_0 + \beta_1 \cdot x^{\beta_2} + \epsilon
+\]</span></p>
+</section>
+<section id="generalise-additive-models-gam" class="level2">
+<h2 class="anchored" data-anchor-id="generalise-additive-models-gam">Generalise Additive Models (GAM)</h2>
+<p>GAMs come with advantages and disadvantages compared to e.g.&nbsp;polynomials:</p>
+<section id="advantages" class="level3">
+<h3 class="anchored" data-anchor-id="advantages">Advantages</h3>
+<ul>
+<li>the degree of complexity is automatically chosen</li>
+<li>the ”estimated degrees of freedom” give the user an indication of the complexity of a given smooth term</li>
+<li>smooth terms can be visualised</li>
+</ul>
+</section>
+<section id="disadvantages" class="level3">
+<h3 class="anchored" data-anchor-id="disadvantages">Disadvantages</h3>
+<ul>
+<li>GAMs can run into computational issues (e.g.&nbsp;models that do not converge)</li>
+<li>the use of a quadratic term is simpler to explain than a GAM to a non-technical audience</li>
+<li>in order to fit and understand the results of a GAM some technical knowledge is required</li>
+</ul>
 
 
 </section>

@@ -1470,6 +1470,13 @@
     "text": "Scenario 2: E-Commerce – Inventory Management\n\n\nIncomplete data can lead to a misunderstanding of consumer behavior and purchasing patterns. Without a full picture, businesses may fail to identify emerging trends or customer needs.\n\n\n\nInaccurate data can result in supply chain bottlenecks or an oversupply of products. This leads to either lost sales due to stockouts or increased storage costs due to excess inventory.\n\n\n\nA lack of real-time data availability undermines trust in data-driven processes. If stakeholders cannot access information when needed, they may revert to “gut-feeling” decisions, which are prone to error.\n\n\n\nTo support effective inventory management, data must meet specific quality standards, such as:\n\nAvailability: Data must be accessible to decision-makers at all times.\nVelocity: Data must be processed and updated at the speed of the business.\nCompleteness: No critical data points (like regional demand) should be missing.\nUsability: Data must be in a format that is easy to interpret and act upon.\n\n\nNote: The answers are not disjunct."
   },
   {
+    "objectID": "fs26/dq/dq_exercises.html#task-01-1",
+    "href": "fs26/dq/dq_exercises.html#task-01-1",
+    "title": "Data Quality - Notes",
+    "section": "Task 01",
+    "text": "Task 01\n\n\n\n\n\n\n\n\n\n\n\n\n\nid\nlast_name\nfirst_name\nage\ndepartment\nfunction\nsalary\ncommision_rate\n\n\n\n\n1\nSmith\nBill\n56\nSales\nHead of Sales\n120.000\n15%\n\n\n2\nMuller\nJohn\n25\nSocial Media\nCreative Director\n100.000\nN/A\n\n\n3\nGrey\nAnna\n37\nSEO\nGoogle Expert\n90.000\nN/A\n\n\n4\nBerger\nLia\n22\nNULL\nFreelancer\n\nNULL\n\n\n5\n?\nMike\n46\nFacility\nTeam Manager\n75.000\nN/A\n\n\n6\nDoe\nJane\n30\nIT\nDev\nN/A\nNaN\n\n\n\n\nScenario 1: The value exists but is not known (that is, known unknown): last_name of Mike (ID 5). Every person has a last_name, but it is currently missing from the dataset.\nScenario 2: The value does not exist at all: department of Lia (ID 4). As an external freelancer, she is not part of the internal organizational structure.\nScenario 3: The existence of the value is not known (that is, unknown unknown): salary of Jane (ID 6). It is unclear if she is a paid employee or an unpaid volunteer/intern; thus, the existence of the attribute itself is in question.\nScenario 4: The attribute is not applicable: commision_rate for non-sales employees. This metric is only defined for sales roles and is fundamentally inapplicable to other functions.\nScenario 5: The value is only populated under specific conditions: salary of Lia (ID 4). As a freelancer, the field remains empty until a specific hourly-based invoice or contract condition triggers the entry."
+  },
+  {
     "objectID": "fs26/mpm1/mpm1_exercises.html",
     "href": "fs26/mpm1/mpm1_exercises.html",
     "title": "Applied Machine Learning and Predictive Modelling 1 - Exercises",
@@ -1482,6 +1489,62 @@
     "title": "Applied Machine Learning and Predictive Modelling 1 - Exercises",
     "section": "",
     "text": "How would you proceed to simplify the interpretation of the intercept in this model? Hint: try to manipulate the predictor body.weight (e.g. by centering it).\n\n\nBy centering the variable Body.weight, we can get a interpretable intercept.\n\\[\n\\text{Body.weight.cent} = \\text{Body.weight} - \\bar{x}\n\\]\n\nd.cats$Body.weight.cent &lt;- d.cats$Body.weight - mean(d.cats$Body.weight)\nplot(Heart.weight ~ Body.weight.cent, data = d.cats)\n\n\n\n\n\n\n\n\n\n\n\n\nLet’s turn our attention to the model that contains sex too, but no interaction. Reparametrise this model such that “M” is the reference. Hint: use the relevel() function.\n\n\nFirst we check the current level of Sex.\n\nlevels(d.cats$Sex)\n\n[1] \"F\" \"M\"\n\n\nWe can see that F ist the reference level. To change that:\n\nd.cats$Sex &lt;- relevel(x = d.cats$Sex, ref = \"M\")\nlevels(d.cats$Sex)\n\n[1] \"M\" \"F\"\n\n\nNow we need to refit our model:\n\nlm.cats.relevelled &lt;- lm(Heart.weight ~ Body.weight + Sex, data = d.cats)\ncoef(lm.cats.relevelled)\n\n(Intercept) Body.weight        SexF \n-0.49704946  4.07576892  0.08209684 \n\n\n\n\n\n\nWhen the predictor sex was added to the model, the estimated coefficient for ’body.weight‘ slightly changed. Refit both models, show the estimated coefficients and write a sentence that correctly describes their “biological interpretation” of the Body.weight predictor in each model.\n\n\n\ncat(\"Ceoff for without sex:\", coef(lm.cats), \"\\n\")\n\nCeoff for without sex: -0.3566624 4.034063 \n\ncat(\"Ceoff for with sex:\", coef(lm.cats.relevelled))\n\nCeoff for with sex: -0.4970495 4.075769 0.08209684\n\n\n\nFirst model: By increasing by one unit body weight, we expect an increase of 4.03 in the response variable.\nSecond model: By increasing by one unit body weight, while keeping all the other predictors fixed, we expect an increase of 4.08 in the response variable.\n\n\n\n\n\nThis time we assume that Body.weight was not provided as a continuous variable, but rather as a categorical one. We do this by creating four classes with similar size. With this purpose in mind, we use the quantil() and cut() functions.\n\nquantiles.Body.weight &lt;- quantile(d.cats$Body.weight)\nquantiles.Body.weight\n\n   0%   25%   50%   75%  100% \n2.000 2.300 2.700 3.025 3.900 \n\nd.cats$Body.weight.Class &lt;- cut(\n    x = d.cats$Body.weight,\n    breaks = quantiles.Body.weight,\n    include.lowest = TRUE\n    )\n\nLet’s check how many observations are present in each class.\n\ntable(d.cats$Body.weight.Class)\n\n\n   [2,2.3]  (2.3,2.7] (2.7,3.02] (3.02,3.9] \n        42         40         26         36 \n\n\nFit a model with Sex and Body.weight.Class and compute a p-value for both predictors.\n\n\n\nlm.cats.bodyClass &lt;- lm(\n    Heart.weight ~ Sex + Body.weight.Class,\n    data = d.cats)\n\ndrop1(lm.cats.bodyClass, test = \"F\")\n\nSingle term deletions\n\nModel:\nHeart.weight ~ Sex + Body.weight.Class\n                  Df Sum of Sq    RSS    AIC F value Pr(&gt;F)    \n&lt;none&gt;                         354.77 139.84                   \nSex                1      0.30 355.06 137.96  0.1166 0.7333    \nBody.weight.Class  3    350.49 705.26 232.78 45.7751 &lt;2e-16 ***\n---\nSignif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1\n\n\nBody.weight.Class seems to play a relevant role, while Sex does not. This is in full agreement with the model we have seen last week where Body.weight was taken as a continuous predictor.\n\n\n\n\nNow run some contrasts to see whether all pair of levels of the Body.weight.Class predictor differ from each other. Comment on the results.\n\n\n\nrequire(multcomp)\n\nLoading required package: multcomp\n\n\nLoading required package: mvtnorm\n\n\nLoading required package: survival\n\n\nLoading required package: TH.data\n\n\nLoading required package: MASS\n\n\n\nAttaching package: 'TH.data'\n\n\nThe following object is masked from 'package:MASS':\n\n    geyser\n\nglht.1 &lt;- glht(lm.cats.bodyClass, linfct = mcp(Body.weight.Class = \"Tukey\"))\n##\nsummary(glht.1)\n\n\n     Simultaneous Tests for General Linear Hypotheses\n\nMultiple Comparisons of Means: Tukey Contrasts\n\n\nFit: lm(formula = Heart.weight ~ Sex + Body.weight.Class, data = d.cats)\n\nLinear Hypotheses:\n                             Estimate Std. Error t value Pr(&gt;|t|)    \n(2.3,2.7] - [2,2.3] == 0       0.7155     0.3813   1.876 0.241676    \n(2.7,3.02] - [2,2.3] == 0      2.4273     0.4382   5.539  &lt; 1e-04 ***\n(3.02,3.9] - [2,2.3] == 0      4.6086     0.4401  10.473  &lt; 1e-04 ***\n(2.7,3.02] - (2.3,2.7] == 0    1.7118     0.4042   4.235 0.000275 ***\n(3.02,3.9] - (2.3,2.7] == 0    3.8932     0.3816  10.202  &lt; 1e-04 ***\n(3.02,3.9] - (2.7,3.02] == 0   2.1814     0.4166   5.236  &lt; 1e-04 ***\n---\nSignif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1\n(Adjusted p values reported -- single-step method)\n\n\n\n\n\n\nAsk generative AI to provide the interpretation of - the coefficients from a linear model - the p-values from a linear model\nand compare it with the definitions you find in the lecture materials. Do you think they are different in any way? Which one is easier for you to understand?\n\n\nPrompt:\nProvide a interpretation of the coefficients and the p-values from a linear model\n\nNote: Used Gemeni 3 Fast\n\nAnswer (excerpt) :\nInterpreting a linear model is all about understanding the \"story\" the data is telling. When you run a regression, you’re essentially trying to find the best-fitting line through your data points[...]. The p-value tells you whether the relationship you see in the coefficient is statistically significant or if it could have just happened by random chance.[...]\nThe general statement is accurate, although dividing p-values into “significant” and “not significant” is very bad practice."
+  },
+  {
+    "objectID": "fs26/rtp/rtp_notes.html",
+    "href": "fs26/rtp/rtp_notes.html",
+    "title": "Discrete Response, Time Series and Panel Data - Notes",
+    "section": "",
+    "text": "Note\n\n\n\nComing soon…"
+  },
+  {
+    "objectID": "fs26/rtp/rtp_notes.html#log-transformations",
+    "href": "fs26/rtp/rtp_notes.html#log-transformations",
+    "title": "Discrete Response, Time Series and Panel Data - Notes",
+    "section": "Log-transformations",
+    "text": "Log-transformations\nInstead of the original time series 𝑋𝑡, consider the log-transformed time series with the elements.\n\\[\ng_t = \\log({X_t})\n\\]\nWhen to apply it?:\n\nWhen the distribution of the time series elements is right-skewed.\nWhen a time series could be produced by the product of model outcomes.\n\n\nDifferencing\nLet’s take a linear function (defined on a set of integer numbers)\n\\[\nX_t = m \\cdot t + b\n\\]\nThen, the backward difference\n\\[\nX_t - X_{t-1} = (m \\cdot t + b) - (m \\cdot (t-1) + b) = m\n\\]\n\n\n\nDifferencing\n\n\n\n\nHigher Order Differencing\nUse multiple derivatives to eliminate lower-order terms. Trend order is reduced, but the stationary part may be more complex. After trend is eliminated, maybe a new dependencies in the stationary part.\n\nExample\n\n\n\nRemove Higher Order Trend\n\n\n\n\n\nDiferencing Seasonality\nSeasonality manifests itself by a repetitive behavior after a fixed lag time \\(p\\).\n\ntRange&lt;-1:40\nXt&lt;-cos(2*pi/10*tRange)+runif(40)\nplot(Xt,type=\"o\")\n\n\n\n\n\n\n\n\nWhat happens if we differentiate now with lag 10?\n\nplot(diff(Xt,10),type=\"o\")\n\n\n\n\n\n\n\n\n\n\nSummary of differencing\n\nAdvantages:\n\ncan remove trends and seasonality effects\nis easy to use\n\n\n\nDisadvantages:\n\nthe resulting time series is shorter than the original one\nthe results of differencing may display dependencies among different elements\nthe original decomposition elements are unknown"
+  },
+  {
+    "objectID": "fs26/rtp/rtp_notes.html#filtration",
+    "href": "fs26/rtp/rtp_notes.html#filtration",
+    "title": "Discrete Response, Time Series and Panel Data - Notes",
+    "section": "Filtration",
+    "text": "Filtration\nTo reduce the noise element in an experiment, you can repeat the measurement multiple times and then calculate the average.\n\nset.seed(42)\nXt&lt;-5+runif(50)\nplot(Xt,type=\"o\")\n\n\n\n\n\n\n\n\n\nfiltered&lt;-filter(Xt,filter=rep(1,10)/10)\nplot(Xt)\npoints(filtered,type=\"l\")\n\n\n\n\n\n\n\n\n\nReasons for using Filtration\nBy averaging measurements, we obtain a new averaged time series. By increasing the number of averaged measurements, the parts converges to the expectation value of the measurement error, i.e. 0.\n\nNote: The short-term variations are smoothed out and the trend is confirmed.\n\n\n\n\nFiltering\n\n\n\n\nLinear filters to quantify seasonality effects\nIn case of seasonality effects, the filter has to expand over the full period to extract the trend. To quantify the seasonal impact, the values of the same time in the season have to be averaged.\n\n\n\nQuantify Seasonality Effects"
+  },
+  {
+    "objectID": "fs26/rtp/rtp_notes.html#seasonal-trend-decomposition-by-loess-algorithm-stl",
+    "href": "fs26/rtp/rtp_notes.html#seasonal-trend-decomposition-by-loess-algorithm-stl",
+    "title": "Discrete Response, Time Series and Panel Data - Notes",
+    "section": "Seasonal-trend decomposition by Loess Algorithm (STL)",
+    "text": "Seasonal-trend decomposition by Loess Algorithm (STL)\nLinear filters are great if periodicity is obvious; but in less obvious cases, extracting the individual components may be laborious. An alternative is the seasonal-trend decomposition procedure by Loess: An iterative, non-parametric smoothing algorithm that is more robust."
+  },
+  {
+    "objectID": "fs26/rtp/rtp_notes.html#fitting-of-periodic-function",
+    "href": "fs26/rtp/rtp_notes.html#fitting-of-periodic-function",
+    "title": "Discrete Response, Time Series and Panel Data - Notes",
+    "section": "Fitting of Periodic Function",
+    "text": "Fitting of Periodic Function\nIf you know the generative model, you can use fitting to determine the contributions of trend and seasonality. Fitting methods (among others):\n\nOrdinary least square (OLS)\nRobust fitting (to prevent the impact of outliers)\nGLS (generalised least square) / time series regression methods\n\n\nset.seed(42)\n#Generate the sample data set\nt&lt;-seq(1,100,length=100)\ndata&lt;-0.1*t+cos(2*pi/10*t)+runif(100)\nts&lt;-ts(data)\n#Fit the model\nfit&lt;-lm(ts~t+cos(2*pi/10*t))\nsummary(fit)\n\n\nCall:\nlm(formula = ts ~ t + cos(2 * pi/10 * t))\n\nResiduals:\n     Min       1Q   Median       3Q      Max \n-0.58266 -0.22271  0.04478  0.25411  0.49285 \n\nCoefficients:\n                   Estimate Std. Error t value Pr(&gt;|t|)    \n(Intercept)        0.639744   0.059840   10.69   &lt;2e-16 ***\nt                  0.097718   0.001029   94.98   &lt;2e-16 ***\ncos(2 * pi/10 * t) 0.973247   0.041999   23.17   &lt;2e-16 ***\n---\nSignif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1\n\nResidual standard error: 0.2969 on 97 degrees of freedom\nMultiple R-squared:  0.9901,    Adjusted R-squared:  0.9899 \nF-statistic:  4836 on 2 and 97 DF,  p-value: &lt; 2.2e-16"
+  },
+  {
+    "objectID": "fs26/rtp/rtp_notes.html#autocorrelation",
+    "href": "fs26/rtp/rtp_notes.html#autocorrelation",
+    "title": "Discrete Response, Time Series and Panel Data - Notes",
+    "section": "Autocorrelation",
+    "text": "Autocorrelation\nThe autocorrelation depends only on the lag 𝑘 for weakly or strongly stationary time series.\n\\[\np(k) := Cor(X_{t+k}, X_t)\n\\]\n\nInterpretation of autocorrelation\nThe correlation \\(p(k)^2\\) squared corresponds to the percentage of variability explained by the linear association between \\(X_t\\) and \\(X_{t+k}\\)."
+  },
+  {
+    "objectID": "fs26/rtp/rtp_notes.html#lagged-scatter-plot",
+    "href": "fs26/rtp/rtp_notes.html#lagged-scatter-plot",
+    "title": "Discrete Response, Time Series and Panel Data - Notes",
+    "section": "Lagged Scatter Plot",
+    "text": "Lagged Scatter Plot\nExchange average over realizations with average over time.\n\naddress &lt;- \"https://raw.githubusercontent.com/AtefOuni/ts/master/Data/wave.dat\"\ndat &lt;- read.table(address,header=T)\n\n#Generate ts object\nwave&lt;-ts(dat$waveht)\n\n#Visualize the data\nplot(window(wave,1,60),ylab=\"Height\")\n\n\n\n\n\n\n\n\n\n#Lag plot\nlag.plot(wave,do.lines=FALSE,pch=20)\n\n\n\n\n\n\n\n\n\nCalculate lagged scatter plot estimator\n\n# Calculate the Pearson Correlation coefficients\nn &lt;- length(wave)\nlagCorrel &lt;- rep(0,n)\n\nfor (i in 1:(n-1)){\nlagCorrel[i]=cor(wave[1:(n-i)],wave[(i+1):n])\n}\n\nplot(lagCorrel,type=\"l\")"
+  },
+  {
+    "objectID": "fs26/rtp/rtp_notes.html#plug-in-estimation",
+    "href": "fs26/rtp/rtp_notes.html#plug-in-estimation",
+    "title": "Discrete Response, Time Series and Panel Data - Notes",
+    "section": "Plug-In Estimation",
+    "text": "Plug-In Estimation\nThe plug-in estimator is the standard approach to computation autocorrelations. Calculated with an acf function in R.\n\nSummary Autocorrelation\n\n(Auto)correlation measures the linear association at a given lag\nFor realizations, the autocorrelation is estimated by running the calculations over time instances instead of realizations (therefore stationarity is desired)\n\nLagged scatter plot estimator\nPlug-in estimator\n\nFor high lags, the lagged scatter plot estimator diverges (because too few time points are considered)\nThe plug-in estimator corrects the diverging behavior but generates a bias.\n\n\n\n\n\n\n\nWarning\n\n\n\nWarning: Non-linear relations may confuse the autocorrelation."
   },
   {
     "objectID": "fs26/mpm1/mpm1_notes.html",
@@ -1519,6 +1582,20 @@
     "text": "Categorical values can be tested via F-tests by using the drop1() function or by comparing two models via the anova() function. Comparisons among levels of a factor (i.e. ”contrasts”) can be performed by using the glht() function.\n\n\n\nContinuous (and discrete) variables can be tested via F-tests (with drop1()) or by t-tests (with summary()). Sometimes the inferential results for continuous variables are best displayed and communicated with confidence intervals.\n\n\n\nIf an interaction term is shown to be significant, then all terms involved in this interaction play a relevant role. An interaction involving two predictors is called ”two-fold interaction” (e.g. age * species)\n\nNote: An interaction can involve more than two predictor."
   },
   {
+    "objectID": "fs26/mpm1/mpm1_notes.html#non-linear-effect",
+    "href": "fs26/mpm1/mpm1_notes.html#non-linear-effect",
+    "title": "Applied Machine Learning and Predictive Modelling 1 - Notes",
+    "section": "Non-linear effect",
+    "text": "Non-linear effect\n\n\n\n\n\n\nNote\n\n\n\nLinear models can model non-linear effects!\n\n\nNon-linear models are non-linear in their coefficients.\n\\[\ny = \\beta_0 + \\beta_1 \\cdot x^{\\beta_2} + \\epsilon\n\\]"
+  },
+  {
+    "objectID": "fs26/mpm1/mpm1_notes.html#generalise-additive-models-gam",
+    "href": "fs26/mpm1/mpm1_notes.html#generalise-additive-models-gam",
+    "title": "Applied Machine Learning and Predictive Modelling 1 - Notes",
+    "section": "Generalise Additive Models (GAM)",
+    "text": "Generalise Additive Models (GAM)\nGAMs come with advantages and disadvantages compared to e.g. polynomials:\n\nAdvantages\n\nthe degree of complexity is automatically chosen\nthe ”estimated degrees of freedom” give the user an indication of the complexity of a given smooth term\nsmooth terms can be visualised\n\n\n\nDisadvantages\n\nGAMs can run into computational issues (e.g. models that do not converge)\nthe use of a quadratic term is simpler to explain than a GAM to a non-technical audience\nin order to fit and understand the results of a GAM some technical knowledge is required"
+  },
+  {
     "objectID": "fs26/dq/dq_notes.html",
     "href": "fs26/dq/dq_notes.html",
     "title": "Data Quality - Notes",
@@ -1552,6 +1629,34 @@
     "title": "Data Quality - Notes",
     "section": "",
     "text": "Correctness/accuracy: The data accurately describe the entity in question\nCompleteness: No missing records/field values\nConformity/validity: Correct types, value ranges, etc.\nConsistency: No contradictions between different data sets / tables\n\n\nNote: Breaking the issue down into dimensions helps to quantify issues.\n\n\n\n\n\n\n\nNote\n\n\n\nMost sources agree that the concept of data quality has several dimensions. But they don’t agree on what these dimensions are."
+  },
+  {
+    "objectID": "fs26/dq/dq_notes.html#classification-of-dimensions",
+    "href": "fs26/dq/dq_notes.html#classification-of-dimensions",
+    "title": "Data Quality - Notes",
+    "section": "Classification of Dimensions",
+    "text": "Classification of Dimensions\n\nObjective vs. subjective measurement\n\nObjective: Verifiable by rules, counts, constraints, timestamps, or comparisons. Independent of user perception.\nSubjective: Depends on human judgment, expectations, or context of use.\n\n\n\nData value (intrinsic) vs. usage-dependent (contextual)\n\nData value: Intrinsic quality of the dataset itself. Affects correctness, analytical validity, and downstream results even if usage is unknown. E.g. completeness, consistency\nUsage: Quality emerges only in interaction with users, systems, or tasks. Context-dependent."
+  },
+  {
+    "objectID": "fs26/dq/dq_notes.html#popular-dimensions",
+    "href": "fs26/dq/dq_notes.html#popular-dimensions",
+    "title": "Data Quality - Notes",
+    "section": "Popular Dimensions",
+    "text": "Popular Dimensions\n\nQuantitative and intrinsic dimensions\n\nCompleteness: No missing records/field values\nCorrectness/accuracy: The data accurately describe the entity in question\nConformance/validity: Correct types, value ranges, etc.\n\n\n\nQuantitative and contextual dimension\n\nConsistency: No contradictions between different data sets / tables\nCurrency: the data are up to date\n\n\nCompleteness\nCompleteness is the most fundamental dimension. It simply measures whether data are present or absent. Analysis may be limited to critical/mandatory attributes. Measurement:\n\nat the field level (per column)\nat the record level (how many rows have any missing fields)\nat the table level (how many records are missing)\n\n\nNote: The completeness can be calculated as a percentage at the field, record and table levels.\n\n\n\n\n\n\n\nNote\n\n\n\nNot all missingness indicates a data quality problem. To record (and therefore measure) qualified missingness in a database, one can use special sentinel values (e.g., -9999 for numeric attributes, NA for text attributes)\n\n\n\n\nCorrectness/accuracy\nIt measures the extent to which data are the true representation of reality. Measurement:\n\nat the field\nat record level\n\n\n\nConformance / Validity\nConformity (or validity) means compliance of the data with a set of standards, e.g., in terms of:\n\nType (“Name” is a string; “Number of children” is an integer)\nRange (“Contractual work hours” is between 0 and 50)\nFormat (“Date” in ISO format YYYY-MM-DD, “Email” me{at}example.com)\nValue from a reference list (“CH”, “DE”, …)\n\n\nNote: But even fully conformant data can be 100% inaccurate."
+  },
+  {
+    "objectID": "fs26/dq/dq_notes.html#role-of-representation",
+    "href": "fs26/dq/dq_notes.html#role-of-representation",
+    "title": "Data Quality - Notes",
+    "section": "Role of Representation",
+    "text": "Role of Representation\nBesides conformance/validity, another prerequisite of correctness/accuracy is correct representation.\n\n\n\n\n\n\nCaution\n\n\n\n\nDecember 13, 1941 -&gt; invalid\n1941-13-12 -&gt; valid entry, but wrong representation\n1941-12-13 -&gt; valid, correct representation correct/ accurate (provided the information is intrinsically accurate)"
+  },
+  {
+    "objectID": "fs26/dq/dq_notes.html#role-of-metadata",
+    "href": "fs26/dq/dq_notes.html#role-of-metadata",
+    "title": "Data Quality - Notes",
+    "section": "Role of Metadata",
+    "text": "Role of Metadata\nMetadata are data about data. Without metadata, it can be difficult to make sense of data. High quality metadata is important for representational effectiveness. Standard database metadata includes:\n\nTable/ column names and definitions\nData types and domains of values\nWhether columns can have NULL values\nRules regarding data relationships\nCardinality (Number of unique values compared to the total rows, e.g. gender, boolean flags)"
   },
   {
     "objectID": "fs26/cip/cip_notes.html",

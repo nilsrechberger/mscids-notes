@@ -195,6 +195,10 @@ gtag('config', 'G-NZ8462CXQ1', { 'anonymize_ip': true});
   <li><a href="#in-what-ways-does-the-data-need-to-be-reliable-and-relevant" id="toc-in-what-ways-does-the-data-need-to-be-reliable-and-relevant" class="nav-link" data-scroll-target="#in-what-ways-does-the-data-need-to-be-reliable-and-relevant">In what ways does the data need to be reliable and relevant?</a></li>
   </ul></li>
   </ul></li>
+  <li><a href="#tasks-for-exercise-02-data-quality-dimensions" id="toc-tasks-for-exercise-02-data-quality-dimensions" class="nav-link" data-scroll-target="#tasks-for-exercise-02-data-quality-dimensions">Tasks for Exercise 02: Data Quality Dimensions</a>
+  <ul class="collapse">
+  <li><a href="#task-01-1" id="toc-task-01-1" class="nav-link" data-scroll-target="#task-01-1">Task 01</a></li>
+  </ul></li>
   </ul>
 <div class="quarto-alternate-formats"><h2>Other Formats</h2><ul><li><a href="dq_exercises.pdf"><i class="bi bi-file-pdf"></i>PDF</a></li></ul></div></nav>
     </div>
@@ -268,9 +272,108 @@ gtag('config', 'G-NZ8462CXQ1', { 'anonymize_ip': true});
 <blockquote class="blockquote">
 <p>Note: The answers are not disjunct.</p>
 </blockquote>
-
-
 </section>
+</section>
+</section>
+<section id="tasks-for-exercise-02-data-quality-dimensions" class="level1">
+<h1>Tasks for Exercise 02: Data Quality Dimensions</h1>
+<section id="task-01-1" class="level2">
+<h2 class="anchored" data-anchor-id="task-01-1">Task 01</h2>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 4%">
+<col style="width: 12%">
+<col style="width: 13%">
+<col style="width: 5%">
+<col style="width: 15%">
+<col style="width: 20%">
+<col style="width: 9%">
+<col style="width: 18%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>id</th>
+<th>last_name</th>
+<th>first_name</th>
+<th>age</th>
+<th>department</th>
+<th>function</th>
+<th>salary</th>
+<th>commision_rate</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>1</td>
+<td>Smith</td>
+<td>Bill</td>
+<td>56</td>
+<td>Sales</td>
+<td>Head of Sales</td>
+<td>120.000</td>
+<td>15%</td>
+</tr>
+<tr class="even">
+<td>2</td>
+<td>Muller</td>
+<td>John</td>
+<td>25</td>
+<td>Social Media</td>
+<td>Creative Director</td>
+<td>100.000</td>
+<td>N/A</td>
+</tr>
+<tr class="odd">
+<td>3</td>
+<td>Grey</td>
+<td>Anna</td>
+<td>37</td>
+<td>SEO</td>
+<td>Google Expert</td>
+<td>90.000</td>
+<td>N/A</td>
+</tr>
+<tr class="even">
+<td>4</td>
+<td>Berger</td>
+<td>Lia</td>
+<td>22</td>
+<td>NULL</td>
+<td>Freelancer</td>
+<td></td>
+<td>NULL</td>
+</tr>
+<tr class="odd">
+<td>5</td>
+<td>?</td>
+<td>Mike</td>
+<td>46</td>
+<td>Facility</td>
+<td>Team Manager</td>
+<td>75.000</td>
+<td>N/A</td>
+</tr>
+<tr class="even">
+<td>6</td>
+<td>Doe</td>
+<td>Jane</td>
+<td>30</td>
+<td>IT</td>
+<td>Dev</td>
+<td>N/A</td>
+<td>NaN</td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li>Scenario 1: The value exists but is not known (that is, known unknown): <code>last_name</code> of Mike (<code>ID</code> 5). Every person has a last_name, but it is currently missing from the dataset.</li>
+<li>Scenario 2: The value does not exist at all: <code>department</code> of Lia (<code>ID</code> 4). As an external freelancer, she is not part of the internal organizational structure.</li>
+<li>Scenario 3: The existence of the value is not known (that is, unknown unknown): <code>salary</code> of Jane (<code>ID</code> 6). It is unclear if she is a paid employee or an unpaid volunteer/intern; thus, the existence of the attribute itself is in question.</li>
+<li>Scenario 4: The attribute is not applicable: <code>commision_rate</code> for non-sales employees. This metric is only defined for sales roles and is fundamentally inapplicable to other functions.</li>
+<li>Scenario 5: The value is only populated under specific conditions: <code>salary</code> of Lia (<code>ID</code> 4). As a freelancer, the field remains empty until a specific hourly-based invoice or contract condition triggers the entry.</li>
+</ul>
+
+
 </section>
 </section>
 
