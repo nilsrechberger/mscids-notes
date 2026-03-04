@@ -48,3 +48,87 @@ Data Governance sits at the center (the hub) because it provides oversight, dire
 ::: {.callout-note}
 Most sources agree that the concept of data quality has several dimensions. But they don't agree on what these dimensions are.
 :::
+
+# Lecutre 02: Data Quality Dimensions
+
+In order to measure a broad concept such as data quality, it needs to be broken down into measurable, actionable dimensions. Each dimension captures one measurable aspect of data quality. Measuring data quality serves to analyze/understand/resolve or minimize data quality problems.
+
+> Note: Some of the dimensions are objective/quantitative or subjective/qualitative.
+
+## Classification of Dimensions
+
+### Objective vs. subjective measurement
+
+- Objective: Verifiable by rules, counts, constraints, timestamps, or comparisons. Independent of user perception.
+- Subjective: Depends on human judgment, expectations, or context of use.
+
+### Data value (intrinsic) vs. usage-dependent (contextual)
+
+- Data value: Intrinsic quality of the dataset itself. Affects correctness, analytical validity, and downstream results even if usage is unknown. E.g. completeness, consistency
+- Usage: Quality emerges only in interaction with users, systems, or tasks. Context-dependent.
+
+## Popular Dimensions
+
+### Quantitative and intrinsic dimensions
+
+- Completeness: No missing records/field values
+- Correctness/accuracy: The data accurately describe the entity in question
+- Conformance/validity: Correct types, value ranges, etc.
+
+### Quantitative and contextual dimension
+
+- Consistency: No contradictions between different data sets / tables
+- Currency: the data are up to date
+
+#### Completeness
+
+Completeness is the most fundamental dimension. It simply measures whether data are present or absent. Analysis may be limited to critical/mandatory attributes. Measurement:
+
+- at the field level (per column)
+- at the record level (how many rows have any missing fields)
+- at the table level (how many records are missing)
+
+> Note: The completeness can be calculated as a percentage at the field, record and table levels.
+
+::: {.callout-note}
+Not all missingness indicates a data quality problem. To record (and therefore measure) qualified missingness in a database, one can use special sentinel values (e.g., `-9999` for numeric attributes, `NA` for text attributes)
+:::
+
+#### Correctness/accuracy
+
+It measures the extent to which data are the true representation of reality. Measurement:
+
+- at the field
+- at record level
+
+#### Conformance / Validity
+
+Conformity (or validity) means compliance of the data with a set of standards, e.g., in terms of:
+
+- Type ("Name" is a string; "Number of children" is an integer)
+- Range ("Contractual work hours" is between 0 and 50)
+- Format ("Date" in ISO format YYYY-MM-DD, "Email" me{at}example.com)
+- Value from a reference list ("CH", "DE", ...)
+
+> Note: But even fully conformant data can be 100% inaccurate.
+
+## Role of Representation
+
+Besides conformance/validity, another prerequisite of correctness/accuracy
+is correct representation.
+
+::: {.callout-caution}
+- **December 13, 1941** -> invalid
+- **1941-13-12** -> valid entry, but wrong representation
+- **1941-12-13** -> valid, correct representation correct/ accurate (provided the information is intrinsically accurate)
+:::
+
+## Role of Metadata
+
+Metadata are data about data. Without metadata, it can be difficult to make sense of data. High quality metadata is important for representational effectiveness. Standard database metadata includes:
+
+- Table/ column names and definitions
+- Data types and domains of values
+- Whether columns can have NULL values
+- Rules regarding data relationships
+- Cardinality (Number of unique values compared to the total rows, e.g. gender, boolean flags)
