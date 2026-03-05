@@ -181,10 +181,6 @@ window.Quarto = {
   </li>  
     </ul>
   </li>
-  <li class="nav-item">
-    <a class="nav-link" href="../../fs26/cip/cip_notes.html"> 
-<span class="menu-text">Data Collection, Integration and Preprocessing</span></a>
-  </li>  
   <li class="nav-item dropdown ">
     <a class="nav-link dropdown-toggle" href="#" id="nav-menu-data-quality" role="link" data-bs-toggle="dropdown" aria-expanded="false">
  <span class="menu-text">Data Quality</span>
@@ -196,6 +192,21 @@ window.Quarto = {
   </li>  
         <li>
     <a class="dropdown-item" href="../../fs26/dq/dq_exercises.html">
+ <span class="dropdown-text">Exercises</span></a>
+  </li>  
+    </ul>
+  </li>
+  <li class="nav-item dropdown ">
+    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-discrete-response-time-series-and-panel-data" role="link" data-bs-toggle="dropdown" aria-expanded="false">
+ <span class="menu-text">Discrete Response, Time Series and Panel Data</span>
+    </a>
+    <ul class="dropdown-menu" aria-labelledby="nav-menu-discrete-response-time-series-and-panel-data">    
+        <li>
+    <a class="dropdown-item" href="../../fs26/dq/rtp_notes.qmd">
+ <span class="dropdown-text">Notes</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../fs26/dq/rtp_exercises.qmd">
  <span class="dropdown-text">Exercises</span></a>
   </li>  
     </ul>
@@ -276,6 +287,24 @@ window.Quarto = {
   <ul class="collapse">
   <li><a href="#summary-autocorrelation" id="toc-summary-autocorrelation" class="nav-link" data-scroll-target="#summary-autocorrelation">Summary Autocorrelation</a></li>
   </ul></li>
+  </ul></li>
+  <li><a href="#w-03-timeseries-acf-ar" id="toc-w-03-timeseries-acf-ar" class="nav-link" data-scroll-target="#w-03-timeseries-acf-ar">W-03-Timeseries-ACF-AR</a>
+  <ul class="collapse">
+  <li><a href="#correlogram" id="toc-correlogram" class="nav-link" data-scroll-target="#correlogram">Correlogram</a></li>
+  <li><a href="#bounds-of-autocorrelation" id="toc-bounds-of-autocorrelation" class="nav-link" data-scroll-target="#bounds-of-autocorrelation">Bounds of Autocorrelation</a></li>
+  <li><a href="#ljung-box-test" id="toc-ljung-box-test" class="nav-link" data-scroll-target="#ljung-box-test">Ljung-Box Test</a></li>
+  <li><a href="#characteristic-patterns-in-acf" id="toc-characteristic-patterns-in-acf" class="nav-link" data-scroll-target="#characteristic-patterns-in-acf">Characteristic Patterns in ACF</a>
+  <ul class="collapse">
+  <li><a href="#patterns-in-acf-for-non-stationary-time-series" id="toc-patterns-in-acf-for-non-stationary-time-series" class="nav-link" data-scroll-target="#patterns-in-acf-for-non-stationary-time-series">Patterns in ACF for non-stationary time series</a></li>
+  <li><a href="#acf-of-time-series-with-seasonal-pattern" id="toc-acf-of-time-series-with-seasonal-pattern" class="nav-link" data-scroll-target="#acf-of-time-series-with-seasonal-pattern">ACF of time series with seasonal pattern</a></li>
+  <li><a href="#acf-of-time-series-with-seasonal-pattern-and-trend" id="toc-acf-of-time-series-with-seasonal-pattern-and-trend" class="nav-link" data-scroll-target="#acf-of-time-series-with-seasonal-pattern-and-trend">ACF of time series with seasonal pattern and trend</a></li>
+  <li><a href="#acf-of-time-series-with-outliers" id="toc-acf-of-time-series-with-outliers" class="nav-link" data-scroll-target="#acf-of-time-series-with-outliers">ACF of time series with outliers</a></li>
+  </ul></li>
+  <li><a href="#properties-of-acf" id="toc-properties-of-acf" class="nav-link" data-scroll-target="#properties-of-acf">Properties of ACF</a>
+  <ul class="collapse">
+  <li><a href="#autocorrelation-of-process-vs.-estimated-values-of-realization" id="toc-autocorrelation-of-process-vs.-estimated-values-of-realization" class="nav-link" data-scroll-target="#autocorrelation-of-process-vs.-estimated-values-of-realization">Autocorrelation of process vs.&nbsp;estimated values of realization</a></li>
+  </ul></li>
+  <li><a href="#partial-autocorrelation" id="toc-partial-autocorrelation" class="nav-link" data-scroll-target="#partial-autocorrelation">Partial Autocorrelation</a></li>
   </ul></li>
   </ul>
 <div class="quarto-alternate-formats"><h2>Other Formats</h2><ul><li><a href="rtp_notes.pdf"><i class="bi bi-file-pdf"></i>PDF</a></li></ul></div></nav>
@@ -606,9 +635,138 @@ Warning
 <p>Warning: Non-linear relations may confuse the autocorrelation.</p>
 </div>
 </div>
-
-
 </section>
+</section>
+</section>
+<section id="w-03-timeseries-acf-ar" class="level1">
+<h1>W-03-Timeseries-ACF-AR</h1>
+<section id="correlogram" class="level2">
+<h2 class="anchored" data-anchor-id="correlogram">Correlogram</h2>
+<p>Standard command: <code>acf(data)</code> for plug-in estimator values.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="fu">data</span>(sunspot.year)</span>
+<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a><span class="fu">acf</span>(sunspot.year)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="rtp_notes_files/figure-html/unnamed-chunk-9-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+<div class="callout callout-style-default callout-caution callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Caution
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>The first lag at lag <span class="math inline">\(0\)</span> always have to be a value of <span class="math inline">\(1\)</span></p>
+</div>
+</div>
+</section>
+<section id="bounds-of-autocorrelation" class="level2">
+<h2 class="anchored" data-anchor-id="bounds-of-autocorrelation">Bounds of Autocorrelation</h2>
+<p>Under the null hypothesis of a time series process with iid distributed random variables, a 95 % acceptance region for the null hypothesis is:</p>
+<p><span class="math display">\[
+\pm \dfrac{1.96}{\sqrt{n}}
+\]</span></p>
+<p>For stationary processes, plug-in estimator value <span class="math inline">\(\hat{p}(k)\)</span> within the confidence band <span class="math inline">\(\pm \frac{1.96}{\sqrt{n}}\)</span> are considered to be different from 0 only by chance.</p>
+</section>
+<section id="ljung-box-test" class="level2">
+<h2 class="anchored" data-anchor-id="ljung-box-test">Ljung-Box Test</h2>
+<p>The Ljung-Box test assesses the null hypothesis that the random variables are independent when the <span class="math inline">\(h\)</span> autocorrelation coefficients <span class="math inline">\(\hat{p}(k)\)</span> for <span class="math inline">\(k = 1, \dots , h\)</span> are equal to zero.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="fu">Box.test</span>(sunspot.year, <span class="at">lag=</span><span class="dv">10</span>, <span class="at">type=</span><span class="st">"Ljung-Box"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>
+    Box-Ljung test
+
+data:  sunspot.year
+X-squared = 542.41, df = 10, p-value &lt; 2.2e-16</code></pre>
+</div>
+</div>
+</section>
+<section id="characteristic-patterns-in-acf" class="level2">
+<h2 class="anchored" data-anchor-id="characteristic-patterns-in-acf">Characteristic Patterns in ACF</h2>
+<section id="patterns-in-acf-for-non-stationary-time-series" class="level3">
+<h3 class="anchored" data-anchor-id="patterns-in-acf-for-non-stationary-time-series">Patterns in ACF for non-stationary time series</h3>
+<p>For non-stationary time series, the ACF decays only slowly.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="img/non_stationary_series.png" class="img-fluid figure-img"></p>
+<figcaption>Non-Statiionary time seires</figcaption>
+</figure>
+</div>
+</section>
+<section id="acf-of-time-series-with-seasonal-pattern" class="level3">
+<h3 class="anchored" data-anchor-id="acf-of-time-series-with-seasonal-pattern">ACF of time series with seasonal pattern</h3>
+<p>For time series with seasonality, the ACF displays periodic structure.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="img/time_series_with_saisonlaity.png" class="img-fluid figure-img"></p>
+<figcaption>Time series with seasonal pattern</figcaption>
+</figure>
+</div>
+</section>
+<section id="acf-of-time-series-with-seasonal-pattern-and-trend" class="level3">
+<h3 class="anchored" data-anchor-id="acf-of-time-series-with-seasonal-pattern-and-trend">ACF of time series with seasonal pattern and trend</h3>
+<p>Time series with seasonality and trend, the ACF displays periodicity and slow decay.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="img/season_and_trend_time_series.png" class="img-fluid figure-img"></p>
+<figcaption>Time series with seasonal pattern and trend</figcaption>
+</figure>
+</div>
+</section>
+<section id="acf-of-time-series-with-outliers" class="level3">
+<h3 class="anchored" data-anchor-id="acf-of-time-series-with-outliers">ACF of time series with outliers</h3>
+<p>Outliers may be diagnosed by lagged scatter plots. Note that each outlier causes other outliers.</p>
+<div class="callout callout-style-default callout-important callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Important
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>The plug-in estimator <span class="math inline">\(\hat{p}(k)\)</span> is sensitive to outliers.</p>
+</div>
+</div>
+</section>
+</section>
+<section id="properties-of-acf" class="level2">
+<h2 class="anchored" data-anchor-id="properties-of-acf">Properties of ACF</h2>
+<section id="autocorrelation-of-process-vs.-estimated-values-of-realization" class="level3">
+<h3 class="anchored" data-anchor-id="autocorrelation-of-process-vs.-estimated-values-of-realization">Autocorrelation of process vs.&nbsp;estimated values of realization</h3>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="img/acf_vs_sim.png" class="img-fluid figure-img"></p>
+<figcaption>Correlogram of one realization compare with the true plot</figcaption>
+</figure>
+</div>
+</section>
+</section>
+<section id="partial-autocorrelation" class="level2">
+<h2 class="anchored" data-anchor-id="partial-autocorrelation">Partial Autocorrelation</h2>
+<p>A challenge in the interpretation of ACFs is that the effect of smaller lags remains. The partial autocorrelation function (PACF) gives the partial correlation of a stationary time series with its own lagged values, regressed the values of the time series at all shorter lags.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="fu">pacf</span>(sunspot.year)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="rtp_notes_files/figure-html/unnamed-chunk-11-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+
+
 </section>
 </section>
 
