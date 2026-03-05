@@ -94,3 +94,345 @@ GAMs come with advantages and disadvantages compared to e.g. polynomials:
 - GAMs can run into computational issues (e.g. models that do not converge)
 - the use of a quadratic term is simpler to explain than a GAM to a non-technical audience
 - in order to fit and understand the results of a GAM some technical knowledge is required
+
+# Week 03 Generalised Linear Models
+
+## Linear Model Assumptions
+
+The inference on the regression coefficients (p-values and CIs) is based on the following assumption about the errors:
+
+$$
+\varepsilon \stackrel{\text{iid}}{\sim} \mathcal{N}(0, \sigma^2)
+$$
+
+This means that:
+
+- The errors follow a normal distribution
+- The errors expected value is zero
+- The errors are homoscedastic (constant variance)
+- The errors are independent
+
+## Count Data
+
+Below, we list a few examples of count data:
+
+- Items purchased by one client during a single shopping session.
+- Number of children in a family.
+- Faulty parts found in a car during an inspection.
+
+### Modelling count data with a linear model
+
+If we were to use a linear model to model these data, we would assume the data to follow a normal distribution.
+
+```{r}
+set.seed(1)
+no.days <- 14
+v.non.smoker <- c(rpois(n = no.days - 1, lambda = 0), 1)
+v.smoker1_2 <- rpois(n = no.days, lambda = 5)
+v.smoker.box <- rpois(n = no.days, lambda = 20)
+d.smokers <- data.frame(no.cigarettes = 
+                          c(v.non.smoker, v.smoker1_2, v.smoker.box),
+                        person = gl(n = 3,
+                                    k = no.days, 
+                                    labels = c("non-smoker",
+                                               "moderate smoker", 
+                                               "heavy smoker")))
+```
+
+> Note: I added a single cigarette to the non-smoker because if you don't do so all p-values are 1
+
+```{r}
+lm.smokers <- lm(no.cigarettes ~ person, data = d.smokers)
+round(coef(lm.smokers), digits = 1)
+```
+
+The estimates of this linear model, which assumes normality of the data, look good. Let’s dig a bit further and simulate some new observations from this linear model.
+
+```{r}
+library(ggplot2)
+
+set.seed(3)
+sim.data.smokers <- simulate(lm.smokers)
+
+ggplot(
+    mapping = aes(
+        y = sim.data.smokers$sim_1,
+        x = d.smokers$person)) +
+    geom_boxplot() +
+    geom_hline(yintercept = 0) +
+    ylab("simulated no. of cigarettes\n(assuming normality)") +
+    xlab("person")
+```
+
+There are some striking differences between the data we simulated from the linear model and the data that made up:
+
+- The made up data are integers, the data simulated from the linear model are numeric (note that none of the simulated values is an integer).
+- The made up data are always larger than zero, the data simulated from the linear model go below zero as well (i.e., a negative number of cigarettes)
+- The variability in the  made up data increases with the mean value of the person (i.e., “variability non smoker” < “variability moderate smoker” < “variability heavy smoker”). On the other hand, the variability of the simulated values is the same in all three groups.
+
+## The Poisson model
+
+Let’s see how we could modify the linear model such that these requirements that come from the very nature of count data are fulfilled.
+
+### Avoiding negative fitted values
+
+Consider the equation we have used so far when computing the fitted values of a linear model.
+
+$$
+\hat{y} = \hat{\beta}_0 + \hat{\beta}_1 \cdot x_1
+$$
+
+To solve the problem of negative fitted values, we must make sure that the right hand-side of this equation always produces positive results. One solution is to apply a transformation to it. For example, we can use the exponential function.
+
+$$
+\hat{y} = \exp(\hat{\beta}_0 + \hat{\beta}_1 \cdot x_1)
+$$
+
+> Note: Ee can rewrite the above equation by taking the logarithm on both sides.
+
+### Integers and non-constant variance
+
+we also need to make sure that the simulated values are integers and that the variance of the observations depends on the mean values. For count data, the classical solution is to assume the data to follow a Poisson distribution (rather than the normal distribution).
+
+$$
+\log(\hat{y}) = \hat{\beta}_0 + \hat{\beta}_1 \cdot x_1 | \hat{y} = \text{Poisson}(\lambda)
+$$
+
+> Note: This model fullfills all the three requirements we listed above.
+
+As a matter of fact, for the Poisson distribution the variance of the observations linearly increases with the mean value.
+
+## Generalised Linear Models
+
+Linear models are well suited to very many situations encountered in practice. However, they are not suited when the response variable represents:
+
+- Count data: There the Poisson Model is more adequate
+- Binary or binomial data: There the Binomial Model is more adequate
+
+Both these models are an extension of the linear model These models belong to the ”class” of Generalised Linear Models GLMs generalise the linear model such that non-normal data can be analysed.
+
+::: {.callout-note}
+Note that in practice count and binomial data are virtually always overdispersed.
+:::
+
+### The Poisson model in R
+
+To fit a Poisson model in R we can use the glm() function, where we specify the distribution to be used. GLMs generalise the linear model in the sense
+that the data can follow distributions other than normal.
+
+```{r}
+glm.smokers <- glm(
+    no.cigarettes ~ person,
+    family = "poisson", ## we specify the distribution!
+    data = d.smokers
+    )
+```
+
+Let’s simulate some data from this model.
+
+```{r}
+set.seed(2)
+sim.data.smokers.Poisson <- simulate(glm.smokers)
+
+ggplot(
+    mapping = aes(
+        y = sim.data.smokers.Poisson$sim_1,
+        x = d.smokers$person
+    )
+) +
+geom_boxplot() +
+geom_hline(yintercept = 0) +
+ylab("simulated no. of cigarettes\n(assuming Poisson dist)") +
+xlab("person")
+```
+
+The results obtained simulating from the Poisson model are much more similar to the observations.
+
+## Binary and binomial data
+
+### Examples
+
+Binary data (0 or 1):
+
+- Whether a client visiting a website clicks on advertisement banner.
+- Whether a cancer patient survived an “invasive” surgery.
+
+Binomial data (number of success / number of trials) $\in [0, 1]$:
+
+- The proportion of students that passes an exam (e.g., hopefully all).
+- The proportion of trains that gets to destination on time.
+
+### The bliss data set
+
+```{r}
+library(faraway)
+data(bliss)
+library(dplyr)
+
+bliss <- bliss %>%
+    mutate(mortality.rate = round(dead / (dead + alive), digits = 2))
+
+ggplot(
+    data = bliss,
+    mapping = aes(
+        y = mortality.rate,
+        x = conc
+    )
+) +
+geom_point() +
+geom_smooth(method = "lm", se = FALSE) +
+ylim(0, 1) +
+geom_hline(yintercept = 0:1, colour = "grey")
+
+```
+
+The fit seems to be fairly good. However, what problem could arise when fitting a linear model to these data?
+
+- Predictions may lay outside the probability range [0%, 100%].
+- Even fitted values may lay outside [0%, 100%].
+- Actually, the response variable is not normally distributed. Its distribution is bounded between 0% and 100%. The normal distribution is unbounded and thus inconvenient here.
+- The variability of the observations is not constant as it is assumed by the normal distribution. This is not evident on the graph above as there is only one observation for each concentration group. If there were many observations per group, we could see that the variability is not constant along the y-axis.
+
+### Link function for binomial data
+
+The solution to problems 1. and 2. is to use a link function such that predictions are constrained in the [0%, 100%] range. For binary or binomial data the default choice of the link function is the “logit”.
+
+$$
+\text{logit}(y) = \log(\dfrac{y}{1-y}) | y \in [0, 1]
+$$
+
+Once you applied the link function to the left-hand side of this equation, you can bring it to the right-hand side by taking its inverse on both sides.
+
+$$
+\hat{y} = \text{inverse.logit}(\hat{\beta}_0 + \hat{\beta}_1 \cdot x_1)
+$$
+
+::: {.callout-note}
+To deal with the peculiarities of count and binomial/binary data, we use a link function and assume a distribution other than the normal. This is the essence of GLMs.
+:::
+
+### The Binomial model in R
+
+Let’s fit a Binomial model to the bliss dataset.
+
+```{r}
+glm.insects <- glm(
+    cbind(dead, alive) ~ conc,
+    family = "binomial",
+    data = bliss
+    )
+```
+
+Let’s visualise the results of this model.
+
+```{r}
+new.data = data.frame(conc = seq(0, 5, length.out = 100))
+new.data$pred.insects <- predict(glm.insects, newdata = new.data,
+                                 type = "response")
+##
+ggplot(data = bliss,
+       mapping = aes(y = mortality.rate,
+                     x = conc)) + 
+  ylim(0,1) +
+  geom_hline(yintercept = 0:1, col = "gray") +
+  ##
+  ## predictions for conc 0 --> 5
+  geom_point(data = new.data,
+               mapping = aes(
+      y = pred.insects,
+      x = conc)) +
+  ##
+  ## actual observations
+  geom_point(col = "red", 
+             size = 3)
+```
+
+The fit of the model is quite good. Indeed, the predictions are quite close to the real observations.
+
+## Further on binary and binomial data
+
+In many real applications there are more than two possible outcomes. Fortunately, an extension of the logistic regression to more than two classes exist. This method is called multinomial regression and is implemented in the `multinom()` function from the `{nnet}` package.
+
+```{r}
+library(nnet)
+multinom.iris <- multinom(
+    Species ~ Sepal.Length + Petal.Width,
+    trace = FALSE,
+    data = iris)
+```
+
+### Estimating the performance of a binary model
+
+A very common way to estimate the performance of a binary model is too look at predicted values and compare them with the actual observations.
+
+```{r}
+d.stab <- read.table(
+    "/home/nils/dev/mscids-notes/fs26/mpm1/data/stability.dat",
+    stringsAsFactors = TRUE,
+    header = TRUE
+)
+
+str(d.stab)
+
+ggplot(
+    data = d.stab,
+    mapping = aes(
+        y = perform,
+    x = stability
+    )
+) +
+geom_point()
+```
+
+There are only two possible outcomes here: success or failure. Let’s fit a logistic regression model and add the fit to the this graph.
+
+```{r}
+ggplot(
+    data = d.stab,
+    mapping = aes(
+        y = perform,
+        x = stability
+    )
+) + 
+geom_point() +
+geom_smooth(
+    method = "glm", 
+    se = FALSE,
+    method.args = list(family = "binomial")
+) 
+```
+
+As expected, stability has a positive effect on the response variable. Let’s have a look at the fitted values for this model.
+
+```{r}
+glm.stab <- glm(
+    perform ~ stability,
+    data = d.stab,
+    family = "binomial")
+
+fitted(glm.stab) %>% 
+    round(digits = 2)
+```
+
+> Note: They are probabilities, thus, bounded within 0 and 1.
+
+To compare the fitted values with the observed values, which are indeed binary (0 or 1), we can also
+discretise/dichotomise the fitted values into 0 and 1. In order to do that, we use a cutoff of 0.5. Finally, let’s compare the observed and fitted values.
+
+```{r}
+fitted.stab.disc <- ifelse(
+    fitted(glm.stab) < 0.5,
+    yes = 0,
+    no = 1
+    )
+
+d.obs.fit.stab <- data.frame(
+    obs = d.stab$perform,
+    fitted = fitted.stab.disc)
+    
+table(
+    obs = d.obs.fit.stab$obs,
+    fit = d.obs.fit.stab$fitted)
+```
+
+The diagonal entries of this matrix represent correctly labelled observations
