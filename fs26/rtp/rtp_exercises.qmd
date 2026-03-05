@@ -1,0 +1,125 @@
+---
+title: Discrete Response, Time Series and Panel Data - Exercises
+author: Nils Rechberger
+date: 2026-03-05
+---
+
+# Series 1
+
+## Exercise 1.1
+
+What is the expected period (time period of repetition) and the time step for the following timeseries:
+
+- Sunshine duration per month in Basel from 1990 to 2000: Timestep = 1 month, Period = 12 months.
+- Number of newborn babies in the city of Zurich per year from 2000 to 2011: Timestep = 1 year, Periode = None.
+- Number of reservations in a restaurant for every night during 4 weeks: Timestep = 1 day, Periode = 7 days.
+- Water runoff of a river. The data has been collected every day for 4 years: Time step = 1, periode = 365 days.
+
+## Exercise 1.2
+
+```{r}
+hstart <- read.table("/home/nils/dev/mscids-notes/fs26/rtp/data/hstart.dat")
+
+tsd<-ts(hstart,start=c(1966,1),freq=12)
+
+plot(tsd, main="Residential construction in the USA")
+```
+
+This is not a stationary time series. A stationary time series is one whose statistical properties (mean, variance, etc) are constant over time. This data fails that definition due to two distinct types of non-stationarity.
+
+- Trend: The long-term "level" of the data shifts upward and then downward.
+- Seasonality: There are recurring annual cycles.
+- Changing Variance: The intensity of the fluctuations changes over the years.
+
+## Exercises 1.3
+
+### A
+```{r}
+set.seed(1)
+
+Et <- ts(rnorm(101, 0, 1))
+
+Et[1] <- 0
+y1 <- 0 #delete later
+
+for (i in 2:length(Et)) {
+    y1[i-1] <- Et[i] - 0.5 * Et[i-1]
+}
+
+y1 = y1[2:length(y1)]
+ts.y1 = ts(y1)
+
+plot(ts.y1, main="Simulated Time Series Y1", ylab="Y_t", xlab="Time")
+abline(h=0, col="red", lty=2)
+```
+
+The time series seems to be stationary.
+
+### B
+
+```{r}
+set.seed(1)
+
+Et <- ts(rnorm(101, 0, 1))
+
+Et[1] <- 0
+y1 <- 0 #delete later
+
+for (i in 2:length(Et)) {
+    y1[i] <- y1[i-1] + Et[i]
+}
+
+y1 = y1[2:length(y1)]
+ts.y1 = ts(y1)
+
+plot(ts.y1, main="Simulated Time Series Y2", ylab="Y_t", xlab="Time")
+abline(h=0, col="red", lty=2)
+```
+
+The time series seems not to be stationary.
+
+### C
+
+```{r}
+set.seed(1)
+
+Et <- ts(rnorm(101, 0, 1))
+
+Et[1] <- 0
+y1 <- 0 #delete later
+
+for (i in 2:length(Et)) {
+    y1[i] <- 0.5 * y1[i-1] + Et[i]
+}
+
+y1 = y1[2:length(y1)]
+ts.y1 = ts(y1)
+
+plot(ts.y1, main="Simulated Time Series Y3", ylab="Y_t", xlab="Time")
+abline(h=0, col="red", lty=2)
+```
+
+The time series seems to be stationary.
+
+### D
+
+```{r}
+set.seed(1)
+
+Et <- ts(runif(101, 0.95, 1.05))
+
+Et[1] <- 0
+y1 <- 1 #delete later
+
+for (i in 2:length(Et)) {
+    y1[i] <- y1[i-1] * Et[i]
+}
+
+y1 = y1[2:length(y1)]
+ts.y1 = ts(y1)
+
+plot(ts.y1, main="Simulated Time Series Y2", ylab="Y_t", xlab="Time")
+abline(h=0, col="red", lty=2)
+```
+
+The time series seems not to be stationary.
