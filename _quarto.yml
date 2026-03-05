@@ -18,48 +18,18 @@ website:
             href: fs26/mpm1/mpm1_notes.qmd
           - text: "Exercises"
             href: fs26/mpm1/mpm1_exercises.qmd
-      - text: "Data Collection, Integration and Preprocessing"
-        href: fs26/cip/cip_notes.qmd
       - text: "Data Quality"
         menu:
           - text: "Notes"
             href: fs26/dq/dq_notes.qmd
           - text: "Exercises"
             href: fs26/dq/dq_exercises.qmd
-      # - text: "Python for Data Science"
-      #   menu:
-      #     - text: "Notes"
-      #       href: hs25/pds/pds_notes.qmd
-      #     - text: "Exercises"
-      #       href: hs25/pds/pds_exercises.qmd
-      #     - text: "Mock Exam Solution"
-      #       href: hs25/pds/pds_mock_exam.qmd
-      #     - text: "Modul Exam FS2023"
-      #       href: hs25/pds/pds_modul_exam_fs23.qmd
-      # - text: "Classical and Bayesian Statistics"
-      #   menu:
-      #     - text: "Notes"
-      #       href: hs25/sa/sa_notes.qmd
-      #     - text: "Exercises"
-      #       href: hs25/sa/sa_exercises.qmd
-      # - text: "Linear Algebra 01"
-      #   href: hs25/lia1/lia1_notes.qmd
-      # - text: "Design of Experiments"
-      #   menu:
-      #     - text: "Notes"
-      #       href: hs25/doe/doe_notes.qmd
-      #     - text: "Exercises"
-      #       href: hs25/doe/doe_exercises.qmd
-      #     - text: "Exam Summary"
-      #       href: hs25/doe/doe_exam_summary.qmd
-      # - text: "Computer Science Concepts for Data Scientists"
-      #   menu:
-      #    - text: "Notes"
-      #      href: hs25/csc/csc_notes.qmd
-      #    - text: "Exercises"
-      #      href: hs25/csc/csc_exercises.qmd
-      # - text: "R-Bootcamp"
-      #   href: hs25/r_bootcamp/r_bootcamp_notes.qmd
+      - text: "Discrete Response, Time Series and Panel Data"
+        menu:
+          - text: "Notes"
+            href: fs26/dq/rtp_notes.qmd
+          - text: "Exercises"
+            href: fs26/dq/rtp_exercises.qmd
       - text: "How to"
         menu:
           - text: "Terminal"
