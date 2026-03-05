@@ -195,3 +195,80 @@ The plug-in estimator is the standard approach to computation autocorrelations. 
 ::: {.callout-warning}
 Warning: Non-linear relations may confuse the autocorrelation.
 :::
+
+# W-03-Timeseries-ACF-AR
+
+## Correlogram
+
+Standard command: `acf(data)` for plug-in estimator values.
+
+```{r}
+data(sunspot.year)
+acf(sunspot.year)
+```
+
+::: {.callout-caution}
+The first lag at lag $0$ always have to be a value of $1$
+:::
+
+## Bounds of Autocorrelation
+
+Under the null hypothesis of a time series process with iid distributed random variables, a 95 % acceptance region for the null hypothesis is:
+
+$$
+\pm \dfrac{1.96}{\sqrt{n}}
+$$
+
+For stationary processes, plug-in estimator value $\hat{p}(k)$ within the
+confidence band $\pm \frac{1.96}{\sqrt{n}}$ are considered to be different from 0 only by chance.
+
+## Ljung-Box Test
+
+The Ljung-Box test assesses the null hypothesis that the random variables are independent when the $h$ autocorrelation coefficients $\hat{p}(k)$ for $k = 1, \dots , h$ are equal to zero.
+
+```{r}
+Box.test(sunspot.year, lag=10, type="Ljung-Box")
+```
+
+## Characteristic Patterns in ACF
+
+### Patterns in ACF for non-stationary time series
+
+For non-stationary time series, the ACF decays only slowly.
+
+![Non-Statiionary time seires](img/non_stationary_series.png)
+
+### ACF of time series with seasonal pattern
+
+For time series with seasonality, the ACF displays periodic structure.
+
+![Time series with seasonal pattern](img/time_series_with_saisonlaity.png)
+
+### ACF of time series with seasonal pattern and trend
+
+Time series with seasonality and trend, the ACF displays periodicity and slow decay.
+
+![Time series with seasonal pattern and trend](img/season_and_trend_time_series.png)
+
+### ACF of time series with outliers
+
+Outliers may be diagnosed by lagged scatter plots. Note that each outlier
+causes other outliers.
+
+::: {.callout-important}
+The plug-in estimator $\hat{p}(k)$ is sensitive to outliers.
+:::
+
+## Properties of ACF
+
+### Autocorrelation of process vs. estimated values of realization
+
+![Correlogram of one realization compare with the true plot](img/acf_vs_sim.png)
+
+## Partial Autocorrelation
+
+A challenge in the interpretation of ACFs is that the effect of smaller lags remains. The partial autocorrelation function (PACF) gives the partial correlation of a stationary time series with its own lagged values, regressed the values of the time series at all shorter lags.
+
+```{r}
+pacf(sunspot.year)
+```
