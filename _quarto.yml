@@ -27,9 +27,9 @@ website:
       - text: "Discrete Response, Time Series and Panel Data"
         menu:
           - text: "Notes"
-            href: fs26/dq/rtp_notes.qmd
+            href: fs26/rtp/rtp_notes.qmd
           - text: "Exercises"
-            href: fs26/dq/rtp_exercises.qmd
+            href: fs26/rtp/rtp_exercises.qmd
       - text: "How to"
         menu:
           - text: "Terminal"
