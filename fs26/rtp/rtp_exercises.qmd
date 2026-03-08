@@ -224,3 +224,72 @@ for (l in 1:12) {
 legend("topleft", legend = paste("Lag", 1:12), col = rainbow(12), lty = 1, ncol = 2)
 ```
 
+# Series 03
+
+## Exercise 3.1
+
+- A -> 2
+- B -> 3
+- C -> 1
+- D -> 4
+
+## Exercise 3.2
+
+```{r}
+cbe <- read.table("/home/nils/dev/mscids-notes/fs26/rtp/data/cbe.dat", header = TRUE)
+ts <- ts(cbe$elec,  start = c(1958, 1), frequency = 12)
+plot(ts)
+```
+
+### A 
+
+At this time, it is not advisable to examine the ACF because the time series is not stationary. We can see trends and seasonality over time. We need to clean that up first before analysing the time series.
+
+### B
+
+```{r}
+decomp <- decompose(ts, type = "multiplicative")
+acf(decomp$random, na.action = na.pass)
+```
+
+### C
+
+```{r}
+ts.stl.1 <- stl(log(ts), s.window = "periodic")
+plot(ts.stl.1$time.series[, "trend"])
+decomp <- decompose(ts.stl.1$time.series[, "trend"], type = "multiplicative")
+acf(decomp$random, na.action = na.pass)
+```
+
+```{r}
+monthplot(ts)
+ts.stl.2 <- stl(log(ts), s.window = 12)
+plot(ts.stl.2$time.series[, "trend"])
+decomp <- decompose(ts.stl.2$time.series[, "trend"], type = "multiplicative")
+acf(decomp$random, na.action = na.pass)
+```
+
+### D
+
+1. With `type = "multiplicative"` we assumes that seasonality is proportional to the trend.
+2. We used `stl(log(ts), ...)` because the original time series had an exponential trend.
+
+### E
+
+```{r}
+cbe <- read.table("/home/nils/dev/mscids-notes/fs26/rtp/data/cbe.dat", header = TRUE)
+ts <- ts(cbe$elec,  start = c(1958, 1), frequency = 12)
+
+ts.2 <- diff(ts, lag=1)
+plot(ts.2)
+```
+
+```{r}
+cbe <- read.table("/home/nils/dev/mscids-notes/fs26/rtp/data/cbe.dat", header = TRUE)
+ts <- ts(cbe$elec,  start = c(1958, 1), frequency = 12)
+
+ts.3 <- diff(ts, lag=12)
+plot(ts.3)
+```
+
+Using differencing alone, we eliminate the trend but do not obtain a fully stationary time series.
