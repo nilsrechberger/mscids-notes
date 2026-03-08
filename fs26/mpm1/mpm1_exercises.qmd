@@ -174,3 +174,153 @@ Interpreting a linear model is all about understanding the "story" the data is t
 ```
 
 The general statement is accurate, although dividing p-values into “significant” and “not significant” is very bad practice.
+
+# Series 2: Non-linearities
+
+## Exercise 1
+
+```{r}
+# install.packages("gss")
+data(ozone, package = "gss")
+head(ozone)
+pairs(
+    log(upo3) ~ . ,
+    data = ozone,
+    pch = ".",
+    upper.panel = panel.smooth
+)
+```
+
+As there are many predictors, the single graphs are too small. Therefore, we prefer to create each graph
+separately. Let’s start with `vdht`.
+
+```{r}
+library(ggplot2)
+
+ggplot(
+    data = ozone,
+    mapping = aes(
+        y = log(upo3),
+        x = vdht
+    )
+) +
+geom_point() +
+geom_smooth()
+```
+
+### Question 1
+
+Go through all the other predictors, produce the corresponding graph and comment on the relationship. You
+may want to say whether the relationship can be assumed to be linear, quadratic or more complex. If you
+prefer, you may look at a couple of predictors only (as there are many).
+
+#### Answer
+
+```{r}
+library(ggplot2)
+
+ggplot(
+    data = ozone,
+    mapping = aes(
+        y = log(upo3),
+        x = hmdt
+    )
+) +
+geom_point() +
+geom_smooth()
+```
+
+The relationship between `log(upo3)` and `ibtp` appears to be linear, except at the end of the plot.
+
+```{r}
+library(ggplot2)
+
+ggplot(
+    data = ozone,
+    mapping = aes(
+        y = log(upo3),
+        x = day
+    )
+) +
+geom_point() +
+geom_smooth()
+```
+
+The relationship between `log(upo3)` and `day` appears to be quadratic or polynomial of order 2, 4, 6, etc.
+
+```{r}
+library(ggplot2)
+
+ggplot(
+    data = ozone,
+    mapping = aes(
+        y = log(upo3),
+        x = sbtp
+    )
+) +
+geom_point() +
+geom_smooth()
+```
+
+The relationship between `log(upo3)` and `sbpt` appears to be cubic or polynomial of order 3, 5, 7, etc.
+
+### Question 2
+
+Fit a Generalised Additive Model with the gam() function from {mgcv} package. Remember to fit the model to the log-transformed response variable.
+
+#### Answer
+
+ ```{r}
+library(ggplot2)
+library(mgcv)
+
+gam_ozone <- gam(
+    log(upo3) ~ s(vdht) + s(wdsp) + s(hmdt) + s(sbtp) + s(ibht) + s(dgpg) + s(ibtp) + s(vsty) + s(day),
+    data = ozone
+)
+```
+
+### Question 3
+
+Look at the summary of the model you just fitted and answer the following questions:
+
+```{r}
+summary(gam_ozone)
+```
+
+I) How many of the smooth terms appear to have a significant effect if we were to use a strict 5% threshold?
+II) Which smooth terms are estimated to have linear effect?
+III) Which one is the term that is estimated to be the most complex?
+IV) Are there any “parametric” terms in this model?
+
+#### I
+
+All smooth terms except for `ibtp` seems to have a statistical impact on the model.
+
+#### II
+
+The two smooth terms`vdht` and `ibtp` have an estimated degree of freedom of 1. Their effect is thus estimated to be linear.
+
+#### III
+
+The smoth term `vsty` seems to bee the most complex one.
+
+#### IV
+
+Yes, there is an intercept.
+
+### Question 4
+
+Use the `plot()` function to visualise the estimated smooth terms.
+
+#### Answer
+
+```{r}
+plot(
+    gam_ozone,
+    residuals = TRUE,
+    pages = 1,
+    shade = TRUE
+)
+```
+
