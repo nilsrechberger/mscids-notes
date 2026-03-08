@@ -270,7 +270,7 @@ Fit a Generalised Additive Model with the gam() function from {mgcv} package. Re
 
 #### Answer
 
- ```{r}
+```{r}
 library(ggplot2)
 library(mgcv)
 

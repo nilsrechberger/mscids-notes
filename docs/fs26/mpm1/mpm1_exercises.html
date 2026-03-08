@@ -270,6 +270,62 @@ window.Quarto = {
   <li><a href="#question-6" id="toc-question-6" class="nav-link" data-scroll-target="#question-6">Question 6</a></li>
   </ul></li>
   </ul></li>
+  <li><a href="#series-2-non-linearities" id="toc-series-2-non-linearities" class="nav-link" data-scroll-target="#series-2-non-linearities">Series 2: Non-linearities</a>
+  <ul class="collapse">
+  <li><a href="#exercise-1" id="toc-exercise-1" class="nav-link" data-scroll-target="#exercise-1">Exercise 1</a>
+  <ul class="collapse">
+  <li><a href="#question-1-1" id="toc-question-1-1" class="nav-link" data-scroll-target="#question-1-1">Question 1</a></li>
+  <li><a href="#question-2-1" id="toc-question-2-1" class="nav-link" data-scroll-target="#question-2-1">Question 2</a></li>
+  <li><a href="#question-3-1" id="toc-question-3-1" class="nav-link" data-scroll-target="#question-3-1">Question 3</a></li>
+  <li><a href="#question-4-1" id="toc-question-4-1" class="nav-link" data-scroll-target="#question-4-1">Question 4</a></li>
+  </ul></li>
+  </ul></li>
+  <li><a href="#series-3-glms---binominal" id="toc-series-3-glms---binominal" class="nav-link" data-scroll-target="#series-3-glms---binominal">Series 3: GLMs - Binominal</a>
+  <ul class="collapse">
+  <li><a href="#question-1-2" id="toc-question-1-2" class="nav-link" data-scroll-target="#question-1-2">Question 1</a>
+  <ul class="collapse">
+  <li><a href="#answer-9" id="toc-answer-9" class="nav-link" data-scroll-target="#answer-9">Answer</a></li>
+  </ul></li>
+  <li><a href="#question-2-2" id="toc-question-2-2" class="nav-link" data-scroll-target="#question-2-2">Question 2</a>
+  <ul class="collapse">
+  <li><a href="#answer-10" id="toc-answer-10" class="nav-link" data-scroll-target="#answer-10">Answer</a></li>
+  </ul></li>
+  <li><a href="#question-3-2" id="toc-question-3-2" class="nav-link" data-scroll-target="#question-3-2">Question 3</a>
+  <ul class="collapse">
+  <li><a href="#answer-11" id="toc-answer-11" class="nav-link" data-scroll-target="#answer-11">Answer</a></li>
+  </ul></li>
+  <li><a href="#question-4-2" id="toc-question-4-2" class="nav-link" data-scroll-target="#question-4-2">Question 4</a>
+  <ul class="collapse">
+  <li><a href="#answer-12" id="toc-answer-12" class="nav-link" data-scroll-target="#answer-12">Answer</a></li>
+  </ul></li>
+  </ul></li>
+  <li><a href="#series-3-glms---poisson" id="toc-series-3-glms---poisson" class="nav-link" data-scroll-target="#series-3-glms---poisson">Series 3: GLMs - Poisson</a>
+  <ul class="collapse">
+  <li><a href="#question-1-3" id="toc-question-1-3" class="nav-link" data-scroll-target="#question-1-3">Question 1</a>
+  <ul class="collapse">
+  <li><a href="#answer-13" id="toc-answer-13" class="nav-link" data-scroll-target="#answer-13">Answer</a></li>
+  </ul></li>
+  <li><a href="#question-2-3" id="toc-question-2-3" class="nav-link" data-scroll-target="#question-2-3">Question 2</a>
+  <ul class="collapse">
+  <li><a href="#answer-14" id="toc-answer-14" class="nav-link" data-scroll-target="#answer-14">Answer</a></li>
+  </ul></li>
+  <li><a href="#question-3-3" id="toc-question-3-3" class="nav-link" data-scroll-target="#question-3-3">Question 3</a>
+  <ul class="collapse">
+  <li><a href="#answer-15" id="toc-answer-15" class="nav-link" data-scroll-target="#answer-15">Answer</a></li>
+  </ul></li>
+  <li><a href="#question-4-3" id="toc-question-4-3" class="nav-link" data-scroll-target="#question-4-3">Question 4</a>
+  <ul class="collapse">
+  <li><a href="#answer-16" id="toc-answer-16" class="nav-link" data-scroll-target="#answer-16">Answer</a></li>
+  </ul></li>
+  <li><a href="#question-5-1" id="toc-question-5-1" class="nav-link" data-scroll-target="#question-5-1">Question 5</a>
+  <ul class="collapse">
+  <li><a href="#answer-17" id="toc-answer-17" class="nav-link" data-scroll-target="#answer-17">Answer</a></li>
+  </ul></li>
+  <li><a href="#question-6-1" id="toc-question-6-1" class="nav-link" data-scroll-target="#question-6-1">Question 6</a>
+  <ul class="collapse">
+  <li><a href="#answer-18" id="toc-answer-18" class="nav-link" data-scroll-target="#answer-18">Answer</a></li>
+  </ul></li>
+  </ul></li>
   </ul>
 <div class="quarto-alternate-formats"><h2>Other Formats</h2><ul><li><a href="mpm1_exercises.pdf"><i class="bi bi-file-pdf"></i>PDF</a></li></ul></div></nav>
     </div>
@@ -534,12 +590,12 @@ Fit: lm(formula = Heart.weight ~ Sex + Body.weight.Class, data = d.cats)
 
 Linear Hypotheses:
                              Estimate Std. Error t value Pr(&gt;|t|)    
-(2.3,2.7] - [2,2.3] == 0       0.7155     0.3813   1.876 0.241676    
-(2.7,3.02] - [2,2.3] == 0      2.4273     0.4382   5.539  &lt; 1e-04 ***
-(3.02,3.9] - [2,2.3] == 0      4.6086     0.4401  10.473  &lt; 1e-04 ***
-(2.7,3.02] - (2.3,2.7] == 0    1.7118     0.4042   4.235 0.000275 ***
-(3.02,3.9] - (2.3,2.7] == 0    3.8932     0.3816  10.202  &lt; 1e-04 ***
-(3.02,3.9] - (2.7,3.02] == 0   2.1814     0.4166   5.236  &lt; 1e-04 ***
+(2.3,2.7] - [2,2.3] == 0       0.7155     0.3813   1.876    0.242    
+(2.7,3.02] - [2,2.3] == 0      2.4273     0.4382   5.539   &lt;0.001 ***
+(3.02,3.9] - [2,2.3] == 0      4.6086     0.4401  10.473   &lt;0.001 ***
+(2.7,3.02] - (2.3,2.7] == 0    1.7118     0.4042   4.235   &lt;0.001 ***
+(3.02,3.9] - (2.3,2.7] == 0    3.8932     0.3816  10.202   &lt;0.001 ***
+(3.02,3.9] - (2.7,3.02] == 0   2.1814     0.4166   5.236   &lt;0.001 ***
 ---
 Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
 (Adjusted p values reported -- single-step method)</code></pre>
@@ -561,9 +617,519 @@ Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
 <p>Answer (excerpt) :</p>
 <div class="sourceCode" id="cb38"><pre class="sourceCode txt code-with-copy"><code class="sourceCode default"><span id="cb38-1"><a href="#cb38-1" aria-hidden="true" tabindex="-1"></a>Interpreting a linear model is all about understanding the "story" the data is telling. When you run a regression, you’re essentially trying to find the best-fitting line through your data points[...]. The p-value tells you whether the relationship you see in the coefficient is statistically significant or if it could have just happened by random chance.[...]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>The general statement is accurate, although dividing p-values into “significant” and “not significant” is very bad practice.</p>
-
-
 </section>
+</section>
+</section>
+</section>
+<section id="series-2-non-linearities" class="level1">
+<h1>Series 2: Non-linearities</h1>
+<section id="exercise-1" class="level2">
+<h2 class="anchored" data-anchor-id="exercise-1">Exercise 1</h2>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb39"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb39-1"><a href="#cb39-1" aria-hidden="true" tabindex="-1"></a><span class="co"># install.packages("gss")</span></span>
+<span id="cb39-2"><a href="#cb39-2" aria-hidden="true" tabindex="-1"></a><span class="fu">data</span>(ozone, <span class="at">package =</span> <span class="st">"gss"</span>)</span>
+<span id="cb39-3"><a href="#cb39-3" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(ozone)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>  upo3 vdht wdsp hmdt sbtp ibht dgpg ibtp vsty day
+1    3 5710    4   28   40 2693  -25   87  250   3
+2    5 5700    3   37   45  590  -24  128  100   4
+3    5 5760    3   51   54 1450   25  139   60   5
+4    6 5720    4   69   35 1568   15  121   60   6
+5    4 5790    6   19   45 2631  -33  123  100   7
+6    4 5790    3   25   55  554  -28  182  250   8</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb41"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb41-1"><a href="#cb41-1" aria-hidden="true" tabindex="-1"></a><span class="fu">pairs</span>(</span>
+<span id="cb41-2"><a href="#cb41-2" aria-hidden="true" tabindex="-1"></a>    <span class="fu">log</span>(upo3) <span class="sc">~</span> . ,</span>
+<span id="cb41-3"><a href="#cb41-3" aria-hidden="true" tabindex="-1"></a>    <span class="at">data =</span> ozone,</span>
+<span id="cb41-4"><a href="#cb41-4" aria-hidden="true" tabindex="-1"></a>    <span class="at">pch =</span> <span class="st">"."</span>,</span>
+<span id="cb41-5"><a href="#cb41-5" aria-hidden="true" tabindex="-1"></a>    <span class="at">upper.panel =</span> panel.smooth</span>
+<span id="cb41-6"><a href="#cb41-6" aria-hidden="true" tabindex="-1"></a>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="mpm1_exercises_files/figure-html/unnamed-chunk-14-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+<p>As there are many predictors, the single graphs are too small. Therefore, we prefer to create each graph separately. Let’s start with <code>vdht</code>.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb42"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb42-1"><a href="#cb42-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ggplot2)</span>
+<span id="cb42-2"><a href="#cb42-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb42-3"><a href="#cb42-3" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(</span>
+<span id="cb42-4"><a href="#cb42-4" aria-hidden="true" tabindex="-1"></a>    <span class="at">data =</span> ozone,</span>
+<span id="cb42-5"><a href="#cb42-5" aria-hidden="true" tabindex="-1"></a>    <span class="at">mapping =</span> <span class="fu">aes</span>(</span>
+<span id="cb42-6"><a href="#cb42-6" aria-hidden="true" tabindex="-1"></a>        <span class="at">y =</span> <span class="fu">log</span>(upo3),</span>
+<span id="cb42-7"><a href="#cb42-7" aria-hidden="true" tabindex="-1"></a>        <span class="at">x =</span> vdht</span>
+<span id="cb42-8"><a href="#cb42-8" aria-hidden="true" tabindex="-1"></a>    )</span>
+<span id="cb42-9"><a href="#cb42-9" aria-hidden="true" tabindex="-1"></a>) <span class="sc">+</span></span>
+<span id="cb42-10"><a href="#cb42-10" aria-hidden="true" tabindex="-1"></a><span class="fu">geom_point</span>() <span class="sc">+</span></span>
+<span id="cb42-11"><a href="#cb42-11" aria-hidden="true" tabindex="-1"></a><span class="fu">geom_smooth</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>`geom_smooth()` using method = 'loess' and formula = 'y ~ x'</code></pre>
+</div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="mpm1_exercises_files/figure-html/unnamed-chunk-15-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+<section id="question-1-1" class="level3">
+<h3 class="anchored" data-anchor-id="question-1-1">Question 1</h3>
+<p>Go through all the other predictors, produce the corresponding graph and comment on the relationship. You may want to say whether the relationship can be assumed to be linear, quadratic or more complex. If you prefer, you may look at a couple of predictors only (as there are many).</p>
+<section id="answer-6" class="level4">
+<h4 class="anchored" data-anchor-id="answer-6">Answer</h4>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb44"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb44-1"><a href="#cb44-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ggplot2)</span>
+<span id="cb44-2"><a href="#cb44-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb44-3"><a href="#cb44-3" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(</span>
+<span id="cb44-4"><a href="#cb44-4" aria-hidden="true" tabindex="-1"></a>    <span class="at">data =</span> ozone,</span>
+<span id="cb44-5"><a href="#cb44-5" aria-hidden="true" tabindex="-1"></a>    <span class="at">mapping =</span> <span class="fu">aes</span>(</span>
+<span id="cb44-6"><a href="#cb44-6" aria-hidden="true" tabindex="-1"></a>        <span class="at">y =</span> <span class="fu">log</span>(upo3),</span>
+<span id="cb44-7"><a href="#cb44-7" aria-hidden="true" tabindex="-1"></a>        <span class="at">x =</span> hmdt</span>
+<span id="cb44-8"><a href="#cb44-8" aria-hidden="true" tabindex="-1"></a>    )</span>
+<span id="cb44-9"><a href="#cb44-9" aria-hidden="true" tabindex="-1"></a>) <span class="sc">+</span></span>
+<span id="cb44-10"><a href="#cb44-10" aria-hidden="true" tabindex="-1"></a><span class="fu">geom_point</span>() <span class="sc">+</span></span>
+<span id="cb44-11"><a href="#cb44-11" aria-hidden="true" tabindex="-1"></a><span class="fu">geom_smooth</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>`geom_smooth()` using method = 'loess' and formula = 'y ~ x'</code></pre>
+</div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="mpm1_exercises_files/figure-html/unnamed-chunk-16-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+<p>The relationship between <code>log(upo3)</code> and <code>ibtp</code> appears to be linear, except at the end of the plot.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb46"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb46-1"><a href="#cb46-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ggplot2)</span>
+<span id="cb46-2"><a href="#cb46-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb46-3"><a href="#cb46-3" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(</span>
+<span id="cb46-4"><a href="#cb46-4" aria-hidden="true" tabindex="-1"></a>    <span class="at">data =</span> ozone,</span>
+<span id="cb46-5"><a href="#cb46-5" aria-hidden="true" tabindex="-1"></a>    <span class="at">mapping =</span> <span class="fu">aes</span>(</span>
+<span id="cb46-6"><a href="#cb46-6" aria-hidden="true" tabindex="-1"></a>        <span class="at">y =</span> <span class="fu">log</span>(upo3),</span>
+<span id="cb46-7"><a href="#cb46-7" aria-hidden="true" tabindex="-1"></a>        <span class="at">x =</span> day</span>
+<span id="cb46-8"><a href="#cb46-8" aria-hidden="true" tabindex="-1"></a>    )</span>
+<span id="cb46-9"><a href="#cb46-9" aria-hidden="true" tabindex="-1"></a>) <span class="sc">+</span></span>
+<span id="cb46-10"><a href="#cb46-10" aria-hidden="true" tabindex="-1"></a><span class="fu">geom_point</span>() <span class="sc">+</span></span>
+<span id="cb46-11"><a href="#cb46-11" aria-hidden="true" tabindex="-1"></a><span class="fu">geom_smooth</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>`geom_smooth()` using method = 'loess' and formula = 'y ~ x'</code></pre>
+</div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="mpm1_exercises_files/figure-html/unnamed-chunk-17-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+<p>The relationship between <code>log(upo3)</code> and <code>day</code> appears to be quadratic or polynomial of order 2, 4, 6, etc.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb48"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb48-1"><a href="#cb48-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ggplot2)</span>
+<span id="cb48-2"><a href="#cb48-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb48-3"><a href="#cb48-3" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(</span>
+<span id="cb48-4"><a href="#cb48-4" aria-hidden="true" tabindex="-1"></a>    <span class="at">data =</span> ozone,</span>
+<span id="cb48-5"><a href="#cb48-5" aria-hidden="true" tabindex="-1"></a>    <span class="at">mapping =</span> <span class="fu">aes</span>(</span>
+<span id="cb48-6"><a href="#cb48-6" aria-hidden="true" tabindex="-1"></a>        <span class="at">y =</span> <span class="fu">log</span>(upo3),</span>
+<span id="cb48-7"><a href="#cb48-7" aria-hidden="true" tabindex="-1"></a>        <span class="at">x =</span> sbtp</span>
+<span id="cb48-8"><a href="#cb48-8" aria-hidden="true" tabindex="-1"></a>    )</span>
+<span id="cb48-9"><a href="#cb48-9" aria-hidden="true" tabindex="-1"></a>) <span class="sc">+</span></span>
+<span id="cb48-10"><a href="#cb48-10" aria-hidden="true" tabindex="-1"></a><span class="fu">geom_point</span>() <span class="sc">+</span></span>
+<span id="cb48-11"><a href="#cb48-11" aria-hidden="true" tabindex="-1"></a><span class="fu">geom_smooth</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>`geom_smooth()` using method = 'loess' and formula = 'y ~ x'</code></pre>
+</div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="mpm1_exercises_files/figure-html/unnamed-chunk-18-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+<p>The relationship between <code>log(upo3)</code> and <code>sbpt</code> appears to be cubic or polynomial of order 3, 5, 7, etc.</p>
+</section>
+</section>
+<section id="question-2-1" class="level3">
+<h3 class="anchored" data-anchor-id="question-2-1">Question 2</h3>
+<p>Fit a Generalised Additive Model with the gam() function from {mgcv} package. Remember to fit the model to the log-transformed response variable.</p>
+<section id="answer-7" class="level4">
+<h4 class="anchored" data-anchor-id="answer-7">Answer</h4>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb50"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb50-1"><a href="#cb50-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ggplot2)</span>
+<span id="cb50-2"><a href="#cb50-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(mgcv)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Loading required package: nlme</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>This is mgcv 1.9-4. For overview type '?mgcv'.</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb53"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb53-1"><a href="#cb53-1" aria-hidden="true" tabindex="-1"></a>gam_ozone <span class="ot">&lt;-</span> <span class="fu">gam</span>(</span>
+<span id="cb53-2"><a href="#cb53-2" aria-hidden="true" tabindex="-1"></a>    <span class="fu">log</span>(upo3) <span class="sc">~</span> <span class="fu">s</span>(vdht) <span class="sc">+</span> <span class="fu">s</span>(wdsp) <span class="sc">+</span> <span class="fu">s</span>(hmdt) <span class="sc">+</span> <span class="fu">s</span>(sbtp) <span class="sc">+</span> <span class="fu">s</span>(ibht) <span class="sc">+</span> <span class="fu">s</span>(dgpg) <span class="sc">+</span> <span class="fu">s</span>(ibtp) <span class="sc">+</span> <span class="fu">s</span>(vsty) <span class="sc">+</span> <span class="fu">s</span>(day),</span>
+<span id="cb53-3"><a href="#cb53-3" aria-hidden="true" tabindex="-1"></a>    <span class="at">data =</span> ozone</span>
+<span id="cb53-4"><a href="#cb53-4" aria-hidden="true" tabindex="-1"></a>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+</section>
+<section id="question-3-1" class="level3">
+<h3 class="anchored" data-anchor-id="question-3-1">Question 3</h3>
+<p>Look at the summary of the model you just fitted and answer the following questions:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb54"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb54-1"><a href="#cb54-1" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(gam_ozone)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>
+Family: gaussian 
+Link function: identity 
+
+Formula:
+log(upo3) ~ s(vdht) + s(wdsp) + s(hmdt) + s(sbtp) + s(ibht) + 
+    s(dgpg) + s(ibtp) + s(vsty) + s(day)
+
+Parametric coefficients:
+            Estimate Std. Error t value Pr(&gt;|t|)    
+(Intercept)  2.21297    0.01717   128.9   &lt;2e-16 ***
+---
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
+
+Approximate significance of smooth terms:
+          edf Ref.df      F  p-value    
+s(vdht) 1.000  1.000 10.973  0.00104 ** 
+s(wdsp) 2.526  3.194  2.842  0.04113 *  
+s(hmdt) 2.353  2.958  2.546  0.04818 *  
+s(sbtp) 3.772  4.703  4.214  0.00146 ** 
+s(ibht) 2.797  3.421  5.185  0.00132 ** 
+s(dgpg) 3.248  4.130 14.169  &lt; 2e-16 ***
+s(ibtp) 1.000  1.000  0.448  0.50366    
+s(vsty) 5.728  6.884  5.908 2.94e-06 ***
+s(day)  4.609  5.729 24.269  &lt; 2e-16 ***
+---
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
+
+R-sq.(adj) =  0.826   Deviance explained = 84.1%
+GCV = 0.10629  Scale est. = 0.097256  n = 330</code></pre>
+</div>
+</div>
+<ol type="I">
+<li>How many of the smooth terms appear to have a significant effect if we were to use a strict 5% threshold?</li>
+<li>Which smooth terms are estimated to have linear effect?</li>
+<li>Which one is the term that is estimated to be the most complex?</li>
+<li>Are there any “parametric” terms in this model?</li>
+</ol>
+<section id="i" class="level4">
+<h4 class="anchored" data-anchor-id="i">I</h4>
+<p>All smooth terms except for <code>ibtp</code> seems to have a statistical impact on the model.</p>
+</section>
+<section id="ii" class="level4">
+<h4 class="anchored" data-anchor-id="ii">II</h4>
+<p>The two smooth terms<code>vdht</code> and <code>ibtp</code> have an estimated degree of freedom of 1. Their effect is thus estimated to be linear.</p>
+</section>
+<section id="iii" class="level4">
+<h4 class="anchored" data-anchor-id="iii">III</h4>
+<p>The smoth term <code>vsty</code> seems to bee the most complex one.</p>
+</section>
+<section id="iv" class="level4">
+<h4 class="anchored" data-anchor-id="iv">IV</h4>
+<p>Yes, there is an intercept.</p>
+</section>
+</section>
+<section id="question-4-1" class="level3">
+<h3 class="anchored" data-anchor-id="question-4-1">Question 4</h3>
+<p>Use the <code>plot()</code> function to visualise the estimated smooth terms.</p>
+<section id="answer-8" class="level4">
+<h4 class="anchored" data-anchor-id="answer-8">Answer</h4>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb56"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb56-1"><a href="#cb56-1" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(</span>
+<span id="cb56-2"><a href="#cb56-2" aria-hidden="true" tabindex="-1"></a>    gam_ozone,</span>
+<span id="cb56-3"><a href="#cb56-3" aria-hidden="true" tabindex="-1"></a>    <span class="at">residuals =</span> <span class="cn">TRUE</span>,</span>
+<span id="cb56-4"><a href="#cb56-4" aria-hidden="true" tabindex="-1"></a>    <span class="at">pages =</span> <span class="dv">1</span>,</span>
+<span id="cb56-5"><a href="#cb56-5" aria-hidden="true" tabindex="-1"></a>    <span class="at">shade =</span> <span class="cn">TRUE</span></span>
+<span id="cb56-6"><a href="#cb56-6" aria-hidden="true" tabindex="-1"></a>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="mpm1_exercises_files/figure-html/unnamed-chunk-21-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+</section>
+</section>
+</section>
+</section>
+<section id="series-3-glms---binominal" class="level1">
+<h1>Series 3: GLMs - Binominal</h1>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb57"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb57-1"><a href="#cb57-1" aria-hidden="true" tabindex="-1"></a>d.xray <span class="ot">&lt;-</span> <span class="fu">readRDS</span>(<span class="st">"/home/nils/dev/mscids-notes/fs26/mpm1/data/Xray.RDS"</span>)</span>
+<span id="cb57-2"><a href="#cb57-2" aria-hidden="true" tabindex="-1"></a><span class="fu">str</span>(d.xray)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>tibble [112 × 7] (S3: tbl_df/tbl/data.frame)
+ $ Sex      : Factor w/ 2 levels "F","M": 1 2 1 2 2 1 1 2 1 2 ...
+ $ disease  : num [1:112] 1 1 0 1 1 1 1 0 0 0 ...
+ $ age      : int [1:112] 0 6 8 1 4 9 17 5 0 7 ...
+ $ downs    : Factor w/ 2 levels "no","yes": 1 1 1 2 1 1 1 1 1 1 ...
+ $ Mray     : Factor w/ 2 levels "no","yes": 1 1 1 1 2 2 1 1 1 1 ...
+ $ Fray     : Factor w/ 2 levels "no","yes": 1 1 1 1 1 1 1 1 1 1 ...
+ $ CnRay.num: num [1:112] 1 3 1 1 1 1 2 1 1 1 ...</code></pre>
+</div>
+</div>
+<section id="question-1-2" class="level2">
+<h2 class="anchored" data-anchor-id="question-1-2">Question 1</h2>
+<p>Visualise the data. You may want to take advantage of the <code>pairs()</code> function.</p>
+<section id="answer-9" class="level3">
+<h3 class="anchored" data-anchor-id="answer-9">Answer</h3>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb59"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb59-1"><a href="#cb59-1" aria-hidden="true" tabindex="-1"></a><span class="fu">pairs</span>(</span>
+<span id="cb59-2"><a href="#cb59-2" aria-hidden="true" tabindex="-1"></a>    disease <span class="sc">~</span> . ,</span>
+<span id="cb59-3"><a href="#cb59-3" aria-hidden="true" tabindex="-1"></a>    <span class="at">data =</span> d.xray,</span>
+<span id="cb59-4"><a href="#cb59-4" aria-hidden="true" tabindex="-1"></a>    <span class="at">upper.panel =</span> panel.smooth</span>
+<span id="cb59-5"><a href="#cb59-5" aria-hidden="true" tabindex="-1"></a>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="mpm1_exercises_files/figure-html/unnamed-chunk-23-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+</section>
+</section>
+<section id="question-2-2" class="level2">
+<h2 class="anchored" data-anchor-id="question-2-2">Question 2</h2>
+<p>Fit a starting model to the data. Start by assuming linearity for the continuous predictors and assume that no interaction is needed. Comment on the results obtained wit the summary function.</p>
+<section id="answer-10" class="level3">
+<h3 class="anchored" data-anchor-id="answer-10">Answer</h3>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb60"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb60-1"><a href="#cb60-1" aria-hidden="true" tabindex="-1"></a>glm.xray <span class="ot">&lt;-</span> <span class="fu">glm</span>(</span>
+<span id="cb60-2"><a href="#cb60-2" aria-hidden="true" tabindex="-1"></a>    disease <span class="sc">~</span> Sex <span class="sc">+</span> downs <span class="sc">+</span> age <span class="sc">+</span> Mray <span class="sc">+</span> Fray <span class="sc">+</span> CnRay.num,</span>
+<span id="cb60-3"><a href="#cb60-3" aria-hidden="true" tabindex="-1"></a>    <span class="at">data =</span> d.xray,</span>
+<span id="cb60-4"><a href="#cb60-4" aria-hidden="true" tabindex="-1"></a>    <span class="at">family =</span> <span class="st">"binomial"</span></span>
+<span id="cb60-5"><a href="#cb60-5" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb60-6"><a href="#cb60-6" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb60-7"><a href="#cb60-7" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(glm.xray)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>
+Call:
+glm(formula = disease ~ Sex + downs + age + Mray + Fray + CnRay.num, 
+    family = "binomial", data = d.xray)
+
+Coefficients:
+              Estimate Std. Error z value Pr(&gt;|z|)    
+(Intercept)   -2.08036    0.54863  -3.792 0.000149 ***
+SexM           0.88102    0.41952   2.100 0.035723 *  
+downsyes      16.06989 1455.39759   0.011 0.991190    
+age            0.04494    0.04092   1.098 0.272151    
+Mrayyes        0.69668    0.77274   0.902 0.367290    
+Frayyes        0.14528    0.43966   0.330 0.741064    
+CnRay.num      0.65058    0.30944   2.102 0.035514 *  
+---
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
+
+(Dispersion parameter for binomial family taken to be 1)
+
+    Null deviance: 152.97  on 111  degrees of freedom
+Residual deviance: 135.87  on 105  degrees of freedom
+AIC: 149.87
+
+Number of Fisher Scoring iterations: 14</code></pre>
+</div>
+</div>
+<p>Only two of total six model parameters seems to have a effect on the output (wee p-values).</p>
+</section>
+</section>
+<section id="question-3-2" class="level2">
+<h2 class="anchored" data-anchor-id="question-3-2">Question 3</h2>
+<p>Interpret the coefficients of SexM and age.</p>
+<section id="answer-11" class="level3">
+<h3 class="anchored" data-anchor-id="answer-11">Answer</h3>
+<p>While sex seems to have a statistical impact on the model, age does not.</p>
+</section>
+</section>
+<section id="question-4-2" class="level2">
+<h2 class="anchored" data-anchor-id="question-4-2">Question 4</h2>
+<p>Look at the estimated effect of the variable downs and its p-value. Do the results make sense to you? Comment.</p>
+<section id="answer-12" class="level3">
+<h3 class="anchored" data-anchor-id="answer-12">Answer</h3>
+<p>It’s interesting to see that only the parameters <code>SexM</code> and <code>CnRay.num</code> have a statistical impact on the model.</p>
+</section>
+</section>
+</section>
+<section id="series-3-glms---poisson" class="level1">
+<h1>Series 3: GLMs - Poisson</h1>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb62"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb62-1"><a href="#cb62-1" aria-hidden="true" tabindex="-1"></a><span class="fu">data</span>(InsectSprays)</span>
+<span id="cb62-2"><a href="#cb62-2" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(InsectSprays)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>  count spray
+1    10     A
+2     7     A
+3    20     A
+4    14     A
+5    14     A
+6    12     A</code></pre>
+</div>
+</div>
+<section id="question-1-3" class="level2">
+<h2 class="anchored" data-anchor-id="question-1-3">Question 1</h2>
+<p>Use an appropriate function to visualise the data.</p>
+<section id="answer-13" class="level3">
+<h3 class="anchored" data-anchor-id="answer-13">Answer</h3>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb64"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb64-1"><a href="#cb64-1" aria-hidden="true" tabindex="-1"></a><span class="fu">boxplot</span>(count <span class="sc">~</span> spray, <span class="at">data =</span> InsectSprays)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="mpm1_exercises_files/figure-html/unnamed-chunk-26-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+</section>
+</section>
+<section id="question-2-3" class="level2">
+<h2 class="anchored" data-anchor-id="question-2-3">Question 2</h2>
+<p>What do you observe on the graph? Are there differences among groups? Is the variability within each group similar?</p>
+<section id="answer-14" class="level3">
+<h3 class="anchored" data-anchor-id="answer-14">Answer</h3>
+<p>We can clearly see that some sprays have a better effect than others.</p>
+</section>
+</section>
+<section id="question-3-3" class="level2">
+<h2 class="anchored" data-anchor-id="question-3-3">Question 3</h2>
+<p>Fit a Poisson model to the data and interpret the regression coefficients.</p>
+<section id="answer-15" class="level3">
+<h3 class="anchored" data-anchor-id="answer-15">Answer</h3>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb65"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb65-1"><a href="#cb65-1" aria-hidden="true" tabindex="-1"></a>glm.InsectSprays <span class="ot">&lt;-</span> <span class="fu">glm</span>(</span>
+<span id="cb65-2"><a href="#cb65-2" aria-hidden="true" tabindex="-1"></a>    count <span class="sc">~</span> spray,</span>
+<span id="cb65-3"><a href="#cb65-3" aria-hidden="true" tabindex="-1"></a>    <span class="at">data =</span> InsectSprays,</span>
+<span id="cb65-4"><a href="#cb65-4" aria-hidden="true" tabindex="-1"></a>    <span class="at">family =</span> <span class="st">"poisson"</span></span>
+<span id="cb65-5"><a href="#cb65-5" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb65-6"><a href="#cb65-6" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb65-7"><a href="#cb65-7" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(glm.InsectSprays)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>
+Call:
+glm(formula = count ~ spray, family = "poisson", data = InsectSprays)
+
+Coefficients:
+            Estimate Std. Error z value Pr(&gt;|z|)    
+(Intercept)  2.67415    0.07581  35.274  &lt; 2e-16 ***
+sprayB       0.05588    0.10574   0.528    0.597    
+sprayC      -1.94018    0.21389  -9.071  &lt; 2e-16 ***
+sprayD      -1.08152    0.15065  -7.179 7.03e-13 ***
+sprayE      -1.42139    0.17192  -8.268  &lt; 2e-16 ***
+sprayF       0.13926    0.10367   1.343    0.179    
+---
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
+
+(Dispersion parameter for poisson family taken to be 1)
+
+    Null deviance: 409.041  on 71  degrees of freedom
+Residual deviance:  98.329  on 66  degrees of freedom
+AIC: 376.59
+
+Number of Fisher Scoring iterations: 5</code></pre>
+</div>
+</div>
+</section>
+</section>
+<section id="question-4-3" class="level2">
+<h2 class="anchored" data-anchor-id="question-4-3">Question 4</h2>
+<p>Check whether the model is overdispersed. If this is the case, fit a quasipoisson model and compare the estimated regression coefficients with those of the Poisson model.</p>
+<section id="answer-16" class="level3">
+<h3 class="anchored" data-anchor-id="answer-16">Answer</h3>
+<p>The residual deviance is about 98 on 66 degrees of freedom. If there were no overdispersion, we would expect the residual deviance to be about 66. We can therefore conclude that the model is overdispersed.</p>
+</section>
+</section>
+<section id="question-5-1" class="level2">
+<h2 class="anchored" data-anchor-id="question-5-1">Question 5</h2>
+<p>Formally test whether there is any evidence that the predictor spray plays a role in the “quasipoisson” model.</p>
+<section id="answer-17" class="level3">
+<h3 class="anchored" data-anchor-id="answer-17">Answer</h3>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb67"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb67-1"><a href="#cb67-1" aria-hidden="true" tabindex="-1"></a>glm.InsectSprays <span class="ot">&lt;-</span> <span class="fu">glm</span>(</span>
+<span id="cb67-2"><a href="#cb67-2" aria-hidden="true" tabindex="-1"></a>    count <span class="sc">~</span> spray,</span>
+<span id="cb67-3"><a href="#cb67-3" aria-hidden="true" tabindex="-1"></a>    <span class="at">data =</span> InsectSprays,</span>
+<span id="cb67-4"><a href="#cb67-4" aria-hidden="true" tabindex="-1"></a>    <span class="at">family =</span> <span class="st">"quasipoisson"</span></span>
+<span id="cb67-5"><a href="#cb67-5" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb67-6"><a href="#cb67-6" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb67-7"><a href="#cb67-7" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(glm.InsectSprays)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>
+Call:
+glm(formula = count ~ spray, family = "quasipoisson", data = InsectSprays)
+
+Coefficients:
+            Estimate Std. Error t value Pr(&gt;|t|)    
+(Intercept)  2.67415    0.09309  28.728  &lt; 2e-16 ***
+sprayB       0.05588    0.12984   0.430    0.668    
+sprayC      -1.94018    0.26263  -7.388 3.30e-10 ***
+sprayD      -1.08152    0.18499  -5.847 1.70e-07 ***
+sprayE      -1.42139    0.21110  -6.733 4.82e-09 ***
+sprayF       0.13926    0.12729   1.094    0.278    
+---
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
+
+(Dispersion parameter for quasipoisson family taken to be 1.507713)
+
+    Null deviance: 409.041  on 71  degrees of freedom
+Residual deviance:  98.329  on 66  degrees of freedom
+AIC: NA
+
+Number of Fisher Scoring iterations: 5</code></pre>
+</div>
+</div>
+<p>As expected, there is very strong evidence that spray plays a role.</p>
+</section>
+</section>
+<section id="question-6-1" class="level2">
+<h2 class="anchored" data-anchor-id="question-6-1">Question 6</h2>
+<p>We previously tested whether the predictor spray plays a role. Given that this test was statistically significant, we can dig further and test hypotheses that involve some of the levels of this predictor. Use the glht() function in the <code>multcomp</code> package to test whether the conventional pesticides “C”, “D” and “E” differ from the organic pesticides “A”, “B” and “F”. Test also whether the newly developed pesticides “A” and “B” differ from the old conventional pesticide “F”. Use the “quasipoisson” model to test these hypotheses.</p>
+<section id="answer-18" class="level3">
+<h3 class="anchored" data-anchor-id="answer-18">Answer</h3>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb69"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb69-1"><a href="#cb69-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(multcomp)</span>
+<span id="cb69-2"><a href="#cb69-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb69-3"><a href="#cb69-3" aria-hidden="true" tabindex="-1"></a>glm.insects.quasi <span class="ot">&lt;-</span> <span class="fu">glm</span>(count <span class="sc">~</span> spray <span class="sc">-</span> <span class="dv">1</span>, <span class="at">data =</span> InsectSprays, <span class="at">family =</span> quasipoisson)</span>
+<span id="cb69-4"><a href="#cb69-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb69-5"><a href="#cb69-5" aria-hidden="true" tabindex="-1"></a>matrix.of.contrasts <span class="ot">&lt;-</span> <span class="fu">rbind</span>(</span>
+<span id="cb69-6"><a href="#cb69-6" aria-hidden="true" tabindex="-1"></a>    <span class="st">"organic vs conv"</span> <span class="ot">=</span> <span class="fu">c</span>(<span class="dv">1</span><span class="sc">/</span><span class="dv">3</span>, <span class="dv">1</span><span class="sc">/</span><span class="dv">3</span>, <span class="sc">-</span><span class="dv">1</span><span class="sc">/</span><span class="dv">3</span>, <span class="sc">-</span><span class="dv">1</span><span class="sc">/</span><span class="dv">3</span>, <span class="sc">-</span><span class="dv">1</span><span class="sc">/</span><span class="dv">3</span>, <span class="dv">1</span><span class="sc">/</span><span class="dv">3</span>),</span>
+<span id="cb69-7"><a href="#cb69-7" aria-hidden="true" tabindex="-1"></a>    <span class="st">"new vs old conv"</span> <span class="ot">=</span> <span class="fu">c</span>(<span class="dv">1</span><span class="sc">/</span><span class="dv">2</span>, <span class="dv">1</span><span class="sc">/</span><span class="dv">2</span>, <span class="dv">0</span>, <span class="dv">0</span>, <span class="dv">0</span>, <span class="sc">-</span><span class="dv">1</span>)</span>
+<span id="cb69-8"><a href="#cb69-8" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb69-9"><a href="#cb69-9" aria-hidden="true" tabindex="-1"></a><span class="fu">colnames</span>(matrix.of.contrasts) <span class="ot">&lt;-</span> <span class="fu">levels</span>(InsectSprays<span class="sc">$</span>spray)</span>
+<span id="cb69-10"><a href="#cb69-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb69-11"><a href="#cb69-11" aria-hidden="true" tabindex="-1"></a>glht.insects <span class="ot">&lt;-</span> <span class="fu">glht</span>(</span>
+<span id="cb69-12"><a href="#cb69-12" aria-hidden="true" tabindex="-1"></a>    glm.insects.quasi,</span>
+<span id="cb69-13"><a href="#cb69-13" aria-hidden="true" tabindex="-1"></a>    <span class="at">linfct =</span> <span class="fu">mcp</span>(<span class="at">spray =</span> matrix.of.contrasts)</span>
+<span id="cb69-14"><a href="#cb69-14" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb69-15"><a href="#cb69-15" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb69-16"><a href="#cb69-16" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(glht.insects)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>
+     Simultaneous Tests for General Linear Hypotheses
+
+Multiple Comparisons of Means: User-defined Contrasts
+
+
+Fit: glm(formula = count ~ spray - 1, family = quasipoisson, data = InsectSprays)
+
+Linear Hypotheses:
+                     Estimate Std. Error z value Pr(&gt;|z|)    
+organic vs conv == 0   1.5461     0.1274  12.132   &lt;1e-10 ***
+new vs old conv == 0  -0.1113     0.1084  -1.027    0.516    
+---
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
+(Adjusted p values reported -- single-step method)</code></pre>
+</div>
+</div>
+<p>As expected (from the graphical analysis), we can confirm that there is a clear difference between organic and conventional pesticides. However, there is no statistical evidence that the new conventional sprays differ from the old conventional one.</p>
+
+
 </section>
 </section>
 </section>
