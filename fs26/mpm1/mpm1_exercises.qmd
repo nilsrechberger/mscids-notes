@@ -324,3 +324,151 @@ plot(
 )
 ```
 
+# Series 3: GLMs - Binominal
+
+```{r}
+d.xray <- readRDS("/home/nils/dev/mscids-notes/fs26/mpm1/data/Xray.RDS")
+str(d.xray)
+```
+
+## Question 1
+
+Visualise the data. You may want to take advantage of the `pairs()` function.
+
+### Answer
+
+```{r}
+pairs(
+    disease ~ . ,
+    data = d.xray,
+    upper.panel = panel.smooth
+)
+```
+
+## Question 2
+
+Fit a starting model to the data. Start by assuming linearity for the continuous predictors and assume that no interaction is needed. Comment on the results obtained wit the summary function.
+
+### Answer
+
+```{r}
+glm.xray <- glm(
+    disease ~ Sex + downs + age + Mray + Fray + CnRay.num,
+    data = d.xray,
+    family = "binomial"
+)
+    
+summary(glm.xray)
+```
+
+Only two of total six model parameters seems to have a effect on the output (wee p-values).
+
+## Question 3
+
+Interpret the coefficients of SexM and age.
+
+### Answer
+
+While sex seems to have a statistical impact on the model, age does not.
+
+## Question 4
+
+Look at the estimated effect of the variable downs and its p-value. Do the results make sense to you? Comment.
+
+### Answer
+
+It's interesting to see that only the parameters `SexM` and `CnRay.num` have a statistical impact on the model.
+
+# Series 3: GLMs - Poisson
+
+```{r}
+data(InsectSprays)
+head(InsectSprays)
+```
+
+## Question 1
+
+Use an appropriate function to visualise the data.
+
+### Answer
+
+```{r}
+boxplot(count ~ spray, data = InsectSprays)
+```
+
+## Question 2
+
+What do you observe on the graph? Are there differences among groups? Is the variability within each group similar?
+
+### Answer
+
+We can clearly see that some sprays have a better effect than others.
+
+## Question 3
+
+Fit a Poisson model to the data and interpret the regression coefficients.
+
+### Answer
+
+```{r}
+glm.InsectSprays <- glm(
+    count ~ spray,
+    data = InsectSprays,
+    family = "poisson"
+)
+    
+summary(glm.InsectSprays)
+```
+
+## Question 4
+
+Check whether the model is overdispersed. If this is the case, fit a quasipoisson model and compare the estimated regression coefficients with those of the Poisson model.
+
+### Answer
+
+The residual deviance is about 98 on 66 degrees of freedom. If there were no overdispersion, we would expect the residual deviance to be about 66. We can therefore conclude that the model is overdispersed.
+
+## Question 5
+
+Formally test whether there is any evidence that the predictor spray plays a role in the “quasipoisson” model.
+
+### Answer
+
+```{r}
+glm.InsectSprays <- glm(
+    count ~ spray,
+    data = InsectSprays,
+    family = "quasipoisson"
+)
+    
+summary(glm.InsectSprays)
+```
+
+As expected, there is very strong evidence that spray plays a role.
+
+## Question 6
+
+We previously tested whether the predictor spray plays a role. Given that this test was statistically significant, we can dig further and test hypotheses that involve some of the levels of this predictor. Use the glht() function in the `multcomp` package to test whether the conventional pesticides “C”, “D” and “E” differ from the organic pesticides “A”, “B” and “F”. Test also whether the newly developed pesticides “A” and “B” differ from the old conventional pesticide “F”. Use the “quasipoisson” model to test these hypotheses.
+
+### Answer
+
+```{r}
+library(multcomp)
+
+glm.insects.quasi <- glm(count ~ spray - 1, data = InsectSprays, family = quasipoisson)
+
+matrix.of.contrasts <- rbind(
+    "organic vs conv" = c(1/3, 1/3, -1/3, -1/3, -1/3, 1/3),
+    "new vs old conv" = c(1/2, 1/2, 0, 0, 0, -1)
+)
+colnames(matrix.of.contrasts) <- levels(InsectSprays$spray)
+
+glht.insects <- glht(
+    glm.insects.quasi,
+    linfct = mcp(spray = matrix.of.contrasts)
+)
+
+summary(glht.insects)
+```
+
+As expected (from the graphical analysis), we can confirm that there is a clear difference between organic and conventional pesticides. However, there is no statistical evidence that the new conventional sprays differ from the old conventional one.
