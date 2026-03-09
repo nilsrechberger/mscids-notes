@@ -132,3 +132,83 @@ Metadata are data about data. Without metadata, it can be difficult to make sens
 - Whether columns can have NULL values
 - Rules regarding data relationships
 - Cardinality (Number of unique values compared to the total rows, e.g. gender, boolean flags)
+
+# Lecture 03: Exploratory Data Analysis
+
+## Data Preparation
+
+The process of manipulating data before analysis is referred to as data preparation. The meaning of the term data preparation depends on Point of view, Roles, Intended data use.
+
+### Point of view
+
+The meaning of data preparation varies depending on one's position in the hierarchy.
+
+> Note: We take a statistical view and focus on the EXPLORE/TRANSFORM level.
+
+### Role and intended data use
+
+![Role and intended data use](img/role_and_intended_data_use.png)
+
+## From Data to Understanding
+
+The process from data to understanding is often described to as a cycle
+
+*"Data Wrangling is the ability to take a messy, unrefined source of data and wrangle it into something useful. It’s the art of using computer programming to extract raw data and creating clear and actionable bits of information for your analysis. Data wrangling is the entire front end of the analytic process and requires numerous tasks that can be categorized within the get, clean, and transform components.”* (Bradley Boehmke)
+
+![Data understanding cycle](img/understanding_data.png)
+
+## Exploratory Data Analysis (EDA)
+
+::: {.callout-tip}
+Always plot your data first.
+:::
+
+### Raw Approach:
+
+- Examine the data before applying a specific probability model
+- Focus on descriptive analysis over hypothesis testing
+- Methods of graphical data analysis
+
+### Iterative cycle:
+
+- Generate questions about your data.
+- Search for answers by transforming, visualizing, and modeling your data.
+
+### Steps in the EDA Process
+
+#### Identify data attributes. Determine measurement scales
+
+![Hierarchy of Scales](img/hierarchy_of_scales.png)
+
+#### Univariate data analysis. Recognize basic properties of the data (e.g. boxplot)
+
+Goal: Recognize basic properties of the data.
+
+##### Description of central tendency:
+- Arithmetic mean → Very sensitive to outliers
+- Median → Splits data in half (25% smaller, 75% larger) → More robust to outliers than mean
+
+##### Description of variability/ dispersion:
+- Empirical variance
+- Empirical standard deviation
+- 1st quartile/ 25th percentile → 25% smaller, 75% larger.
+- 3rd quartile/ 75th percentile → 75% smaller, 25% larger.
+- Interquartile range (IQR) = 3rd quartile – 1st quartile → More robust than standard deviation
+
+
+#### Bivariate & Multivariate data analysis. Recognize interactions in the data
+
+Goal: Using bivariate & multivariate data analysis to recognize interactions in the data by using Plots and hypothesis tests.
+
+Typical graphical procedures:
+- Scatterplot
+- Mosaic Plot
+
+Typical tests:
+- Pearson Chi-Square test
+
+#### Following EDA steps
+
+- Detect aberrant & missing values. Analysis & adjustment
+- Outlier detection. Analysis & cleaning
+- Create derived variables (index, etc.) & Variable transformation
