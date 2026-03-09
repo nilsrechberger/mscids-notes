@@ -58,3 +58,28 @@ To support effective inventory management, data must meet specific quality stand
 - Scenario 4: The attribute is not applicable: `commision_rate` for non-sales employees. This metric is only defined for sales roles and is fundamentally inapplicable to other functions.
 - Scenario 5: The value is only populated under specific conditions: `salary` of Lia (`ID` 4). As a freelancer, the field remains empty until a specific hourly-based invoice or contract condition triggers the entry.
 
+# Tasks for Exercise 03: Exploratory Data Analysis
+
+## Task 01
+
+Using R, generate a boxplot broken down by gender (variable sex). How can the boxplot be interpreted?
+
+```{r}
+library(readxl)
+
+data <- read_excel("/home/nils/dev/mscids-notes/fs26/dq/data/HSE.xlsx")
+
+boxplot(wtval ~ sex, data = data)
+```
+
+We can clearly se a difference between the two classes.
+
+### Task 02
+
+What are the distributions of the following boxplots?
+
+### Answer
+
+- Varriable A: Normal
+- Varriable B: Right skewed
+- Varriable C: Right skewed
