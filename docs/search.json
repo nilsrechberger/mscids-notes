@@ -1477,6 +1477,13 @@
     "text": "Task 01\n\n\n\n\n\n\n\n\n\n\n\n\n\nid\nlast_name\nfirst_name\nage\ndepartment\nfunction\nsalary\ncommision_rate\n\n\n\n\n1\nSmith\nBill\n56\nSales\nHead of Sales\n120.000\n15%\n\n\n2\nMuller\nJohn\n25\nSocial Media\nCreative Director\n100.000\nN/A\n\n\n3\nGrey\nAnna\n37\nSEO\nGoogle Expert\n90.000\nN/A\n\n\n4\nBerger\nLia\n22\nNULL\nFreelancer\n\nNULL\n\n\n5\n?\nMike\n46\nFacility\nTeam Manager\n75.000\nN/A\n\n\n6\nDoe\nJane\n30\nIT\nDev\nN/A\nNaN\n\n\n\n\nScenario 1: The value exists but is not known (that is, known unknown): last_name of Mike (ID 5). Every person has a last_name, but it is currently missing from the dataset.\nScenario 2: The value does not exist at all: department of Lia (ID 4). As an external freelancer, she is not part of the internal organizational structure.\nScenario 3: The existence of the value is not known (that is, unknown unknown): salary of Jane (ID 6). It is unclear if she is a paid employee or an unpaid volunteer/intern; thus, the existence of the attribute itself is in question.\nScenario 4: The attribute is not applicable: commision_rate for non-sales employees. This metric is only defined for sales roles and is fundamentally inapplicable to other functions.\nScenario 5: The value is only populated under specific conditions: salary of Lia (ID 4). As a freelancer, the field remains empty until a specific hourly-based invoice or contract condition triggers the entry."
   },
   {
+    "objectID": "fs26/dq/dq_exercises.html#task-01-2",
+    "href": "fs26/dq/dq_exercises.html#task-01-2",
+    "title": "Data Quality - Notes",
+    "section": "Task 01",
+    "text": "Task 01\nUsing R, generate a boxplot broken down by gender (variable sex). How can the boxplot be interpreted?\n\nlibrary(readxl)\n\ndata &lt;- read_excel(\"/home/nils/dev/mscids-notes/fs26/dq/data/HSE.xlsx\")\n\nboxplot(wtval ~ sex, data = data)\n\n\n\n\n\n\n\n\nWe can clearly se a difference between the two classes.\n\nTask 02\nWhat are the distributions of the following boxplots?\n\n\nAnswer\n\nVarriable A: Normal\nVarriable B: Right skewed\nVarriable C: Right skewed"
+  },
+  {
     "objectID": "fs26/mpm1/mpm1_exercises.html",
     "href": "fs26/mpm1/mpm1_exercises.html",
     "title": "Applied Machine Learning and Predictive Modelling 1 - Exercises",
@@ -1881,6 +1888,27 @@
     "title": "Data Quality - Notes",
     "section": "Role of Metadata",
     "text": "Role of Metadata\nMetadata are data about data. Without metadata, it can be difficult to make sense of data. High quality metadata is important for representational effectiveness. Standard database metadata includes:\n\nTable/ column names and definitions\nData types and domains of values\nWhether columns can have NULL values\nRules regarding data relationships\nCardinality (Number of unique values compared to the total rows, e.g. gender, boolean flags)"
+  },
+  {
+    "objectID": "fs26/dq/dq_notes.html#data-preparation",
+    "href": "fs26/dq/dq_notes.html#data-preparation",
+    "title": "Data Quality - Notes",
+    "section": "Data Preparation",
+    "text": "Data Preparation\nThe process of manipulating data before analysis is referred to as data preparation. The meaning of the term data preparation depends on Point of view, Roles, Intended data use.\n\nPoint of view\nThe meaning of data preparation varies depending on one’s position in the hierarchy.\n\nNote: We take a statistical view and focus on the EXPLORE/TRANSFORM level.\n\n\n\nRole and intended data use\n\n\n\nRole and intended data use"
+  },
+  {
+    "objectID": "fs26/dq/dq_notes.html#from-data-to-understanding",
+    "href": "fs26/dq/dq_notes.html#from-data-to-understanding",
+    "title": "Data Quality - Notes",
+    "section": "From Data to Understanding",
+    "text": "From Data to Understanding\nThe process from data to understanding is often described to as a cycle\n“Data Wrangling is the ability to take a messy, unrefined source of data and wrangle it into something useful. It’s the art of using computer programming to extract raw data and creating clear and actionable bits of information for your analysis. Data wrangling is the entire front end of the analytic process and requires numerous tasks that can be categorized within the get, clean, and transform components.” (Bradley Boehmke)\n\n\n\nData understanding cycle"
+  },
+  {
+    "objectID": "fs26/dq/dq_notes.html#exploratory-data-analysis-eda",
+    "href": "fs26/dq/dq_notes.html#exploratory-data-analysis-eda",
+    "title": "Data Quality - Notes",
+    "section": "Exploratory Data Analysis (EDA)",
+    "text": "Exploratory Data Analysis (EDA)\n\n\n\n\n\n\nTip\n\n\n\nAlways plot your data first.\n\n\n\nRaw Approach:\n\nExamine the data before applying a specific probability model\nFocus on descriptive analysis over hypothesis testing\nMethods of graphical data analysis\n\n\n\nIterative cycle:\n\nGenerate questions about your data.\nSearch for answers by transforming, visualizing, and modeling your data.\n\n\n\nSteps in the EDA Process\n\nIdentify data attributes. Determine measurement scales\n\n\n\nHierarchy of Scales\n\n\n\n\nUnivariate data analysis. Recognize basic properties of the data (e.g. boxplot)\nGoal: Recognize basic properties of the data.\n\nDescription of central tendency:\n\nArithmetic mean → Very sensitive to outliers\nMedian → Splits data in half (25% smaller, 75% larger) → More robust to outliers than mean\n\n\n\nDescription of variability/ dispersion:\n\nEmpirical variance\nEmpirical standard deviation\n1st quartile/ 25th percentile → 25% smaller, 75% larger.\n3rd quartile/ 75th percentile → 75% smaller, 25% larger.\nInterquartile range (IQR) = 3rd quartile – 1st quartile → More robust than standard deviation\n\n\n\n\nBivariate & Multivariate data analysis. Recognize interactions in the data\nGoal: Using bivariate & multivariate data analysis to recognize interactions in the data by using Plots and hypothesis tests.\nTypical graphical procedures: - Scatterplot - Mosaic Plot\nTypical tests: - Pearson Chi-Square test\n\n\nFollowing EDA steps\n\nDetect aberrant & missing values. Analysis & adjustment\nOutlier detection. Analysis & cleaning\nCreate derived variables (index, etc.) & Variable transformation"
   },
   {
     "objectID": "fs26/cip/cip_notes.html",

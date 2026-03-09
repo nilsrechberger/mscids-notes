@@ -22,6 +22,40 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
+/* CSS for syntax highlighting */
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { display: inline-block; text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
 </style>
 
 
@@ -210,6 +244,14 @@ gtag('config', 'G-NZ8462CXQ1', { 'anonymize_ip': true});
   <ul class="collapse">
   <li><a href="#task-01-1" id="toc-task-01-1" class="nav-link" data-scroll-target="#task-01-1">Task 01</a></li>
   </ul></li>
+  <li><a href="#tasks-for-exercise-03-exploratory-data-analysis" id="toc-tasks-for-exercise-03-exploratory-data-analysis" class="nav-link" data-scroll-target="#tasks-for-exercise-03-exploratory-data-analysis">Tasks for Exercise 03: Exploratory Data Analysis</a>
+  <ul class="collapse">
+  <li><a href="#task-01-2" id="toc-task-01-2" class="nav-link" data-scroll-target="#task-01-2">Task 01</a>
+  <ul class="collapse">
+  <li><a href="#task-02-1" id="toc-task-02-1" class="nav-link" data-scroll-target="#task-02-1">Task 02</a></li>
+  <li><a href="#answer" id="toc-answer" class="nav-link" data-scroll-target="#answer">Answer</a></li>
+  </ul></li>
+  </ul></li>
   </ul>
 <div class="quarto-alternate-formats"><h2>Other Formats</h2><ul><li><a href="dq_exercises.pdf"><i class="bi bi-file-pdf"></i>PDF</a></li></ul></div></nav>
     </div>
@@ -383,8 +425,42 @@ gtag('config', 'G-NZ8462CXQ1', { 'anonymize_ip': true});
 <li>Scenario 4: The attribute is not applicable: <code>commision_rate</code> for non-sales employees. This metric is only defined for sales roles and is fundamentally inapplicable to other functions.</li>
 <li>Scenario 5: The value is only populated under specific conditions: <code>salary</code> of Lia (<code>ID</code> 4). As a freelancer, the field remains empty until a specific hourly-based invoice or contract condition triggers the entry.</li>
 </ul>
+</section>
+</section>
+<section id="tasks-for-exercise-03-exploratory-data-analysis" class="level1">
+<h1>Tasks for Exercise 03: Exploratory Data Analysis</h1>
+<section id="task-01-2" class="level2">
+<h2 class="anchored" data-anchor-id="task-01-2">Task 01</h2>
+<p>Using R, generate a boxplot broken down by gender (variable sex). How can the boxplot be interpreted?</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(readxl)</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>data <span class="ot">&lt;-</span> <span class="fu">read_excel</span>(<span class="st">"/home/nils/dev/mscids-notes/fs26/dq/data/HSE.xlsx"</span>)</span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a><span class="fu">boxplot</span>(wtval <span class="sc">~</span> sex, <span class="at">data =</span> data)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="dq_exercises_files/figure-html/unnamed-chunk-1-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+<p>We can clearly se a difference between the two classes.</p>
+<section id="task-02-1" class="level3">
+<h3 class="anchored" data-anchor-id="task-02-1">Task 02</h3>
+<p>What are the distributions of the following boxplots?</p>
+</section>
+<section id="answer" class="level3">
+<h3 class="anchored" data-anchor-id="answer">Answer</h3>
+<ul>
+<li>Varriable A: Normal</li>
+<li>Varriable B: Right skewed</li>
+<li>Varriable C: Right skewed</li>
+</ul>
 
 
+</section>
 </section>
 </section>
 
