@@ -279,7 +279,7 @@ window.Quarto = {
   <li><a href="#disadvantages" id="toc-disadvantages" class="nav-link" data-scroll-target="#disadvantages">Disadvantages</a></li>
   </ul></li>
   </ul></li>
-  <li><a href="#week-03-generalised-linear-models" id="toc-week-03-generalised-linear-models" class="nav-link" data-scroll-target="#week-03-generalised-linear-models">Week 03 Generalised Linear Models</a>
+  <li><a href="#week-03-generalised-linear-models" id="toc-week-03-generalised-linear-models" class="nav-link" data-scroll-target="#week-03-generalised-linear-models">Week 03: Generalised Linear Models</a>
   <ul class="collapse">
   <li><a href="#linear-model-assumptions" id="toc-linear-model-assumptions" class="nav-link" data-scroll-target="#linear-model-assumptions">Linear Model Assumptions</a></li>
   <li><a href="#count-data" id="toc-count-data" class="nav-link" data-scroll-target="#count-data">Count Data</a>
@@ -306,6 +306,23 @@ window.Quarto = {
   <ul class="collapse">
   <li><a href="#estimating-the-performance-of-a-binary-model" id="toc-estimating-the-performance-of-a-binary-model" class="nav-link" data-scroll-target="#estimating-the-performance-of-a-binary-model">Estimating the performance of a binary model</a></li>
   </ul></li>
+  </ul></li>
+  <li><a href="#week-04-support-vector-machines" id="toc-week-04-support-vector-machines" class="nav-link" data-scroll-target="#week-04-support-vector-machines">Week 04: Support Vector Machines</a>
+  <ul class="collapse">
+  <li><a href="#what-is-an-svm" id="toc-what-is-an-svm" class="nav-link" data-scroll-target="#what-is-an-svm">What is an SVM?</a></li>
+  <li><a href="#svm-kernel-functions" id="toc-svm-kernel-functions" class="nav-link" data-scroll-target="#svm-kernel-functions">SVM Kernel Functions</a></li>
+  <li><a href="#soft-margin-formulation" id="toc-soft-margin-formulation" class="nav-link" data-scroll-target="#soft-margin-formulation">Soft Margin Formulation</a>
+  <ul class="collapse">
+  <li><a href="#the-role-of-the-hyperparameter-c" id="toc-the-role-of-the-hyperparameter-c" class="nav-link" data-scroll-target="#the-role-of-the-hyperparameter-c">The Role of the Hyperparameter <span class="math inline">\(C\)</span></a></li>
+  </ul></li>
+  <li><a href="#analyse-model-performance" id="toc-analyse-model-performance" class="nav-link" data-scroll-target="#analyse-model-performance">Analyse Model Performance</a></li>
+  <li><a href="#pros-cons-of-svm" id="toc-pros-cons-of-svm" class="nav-link" data-scroll-target="#pros-cons-of-svm">Pros &amp; Cons of SVM</a>
+  <ul class="collapse">
+  <li><a href="#pros" id="toc-pros" class="nav-link" data-scroll-target="#pros">Pros</a></li>
+  <li><a href="#cons" id="toc-cons" class="nav-link" data-scroll-target="#cons">Cons</a></li>
+  </ul></li>
+  <li><a href="#support-vector-regression" id="toc-support-vector-regression" class="nav-link" data-scroll-target="#support-vector-regression">Support Vector Regression</a></li>
+  <li><a href="#summary" id="toc-summary" class="nav-link" data-scroll-target="#summary">Summary</a></li>
   </ul></li>
   </ul>
 <div class="quarto-alternate-formats"><h2>Other Formats</h2><ul><li><a href="mpm1_notes.pdf"><i class="bi bi-file-pdf"></i>PDF</a></li></ul></div></nav>
@@ -466,7 +483,7 @@ y = \beta_0 + \beta_1 \cdot x^{\beta_2} + \epsilon
 </section>
 </section>
 <section id="week-03-generalised-linear-models" class="level1">
-<h1>Week 03 Generalised Linear Models</h1>
+<h1>Week 03: Generalised Linear Models</h1>
 <section id="linear-model-assumptions" class="level2">
 <h2 class="anchored" data-anchor-id="linear-model-assumptions">Linear Model Assumptions</h2>
 <p>The inference on the regression coefficients (p-values and CIs) is based on the following assumption about the errors:</p>
@@ -878,9 +895,189 @@ obs  0  1
 </div>
 </div>
 <p>The diagonal entries of this matrix represent correctly labelled observations</p>
-
-
 </section>
+</section>
+</section>
+<section id="week-04-support-vector-machines" class="level1">
+<h1>Week 04: Support Vector Machines</h1>
+<section id="what-is-an-svm" class="level2">
+<h2 class="anchored" data-anchor-id="what-is-an-svm">What is an SVM?</h2>
+<p>Support-vector machines (SVMs, also support-vector networks) are supervised learning models with associated learning algorithms that analyze data used for classification and regression analysis. An SVM model is a representation of the examples as points in space, mapped so that the examples of the separate categories are divided by a clear gap that is as wide as possible.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="img/svm.png" class="img-fluid figure-img"></p>
+<figcaption>SVM</figcaption>
+</figure>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb25"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb25-1"><a href="#cb25-1" aria-hidden="true" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">123</span>)</span>
+<span id="cb25-2"><a href="#cb25-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb25-3"><a href="#cb25-3" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>── Attaching core tidyverse packages ──────────────────────── tidyverse 2.0.0 ──
+✔ forcats   1.0.1     ✔ stringr   1.6.0
+✔ lubridate 1.9.4     ✔ tibble    3.3.1
+✔ purrr     1.2.1     ✔ tidyr     1.3.2
+✔ readr     2.1.6     
+── Conflicts ────────────────────────────────────────── tidyverse_conflicts() ──
+✖ purrr::%||%()   masks base::%||%()
+✖ dplyr::filter() masks stats::filter()
+✖ dplyr::lag()    masks stats::lag()
+ℹ Use the conflicted package (&lt;http://conflicted.r-lib.org/&gt;) to force all conflicts to become errors</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb27"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb27-1"><a href="#cb27-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(e1071)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>
+Attaching package: 'e1071'
+
+The following object is masked from 'package:ggplot2':
+
+    element</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb29"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb29-1"><a href="#cb29-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(caret)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Loading required package: lattice
+
+Attaching package: 'lattice'
+
+The following object is masked from 'package:faraway':
+
+    melanoma
+
+
+Attaching package: 'caret'
+
+The following object is masked from 'package:purrr':
+
+    lift</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb31"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb31-1"><a href="#cb31-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Load data</span></span>
+<span id="cb31-2"><a href="#cb31-2" aria-hidden="true" tabindex="-1"></a><span class="fu">data</span>(iris)</span>
+<span id="cb31-3"><a href="#cb31-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb31-4"><a href="#cb31-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Prepare the Data for Training</span></span>
+<span id="cb31-5"><a href="#cb31-5" aria-hidden="true" tabindex="-1"></a>indices <span class="ot">&lt;-</span> <span class="fu">createDataPartition</span>(iris<span class="sc">$</span>Species, <span class="at">p=</span>.<span class="dv">85</span>, <span class="at">list =</span> F)</span>
+<span id="cb31-6"><a href="#cb31-6" aria-hidden="true" tabindex="-1"></a>train <span class="ot">&lt;-</span> iris <span class="sc">%&gt;%</span></span>
+<span id="cb31-7"><a href="#cb31-7" aria-hidden="true" tabindex="-1"></a>    <span class="fu">slice</span>(indices)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Warning: Slicing with a 1-column matrix was deprecated in dplyr 1.1.0.</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb33"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb33-1"><a href="#cb33-1" aria-hidden="true" tabindex="-1"></a>test_in <span class="ot">&lt;-</span> iris <span class="sc">%&gt;%</span></span>
+<span id="cb33-2"><a href="#cb33-2" aria-hidden="true" tabindex="-1"></a>    <span class="fu">slice</span>(<span class="sc">-</span>indices) <span class="sc">%&gt;%</span></span>
+<span id="cb33-3"><a href="#cb33-3" aria-hidden="true" tabindex="-1"></a>    <span class="fu">select</span>(<span class="sc">-</span>Species)</span>
+<span id="cb33-4"><a href="#cb33-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb33-5"><a href="#cb33-5" aria-hidden="true" tabindex="-1"></a>test_truth <span class="ot">&lt;-</span> iris <span class="sc">%&gt;%</span></span>
+<span id="cb33-6"><a href="#cb33-6" aria-hidden="true" tabindex="-1"></a>    <span class="fu">slice</span>(<span class="sc">-</span>indices) <span class="sc">%&gt;%</span></span>
+<span id="cb33-7"><a href="#cb33-7" aria-hidden="true" tabindex="-1"></a>    <span class="fu">pull</span>(Species)</span>
+<span id="cb33-8"><a href="#cb33-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb33-9"><a href="#cb33-9" aria-hidden="true" tabindex="-1"></a><span class="co"># Train the Support Vector Machine</span></span>
+<span id="cb33-10"><a href="#cb33-10" aria-hidden="true" tabindex="-1"></a>iris_svm <span class="ot">&lt;-</span> <span class="fu">svm</span>(Species <span class="sc">~</span> ., train, <span class="at">kernel =</span> <span class="st">"linear"</span>, <span class="at">scale =</span> <span class="cn">TRUE</span>, <span class="at">cost =</span> <span class="dv">10</span>)</span>
+<span id="cb33-11"><a href="#cb33-11" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(iris_svm, train, Petal.Length <span class="sc">~</span> Petal.Width)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="mpm1_notes_files/figure-html/unnamed-chunk-14-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+</section>
+<section id="svm-kernel-functions" class="level2">
+<h2 class="anchored" data-anchor-id="svm-kernel-functions">SVM Kernel Functions</h2>
+<p>In many real-world scenarios, data is non-linearly separable. A standard linear SVM would fail here. Instead of manually performing complex mathematical transformations to move data into a higher dimension (which is computationally expensive), we use the Kernel Trick. A kernel function calculates the “similarity” or “inner product” between two points in a high-dimensional space without actually transforming the data points themselves.</p>
+</section>
+<section id="soft-margin-formulation" class="level2">
+<h2 class="anchored" data-anchor-id="soft-margin-formulation">Soft Margin Formulation</h2>
+<p>If you try to force a Hard Margin SVM to separate every single point perfectly, you often end up with overfitting or a model that simply fails to find a solution because the data overlaps.</p>
+<p>The Soft Margin Formulation was introduced to solve this by allowing the SVM to make a few “mistakes” for the sake of a better, more general boundary.</p>
+<section id="the-role-of-the-hyperparameter-c" class="level3">
+<h3 class="anchored" data-anchor-id="the-role-of-the-hyperparameter-c">The Role of the Hyperparameter <span class="math inline">\(C\)</span></h3>
+<p>The variable <span class="math inline">\(C\)</span> is the most important dial you can turn. it controls the trade-off between “smoothness” and “accuracy.”</p>
+</section>
+</section>
+<section id="analyse-model-performance" class="level2">
+<h2 class="anchored" data-anchor-id="analyse-model-performance">Analyse Model Performance</h2>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb34"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb34-1"><a href="#cb34-1" aria-hidden="true" tabindex="-1"></a>test_pred <span class="ot">&lt;-</span> <span class="fu">predict</span>(iris_svm, test_in)</span>
+<span id="cb34-2"><a href="#cb34-2" aria-hidden="true" tabindex="-1"></a><span class="fu">table</span>(test_pred)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>test_pred
+    setosa versicolor  virginica 
+         7          6          8 </code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb36"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb36-1"><a href="#cb36-1" aria-hidden="true" tabindex="-1"></a>conf_matrix <span class="ot">&lt;-</span> <span class="fu">confusionMatrix</span>(test_pred, test_truth)</span>
+<span id="cb36-2"><a href="#cb36-2" aria-hidden="true" tabindex="-1"></a>conf_matrix</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Confusion Matrix and Statistics
+
+            Reference
+Prediction   setosa versicolor virginica
+  setosa          7          0         0
+  versicolor      0          6         0
+  virginica       0          1         7
+
+Overall Statistics
+                                          
+               Accuracy : 0.9524          
+                 95% CI : (0.7618, 0.9988)
+    No Information Rate : 0.3333          
+    P-Value [Acc &gt; NIR] : 4.111e-09       
+                                          
+                  Kappa : 0.9286          
+                                          
+ Mcnemar's Test P-Value : NA              
+
+Statistics by Class:
+
+                     Class: setosa Class: versicolor Class: virginica
+Sensitivity                 1.0000            0.8571           1.0000
+Specificity                 1.0000            1.0000           0.9286
+Pos Pred Value              1.0000            1.0000           0.8750
+Neg Pred Value              1.0000            0.9333           1.0000
+Prevalence                  0.3333            0.3333           0.3333
+Detection Rate              0.3333            0.2857           0.3333
+Detection Prevalence        0.3333            0.2857           0.3810
+Balanced Accuracy           1.0000            0.9286           0.9643</code></pre>
+</div>
+</div>
+</section>
+<section id="pros-cons-of-svm" class="level2">
+<h2 class="anchored" data-anchor-id="pros-cons-of-svm">Pros &amp; Cons of SVM</h2>
+<section id="pros" class="level3">
+<h3 class="anchored" data-anchor-id="pros">Pros</h3>
+<ul>
+<li>It works really well with a clear margin of separation</li>
+<li>It is effective in high dimensional spaces</li>
+<li>It is effective in cases where the number of dimensions is greater than the number of samples</li>
+<li>It uses a subset of training points in the decision function (support vectors), so it is memory efficient</li>
+</ul>
+</section>
+<section id="cons" class="level3">
+<h3 class="anchored" data-anchor-id="cons">Cons</h3>
+<ul>
+<li>It is not always straightforward to scale the different variables “equally”</li>
+<li>It is very prone to overfitting (different Kernel functions, hyperparameters etc.)</li>
+<li>It doesn’t perform well when we have large data set because the required training time is higher</li>
+<li>It also doesn’t perform very well, when the data set has more noise i.e.&nbsp;target classes are overlapping</li>
+<li>It doesn’t directly provide probability estimates</li>
+</ul>
+</section>
+</section>
+<section id="support-vector-regression" class="level2">
+<h2 class="anchored" data-anchor-id="support-vector-regression">Support Vector Regression</h2>
+<p>SVR gives us the flexibility to define how much error is acceptable in our model and will find an appropriate line (or hyperplane in higher dimensions) to fit the data. In contrast to OLS, the objective function of SVR is to minimize the coefficients not the squared error.</p>
+</section>
+<section id="summary" class="level2">
+<h2 class="anchored" data-anchor-id="summary">Summary</h2>
+<ul>
+<li>Support Vector Machine (SVM) is a non-probabilistic binary linear classifier</li>
+<li>It can handle non-linear boundaries with the Kernel function/trick</li>
+<li>It can be extended to more than two classes as well</li>
+<li>It is also possible to do regression using this technique (Support Vector Regression)</li>
+<li>Particularly useful in cases where we want to ignore errors up to a certain tolerance</li>
+<li>Be careful with scaling your data and overfitting!</li>
+</ul>
+
+
 </section>
 </section>
 

@@ -78,6 +78,35 @@ gtag('js', new Date());
 gtag('config', 'G-NZ8462CXQ1', { 'anonymize_ip': true});
 </script>
 
+  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN") {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
 
 <link rel="stylesheet" href="../../styles.css">
 </head>
@@ -239,6 +268,39 @@ gtag('config', 'G-NZ8462CXQ1', { 'anonymize_ip': true});
   <li><a href="#iterative-cycle" id="toc-iterative-cycle" class="nav-link" data-scroll-target="#iterative-cycle">Iterative cycle:</a></li>
   <li><a href="#steps-in-the-eda-process" id="toc-steps-in-the-eda-process" class="nav-link" data-scroll-target="#steps-in-the-eda-process">Steps in the EDA Process</a></li>
   </ul></li>
+  </ul></li>
+  <li><a href="#lecture-04-missing-values" id="toc-lecture-04-missing-values" class="nav-link" data-scroll-target="#lecture-04-missing-values">Lecture 04: Missing Values</a>
+  <ul class="collapse">
+  <li><a href="#why-do-we-care-about-missing-data" id="toc-why-do-we-care-about-missing-data" class="nav-link" data-scroll-target="#why-do-we-care-about-missing-data">Why do we care about missing data?</a></li>
+  <li><a href="#reasons-for-missing-data" id="toc-reasons-for-missing-data" class="nav-link" data-scroll-target="#reasons-for-missing-data">Reasons for missing data</a>
+  <ul class="collapse">
+  <li><a href="#at-the-source" id="toc-at-the-source" class="nav-link" data-scroll-target="#at-the-source">At the source</a></li>
+  <li><a href="#causes-during-data-processing" id="toc-causes-during-data-processing" class="nav-link" data-scroll-target="#causes-during-data-processing">Causes during data processing</a></li>
+  </ul></li>
+  <li><a href="#forms-of-non-response" id="toc-forms-of-non-response" class="nav-link" data-scroll-target="#forms-of-non-response">Forms of non-response</a>
+  <ul class="collapse">
+  <li><a href="#forms-of-item-non-response-little-and-rubin-2020" id="toc-forms-of-item-non-response-little-and-rubin-2020" class="nav-link" data-scroll-target="#forms-of-item-non-response-little-and-rubin-2020">Forms of item non-response (Little and Rubin, 2020)</a></li>
+  </ul></li>
+  <li><a href="#missing-data-mechanism" id="toc-missing-data-mechanism" class="nav-link" data-scroll-target="#missing-data-mechanism">Missing data mechanism</a>
+  <ul class="collapse">
+  <li><a href="#missing-completely-at-random-mcar" id="toc-missing-completely-at-random-mcar" class="nav-link" data-scroll-target="#missing-completely-at-random-mcar">Missing Completely at Random (MCAR)</a></li>
+  <li><a href="#missing-at-random-mar" id="toc-missing-at-random-mar" class="nav-link" data-scroll-target="#missing-at-random-mar">Missing at Random (MAR)</a></li>
+  <li><a href="#missing-not-at-random-mnar" id="toc-missing-not-at-random-mnar" class="nav-link" data-scroll-target="#missing-not-at-random-mnar">Missing not at Random (MNAR)</a></li>
+  </ul></li>
+  <li><a href="#dealing-with-missing-data" id="toc-dealing-with-missing-data" class="nav-link" data-scroll-target="#dealing-with-missing-data">Dealing with Missing Data</a>
+  <ul class="collapse">
+  <li><a href="#listwise-deletion-complete-case-analysis" id="toc-listwise-deletion-complete-case-analysis" class="nav-link" data-scroll-target="#listwise-deletion-complete-case-analysis">Listwise deletion / Complete case analysis</a></li>
+  <li><a href="#pairwise-deletion-complete-case-analysis" id="toc-pairwise-deletion-complete-case-analysis" class="nav-link" data-scroll-target="#pairwise-deletion-complete-case-analysis">Pairwise deletion / Complete case analysis</a></li>
+  </ul></li>
+  <li><a href="#single-imputation" id="toc-single-imputation" class="nav-link" data-scroll-target="#single-imputation">Single Imputation</a>
+  <ul class="collapse">
+  <li><a href="#mean-imputation" id="toc-mean-imputation" class="nav-link" data-scroll-target="#mean-imputation">Mean Imputation</a></li>
+  <li><a href="#regression-imputation" id="toc-regression-imputation" class="nav-link" data-scroll-target="#regression-imputation">Regression Imputation</a></li>
+  <li><a href="#stochastic-imputation" id="toc-stochastic-imputation" class="nav-link" data-scroll-target="#stochastic-imputation">Stochastic Imputation</a></li>
+  <li><a href="#overview-of-imputation-methods" id="toc-overview-of-imputation-methods" class="nav-link" data-scroll-target="#overview-of-imputation-methods">Overview of Imputation Methods</a></li>
+  </ul></li>
+  <li><a href="#multiple-imputation" id="toc-multiple-imputation" class="nav-link" data-scroll-target="#multiple-imputation">Multiple Imputation</a></li>
+  <li><a href="#littles-mcar-test" id="toc-littles-mcar-test" class="nav-link" data-scroll-target="#littles-mcar-test">Little’s MCAR Test</a></li>
   </ul></li>
   </ul>
 <div class="quarto-alternate-formats"><h2>Other Formats</h2><ul><li><a href="dq_notes.pdf"><i class="bi bi-file-pdf"></i>PDF</a></li></ul></div></nav>
@@ -573,10 +635,138 @@ Tip
 <li>Outlier detection. Analysis &amp; cleaning</li>
 <li>Create derived variables (index, etc.) &amp; Variable transformation</li>
 </ul>
-
-
 </section>
 </section>
+</section>
+</section>
+<section id="lecture-04-missing-values" class="level1">
+<h1>Lecture 04: Missing Values</h1>
+<section id="why-do-we-care-about-missing-data" class="level2">
+<h2 class="anchored" data-anchor-id="why-do-we-care-about-missing-data">Why do we care about missing data?</h2>
+<p>Naively, one might think that missing data just means there is less data to analyze, so long as there are enough data to begin with. Unfortunately, this is only true in rare circumstances. In many cases, missing data may actually bias the results (give systematically wrong answers).</p>
+<blockquote class="blockquote">
+<p>Note: Missing data is the rule, not the exception.</p>
+</blockquote>
+</section>
+<section id="reasons-for-missing-data" class="level2">
+<h2 class="anchored" data-anchor-id="reasons-for-missing-data">Reasons for missing data</h2>
+<section id="at-the-source" class="level3">
+<h3 class="anchored" data-anchor-id="at-the-source">At the source</h3>
+<ul>
+<li>Survey respondents refuse to answer certain questions</li>
+<li>Answers are invalid or cannot be decoded – for example, in paper questionnaires.</li>
+<li>In longitudinal studies, parts of the sample do not participate at all measurement time points</li>
+<li>Sensor failure</li>
+</ul>
+</section>
+<section id="causes-during-data-processing" class="level3">
+<h3 class="anchored" data-anchor-id="causes-during-data-processing">Causes during data processing</h3>
+<ul>
+<li>typing errors during coding</li>
+<li>Reading errors in digitalizing (for example, scanning of paper questionnaires)</li>
+</ul>
+<blockquote class="blockquote">
+<p>Note: The more technical reasons are often the most benign, because they may occur randomly and therefore don’t lead to bias.</p>
+</blockquote>
+</section>
+</section>
+<section id="forms-of-non-response" class="level2">
+<h2 class="anchored" data-anchor-id="forms-of-non-response">Forms of non-response</h2>
+<ul>
+<li>Unit non-response: subjects refuse to participate or are systematically unreachable</li>
+<li>Item non-response: subjects refuse to answer specific questions</li>
+</ul>
+<section id="forms-of-item-non-response-little-and-rubin-2020" class="level3">
+<h3 class="anchored" data-anchor-id="forms-of-item-non-response-little-and-rubin-2020">Forms of item non-response (Little and Rubin, 2020)</h3>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="img/non_response.png" class="img-fluid figure-img"></p>
+<figcaption>Forms of item non-response (Little and Rubin, 2020)</figcaption>
+</figure>
+</div>
+</section>
+</section>
+<section id="missing-data-mechanism" class="level2">
+<h2 class="anchored" data-anchor-id="missing-data-mechanism">Missing data mechanism</h2>
+<p>The missing data mechanism describes the underlying process that led to the missing data. It is crucial for determining which methods are adequate for dealing with the problem, if any.</p>
+<section id="missing-completely-at-random-mcar" class="level3">
+<h3 class="anchored" data-anchor-id="missing-completely-at-random-mcar">Missing Completely at Random (MCAR)</h3>
+<p>The probability of a value being missing does not depend on any observed or missing data. I.e., missing values are completely randomly distributed across all cases (persons, etc.) Cases with missing values do not differ systematically from cases without missing values.</p>
+</section>
+<section id="missing-at-random-mar" class="level3">
+<h3 class="anchored" data-anchor-id="missing-at-random-mar">Missing at Random (MAR)</h3>
+<p>The probability of a value being missing may depend on observed data, but not on missing data. The occurrence of a missing value occurs conditionally at random and can be explained by the values in other variables. Cases with missing values may differ systematically from cases without missing values, but in a way that can be modeled.</p>
+</section>
+<section id="missing-not-at-random-mnar" class="level3">
+<h3 class="anchored" data-anchor-id="missing-not-at-random-mnar">Missing not at Random (MNAR)</h3>
+<p>The probability of a value being missing depends on missing data. Values are systematically missing but no information is available to model their absence. There is no adequate statistical procedure to avoid bias.</p>
+</section>
+</section>
+<section id="dealing-with-missing-data" class="level2">
+<h2 class="anchored" data-anchor-id="dealing-with-missing-data">Dealing with Missing Data</h2>
+<section id="listwise-deletion-complete-case-analysis" class="level3">
+<h3 class="anchored" data-anchor-id="listwise-deletion-complete-case-analysis">Listwise deletion / Complete case analysis</h3>
+<p>Delete all rows that have a missing value. Advantage: simple. Disadvantages: Wasteful. Imagine a dataset with 10 attributes, each with 10% missings. Then <span class="math inline">\(P\text{(complete row)} = 0.9^{10} = 35\%\)</span>.</p>
+</section>
+<section id="pairwise-deletion-complete-case-analysis" class="level3">
+<h3 class="anchored" data-anchor-id="pairwise-deletion-complete-case-analysis">Pairwise deletion / Complete case analysis</h3>
+<p>Delete all rows that have a missing value. Advantage: simple &amp; less wasteful. Results in different sample sizes for different model.</p>
+</section>
+</section>
+<section id="single-imputation" class="level2">
+<h2 class="anchored" data-anchor-id="single-imputation">Single Imputation</h2>
+<p>Generally, imputation refers to the practice of replacing missing values with values constructed in some way. Specifically, single imputation means that each missing value is replaced by one value.</p>
+<section id="mean-imputation" class="level3">
+<h3 class="anchored" data-anchor-id="mean-imputation">Mean Imputation</h3>
+<p>NAs are replaced by the mean of each variable. Advantages: Simple. Disadvantages: Not unbiased for regression or correlation.</p>
+</section>
+<section id="regression-imputation" class="level3">
+<h3 class="anchored" data-anchor-id="regression-imputation">Regression Imputation</h3>
+<p>For each target variable to be imputed, run a regression on some or all other variables and use it to predict the missing values. Advantages: Under MCAR and MAR, unbiased for regression. Disadvantages: Not unbiased for correlation.</p>
+</section>
+<section id="stochastic-imputation" class="level3">
+<h3 class="anchored" data-anchor-id="stochastic-imputation">Stochastic Imputation</h3>
+<p>For each target variable to be imputed, randomly draw a value from some distribution. Advantages: Under MCAR and MAR, unbiased even for correlation. Disadvantages: Standard errors too small.</p>
+</section>
+<section id="overview-of-imputation-methods" class="level3">
+<h3 class="anchored" data-anchor-id="overview-of-imputation-methods">Overview of Imputation Methods</h3>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="img/imputation_overview.png" class="img-fluid figure-img"></p>
+<figcaption>Overview of Simple Methods</figcaption>
+</figure>
+</div>
+</section>
+</section>
+<section id="multiple-imputation" class="level2">
+<h2 class="anchored" data-anchor-id="multiple-imputation">Multiple Imputation</h2>
+<p>In multiple imputation, instead of applying stochastic imputation once, it is applied m times (e.g., m=5). This creates 5 complete datasets. The data sets are analyzed separately, and the results are combined (pooled) according to certain rules. Advantages: Only method that can yield correct standard errors, even under MAR. Disadvantages: Still cannot handle MNAR (nothing can, only more data).</p>
+<blockquote class="blockquote">
+<p>Note: In ML, we’re often not interested in standard errors.</p>
+</blockquote>
+</section>
+<section id="littles-mcar-test" class="level2">
+<h2 class="anchored" data-anchor-id="littles-mcar-test">Little’s MCAR Test</h2>
+<p>It essentially tests if the means / covariances are the same under each missingness pattern.</p>
+<ul>
+<li><span class="math inline">\(H_0\)</span>: The data are MCAR</li>
+<li><span class="math inline">\(H_A\)</span>: They are not</li>
+</ul>
+<div class="callout callout-style-default callout-important callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Important
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>The test has low power: even if the test doesn’t reject, MCAR is not guaranteed.</p>
+</div>
+</div>
+
+
 </section>
 </section>
 

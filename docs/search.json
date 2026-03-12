@@ -1827,6 +1827,55 @@
     "text": "Further on binary and binomial data\nIn many real applications there are more than two possible outcomes. Fortunately, an extension of the logistic regression to more than two classes exist. This method is called multinomial regression and is implemented in the multinom() function from the {nnet} package.\n\nlibrary(nnet)\nmultinom.iris &lt;- multinom(\n    Species ~ Sepal.Length + Petal.Width,\n    trace = FALSE,\n    data = iris)\n\n\nEstimating the performance of a binary model\nA very common way to estimate the performance of a binary model is too look at predicted values and compare them with the actual observations.\n\nd.stab &lt;- read.table(\n    \"/home/nils/dev/mscids-notes/fs26/mpm1/data/stability.dat\",\n    stringsAsFactors = TRUE,\n    header = TRUE\n)\n\nstr(d.stab)\n\n'data.frame':   27 obs. of  2 variables:\n $ perform  : num  0 0 0 1 1 0 0 1 1 1 ...\n $ stability: num  474 432 453 481 619 584 399 582 638 624 ...\n\nggplot(\n    data = d.stab,\n    mapping = aes(\n        y = perform,\n    x = stability\n    )\n) +\ngeom_point()\n\n\n\n\n\n\n\n\nThere are only two possible outcomes here: success or failure. Let’s fit a logistic regression model and add the fit to the this graph.\n\nggplot(\n    data = d.stab,\n    mapping = aes(\n        y = perform,\n        x = stability\n    )\n) + \ngeom_point() +\ngeom_smooth(\n    method = \"glm\", \n    se = FALSE,\n    method.args = list(family = \"binomial\")\n) \n\n`geom_smooth()` using formula = 'y ~ x'\n\n\n\n\n\n\n\n\n\nAs expected, stability has a positive effect on the response variable. Let’s have a look at the fitted values for this model.\n\nglm.stab &lt;- glm(\n    perform ~ stability,\n    data = d.stab,\n    family = \"binomial\")\n\nfitted(glm.stab) %&gt;% \n    round(digits = 2)\n\n   1    2    3    4    5    6    7    8    9   10   11   12   13   14   15   16 \n0.21 0.11 0.15 0.23 0.80 0.68 0.06 0.67 0.85 0.82 0.49 0.88 0.54 0.09 0.58 0.52 \n  17   18   19   20   21   22   23   24   25   26   27 \n0.29 0.38 0.77 0.73 0.27 0.80 0.81 0.63 0.58 0.32 0.74 \n\n\n\nNote: They are probabilities, thus, bounded within 0 and 1.\n\nTo compare the fitted values with the observed values, which are indeed binary (0 or 1), we can also discretise/dichotomise the fitted values into 0 and 1. In order to do that, we use a cutoff of 0.5. Finally, let’s compare the observed and fitted values.\n\nfitted.stab.disc &lt;- ifelse(\n    fitted(glm.stab) &lt; 0.5,\n    yes = 0,\n    no = 1\n    )\n\nd.obs.fit.stab &lt;- data.frame(\n    obs = d.stab$perform,\n    fitted = fitted.stab.disc)\n    \ntable(\n    obs = d.obs.fit.stab$obs,\n    fit = d.obs.fit.stab$fitted)\n\n   fit\nobs  0  1\n  0  8  5\n  1  3 11\n\n\nThe diagonal entries of this matrix represent correctly labelled observations"
   },
   {
+    "objectID": "fs26/mpm1/mpm1_notes.html#what-is-an-svm",
+    "href": "fs26/mpm1/mpm1_notes.html#what-is-an-svm",
+    "title": "Applied Machine Learning and Predictive Modelling 1 - Notes",
+    "section": "What is an SVM?",
+    "text": "What is an SVM?\nSupport-vector machines (SVMs, also support-vector networks) are supervised learning models with associated learning algorithms that analyze data used for classification and regression analysis. An SVM model is a representation of the examples as points in space, mapped so that the examples of the separate categories are divided by a clear gap that is as wide as possible.\n\n\n\nSVM\n\n\n\nset.seed(123)\n\nlibrary(tidyverse)\n\n── Attaching core tidyverse packages ──────────────────────── tidyverse 2.0.0 ──\n✔ forcats   1.0.1     ✔ stringr   1.6.0\n✔ lubridate 1.9.4     ✔ tibble    3.3.1\n✔ purrr     1.2.1     ✔ tidyr     1.3.2\n✔ readr     2.1.6     \n── Conflicts ────────────────────────────────────────── tidyverse_conflicts() ──\n✖ purrr::%||%()   masks base::%||%()\n✖ dplyr::filter() masks stats::filter()\n✖ dplyr::lag()    masks stats::lag()\nℹ Use the conflicted package (&lt;http://conflicted.r-lib.org/&gt;) to force all conflicts to become errors\n\nlibrary(e1071)\n\n\nAttaching package: 'e1071'\n\nThe following object is masked from 'package:ggplot2':\n\n    element\n\nlibrary(caret)\n\nLoading required package: lattice\n\nAttaching package: 'lattice'\n\nThe following object is masked from 'package:faraway':\n\n    melanoma\n\n\nAttaching package: 'caret'\n\nThe following object is masked from 'package:purrr':\n\n    lift\n\n# Load data\ndata(iris)\n\n# Prepare the Data for Training\nindices &lt;- createDataPartition(iris$Species, p=.85, list = F)\ntrain &lt;- iris %&gt;%\n    slice(indices)\n\nWarning: Slicing with a 1-column matrix was deprecated in dplyr 1.1.0.\n\ntest_in &lt;- iris %&gt;%\n    slice(-indices) %&gt;%\n    select(-Species)\n\ntest_truth &lt;- iris %&gt;%\n    slice(-indices) %&gt;%\n    pull(Species)\n\n# Train the Support Vector Machine\niris_svm &lt;- svm(Species ~ ., train, kernel = \"linear\", scale = TRUE, cost = 10)\nplot(iris_svm, train, Petal.Length ~ Petal.Width)"
+  },
+  {
+    "objectID": "fs26/mpm1/mpm1_notes.html#svm-kernel-functions",
+    "href": "fs26/mpm1/mpm1_notes.html#svm-kernel-functions",
+    "title": "Applied Machine Learning and Predictive Modelling 1 - Notes",
+    "section": "SVM Kernel Functions",
+    "text": "SVM Kernel Functions\nIn many real-world scenarios, data is non-linearly separable. A standard linear SVM would fail here. Instead of manually performing complex mathematical transformations to move data into a higher dimension (which is computationally expensive), we use the Kernel Trick. A kernel function calculates the “similarity” or “inner product” between two points in a high-dimensional space without actually transforming the data points themselves."
+  },
+  {
+    "objectID": "fs26/mpm1/mpm1_notes.html#soft-margin-formulation",
+    "href": "fs26/mpm1/mpm1_notes.html#soft-margin-formulation",
+    "title": "Applied Machine Learning and Predictive Modelling 1 - Notes",
+    "section": "Soft Margin Formulation",
+    "text": "Soft Margin Formulation\nIf you try to force a Hard Margin SVM to separate every single point perfectly, you often end up with overfitting or a model that simply fails to find a solution because the data overlaps.\nThe Soft Margin Formulation was introduced to solve this by allowing the SVM to make a few “mistakes” for the sake of a better, more general boundary.\n\nThe Role of the Hyperparameter \\(C\\)\nThe variable \\(C\\) is the most important dial you can turn. it controls the trade-off between “smoothness” and “accuracy.”"
+  },
+  {
+    "objectID": "fs26/mpm1/mpm1_notes.html#analyse-model-performance",
+    "href": "fs26/mpm1/mpm1_notes.html#analyse-model-performance",
+    "title": "Applied Machine Learning and Predictive Modelling 1 - Notes",
+    "section": "Analyse Model Performance",
+    "text": "Analyse Model Performance\n\ntest_pred &lt;- predict(iris_svm, test_in)\ntable(test_pred)\n\ntest_pred\n    setosa versicolor  virginica \n         7          6          8 \n\nconf_matrix &lt;- confusionMatrix(test_pred, test_truth)\nconf_matrix\n\nConfusion Matrix and Statistics\n\n            Reference\nPrediction   setosa versicolor virginica\n  setosa          7          0         0\n  versicolor      0          6         0\n  virginica       0          1         7\n\nOverall Statistics\n                                          \n               Accuracy : 0.9524          \n                 95% CI : (0.7618, 0.9988)\n    No Information Rate : 0.3333          \n    P-Value [Acc &gt; NIR] : 4.111e-09       \n                                          \n                  Kappa : 0.9286          \n                                          \n Mcnemar's Test P-Value : NA              \n\nStatistics by Class:\n\n                     Class: setosa Class: versicolor Class: virginica\nSensitivity                 1.0000            0.8571           1.0000\nSpecificity                 1.0000            1.0000           0.9286\nPos Pred Value              1.0000            1.0000           0.8750\nNeg Pred Value              1.0000            0.9333           1.0000\nPrevalence                  0.3333            0.3333           0.3333\nDetection Rate              0.3333            0.2857           0.3333\nDetection Prevalence        0.3333            0.2857           0.3810\nBalanced Accuracy           1.0000            0.9286           0.9643"
+  },
+  {
+    "objectID": "fs26/mpm1/mpm1_notes.html#pros-cons-of-svm",
+    "href": "fs26/mpm1/mpm1_notes.html#pros-cons-of-svm",
+    "title": "Applied Machine Learning and Predictive Modelling 1 - Notes",
+    "section": "Pros & Cons of SVM",
+    "text": "Pros & Cons of SVM\n\nPros\n\nIt works really well with a clear margin of separation\nIt is effective in high dimensional spaces\nIt is effective in cases where the number of dimensions is greater than the number of samples\nIt uses a subset of training points in the decision function (support vectors), so it is memory efficient\n\n\n\nCons\n\nIt is not always straightforward to scale the different variables “equally”\nIt is very prone to overfitting (different Kernel functions, hyperparameters etc.)\nIt doesn’t perform well when we have large data set because the required training time is higher\nIt also doesn’t perform very well, when the data set has more noise i.e. target classes are overlapping\nIt doesn’t directly provide probability estimates"
+  },
+  {
+    "objectID": "fs26/mpm1/mpm1_notes.html#support-vector-regression",
+    "href": "fs26/mpm1/mpm1_notes.html#support-vector-regression",
+    "title": "Applied Machine Learning and Predictive Modelling 1 - Notes",
+    "section": "Support Vector Regression",
+    "text": "Support Vector Regression\nSVR gives us the flexibility to define how much error is acceptable in our model and will find an appropriate line (or hyperplane in higher dimensions) to fit the data. In contrast to OLS, the objective function of SVR is to minimize the coefficients not the squared error."
+  },
+  {
+    "objectID": "fs26/mpm1/mpm1_notes.html#summary",
+    "href": "fs26/mpm1/mpm1_notes.html#summary",
+    "title": "Applied Machine Learning and Predictive Modelling 1 - Notes",
+    "section": "Summary",
+    "text": "Summary\n\nSupport Vector Machine (SVM) is a non-probabilistic binary linear classifier\nIt can handle non-linear boundaries with the Kernel function/trick\nIt can be extended to more than two classes as well\nIt is also possible to do regression using this technique (Support Vector Regression)\nParticularly useful in cases where we want to ignore errors up to a certain tolerance\nBe careful with scaling your data and overfitting!"
+  },
+  {
     "objectID": "fs26/dq/dq_notes.html",
     "href": "fs26/dq/dq_notes.html",
     "title": "Data Quality - Notes",
@@ -1909,6 +1958,62 @@
     "title": "Data Quality - Notes",
     "section": "Exploratory Data Analysis (EDA)",
     "text": "Exploratory Data Analysis (EDA)\n\n\n\n\n\n\nTip\n\n\n\nAlways plot your data first.\n\n\n\nRaw Approach:\n\nExamine the data before applying a specific probability model\nFocus on descriptive analysis over hypothesis testing\nMethods of graphical data analysis\n\n\n\nIterative cycle:\n\nGenerate questions about your data.\nSearch for answers by transforming, visualizing, and modeling your data.\n\n\n\nSteps in the EDA Process\n\nIdentify data attributes. Determine measurement scales\n\n\n\nHierarchy of Scales\n\n\n\n\nUnivariate data analysis. Recognize basic properties of the data (e.g. boxplot)\nGoal: Recognize basic properties of the data.\n\nDescription of central tendency:\n\nArithmetic mean → Very sensitive to outliers\nMedian → Splits data in half (25% smaller, 75% larger) → More robust to outliers than mean\n\n\n\nDescription of variability/ dispersion:\n\nEmpirical variance\nEmpirical standard deviation\n1st quartile/ 25th percentile → 25% smaller, 75% larger.\n3rd quartile/ 75th percentile → 75% smaller, 25% larger.\nInterquartile range (IQR) = 3rd quartile – 1st quartile → More robust than standard deviation\n\n\n\n\nBivariate & Multivariate data analysis. Recognize interactions in the data\nGoal: Using bivariate & multivariate data analysis to recognize interactions in the data by using Plots and hypothesis tests.\nTypical graphical procedures: - Scatterplot - Mosaic Plot\nTypical tests: - Pearson Chi-Square test\n\n\nFollowing EDA steps\n\nDetect aberrant & missing values. Analysis & adjustment\nOutlier detection. Analysis & cleaning\nCreate derived variables (index, etc.) & Variable transformation"
+  },
+  {
+    "objectID": "fs26/dq/dq_notes.html#why-do-we-care-about-missing-data",
+    "href": "fs26/dq/dq_notes.html#why-do-we-care-about-missing-data",
+    "title": "Data Quality - Notes",
+    "section": "Why do we care about missing data?",
+    "text": "Why do we care about missing data?\nNaively, one might think that missing data just means there is less data to analyze, so long as there are enough data to begin with. Unfortunately, this is only true in rare circumstances. In many cases, missing data may actually bias the results (give systematically wrong answers).\n\nNote: Missing data is the rule, not the exception."
+  },
+  {
+    "objectID": "fs26/dq/dq_notes.html#reasons-for-missing-data",
+    "href": "fs26/dq/dq_notes.html#reasons-for-missing-data",
+    "title": "Data Quality - Notes",
+    "section": "Reasons for missing data",
+    "text": "Reasons for missing data\n\nAt the source\n\nSurvey respondents refuse to answer certain questions\nAnswers are invalid or cannot be decoded – for example, in paper questionnaires.\nIn longitudinal studies, parts of the sample do not participate at all measurement time points\nSensor failure\n\n\n\nCauses during data processing\n\ntyping errors during coding\nReading errors in digitalizing (for example, scanning of paper questionnaires)\n\n\nNote: The more technical reasons are often the most benign, because they may occur randomly and therefore don’t lead to bias."
+  },
+  {
+    "objectID": "fs26/dq/dq_notes.html#forms-of-non-response",
+    "href": "fs26/dq/dq_notes.html#forms-of-non-response",
+    "title": "Data Quality - Notes",
+    "section": "Forms of non-response",
+    "text": "Forms of non-response\n\nUnit non-response: subjects refuse to participate or are systematically unreachable\nItem non-response: subjects refuse to answer specific questions\n\n\nForms of item non-response (Little and Rubin, 2020)\n\n\n\nForms of item non-response (Little and Rubin, 2020)"
+  },
+  {
+    "objectID": "fs26/dq/dq_notes.html#missing-data-mechanism",
+    "href": "fs26/dq/dq_notes.html#missing-data-mechanism",
+    "title": "Data Quality - Notes",
+    "section": "Missing data mechanism",
+    "text": "Missing data mechanism\nThe missing data mechanism describes the underlying process that led to the missing data. It is crucial for determining which methods are adequate for dealing with the problem, if any.\n\nMissing Completely at Random (MCAR)\nThe probability of a value being missing does not depend on any observed or missing data. I.e., missing values are completely randomly distributed across all cases (persons, etc.) Cases with missing values do not differ systematically from cases without missing values.\n\n\nMissing at Random (MAR)\nThe probability of a value being missing may depend on observed data, but not on missing data. The occurrence of a missing value occurs conditionally at random and can be explained by the values in other variables. Cases with missing values may differ systematically from cases without missing values, but in a way that can be modeled.\n\n\nMissing not at Random (MNAR)\nThe probability of a value being missing depends on missing data. Values are systematically missing but no information is available to model their absence. There is no adequate statistical procedure to avoid bias."
+  },
+  {
+    "objectID": "fs26/dq/dq_notes.html#dealing-with-missing-data",
+    "href": "fs26/dq/dq_notes.html#dealing-with-missing-data",
+    "title": "Data Quality - Notes",
+    "section": "Dealing with Missing Data",
+    "text": "Dealing with Missing Data\n\nListwise deletion / Complete case analysis\nDelete all rows that have a missing value. Advantage: simple. Disadvantages: Wasteful. Imagine a dataset with 10 attributes, each with 10% missings. Then \\(P\\text{(complete row)} = 0.9^{10} = 35\\%\\).\n\n\nPairwise deletion / Complete case analysis\nDelete all rows that have a missing value. Advantage: simple & less wasteful. Results in different sample sizes for different model."
+  },
+  {
+    "objectID": "fs26/dq/dq_notes.html#single-imputation",
+    "href": "fs26/dq/dq_notes.html#single-imputation",
+    "title": "Data Quality - Notes",
+    "section": "Single Imputation",
+    "text": "Single Imputation\nGenerally, imputation refers to the practice of replacing missing values with values constructed in some way. Specifically, single imputation means that each missing value is replaced by one value.\n\nMean Imputation\nNAs are replaced by the mean of each variable. Advantages: Simple. Disadvantages: Not unbiased for regression or correlation.\n\n\nRegression Imputation\nFor each target variable to be imputed, run a regression on some or all other variables and use it to predict the missing values. Advantages: Under MCAR and MAR, unbiased for regression. Disadvantages: Not unbiased for correlation.\n\n\nStochastic Imputation\nFor each target variable to be imputed, randomly draw a value from some distribution. Advantages: Under MCAR and MAR, unbiased even for correlation. Disadvantages: Standard errors too small.\n\n\nOverview of Imputation Methods\n\n\n\nOverview of Simple Methods"
+  },
+  {
+    "objectID": "fs26/dq/dq_notes.html#multiple-imputation",
+    "href": "fs26/dq/dq_notes.html#multiple-imputation",
+    "title": "Data Quality - Notes",
+    "section": "Multiple Imputation",
+    "text": "Multiple Imputation\nIn multiple imputation, instead of applying stochastic imputation once, it is applied m times (e.g., m=5). This creates 5 complete datasets. The data sets are analyzed separately, and the results are combined (pooled) according to certain rules. Advantages: Only method that can yield correct standard errors, even under MAR. Disadvantages: Still cannot handle MNAR (nothing can, only more data).\n\nNote: In ML, we’re often not interested in standard errors."
+  },
+  {
+    "objectID": "fs26/dq/dq_notes.html#littles-mcar-test",
+    "href": "fs26/dq/dq_notes.html#littles-mcar-test",
+    "title": "Data Quality - Notes",
+    "section": "Little’s MCAR Test",
+    "text": "Little’s MCAR Test\nIt essentially tests if the means / covariances are the same under each missingness pattern.\n\n\\(H_0\\): The data are MCAR\n\\(H_A\\): They are not\n\n\n\n\n\n\n\nImportant\n\n\n\nThe test has low power: even if the test doesn’t reject, MCAR is not guaranteed."
   },
   {
     "objectID": "fs26/cip/cip_notes.html",
