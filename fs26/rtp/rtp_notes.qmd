@@ -272,3 +272,146 @@ A challenge in the interpretation of ACFs is that the effect of smaller lags rem
 ```{r}
 pacf(sunspot.year)
 ```
+
+# W-04-Timeseries-ACF-AR
+
+## Fundamentals of Modeling
+
+### White noise
+
+A time series process ${𝑊𝑡, 𝑡 ∈ ℕ}$ is called white noise if it is a sequence of independent and identically distributed random variables with mean $0$.
+
+> Note: The name “white” indicates that all frequencies are included, as in the case of “white light.”
+
+```{r}
+set.seed(42)
+whiteNoise <- ts(rnorm(100,mean=0,sd=1))
+plot(whiteNoise)
+```
+
+```{r}
+acf(whiteNoise)
+```
+
+```{r}
+pacf(whiteNoise)
+```
+
+#### Causal White Noise
+
+A series of $iid$ random variables $e_t$, which are individually independent of the proceeding time series elements $X_t$
+
+## Basic Time Series Models
+
+The following models are often used when there is limited information about how time series data is generated:
+
+- AR: auto-regressive model
+- MA: moving average model
+- ARMA: combination of AR and MA model
+- ARIMA: non-stationary ARMA model (I=integration)
+- SARIMA: seasonal ARIMA model
+
+## Auto-Regression Models (AR)
+
+Express the current random variable as a linear combination of the last $p$ time steps and a “completely independent” term $e_t$ called innovation.
+
+$$
+X_t = \alpha_1 X_{t-1} + \dots + \alpha_p X_{t-p} + e_t
+$$
+
+where $\alpha_x$ is a set of finite parameters and $e_t$ a series of independent random variables.
+
+## $AR(1)$ as Random Walk Model
+
+Trajectory of an object moving along a line. At each moment, the object takes randomly the decision in which direction to move on.
+
+$$
+X_t = X_{t-1} + $e_t$
+$$
+
+where $e_t$ is random with equal probability for $-1$ and $1$.
+
+```{r}
+set.seed(42)
+step<- 1 - 2 * round(runif(100))
+X_t<-cumsum(step)
+plot(X_t, type="lines")
+```
+
+## Simulation $AR(p)$ Processes
+
+We would like to simulate:
+
+$$
+X_t = 0.5 X_{t-1} + 0.3 X_{t-2} + e_t \text{ with } e_t \sim N(0,1) \text{ iid.}
+$$
+
+```{r}
+set.seed(42)
+ar.coefficients <- c(0.5, 0.3)
+simData <- arima.sim(n=1000,model=list(ar=ar.coefficients))
+plot(simData)
+```
+
+```{r}
+acf(simData)
+```
+
+```{r}
+pacf(simData)
+```
+
+## Stationarity of $AR(p)$ Models
+
+AR(p) models are stationary when the:
+
+- mean is $0$
+- absolute value of the roots of the characteristic polynomial is all larger than 1
+
+```{r}
+polyroot(c(1,-0.8,-0.4))
+```
+
+As the first value has an absolute value below 1, the time series is not
+stationary.
+
+## Key Properties of $AR(p)$ Models
+
+The AR(1) process:
+
+$$
+X_t = 0.75 * X_t + e_t
+$$
+
+is stationary because the characteristic polynomial:
+
+```{r}
+polyroot(c(1,-0.75))
+```
+
+For the model identification of AR(p) processes, two properties are key:
+
+- Autocorrelation decays quickly or displays a damped sinusoid
+- Partial autocorrelation function has a clear cut-off at $p$
+
+## Model Order Identification
+
+![Plug-in estimated ACF and PACF](img/model_order_identification.png)
+
+- ACF displays damped sinusoid
+- PACF has clear cut-off after lag 11, 7, 4 or 2 (depending on the threshold).
+
+Try fitting an $AR(2)$, $AR(4)$, $AR(7)$, $AR(11)$
+
+## Model Parameter Identification
+
+Time series are often not centered: I.e. instead of a classical AR(p) process, a centered version has to be fitted.
+
+$$
+Y_t = m + X_t = m + \alpha_1 X_{t-1} + \dots + \alpha_p X_{t-p} + e_t
+$$
+
+Fitting parameters are:
+- the global mean $m$
+- the AR-coefficients $\alpha_1, \dots, \alpha_p$
+- the parameters defining the distribution of the innovation $e_t$. Here, we assume a normal distribution.
