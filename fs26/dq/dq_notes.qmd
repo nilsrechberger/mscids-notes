@@ -212,3 +212,100 @@ Typical tests:
 - Detect aberrant & missing values. Analysis & adjustment
 - Outlier detection. Analysis & cleaning
 - Create derived variables (index, etc.) & Variable transformation
+
+# Lecture 04: Missing Values
+
+## Why do we care about missing data?
+
+Naively, one might think that missing data just means there is less data to analyze, so long as there are enough data to begin with. Unfortunately, this is only true in rare circumstances. In many cases, missing data may actually bias the results (give systematically wrong answers).
+
+> Note: Missing data is the rule, not the exception.
+
+## Reasons for missing data
+
+### At the source
+
+- Survey respondents refuse to answer certain questions
+- Answers are invalid or cannot be decoded – for example, in paper questionnaires.
+- In longitudinal studies, parts of the sample do not participate at all measurement time points
+- Sensor failure
+
+
+### Causes during data processing
+
+- typing errors during coding
+- Reading errors in digitalizing (for example, scanning of paper questionnaires)
+
+> Note: The more technical reasons are often the most benign, because they may occur randomly and therefore don’t lead to bias.
+
+## Forms of non-response
+
+- Unit non-response: subjects refuse to participate or are systematically unreachable
+- Item non-response: subjects refuse to answer specific questions
+
+### Forms of item non-response (Little and Rubin, 2020)
+
+![Forms of item non-response (Little and Rubin, 2020)](img/non_response.png)
+
+## Missing data mechanism
+
+The missing data mechanism describes the underlying process that led to the missing data. It is crucial for determining which methods are adequate for dealing with the problem, if any.
+
+### Missing Completely at Random (MCAR)
+
+The probability of a value being missing does not depend on any observed or missing data. I.e., missing values are completely randomly distributed across all cases (persons, etc.) Cases with missing values do not differ systematically from cases without missing values.
+
+### Missing at Random (MAR)
+
+The probability of a value being missing may depend on observed data, but not on missing data. The occurrence of a missing value occurs conditionally at random and can be explained by the values in other variables. Cases with missing values may differ systematically from cases without missing values, but in a way that can be modeled.
+
+### Missing not at Random (MNAR)
+
+The probability of a value being missing depends on missing data. Values are systematically missing but no information is available to model their absence. There is no adequate statistical procedure to avoid bias.
+
+## Dealing with Missing Data
+
+### Listwise deletion / Complete case analysis
+
+Delete all rows that have a missing value. Advantage: simple. Disadvantages: Wasteful. Imagine a dataset with 10 attributes, each with 10% missings. Then $P\text{(complete row)} = 0.9^{10} = 35\%$.
+
+### Pairwise deletion / Complete case analysis
+
+Delete all rows that have a missing value. Advantage: simple & less wasteful. Results in different sample sizes for different model.
+
+## Single Imputation
+
+Generally, imputation refers to the practice of replacing missing values with values constructed in some way. Specifically, single imputation means that each missing value is replaced by one value.
+
+### Mean Imputation
+
+NAs are replaced by the mean of each variable. Advantages: Simple. Disadvantages: Not unbiased for regression or correlation.
+
+### Regression Imputation
+
+For each target variable to be imputed, run a regression on some or all other variables and use it to predict the missing values. Advantages: Under MCAR and MAR, unbiased for regression. Disadvantages: Not unbiased for correlation.
+
+### Stochastic Imputation
+
+For each target variable to be imputed, randomly draw a value from some distribution. Advantages: Under MCAR and MAR, unbiased even for correlation. Disadvantages: Standard errors too small.
+
+### Overview of Imputation Methods
+
+![Overview of Simple Methods](img/imputation_overview.png)
+
+## Multiple Imputation
+
+In multiple imputation, instead of applying stochastic imputation once, it is applied m times (e.g., m=5). This creates 5 complete datasets. The data sets are analyzed separately, and the results are combined (pooled) according to certain rules. Advantages: Only method that can yield correct standard errors, even under MAR. Disadvantages: Still cannot handle MNAR (nothing can, only more data).
+
+> Note:  In ML, we're often not interested in standard errors.
+
+## Little’s MCAR Test
+
+It essentially tests if the means / covariances are the same under each missingness pattern.
+
+- $H_0$: The data are MCAR
+- $H_A$: They are not
+
+::: {.callout-important}
+The test has low power: even if the test doesn't reject, MCAR is not guaranteed.
+:::
