@@ -95,7 +95,7 @@ GAMs come with advantages and disadvantages compared to e.g. polynomials:
 - the use of a quadratic term is simpler to explain than a GAM to a non-technical audience
 - in order to fit and understand the results of a GAM some technical knowledge is required
 
-# Week 03 Generalised Linear Models
+# Week 03: Generalised Linear Models
 
 ## Linear Model Assumptions
 
@@ -436,3 +436,93 @@ table(
 ```
 
 The diagonal entries of this matrix represent correctly labelled observations
+
+# Week 04: Support Vector Machines
+
+## What is an SVM?
+
+Support-vector machines (SVMs, also support-vector networks) are supervised learning models with associated learning algorithms that analyze data used for classification and regression analysis. An SVM model is a representation of the examples as points in space, mapped so that the examples of the separate categories are divided by a clear gap that is as wide as possible. 
+
+![SVM](img/svm.png)
+
+```{r}
+set.seed(123)
+
+library(tidyverse)
+library(e1071)
+library(caret)
+
+# Load data
+data(iris)
+
+# Prepare the Data for Training
+indices <- createDataPartition(iris$Species, p=.85, list = F)
+train <- iris %>%
+    slice(indices)
+
+test_in <- iris %>%
+    slice(-indices) %>%
+    select(-Species)
+
+test_truth <- iris %>%
+    slice(-indices) %>%
+    pull(Species)
+
+# Train the Support Vector Machine
+iris_svm <- svm(Species ~ ., train, kernel = "linear", scale = TRUE, cost = 10)
+plot(iris_svm, train, Petal.Length ~ Petal.Width)
+```
+
+## SVM Kernel Functions
+
+In many real-world scenarios, data is non-linearly separable. A standard linear SVM would fail here. Instead of manually performing complex mathematical transformations to move data into a higher dimension (which is computationally expensive), we use the Kernel Trick. A kernel function calculates the "similarity" or "inner product" between two points in a high-dimensional space without actually transforming the data points themselves.
+
+## Soft Margin Formulation
+
+If you try to force a Hard Margin SVM to separate every single point perfectly, you often end up with overfitting or a model that simply fails to find a solution because the data overlaps.
+
+The Soft Margin Formulation was introduced to solve this by allowing the SVM to make a few "mistakes" for the sake of a better, more general boundary.
+
+### The Role of the Hyperparameter $C$
+
+The variable $C$ is the most important dial you can turn. it controls the trade-off between "smoothness" and "accuracy."
+
+## Analyse Model Performance
+
+```{r}
+test_pred <- predict(iris_svm, test_in)
+table(test_pred)
+
+conf_matrix <- confusionMatrix(test_pred, test_truth)
+conf_matrix
+```
+
+## Pros & Cons of SVM
+
+### Pros
+
+- It works really well with a clear margin of separation
+- It is effective in high dimensional spaces
+- It is effective in cases where the number of dimensions is greater than the number of samples
+- It uses a subset of training points in the decision function (support vectors), so it is memory efficient
+
+### Cons
+
+- It is not always straightforward to scale the different variables "equally"
+- It is very prone to overfitting (different Kernel functions, hyperparameters etc.)
+- It doesn't perform well when we have large data set because the required training time is higher
+- It also doesn't perform very well, when the data set has more noise i.e. target classes are overlapping
+- It doesn't directly provide probability estimates
+
+## Support Vector Regression
+
+SVR gives us the flexibility to define how much error is acceptable in our model and will find an appropriate line (or hyperplane in higher dimensions) to fit the data. In contrast to OLS, the objective function of SVR is to minimize the coefficients not the squared error.
+
+## Summary
+
+- Support Vector Machine (SVM) is a non-probabilistic binary linear classifier
+- It can handle non-linear boundaries with the Kernel function/trick
+- It can be extended to more than two classes as well
+- It is also possible to do regression using this technique (Support Vector Regression)
+- Particularly useful in cases where we want to ignore errors up to a certain tolerance
+- Be careful with scaling your data and overfitting!
