@@ -403,6 +403,8 @@ For the model identification of AR(p) processes, two properties are key:
 
 Try fitting an $AR(2)$, $AR(4)$, $AR(7)$, $AR(11)$
 
+# W-05-Timeseries-AR-MA
+
 ## Model Parameter Identification
 
 Time series are often not centered: I.e. instead of a classical AR(p) process, a centered version has to be fitted.
@@ -415,3 +417,132 @@ Fitting parameters are:
 - the global mean $m$
 - the AR-coefficients $\alpha_1, \dots, \alpha_p$
 - the parameters defining the distribution of the innovation $e_t$. Here, we assume a normal distribution.
+
+## Model Parameter from Ordinary Least Square (OLS)
+
+We want to estimate the parameters from the model equation, we have a total od $n-p$ points for this, because we have a total of $n$ time segments and each equation links $p$ time instance.
+
+The OLS procedure is:
+
+1. Estimate the global mean $\hat{m} = \bar{y} = \frac{1}{n}\sum^n_{t=1}y_t$ and determine $x_t = y_t - \hat{m}$
+2. Carry out a regression on $x_t$ without intercept. The resulting parameters are $\hat{\alpha}, \dots, \hat{\alpha_p}$
+3. Estimate the standard deviation of the innovation $\hat{\sigma}_{E}^{2}$ deviation of the residual.
+
+```r
+ar.ols(data,order=p)
+```
+
+## Yule-Walker Equations
+
+Basic idea: The model coefficients and the ACF values are entangled. The values of the auto-correlation function depend on the model coefficients. A careful calculation for an AR(p) model yields the following equations, called Yule-Walker equations:
+
+$$
+\sum_{i=1}^{p} \alpha_i \rho(k-i) = \rho(k) \quad \text{for } k > 0
+$$
+
+$$
+\sum_{i=1}^{p} \alpha_i \rho(i) = \rho(0) - \sigma_{E}^{2} \quad \text{for } k = 0
+$$
+
+> Note: Note that the autocorrelation function is symmetric, i.e. $p(-k) = p(k)$ for all $k$.
+
+To fit the AR(p) model parameters, we must solve the above equations with the estimated values of the auto correlation function.
+
+```r
+ar.yw(data,order=p)
+```
+
+### Further options for fitting
+
+#### Burg’s algorithm
+
+Offers another fitting cost function that exploit also the first $p$ function values.
+
+```r
+ar.burg(data,order.max=p)
+```
+
+#### Maximum likelihood estimator (MLE)
+
+Determines the parameter based on an optimization of the maximum likelihood function
+
+```r
+arima(Data,order=c(2,0,0))
+```
+
+## Which method to use when?
+
+One option is to use the Akaike information criterion (AIC), which estimates the relative amount of information lost by the considered model. The less information a model loses, the higher the quality of that model.
+
+```{r}
+f.burg<-ar.burg(log(lynx))
+plot(
+    0:f.burg$order.max,
+    f.burg$aic,
+    type="l"
+    )
+```
+
+> Note: No order parameter is given any more.
+
+## Model Diagnostic
+
+### Example
+
+```{r}
+# Fitting the two models
+fit.2<-arima(log(lynx),order=c(2,0,0))
+fit.11<-arima(log(lynx),order=c(11,0,0))
+
+# Display the time series and model predictions
+plot(log(lynx))
+lines(log(lynx) - fit.2$resid, col = "red")
+lines(log(lynx) - fit.11$resid, col = "blue")
+legend("topleft", 
+       legend = c("AR(2)", "AR(11)"), 
+       col = c("red", "blue"), 
+       lty = 1)
+```
+
+### QQ-Plot
+
+Compare quantile of measurement data with theoretical distribution
+
+- X-Axis: Theoretical distribution
+- Y-Axis: Actual data distribution
+
+```{r}
+qqnorm(fit.2$residuals,main="Normal Q-Q Plot: AR(2)")
+qqline(fit.2$residuals)
+```
+
+## Moving Average Models (MA)
+
+A moving average MA(q) model is a model in the form
+
+$$
+X_t = E_t + \beta_1 E_{t-1} + \beta_2 E_{t-2} + \dots + \beta_q E_{t-q}
+$$
+
+with the time series $E_t$ of innovations.
+
+::: {.callout-note}
+A moving average model does not have an explicit reference to previous values; only the innovation parts are considered.
+:::
+
+```{r}
+set.seed(42)
+
+#MA(2)
+plot(arima.sim(n=100,list(ma=c(2,0.4))))
+```
+
+```{r}
+plot(ARMAacf(ma=c(2,0.4),lag.max=20),type="h",ylab="ACF")
+```
+
+```{r}
+plot(ARMAacf(ma=c(2,0.4),pacf=T,lag.max=20),type="h",ylab="PACF")
+```
+
+Generalization: In general, we can show that the autocorrelation function of an $MA(q)$ vanishes for all lags larger than $q$.
