@@ -526,3 +526,82 @@ SVR gives us the flexibility to define how much error is acceptable in our model
 - It is also possible to do regression using this technique (Support Vector Regression)
 - Particularly useful in cases where we want to ignore errors up to a certain tolerance
 - Be careful with scaling your data and overfitting!
+
+
+# Week 05: Model Validation
+
+The validation should simulate the setting in which the model is used. The choice of the most suited method depends on the situation. ften several methods are used simultaneously (to compare results).
+
+::: {.callout}
+The best model is the most useful one!
+:::
+
+## Data Set Approaches
+
+### Validation Set Approach
+
+A set of $n$ observations is randomly split into training and validation sets. The statistical learning method is then fitted to the training set and its performance evaluated on the validation set.
+
+```{r}
+set.seed(1)
+
+df <- data.frame(
+  x = 1:100,
+  y = (1:100) * 2 + rnorm(100)
+)
+
+n <- nrow(df)
+
+train_size <- floor(0.7 * n)
+train_indices <- sample(seq_len(n), size = train_size)
+
+train_set <- df[train_indices, ]
+test_set  <- df[-train_indices, ]
+
+train_set
+```
+
+### 5-fold CV
+
+A set of $n$ observations is randomly divided into five non-overlapping groups. Each of these fifths acts as a validation set and the remainder as a training set. The test error is estimated by averaging the five resulting mean squared error (MSE) estimates.
+
+```{r}
+set.seed(1)
+df <- data.frame(x = 1:100, y = rnorm(100))
+
+df <- df[sample(nrow(df)), ]
+
+folds <- cut(seq(1, nrow(df)), breaks = 5, labels = FALSE)
+
+test_indices <- which(folds == 1)
+test_data  <- df[test_indices, ]
+train_data <- df[-test_indices, ]
+
+train_set
+```
+
+### Leave one out CV (LOOCV)
+
+A set of $n$ data points is repeatedly split into a training set containing all but one observation and a validation set containing only that observation. The test error is estimated by averaging the resulting MSE's.
+
+```{r}
+set.seed(1)
+
+df <- data.frame(x = 1:100, y = rnorm(100))
+n  <- nrow(df)
+
+predictions <- numeric(n)
+
+# The LOOCV Loop
+for (i in 1:n) {
+  train_data <- df[-i, ]
+  test_data  <- df[i, ]
+  
+  model <- lm(y ~ x, data = train_data)
+
+  predictions[i] <- predict(model, test_data)
+}
+
+mse_loocv <- mean((df$y - predictions)^2)
+mse_loocv
+```
