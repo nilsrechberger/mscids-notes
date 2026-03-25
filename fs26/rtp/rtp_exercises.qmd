@@ -543,11 +543,15 @@ The process is not stationary.
 ### B
 
 $$
-\begin{align}
-0.5 + x &= 1 \\
-x &= 1 - 0.5 \\
-x &= 0.5
-\end{align}
+0.5 + x = 1
+$$
+
+$$
+x = 1 - 0.5
+$$
+
+$$
+x = 0.5
 $$
 
 The process is stationary for $\alpha_2 = 0.5$.

@@ -326,7 +326,7 @@ where $\alpha_x$ is a set of finite parameters and $e_t$ a series of independent
 Trajectory of an object moving along a line. At each moment, the object takes randomly the decision in which direction to move on.
 
 $$
-X_t = X_{t-1} + $e_t$
+X_t = X_{t-1} + e_t
 $$
 
 where $e_t$ is random with equal probability for $-1$ and $1$.

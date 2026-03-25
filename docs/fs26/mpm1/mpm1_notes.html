@@ -324,6 +324,15 @@ window.Quarto = {
   <li><a href="#support-vector-regression" id="toc-support-vector-regression" class="nav-link" data-scroll-target="#support-vector-regression">Support Vector Regression</a></li>
   <li><a href="#summary" id="toc-summary" class="nav-link" data-scroll-target="#summary">Summary</a></li>
   </ul></li>
+  <li><a href="#week-05-model-validation" id="toc-week-05-model-validation" class="nav-link" data-scroll-target="#week-05-model-validation">Week 05: Model Validation</a>
+  <ul class="collapse">
+  <li><a href="#data-set-approaches" id="toc-data-set-approaches" class="nav-link" data-scroll-target="#data-set-approaches">Data Set Approaches</a>
+  <ul class="collapse">
+  <li><a href="#validation-set-approach" id="toc-validation-set-approach" class="nav-link" data-scroll-target="#validation-set-approach">Validation Set Approach</a></li>
+  <li><a href="#fold-cv" id="toc-fold-cv" class="nav-link" data-scroll-target="#fold-cv">5-fold CV</a></li>
+  <li><a href="#leave-one-out-cv-loocv" id="toc-leave-one-out-cv-loocv" class="nav-link" data-scroll-target="#leave-one-out-cv-loocv">Leave one out CV (LOOCV)</a></li>
+  </ul></li>
+  </ul></li>
   </ul>
 <div class="quarto-alternate-formats"><h2>Other Formats</h2><ul><li><a href="mpm1_notes.pdf"><i class="bi bi-file-pdf"></i>PDF</a></li></ul></div></nav>
     </div>
@@ -1076,8 +1085,249 @@ Balanced Accuracy           1.0000            0.9286           0.9643</code></pr
 <li>Particularly useful in cases where we want to ignore errors up to a certain tolerance</li>
 <li>Be careful with scaling your data and overfitting!</li>
 </ul>
+</section>
+</section>
+<section id="week-05-model-validation" class="level1">
+<h1>Week 05: Model Validation</h1>
+<p>The validation should simulate the setting in which the model is used. The choice of the most suited method depends on the situation. ften several methods are used simultaneously (to compare results).</p>
+<div class="callout callout-style-simple callout-none no-icon">
+<div class="callout-body d-flex">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-body-container">
+<p>The best model is the most useful one!</p>
+</div>
+</div>
+</div>
+<section id="data-set-approaches" class="level2">
+<h2 class="anchored" data-anchor-id="data-set-approaches">Data Set Approaches</h2>
+<section id="validation-set-approach" class="level3">
+<h3 class="anchored" data-anchor-id="validation-set-approach">Validation Set Approach</h3>
+<p>A set of <span class="math inline">\(n\)</span> observations is randomly split into training and validation sets. The statistical learning method is then fitted to the training set and its performance evaluated on the validation set.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb38"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb38-1"><a href="#cb38-1" aria-hidden="true" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">1</span>)</span>
+<span id="cb38-2"><a href="#cb38-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb38-3"><a href="#cb38-3" aria-hidden="true" tabindex="-1"></a>df <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(</span>
+<span id="cb38-4"><a href="#cb38-4" aria-hidden="true" tabindex="-1"></a>  <span class="at">x =</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">100</span>,</span>
+<span id="cb38-5"><a href="#cb38-5" aria-hidden="true" tabindex="-1"></a>  <span class="at">y =</span> (<span class="dv">1</span><span class="sc">:</span><span class="dv">100</span>) <span class="sc">*</span> <span class="dv">2</span> <span class="sc">+</span> <span class="fu">rnorm</span>(<span class="dv">100</span>)</span>
+<span id="cb38-6"><a href="#cb38-6" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb38-7"><a href="#cb38-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb38-8"><a href="#cb38-8" aria-hidden="true" tabindex="-1"></a>n <span class="ot">&lt;-</span> <span class="fu">nrow</span>(df)</span>
+<span id="cb38-9"><a href="#cb38-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb38-10"><a href="#cb38-10" aria-hidden="true" tabindex="-1"></a>train_size <span class="ot">&lt;-</span> <span class="fu">floor</span>(<span class="fl">0.7</span> <span class="sc">*</span> n)</span>
+<span id="cb38-11"><a href="#cb38-11" aria-hidden="true" tabindex="-1"></a>train_indices <span class="ot">&lt;-</span> <span class="fu">sample</span>(<span class="fu">seq_len</span>(n), <span class="at">size =</span> train_size)</span>
+<span id="cb38-12"><a href="#cb38-12" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb38-13"><a href="#cb38-13" aria-hidden="true" tabindex="-1"></a>train_set <span class="ot">&lt;-</span> df[train_indices, ]</span>
+<span id="cb38-14"><a href="#cb38-14" aria-hidden="true" tabindex="-1"></a>test_set  <span class="ot">&lt;-</span> df[<span class="sc">-</span>train_indices, ]</span>
+<span id="cb38-15"><a href="#cb38-15" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb38-16"><a href="#cb38-16" aria-hidden="true" tabindex="-1"></a>train_set</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>    x          y
+77 77 153.556708
+90 90 180.267099
+98 98 195.426735
+66 66 132.188792
+19 19  38.821221
+17 17  33.983810
+34 34  67.946195
+75 75 148.746367
+31 31  63.358680
+35 35  68.622940
+46 46  91.292505
+96 96 192.558486
+93 93 187.160403
+16 16  31.955066
+40 40  80.763176
+9   9  18.575781
+50 50 100.881108
+24 24  46.010648
+10 10  19.694612
+79 79 158.074341
+32 32  63.897212
+39 39  79.100025
+37 37  73.605710
+12 12  24.389843
+14 14  25.785300
+87 87 175.063100
+15 15  31.124931
+2   2   4.183643
+65 65 129.256727
+67 67 132.195041
+95 95 191.586833
+5   5  10.329508
+41 41  81.835476
+92 92 185.207868
+36 36  71.585005
+49 49  97.887654
+68 68 137.465555
+29 29  57.521850
+21 21  42.918977
+1   1   1.373546
+53 53 106.341120
+20 20  40.593901
+42 42  83.746638
+99 99 196.775387
+58 58 114.955865
+83 83 167.178087
+60 60 119.864945
+54 54 106.870637
+22 22  44.782136
+38 38  75.940687
+84 84 166.476433
+88 88 175.695816
+30 30  60.417942
+63 63 126.689739
+73 73 146.610726
+8   8  16.738325
+76 76 152.291446
+97 97 192.723408
+26 26  51.943871
+86 86 172.332950
+78 78 156.001105
+45 45  89.311244
+7   7  14.487429
+43 43  86.696963
+64 64 128.028002
+85 85 170.593946
+27 27  53.844204
+74 74 147.065902
+25 25  50.619826
+6   6  11.179532</code></pre>
+</div>
+</div>
+</section>
+<section id="fold-cv" class="level3">
+<h3 class="anchored" data-anchor-id="fold-cv">5-fold CV</h3>
+<p>A set of <span class="math inline">\(n\)</span> observations is randomly divided into five non-overlapping groups. Each of these fifths acts as a validation set and the remainder as a training set. The test error is estimated by averaging the five resulting mean squared error (MSE) estimates.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb40"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb40-1"><a href="#cb40-1" aria-hidden="true" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">1</span>)</span>
+<span id="cb40-2"><a href="#cb40-2" aria-hidden="true" tabindex="-1"></a>df <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(<span class="at">x =</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">100</span>, <span class="at">y =</span> <span class="fu">rnorm</span>(<span class="dv">100</span>))</span>
+<span id="cb40-3"><a href="#cb40-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb40-4"><a href="#cb40-4" aria-hidden="true" tabindex="-1"></a>df <span class="ot">&lt;-</span> df[<span class="fu">sample</span>(<span class="fu">nrow</span>(df)), ]</span>
+<span id="cb40-5"><a href="#cb40-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb40-6"><a href="#cb40-6" aria-hidden="true" tabindex="-1"></a>folds <span class="ot">&lt;-</span> <span class="fu">cut</span>(<span class="fu">seq</span>(<span class="dv">1</span>, <span class="fu">nrow</span>(df)), <span class="at">breaks =</span> <span class="dv">5</span>, <span class="at">labels =</span> <span class="cn">FALSE</span>)</span>
+<span id="cb40-7"><a href="#cb40-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb40-8"><a href="#cb40-8" aria-hidden="true" tabindex="-1"></a>test_indices <span class="ot">&lt;-</span> <span class="fu">which</span>(folds <span class="sc">==</span> <span class="dv">1</span>)</span>
+<span id="cb40-9"><a href="#cb40-9" aria-hidden="true" tabindex="-1"></a>test_data  <span class="ot">&lt;-</span> df[test_indices, ]</span>
+<span id="cb40-10"><a href="#cb40-10" aria-hidden="true" tabindex="-1"></a>train_data <span class="ot">&lt;-</span> df[<span class="sc">-</span>test_indices, ]</span>
+<span id="cb40-11"><a href="#cb40-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb40-12"><a href="#cb40-12" aria-hidden="true" tabindex="-1"></a>train_data</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>      x            y
+32   32 -0.102787727
+39   39  1.100025372
+37   37 -0.394289954
+12   12  0.389843236
+14   14 -2.214699887
+87   87  1.063099837
+15   15  1.124930918
+2     2  0.183643324
+65   65 -0.743273209
+67   67 -1.804958629
+95   95  1.586833455
+5     5  0.329507772
+41   41 -0.164523596
+92   92  1.207867806
+36   36 -0.414994563
+49   49 -0.112346212
+68   68  1.465554862
+29   29 -0.478150055
+21   21  0.918977372
+1     1 -0.626453811
+53   53  0.341119691
+20   20  0.593901321
+42   42 -0.253361680
+99   99 -1.224612615
+58   58 -1.044134626
+83   83  1.178086997
+60   60 -0.135054604
+54   54 -1.129363096
+22   22  0.782136301
+38   38 -0.059313397
+84   84 -1.523566800
+88   88 -0.304183924
+30   30  0.417941560
+63   63  0.689739362
+73   73  0.610726353
+8     8  0.738324705
+76   76  0.291446236
+97   97 -1.276592208
+26   26 -0.056128740
+86   86  0.332950371
+78   78  0.001105352
+45   45 -0.688755695
+7     7  0.487429052
+43   43  0.696963375
+64   64  0.028002159
+85   85  0.593946188
+27   27 -0.155795507
+74   74 -0.934097632
+25   25  0.619825748
+6     6 -0.820468384
+48   48  0.768532925
+71   71  0.475509529
+4     4  1.595280802
+3     3 -0.835628612
+94   94  0.700213650
+13   13 -0.621240581
+91   91 -0.542520031
+51   51  0.398105880
+44   44  0.556663199
+69   69  0.153253338
+23   23  0.074564983
+82   82 -0.135178615
+81   81 -0.568668733
+61   61  2.401617761
+100 100 -0.473400636
+52   52 -0.612026393
+72   72 -0.709946431
+80   80 -0.589520946
+33   33  0.387671612
+89   89  0.370018810
+57   57 -0.367221476
+70   70  2.172611670
+55   55  1.433023702
+28   28 -1.470752384
+59   59  0.569719627
+62   62 -0.039240003
+18   18  0.943836211
+11   11  1.511781168
+47   47  0.364581962
+56   56  1.980399899</code></pre>
+</div>
+</div>
+</section>
+<section id="leave-one-out-cv-loocv" class="level3">
+<h3 class="anchored" data-anchor-id="leave-one-out-cv-loocv">Leave one out CV (LOOCV)</h3>
+<p>A set of <span class="math inline">\(n\)</span> data points is repeatedly split into a training set containing all but one observation and a validation set containing only that observation. The test error is estimated by averaging the resulting MSE’s.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb42"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb42-1"><a href="#cb42-1" aria-hidden="true" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">1</span>)</span>
+<span id="cb42-2"><a href="#cb42-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb42-3"><a href="#cb42-3" aria-hidden="true" tabindex="-1"></a>df <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(<span class="at">x =</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">100</span>, <span class="at">y =</span> <span class="fu">rnorm</span>(<span class="dv">100</span>))</span>
+<span id="cb42-4"><a href="#cb42-4" aria-hidden="true" tabindex="-1"></a>n  <span class="ot">&lt;-</span> <span class="fu">nrow</span>(df)</span>
+<span id="cb42-5"><a href="#cb42-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb42-6"><a href="#cb42-6" aria-hidden="true" tabindex="-1"></a>predictions <span class="ot">&lt;-</span> <span class="fu">numeric</span>(n)</span>
+<span id="cb42-7"><a href="#cb42-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb42-8"><a href="#cb42-8" aria-hidden="true" tabindex="-1"></a><span class="co"># The LOOCV Loop</span></span>
+<span id="cb42-9"><a href="#cb42-9" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> (i <span class="cf">in</span> <span class="dv">1</span><span class="sc">:</span>n) {</span>
+<span id="cb42-10"><a href="#cb42-10" aria-hidden="true" tabindex="-1"></a>  train_data <span class="ot">&lt;-</span> df[<span class="sc">-</span>i, ]</span>
+<span id="cb42-11"><a href="#cb42-11" aria-hidden="true" tabindex="-1"></a>  test_data  <span class="ot">&lt;-</span> df[i, ]</span>
+<span id="cb42-12"><a href="#cb42-12" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb42-13"><a href="#cb42-13" aria-hidden="true" tabindex="-1"></a>  model <span class="ot">&lt;-</span> <span class="fu">lm</span>(y <span class="sc">~</span> x, <span class="at">data =</span> train_data)</span>
+<span id="cb42-14"><a href="#cb42-14" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb42-15"><a href="#cb42-15" aria-hidden="true" tabindex="-1"></a>  predictions[i] <span class="ot">&lt;-</span> <span class="fu">predict</span>(model, test_data)</span>
+<span id="cb42-16"><a href="#cb42-16" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb42-17"><a href="#cb42-17" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb42-18"><a href="#cb42-18" aria-hidden="true" tabindex="-1"></a>mse_loocv <span class="ot">&lt;-</span> <span class="fu">mean</span>((df<span class="sc">$</span>y <span class="sc">-</span> predictions)<span class="sc">^</span><span class="dv">2</span>)</span>
+<span id="cb42-19"><a href="#cb42-19" aria-hidden="true" tabindex="-1"></a>mse_loocv</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 0.8317288</code></pre>
+</div>
+</div>
 
 
+</section>
 </section>
 </section>
 

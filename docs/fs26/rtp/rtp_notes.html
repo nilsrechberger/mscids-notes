@@ -306,6 +306,36 @@ window.Quarto = {
   </ul></li>
   <li><a href="#partial-autocorrelation" id="toc-partial-autocorrelation" class="nav-link" data-scroll-target="#partial-autocorrelation">Partial Autocorrelation</a></li>
   </ul></li>
+  <li><a href="#w-04-timeseries-acf-ar" id="toc-w-04-timeseries-acf-ar" class="nav-link" data-scroll-target="#w-04-timeseries-acf-ar">W-04-Timeseries-ACF-AR</a>
+  <ul class="collapse">
+  <li><a href="#fundamentals-of-modeling" id="toc-fundamentals-of-modeling" class="nav-link" data-scroll-target="#fundamentals-of-modeling">Fundamentals of Modeling</a>
+  <ul class="collapse">
+  <li><a href="#white-noise" id="toc-white-noise" class="nav-link" data-scroll-target="#white-noise">White noise</a></li>
+  </ul></li>
+  <li><a href="#basic-time-series-models" id="toc-basic-time-series-models" class="nav-link" data-scroll-target="#basic-time-series-models">Basic Time Series Models</a></li>
+  <li><a href="#auto-regression-models-ar" id="toc-auto-regression-models-ar" class="nav-link" data-scroll-target="#auto-regression-models-ar">Auto-Regression Models (AR)</a></li>
+  <li><a href="#ar1-as-random-walk-model" id="toc-ar1-as-random-walk-model" class="nav-link" data-scroll-target="#ar1-as-random-walk-model"><span class="math inline">\(AR(1)\)</span> as Random Walk Model</a></li>
+  <li><a href="#simulation-arp-processes" id="toc-simulation-arp-processes" class="nav-link" data-scroll-target="#simulation-arp-processes">Simulation <span class="math inline">\(AR(p)\)</span> Processes</a></li>
+  <li><a href="#stationarity-of-arp-models" id="toc-stationarity-of-arp-models" class="nav-link" data-scroll-target="#stationarity-of-arp-models">Stationarity of <span class="math inline">\(AR(p)\)</span> Models</a></li>
+  <li><a href="#key-properties-of-arp-models" id="toc-key-properties-of-arp-models" class="nav-link" data-scroll-target="#key-properties-of-arp-models">Key Properties of <span class="math inline">\(AR(p)\)</span> Models</a></li>
+  <li><a href="#model-order-identification" id="toc-model-order-identification" class="nav-link" data-scroll-target="#model-order-identification">Model Order Identification</a></li>
+  </ul></li>
+  <li><a href="#w-05-timeseries-ar-ma" id="toc-w-05-timeseries-ar-ma" class="nav-link" data-scroll-target="#w-05-timeseries-ar-ma">W-05-Timeseries-AR-MA</a>
+  <ul class="collapse">
+  <li><a href="#model-parameter-identification" id="toc-model-parameter-identification" class="nav-link" data-scroll-target="#model-parameter-identification">Model Parameter Identification</a></li>
+  <li><a href="#model-parameter-from-ordinary-least-square-ols" id="toc-model-parameter-from-ordinary-least-square-ols" class="nav-link" data-scroll-target="#model-parameter-from-ordinary-least-square-ols">Model Parameter from Ordinary Least Square (OLS)</a></li>
+  <li><a href="#yule-walker-equations" id="toc-yule-walker-equations" class="nav-link" data-scroll-target="#yule-walker-equations">Yule-Walker Equations</a>
+  <ul class="collapse">
+  <li><a href="#further-options-for-fitting" id="toc-further-options-for-fitting" class="nav-link" data-scroll-target="#further-options-for-fitting">Further options for fitting</a></li>
+  </ul></li>
+  <li><a href="#which-method-to-use-when" id="toc-which-method-to-use-when" class="nav-link" data-scroll-target="#which-method-to-use-when">Which method to use when?</a></li>
+  <li><a href="#model-diagnostic" id="toc-model-diagnostic" class="nav-link" data-scroll-target="#model-diagnostic">Model Diagnostic</a>
+  <ul class="collapse">
+  <li><a href="#example-1" id="toc-example-1" class="nav-link" data-scroll-target="#example-1">Example</a></li>
+  <li><a href="#qq-plot" id="toc-qq-plot" class="nav-link" data-scroll-target="#qq-plot">QQ-Plot</a></li>
+  </ul></li>
+  <li><a href="#moving-average-models-ma" id="toc-moving-average-models-ma" class="nav-link" data-scroll-target="#moving-average-models-ma">Moving Average Models (MA)</a></li>
+  </ul></li>
   </ul>
 <div class="quarto-alternate-formats"><h2>Other Formats</h2><ul><li><a href="rtp_notes.pdf"><i class="bi bi-file-pdf"></i>PDF</a></li></ul></div></nav>
     </div>
@@ -765,6 +795,360 @@ Important
 </div>
 </div>
 </div>
+</section>
+</section>
+<section id="w-04-timeseries-acf-ar" class="level1">
+<h1>W-04-Timeseries-ACF-AR</h1>
+<section id="fundamentals-of-modeling" class="level2">
+<h2 class="anchored" data-anchor-id="fundamentals-of-modeling">Fundamentals of Modeling</h2>
+<section id="white-noise" class="level3">
+<h3 class="anchored" data-anchor-id="white-noise">White noise</h3>
+<p>A time series process <span class="math inline">\({𝑊𝑡, 𝑡 ∈ ℕ}\)</span> is called white noise if it is a sequence of independent and identically distributed random variables with mean <span class="math inline">\(0\)</span>.</p>
+<blockquote class="blockquote">
+<p>Note: The name “white” indicates that all frequencies are included, as in the case of “white light.”</p>
+</blockquote>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb14"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">42</span>)</span>
+<span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a>whiteNoise <span class="ot">&lt;-</span> <span class="fu">ts</span>(<span class="fu">rnorm</span>(<span class="dv">100</span>,<span class="at">mean=</span><span class="dv">0</span>,<span class="at">sd=</span><span class="dv">1</span>))</span>
+<span id="cb14-3"><a href="#cb14-3" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(whiteNoise)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="rtp_notes_files/figure-html/unnamed-chunk-12-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb15"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="fu">acf</span>(whiteNoise)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="rtp_notes_files/figure-html/unnamed-chunk-13-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb16"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a><span class="fu">pacf</span>(whiteNoise)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="rtp_notes_files/figure-html/unnamed-chunk-14-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+<section id="causal-white-noise" class="level4">
+<h4 class="anchored" data-anchor-id="causal-white-noise">Causal White Noise</h4>
+<p>A series of <span class="math inline">\(iid\)</span> random variables <span class="math inline">\(e_t\)</span>, which are individually independent of the proceeding time series elements <span class="math inline">\(X_t\)</span></p>
+</section>
+</section>
+</section>
+<section id="basic-time-series-models" class="level2">
+<h2 class="anchored" data-anchor-id="basic-time-series-models">Basic Time Series Models</h2>
+<p>The following models are often used when there is limited information about how time series data is generated:</p>
+<ul>
+<li>AR: auto-regressive model</li>
+<li>MA: moving average model</li>
+<li>ARMA: combination of AR and MA model</li>
+<li>ARIMA: non-stationary ARMA model (I=integration)</li>
+<li>SARIMA: seasonal ARIMA model</li>
+</ul>
+</section>
+<section id="auto-regression-models-ar" class="level2">
+<h2 class="anchored" data-anchor-id="auto-regression-models-ar">Auto-Regression Models (AR)</h2>
+<p>Express the current random variable as a linear combination of the last <span class="math inline">\(p\)</span> time steps and a “completely independent” term <span class="math inline">\(e_t\)</span> called innovation.</p>
+<p><span class="math display">\[
+X_t = \alpha_1 X_{t-1} + \dots + \alpha_p X_{t-p} + e_t
+\]</span></p>
+<p>where <span class="math inline">\(\alpha_x\)</span> is a set of finite parameters and <span class="math inline">\(e_t\)</span> a series of independent random variables.</p>
+</section>
+<section id="ar1-as-random-walk-model" class="level2">
+<h2 class="anchored" data-anchor-id="ar1-as-random-walk-model"><span class="math inline">\(AR(1)\)</span> as Random Walk Model</h2>
+<p>Trajectory of an object moving along a line. At each moment, the object takes randomly the decision in which direction to move on.</p>
+<p><span class="math display">\[
+X_t = X_{t-1} + e_t
+\]</span></p>
+<p>where <span class="math inline">\(e_t\)</span> is random with equal probability for <span class="math inline">\(-1\)</span> and <span class="math inline">\(1\)</span>.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb17"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">42</span>)</span>
+<span id="cb17-2"><a href="#cb17-2" aria-hidden="true" tabindex="-1"></a>step<span class="ot">&lt;-</span> <span class="dv">1</span> <span class="sc">-</span> <span class="dv">2</span> <span class="sc">*</span> <span class="fu">round</span>(<span class="fu">runif</span>(<span class="dv">100</span>))</span>
+<span id="cb17-3"><a href="#cb17-3" aria-hidden="true" tabindex="-1"></a>X_t<span class="ot">&lt;-</span><span class="fu">cumsum</span>(step)</span>
+<span id="cb17-4"><a href="#cb17-4" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(X_t, <span class="at">type=</span><span class="st">"lines"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Warning in plot.xy(xy, type, ...): plot type 'lines' will be truncated to first
+character</code></pre>
+</div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="rtp_notes_files/figure-html/unnamed-chunk-15-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+</section>
+<section id="simulation-arp-processes" class="level2">
+<h2 class="anchored" data-anchor-id="simulation-arp-processes">Simulation <span class="math inline">\(AR(p)\)</span> Processes</h2>
+<p>We would like to simulate:</p>
+<p><span class="math display">\[
+X_t = 0.5 X_{t-1} + 0.3 X_{t-2} + e_t \text{ with } e_t \sim N(0,1) \text{ iid.}
+\]</span></p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb19"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">42</span>)</span>
+<span id="cb19-2"><a href="#cb19-2" aria-hidden="true" tabindex="-1"></a>ar.coefficients <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="fl">0.5</span>, <span class="fl">0.3</span>)</span>
+<span id="cb19-3"><a href="#cb19-3" aria-hidden="true" tabindex="-1"></a>simData <span class="ot">&lt;-</span> <span class="fu">arima.sim</span>(<span class="at">n=</span><span class="dv">1000</span>,<span class="at">model=</span><span class="fu">list</span>(<span class="at">ar=</span>ar.coefficients))</span>
+<span id="cb19-4"><a href="#cb19-4" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(simData)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="rtp_notes_files/figure-html/unnamed-chunk-16-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb20"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a><span class="fu">acf</span>(simData)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="rtp_notes_files/figure-html/unnamed-chunk-17-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb21"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a><span class="fu">pacf</span>(simData)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="rtp_notes_files/figure-html/unnamed-chunk-18-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+</section>
+<section id="stationarity-of-arp-models" class="level2">
+<h2 class="anchored" data-anchor-id="stationarity-of-arp-models">Stationarity of <span class="math inline">\(AR(p)\)</span> Models</h2>
+<p>AR(p) models are stationary when the:</p>
+<ul>
+<li>mean is <span class="math inline">\(0\)</span></li>
+<li>absolute value of the roots of the characteristic polynomial is all larger than 1</li>
+</ul>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb22"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a><span class="fu">polyroot</span>(<span class="fu">c</span>(<span class="dv">1</span>,<span class="sc">-</span><span class="fl">0.8</span>,<span class="sc">-</span><span class="fl">0.4</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1]  0.8708287+0i -2.8708287+0i</code></pre>
+</div>
+</div>
+<p>As the first value has an absolute value below 1, the time series is not stationary.</p>
+</section>
+<section id="key-properties-of-arp-models" class="level2">
+<h2 class="anchored" data-anchor-id="key-properties-of-arp-models">Key Properties of <span class="math inline">\(AR(p)\)</span> Models</h2>
+<p>The AR(1) process:</p>
+<p><span class="math display">\[
+X_t = 0.75 * X_t + e_t
+\]</span></p>
+<p>is stationary because the characteristic polynomial:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb24"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb24-1"><a href="#cb24-1" aria-hidden="true" tabindex="-1"></a><span class="fu">polyroot</span>(<span class="fu">c</span>(<span class="dv">1</span>,<span class="sc">-</span><span class="fl">0.75</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 1.333333+0i</code></pre>
+</div>
+</div>
+<p>For the model identification of AR(p) processes, two properties are key:</p>
+<ul>
+<li>Autocorrelation decays quickly or displays a damped sinusoid</li>
+<li>Partial autocorrelation function has a clear cut-off at <span class="math inline">\(p\)</span></li>
+</ul>
+</section>
+<section id="model-order-identification" class="level2">
+<h2 class="anchored" data-anchor-id="model-order-identification">Model Order Identification</h2>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="img/model_order_identification.png" class="img-fluid figure-img"></p>
+<figcaption>Plug-in estimated ACF and PACF</figcaption>
+</figure>
+</div>
+<ul>
+<li>ACF displays damped sinusoid</li>
+<li>PACF has clear cut-off after lag 11, 7, 4 or 2 (depending on the threshold).</li>
+</ul>
+<p>Try fitting an <span class="math inline">\(AR(2)\)</span>, <span class="math inline">\(AR(4)\)</span>, <span class="math inline">\(AR(7)\)</span>, <span class="math inline">\(AR(11)\)</span></p>
+</section>
+</section>
+<section id="w-05-timeseries-ar-ma" class="level1">
+<h1>W-05-Timeseries-AR-MA</h1>
+<section id="model-parameter-identification" class="level2">
+<h2 class="anchored" data-anchor-id="model-parameter-identification">Model Parameter Identification</h2>
+<p>Time series are often not centered: I.e. instead of a classical AR(p) process, a centered version has to be fitted.</p>
+<p><span class="math display">\[
+Y_t = m + X_t = m + \alpha_1 X_{t-1} + \dots + \alpha_p X_{t-p} + e_t
+\]</span></p>
+<p>Fitting parameters are: - the global mean <span class="math inline">\(m\)</span> - the AR-coefficients <span class="math inline">\(\alpha_1, \dots, \alpha_p\)</span> - the parameters defining the distribution of the innovation <span class="math inline">\(e_t\)</span>. Here, we assume a normal distribution.</p>
+</section>
+<section id="model-parameter-from-ordinary-least-square-ols" class="level2">
+<h2 class="anchored" data-anchor-id="model-parameter-from-ordinary-least-square-ols">Model Parameter from Ordinary Least Square (OLS)</h2>
+<p>We want to estimate the parameters from the model equation, we have a total od <span class="math inline">\(n-p\)</span> points for this, because we have a total of <span class="math inline">\(n\)</span> time segments and each equation links <span class="math inline">\(p\)</span> time instance.</p>
+<p>The OLS procedure is:</p>
+<ol type="1">
+<li>Estimate the global mean <span class="math inline">\(\hat{m} = \bar{y} = \frac{1}{n}\sum^n_{t=1}y_t\)</span> and determine <span class="math inline">\(x_t = y_t - \hat{m}\)</span></li>
+<li>Carry out a regression on <span class="math inline">\(x_t\)</span> without intercept. The resulting parameters are <span class="math inline">\(\hat{\alpha}, \dots, \hat{\alpha_p}\)</span></li>
+<li>Estimate the standard deviation of the innovation <span class="math inline">\(\hat{\sigma}_{E}^{2}\)</span> deviation of the residual.</li>
+</ol>
+<div class="sourceCode" id="cb26"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb26-1"><a href="#cb26-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ar.ols</span>(data,<span class="at">order=</span>p)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</section>
+<section id="yule-walker-equations" class="level2">
+<h2 class="anchored" data-anchor-id="yule-walker-equations">Yule-Walker Equations</h2>
+<p>Basic idea: The model coefficients and the ACF values are entangled. The values of the auto-correlation function depend on the model coefficients. A careful calculation for an AR(p) model yields the following equations, called Yule-Walker equations:</p>
+<p><span class="math display">\[
+\sum_{i=1}^{p} \alpha_i \rho(k-i) = \rho(k) \quad \text{for } k &gt; 0
+\]</span></p>
+<p><span class="math display">\[
+\sum_{i=1}^{p} \alpha_i \rho(i) = \rho(0) - \sigma_{E}^{2} \quad \text{for } k = 0
+\]</span></p>
+<blockquote class="blockquote">
+<p>Note: Note that the autocorrelation function is symmetric, i.e.&nbsp;<span class="math inline">\(p(-k) = p(k)\)</span> for all <span class="math inline">\(k\)</span>.</p>
+</blockquote>
+<p>To fit the AR(p) model parameters, we must solve the above equations with the estimated values of the auto correlation function.</p>
+<div class="sourceCode" id="cb27"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb27-1"><a href="#cb27-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ar.yw</span>(data,<span class="at">order=</span>p)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<section id="further-options-for-fitting" class="level3">
+<h3 class="anchored" data-anchor-id="further-options-for-fitting">Further options for fitting</h3>
+<section id="burgs-algorithm" class="level4">
+<h4 class="anchored" data-anchor-id="burgs-algorithm">Burg’s algorithm</h4>
+<p>Offers another fitting cost function that exploit also the first <span class="math inline">\(p\)</span> function values.</p>
+<div class="sourceCode" id="cb28"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb28-1"><a href="#cb28-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ar.burg</span>(data,<span class="at">order.max=</span>p)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</section>
+<section id="maximum-likelihood-estimator-mle" class="level4">
+<h4 class="anchored" data-anchor-id="maximum-likelihood-estimator-mle">Maximum likelihood estimator (MLE)</h4>
+<p>Determines the parameter based on an optimization of the maximum likelihood function</p>
+<div class="sourceCode" id="cb29"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb29-1"><a href="#cb29-1" aria-hidden="true" tabindex="-1"></a><span class="fu">arima</span>(Data,<span class="at">order=</span><span class="fu">c</span>(<span class="dv">2</span>,<span class="dv">0</span>,<span class="dv">0</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</section>
+</section>
+</section>
+<section id="which-method-to-use-when" class="level2">
+<h2 class="anchored" data-anchor-id="which-method-to-use-when">Which method to use when?</h2>
+<p>One option is to use the Akaike information criterion (AIC), which estimates the relative amount of information lost by the considered model. The less information a model loses, the higher the quality of that model.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb30"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb30-1"><a href="#cb30-1" aria-hidden="true" tabindex="-1"></a>f.burg<span class="ot">&lt;-</span><span class="fu">ar.burg</span>(<span class="fu">log</span>(lynx))</span>
+<span id="cb30-2"><a href="#cb30-2" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(</span>
+<span id="cb30-3"><a href="#cb30-3" aria-hidden="true" tabindex="-1"></a>    <span class="dv">0</span><span class="sc">:</span>f.burg<span class="sc">$</span>order.max,</span>
+<span id="cb30-4"><a href="#cb30-4" aria-hidden="true" tabindex="-1"></a>    f.burg<span class="sc">$</span>aic,</span>
+<span id="cb30-5"><a href="#cb30-5" aria-hidden="true" tabindex="-1"></a>    <span class="at">type=</span><span class="st">"l"</span></span>
+<span id="cb30-6"><a href="#cb30-6" aria-hidden="true" tabindex="-1"></a>    )</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="rtp_notes_files/figure-html/unnamed-chunk-21-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+<blockquote class="blockquote">
+<p>Note: No order parameter is given any more.</p>
+</blockquote>
+</section>
+<section id="model-diagnostic" class="level2">
+<h2 class="anchored" data-anchor-id="model-diagnostic">Model Diagnostic</h2>
+<section id="example-1" class="level3">
+<h3 class="anchored" data-anchor-id="example-1">Example</h3>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb31"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb31-1"><a href="#cb31-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Fitting the two models</span></span>
+<span id="cb31-2"><a href="#cb31-2" aria-hidden="true" tabindex="-1"></a>fit<span class="fl">.2</span><span class="ot">&lt;-</span><span class="fu">arima</span>(<span class="fu">log</span>(lynx),<span class="at">order=</span><span class="fu">c</span>(<span class="dv">2</span>,<span class="dv">0</span>,<span class="dv">0</span>))</span>
+<span id="cb31-3"><a href="#cb31-3" aria-hidden="true" tabindex="-1"></a>fit<span class="fl">.11</span><span class="ot">&lt;-</span><span class="fu">arima</span>(<span class="fu">log</span>(lynx),<span class="at">order=</span><span class="fu">c</span>(<span class="dv">11</span>,<span class="dv">0</span>,<span class="dv">0</span>))</span>
+<span id="cb31-4"><a href="#cb31-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb31-5"><a href="#cb31-5" aria-hidden="true" tabindex="-1"></a><span class="co"># Display the time series and model predictions</span></span>
+<span id="cb31-6"><a href="#cb31-6" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(<span class="fu">log</span>(lynx))</span>
+<span id="cb31-7"><a href="#cb31-7" aria-hidden="true" tabindex="-1"></a><span class="fu">lines</span>(<span class="fu">log</span>(lynx) <span class="sc">-</span> fit<span class="fl">.2</span><span class="sc">$</span>resid, <span class="at">col =</span> <span class="st">"red"</span>)</span>
+<span id="cb31-8"><a href="#cb31-8" aria-hidden="true" tabindex="-1"></a><span class="fu">lines</span>(<span class="fu">log</span>(lynx) <span class="sc">-</span> fit<span class="fl">.11</span><span class="sc">$</span>resid, <span class="at">col =</span> <span class="st">"blue"</span>)</span>
+<span id="cb31-9"><a href="#cb31-9" aria-hidden="true" tabindex="-1"></a><span class="fu">legend</span>(<span class="st">"topleft"</span>, </span>
+<span id="cb31-10"><a href="#cb31-10" aria-hidden="true" tabindex="-1"></a>       <span class="at">legend =</span> <span class="fu">c</span>(<span class="st">"AR(2)"</span>, <span class="st">"AR(11)"</span>), </span>
+<span id="cb31-11"><a href="#cb31-11" aria-hidden="true" tabindex="-1"></a>       <span class="at">col =</span> <span class="fu">c</span>(<span class="st">"red"</span>, <span class="st">"blue"</span>), </span>
+<span id="cb31-12"><a href="#cb31-12" aria-hidden="true" tabindex="-1"></a>       <span class="at">lty =</span> <span class="dv">1</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="rtp_notes_files/figure-html/unnamed-chunk-22-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+</section>
+<section id="qq-plot" class="level3">
+<h3 class="anchored" data-anchor-id="qq-plot">QQ-Plot</h3>
+<p>Compare quantile of measurement data with theoretical distribution</p>
+<ul>
+<li>X-Axis: Theoretical distribution</li>
+<li>Y-Axis: Actual data distribution</li>
+</ul>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb32"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb32-1"><a href="#cb32-1" aria-hidden="true" tabindex="-1"></a><span class="fu">qqnorm</span>(fit<span class="fl">.2</span><span class="sc">$</span>residuals,<span class="at">main=</span><span class="st">"Normal Q-Q Plot: AR(2)"</span>)</span>
+<span id="cb32-2"><a href="#cb32-2" aria-hidden="true" tabindex="-1"></a><span class="fu">qqline</span>(fit<span class="fl">.2</span><span class="sc">$</span>residuals)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="rtp_notes_files/figure-html/unnamed-chunk-23-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+</section>
+</section>
+<section id="moving-average-models-ma" class="level2">
+<h2 class="anchored" data-anchor-id="moving-average-models-ma">Moving Average Models (MA)</h2>
+<p>A moving average MA(q) model is a model in the form</p>
+<p><span class="math display">\[
+X_t = E_t + \beta_1 E_{t-1} + \beta_2 E_{t-2} + \dots + \beta_q E_{t-q}
+\]</span></p>
+<p>with the time series <span class="math inline">\(E_t\)</span> of innovations.</p>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Note
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>A moving average model does not have an explicit reference to previous values; only the innovation parts are considered.</p>
+</div>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb33"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb33-1"><a href="#cb33-1" aria-hidden="true" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">42</span>)</span>
+<span id="cb33-2"><a href="#cb33-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb33-3"><a href="#cb33-3" aria-hidden="true" tabindex="-1"></a><span class="co">#MA(2)</span></span>
+<span id="cb33-4"><a href="#cb33-4" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(<span class="fu">arima.sim</span>(<span class="at">n=</span><span class="dv">100</span>,<span class="fu">list</span>(<span class="at">ma=</span><span class="fu">c</span>(<span class="dv">2</span>,<span class="fl">0.4</span>))))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="rtp_notes_files/figure-html/unnamed-chunk-24-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb34"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb34-1"><a href="#cb34-1" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(<span class="fu">ARMAacf</span>(<span class="at">ma=</span><span class="fu">c</span>(<span class="dv">2</span>,<span class="fl">0.4</span>),<span class="at">lag.max=</span><span class="dv">20</span>),<span class="at">type=</span><span class="st">"h"</span>,<span class="at">ylab=</span><span class="st">"ACF"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="rtp_notes_files/figure-html/unnamed-chunk-25-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb35"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb35-1"><a href="#cb35-1" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(<span class="fu">ARMAacf</span>(<span class="at">ma=</span><span class="fu">c</span>(<span class="dv">2</span>,<span class="fl">0.4</span>),<span class="at">pacf=</span>T,<span class="at">lag.max=</span><span class="dv">20</span>),<span class="at">type=</span><span class="st">"h"</span>,<span class="at">ylab=</span><span class="st">"PACF"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="rtp_notes_files/figure-html/unnamed-chunk-26-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+<p>Generalization: In general, we can show that the autocorrelation function of an <span class="math inline">\(MA(q)\)</span> vanishes for all lags larger than <span class="math inline">\(q\)</span>.</p>
 
 
 </section>
