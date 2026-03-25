@@ -397,3 +397,161 @@ pacf(data$ts2)
 ```
 
 The time serie 1 seems to be a $ACF(2)$-process.
+
+# Series 5
+
+## Task 5.1
+
+### A
+
+#### I
+
+The ACF plot should have a drop at lag 3.
+
+#### II
+
+```{r}
+plot(
+    0:30,
+    ARMAacf(
+        ar = c(0.9, -0.5),
+        lag.max = 30
+    ),
+    type = "h",
+    ylab = "ACF"
+)
+```
+
+```{r}
+plot(
+    1:30,
+    ARMAacf(
+        ar = c(0.9, -0.5),
+        lag.max = 30,
+        pacf = TRUE
+    ),
+    type = "h",
+    ylab = "PACF"
+
+)
+```
+
+#### III
+
+```{r}
+r.sim1 <- arima.sim(
+    n = 200,
+    model = list(ar = c(0.9, -0.5))
+)
+```
+
+#### IV
+
+```{r}
+ts.1 <- ts(r.sim1)
+plot(ts.1)
+```
+
+```{r}
+acf(ts.1)
+```
+
+```{r}
+pacf(ts.1)
+```
+
+### B
+
+#### I
+
+The PACF plot should have a drop at lag 4.
+
+#### II
+
+```{r}
+plot(
+    0:30,
+    ARMAacf(
+        ar = c(0.8, -0.5, -0.4),
+        lag.max = 30
+    ),
+    type = "h",
+    ylab = "ACF"
+)
+```
+
+```{r}
+plot(
+    1:30,
+    ARMAacf(
+        ar = c(0.8, -0.5, -0.4),
+        lag.max = 30,
+        pacf = TRUE
+    ),
+    type = "h",
+    ylab = "PACF"
+
+)
+```
+
+#### III
+
+```{r}
+r.sim1 <- arima.sim(
+    n = 200,
+    model = list(ar = c(0.8, -0.5, -0.4))
+)
+```
+
+#### IV
+
+```{r}
+ts.1 <- ts(r.sim1)
+plot(ts.1)
+```
+
+```{r}
+acf(ts.1)
+```
+
+```{r}
+pacf(ts.1)
+```
+
+## Exercise 5.2
+
+### A
+
+#### I
+
+```{r}
+roots_i <- polyroot(c(1, -0.5, -2))
+abs(roots_i)
+```
+
+The process is not stationary.
+
+#### II
+
+```{r}
+roots_ii <- polyroot(c(1, -1))
+abs(roots_ii)
+```
+
+The process is not stationary.
+
+### B
+
+$$
+\begin{align}
+0.5 + x &= 1 \\
+x &= 1 - 0.5 \\
+x &= 0.5
+\end{align}
+$$
+
+The process is stationary for $\alpha_2 = 0.5$.
+
+### C
+
+The condition for stationarity is $∣\alpha∣<1$. Therefore, if $∣\alpha∣≥1$, the root $z=\dfrac{1}{\alpha}$​ lies either on the unit circle $(∣z∣=1)$ or inside it $(∣z∣≤1)$. This mathematically confirms that the model is non-stationary in these cases.
