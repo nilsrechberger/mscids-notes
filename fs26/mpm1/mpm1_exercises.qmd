@@ -472,3 +472,141 @@ summary(glht.insects)
 ```
 
 As expected (from the graphical analysis), we can confirm that there is a clear difference between organic and conventional pesticides. However, there is no statistical evidence that the new conventional sprays differ from the old conventional one.
+
+# Series 4: Cross Validation
+
+```{r}
+d.xray <- readRDS("/home/nils/dev/mscids-notes/fs26/mpm1/data/Xray.RDS")
+str(d.xray)
+```
+
+## Question 1
+
+Fit the following four models on the whole dataset. Take a look at the summary-output of the four models. Compute the in-sample AIC-values (= AIC-values of the models fitted on the whole dataset) of all four models. You can use the function AIC(). Based on these in-sample AIC-values, which model would you select as the
+best performing model?
+
+```{r}
+library(mgcv)
+
+glm.xray.simple <- glm(
+    formula = disease ~ age + Sex,
+    data = d.xray,
+    family = "binomial"
+)
+
+glm.xray.complex <- glm(
+    formula = disease ~ age + Sex + Mray + Fray + CnRay.num,
+    data = d.xray,
+    family = "binomial"
+)
+
+glm.xray.very.complex <- glm(
+    formula = disease ~ Sex * (poly(age, degree = 2) + Mray + Fray + CnRay.num),
+    data = d.xray,
+    family = "binomial"
+)
+
+gam.xray <- gam(
+    formula = disease ~ s(age, by = Sex) + Sex + Mray + Fray + CnRay.num,
+    data = d.xray,
+    family = "binomial"
+)
+```
+
+### Answer
+
+```{r}
+cat("AIC of glm.xray.simple:", AIC(glm.xray.simple),"\n")
+cat("AIC of glm.xray.complex:", AIC(glm.xray.complex) ,"\n")
+cat("AIC of glm.xray.very.complex:", AIC(glm.xray.very.complex),"\n")
+cat("AIC of gam.xray:", AIC(gam.xray),"\n")
+```
+
+Based on the AIC, we should go on with the model `gam.xray` with a value of $148.9$.
+
+## Question 2
+
+Calculate the proportion of correctly classified observations in-sample (that is on the whole data set as well) for all four models. Use a cutoff of 0.5 in the predicted probability for disease. This means that if a patient has a predicted probability of 0.5 or higher, we would predict disease = 1 for this patient. Based on the in-sample proportion of correctly classified observations, which model would you choose?
+
+### Answer
+
+```{r}
+prop.correct.classified <- function(model, newdata){
+    pred.probabilities <- predict(
+        object = model,
+        newdata = newdata,
+        type = "response"
+    )
+
+    pred.disease <- ifelse(pred.probabilities >= 0.5, 1, 0)
+    return(mean(pred.disease == newdata$disease))
+}
+```
+
+```{r}
+cat("Prop. of correctly classified observations of glm.xray.simple:", prop.correct.classified(model = glm.xray.simple, newdata = d.xray), "\n")
+cat("Prop. of correctly classified observations of glm.xray.complex:", prop.correct.classified(model = glm.xray.complex, newdata = d.xray), "\n")
+cat("Prop. of correctly classified observations of glm.xray.very.complex:", prop.correct.classified(model = glm.xray.very.complex, newdata = d.xray), "\n")
+cat("Prop. of correctly classified observations of gam.xray:", prop.correct.classified(model = gam.xray, newdata = d.xray), "\n")
+```
+
+Based on the proportion of correctly classified observations in-sample, we should go on with the model `gam.xray` with a value of $0.75$.
+
+## Question 3
+
+Now implement 5-fold CV to compare the estimated proportion of correctly classified observations on test data. If you want, you can implement repeated 5-fold CV to see how much the estimated proportion of correctly classified observations varies between different 5-fold CVs (different permutation of the rows of the data).
+
+### Answer
+
+```{r}
+set.seed(1)
+
+df <- d.xray[sample(nrow(d.xray)), ]
+
+folds <- cut(seq(1, nrow(df)), breaks = 5, labels = FALSE)
+
+test_indices <- which(folds == 1)
+test_data  <- df[test_indices, ]
+train_data <- df[-test_indices, ]
+```
+
+### Question 4
+
+Based on the results of the 5-fold CV, which of the four models would you choose and why?
+
+```{r}
+library(mgcv)
+
+glm.xray.simple <- glm(
+    formula = disease ~ age + Sex,
+    data = train_data,
+    family = "binomial"
+)
+
+glm.xray.complex <- glm(
+    formula = disease ~ age + Sex + Mray + Fray + CnRay.num,
+    data = train_data,
+    family = "binomial"
+)
+
+glm.xray.very.complex <- glm(
+    formula = disease ~ Sex * (poly(age, degree = 2) + Mray + Fray + CnRay.num),
+    data = train_data,
+    family = "binomial"
+)
+
+gam.xray <- gam(
+    formula = disease ~ s(age, by = Sex) + Sex + Mray + Fray + CnRay.num,
+    data = train_data,
+    family = "binomial"
+)
+```
+
+```{r}
+cat("Prop. of correctly classified observations of glm.xray.simple:", prop.correct.classified(model = glm.xray.simple, newdata = test_data), "\n")
+cat("Prop. of correctly classified observations of glm.xray.complex:", prop.correct.classified(model = glm.xray.complex, newdata = test_data), "\n")
+cat("Prop. of correctly classified observations of glm.xray.very.complex:", prop.correct.classified(model = glm.xray.very.complex, newdata = test_data), "\n")
+cat("Prop. of correctly classified observations of gam.xray:", prop.correct.classified(model = gam.xray, newdata = test_data), "\n")
+```
+
+Based on the new proportion of correctly classified observations in-sample, we should go on with the model `glm.simple` with a value of $0.65$.
