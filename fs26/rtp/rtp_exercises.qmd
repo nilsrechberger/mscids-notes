@@ -224,7 +224,7 @@ for (l in 1:12) {
 legend("topleft", legend = paste("Lag", 1:12), col = rainbow(12), lty = 1, ncol = 2)
 ```
 
-# Series 03
+# Series 3
 
 ## Exercise 3.1
 
@@ -293,3 +293,107 @@ plot(ts.3)
 ```
 
 Using differencing alone, we eliminate the trend but do not obtain a fully stationary time series.
+
+# Series 4
+
+## Exercise 4.1
+
+### A
+
+```{r}
+arima.sim(list(ar = c(0.8)), n = 1000)
+```
+
+### B
+
+```{r}
+theo <- ARMAacf(ar = c(0.5, 0.2), lag.max = 100)
+sim_data <- arima.sim(model = list(ar = c(0.5, 0.2)), n = 500)
+plugin <- acf(sim_data, lag.max = 100, plot = FALSE)$acf
+
+plot(0:100, theo, type = "l")
+lines(0:100, plugin)
+```
+
+### C
+
+```{r}
+plot(0:20, ARMAacf(ar = 0.8, lag.max = 20), type = "h")
+```
+
+### D
+
+```{r}
+theo_pacf <- ARMAacf(ar = c(0.5, 0.2), lag.max = 100, pacf = TRUE)
+sim_data <- arima.sim(model = list(ar = c(0.5, 0.2)), n = 500)
+estim_pacf <- pacf(sim_data, lag.max = 100, plot = FALSE)$acf
+
+plot(1:100, theo_pacf, type = "h", ylim = c(-0.1, 0.6))
+lines(1:100, estim_pacf, type = "l")
+```
+
+## Exercise 4.2
+
+```{r}
+data <- read.table("/home/nils/dev/mscids-notes/fs26/rtp/data/kreatin.dat", header=TRUE)
+data
+```
+
+### A
+
+The Model should follow a **Random Walk**.
+
+
+### B
+
+```{r}
+ts <- ts(data$gehalt, start=c(1,1))
+plot(ts, main="Creatine Concentration of Human Muscular Tissue")
+```
+
+```{r}
+acf(ts)
+```
+
+```{r}
+pacf(ts)
+```
+
+## Exercise 4.3
+
+```{r}
+data <- read.table("/home/nils/dev/mscids-notes/fs26/rtp/data/ts_S3_A2.dat", header=TRUE)
+data
+```
+
+### A
+
+```{r}
+plot(ts(data$ts1))
+abline(h=mean(data$ts1))
+```
+
+$ts1$ seems to be stationary.
+
+```{r}
+plot(ts(data$ts2))
+abline(h=mean(data$ts2))
+```
+
+$ts2$ seems not to be stationary.
+
+### B
+
+```{r}
+acf(data$ts1)
+pacf(data$ts1)
+```
+
+The time serie 1 seems to be a $ACF(1)$-process.
+
+```{r}
+acf(data$ts2)
+pacf(data$ts2)
+```
+
+The time serie 1 seems to be a $ACF(2)$-process.
