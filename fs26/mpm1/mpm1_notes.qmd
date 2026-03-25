@@ -577,7 +577,7 @@ test_indices <- which(folds == 1)
 test_data  <- df[test_indices, ]
 train_data <- df[-test_indices, ]
 
-train_set
+train_data
 ```
 
 ### Leave one out CV (LOOCV)
