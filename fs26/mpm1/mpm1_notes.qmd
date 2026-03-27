@@ -605,3 +605,69 @@ for (i in 1:n) {
 mse_loocv <- mean((df$y - predictions)^2)
 mse_loocv
 ```
+
+# Week 06: Artificial Neural Networks
+
+Artificial neural networks (ANNs), usually simply called neural networks (NNs), are computing systems vaguely inspired by the biological neural networks that constitute animal brains. An ANN is based on a collection of connected units or nodes called artificial neurons, which loosely model the neurons in a biological brain. Each connection, like the synapses in a biological brain, can transmit a signal to other neurons. An artificial neuron that receives a signal then processes it and can signal neurons connected to it.
+
+## Motivation & History
+
+Model a program that works similar to the Human Brain. Build of different neurons (up to $10^9$). Type and strength of connection influence the flow of the signals.
+
+## The Perceptron
+
+A Perceptron is an algorithm for supervised learning of binary classifiers. It mimics a single biological neuron by receiving multiple signals, processing them, and deciding whether or not to "fire" an output.
+
+- Input Values ($x_n$​): These are the features of your data (e.g., pixels in an image or dimensions of a fruit).
+- Weights ($w_n$​): Each input is assigned a weight that represents its importance. The network "learns" by adjusting these weights.
+- Summation Function: The Perceptron calculates the weighted sum of the inputs and adds a bias ($b$). The bias allows the model to shift the activation function up or down.
+
+![Perceptron Model](img/perceptron.jpg)
+
+## Activation Functions
+
+Activation functions are the "gatekeepers" of a neural network. While the Perceptron uses a simple step function, modern Artificial Neural Networks (ANNs) use more complex functions to help the model learn intricate patterns. Without an activation function, a neural network is just a giant linear regression model—no matter how many layers you add, it could only represent linear relationships. Activation functions introduce non-linearity, allowing the network to learn "curvy" and complex boundaries.
+
+![Common Activation Functions](img/activation_functions.png)
+
+## Layers
+
+Layers are the structural building blocks that organize how data is processed. Instead of just one neuron (like the Perceptron), we stack them to create "Deep" networks. Think of layers as a filtration system: each layer extracts more complex features from the raw data until the final layer can make a confident prediction.
+
+- Input Layer: Receive data
+- Hidden Layer: Feature extraction & pattern recognition
+- Output Layer: Final prediction / Classification
+
+::: {.callout-note}
+As you add more hidden layers, it becomes harder for humans to understand exactly why a network made a specific decision. This is why deep learning is often referred to as a "black box."
+:::
+
+![Layers in ANN](img/ann_layers.png)
+
+## Gradient Descent
+
+Gradient Descent is an iterative optimization algorithm used to find the minimum of a function. In the context of ANNs, that function is the Loss Function (the measure of how "wrong" the model's predictions are).
+
+![Gradient Descent](img/grad_desc.png)
+
+### Learning Rate
+
+The size of the "steps" you take down the mountain is controlled by the Learning Rate. This is a crucial "hyperparameter" you set before training.
+
+- Too High: You might overstep the valley and bounce back and forth, never reaching the bottom.
+- Too Low: It will take forever to reach the bottom, and you might get stuck in a "Local Minimum" (a small dip that isn't the true lowest point).
+
+## Deep Learning
+
+Deep learning is essentially the "heavy lifting" department of Artificial Intelligence. While traditional AI relies on human-coded rules, deep learning uses Artificial Neural Networks to mimic how the human brain processes information.
+
+Neural networks have been around since the 1950s, but they only took off recently because of two main things: Big Data (the internet provided the "textbooks" for these models) and GPU Computing (video game hardware turned out to be perfect for the complex math required).
+
+> Note: Deep Learning is just Classical Network with many hidden layers (deep).
+
+## Generative Adversial Networks (GANs)
+
+Generative Adversarial Networks, or GANs, are a fascinating architecture in deep learning where two neural networks "fight" each other to create incredibly realistic data, such as images, music, or speech. A GAN consists of two distinct models that are trained simultaneously:
+
+- The Generator (The Forger): Its job is to create fake data that looks real. It starts by producing random noise but learns over time which features make an image look "authentic."
+- The Discriminator (The Detective): Its job is to look at a piece of data and decide if it is "Real" (from the actual training set) or "Fake" (created by the Generator).
