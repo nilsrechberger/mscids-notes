@@ -671,3 +671,26 @@ Generative Adversarial Networks, or GANs, are a fascinating architecture in deep
 
 - The Generator (The Forger): Its job is to create fake data that looks real. It starts by producing random noise but learns over time which features make an image look "authentic."
 - The Discriminator (The Detective): Its job is to look at a piece of data and decide if it is "Real" (from the actual training set) or "Fake" (created by the Generator).
+
+# Week 07 - General Topics
+
+## Parametric vs. non-parametric models
+
+### Parametric Models
+
+The word "parametric" refers to a fixed set of parameters. Before looking at any data, you decide on a specific mathematical "shape" (like a straight line). No matter how much data you throw at it, the number of parameters remains constant (e.g., just a slope and an intercept).
+
+### Non-parametric Models
+
+The name is a bit of a misnomer—it doesn't mean "zero parameters." Instead, it means the number of parameters is not predetermined. The model structure grows and changes based on the data. The "parameters" are often the data points themselves or an ever-expanding set of branches and nodes.
+
+### Comparison
+
+| Feature | Parametric Models (e.g., LM, GLM) | Non-parametric Models (e.g., Random Forest, NN) |
+| :--- | :--- | :--- |
+| **Model Structure** | Fixed / Predefined (e.g., a linear equation). | Flexible / Learns the shape from the data. |
+| **Parameter Count** | Fixed (does not change with more data). | Grows (more data = more complex structure). |
+| **Primary Goal** | **Inference:** Understanding the "why" and testing hypotheses. | **Prediction:** Achieving the highest accuracy possible. |
+| **Data Requirements** | Works well with small datasets. | Usually requires large amounts of data. |
+| **Complexity** | Simple, easy to interpret ("Glass Box"). | Complex, harder to explain ("Black Box"). |
+| **Assumptions** | Strong assumptions (e.g., normality, linearity). | Minimal assumptions about the data distribution. |
