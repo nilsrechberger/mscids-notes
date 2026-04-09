@@ -6,8 +6,10 @@ execute:
   freeze: auto
 
 website:
-  title: "mscids-notes"
+  title: "MScIDS Notes"
   google-analytics: "G-NZ8462CXQ1"
+  search: true
+  
   navbar:
     left:
       - text: "Home"
@@ -30,6 +32,7 @@ website:
             href: fs26/rtp/rtp_notes.qmd
           - text: "Exercises"
             href: fs26/rtp/rtp_exercises.qmd
+    right:
       - text: "How to"
         menu:
           - text: "Terminal"
@@ -44,9 +47,21 @@ website:
             href: "howTo/pythonProject.qmd"
       - text: "Resources"
         href: resources.qmd
+
+  page-footer:
+    left: "MScIDS Notes"
+    right: "Created with [Quarto](https://quarto.org/) by Nils Rechberger"
+
 format:
   html:
-    theme: cosmo
+    theme:
+      light: cosmo
+      dark: darkly
     css: styles.css
     toc: true
+    toc-depth: 3
+    toc-location: right
+    code-copy: true
+    code-fold: show
+    html-math-method: katex
   pdf: default
