@@ -8,7 +8,7 @@
 
 <meta name="author" content="Nils Rechberger">
 
-<title>Design of Experiments - Exercises – mscids-notes</title>
+<title>Design of Experiments - Exercises – MScIDS Notes</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -70,10 +70,12 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <script src="../../site_libs/quarto-html/tippy.umd.min.js"></script>
 <script src="../../site_libs/quarto-html/anchor.min.js"></script>
 <link href="../../site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-e26003cea8cd680ca0c55a263523d882.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-e26003cea8cd680ca0c55a263523d882.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-dark-d166b450ba5a8e9f7a0ab969bf6592c1.css" rel="prefetch" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
 <script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../../site_libs/bootstrap/bootstrap-8ef023257421bb572a6b5600f0392161.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<link href="../../site_libs/bootstrap/bootstrap-3a715b0ac595e8e0adfa4105e57cddb2.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
+<link href="../../site_libs/bootstrap/bootstrap-dark-e243de8e5e9bfa4330b8ee6f8c439225.min.css" rel="prefetch" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -111,8 +113,22 @@ gtag('js', new Date());
 gtag('config', 'G-NZ8462CXQ1', { 'anonymize_ip': true});
 </script>
 
-  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
-  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+  <script>window.backupDefine = window.define; window.define = undefined;</script><script src="https://cdn.jsdelivr.net/npm/katex@latest/dist/katex.min.js"></script>
+  <script>document.addEventListener("DOMContentLoaded", function () {
+ var mathElements = document.getElementsByClassName("math");
+ var macros = [];
+ for (var i = 0; i < mathElements.length; i++) {
+  var texText = mathElements[i].firstChild;
+  if (mathElements[i].tagName == "SPAN") {
+   katex.render(texText.data, mathElements[i], {
+    displayMode: mathElements[i].classList.contains('display'),
+    throwOnError: false,
+    macros: macros,
+    fleqn: false
+   });
+}}});
+  </script>
+  <script>window.define = window.backupDefine; window.backupDefine = undefined;</script><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@latest/dist/katex.min.css">
 
 <script type="text/javascript">
 const typesetMath = (el) => {
@@ -152,7 +168,7 @@ window.Quarto = {
       <div class="navbar-container container-fluid">
       <div class="navbar-brand-container mx-auto">
     <a class="navbar-brand" href="../../index.html">
-    <span class="navbar-title">mscids-notes</span>
+    <span class="navbar-title">MScIDS Notes</span>
     </a>
   </div>
             <div id="quarto-search" class="" title="Search"></div>
@@ -210,11 +226,13 @@ window.Quarto = {
   </li>  
     </ul>
   </li>
+</ul>
+            <ul class="navbar-nav navbar-nav-scroll ms-auto">
   <li class="nav-item dropdown ">
     <a class="nav-link dropdown-toggle" href="#" id="nav-menu-how-to" role="link" data-bs-toggle="dropdown" aria-expanded="false">
  <span class="menu-text">How to</span>
     </a>
-    <ul class="dropdown-menu" aria-labelledby="nav-menu-how-to">    
+    <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="nav-menu-how-to">    
         <li>
     <a class="dropdown-item" href="../../howTo/terminal.html">
  <span class="dropdown-text">Terminal</span></a>
@@ -244,6 +262,7 @@ window.Quarto = {
 </ul>
           </div> <!-- /navcollapse -->
             <div class="quarto-navbar-tools">
+  <a href="" class="quarto-color-scheme-toggle quarto-navigation-tool  px-1" onclick="window.quartoToggleColorScheme(); return false;" title="Toggle dark mode"><i class="bi"></i></a>
 </div>
       </div> <!-- /container-fluid -->
     </nav>
@@ -644,14 +663,14 @@ window.Quarto = {
 <ul>
 <li>Randomized controlled trial (RCT): Compare the new teaching method against the old one</li>
 <li>Analysis with t-test</li>
-<li>Significance level = <span class="math inline">\(5\%\)</span></li>
-<li>Cohen: Level of = <span class="math inline">\(20%\)</span> → Power = <span class="math inline">\(1- \beta\)</span> = <span class="math inline">\(80%\)</span></li>
+<li>Significance level = <span class="math inline">5\%</span></li>
+<li>Cohen: Level of = <span class="math inline">20%</span> → Power = <span class="math inline">1- \beta</span> = <span class="math inline">80%</span></li>
 </ul>
 <p>Important difference</p>
 <ul>
 <li>From empirical studies, expert interviews, and based on theoretical considerations, a difference of one grade unit is considered to be important.</li>
 </ul>
-<p>Other measurements - Validated studies have shown that the standard deviation of exam grades in a comparable population has the value <span class="math inline">\(\sigma_0 = 1.5\)</span> grade units.</p>
+<p>Other measurements - Validated studies have shown that the standard deviation of exam grades in a comparable population has the value <span class="math inline">\sigma_0 = 1.5</span> grade units.</p>
 <p>Procedure</p>
 <p>First step Determine effect size d that is relevant for the study.</p>
 <p>Second step How large does the total sample have to be for - significance level = 5% - power = 80% - effect size d relevant for the study</p>
@@ -660,9 +679,9 @@ window.Quarto = {
 <h3 class="anchored" data-anchor-id="answer-13">Answer</h3>
 <section id="effect-size" class="level4">
 <h4 class="anchored" data-anchor-id="effect-size">Effect Size</h4>
-<p><span class="math display">\[
+<p><span class="math display">
 \hat{d} = \dfrac{|\bar{x}_\text{new} - \bar{x}_\text{current}|}{\sigma_0} = \dfrac{1.0}{1.5} = 0.67
-\]</span></p>
+</span></p>
 </section>
 </section>
 </section>
@@ -690,7 +709,7 @@ window.Quarto = {
 <ul>
 <li><p>Dependent variable (DV): Assessment of the memory capacity on a scale of 1 to 100.</p></li>
 <li><p>Independent variable (IV): Memory training received “Yes” or “No”. How large must the total sample be for</p></li>
-<li><p>significance level <span class="math inline">\(\alpha\)</span> = 5%</p></li>
+<li><p>significance level <span class="math inline">\alpha</span> = 5%</p></li>
 <li><p>power = 80%</p></li>
 <li><p>effect size medium</p></li>
 </ul>
@@ -739,10 +758,13 @@ window.Quarto = {
 <section id="answer-17" class="level2">
 <h2 class="anchored" data-anchor-id="answer-17">Answer</h2>
 <div class="cell">
+<details open="" class="code-fold">
+<summary>Code</summary>
 <div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="co"># install.packages("readxl")</span></span>
 <span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(readxl)</span>
 <span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>data <span class="ot">&lt;-</span> <span class="fu">read_excel</span>(<span class="at">path=</span><span class="st">"/home/nils/dev/mscids-notes/hs25/doe/data/clickrate.xlsx"</span>)</span>
 <span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a><span class="fu">oneway.test</span>(DV <span class="sc">~</span> <span class="fu">factor</span>(IV1), <span class="at">var.equal=</span><span class="cn">TRUE</span>, <span class="at">data=</span>data)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
 <div class="cell-output cell-output-stdout">
 <pre><code>
     One-way analysis of means
@@ -750,8 +772,11 @@ window.Quarto = {
 data:  DV and factor(IV1)
 F = 77.928, num df = 2, denom df = 2301, p-value &lt; 2.2e-16</code></pre>
 </div>
+<details open="" class="code-fold">
+<summary>Code</summary>
 <div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>fit <span class="ot">&lt;-</span> <span class="fu">aov</span>(DV <span class="sc">~</span> <span class="fu">factor</span>(IV1), <span class="at">data=</span>data)</span>
 <span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(fit, <span class="at">intercept=</span><span class="cn">TRUE</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
 <div class="cell-output cell-output-stdout">
 <pre><code>              Df  Sum Sq Mean Sq  F value Pr(&gt;F)    
 (Intercept)    1 3509768 3509768 41265.38 &lt;2e-16 ***
@@ -796,6 +821,8 @@ Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1</code></pre>
 <section id="anova" class="level4">
 <h4 class="anchored" data-anchor-id="anova">ANOVA</h4>
 <div class="cell">
+<details open="" class="code-fold">
+<summary>Code</summary>
 <div class="sourceCode cell-code" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(readxl)</span>
 <span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a>dwelltime_Latin <span class="ot">&lt;-</span> <span class="fu">read_excel</span>(<span class="st">"/home/nils/dev/mscids-notes/hs25/doe/data/dwelltime_latin.xlsx"</span>)</span>
@@ -803,6 +830,7 @@ Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1</code></pre>
 <span id="cb9-5"><a href="#cb9-5" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb9-6"><a href="#cb9-6" aria-hidden="true" tabindex="-1"></a>fit <span class="ot">&lt;-</span> <span class="fu">aov</span>(DV <span class="sc">~</span> <span class="fu">factor</span>(A) <span class="sc">+</span> <span class="fu">factor</span>(B) <span class="sc">+</span> <span class="fu">factor</span>(C), <span class="at">data =</span> dwelltime_Latin)</span>
 <span id="cb9-7"><a href="#cb9-7" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(fit)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
 <div class="cell-output cell-output-stdout">
 <pre><code>               Df Sum Sq Mean Sq F value Pr(&gt;F)    
 factor(A)       2  76057   38028 465.761 &lt;2e-16 ***
@@ -834,31 +862,31 @@ Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1</code></pre>
 <section id="task-2" class="level2">
 <h2 class="anchored" data-anchor-id="task-2">Task 2</h2>
 <p>When considering administrative data sets, it is necessary to take into account the proportion:</p>
-<p><span class="math display">\[
+<p><span class="math display">
 f = \dfrac{n}{N}
-\]</span></p>
-<p>Proportion of sample size of the administrative dataset in the population Develop three typical examples that differ significantly in terms of their <span class="math inline">\(f\)</span> proportion.</p>
+</span></p>
+<p>Proportion of sample size of the administrative dataset in the population Develop three typical examples that differ significantly in terms of their <span class="math inline">f</span> proportion.</p>
 <section id="answer-21" class="level3">
 <h3 class="anchored" data-anchor-id="answer-21">Answer</h3>
 <section id="small-f" class="level4">
-<h4 class="anchored" data-anchor-id="small-f">Small <span class="math inline">\(f\)</span></h4>
-<p><span class="math display">\[
+<h4 class="anchored" data-anchor-id="small-f">Small <span class="math inline">f</span></h4>
+<p><span class="math display">
 f = \dfrac{100}{8000000}
-\]</span></p>
+</span></p>
 <p>Do a survey and ask 100 random people in Switzerland.</p>
 </section>
 <section id="medium-f" class="level4">
-<h4 class="anchored" data-anchor-id="medium-f">Medium <span class="math inline">\(f\)</span></h4>
-<p><span class="math display">\[
+<h4 class="anchored" data-anchor-id="medium-f">Medium <span class="math inline">f</span></h4>
+<p><span class="math display">
 f = \dfrac{1500}{3000}
-\]</span></p>
+</span></p>
 <p>Do a survey and ask the half of all students at HSLU.</p>
 </section>
 <section id="large-f" class="level4">
-<h4 class="anchored" data-anchor-id="large-f">Large <span class="math inline">\(f\)</span></h4>
-<p><span class="math display">\[
+<h4 class="anchored" data-anchor-id="large-f">Large <span class="math inline">f</span></h4>
+<p><span class="math display">
 f = \dfrac{90}{100}
-\]</span></p>
+</span></p>
 <p>Do a survey and ask 90 of the top 100 clients of a KMU.</p>
 </section>
 </section>
@@ -907,6 +935,150 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     }
   }
   toggleBodyColorPrimary();  
+  const disableStylesheet = (stylesheets) => {
+    for (let i=0; i < stylesheets.length; i++) {
+      const stylesheet = stylesheets[i];
+      stylesheet.rel = 'prefetch';
+    }
+  }
+  const enableStylesheet = (stylesheets) => {
+    for (let i=0; i < stylesheets.length; i++) {
+      const stylesheet = stylesheets[i];
+      stylesheet.rel = 'stylesheet';
+    }
+  }
+  const manageTransitions = (selector, allowTransitions) => {
+    const els = window.document.querySelectorAll(selector);
+    for (let i=0; i < els.length; i++) {
+      const el = els[i];
+      if (allowTransitions) {
+        el.classList.remove('notransition');
+      } else {
+        el.classList.add('notransition');
+      }
+    }
+  }
+  const toggleGiscusIfUsed = (isAlternate, darkModeDefault) => {
+    const baseTheme = document.querySelector('#giscus-base-theme')?.value ?? 'light';
+    const alternateTheme = document.querySelector('#giscus-alt-theme')?.value ?? 'dark';
+    let newTheme = '';
+    if(darkModeDefault) {
+      newTheme = isAlternate ? baseTheme : alternateTheme;
+    } else {
+      newTheme = isAlternate ? alternateTheme : baseTheme;
+    }
+    const changeGiscusTheme = () => {
+      // From: https://github.com/giscus/giscus/issues/336
+      const sendMessage = (message) => {
+        const iframe = document.querySelector('iframe.giscus-frame');
+        if (!iframe) return;
+        iframe.contentWindow.postMessage({ giscus: message }, 'https://giscus.app');
+      }
+      sendMessage({
+        setConfig: {
+          theme: newTheme
+        }
+      });
+    }
+    const isGiscussLoaded = window.document.querySelector('iframe.giscus-frame') !== null;
+    if (isGiscussLoaded) {
+      changeGiscusTheme();
+    }
+  }
+  const toggleColorMode = (alternate) => {
+    // Switch the stylesheets
+    const alternateStylesheets = window.document.querySelectorAll('link.quarto-color-scheme.quarto-color-alternate');
+    manageTransitions('#quarto-margin-sidebar .nav-link', false);
+    if (alternate) {
+      enableStylesheet(alternateStylesheets);
+      for (const sheetNode of alternateStylesheets) {
+        if (sheetNode.id === "quarto-bootstrap") {
+          toggleBodyColorMode(sheetNode);
+        }
+      }
+    } else {
+      disableStylesheet(alternateStylesheets);
+      toggleBodyColorPrimary();
+    }
+    manageTransitions('#quarto-margin-sidebar .nav-link', true);
+    // Switch the toggles
+    const toggles = window.document.querySelectorAll('.quarto-color-scheme-toggle');
+    for (let i=0; i < toggles.length; i++) {
+      const toggle = toggles[i];
+      if (toggle) {
+        if (alternate) {
+          toggle.classList.add("alternate");     
+        } else {
+          toggle.classList.remove("alternate");
+        }
+      }
+    }
+    // Hack to workaround the fact that safari doesn't
+    // properly recolor the scrollbar when toggling (#1455)
+    if (navigator.userAgent.indexOf('Safari') > 0 && navigator.userAgent.indexOf('Chrome') == -1) {
+      manageTransitions("body", false);
+      window.scrollTo(0, 1);
+      setTimeout(() => {
+        window.scrollTo(0, 0);
+        manageTransitions("body", true);
+      }, 40);  
+    }
+  }
+  const isFileUrl = () => { 
+    return window.location.protocol === 'file:';
+  }
+  const hasAlternateSentinel = () => {  
+    let styleSentinel = getColorSchemeSentinel();
+    if (styleSentinel !== null) {
+      return styleSentinel === "alternate";
+    } else {
+      return false;
+    }
+  }
+  const setStyleSentinel = (alternate) => {
+    const value = alternate ? "alternate" : "default";
+    if (!isFileUrl()) {
+      window.localStorage.setItem("quarto-color-scheme", value);
+    } else {
+      localAlternateSentinel = value;
+    }
+  }
+  const getColorSchemeSentinel = () => {
+    if (!isFileUrl()) {
+      const storageValue = window.localStorage.getItem("quarto-color-scheme");
+      return storageValue != null ? storageValue : localAlternateSentinel;
+    } else {
+      return localAlternateSentinel;
+    }
+  }
+  const darkModeDefault = false;
+  let localAlternateSentinel = darkModeDefault ? 'alternate' : 'default';
+  // Dark / light mode switch
+  window.quartoToggleColorScheme = () => {
+    // Read the current dark / light value 
+    let toAlternate = !hasAlternateSentinel();
+    toggleColorMode(toAlternate);
+    setStyleSentinel(toAlternate);
+    toggleGiscusIfUsed(toAlternate, darkModeDefault);
+  };
+  // Ensure there is a toggle, if there isn't float one in the top right
+  if (window.document.querySelector('.quarto-color-scheme-toggle') === null) {
+    const a = window.document.createElement('a');
+    a.classList.add('top-right');
+    a.classList.add('quarto-color-scheme-toggle');
+    a.href = "";
+    a.onclick = function() { try { window.quartoToggleColorScheme(); } catch {} return false; };
+    const i = window.document.createElement("i");
+    i.classList.add('bi');
+    a.appendChild(i);
+    window.document.body.appendChild(a);
+  }
+  // Switch to dark mode if need be
+  if (hasAlternateSentinel()) {
+    toggleColorMode(true);
+  } else {
+    toggleColorMode(false);
+  }
   const icon = "";
   const anchorJS = new window.AnchorJS();
   anchorJS.options = {
@@ -1305,6 +1477,19 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 });
 </script>
 </div> <!-- /content -->
+<footer class="footer">
+  <div class="nav-footer">
+    <div class="nav-footer-left">
+<p>MScIDS Notes</p>
+</div>   
+    <div class="nav-footer-center">
+      &nbsp;
+    </div>
+    <div class="nav-footer-right">
+<p>Created with <a href="https://quarto.org/">Quarto</a> by Nils Rechberger</p>
+</div>
+  </div>
+</footer>
 
 
 

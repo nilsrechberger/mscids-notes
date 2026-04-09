@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Classical and Bayesian Statistics - Notes – mscids-notes</title>
+<title>Classical and Bayesian Statistics - Notes – MScIDS Notes</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -69,10 +69,12 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <script src="../../site_libs/quarto-html/tippy.umd.min.js"></script>
 <script src="../../site_libs/quarto-html/anchor.min.js"></script>
 <link href="../../site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-e26003cea8cd680ca0c55a263523d882.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-e26003cea8cd680ca0c55a263523d882.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-dark-d166b450ba5a8e9f7a0ab969bf6592c1.css" rel="prefetch" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
 <script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../../site_libs/bootstrap/bootstrap-8ef023257421bb572a6b5600f0392161.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<link href="../../site_libs/bootstrap/bootstrap-3a715b0ac595e8e0adfa4105e57cddb2.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
+<link href="../../site_libs/bootstrap/bootstrap-dark-e243de8e5e9bfa4330b8ee6f8c439225.min.css" rel="prefetch" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -110,8 +112,22 @@ gtag('js', new Date());
 gtag('config', 'G-NZ8462CXQ1', { 'anonymize_ip': true});
 </script>
 
-  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
-  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+  <script>window.backupDefine = window.define; window.define = undefined;</script><script src="https://cdn.jsdelivr.net/npm/katex@latest/dist/katex.min.js"></script>
+  <script>document.addEventListener("DOMContentLoaded", function () {
+ var mathElements = document.getElementsByClassName("math");
+ var macros = [];
+ for (var i = 0; i < mathElements.length; i++) {
+  var texText = mathElements[i].firstChild;
+  if (mathElements[i].tagName == "SPAN") {
+   katex.render(texText.data, mathElements[i], {
+    displayMode: mathElements[i].classList.contains('display'),
+    throwOnError: false,
+    macros: macros,
+    fleqn: false
+   });
+}}});
+  </script>
+  <script>window.define = window.backupDefine; window.backupDefine = undefined;</script><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@latest/dist/katex.min.css">
 
 <script type="text/javascript">
 const typesetMath = (el) => {
@@ -151,7 +167,7 @@ window.Quarto = {
       <div class="navbar-container container-fluid">
       <div class="navbar-brand-container mx-auto">
     <a class="navbar-brand" href="../../index.html">
-    <span class="navbar-title">mscids-notes</span>
+    <span class="navbar-title">MScIDS Notes</span>
     </a>
   </div>
             <div id="quarto-search" class="" title="Search"></div>
@@ -209,11 +225,13 @@ window.Quarto = {
   </li>  
     </ul>
   </li>
+</ul>
+            <ul class="navbar-nav navbar-nav-scroll ms-auto">
   <li class="nav-item dropdown ">
     <a class="nav-link dropdown-toggle" href="#" id="nav-menu-how-to" role="link" data-bs-toggle="dropdown" aria-expanded="false">
  <span class="menu-text">How to</span>
     </a>
-    <ul class="dropdown-menu" aria-labelledby="nav-menu-how-to">    
+    <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="nav-menu-how-to">    
         <li>
     <a class="dropdown-item" href="../../howTo/terminal.html">
  <span class="dropdown-text">Terminal</span></a>
@@ -243,6 +261,7 @@ window.Quarto = {
 </ul>
           </div> <!-- /navcollapse -->
             <div class="quarto-navbar-tools">
+  <a href="" class="quarto-color-scheme-toggle quarto-navigation-tool  px-1" onclick="window.quartoToggleColorScheme(); return false;" title="Toggle dark mode"><i class="bi"></i></a>
 </div>
       </div> <!-- /container-fluid -->
     </nav>
@@ -308,9 +327,9 @@ window.Quarto = {
   <li><a href="#probability-distribution" id="toc-probability-distribution" class="nav-link" data-scroll-target="#probability-distribution">Probability Distribution</a></li>
   <li><a href="#key-figures-of-distribution" id="toc-key-figures-of-distribution" class="nav-link" data-scroll-target="#key-figures-of-distribution">Key Figures of Distribution</a>
   <ul class="collapse">
-  <li><a href="#expected-value-ex" id="toc-expected-value-ex" class="nav-link" data-scroll-target="#expected-value-ex">Expected Value <span class="math inline">\(E(X)\)</span></a></li>
+  <li><a href="#expected-value-ex" id="toc-expected-value-ex" class="nav-link" data-scroll-target="#expected-value-ex">Expected Value <span class="math inline">E(X)</span></a></li>
   <li><a href="#variance" id="toc-variance" class="nav-link" data-scroll-target="#variance">Variance</a></li>
-  <li><a href="#standard-deviation-sigma" id="toc-standard-deviation-sigma" class="nav-link" data-scroll-target="#standard-deviation-sigma">Standard deviation <span class="math inline">\(\sigma\)</span></a></li>
+  <li><a href="#standard-deviation-sigma" id="toc-standard-deviation-sigma" class="nav-link" data-scroll-target="#standard-deviation-sigma">Standard deviation <span class="math inline">\sigma</span></a></li>
   </ul></li>
   </ul></li>
   <li><a href="#week-04-continuous-distributions-normal-distribution" id="toc-week-04-continuous-distributions-normal-distribution" class="nav-link" data-scroll-target="#week-04-continuous-distributions-normal-distribution">Week 04: Continuous Distributions &amp; Normal Distribution</a>
@@ -338,7 +357,7 @@ window.Quarto = {
   </ul></li>
   <li><a href="#week-06-t-test-wilcoxon-test-confidence-interval" id="toc-week-06-t-test-wilcoxon-test-confidence-interval" class="nav-link" data-scroll-target="#week-06-t-test-wilcoxon-test-confidence-interval">Week 06: t-Test, Wilcoxon-Test, Confidence Interval</a>
   <ul class="collapse">
-  <li><a href="#t-distribution" id="toc-t-distribution" class="nav-link" data-scroll-target="#t-distribution"><span class="math inline">\(t\)</span>-Distribution</a></li>
+  <li><a href="#t-distribution" id="toc-t-distribution" class="nav-link" data-scroll-target="#t-distribution"><span class="math inline">t</span>-Distribution</a></li>
   <li><a href="#confidence-interval" id="toc-confidence-interval" class="nav-link" data-scroll-target="#confidence-interval">Confidence Interval</a>
   <ul class="collapse">
   <li><a href="#test-decision-with-confidence-interval" id="toc-test-decision-with-confidence-interval" class="nav-link" data-scroll-target="#test-decision-with-confidence-interval">Test Decision with Confidence Interval</a></li>
@@ -369,7 +388,7 @@ window.Quarto = {
   <li><a href="#parameter-a-b-minimise-least-squares-method" id="toc-parameter-a-b-minimise-least-squares-method" class="nav-link" data-scroll-target="#parameter-a-b-minimise-least-squares-method">Parameter a, b minimise (least squares method)</a></li>
   </ul></li>
   <li><a href="#empirical-correlation" id="toc-empirical-correlation" class="nav-link" data-scroll-target="#empirical-correlation">Empirical correlation</a></li>
-  <li><a href="#r2-value" id="toc-r2-value" class="nav-link" data-scroll-target="#r2-value"><span class="math inline">\(R^2\)</span> Value</a></li>
+  <li><a href="#r2-value" id="toc-r2-value" class="nav-link" data-scroll-target="#r2-value"><span class="math inline">R^2</span> Value</a></li>
   <li><a href="#f-statistic" id="toc-f-statistic" class="nav-link" data-scroll-target="#f-statistic">F-Statistic</a></li>
   </ul></li>
   <li><a href="#week-08-multiple-linear-regression" id="toc-week-08-multiple-linear-regression" class="nav-link" data-scroll-target="#week-08-multiple-linear-regression">Week 08: Multiple Linear Regression</a>
@@ -508,12 +527,15 @@ window.Quarto = {
 <section id="artithmetic-mean" class="level2">
 <h2 class="anchored" data-anchor-id="artithmetic-mean">Artithmetic Mean</h2>
 <p>Mean tells a lot about a dataset: “Center” of data. But average does not tell whole story about (quantitative) datasets. Datasets can have a different spread around mean.</p>
-<p><span class="math display">\[
+<p><span class="math display">
 \bar{x} = \dfrac{x_1 + x_2 + \dots{} + x_n}{n} = \dfrac{1}{n}\sum^n_{i=1}x_i
-\]</span></p>
+</span></p>
 <div class="cell">
+<details open="" class="code-fold">
+<summary>Code</summary>
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>x <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="fl">4.3</span>, <span class="fl">5.2</span>, <span class="fl">2.7</span>, <span class="fl">3.1</span>)</span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="fu">mean</span>(x)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] 3.825</code></pre>
 </div>
@@ -525,12 +547,15 @@ window.Quarto = {
 <section id="empirical-variancehave" class="level2">
 <h2 class="anchored" data-anchor-id="empirical-variancehave">Empirical Variancehave</h2>
 <p>The value of empirical variance has no physical interpretation.</p>
-<p><span class="math display">\[
+<p><span class="math display">
 Var(x) = \dfrac{(x_1-\bar{x})² + (x_2-\bar{x})² + \dots + (x_n-\bar{x})² }{n-1} = \dfrac{1}{n-1}\sum^n_{i=1}(x_i - \bar{x}²)
-\]</span></p>
+</span></p>
 <div class="cell">
+<details open="" class="code-fold">
+<summary>Code</summary>
 <div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>x <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="fl">4.3</span>, <span class="fl">5.2</span>, <span class="fl">2.7</span>, <span class="fl">3.1</span>)</span>
 <span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="fu">var</span>(x)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] 1.3025</code></pre>
 </div>
@@ -539,12 +564,15 @@ Var(x) = \dfrac{(x_1-\bar{x})² + (x_2-\bar{x})² + \dots + (x_n-\bar{x})² }{n-
 <section id="standard-deviation" class="level2">
 <h2 class="anchored" data-anchor-id="standard-deviation">Standard Deviation</h2>
 <p>Standard deviation is root of variance. Standard deviation has same unit as data itself.</p>
-<p><span class="math display">\[
+<p><span class="math display">
 s_x = \sqrt{Var(x)} = \sqrt{\dfrac{1}{n-1}\sum^n_{i=1}(x_i - \bar{x}²)}
-\]</span></p>
+</span></p>
 <div class="cell">
+<details open="" class="code-fold">
+<summary>Code</summary>
 <div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>x <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="fl">4.3</span>, <span class="fl">5.2</span>, <span class="fl">2.7</span>, <span class="fl">3.1</span>)</span>
 <span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a><span class="fu">sd</span>(x)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] 1.141271</code></pre>
 </div>
@@ -554,8 +582,11 @@ s_x = \sqrt{Var(x)} = \sqrt{\dfrac{1}{n-1}\sum^n_{i=1}(x_i - \bar{x}²)}
 <h2 class="anchored" data-anchor-id="median">Median</h2>
 <p>Also called central value or average value. Median is much less influenced by extreme observations than mean.</p>
 <div class="cell">
+<details open="" class="code-fold">
+<summary>Code</summary>
 <div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>x <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="fl">4.3</span>, <span class="fl">5.2</span>, <span class="fl">2.7</span>, <span class="fl">3.1</span>)</span>
 <span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a><span class="fu">median</span>(x)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] 3.7</code></pre>
 </div>
@@ -571,13 +602,19 @@ s_x = \sqrt{Var(x)} = \sqrt{\dfrac{1}{n-1}\sum^n_{i=1}(x_i - \bar{x}²)}
 <p>Note: Most of the time there is no exact 25 % of observations.</p>
 </blockquote>
 <div class="cell">
+<details open="" class="code-fold">
+<summary>Code</summary>
 <div class="sourceCode cell-code" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a>x <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="fl">4.3</span>, <span class="fl">5.2</span>, <span class="fl">2.7</span>, <span class="fl">3.1</span>)</span>
 <span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a><span class="fu">quantile</span>(x) <span class="co"># Default quartil</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
 <div class="cell-output cell-output-stdout">
 <pre><code>   0%   25%   50%   75%  100% 
 2.700 3.000 3.700 4.525 5.200 </code></pre>
 </div>
+<details open="" class="code-fold">
+<summary>Code</summary>
 <div class="sourceCode cell-code" id="cb11"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="fu">quantile</span>(x, <span class="at">p =</span> <span class="fl">0.7</span>) <span class="co"># Individual value</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
 <div class="cell-output cell-output-stdout">
 <pre><code> 70% 
 4.39 </code></pre>
@@ -588,12 +625,15 @@ s_x = \sqrt{Var(x)} = \sqrt{\dfrac{1}{n-1}\sum^n_{i=1}(x_i - \bar{x}²)}
 <section id="interquantile-range" class="level1">
 <h1>Interquantile Range</h1>
 <p>Measure for spread of data.</p>
-<p><span class="math display">\[
+<p><span class="math display">
 \text{upper quartile} − \text{lower quartile}
-\]</span></p>
+</span></p>
 <div class="cell">
+<details open="" class="code-fold">
+<summary>Code</summary>
 <div class="sourceCode cell-code" id="cb13"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a>x <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="fl">4.3</span>, <span class="fl">5.2</span>, <span class="fl">2.7</span>, <span class="fl">3.1</span>)</span>
 <span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a><span class="fu">IQR</span>(x)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] 1.525</code></pre>
 </div>
@@ -616,18 +656,21 @@ s_x = \sqrt{Var(x)} = \sqrt{\dfrac{1}{n-1}\sum^n_{i=1}(x_i - \bar{x}²)}
 <ul>
 <li>Box: Height is bounded by the lower and upper quartiles. The height of the box is the interquartile range.</li>
 <li>Horizontal line in box: Median</li>
-<li>Whisker: <span class="math inline">\(1.5 \times \text{IQR}\)</span>, defined by inventor John Tukey.</li>
+<li>Whisker: <span class="math inline">1.5 \times \text{IQR}</span>, defined by inventor John Tukey.</li>
 <li>Points: Outliers</li>
 </ul>
 <blockquote class="blockquote">
-<p>Note: The upper and lower whiskers do not have to be <span class="math inline">\(1.5 \times \text{IQR}\)</span> in length.</p>
+<p>Note: The upper and lower whiskers do not have to be <span class="math inline">1.5 \times \text{IQR}</span> in length.</p>
 </blockquote>
 <div class="cell">
+<details open="" class="code-fold">
+<summary>Code</summary>
 <div class="sourceCode cell-code" id="cb15"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Single boxplot</span></span>
 <span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">42</span>) <span class="co"># Set seed for reproducibility</span></span>
 <span id="cb15-3"><a href="#cb15-3" aria-hidden="true" tabindex="-1"></a>x <span class="ot">&lt;-</span> <span class="fu">rnorm</span>(<span class="dv">10</span>) <span class="co"># Generate 10 random samples</span></span>
 <span id="cb15-4"><a href="#cb15-4" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb15-5"><a href="#cb15-5" aria-hidden="true" tabindex="-1"></a><span class="fu">boxplot</span>(x) <span class="co"># Plot data</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
 <div class="cell-output-display">
 <div>
 <figure class="figure">
@@ -637,12 +680,15 @@ s_x = \sqrt{Var(x)} = \sqrt{\dfrac{1}{n-1}\sum^n_{i=1}(x_i - \bar{x}²)}
 </div>
 </div>
 <div class="cell">
+<details open="" class="code-fold">
+<summary>Code</summary>
 <div class="sourceCode cell-code" id="cb16"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Compare two sample groups</span></span>
 <span id="cb16-2"><a href="#cb16-2" aria-hidden="true" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">42</span>)</span>
 <span id="cb16-3"><a href="#cb16-3" aria-hidden="true" tabindex="-1"></a>x <span class="ot">&lt;-</span> <span class="fu">rnorm</span>(<span class="dv">100</span>)</span>
 <span id="cb16-4"><a href="#cb16-4" aria-hidden="true" tabindex="-1"></a>y <span class="ot">&lt;-</span> <span class="fu">rnorm</span>(<span class="dv">100</span>)</span>
 <span id="cb16-5"><a href="#cb16-5" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb16-6"><a href="#cb16-6" aria-hidden="true" tabindex="-1"></a><span class="fu">boxplot</span>(x, y)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
 <div class="cell-output-display">
 <div>
 <figure class="figure">
@@ -656,11 +702,14 @@ s_x = \sqrt{Var(x)} = \sqrt{\dfrac{1}{n-1}\sum^n_{i=1}(x_i - \bar{x}²)}
 <h2 class="anchored" data-anchor-id="histogram">Histogram</h2>
 <p>Graphical overview of occurring values. Draw a bar for each class, with the height proportional to the number of observations in that class.</p>
 <div class="cell">
+<details open="" class="code-fold">
+<summary>Code</summary>
 <div class="sourceCode cell-code" id="cb17"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Simple histogram</span></span>
 <span id="cb17-2"><a href="#cb17-2" aria-hidden="true" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">42</span>)</span>
 <span id="cb17-3"><a href="#cb17-3" aria-hidden="true" tabindex="-1"></a>x <span class="ot">&lt;-</span> <span class="fu">rnorm</span>(<span class="dv">1000</span>)</span>
 <span id="cb17-4"><a href="#cb17-4" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb17-5"><a href="#cb17-5" aria-hidden="true" tabindex="-1"></a><span class="fu">hist</span>(x)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
 <div class="cell-output-display">
 <div>
 <figure class="figure">
@@ -671,11 +720,14 @@ s_x = \sqrt{Var(x)} = \sqrt{\dfrac{1}{n-1}\sum^n_{i=1}(x_i - \bar{x}²)}
 </div>
 <p>The selection of the number of classes is relevant for the interpretation of a histogram.</p>
 <div class="cell">
+<details open="" class="code-fold">
+<summary>Code</summary>
 <div class="sourceCode cell-code" id="cb18"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Big breaks</span></span>
 <span id="cb18-2"><a href="#cb18-2" aria-hidden="true" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">42</span>)</span>
 <span id="cb18-3"><a href="#cb18-3" aria-hidden="true" tabindex="-1"></a>x <span class="ot">&lt;-</span> <span class="fu">rnorm</span>(<span class="dv">1000</span>)</span>
 <span id="cb18-4"><a href="#cb18-4" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb18-5"><a href="#cb18-5" aria-hidden="true" tabindex="-1"></a><span class="fu">hist</span>(x, <span class="at">breaks=</span><span class="dv">5</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
 <div class="cell-output-display">
 <div>
 <figure class="figure">
@@ -685,11 +737,14 @@ s_x = \sqrt{Var(x)} = \sqrt{\dfrac{1}{n-1}\sum^n_{i=1}(x_i - \bar{x}²)}
 </div>
 </div>
 <div class="cell">
+<details open="" class="code-fold">
+<summary>Code</summary>
 <div class="sourceCode cell-code" id="cb19"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Small breaks</span></span>
 <span id="cb19-2"><a href="#cb19-2" aria-hidden="true" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">42</span>)</span>
 <span id="cb19-3"><a href="#cb19-3" aria-hidden="true" tabindex="-1"></a>x <span class="ot">&lt;-</span> <span class="fu">rnorm</span>(<span class="dv">1000</span>)</span>
 <span id="cb19-4"><a href="#cb19-4" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb19-5"><a href="#cb19-5" aria-hidden="true" tabindex="-1"></a><span class="fu">hist</span>(x, <span class="at">breaks=</span><span class="dv">50</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
 <div class="cell-output-display">
 <div>
 <figure class="figure">
@@ -705,11 +760,14 @@ s_x = \sqrt{Var(x)} = \sqrt{\dfrac{1}{n-1}\sum^n_{i=1}(x_i - \bar{x}²)}
 <h3 class="anchored" data-anchor-id="skweness-of-hostograms">Skweness of Hostograms</h3>
 <p>Histograms can have a skewness depending on the data.</p>
 <div class="cell">
+<details open="" class="code-fold">
+<summary>Code</summary>
 <div class="sourceCode cell-code" id="cb20"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Right skewed data</span></span>
 <span id="cb20-2"><a href="#cb20-2" aria-hidden="true" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">42</span>)</span>
 <span id="cb20-3"><a href="#cb20-3" aria-hidden="true" tabindex="-1"></a>x <span class="ot">&lt;-</span> <span class="fu">rexp</span>(<span class="dv">1000</span>, <span class="at">rate =</span> <span class="dv">1</span>) <span class="co"># Using expontial distribution</span></span>
 <span id="cb20-4"><a href="#cb20-4" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb20-5"><a href="#cb20-5" aria-hidden="true" tabindex="-1"></a><span class="fu">hist</span>(x, <span class="at">breaks=</span><span class="dv">50</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
 <div class="cell-output-display">
 <div>
 <figure class="figure">
@@ -719,12 +777,15 @@ s_x = \sqrt{Var(x)} = \sqrt{\dfrac{1}{n-1}\sum^n_{i=1}(x_i - \bar{x}²)}
 </div>
 </div>
 <div class="cell">
+<details open="" class="code-fold">
+<summary>Code</summary>
 <div class="sourceCode cell-code" id="cb21"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Left left data</span></span>
 <span id="cb21-2"><a href="#cb21-2" aria-hidden="true" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">42</span>)</span>
 <span id="cb21-3"><a href="#cb21-3" aria-hidden="true" tabindex="-1"></a>x <span class="ot">&lt;-</span> <span class="fu">rexp</span>(<span class="dv">1000</span>, <span class="at">rate =</span> <span class="dv">1</span>)</span>
 <span id="cb21-4"><a href="#cb21-4" aria-hidden="true" tabindex="-1"></a>x <span class="ot">&lt;-</span> <span class="sc">-</span>x <span class="co"># Trun data positivity</span></span>
 <span id="cb21-5"><a href="#cb21-5" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb21-6"><a href="#cb21-6" aria-hidden="true" tabindex="-1"></a><span class="fu">hist</span>(x, <span class="at">breaks=</span><span class="dv">50</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
 <div class="cell-output-display">
 <div>
 <figure class="figure">
@@ -745,11 +806,14 @@ s_x = \sqrt{Var(x)} = \sqrt{\dfrac{1}{n-1}\sum^n_{i=1}(x_i - \bar{x}²)}
 <p>Note: Density values are not percentages.</p>
 </blockquote>
 <div class="cell">
+<details open="" class="code-fold">
+<summary>Code</summary>
 <div class="sourceCode cell-code" id="cb22"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Normalized histogram</span></span>
 <span id="cb22-2"><a href="#cb22-2" aria-hidden="true" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">42</span>)</span>
 <span id="cb22-3"><a href="#cb22-3" aria-hidden="true" tabindex="-1"></a>x <span class="ot">&lt;-</span> <span class="fu">rnorm</span>(<span class="dv">1000</span>)</span>
 <span id="cb22-4"><a href="#cb22-4" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb22-5"><a href="#cb22-5" aria-hidden="true" tabindex="-1"></a><span class="fu">hist</span>(x, <span class="at">freq=</span><span class="cn">FALSE</span>) <span class="co"># Disable frequency</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
 <div class="cell-output-display">
 <div>
 <figure class="figure">
@@ -772,33 +836,33 @@ s_x = \sqrt{Var(x)} = \sqrt{\dfrac{1}{n-1}\sum^n_{i=1}(x_i - \bar{x}²)}
 <section id="probability" class="level1">
 <h1>Probability</h1>
 <ul>
-<li>A random element: <span class="math inline">\(x = 2\)</span></li>
-<li>Set of elements: <span class="math inline">\(X = {1, 2, 3, 4}\)</span></li>
-<li><span class="math inline">\(x\)</span> is an element of the set <span class="math inline">\(X\)</span>: <span class="math inline">\(x \in X\)</span></li>
-<li>Subset: If <span class="math inline">\(B = {2, 3}\)</span>, then <span class="math inline">\(B \subset A\)</span></li>
-<li>Empty set: <span class="math inline">\(\emptyset\)</span>. The empty set is a subset of every set.</li>
+<li>A random element: <span class="math inline">x = 2</span></li>
+<li>Set of elements: <span class="math inline">X = {1, 2, 3, 4}</span></li>
+<li><span class="math inline">x</span> is an element of the set <span class="math inline">X</span>: <span class="math inline">x \in X</span></li>
+<li>Subset: If <span class="math inline">B = {2, 3}</span>, then <span class="math inline">B \subset A</span></li>
+<li>Empty set: <span class="math inline">\emptyset</span>. The empty set is a subset of every set.</li>
 </ul>
 <section id="probability-model" class="level2">
 <h2 class="anchored" data-anchor-id="probability-model">Probability Model</h2>
 <p>Probability models use set theory as a language. For random experiments, the outcome is not predictable. A probability model consists of events that are possible in such an experiment and probabilities for different results occurring. Probability models have the following components:</p>
 <ul>
-<li>Sample space <span class="math inline">\(\Omega\)</span>: Contains all possible elementary events <span class="math inline">\(\omega\)</span>.</li>
-<li>Events <span class="math inline">\(A, B, C\)</span>: Subsets of the sample space.</li>
-<li>Probabilities <span class="math inline">\(p\)</span> associated with events <span class="math inline">\(A, B, C\)</span>.</li>
+<li>Sample space <span class="math inline">\Omega</span>: Contains all possible elementary events <span class="math inline">\omega</span>.</li>
+<li>Events <span class="math inline">A, B, C</span>: Subsets of the sample space.</li>
+<li>Probabilities <span class="math inline">p</span> associated with events <span class="math inline">A, B, C</span>.</li>
 <li>Event: More general and more important than elementary events, but consists of them.</li>
 </ul>
 <p>Probability formula:</p>
-<p><span class="math display">\[
+<p><span class="math display">
 p(E)=\dfrac{\lvert E \rvert}{\lvert \Omega \rvert} \text{, where } E \subseteq \Omega
-\]</span></p>
+</span></p>
 </section>
 <section id="set-theory" class="level2">
 <h2 class="anchored" data-anchor-id="set-theory">Set Theory</h2>
 <ul>
-<li>Union: <span class="math inline">\(A \cup B\)</span></li>
-<li>Intersection: <span class="math inline">\(A \cap B\)</span></li>
-<li>Complement: <span class="math inline">\(\bar{A}\)</span></li>
-<li>Difference: <span class="math inline">\(A \setminus B\)</span></li>
+<li>Union: <span class="math inline">A \cup B</span></li>
+<li>Intersection: <span class="math inline">A \cap B</span></li>
+<li>Complement: <span class="math inline">\bar{A}</span></li>
+<li>Difference: <span class="math inline">A \setminus B</span></li>
 </ul>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
@@ -809,11 +873,11 @@ p(E)=\dfrac{\lvert E \rvert}{\lvert \Omega \rvert} \text{, where } E \subseteq \
 </section>
 <section id="axioms-of-probability" class="level2">
 <h2 class="anchored" data-anchor-id="axioms-of-probability">Axioms of Probability</h2>
-<p>Each event <span class="math inline">\(A\)</span> probability <span class="math inline">\(P(A)\)</span> is assigned, with properties:</p>
+<p>Each event <span class="math inline">A</span> probability <span class="math inline">P(A)</span> is assigned, with properties:</p>
 <ul>
-<li><span class="math inline">\(p(A) \geq 0\)</span></li>
-<li><span class="math inline">\(p(\Omega) = 1\)</span></li>
-<li><span class="math inline">\(p(A \cup B) = p(A) + p(B) \text{, if } A \cap B = \emptyset\)</span></li>
+<li><span class="math inline">p(A) \geq 0</span></li>
+<li><span class="math inline">p(\Omega) = 1</span></li>
+<li><span class="math inline">p(A \cup B) = p(A) + p(B) \text{, if } A \cap B = \emptyset</span></li>
 </ul>
 <blockquote class="blockquote">
 <p>Note: Kolmogorov Axioms of Probability</p>
@@ -821,13 +885,13 @@ p(E)=\dfrac{\lvert E \rvert}{\lvert \Omega \rvert} \text{, where } E \subseteq \
 </section>
 <section id="laws-for-calculating-probabilities" class="level2">
 <h2 class="anchored" data-anchor-id="laws-for-calculating-probabilities">Laws for Calculating Probabilities</h2>
-<p>If <span class="math inline">\(A, B\)</span> and <span class="math inline">\(A_1, \dots, A_n\)</span> events, then:</p>
+<p>If <span class="math inline">A, B</span> and <span class="math inline">A_1, \dots, A_n</span> events, then:</p>
 <ul>
-<li><span class="math inline">\(p(\bar{A}) = 1 - p(A) \text{, for all } A\)</span></li>
-<li><span class="math inline">\(p(A \cup B) = p(A) + p(B) - p(A \cap B) \text{, for all } A \text{ and } B\)</span></li>
-<li><span class="math inline">\(p(A_1 \cup \dots A_n) \leq p(A_1) + \dots + p(A_n) \text{, for all } A_1, \dots, A_n\)</span></li>
-<li><span class="math inline">\(p(B) \leq p(A) \text{, for all } A \text{ and } B \text{ with } B \subseteq A\)</span></li>
-<li><span class="math inline">\(p(A \setminus B) = p(A) - p(B) \text{, for all } A \text{ and } B \text{ with } B \subseteq A\)</span></li>
+<li><span class="math inline">p(\bar{A}) = 1 - p(A) \text{, for all } A</span></li>
+<li><span class="math inline">p(A \cup B) = p(A) + p(B) - p(A \cap B) \text{, for all } A \text{ and } B</span></li>
+<li><span class="math inline">p(A_1 \cup \dots A_n) \leq p(A_1) + \dots + p(A_n) \text{, for all } A_1, \dots, A_n</span></li>
+<li><span class="math inline">p(B) \leq p(A) \text{, for all } A \text{ and } B \text{ with } B \subseteq A</span></li>
+<li><span class="math inline">p(A \setminus B) = p(A) - p(B) \text{, for all } A \text{ and } B \text{ with } B \subseteq A</span></li>
 </ul>
 </section>
 <section id="discrete-probability-models" class="level2">
@@ -835,26 +899,26 @@ p(E)=\dfrac{\lvert E \rvert}{\lvert \Omega \rvert} \text{, where } E \subseteq \
 <p>A sample space can be finite or infinite and discrete. It can also be infinite but still discrete.</p>
 <section id="probabilities-for-discrete-models" class="level3">
 <h3 class="anchored" data-anchor-id="probabilities-for-discrete-models">Probabilities for Discrete Models</h3>
-<p>The probability of event <span class="math inline">\(A = {\omega_1, \omega_2, \dots, \omega_n}\)</span> is determined by the sum of the probabilities <span class="math inline">\(p(\omega)\)</span> of the corresponding elementary events.</p>
-<p><span class="math display">\[
+<p>The probability of event <span class="math inline">A = {\omega_1, \omega_2, \dots, \omega_n}</span> is determined by the sum of the probabilities <span class="math inline">p(\omega)</span> of the corresponding elementary events.</p>
+<p><span class="math display">
 p(A) = \sum_{\omega_i \in A} p(\omega_i)
-\]</span></p>
+</span></p>
 </section>
 </section>
 <section id="laplace-model" class="level2">
 <h2 class="anchored" data-anchor-id="laplace-model">Laplace Model</h2>
 <p>Probabilities of all elementary elements add up to 1.</p>
-<p><span class="math display">\[
+<p><span class="math display">
 p(E) = \dfrac{f}{p} = \sum_{k:\omega_i \in E} p(\omega_k)
-\]</span></p>
+</span></p>
 <p>Divides number of “favorable” elementary events by number of “possible” elementary events.</p>
 </section>
 <section id="stochastic-independence" class="level2">
 <h2 class="anchored" data-anchor-id="stochastic-independence">Stochastic Independence</h2>
-<p>If events <span class="math inline">\(A\)</span> and <span class="math inline">\(B\)</span> are stochastically independent, then:</p>
-<p><span class="math display">\[
+<p>If events <span class="math inline">A</span> and <span class="math inline">B</span> are stochastically independent, then:</p>
+<p><span class="math display">
 P(A \cap B) = P(A) \cdot P(B)
-\]</span></p>
+</span></p>
 <blockquote class="blockquote">
 <p>Note: Formula applies only if events A and B are stochastically independent.</p>
 </blockquote>
@@ -866,29 +930,29 @@ P(A \cap B) = P(A) \cdot P(B)
 <section id="random-variable" class="level2">
 <h2 class="anchored" data-anchor-id="random-variable">Random Variable</h2>
 <p>A Random variable X is a function:</p>
-<p><span class="math display">\[
+<p><span class="math display">
 \Omega \to W_X \subset \mathbb{R}
-\]</span> <span class="math display">\[
+</span> <span class="math display">
 \omega \to X(\omega)
-\]</span></p>
-<p>Random variable denoted by capital letters X (or Y, Z). Corresponding lowercase letters x (or y, z) represents specific value that random variable can take. Once <span class="math inline">\(\omega\)</span> is chosen: <span class="math inline">\(X(\omega)\)</span> is fixed, not random.</p>
+</span></p>
+<p>Random variable denoted by capital letters X (or Y, Z). Corresponding lowercase letters x (or y, z) represents specific value that random variable can take. Once <span class="math inline">\omega</span> is chosen: <span class="math inline">X(\omega)</span> is fixed, not random.</p>
 <blockquote class="blockquote">
-<p>Note: <span class="math inline">\(x\)</span> also called a realisation of random variable <span class="math inline">\(X\)</span>.</p>
+<p>Note: <span class="math inline">x</span> also called a realisation of random variable <span class="math inline">X</span>.</p>
 </blockquote>
 </section>
 <section id="probability-distribution-of-random-variable" class="level2">
 <h2 class="anchored" data-anchor-id="probability-distribution-of-random-variable">Probability Distribution of Random Variable</h2>
-<p>Values of random variable X (possible realisations of X) occur with certain probabilities that <span class="math inline">\(X\)</span> takes value <span class="math inline">\(x\)</span>:</p>
-<p><span class="math display">\[
+<p>Values of random variable X (possible realisations of X) occur with certain probabilities that <span class="math inline">X</span> takes value <span class="math inline">x</span>:</p>
+<p><span class="math display">
 P(X = x) = P(\{\omega \mid X(\omega) = x\}) = \sum_{\omega; X(\omega)=x} P(\omega)
-\]</span></p>
+</span></p>
 </section>
 <section id="probability-distribution" class="level2">
 <h2 class="anchored" data-anchor-id="probability-distribution">Probability Distribution</h2>
-<p>Associated probability is determined for all realisations of random variable. List of <span class="math inline">\(P(X = x)\)</span> for all possible values <span class="math inline">\(x_1, x_2, \dots, x_n\)</span> is called discrete probability distribution of discrete random variable <span class="math inline">\(X\)</span>.All values of probability distribution has to sum up to 1.</p>
-<p><span class="math display">\[
+<p>Associated probability is determined for all realisations of random variable. List of <span class="math inline">P(X = x)</span> for all possible values <span class="math inline">x_1, x_2, \dots, x_n</span> is called discrete probability distribution of discrete random variable <span class="math inline">X</span>.All values of probability distribution has to sum up to 1.</p>
+<p><span class="math display">
 \sum_{\text{For all }x} P(X = x) = 1
-\]</span></p>
+</span></p>
 <blockquote class="blockquote">
 <p>Note: For finite sample space the probability distribution is a table.</p>
 </blockquote>
@@ -896,32 +960,34 @@ P(X = x) = P(\{\omega \mid X(\omega) = x\}) = \sum_{\omega; X(\omega)=x} P(\omeg
 <section id="key-figures-of-distribution" class="level2">
 <h2 class="anchored" data-anchor-id="key-figures-of-distribution">Key Figures of Distribution</h2>
 <section id="expected-value-ex" class="level3">
-<h3 class="anchored" data-anchor-id="expected-value-ex">Expected Value <span class="math inline">\(E(X)\)</span></h3>
+<h3 class="anchored" data-anchor-id="expected-value-ex">Expected Value <span class="math inline">E(X)</span></h3>
 <p>Central location of distribution. Weighted mean of all possible values, weighted by their probability of occurring.</p>
-<p><span class="math display">\[
+<p><span class="math display">
 \mu = \sum_{\text{all possible } x} x \times P(X = x)
-\]</span></p>
+</span></p>
 <blockquote class="blockquote">
-<p>Note: <span class="math inline">\(E(X)\)</span> is a theoretical value, which results from a model, i.e.&nbsp;distribution.</p>
+<p>Note: <span class="math inline">E(X)</span> is a theoretical value, which results from a model, i.e.&nbsp;distribution.</p>
 </blockquote>
 </section>
 <section id="variance" class="level3">
 <h3 class="anchored" data-anchor-id="variance">Variance</h3>
 <p>Variance is square of spread of value of random variable from expected value weighted with respective weight.</p>
-<p><span class="math display">\[
+<p><span class="math display">
 \sigma = \sum_{\text{all possible } x} (x - E(X))^2 \times P(X = x)
-\]</span></p>
+</span></p>
 </section>
 <section id="standard-deviation-sigma" class="level3">
-<h3 class="anchored" data-anchor-id="standard-deviation-sigma">Standard deviation <span class="math inline">\(\sigma\)</span></h3>
-<p>Spread of distribution about <span class="math inline">\(E(X)\)</span>. Standard deviation has same unit as X.</p>
-<p><span class="math display">\[
+<h3 class="anchored" data-anchor-id="standard-deviation-sigma">Standard deviation <span class="math inline">\sigma</span></h3>
+<p>Spread of distribution about <span class="math inline">E(X)</span>. Standard deviation has same unit as X.</p>
+<p><span class="math display">
 \sigma(X) = \sqrt{Var(X)}
-\]</span></p>
+</span></p>
 <blockquote class="blockquote">
-<p>Note: <span class="math inline">\(\sigma(x)\)</span> is a theoretical value, which results from a model, i.e.&nbsp;distribution.</p>
+<p>Note: <span class="math inline">\sigma(x)</span> is a theoretical value, which results from a model, i.e.&nbsp;distribution.</p>
 </blockquote>
 <div class="cell">
+<details open="" class="code-fold">
+<summary>Code</summary>
 <div class="sourceCode cell-code" id="cb23"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a>x <span class="ot">&lt;-</span> <span class="dv">1</span> <span class="sc">:</span> <span class="dv">6</span></span>
 <span id="cb23-2"><a href="#cb23-2" aria-hidden="true" tabindex="-1"></a>p <span class="ot">&lt;-</span> <span class="dv">1</span> <span class="sc">/</span> <span class="dv">6</span></span>
 <span id="cb23-3"><a href="#cb23-3" aria-hidden="true" tabindex="-1"></a>E_X <span class="ot">&lt;-</span> <span class="fu">sum</span>(x <span class="sc">*</span> p)</span>
@@ -929,6 +995,7 @@ P(X = x) = P(\{\omega \mid X(\omega) = x\}) = \sum_{\omega; X(\omega)=x} P(\omeg
 <span id="cb23-5"><a href="#cb23-5" aria-hidden="true" tabindex="-1"></a>sd_X <span class="ot">&lt;-</span> <span class="fu">sqrt</span>(var_X)</span>
 <span id="cb23-6"><a href="#cb23-6" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb23-7"><a href="#cb23-7" aria-hidden="true" tabindex="-1"></a>sd_X</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] 1.707825</code></pre>
 </div>
@@ -943,21 +1010,21 @@ P(X = x) = P(\{\omega \mid X(\omega) = x\}) = \sum_{\omega; X(\omega)=x} P(\omeg
 <h1>Week 04: Continuous Distributions &amp; Normal Distribution</h1>
 <section id="continuous-probability-distribution" class="level2">
 <h2 class="anchored" data-anchor-id="continuous-probability-distribution">Continuous Probability Distribution</h2>
-<p>For continuous probability distributions, probabilities correspond to areas under density function. Range <span class="math inline">\(W_X\)</span> of a random variable: Set of all values <span class="math inline">\(X\)</span> can take. Random variable <span class="math inline">\(X\)</span> is continuous, if its range <span class="math inline">\(W_X\)</span> is continuous. For continuous random variable <span class="math inline">\(X\)</span> for all <span class="math inline">\(x \in W_X\)</span>:</p>
-<p><span class="math display">\[
+<p>For continuous probability distributions, probabilities correspond to areas under density function. Range <span class="math inline">W_X</span> of a random variable: Set of all values <span class="math inline">X</span> can take. Random variable <span class="math inline">X</span> is continuous, if its range <span class="math inline">W_X</span> is continuous. For continuous random variable <span class="math inline">X</span> for all <span class="math inline">x \in W_X</span>:</p>
+<p><span class="math display">
 P(X = x) = 0
-\]</span></p>
+</span></p>
 <blockquote class="blockquote">
-<p>Note: Probability distribution of <span class="math inline">\(X\)</span> can not be described by <span class="math inline">\(P(X = x)\)</span>.</p>
+<p>Note: Probability distribution of <span class="math inline">X</span> can not be described by <span class="math inline">P(X = x)</span>.</p>
 </blockquote>
 </section>
 <section id="probability-density" class="level2">
 <h2 class="anchored" data-anchor-id="probability-density">Probability Density</h2>
 <p>Probability density function f(x) has the properties:</p>
 <ul>
-<li>Function is not negative: <span class="math inline">\(f(x) \ge 0\)</span></li>
-<li>Probability corresponds to area between <span class="math inline">\(a\)</span> and <span class="math inline">\(b\)</span> under <span class="math inline">\(f(x)= P(a \lt X \le b )\)</span></li>
-<li>Total area under curve is <span class="math inline">\(1\)</span></li>
+<li>Function is not negative: <span class="math inline">f(x) \ge 0</span></li>
+<li>Probability corresponds to area between <span class="math inline">a</span> and <span class="math inline">b</span> under <span class="math inline">f(x)= P(a \lt X \le b )</span></li>
+<li>Total area under curve is <span class="math inline">1</span></li>
 </ul>
 <blockquote class="blockquote">
 <p>Note: Values of f(x) are not probabilities, only areas are.</p>
@@ -965,7 +1032,7 @@ P(X = x) = 0
 </section>
 <section id="quantiles-of-continuous-probability-distribution" class="level2">
 <h2 class="anchored" data-anchor-id="quantiles-of-continuous-probability-distribution">Quantiles of Continuous Probability Distribution</h2>
-<p>For continuous distributions, the <span class="math inline">\(\alpha\)</span> quantile <span class="math inline">\(q_\alpha\)</span> is value where area (probability) under density function from <span class="math inline">\(-\infty\)</span> to <span class="math inline">\(q_\alpha\)</span> is just <span class="math inline">\(\alpha\)</span>.</p>
+<p>For continuous distributions, the <span class="math inline">\alpha</span> quantile <span class="math inline">q_\alpha</span> is value where area (probability) under density function from <span class="math inline">-\infty</span> to <span class="math inline">q_\alpha</span> is just <span class="math inline">\alpha</span>.</p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
 <p><img src="img/contProbDistrAlpha.png" class="img-fluid figure-img"></p>
@@ -975,42 +1042,54 @@ P(X = x) = 0
 </section>
 <section id="normal-distribution" class="level2">
 <h2 class="anchored" data-anchor-id="normal-distribution">Normal Distribution</h2>
-<p>The normal distribution <span class="math inline">\(X \sim \mathcal{N}(\mu, \sigma^2)\)</span> have the desity function:</p>
-<p><span class="math display">\[
+<p>The normal distribution <span class="math inline">X \sim \mathcal{N}(\mu, \sigma^2)</span> have the desity function:</p>
+<p><span class="math display">
 f(x) = \frac{1}{\sqrt{2\pi}\sigma} \exp\left\{ -\frac{1}{2} \left(\frac{x - \mu}{\sigma}\right)^2 \right\}
-\]</span></p>
-<p>With the expected value <span class="math inline">\(E(X) = \mu\)</span> and variance <span class="math inline">\(Var(X) = \sigma^2\)</span>. The parameter <span class="math inline">\(\mu\)</span> shifts the curve horizontally from origin while <span class="math inline">\(\sigma\)</span> defines the shape of the curve.</p>
+</span></p>
+<p>With the expected value <span class="math inline">E(X) = \mu</span> and variance <span class="math inline">Var(X) = \sigma^2</span>. The parameter <span class="math inline">\mu</span> shifts the curve horizontally from origin while <span class="math inline">\sigma</span> defines the shape of the curve.</p>
 <section id="properties" class="level3">
 <h3 class="anchored" data-anchor-id="properties">Properties</h3>
 <ul>
-<li>Approx. <span class="math inline">\(\frac{2}{3}\)</span> of are between <span class="math inline">\(\mu \pm \sigma\)</span></li>
-<li>Approx. 95% of area between <span class="math inline">\(\mu \pm 2\sigma\)</span></li>
+<li>Approx. <span class="math inline">\frac{2}{3}</span> of are between <span class="math inline">\mu \pm \sigma</span></li>
+<li>Approx. 95% of area between <span class="math inline">\mu \pm 2\sigma</span></li>
 </ul>
 </section>
 <section id="calculate-normal-distributed-probability" class="level3">
 <h3 class="anchored" data-anchor-id="calculate-normal-distributed-probability">Calculate Normal Distributed Probability</h3>
-<p>Calculation of IQ <span class="math inline">\(P(X \le 130)\)</span>:</p>
+<p>Calculation of IQ <span class="math inline">P(X \le 130)</span>:</p>
 <div class="cell">
+<details open="" class="code-fold">
+<summary>Code</summary>
 <div class="sourceCode cell-code" id="cb25"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb25-1"><a href="#cb25-1" aria-hidden="true" tabindex="-1"></a><span class="co"># mean and sd are predefined in this task</span></span>
 <span id="cb25-2"><a href="#cb25-2" aria-hidden="true" tabindex="-1"></a><span class="fu">pnorm</span>(<span class="at">q =</span> <span class="dv">130</span>, <span class="at">mean =</span> <span class="dv">100</span>, <span class="at">sd =</span> <span class="dv">15</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] 0.9772499</code></pre>
 </div>
 </div>
-<p>since total area under curve is 1, <span class="math inline">\(P(X \gt 130)\)</span>:</p>
+<p>since total area under curve is 1, <span class="math inline">P(X \gt 130)</span>:</p>
 <div class="cell">
+<details open="" class="code-fold">
+<summary>Code</summary>
 <div class="sourceCode cell-code" id="cb27"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb27-1"><a href="#cb27-1" aria-hidden="true" tabindex="-1"></a><span class="dv">1</span> <span class="sc">-</span> <span class="fu">pnorm</span>(<span class="at">q =</span> <span class="dv">130</span>, <span class="at">mean =</span> <span class="dv">100</span>, <span class="at">sd =</span> <span class="dv">15</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] 0.02275013</code></pre>
 </div>
 </div>
 <p>Determine quantiles:</p>
 <div class="cell">
+<details open="" class="code-fold">
+<summary>Code</summary>
 <div class="sourceCode cell-code" id="cb29"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb29-1"><a href="#cb29-1" aria-hidden="true" tabindex="-1"></a><span class="fu">qnorm</span>(<span class="at">p =</span> <span class="fl">0.025</span>, <span class="at">mean =</span> <span class="dv">100</span>, <span class="at">sd =</span> <span class="dv">15</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] 70.60054</code></pre>
 </div>
+<details open="" class="code-fold">
+<summary>Code</summary>
 <div class="sourceCode cell-code" id="cb31"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb31-1"><a href="#cb31-1" aria-hidden="true" tabindex="-1"></a><span class="fu">qnorm</span>(<span class="at">p =</span> <span class="fl">0.975</span>, <span class="at">mean =</span> <span class="dv">100</span>, <span class="at">sd =</span> <span class="dv">15</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] 129.3995</code></pre>
 </div>
@@ -1023,84 +1102,90 @@ f(x) = \frac{1}{\sqrt{2\pi}\sigma} \exp\left\{ -\frac{1}{2} \left(\frac{x - \mu}
 <section id="key-figures-1" class="level3">
 <h3 class="anchored" data-anchor-id="key-figures-1">Key Figures</h3>
 <section id="s_n" class="level4">
-<h4 class="anchored" data-anchor-id="s_n"><span class="math inline">\(S_n\)</span></h4>
+<h4 class="anchored" data-anchor-id="s_n"><span class="math inline">S_n</span></h4>
 <ul>
-<li><span class="math inline">\(E(S_n) = n\mu\)</span></li>
-<li><span class="math inline">\(\text{Var}(S_n) = n\text{Var}(X_i)\)</span></li>
-<li><span class="math inline">\(\sigma(S_n) = \sqrt{n}\sigma_X\)</span></li>
+<li><span class="math inline">E(S_n) = n\mu</span></li>
+<li><span class="math inline">\text{Var}(S_n) = n\text{Var}(X_i)</span></li>
+<li><span class="math inline">\sigma(S_n) = \sqrt{n}\sigma_X</span></li>
 </ul>
 </section>
 <section id="barx_n" class="level4">
-<h4 class="anchored" data-anchor-id="barx_n"><span class="math inline">\(\bar{X}_n\)</span></h4>
+<h4 class="anchored" data-anchor-id="barx_n"><span class="math inline">\bar{X}_n</span></h4>
 <ul>
-<li><span class="math inline">\(E(\bar{X}_n) = \mu\)</span></li>
-<li><span class="math inline">\(\text{Var}(\bar{X}_n) = \frac{\sigma^2_X}{n}\)</span></li>
-<li><span class="math inline">\(\sigma(\bar{X}_n) = \frac{\sigma_X}{\sqrt{n}}\)</span></li>
+<li><span class="math inline">E(\bar{X}_n) = \mu</span></li>
+<li><span class="math inline">\text{Var}(\bar{X}_n) = \frac{\sigma^2_X}{n}</span></li>
+<li><span class="math inline">\sigma(\bar{X}_n) = \frac{\sigma_X}{\sqrt{n}}</span></li>
 </ul>
 <blockquote class="blockquote">
-<p>Note: Standard deviation of <span class="math inline">\(X_n\)</span> is called standard error of arithmetic mean.</p>
+<p>Note: Standard deviation of <span class="math inline">X_n</span> is called standard error of arithmetic mean.</p>
 </blockquote>
 </section>
 </section>
 </section>
 <section id="central-limit-theorem" class="level2">
 <h2 class="anchored" data-anchor-id="central-limit-theorem">Central Limit Theorem</h2>
-<p>The Central Limit Theorem (CLT) states that, given a sufficiently large sample size (<span class="math inline">\(n\)</span>), the distribution of the sample mean (<span class="math inline">\(\bar{X}_n\)</span>) will be approximately normally distributed, regardless of the original population’s distribution. This is true as long as the population has a finite mean (<span class="math inline">\(\mu\)</span>) and variance (<span class="math inline">\(\sigma^2\)</span>). In short: For large samples, the sample mean is normally distributed.</p>
+<p>The Central Limit Theorem (CLT) states that, given a sufficiently large sample size (<span class="math inline">n</span>), the distribution of the sample mean (<span class="math inline">\bar{X}_n</span>) will be approximately normally distributed, regardless of the original population’s distribution. This is true as long as the population has a finite mean (<span class="math inline">\mu</span>) and variance (<span class="math inline">\sigma^2</span>). In short: For large samples, the sample mean is normally distributed.</p>
 </section>
 </section>
 <section id="week-05-hypothesis-tests" class="level1">
 <h1>Week 05: Hypothesis Tests</h1>
-<p>Hypothesis testing are a important statistical tool to decide whether observations “fits” a certain parameter. Ro introduce a standardised, reproducible procedure to decide whether mean of observations does (or not) match a certain true mean <span class="math inline">\(\mu\)</span>.</p>
+<p>Hypothesis testing are a important statistical tool to decide whether observations “fits” a certain parameter. Ro introduce a standardised, reproducible procedure to decide whether mean of observations does (or not) match a certain true mean <span class="math inline">\mu</span>.</p>
 <blockquote class="blockquote">
 <p>Note: We can only show that this quantity does not fit to the observations with high probability.</p>
 </blockquote>
 <section id="estimation" class="level2">
 <h2 class="anchored" data-anchor-id="estimation">Estimation</h2>
 <p>Point estimates for expected value.</p>
-<p><span class="math display">\[
+<p><span class="math display">
 \hat{\mu} = \dfrac{1}{n}\sum^n_{i=1}X_i
-\]</span></p>
+</span></p>
 <p>Point estimates for variance.</p>
-<p><span class="math display">\[
+<p><span class="math display">
 \hat{\sigma}^2_X = \dfrac{1}{n-1}\sum^n_{i=1}(X_i - \bar{X_n})^2
-\]</span></p>
+</span></p>
 <blockquote class="blockquote">
-<p>Note: Hat <span class="math inline">\(\hat{x}\)</span> denotes estimate of a quantity.</p>
+<p>Note: Hat <span class="math inline">\hat{x}</span> denotes estimate of a quantity.</p>
 </blockquote>
 </section>
 <section id="procedure-hypothesis-test" class="level2">
 <h2 class="anchored" data-anchor-id="procedure-hypothesis-test">Procedure Hypothesis Test</h2>
-<p>Using a observation, check whether, under assumption <span class="math inline">\(\mu = x\)</span>, mean of observations is probable or not.</p>
+<p>Using a observation, check whether, under assumption <span class="math inline">\mu = x</span>, mean of observations is probable or not.</p>
 <ul>
-<li><span class="math inline">\(\mu\)</span>: True (unknown) mean of data</li>
-<li><span class="math inline">\(\mu_0\)</span>: Assumed true mean of data</li>
+<li><span class="math inline">\mu</span>: True (unknown) mean of data</li>
+<li><span class="math inline">\mu_0</span>: Assumed true mean of data</li>
 </ul>
 <p>Null Hypothesis</p>
-<p><span class="math display">\[
+<p><span class="math display">
 H_0: \mu = \mu_0 = x
-\]</span></p>
+</span></p>
 <p>Alternative Hypothesis</p>
-<p><span class="math display">\[
+<p><span class="math display">
 H_A: \mu \ne \mu_0 = x
-\]</span></p>
-<p>Test with this distribution whether assumption μ = x is justified. Distribution of test statistic <span class="math inline">\(T\)</span> under the null hypothesis <span class="math inline">\(H_0\)</span></p>
-<p><span class="math display">\[
+</span></p>
+<p>Test with this distribution whether assumption μ = x is justified. Distribution of test statistic <span class="math inline">T</span> under the null hypothesis <span class="math inline">H_0</span></p>
+<p><span class="math display">
 T: \bar{X}_{10} \sim \mathcal{N}(x, \dfrac{1^2}{x})
-\]</span></p>
+</span></p>
 <div class="cell">
+<details open="" class="code-fold">
+<summary>Code</summary>
 <div class="sourceCode cell-code" id="cb33"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb33-1"><a href="#cb33-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Assume real mean of 500</span></span>
 <span id="cb33-2"><a href="#cb33-2" aria-hidden="true" tabindex="-1"></a><span class="fu">pnorm</span>(<span class="at">q =</span> <span class="fl">499.22</span>, <span class="at">mean =</span> <span class="dv">500</span>, <span class="at">sd =</span> <span class="dv">1</span><span class="sc">/</span><span class="fu">sqrt</span>(<span class="dv">10</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] 0.006820578</code></pre>
 </div>
 </div>
-<p>It has proven practical to set this limit of what is too small and what is not at 2.5 %. So assume that given mean of <span class="math inline">\(μ_0 = 500\)</span> is not plausible. We reject null hypothesis.</p>
+<p>It has proven practical to set this limit of what is too small and what is not at 2.5 %. So assume that given mean of <span class="math inline">μ_0 = 500</span> is not plausible. We reject null hypothesis.</p>
 </section>
 <section id="significance-level" class="level2">
 <h2 class="anchored" data-anchor-id="significance-level">Significance Level </h2>
-<p>Significance level <span class="math inline">\(\alpha\)</span>, indicates how high a risk one is willing to take of making a wrong decision. For most tests <span class="math inline">\(\alpha\)</span> value of <span class="math inline">\(0.05\)</span> or <span class="math inline">\(0.01\)</span>. Boundary rejection range <span class="math inline">\(0.025\)</span>- and <span class="math inline">\(0.975\)</span>-quantiles.</p>
+<p>Significance level <span class="math inline">\alpha</span>, indicates how high a risk one is willing to take of making a wrong decision. For most tests <span class="math inline">\alpha</span> value of <span class="math inline">0.05</span> or <span class="math inline">0.01</span>. Boundary rejection range <span class="math inline">0.025</span>- and <span class="math inline">0.975</span>-quantiles.</p>
 <div class="cell">
+<details open="" class="code-fold">
+<summary>Code</summary>
 <div class="sourceCode cell-code" id="cb35"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb35-1"><a href="#cb35-1" aria-hidden="true" tabindex="-1"></a><span class="fu">qnorm</span>(<span class="at">p =</span> <span class="fu">c</span>(<span class="fl">0.025</span>, <span class="fl">0.975</span>), <span class="at">mean =</span> <span class="dv">500</span>, <span class="at">sd =</span> <span class="dv">1</span><span class="sc">/</span><span class="fu">sqrt</span>(<span class="dv">10</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] 499.3802 500.6198</code></pre>
 </div>
@@ -1115,33 +1200,42 @@ T: \bar{X}_{10} \sim \mathcal{N}(x, \dfrac{1^2}{x})
 <section id="week-06-t-test-wilcoxon-test-confidence-interval" class="level1">
 <h1>Week 06: t-Test, Wilcoxon-Test, Confidence Interval</h1>
 <section id="t-distribution" class="level3">
-<h3 class="anchored" data-anchor-id="t-distribution"><span class="math inline">\(t\)</span>-Distribution</h3>
-<p>Distribution of test statistics for t-test under null hypothesis. Similar to normal distribution, but flatter, due to greater uncertainty. Depends on number of observations. Symmetric distribution around <span class="math inline">\(0\)</span>, but flattens out slower than standard normal distribution <span class="math inline">\(\mathcal{N} (0, 1)\)</span></p>
+<h3 class="anchored" data-anchor-id="t-distribution"><span class="math inline">t</span>-Distribution</h3>
+<p>Distribution of test statistics for t-test under null hypothesis. Similar to normal distribution, but flatter, due to greater uncertainty. Depends on number of observations. Symmetric distribution around <span class="math inline">0</span>, but flattens out slower than standard normal distribution <span class="math inline">\mathcal{N} (0, 1)</span></p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
 <p><img src="img/t_distr.png" class="img-fluid figure-img"></p>
 <figcaption>t-Distribution</figcaption>
 </figure>
 </div>
-<p><span class="math display">\[
+<p><span class="math display">
 H_0 = \mu =\mu_o
-\]</span></p>
+</span></p>
 <p>is given by</p>
-<p><span class="math display">\[
+<p><span class="math display">
 T = \bar{X}_n \sim t_{n-1} \left(\mu, \frac{\hat{\sigma}_{\bar{X}}^2}{n}\right)
-\]</span></p>
-<p>where <span class="math inline">\(t_{n−1}\)</span> is a <span class="math inline">\(t\)</span>-distribution with <span class="math inline">\(n − 1\)</span> degrees of freedom.</p>
+</span></p>
+<p>where <span class="math inline">t_{n−1}</span> is a <span class="math inline">t</span>-distribution with <span class="math inline">n − 1</span> degrees of freedom.</p>
 <div class="cell">
+<details open="" class="code-fold">
+<summary>Code</summary>
 <div class="sourceCode cell-code" id="cb37"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb37-1"><a href="#cb37-1" aria-hidden="true" tabindex="-1"></a>x <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="fl">5.9</span>, <span class="fl">3.4</span>, <span class="fl">6.6</span>, <span class="fl">6.3</span>, <span class="fl">4.2</span>, <span class="fl">2.0</span>, <span class="fl">6.0</span>, <span class="fl">4.8</span>, <span class="fl">4.2</span>, <span class="fl">2.1</span>, <span class="fl">8.7</span>, <span class="fl">4.4</span>, <span class="fl">5.1</span>, <span class="fl">2.7</span>, <span class="fl">8.5</span>, <span class="fl">5.8</span>, <span class="fl">4.9</span>, <span class="fl">5.3</span>, <span class="fl">5.5</span>, <span class="fl">7.9</span>)</span>
 <span id="cb37-2"><a href="#cb37-2" aria-hidden="true" tabindex="-1"></a><span class="fu">mean</span>(x)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] 5.215</code></pre>
 </div>
+<details open="" class="code-fold">
+<summary>Code</summary>
 <div class="sourceCode cell-code" id="cb39"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb39-1"><a href="#cb39-1" aria-hidden="true" tabindex="-1"></a><span class="fu">sd</span>(x)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] 1.883802</code></pre>
 </div>
+<details open="" class="code-fold">
+<summary>Code</summary>
 <div class="sourceCode cell-code" id="cb41"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb41-1"><a href="#cb41-1" aria-hidden="true" tabindex="-1"></a><span class="fu">t.test</span>(x, <span class="at">mu =</span> <span class="dv">5</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
 <div class="cell-output cell-output-stdout">
 <pre><code>
     One Sample t-test
@@ -1162,16 +1256,19 @@ mean of x
 <p>Interval indicating where, roughly speaking, true mean lies with a certain predefined probability</p>
 <section id="test-decision-with-confidence-interval" class="level3">
 <h3 class="anchored" data-anchor-id="test-decision-with-confidence-interval">Test Decision with Confidence Interval</h3>
-<p>If <span class="math inline">\(\mu_0\)</span> of null hypothesis does not lie within confidence interval of <span class="math inline">\(\bar{X}_n\)</span>, <span class="math inline">\(H_0\)</span> is rejected.</p>
+<p>If <span class="math inline">\mu_0</span> of null hypothesis does not lie within confidence interval of <span class="math inline">\bar{X}_n</span>, <span class="math inline">H_0</span> is rejected.</p>
 </section>
 </section>
 <section id="non-normally-distributed-data-wilcoxon-test" class="level2">
 <h2 class="anchored" data-anchor-id="non-normally-distributed-data-wilcoxon-test">Non-Normally Distributed Data: Wilcoxon Test</h2>
-<p>Assumes less than t-test. Distribution under null hypothesis is symmetrical with respect to median <span class="math inline">\(\mu_0\)</span>.</p>
+<p>Assumes less than t-test. Distribution under null hypothesis is symmetrical with respect to median <span class="math inline">\mu_0</span>.</p>
 <div class="cell">
+<details open="" class="code-fold">
+<summary>Code</summary>
 <div class="sourceCode cell-code" id="cb43"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb43-1"><a href="#cb43-1" aria-hidden="true" tabindex="-1"></a>x <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="fl">79.98</span>, <span class="fl">80.04</span>, <span class="fl">80.02</span>, <span class="fl">80.04</span>, <span class="fl">80.03</span>, <span class="fl">80.03</span>, <span class="fl">80.04</span>, <span class="fl">79.97</span>, <span class="fl">80.05</span>, <span class="fl">80.03</span>, <span class="fl">80.02</span>, <span class="fl">80.00</span>, <span class="fl">80.02</span>)</span>
 <span id="cb43-2"><a href="#cb43-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb43-3"><a href="#cb43-3" aria-hidden="true" tabindex="-1"></a><span class="fu">wilcox.test</span>(x, <span class="at">mu =</span> <span class="fl">80.00</span>, <span class="at">alternative =</span> <span class="st">"two.sided"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
 <div class="cell-output cell-output-stderr">
 <pre><code>Warning in wilcox.test.default(x, mu = 80, alternative = "two.sided"): cannot
 compute exact p-value with ties</code></pre>
@@ -1198,10 +1295,13 @@ alternative hypothesis: true location is not equal to 80</code></pre>
 <h2 class="anchored" data-anchor-id="paired-samples">Paired Samples</h2>
 <p>Both observations are not independent, because same experimental unit is measured twice. Each observation of one group can be clearly assigned to an observation of the other group. Sample size is inevitably same in both groups</p>
 <div class="cell">
+<details open="" class="code-fold">
+<summary>Code</summary>
 <div class="sourceCode cell-code" id="cb47"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb47-1"><a href="#cb47-1" aria-hidden="true" tabindex="-1"></a>before <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">25</span>, <span class="dv">25</span>, <span class="dv">27</span>, <span class="dv">44</span>, <span class="dv">30</span>, <span class="dv">67</span>, <span class="dv">53</span>, <span class="dv">53</span>, <span class="dv">52</span>, <span class="dv">60</span>, <span class="dv">28</span>)</span>
 <span id="cb47-2"><a href="#cb47-2" aria-hidden="true" tabindex="-1"></a>after <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">27</span>, <span class="dv">29</span>, <span class="dv">37</span>, <span class="dv">56</span>, <span class="dv">46</span>, <span class="dv">82</span>, <span class="dv">57</span>, <span class="dv">80</span>, <span class="dv">61</span>, <span class="dv">59</span>, <span class="dv">43</span>)</span>
 <span id="cb47-3"><a href="#cb47-3" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb47-4"><a href="#cb47-4" aria-hidden="true" tabindex="-1"></a><span class="fu">t.test</span>(<span class="at">x =</span> before, <span class="at">y =</span> after, <span class="at">paired=</span><span class="cn">TRUE</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
 <div class="cell-output cell-output-stdout">
 <pre><code>
     Paired t-test
@@ -1224,10 +1324,13 @@ mean difference
 <h3 class="anchored" data-anchor-id="mann-whitney-u-test-aka-wilcoxon-rank-sum-test">Mann-Whitney U-Test (aka Wilcoxon Rank-sum Test)</h3>
 <p>If data are non-normally distributed.</p>
 <div class="cell">
+<details open="" class="code-fold">
+<summary>Code</summary>
 <div class="sourceCode cell-code" id="cb49"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb49-1"><a href="#cb49-1" aria-hidden="true" tabindex="-1"></a>x <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="fl">79.98</span>, <span class="fl">80.04</span>, <span class="fl">80.02</span>, <span class="fl">80.04</span>, <span class="fl">80.03</span>, <span class="fl">80.03</span>, <span class="fl">80.04</span>,<span class="fl">79.97</span>, <span class="fl">80.05</span>, <span class="fl">80.03</span>, <span class="fl">80.02</span>, <span class="fl">80.00</span>, <span class="fl">80.02</span>)</span>
 <span id="cb49-2"><a href="#cb49-2" aria-hidden="true" tabindex="-1"></a>y <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="fl">80.02</span>, <span class="fl">79.94</span>, <span class="fl">79.98</span>, <span class="fl">79.97</span>, <span class="fl">80.03</span>, <span class="fl">79.95</span>, <span class="fl">79.97</span>)</span>
 <span id="cb49-3"><a href="#cb49-3" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb49-4"><a href="#cb49-4" aria-hidden="true" tabindex="-1"></a><span class="fu">wilcox.test</span>(x, y, <span class="at">alternative=</span><span class="st">"two.sided"</span>, <span class="at">mu=</span><span class="dv">0</span>, <span class="at">paired=</span><span class="cn">FALSE</span>, <span class="at">conf.level=</span><span class="fl">0.95</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
 <div class="cell-output cell-output-stderr">
 <pre><code>Warning in wilcox.test.default(x, y, alternative = "two.sided", mu = 0, :
 cannot compute exact p-value with ties</code></pre>
@@ -1274,6 +1377,8 @@ Note
 <h2 class="anchored" data-anchor-id="scatter-plot">Scatter plot</h2>
 <p>Two observations interpreted and displayed as coordinates of points in a coordinate system.</p>
 <div class="cell">
+<details open="" class="code-fold">
+<summary>Code</summary>
 <div class="sourceCode cell-code" id="cb52"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb52-1"><a href="#cb52-1" aria-hidden="true" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">42</span>)</span>
 <span id="cb52-2"><a href="#cb52-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb52-3"><a href="#cb52-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Generate random data</span></span>
@@ -1281,6 +1386,7 @@ Note
 <span id="cb52-5"><a href="#cb52-5" aria-hidden="true" tabindex="-1"></a>y <span class="ot">&lt;-</span> <span class="fu">rnorm</span>(<span class="dv">100</span>)</span>
 <span id="cb52-6"><a href="#cb52-6" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb52-7"><a href="#cb52-7" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(x, y) <span class="co"># By defaults Scatter Plot</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
 <div class="cell-output-display">
 <div>
 <figure class="figure">
@@ -1296,16 +1402,16 @@ Note
 </section>
 <section id="equation-of-a-line" class="level2">
 <h2 class="anchored" data-anchor-id="equation-of-a-line">Equation of a Line</h2>
-<p><span class="math display">\[
+<p><span class="math display">
 y = a+bx
-\]</span></p>
-<p><span class="math display">\[
+</span></p>
+<p><span class="math display">
 b=\dfrac{\Delta y}{\Delta x}
-\]</span></p>
+</span></p>
 </section>
 <section id="linear-regression" class="level2">
 <h2 class="anchored" data-anchor-id="linear-regression">Linear Regression</h2>
-<p>Formula-based relationship between book <span class="math inline">\(x\)</span> and <span class="math inline">\(y\)</span>. The Problem is to find a line that fits all points as good as possible.</p>
+<p>Formula-based relationship between book <span class="math inline">x</span> and <span class="math inline">y</span>. The Problem is to find a line that fits all points as good as possible.</p>
 <section id="residuals" class="level3">
 <h3 class="anchored" data-anchor-id="residuals">Residuals</h3>
 <p>Distance between points and line.</p>
@@ -1319,35 +1425,37 @@ Note
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>A residual <span class="math inline">\(r_i\)</span> is the vertical difference between a data point (<span class="math inline">\(x_i\)</span> , <span class="math inline">\(y_i\)</span> ) and the point (<span class="math inline">\(x_i\)</span> , <span class="math inline">\(a + bx_i\)</span> ) on the sought line:</p>
-<p><span class="math display">\[
+<p>A residual <span class="math inline">r_i</span> is the vertical difference between a data point (<span class="math inline">x_i</span> , <span class="math inline">y_i</span> ) and the point (<span class="math inline">x_i</span> , <span class="math inline">a + bx_i</span> ) on the sought line:</p>
+<p><span class="math display">
 r_i = y_i - (a + bx_i) = y_i - a - bx_i
-\]</span></p>
+</span></p>
 </div>
 </div>
 </section>
 <section id="least-squares-method" class="level3">
 <h3 class="anchored" data-anchor-id="least-squares-method">Least Squares Method</h3>
 <p>Determine a and b so that the sum of the squared residuals becomes minimal.</p>
-<p><span class="math display">\[
+<p><span class="math display">
 r_1^2 + r_2^2 * \dots + r_n^2 = \sum_i r_i^2
-\]</span></p>
+</span></p>
 </section>
 <section id="parameter-a-b-minimise-least-squares-method" class="level3">
 <h3 class="anchored" data-anchor-id="parameter-a-b-minimise-least-squares-method">Parameter a, b minimise (least squares method)</h3>
-<p><span class="math display">\[
+<p><span class="math display">
 \sum_{i=1}^n (y_i - (a+bx_i))^2
-\]</span></p>
-<p><span class="math display">\[
+</span></p>
+<p><span class="math display">
 b = \frac{\sum_{i=1}^{n} (y_i - \bar{y})(x_i - \bar{x})}{\sum_{i=1}^{n} (x_i - \bar{x})^2}
-\]</span></p>
-<p><span class="math display">\[
+</span></p>
+<p><span class="math display">
 a = \bar{y} - b\bar{x}
-\]</span></p>
+</span></p>
 <blockquote class="blockquote">
-<p>Note: <span class="math inline">\(\bar{x}\)</span> and <span class="math inline">\(\bar{y}\)</span> are the mean values of the respective data.</p>
+<p>Note: <span class="math inline">\bar{x}</span> and <span class="math inline">\bar{y}</span> are the mean values of the respective data.</p>
 </blockquote>
 <div class="cell">
+<details open="" class="code-fold">
+<summary>Code</summary>
 <div class="sourceCode cell-code" id="cb53"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb53-1"><a href="#cb53-1" aria-hidden="true" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">42</span>)</span>
 <span id="cb53-2"><a href="#cb53-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb53-3"><a href="#cb53-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Generate random linear data</span></span>
@@ -1356,6 +1464,7 @@ a = \bar{y} - b\bar{x}
 <span id="cb53-6"><a href="#cb53-6" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb53-7"><a href="#cb53-7" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(x, y)</span>
 <span id="cb53-8"><a href="#cb53-8" aria-hidden="true" tabindex="-1"></a><span class="fu">abline</span>(<span class="fu">lm</span>(y <span class="sc">~</span> x), <span class="at">col=</span><span class="st">"red"</span>) <span class="co"># Regression line</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
 <div class="cell-output-display">
 <div>
 <figure class="figure">
@@ -1371,14 +1480,17 @@ a = \bar{y} - b\bar{x}
 </section>
 <section id="empirical-correlation" class="level2">
 <h2 class="anchored" data-anchor-id="empirical-correlation">Empirical correlation</h2>
-<p>The empirical correlation is a dimensionless number between −1 and +1 and measures strength and direction of the linear dependency between the dates <span class="math inline">\(x\)</span> and <span class="math inline">\(y\)</span>.</p>
+<p>The empirical correlation is a dimensionless number between −1 and +1 and measures strength and direction of the linear dependency between the dates <span class="math inline">x</span> and <span class="math inline">y</span>.</p>
 <div class="cell">
+<details open="" class="code-fold">
+<summary>Code</summary>
 <div class="sourceCode cell-code" id="cb54"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb54-1"><a href="#cb54-1" aria-hidden="true" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">42</span>)</span>
 <span id="cb54-2"><a href="#cb54-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb54-3"><a href="#cb54-3" aria-hidden="true" tabindex="-1"></a>x <span class="ot">&lt;-</span> <span class="fu">rnorm</span>(<span class="dv">100</span>)</span>
 <span id="cb54-4"><a href="#cb54-4" aria-hidden="true" tabindex="-1"></a>y <span class="ot">&lt;-</span> x <span class="sc">*</span> <span class="fu">rbinom</span>(<span class="dv">100</span>, <span class="at">size=</span><span class="dv">100</span>, <span class="at">prob=</span><span class="fl">0.5</span>)</span>
 <span id="cb54-5"><a href="#cb54-5" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb54-6"><a href="#cb54-6" aria-hidden="true" tabindex="-1"></a><span class="fu">cor</span>(x, y) <span class="co"># High value because of pos linear data</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] 0.9953896</code></pre>
 </div>
@@ -1398,10 +1510,10 @@ Warning
 </div>
 </section>
 <section id="r2-value" class="level2">
-<h2 class="anchored" data-anchor-id="r2-value"><span class="math inline">\(R^2\)</span> Value</h2>
-<p><span class="math inline">\(R^2\)</span>-statistics: Value between 0 and 1. It indicates to what proportion of the variability in <span class="math inline">\(Y\)</span> is explained by <span class="math inline">\(X\)</span> using the model. Value close to 1: A large proportion of the variability is explained by the regression. The model therefore describes the data very well.</p>
+<h2 class="anchored" data-anchor-id="r2-value"><span class="math inline">R^2</span> Value</h2>
+<p><span class="math inline">R^2</span>-statistics: Value between 0 and 1. It indicates to what proportion of the variability in <span class="math inline">Y</span> is explained by <span class="math inline">X</span> using the model. Value close to 1: A large proportion of the variability is explained by the regression. The model therefore describes the data very well.</p>
 <blockquote class="blockquote">
-<p>Note: <span class="math inline">\(R^2\)</span> can be used for any regression.</p>
+<p>Note: <span class="math inline">R^2</span> can be used for any regression.</p>
 </blockquote>
 <div class="sourceCode" id="cb56"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb56-1"><a href="#cb56-1" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(<span class="fu">lm</span>(Sales<span class="sc">~</span>TV))<span class="sc">$</span>r.squared</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </section>
@@ -1417,24 +1529,24 @@ Warning
 <section id="week-08-multiple-linear-regression" class="level1">
 <h1>Week 08: Multiple Linear Regression</h1>
 <p>Simple linear regression are useful procedure to predict output based on one single predictor. In practice the output often depends on more than one predictor. Multiple linear model generalises simple linear model. Calculations and interpretations for multiple model similar, although usually more complicated than linear model</p>
-<p><span class="math display">\[
+<p><span class="math display">
 Y = \beta_0 + \beta_1 X_1 + \beta_2 X_2 + \dots + \beta_p X_p + \varepsilon
-\]</span></p>
+</span></p>
 <div class="sourceCode" id="cb57"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb57-1"><a href="#cb57-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Same syntax as in linear models</span></span>
 <span id="cb57-2"><a href="#cb57-2" aria-hidden="true" tabindex="-1"></a>model <span class="ot">&lt;-</span> <span class="fu">lm</span>(Sales <span class="sc">~</span> TV <span class="sc">+</span> Radio <span class="sc">+</span> Newspaper)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <section id="interpretation-of-coefficients" class="level2">
 <h2 class="anchored" data-anchor-id="interpretation-of-coefficients">Interpretation of Coefficients</h2>
 <p>The interpretation of the coefficients is similar to the interpretation in a linear regression model.</p>
 <ul>
-<li><span class="math inline">\(\beta_0\)</span>​ (Intercept): <span class="math inline">\(\beta_0\)</span>​ represents the estimated mean value of the dependent variable <span class="math inline">\(Y\)</span> when all predictor variables <span class="math inline">\((X_1​, X:2​, \dots, X_p​)\)</span> are equal to zero.</li>
-<li><span class="math inline">\(\beta_i\)</span>​ (Partial Effect): A coefficient <span class="math inline">\(\beta_i\)</span> represents the estimated change in the mean of <span class="math inline">\(Y\)</span> for a one-unit increase in the predictor variable <span class="math inline">\(X_i​\)</span>, while holding all other predictor variables constant.</li>
+<li><span class="math inline">\beta_0</span>​ (Intercept): <span class="math inline">\beta_0</span>​ represents the estimated mean value of the dependent variable <span class="math inline">Y</span> when all predictor variables <span class="math inline">(X_1​, X:2​, \dots, X_p​)</span> are equal to zero.</li>
+<li><span class="math inline">\beta_i</span>​ (Partial Effect): A coefficient <span class="math inline">\beta_i</span> represents the estimated change in the mean of <span class="math inline">Y</span> for a one-unit increase in the predictor variable <span class="math inline">X_i​</span>, while holding all other predictor variables constant.</li>
 </ul>
 <section id="estimation-of-regression-coefficients" class="level3">
 <h3 class="anchored" data-anchor-id="estimation-of-regression-coefficients">Estimation of Regression Coefficients</h3>
-<p>The regression coefficients <span class="math inline">\(\beta_0, \beta_1, \dots, \beta_p\)</span> generally unknown. We estimate those based on the data by using a a cost function like RSS.</p>
-<p><span class="math display">\[
+<p>The regression coefficients <span class="math inline">\beta_0, \beta_1, \dots, \beta_p</span> generally unknown. We estimate those based on the data by using a a cost function like RSS.</p>
+<p><span class="math display">
 RSS = \sum_{i=1}^n r_i^2 = \sum_{i=1}^{n} (y_i - \hat{\beta}_1 x_{i1} - \hat{\beta}_2 x_{i2} - \dots - \hat{\beta}_p x_{ip})^2
-\]</span></p>
+</span></p>
 <div class="sourceCode" id="cb58"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb58-1"><a href="#cb58-1" aria-hidden="true" tabindex="-1"></a><span class="fu">coef</span>(<span class="fu">lm</span>(Sales <span class="sc">~</span> TV <span class="sc">+</span> Radio <span class="sc">+</span> Newspaper))</span>
 <span id="cb58-2"><a href="#cb58-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb58-3"><a href="#cb58-3" aria-hidden="true" tabindex="-1"></a><span class="do">## (Intercept) TV          Radio       Newspaper</span></span>
@@ -1466,26 +1578,26 @@ Important
 </section>
 <section id="relationship-between-predictors-and-response-variable" class="level2">
 <h2 class="anchored" data-anchor-id="relationship-between-predictors-and-response-variable">Relationship between Predictors and Response Variable</h2>
-<p>Multiple linear regression with <span class="math inline">\(p\)</span> predictors: All regression coefficients except <span class="math inline">\(\beta_0\)</span> are zero, no variable has influence (Null hypothesis). As a alternative hypothesis: At least one <span class="math inline">\(\beta_i\)</span> is not equal to <span class="math inline">\(0\)</span>.</p>
+<p>Multiple linear regression with <span class="math inline">p</span> predictors: All regression coefficients except <span class="math inline">\beta_0</span> are zero, no variable has influence (Null hypothesis). As a alternative hypothesis: At least one <span class="math inline">\beta_i</span> is not equal to <span class="math inline">0</span>.</p>
 </section>
 <section id="no-linear-regression" class="level2">
 <h2 class="anchored" data-anchor-id="no-linear-regression">No Linear Regression</h2>
 <p>The moderated effect, often referred to as an interaction effect, summarizes a statistical relationship where the influence of one variable is not constant but instead depends on the value of a second variable.</p>
 <div class="sourceCode" id="cb60"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb60-1"><a href="#cb60-1" aria-hidden="true" tabindex="-1"></a>model <span class="ot">-&gt;</span> <span class="fu">lm</span>(Sales <span class="sc">~</span> TV <span class="sc">+</span> Radio <span class="sc">+</span> TV <span class="sc">*</span> Radio)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <blockquote class="blockquote">
-<p>Note: The asterisk <span class="math inline">\(*\)</span> in R is an abbreviation for the addition of the main effects AND the interaction term.</p>
+<p>Note: The asterisk <span class="math inline">*</span> in R is an abbreviation for the addition of the main effects AND the interaction term.</p>
 </blockquote>
 </section>
 </section>
 <section id="week-09-conditional-probability" class="level1">
 <h1>Week 09: Conditional Probability</h1>
 <p>Conditional probability is probability that event A occurs when one already knows that B has occurred</p>
-<p>General formula: <span class="math display">\[
+<p>General formula: <span class="math display">
 P(A \cap B) = \dfrac{A \cap B}{\Omega}
-\]</span></p>
-<p>Formula is used to define conditional probability: <span class="math display">\[
+</span></p>
+<p>Formula is used to define conditional probability: <span class="math display">
 P(A | B) = \dfrac{P(A \cap B)}{P(S)}
-\]</span></p>
+</span></p>
 <div class="callout callout-style-default callout-caution callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
@@ -1496,21 +1608,21 @@ Caution
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p><span class="math inline">\(P(A|B) \ne P(B|A)\)</span></p>
+<p><span class="math inline">P(A|B) \ne P(B|A)</span></p>
 </div>
 </div>
 <section id="bayes-theorem" class="level2">
 <h2 class="anchored" data-anchor-id="bayes-theorem">Bayes Theorem</h2>
-<p><span class="math display">\[
+<p><span class="math display">
 P(A | B) = \dfrac{P(B | A) P(A)}{P(B)}
-\]</span></p>
+</span></p>
 </section>
 <section id="law-of-total-probability" class="level2">
 <h2 class="anchored" data-anchor-id="law-of-total-probability">Law of Total Probability</h2>
-<p>f <span class="math inline">\(A_1, \dots, A_k\)</span> is a partition of A and B an event, then:</p>
-<p><span class="math display">\[
+<p>f <span class="math inline">A_1, \dots, A_k</span> is a partition of A and B an event, then:</p>
+<p><span class="math display">
 \sum_{i=1}^k P(B | A_k) P(A_k)
-\]</span></p>
+</span></p>
 </section>
 </section>
 <section id="week-10-bayesian-statistics-introduction" class="level1">
@@ -1519,27 +1631,27 @@ P(A | B) = \dfrac{P(B | A) P(A)}{P(B)}
 <h2 class="anchored" data-anchor-id="bayesian-statistics">Bayesian Statistics</h2>
 <p>Bayesian statistics is a theory in the field of statistics based on the Bayesian interpretation of probability, where probability expresses a degree of belief in an event.</p>
 <p>In general:</p>
-<p><span class="math display">\[
+<p><span class="math display">
 P(r \cap c) = P(r | c)P(c)
-\]</span></p>
+</span></p>
 <p>But also:</p>
-<p><span class="math display">\[
+<p><span class="math display">
 P(r \cap c) = P(c | r)P(r)
-\]</span></p>
-<p>Therefore: <span class="math display">\[
+</span></p>
+<p>Therefore: <span class="math display">
 P(c | r)P(r) = P(r | c)P(c)
-\]</span></p>
-<p>Hence: <span class="math display">\[
+</span></p>
+<p>Hence: <span class="math display">
 P(c | r) = \dfrac{P(r | c)P(c)}{P(r)}
-\]</span></p>
+</span></p>
 </section>
 <section id="bayes-theorem-prior-likelihood-posterior" class="level2">
 <h2 class="anchored" data-anchor-id="bayes-theorem-prior-likelihood-posterior">Bayes’ Theorem: Prior, Likelihood, Posterior</h2>
 <p>Introduce the following terms:</p>
 <ul>
-<li><span class="math inline">\(P(M)\)</span>: Prior probability</li>
-<li><span class="math inline">\(P(M | +)\)</span>: Posterior probability</li>
-<li><span class="math inline">\(P(+ | M)\)</span>: Likelihood function</li>
+<li><span class="math inline">P(M)</span>: Prior probability</li>
+<li><span class="math inline">P(M | +)</span>: Posterior probability</li>
+<li><span class="math inline">P(+ | M)</span>: Likelihood function</li>
 </ul>
 </section>
 </section>
@@ -1548,13 +1660,13 @@ P(c | r) = \dfrac{P(r | c)P(c)}{P(r)}
 <section id="evidence-pd" class="level2">
 <h2 class="anchored" data-anchor-id="evidence-pd">Evidence <code>P(D)</code></h2>
 <p>Calculate evidence P(D) with law total probability.</p>
-<p><span class="math display">\[
+<p><span class="math display">
 \sum_{i=1}^n P(D|\theta_i)P(\theta_i)
-\]</span></p>
+</span></p>
 <p>Use probability density functions instead of probabilities and sums become integrals.</p>
-<p><span class="math display">\[
+<p><span class="math display">
 P(D) = \int P(D \mid \theta^*) p(\theta^*) d\theta^*
-\]</span></p>
+</span></p>
 <blockquote class="blockquote">
 <p>Note: Areas under probability density curves correspond to probabilities. Total ares under the curve is 1.</p>
 </blockquote>
@@ -1563,38 +1675,38 @@ P(D) = \int P(D \mid \theta^*) p(\theta^*) d\theta^*
 <h2 class="anchored" data-anchor-id="bernoulli-distribution">Bernoulli distribution</h2>
 <section id="likelihood-function-for-coin-tosses" class="level3">
 <h3 class="anchored" data-anchor-id="likelihood-function-for-coin-tosses">Likelihood function for coin tosses</h3>
-<p>If N denotes number of tosses, <span class="math inline">\(z\)</span> number of <span class="math inline">\(H\)</span> and <span class="math inline">\(N − z\)</span> number of <span class="math inline">\(T\)</span>, then probability distribution:</p>
-<p><span class="math display">\[
+<p>If N denotes number of tosses, <span class="math inline">z</span> number of <span class="math inline">H</span> and <span class="math inline">N − z</span> number of <span class="math inline">T</span>, then probability distribution:</p>
+<p><span class="math display">
 P(\{y_i\} \mid \theta) = \theta^{Z}(1 - \theta)^{N - Z}
-\]</span></p>
+</span></p>
 </section>
 </section>
 <section id="description-of-probabilities-beta-distribution" class="level2">
 <h2 class="anchored" data-anchor-id="description-of-probabilities-beta-distribution">Description of Probabilities: Beta Distribution</h2>
-<p>The Beta distribution (<span class="math inline">\(Beta(α,β)\)</span>) is a continuous probability distribution defined over the interval <span class="math inline">\([0,1]\)</span>. The Beta distribution is controlled by two positive shape parameters, typically denoted as <span class="math inline">\(α\)</span> and <span class="math inline">\(β\)</span>. By changing <span class="math inline">\(α\)</span> and <span class="math inline">\(β\)</span>, the distribution can take on a wide range of shapes, including symmetric, skewed left or right, or even U-shaped.</p>
-<p>The ratio of <span class="math inline">\(\alpha\)</span> to <span class="math inline">\(\beta\)</span> determines where the peak (the mode) lies on the x-axis.</p>
+<p>The Beta distribution (<span class="math inline">Beta(α,β)</span>) is a continuous probability distribution defined over the interval <span class="math inline">[0,1]</span>. The Beta distribution is controlled by two positive shape parameters, typically denoted as <span class="math inline">α</span> and <span class="math inline">β</span>. By changing <span class="math inline">α</span> and <span class="math inline">β</span>, the distribution can take on a wide range of shapes, including symmetric, skewed left or right, or even U-shaped.</p>
+<p>The ratio of <span class="math inline">\alpha</span> to <span class="math inline">\beta</span> determines where the peak (the mode) lies on the x-axis.</p>
 <ul>
-<li><strong><span class="math inline">\(a &gt; b\)</span>:</strong> There are more successes than failures. The probability <span class="math inline">\(\theta\)</span> is likely high.
+<li><strong><span class="math inline">a &gt; b</span>:</strong> There are more successes than failures. The probability <span class="math inline">\theta</span> is likely high.
 <ul>
 <li><strong>Effect:</strong> The peak shifts to the <strong>right</strong> (above 0.5).</li>
 </ul></li>
-<li><strong><span class="math inline">\(b &gt; a\)</span>:</strong> There are more failures than successes. The probability <span class="math inline">\(\theta\)</span> is likely low.
+<li><strong><span class="math inline">b &gt; a</span>:</strong> There are more failures than successes. The probability <span class="math inline">\theta</span> is likely low.
 <ul>
 <li><strong>Effect:</strong> The peak shifts to the <strong>left</strong> (below 0.5).</li>
 </ul></li>
-<li><strong><span class="math inline">\(a = b\)</span>:</strong> Successes and failures balance each other out.
+<li><strong><span class="math inline">a = b</span>:</strong> Successes and failures balance each other out.
 <ul>
 <li><strong>Effect:</strong> The peak is exactly in the <strong>middle</strong> (at 0.5).</li>
 </ul></li>
 </ul>
-<p>The sum <span class="math inline">\(\alpha+\beta\)</span> (often called <span class="math inline">\(n\)</span> or concentration) determines how narrow or wide the curve is. This is the “weight” of your experience.</p>
+<p>The sum <span class="math inline">\alpha+\beta</span> (often called <span class="math inline">n</span> or concentration) determines how narrow or wide the curve is. This is the “weight” of your experience.</p>
 <ul>
-<li><strong><span class="math inline">\(a\)</span> and <span class="math inline">\(b\)</span> are small (e.g., 2 and 2):</strong>
+<li><strong><span class="math inline">a</span> and <span class="math inline">b</span> are small (e.g., 2 and 2):</strong>
 <ul>
 <li>You have hardly seen any data. Although it’s 50/50, you are uncertain.</li>
 <li><strong>Shape:</strong> A flat, wide bump. The HDI is huge.</li>
 </ul></li>
-<li><strong><span class="math inline">\(a\)</span> and <span class="math inline">\(b\)</span> are large (e.g., 100 and 100):</strong>
+<li><strong><span class="math inline">a</span> and <span class="math inline">b</span> are large (e.g., 100 and 100):</strong>
 <ul>
 <li>You have seen a lot of data. You are very sure that it is 50/50.</li>
 <li><strong>Shape:</strong> A tall, sharp needle. The HDI is tiny.</li>
@@ -1602,47 +1714,47 @@ P(\{y_i\} \mid \theta) = \theta^{Z}(1 - \theta)^{N - Z}
 </ul>
 <section id="central-tendency" class="level3">
 <h3 class="anchored" data-anchor-id="central-tendency">Central Tendency</h3>
-<p>Our goal is to transform a prior belief, which is expressed in terms of tendency and uncertainty, into corresponding parameter values <span class="math inline">\(a\)</span> and <span class="math inline">\(b\)</span> in the beta distribution.</p>
+<p>Our goal is to transform a prior belief, which is expressed in terms of tendency and uncertainty, into corresponding parameter values <span class="math inline">a</span> and <span class="math inline">b</span> in the beta distribution.</p>
 </section>
 <section id="mean" class="level3">
 <h3 class="anchored" data-anchor-id="mean">Mean</h3>
-<p><span class="math display">\[
+<p><span class="math display">
 \mu = \dfrac{a}{a+b}
-\]</span></p>
+</span></p>
 </section>
 <section id="mode" class="level3">
 <h3 class="anchored" data-anchor-id="mode">Mode</h3>
-<p><span class="math display">\[
+<p><span class="math display">
 \omega = \dfrac{a-1}{a+b-2}
-\]</span></p>
+</span></p>
 </section>
 <section id="spread" class="level3">
 <h3 class="anchored" data-anchor-id="spread">Spread</h3>
-<p><span class="math display">\[
+<p><span class="math display">
 k = a + b
-\]</span></p>
-<p>For <span class="math inline">\(a\)</span> and <span class="math inline">\(b\)</span> in terms of mean <span class="math inline">\(μ\)</span> and concentration <span class="math inline">\(κ\)</span></p>
-<p><span class="math display">\[
+</span></p>
+<p>For <span class="math inline">a</span> and <span class="math inline">b</span> in terms of mean <span class="math inline">μ</span> and concentration <span class="math inline">κ</span></p>
+<p><span class="math display">
 a = \muκ
-\]</span></p>
-<p><span class="math display">\[
+</span></p>
+<p><span class="math display">
 b = (1-\mu)κ
-\]</span></p>
-<p>For <span class="math inline">\(a\)</span> and <span class="math inline">\(b\)</span> in terms of mode <span class="math inline">\(ω\)</span> and concentration <span class="math inline">\(κ\)</span></p>
-<p><span class="math display">\[
+</span></p>
+<p>For <span class="math inline">a</span> and <span class="math inline">b</span> in terms of mode <span class="math inline">ω</span> and concentration <span class="math inline">κ</span></p>
+<p><span class="math display">
 a = \omega(κ − 2) + 1
-\]</span></p>
-<p><span class="math display">\[
+</span></p>
+<p><span class="math display">
 b = (1 − \omega)(κ − 2) + 1 \text{ for } κ &gt; 2
-\]</span></p>
+</span></p>
 </section>
 </section>
 <section id="posterior-beta" class="level2">
 <h2 class="anchored" data-anchor-id="posterior-beta">Posterior Beta</h2>
 <p>If prior distribution is beta distribution Beta(θ | a, b), and data show z heads in N tosses, then posterior distribution is again beta distribution.</p>
-<p><span class="math display">\[
+<p><span class="math display">
 p(\theta \mid z, N) = \text{Beta}(\theta \mid z + a, N - z + b)
-\]</span></p>
+</span></p>
 </section>
 <section id="highest-density-interval-hdi" class="level2">
 <h2 class="anchored" data-anchor-id="highest-density-interval-hdi">Highest Density Interval (HDI)</h2>
@@ -1705,7 +1817,7 @@ Note
 </section>
 <section id="influence-of-prior-on-posterior-distribution" class="level2">
 <h2 class="anchored" data-anchor-id="influence-of-prior-on-posterior-distribution">Influence of prior on posterior distribution</h2>
-<p>Practical relevance: It does not matter whether choice <span class="math inline">\(a = b = 10\)</span> or <span class="math inline">\(a = b = 15\)</span> for prior distribution. It does matter whether <span class="math inline">\(a\)</span> = b = 1$ or <span class="math inline">\(a = b = 10\)</span> or <span class="math inline">\(a = b = 100\)</span>. If we have no idea about coin: Choose <span class="math inline">\(a = b = 1\)</span>. If we have examined the coin more closely and find that it is very symmetrical, we may choose <span class="math inline">\(a = b = 100\)</span>.</p>
+<p>Practical relevance: It does not matter whether choice <span class="math inline">a = b = 10</span> or <span class="math inline">a = b = 15</span> for prior distribution. It does matter whether <span class="math inline">a</span> = b = 1$ or <span class="math inline">a = b = 10</span> or <span class="math inline">a = b = 100</span>. If we have no idea about coin: Choose <span class="math inline">a = b = 1</span>. If we have examined the coin more closely and find that it is very symmetrical, we may choose <span class="math inline">a = b = 100</span>.</p>
 </section>
 </section>
 <section id="week-12-general-metropolis-algorithm" class="level1">
@@ -1717,15 +1829,15 @@ Note
 <li>Prior distribution: Function that can be easily evaluated by a computer.</li>
 <li>Likelihood function: Function that can be easily evaluated by a computer.</li>
 </ul>
-<p>Posterior distribution is estimated by randomly generating a set of <span class="math inline">\(\theta\)</span> values from it</p>
+<p>Posterior distribution is estimated by randomly generating a set of <span class="math inline">\theta</span> values from it</p>
 </section>
 <section id="approximation-of-a-distribution-mean-large-samples" class="level2">
 <h2 class="anchored" data-anchor-id="approximation-of-a-distribution-mean-large-samples">Approximation of a Distribution Mean Large Samples</h2>
-<p>Concept of representing a distribution using a large sample of representative <span class="math inline">\(\theta\)</span> values is fundamental to approach to Bayesian analysis of complex models. The larger the sample, the better the estimate.</p>
+<p>Concept of representing a distribution using a large sample of representative <span class="math inline">\theta</span> values is fundamental to approach to Bayesian analysis of complex models. The larger the sample, the better the estimate.</p>
 </section>
 <section id="metropolis-algorithm" class="level2">
 <h2 class="anchored" data-anchor-id="metropolis-algorithm">Metropolis Algorithm</h2>
-<p>Approximation of continuous posterior distribution. Metropolis algorithm generates many representative <span class="math inline">\(\theta\)</span> values whose histogram approximates posterior distribution given a sufficiently large number of sample <span class="math inline">\(\theta\)</span> values.</p>
+<p>Approximation of continuous posterior distribution. Metropolis algorithm generates many representative <span class="math inline">\theta</span> values whose histogram approximates posterior distribution given a sufficiently large number of sample <span class="math inline">\theta</span> values.</p>
 </section>
 <section id="region-of-practical-equivalence-rope" class="level2">
 <h2 class="anchored" data-anchor-id="region-of-practical-equivalence-rope">Region of Practical Equivalence (ROPE)</h2>
@@ -1756,6 +1868,150 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     }
   }
   toggleBodyColorPrimary();  
+  const disableStylesheet = (stylesheets) => {
+    for (let i=0; i < stylesheets.length; i++) {
+      const stylesheet = stylesheets[i];
+      stylesheet.rel = 'prefetch';
+    }
+  }
+  const enableStylesheet = (stylesheets) => {
+    for (let i=0; i < stylesheets.length; i++) {
+      const stylesheet = stylesheets[i];
+      stylesheet.rel = 'stylesheet';
+    }
+  }
+  const manageTransitions = (selector, allowTransitions) => {
+    const els = window.document.querySelectorAll(selector);
+    for (let i=0; i < els.length; i++) {
+      const el = els[i];
+      if (allowTransitions) {
+        el.classList.remove('notransition');
+      } else {
+        el.classList.add('notransition');
+      }
+    }
+  }
+  const toggleGiscusIfUsed = (isAlternate, darkModeDefault) => {
+    const baseTheme = document.querySelector('#giscus-base-theme')?.value ?? 'light';
+    const alternateTheme = document.querySelector('#giscus-alt-theme')?.value ?? 'dark';
+    let newTheme = '';
+    if(darkModeDefault) {
+      newTheme = isAlternate ? baseTheme : alternateTheme;
+    } else {
+      newTheme = isAlternate ? alternateTheme : baseTheme;
+    }
+    const changeGiscusTheme = () => {
+      // From: https://github.com/giscus/giscus/issues/336
+      const sendMessage = (message) => {
+        const iframe = document.querySelector('iframe.giscus-frame');
+        if (!iframe) return;
+        iframe.contentWindow.postMessage({ giscus: message }, 'https://giscus.app');
+      }
+      sendMessage({
+        setConfig: {
+          theme: newTheme
+        }
+      });
+    }
+    const isGiscussLoaded = window.document.querySelector('iframe.giscus-frame') !== null;
+    if (isGiscussLoaded) {
+      changeGiscusTheme();
+    }
+  }
+  const toggleColorMode = (alternate) => {
+    // Switch the stylesheets
+    const alternateStylesheets = window.document.querySelectorAll('link.quarto-color-scheme.quarto-color-alternate');
+    manageTransitions('#quarto-margin-sidebar .nav-link', false);
+    if (alternate) {
+      enableStylesheet(alternateStylesheets);
+      for (const sheetNode of alternateStylesheets) {
+        if (sheetNode.id === "quarto-bootstrap") {
+          toggleBodyColorMode(sheetNode);
+        }
+      }
+    } else {
+      disableStylesheet(alternateStylesheets);
+      toggleBodyColorPrimary();
+    }
+    manageTransitions('#quarto-margin-sidebar .nav-link', true);
+    // Switch the toggles
+    const toggles = window.document.querySelectorAll('.quarto-color-scheme-toggle');
+    for (let i=0; i < toggles.length; i++) {
+      const toggle = toggles[i];
+      if (toggle) {
+        if (alternate) {
+          toggle.classList.add("alternate");     
+        } else {
+          toggle.classList.remove("alternate");
+        }
+      }
+    }
+    // Hack to workaround the fact that safari doesn't
+    // properly recolor the scrollbar when toggling (#1455)
+    if (navigator.userAgent.indexOf('Safari') > 0 && navigator.userAgent.indexOf('Chrome') == -1) {
+      manageTransitions("body", false);
+      window.scrollTo(0, 1);
+      setTimeout(() => {
+        window.scrollTo(0, 0);
+        manageTransitions("body", true);
+      }, 40);  
+    }
+  }
+  const isFileUrl = () => { 
+    return window.location.protocol === 'file:';
+  }
+  const hasAlternateSentinel = () => {  
+    let styleSentinel = getColorSchemeSentinel();
+    if (styleSentinel !== null) {
+      return styleSentinel === "alternate";
+    } else {
+      return false;
+    }
+  }
+  const setStyleSentinel = (alternate) => {
+    const value = alternate ? "alternate" : "default";
+    if (!isFileUrl()) {
+      window.localStorage.setItem("quarto-color-scheme", value);
+    } else {
+      localAlternateSentinel = value;
+    }
+  }
+  const getColorSchemeSentinel = () => {
+    if (!isFileUrl()) {
+      const storageValue = window.localStorage.getItem("quarto-color-scheme");
+      return storageValue != null ? storageValue : localAlternateSentinel;
+    } else {
+      return localAlternateSentinel;
+    }
+  }
+  const darkModeDefault = false;
+  let localAlternateSentinel = darkModeDefault ? 'alternate' : 'default';
+  // Dark / light mode switch
+  window.quartoToggleColorScheme = () => {
+    // Read the current dark / light value 
+    let toAlternate = !hasAlternateSentinel();
+    toggleColorMode(toAlternate);
+    setStyleSentinel(toAlternate);
+    toggleGiscusIfUsed(toAlternate, darkModeDefault);
+  };
+  // Ensure there is a toggle, if there isn't float one in the top right
+  if (window.document.querySelector('.quarto-color-scheme-toggle') === null) {
+    const a = window.document.createElement('a');
+    a.classList.add('top-right');
+    a.classList.add('quarto-color-scheme-toggle');
+    a.href = "";
+    a.onclick = function() { try { window.quartoToggleColorScheme(); } catch {} return false; };
+    const i = window.document.createElement("i");
+    i.classList.add('bi');
+    a.appendChild(i);
+    window.document.body.appendChild(a);
+  }
+  // Switch to dark mode if need be
+  if (hasAlternateSentinel()) {
+    toggleColorMode(true);
+  } else {
+    toggleColorMode(false);
+  }
   const icon = "";
   const anchorJS = new window.AnchorJS();
   anchorJS.options = {
@@ -2154,6 +2410,19 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 });
 </script>
 </div> <!-- /content -->
+<footer class="footer">
+  <div class="nav-footer">
+    <div class="nav-footer-left">
+<p>MScIDS Notes</p>
+</div>   
+    <div class="nav-footer-center">
+      &nbsp;
+    </div>
+    <div class="nav-footer-right">
+<p>Created with <a href="https://quarto.org/">Quarto</a> by Nils Rechberger</p>
+</div>
+  </div>
+</footer>
 
 
 

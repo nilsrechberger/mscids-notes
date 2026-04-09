@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Design of Experiments – mscids-notes</title>
+<title>Design of Experiments – MScIDS Notes</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -69,10 +69,12 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <script src="../../site_libs/quarto-html/tippy.umd.min.js"></script>
 <script src="../../site_libs/quarto-html/anchor.min.js"></script>
 <link href="../../site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-e26003cea8cd680ca0c55a263523d882.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-e26003cea8cd680ca0c55a263523d882.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-dark-d166b450ba5a8e9f7a0ab969bf6592c1.css" rel="prefetch" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
 <script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../../site_libs/bootstrap/bootstrap-8ef023257421bb572a6b5600f0392161.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<link href="../../site_libs/bootstrap/bootstrap-3a715b0ac595e8e0adfa4105e57cddb2.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
+<link href="../../site_libs/bootstrap/bootstrap-dark-e243de8e5e9bfa4330b8ee6f8c439225.min.css" rel="prefetch" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -110,8 +112,22 @@ gtag('js', new Date());
 gtag('config', 'G-NZ8462CXQ1', { 'anonymize_ip': true});
 </script>
 
-  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
-  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+  <script>window.backupDefine = window.define; window.define = undefined;</script><script src="https://cdn.jsdelivr.net/npm/katex@latest/dist/katex.min.js"></script>
+  <script>document.addEventListener("DOMContentLoaded", function () {
+ var mathElements = document.getElementsByClassName("math");
+ var macros = [];
+ for (var i = 0; i < mathElements.length; i++) {
+  var texText = mathElements[i].firstChild;
+  if (mathElements[i].tagName == "SPAN") {
+   katex.render(texText.data, mathElements[i], {
+    displayMode: mathElements[i].classList.contains('display'),
+    throwOnError: false,
+    macros: macros,
+    fleqn: false
+   });
+}}});
+  </script>
+  <script>window.define = window.backupDefine; window.backupDefine = undefined;</script><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@latest/dist/katex.min.css">
 
 <script type="text/javascript">
 const typesetMath = (el) => {
@@ -151,7 +167,7 @@ window.Quarto = {
       <div class="navbar-container container-fluid">
       <div class="navbar-brand-container mx-auto">
     <a class="navbar-brand" href="../../index.html">
-    <span class="navbar-title">mscids-notes</span>
+    <span class="navbar-title">MScIDS Notes</span>
     </a>
   </div>
             <div id="quarto-search" class="" title="Search"></div>
@@ -209,11 +225,13 @@ window.Quarto = {
   </li>  
     </ul>
   </li>
+</ul>
+            <ul class="navbar-nav navbar-nav-scroll ms-auto">
   <li class="nav-item dropdown ">
     <a class="nav-link dropdown-toggle" href="#" id="nav-menu-how-to" role="link" data-bs-toggle="dropdown" aria-expanded="false">
  <span class="menu-text">How to</span>
     </a>
-    <ul class="dropdown-menu" aria-labelledby="nav-menu-how-to">    
+    <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="nav-menu-how-to">    
         <li>
     <a class="dropdown-item" href="../../howTo/terminal.html">
  <span class="dropdown-text">Terminal</span></a>
@@ -243,6 +261,7 @@ window.Quarto = {
 </ul>
           </div> <!-- /navcollapse -->
             <div class="quarto-navbar-tools">
+  <a href="" class="quarto-color-scheme-toggle quarto-navigation-tool  px-1" onclick="window.quartoToggleColorScheme(); return false;" title="Toggle dark mode"><i class="bi"></i></a>
 </div>
       </div> <!-- /container-fluid -->
     </nav>
@@ -416,7 +435,7 @@ window.Quarto = {
   <li><a href="#what-is-bias" id="toc-what-is-bias" class="nav-link" data-scroll-target="#what-is-bias">What is bias?</a>
   <ul class="collapse">
   <li><a href="#how-can-bias-be-quantified" id="toc-how-can-bias-be-quantified" class="nav-link" data-scroll-target="#how-can-bias-be-quantified">How can bias be quantified?</a></li>
-  <li><a href="#data-defect-correlation-rho_rg" id="toc-data-defect-correlation-rho_rg" class="nav-link" data-scroll-target="#data-defect-correlation-rho_rg">Data defect correlation <span class="math inline">\(\rho_{R,G}\)</span></a></li>
+  <li><a href="#data-defect-correlation-rho_rg" id="toc-data-defect-correlation-rho_rg" class="nav-link" data-scroll-target="#data-defect-correlation-rho_rg">Data defect correlation <span class="math inline">\rho_{R,G}</span></a></li>
   <li><a href="#statistical-paradises-and-paradoxes-in-relation-to-administrative-data-sets" id="toc-statistical-paradises-and-paradoxes-in-relation-to-administrative-data-sets" class="nav-link" data-scroll-target="#statistical-paradises-and-paradoxes-in-relation-to-administrative-data-sets">Statistical paradises and paradoxes in relation to administrative data sets</a></li>
   </ul></li>
   <li><a href="#spurious-correlation" id="toc-spurious-correlation" class="nav-link" data-scroll-target="#spurious-correlation">Spurious Correlation</a></li>
@@ -558,8 +577,8 @@ window.Quarto = {
 <h3 class="anchored" data-anchor-id="hypothesis-testing">Hypothesis Testing</h3>
 <p>Hypothesis testing is a statistical method used to determine if there is enough evidence in a sample of data to support a specific hypothesis about a population. It involves formulating a null hypothesis and an alternative hypothesis, analyzing sample data, and making a decision based on the results, often using a p-value to assess significance.</p>
 <ul>
-<li>Alternative hypothesis (<span class="math inline">\(H_A\)</span>): Research hypothesis to be tested that postulates the presence of a certain effect (e.g.&nbsp;a difference) in the population.</li>
-<li>Null hypothesis (<span class="math inline">\(H_0\)</span>): Postulates the opposite, namely the absence of an effect.</li>
+<li>Alternative hypothesis (<span class="math inline">H_A</span>): Research hypothesis to be tested that postulates the presence of a certain effect (e.g.&nbsp;a difference) in the population.</li>
+<li>Null hypothesis (<span class="math inline">H_0</span>): Postulates the opposite, namely the absence of an effect.</li>
 </ul>
 </section>
 </section>
@@ -699,10 +718,10 @@ window.Quarto = {
 <p>Two levels (+/-) are defined per factor. All possible combinations of factor levels are varied. All main effects and all interactions can be determined. Can be used as a screening experiment to identify potentially important variables. The effort involved increases rapidly as the number of factors increases. Each additional factor doubles the number of combinations.</p>
 <section id="profile-plot" class="level4">
 <h4 class="anchored" data-anchor-id="profile-plot">Profile Plot</h4>
-<p>Impact of the factors on the dependent variable <span class="math inline">\(x\)</span>. Based model:</p>
-<p><span class="math display">\[
+<p>Impact of the factors on the dependent variable <span class="math inline">x</span>. Based model:</p>
+<p><span class="math display">
 y = \beta_0 + \beta_1 x_1 + \beta_2 x_2 \dots + \beta_n x_n
-\]</span></p>
+</span></p>
 </section>
 </section>
 </section>
@@ -710,25 +729,25 @@ y = \beta_0 + \beta_1 x_1 + \beta_2 x_2 \dots + \beta_n x_n
 <h2 class="anchored" data-anchor-id="factorial-design-with-interactions">Factorial design with interactions</h2>
 <p>Interactions can occur in experiments with two or more independent variables. An interaction of two factors means that the two factors interact in a complex way. If there is an interaction, the effect of one factor depends on the levels of the other factor. Interaction terms are written as multiplication.</p>
 <ul>
-<li>Two way interaction: <span class="math inline">\(x_1 \times x_2\)</span></li>
-<li>Three way interaction: <span class="math inline">\(x_1 \times x_2 \times x_3\)</span></li>
+<li>Two way interaction: <span class="math inline">x_1 \times x_2</span></li>
+<li>Three way interaction: <span class="math inline">x_1 \times x_2 \times x_3</span></li>
 </ul>
-<p><span class="math display">\[
+<p><span class="math display">
 y = \beta_0 + \beta_1 x_1 + \beta_2 x_2 + \beta_3 x_1 \times x_2
-\]</span></p>
+</span></p>
 <section id="full-factorial-designs" class="level3">
 <h3 class="anchored" data-anchor-id="full-factorial-designs">Full factorial designs</h3>
-<p>Generalization of two-level full factorial design with <span class="math inline">\(k\)</span> factors and <span class="math inline">\(n\)</span> levels. All possible factor combinations are varied.</p>
-<p><span class="math display">\[
+<p>Generalization of two-level full factorial design with <span class="math inline">k</span> factors and <span class="math inline">n</span> levels. All possible factor combinations are varied.</p>
+<p><span class="math display">
 \text{combinations} = n^k
-\]</span></p>
+</span></p>
 </section>
 <section id="fractional-factorial-designs" class="level3">
 <h3 class="anchored" data-anchor-id="fractional-factorial-designs">Fractional factorial designs</h3>
 <p>Only a (balanced) part of the possible combinations of factors are varied.</p>
-<p><span class="math display">\[
+<p><span class="math display">
 \text{combinations} = n^{k-1}
-\]</span></p>
+</span></p>
 <section id="design" class="level4">
 <h4 class="anchored" data-anchor-id="design">Design</h4>
 <ul>
@@ -802,8 +821,8 @@ y = \beta_0 + \beta_1 x_1 + \beta_2 x_2 + \beta_3 x_1 \times x_2
 <h3 class="anchored" data-anchor-id="point-estimate-of-the-mean">Point estimate of the mean</h3>
 <p>An “estimator” is a function that calculates a value.</p>
 <ul>
-<li><span class="math inline">\(\bar{x}\)</span>: Mean of the sample</li>
-<li><span class="math inline">\(\mu_0\)</span>: True mean in the population (generally unknown)</li>
+<li><span class="math inline">\bar{x}</span>: Mean of the sample</li>
+<li><span class="math inline">\mu_0</span>: True mean in the population (generally unknown)</li>
 </ul>
 <div class="callout callout-style-default callout-important callout-titled">
 <div class="callout-header d-flex align-content-center">
@@ -815,7 +834,7 @@ Important
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>The mean value x of a sample is an unbiased, efficient and consistent estimator of the true mean value in the population: <span class="math inline">\(\mu_0 = E(\bar{x})\)</span></p>
+<p>The mean value x of a sample is an unbiased, efficient and consistent estimator of the true mean value in the population: <span class="math inline">\mu_0 = E(\bar{x})</span></p>
 </div>
 </div>
 </section>
@@ -839,11 +858,14 @@ Important
 <h3 class="anchored" data-anchor-id="simple-random-sampling-srs">Simple random sampling (SRS)</h3>
 <p>Random selection of n elements from the N elements of the population. Each element has the same probability of being included in the sample.</p>
 <div class="cell">
+<details open="" class="code-fold">
+<summary>Code</summary>
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>data <span class="ot">&lt;-</span> <span class="fu">rnorm</span>(<span class="dv">100</span>) <span class="co"># 100 random numbers</span></span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="fu">View</span>(data)</span>
 <span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>data_sample <span class="ot">&lt;-</span> <span class="fu">sample</span>(data, <span class="dv">10</span>, <span class="at">replace=</span><span class="cn">FALSE</span>) <span class="co"># Take 10 random sample from data</span></span>
 <span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a><span class="fu">View</span>(data_sample)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
 </div>
 </section>
 <section id="stratified-random-sampling" class="level3">
@@ -904,10 +926,10 @@ Important
 </section>
 <section id="standard-error" class="level2">
 <h2 class="anchored" data-anchor-id="standard-error">Standard Error</h2>
-<p>The standard error is a measure of the variability of the sample means among many samples. It quantifies the spread of sample means from repeated random samples of the same size around the population mean <span class="math inline">\(\mu_0\)</span></p>
-<p><span class="math display">\[
+<p>The standard error is a measure of the variability of the sample means among many samples. It quantifies the spread of sample means from repeated random samples of the same size around the population mean <span class="math inline">\mu_0</span></p>
+<p><span class="math display">
 \hat{\sigma}_{\bar{X}} = \sqrt{\dfrac{s^2}{n}} = \dfrac{s}{\sqrt{n}}
-\]</span></p>
+</span></p>
 <p>The larger the sample size, the smaller the standard error, and therefore, the larger the sample size, the more precise the sample mean is as an estimator of the population mean.</p>
 </section>
 </section>
@@ -917,8 +939,8 @@ Important
 <h2 class="anchored" data-anchor-id="statistical-significance-and-importance-of-an-effect">Statistical significance and importance of an effect</h2>
 <p>The chance of having a significant result in a hypothesis test is:</p>
 <ul>
-<li>larger if sample size <span class="math inline">\(n\)</span> increases.</li>
-<li>smaller if standard deviation <span class="math inline">\(s\)</span> increases.</li>
+<li>larger if sample size <span class="math inline">n</span> increases.</li>
+<li>smaller if standard deviation <span class="math inline">s</span> increases.</li>
 </ul>
 <p>An effect in the population can be specified by an effect measurement. This measurement results in what is referred to as effect size.</p>
 <blockquote class="blockquote">
@@ -1132,7 +1154,7 @@ Note
 </section>
 <section id="effect-size-1" class="level2">
 <h2 class="anchored" data-anchor-id="effect-size-1">Effect size</h2>
-<p>Partial eta squared <span class="math inline">\({\eta_p}^2\)</span> relates the variance explained by one factor to the variance not explained by other factors in the model.</p>
+<p>Partial eta squared <span class="math inline">{\eta_p}^2</span> relates the variance explained by one factor to the variance not explained by other factors in the model.</p>
 <div class="sourceCode" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(effectsize)</span>
 <span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a><span class="fu">eta_squared</span>(fit)<span class="sc">$</span>Eta2 <span class="co"># Use your ANOVA fit</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </section>
@@ -1289,7 +1311,7 @@ Caution
 </section>
 <section id="what-is-bias" class="level2">
 <h2 class="anchored" data-anchor-id="what-is-bias">What is bias?</h2>
-<p>Deviation between mean <span class="math inline">\(\mu_0\)</span> in the population and sample mean <span class="math inline">\(\bar{x}\)</span>. Three elements determine the bias:</p>
+<p>Deviation between mean <span class="math inline">\mu_0</span> in the population and sample mean <span class="math inline">\bar{x}</span>. Three elements determine the bias:</p>
 <ol type="1">
 <li>Data quality measure</li>
 <li>Data quantity measure</li>
@@ -1297,22 +1319,22 @@ Caution
 </ol>
 <section id="how-can-bias-be-quantified" class="level3">
 <h3 class="anchored" data-anchor-id="how-can-bias-be-quantified">How can bias be quantified?</h3>
-<p><span class="math display">\[
+<p><span class="math display">
 \text{Bias} = \bar{x} - \mu_0 = \rho_{R,G} \times \sqrt{\frac{1-f}{f}} \times \sigma_G
-\]</span></p>
+</span></p>
 <ul>
-<li><span class="math inline">\(\rho_{R,G}\)</span>: Data Quality</li>
-<li><span class="math inline">\(\sqrt{\frac{1-f}{f}}\)</span>: Data Quantity</li>
-<li><span class="math inline">\(\sigma_G\)</span>: Problem Difficulty</li>
+<li><span class="math inline">\rho_{R,G}</span>: Data Quality</li>
+<li><span class="math inline">\sqrt{\frac{1-f}{f}}</span>: Data Quantity</li>
+<li><span class="math inline">\sigma_G</span>: Problem Difficulty</li>
 </ul>
 </section>
 <section id="data-defect-correlation-rho_rg" class="level3">
-<h3 class="anchored" data-anchor-id="data-defect-correlation-rho_rg">Data defect correlation <span class="math inline">\(\rho_{R,G}\)</span></h3>
-<p>In <span class="math inline">\(\rho_{R,G}\)</span> the <span class="math inline">\(R\)</span> is a function that shows how data is obtained from the population. In simple random sampling, the <span class="math inline">\(R\)</span> function generates a randomly generated sequence of elements drawn from the population. Because of the random process, the selection of an element is independent of <span class="math inline">\(G\)</span>.</p>
+<h3 class="anchored" data-anchor-id="data-defect-correlation-rho_rg">Data defect correlation <span class="math inline">\rho_{R,G}</span></h3>
+<p>In <span class="math inline">\rho_{R,G}</span> the <span class="math inline">R</span> is a function that shows how data is obtained from the population. In simple random sampling, the <span class="math inline">R</span> function generates a randomly generated sequence of elements drawn from the population. Because of the random process, the selection of an element is independent of <span class="math inline">G</span>.</p>
 </section>
 <section id="statistical-paradises-and-paradoxes-in-relation-to-administrative-data-sets" class="level3">
 <h3 class="anchored" data-anchor-id="statistical-paradises-and-paradoxes-in-relation-to-administrative-data-sets">Statistical paradises and paradoxes in relation to administrative data sets</h3>
-<p>Measure for the size of the bias → Mean-squared error (MSE). The MSE measures the deviation (bias) of the estimator <span class="math inline">\(\bar{x}\)</span> from the mean <span class="math inline">\(\mu_0\)</span> in the population. The bias goes to <span class="math inline">\(0\)</span> only, if the size <span class="math inline">\(n\)</span> of the administrative dataset goes against <span class="math inline">\(N\)</span> (<span class="math inline">\(n\)</span> → <span class="math inline">\(N\)</span>).</p>
+<p>Measure for the size of the bias → Mean-squared error (MSE). The MSE measures the deviation (bias) of the estimator <span class="math inline">\bar{x}</span> from the mean <span class="math inline">\mu_0</span> in the population. The bias goes to <span class="math inline">0</span> only, if the size <span class="math inline">n</span> of the administrative dataset goes against <span class="math inline">N</span> (<span class="math inline">n</span> → <span class="math inline">N</span>).</p>
 <div class="callout callout-style-default callout-important callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
@@ -1323,7 +1345,7 @@ Important
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>The absolute size <span class="math inline">\(n\)</span> of the administrative dataset is meaningless without specifying <span class="math inline">\(N\)</span>.</p>
+<p>The absolute size <span class="math inline">n</span> of the administrative dataset is meaningless without specifying <span class="math inline">N</span>.</p>
 </div>
 </div>
 </section>
@@ -1414,6 +1436,150 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     }
   }
   toggleBodyColorPrimary();  
+  const disableStylesheet = (stylesheets) => {
+    for (let i=0; i < stylesheets.length; i++) {
+      const stylesheet = stylesheets[i];
+      stylesheet.rel = 'prefetch';
+    }
+  }
+  const enableStylesheet = (stylesheets) => {
+    for (let i=0; i < stylesheets.length; i++) {
+      const stylesheet = stylesheets[i];
+      stylesheet.rel = 'stylesheet';
+    }
+  }
+  const manageTransitions = (selector, allowTransitions) => {
+    const els = window.document.querySelectorAll(selector);
+    for (let i=0; i < els.length; i++) {
+      const el = els[i];
+      if (allowTransitions) {
+        el.classList.remove('notransition');
+      } else {
+        el.classList.add('notransition');
+      }
+    }
+  }
+  const toggleGiscusIfUsed = (isAlternate, darkModeDefault) => {
+    const baseTheme = document.querySelector('#giscus-base-theme')?.value ?? 'light';
+    const alternateTheme = document.querySelector('#giscus-alt-theme')?.value ?? 'dark';
+    let newTheme = '';
+    if(darkModeDefault) {
+      newTheme = isAlternate ? baseTheme : alternateTheme;
+    } else {
+      newTheme = isAlternate ? alternateTheme : baseTheme;
+    }
+    const changeGiscusTheme = () => {
+      // From: https://github.com/giscus/giscus/issues/336
+      const sendMessage = (message) => {
+        const iframe = document.querySelector('iframe.giscus-frame');
+        if (!iframe) return;
+        iframe.contentWindow.postMessage({ giscus: message }, 'https://giscus.app');
+      }
+      sendMessage({
+        setConfig: {
+          theme: newTheme
+        }
+      });
+    }
+    const isGiscussLoaded = window.document.querySelector('iframe.giscus-frame') !== null;
+    if (isGiscussLoaded) {
+      changeGiscusTheme();
+    }
+  }
+  const toggleColorMode = (alternate) => {
+    // Switch the stylesheets
+    const alternateStylesheets = window.document.querySelectorAll('link.quarto-color-scheme.quarto-color-alternate');
+    manageTransitions('#quarto-margin-sidebar .nav-link', false);
+    if (alternate) {
+      enableStylesheet(alternateStylesheets);
+      for (const sheetNode of alternateStylesheets) {
+        if (sheetNode.id === "quarto-bootstrap") {
+          toggleBodyColorMode(sheetNode);
+        }
+      }
+    } else {
+      disableStylesheet(alternateStylesheets);
+      toggleBodyColorPrimary();
+    }
+    manageTransitions('#quarto-margin-sidebar .nav-link', true);
+    // Switch the toggles
+    const toggles = window.document.querySelectorAll('.quarto-color-scheme-toggle');
+    for (let i=0; i < toggles.length; i++) {
+      const toggle = toggles[i];
+      if (toggle) {
+        if (alternate) {
+          toggle.classList.add("alternate");     
+        } else {
+          toggle.classList.remove("alternate");
+        }
+      }
+    }
+    // Hack to workaround the fact that safari doesn't
+    // properly recolor the scrollbar when toggling (#1455)
+    if (navigator.userAgent.indexOf('Safari') > 0 && navigator.userAgent.indexOf('Chrome') == -1) {
+      manageTransitions("body", false);
+      window.scrollTo(0, 1);
+      setTimeout(() => {
+        window.scrollTo(0, 0);
+        manageTransitions("body", true);
+      }, 40);  
+    }
+  }
+  const isFileUrl = () => { 
+    return window.location.protocol === 'file:';
+  }
+  const hasAlternateSentinel = () => {  
+    let styleSentinel = getColorSchemeSentinel();
+    if (styleSentinel !== null) {
+      return styleSentinel === "alternate";
+    } else {
+      return false;
+    }
+  }
+  const setStyleSentinel = (alternate) => {
+    const value = alternate ? "alternate" : "default";
+    if (!isFileUrl()) {
+      window.localStorage.setItem("quarto-color-scheme", value);
+    } else {
+      localAlternateSentinel = value;
+    }
+  }
+  const getColorSchemeSentinel = () => {
+    if (!isFileUrl()) {
+      const storageValue = window.localStorage.getItem("quarto-color-scheme");
+      return storageValue != null ? storageValue : localAlternateSentinel;
+    } else {
+      return localAlternateSentinel;
+    }
+  }
+  const darkModeDefault = false;
+  let localAlternateSentinel = darkModeDefault ? 'alternate' : 'default';
+  // Dark / light mode switch
+  window.quartoToggleColorScheme = () => {
+    // Read the current dark / light value 
+    let toAlternate = !hasAlternateSentinel();
+    toggleColorMode(toAlternate);
+    setStyleSentinel(toAlternate);
+    toggleGiscusIfUsed(toAlternate, darkModeDefault);
+  };
+  // Ensure there is a toggle, if there isn't float one in the top right
+  if (window.document.querySelector('.quarto-color-scheme-toggle') === null) {
+    const a = window.document.createElement('a');
+    a.classList.add('top-right');
+    a.classList.add('quarto-color-scheme-toggle');
+    a.href = "";
+    a.onclick = function() { try { window.quartoToggleColorScheme(); } catch {} return false; };
+    const i = window.document.createElement("i");
+    i.classList.add('bi');
+    a.appendChild(i);
+    window.document.body.appendChild(a);
+  }
+  // Switch to dark mode if need be
+  if (hasAlternateSentinel()) {
+    toggleColorMode(true);
+  } else {
+    toggleColorMode(false);
+  }
   const icon = "";
   const anchorJS = new window.AnchorJS();
   anchorJS.options = {
@@ -1812,6 +1978,19 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 });
 </script>
 </div> <!-- /content -->
+<footer class="footer">
+  <div class="nav-footer">
+    <div class="nav-footer-left">
+<p>MScIDS Notes</p>
+</div>   
+    <div class="nav-footer-center">
+      &nbsp;
+    </div>
+    <div class="nav-footer-right">
+<p>Created with <a href="https://quarto.org/">Quarto</a> by Nils Rechberger</p>
+</div>
+  </div>
+</footer>
 
 
 
