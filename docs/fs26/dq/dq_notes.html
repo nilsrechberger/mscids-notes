@@ -196,6 +196,21 @@ window.Quarto = {
 </ul>
             <ul class="navbar-nav navbar-nav-scroll ms-auto">
   <li class="nav-item dropdown ">
+    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-old-modules" role="link" data-bs-toggle="dropdown" aria-expanded="false">
+ <span class="menu-text">Old Modules</span>
+    </a>
+    <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="nav-menu-old-modules">    
+        <li>
+    <a class="dropdown-item" href="../../hs25/csc/csc_notes.html">
+ <span class="dropdown-text">Comuter Science Concepts for Data Science - Notes</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../hs25/sa/sa_notes.html">
+ <span class="dropdown-text">Classical and Bayesian Statistics - Notes</span></a>
+  </li>  
+    </ul>
+  </li>
+  <li class="nav-item dropdown ">
     <a class="nav-link dropdown-toggle" href="#" id="nav-menu-how-to" role="link" data-bs-toggle="dropdown" aria-expanded="false">
  <span class="menu-text">How to</span>
     </a>
@@ -320,6 +335,30 @@ window.Quarto = {
   </ul></li>
   <li><a href="#multiple-imputation" id="toc-multiple-imputation" class="nav-link" data-scroll-target="#multiple-imputation">Multiple Imputation</a></li>
   <li><a href="#littles-mcar-test" id="toc-littles-mcar-test" class="nav-link" data-scroll-target="#littles-mcar-test">Little’s MCAR Test</a></li>
+  </ul></li>
+  <li><a href="#lecture-05-univariate-outlier-detection" id="toc-lecture-05-univariate-outlier-detection" class="nav-link" data-scroll-target="#lecture-05-univariate-outlier-detection">Lecture 05: Univariate Outlier Detection</a>
+  <ul class="collapse">
+  <li><a href="#outliers" id="toc-outliers" class="nav-link" data-scroll-target="#outliers">Outliers</a></li>
+  <li><a href="#paradigms" id="toc-paradigms" class="nav-link" data-scroll-target="#paradigms">Paradigms</a>
+  <ul class="collapse">
+  <li><a href="#supervised-outlier-detection" id="toc-supervised-outlier-detection" class="nav-link" data-scroll-target="#supervised-outlier-detection">Supervised Outlier Detection</a></li>
+  </ul></li>
+  <li><a href="#semi-supervised-outlier-detection" id="toc-semi-supervised-outlier-detection" class="nav-link" data-scroll-target="#semi-supervised-outlier-detection">Semi-Supervised Outlier Detection</a>
+  <ul class="collapse">
+  <li><a href="#unsupervised-outlier-detection" id="toc-unsupervised-outlier-detection" class="nav-link" data-scroll-target="#unsupervised-outlier-detection">Unsupervised Outlier Detection</a></li>
+  <li><a href="#parametric" id="toc-parametric" class="nav-link" data-scroll-target="#parametric">Parametric</a></li>
+  <li><a href="#non-parametric" id="toc-non-parametric" class="nav-link" data-scroll-target="#non-parametric">Non-parametric</a></li>
+  </ul></li>
+  <li><a href="#noise-vs.-anomalies" id="toc-noise-vs.-anomalies" class="nav-link" data-scroll-target="#noise-vs.-anomalies">Noise vs.&nbsp;Anomalies</a></li>
+  <li><a href="#types-of-outliers" id="toc-types-of-outliers" class="nav-link" data-scroll-target="#types-of-outliers">Types of Outliers</a></li>
+  <li><a href="#univariate-outlier-detection" id="toc-univariate-outlier-detection" class="nav-link" data-scroll-target="#univariate-outlier-detection">Univariate Outlier Detection</a>
+  <ul class="collapse">
+  <li><a href="#tukeys-criterion" id="toc-tukeys-criterion" class="nav-link" data-scroll-target="#tukeys-criterion">Tukey’s Criterion</a></li>
+  <li><a href="#percentile-method" id="toc-percentile-method" class="nav-link" data-scroll-target="#percentile-method">Percentile Method</a></li>
+  <li><a href="#z-score-method" id="toc-z-score-method" class="nav-link" data-scroll-target="#z-score-method">z-Score Method</a></li>
+  <li><a href="#grubbs-test" id="toc-grubbs-test" class="nav-link" data-scroll-target="#grubbs-test">Grubbs’ Test</a></li>
+  <li><a href="#rosners-test" id="toc-rosners-test" class="nav-link" data-scroll-target="#rosners-test">Rosner’s test</a></li>
+  </ul></li>
   </ul></li>
   </ul>
 <div class="quarto-alternate-formats"><h2>Other Formats</h2><ul><li><a href="dq_notes.pdf"><i class="bi bi-file-pdf"></i>PDF</a></li></ul></div></nav>
@@ -784,8 +823,136 @@ Important
 <p>The test has low power: even if the test doesn’t reject, MCAR is not guaranteed.</p>
 </div>
 </div>
+</section>
+</section>
+<section id="lecture-05-univariate-outlier-detection" class="level1">
+<h1>Lecture 05: Univariate Outlier Detection</h1>
+<p>Anomaly detection generally refers to the process of automatically detecting events or behaviors which deviate from those considered normal. Outlier detection aims at identifying unusual objects in a database, i.e., different than the majority of the data and therefore suspicious resulting from a contamination, error, or fraud.</p>
+<section id="outliers" class="level2">
+<h2 class="anchored" data-anchor-id="outliers">Outliers</h2>
+<ul>
+<li>Data error (e.g., during data entry or transmission) -&gt; remove to avoid bias, or use robust methods (e.g., median in place of mean).</li>
+<li>Not an error: in this case outliers may be the most interesting data points -&gt; keep. Robust methods can still be useful depending on context. It may even be preferable to model the outliers explicitly (e.g., as a separate category)</li>
+</ul>
+</section>
+<section id="paradigms" class="level2">
+<h2 class="anchored" data-anchor-id="paradigms">Paradigms</h2>
+<section id="supervised-outlier-detection" class="level3">
+<h3 class="anchored" data-anchor-id="supervised-outlier-detection">Supervised Outlier Detection</h3>
+<p>The data set is fully labeled; each datapoint is labeled as either normal or abnormal. OD problem boils down to classification (with pronounced class imbalance). Rare, as labeling (by a domain expert) is expensive.</p>
+</section>
+</section>
+<section id="semi-supervised-outlier-detection" class="level2">
+<h2 class="anchored" data-anchor-id="semi-supervised-outlier-detection">Semi-Supervised Outlier Detection</h2>
+<p>Only (or mostly) normal observations are labeled. Goal to to learn the distribution from the normal observations; outliers will be detected by deviating from that distribution.</p>
+<section id="unsupervised-outlier-detection" class="level3">
+<h3 class="anchored" data-anchor-id="unsupervised-outlier-detection">Unsupervised Outlier Detection</h3>
+<p>The data set is unlabeled; it is not known if an observation is normal or abnormal. OD tries to identify outliers based on their dissimilarity to ”typical” observations.</p>
+<blockquote class="blockquote">
+<p>Note: Much more common scenario.</p>
+</blockquote>
+</section>
+<section id="parametric" class="level3">
+<h3 class="anchored" data-anchor-id="parametric">Parametric</h3>
+<p>A specific distribution (e.g., Gaussian) is assumed and only its parameters (e.g., mean and variance) are estimated from the data.</p>
+<ul>
+<li>Advantage: efficient (less data needed) if parametric assumption is correct.</li>
+<li>Disadvantage: the assumption might be wrong.</li>
+</ul>
+</section>
+<section id="non-parametric" class="level3">
+<h3 class="anchored" data-anchor-id="non-parametric">Non-parametric</h3>
+<p>The entire distribution is learned from the data.</p>
+<ul>
+<li>Advantage: flexible; no distributional assumption needed.</li>
+<li>Disadvantage: needs more data.</li>
+</ul>
+</section>
+</section>
+<section id="noise-vs.-anomalies" class="level2">
+<h2 class="anchored" data-anchor-id="noise-vs.-anomalies">Noise vs.&nbsp;Anomalies</h2>
+<p>Noise is a random or natural variability of a process. Example: Thermal noise of a measuring sensor. Typically does not produce unusual values. Anomalies are data points that significantly deviate from the expected behavior of the majority of the data.</p>
+</section>
+<section id="types-of-outliers" class="level2">
+<h2 class="anchored" data-anchor-id="types-of-outliers">Types of Outliers</h2>
+<ul>
+<li>Global: A data point is considered a global outlier if it significantly deviates from the entire rest of the dataset.</li>
+<li>Local: A local outlier is a value that is unusual only when compared to its immediate neighborhood, even if it looks normal in a global context.</li>
+<li>Cluster: These are groups of data points that collectively deviate from the main pattern of the data, forming their own anomalous structure.</li>
+<li>Micro-Cluster: A micro-cluster consists of a very small, dense group of points that are isolated from the main clusters and treated as a collective anomaly.</li>
+</ul>
+</section>
+<section id="univariate-outlier-detection" class="level2">
+<h2 class="anchored" data-anchor-id="univariate-outlier-detection">Univariate Outlier Detection</h2>
+<section id="tukeys-criterion" class="level3">
+<h3 class="anchored" data-anchor-id="tukeys-criterion">Tukey’s Criterion</h3>
+<p>A value is considered an outlier if the value is more than <span class="math inline">1.5 \times IQR</span> outside of the Boxplot.</p>
+</section>
+<section id="percentile-method" class="level3">
+<h3 class="anchored" data-anchor-id="percentile-method">Percentile Method</h3>
+<p>he percentile method simply treats the most extreme observations on either side as (potential) outliers.</p>
+<p><span class="math display">
+100 \times \dfrac{\alpha}{2}\%
+</span></p>
+<div class="callout callout-style-default callout-important callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Important
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Note: this will, by definition, mark <span class="math inline">\alpha</span>% of the data as outliers, regardless of the distribution.</p>
+</div>
+</div>
+</section>
+<section id="z-score-method" class="level3">
+<h3 class="anchored" data-anchor-id="z-score-method">z-Score Method</h3>
+<p>The z-score methods treats any observation with abs <span class="math inline">|z_i| &gt; k</span> as an outlier, for some value of <span class="math inline">k</span>.</p>
+<p><span class="math display">
+z_i = \dfrac{x_i - \bar{x}}{S_x}
+</span></p>
+<p>Below is a comparison showing the percentage flagged as outliers by the z-score method under normality and in the worst case.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="img/k_table.png" class="img-fluid figure-img"></p>
+<figcaption>K-Table</figcaption>
+</figure>
+</div>
+</section>
+<section id="grubbs-test" class="level3">
+<h3 class="anchored" data-anchor-id="grubbs-test">Grubbs’ Test</h3>
+<p>Grubbs’ test is a statistical method used to detect a single outlier that follows an approximately normal distribution. The test identifies the largest absolute deviation from the sample mean and determines if that value is statistically significant compared to the rest of the data.</p>
+<p>Hypotheses:</p>
+<ul>
+<li><span class="math inline">H_0</span>: The observation was drawn from the same distribution (<strong>not an outlier</strong>)</li>
+<li><span class="math inline">H_A</span>: The observation was drawn from a different distribution (<strong>outlier</strong>)</li>
+</ul>
+<p><span class="math display">
+G = \max|z_i| = \dfrac{\max|x_i - \bar{x}|}{S_x}
+</span></p>
+<div class="callout callout-style-default callout-caution callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Caution
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Grubbs’ test can suffer from masking, where the presence of multiple outliers “hides” each other, making the test fail to detect any of them.</p>
+</div>
+</div>
+</section>
+<section id="rosners-test" class="level3">
+<h3 class="anchored" data-anchor-id="rosners-test">Rosner’s test</h3>
+<p>Rosner’s test can test a pre-specified number 𝑘 of extreme observations for whether they are outliers. It is a direct generalization of Grubbs’ test. It works by successively removing observations and applying Grubbs’ test again, adjusting the critical value to control Type I error.</p>
 
 
+</section>
 </section>
 </section>
 
