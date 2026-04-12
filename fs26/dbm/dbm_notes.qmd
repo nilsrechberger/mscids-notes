@@ -1,0 +1,51 @@
+---
+title: Database Management - Notes
+author: Nils Rechberger
+date: 2026-04-10
+---
+
+# Session 1: Data Management 
+
+## What is a Database
+
+A database is an organized and structured set of records stored and managed for a common purpose. A data record is an information element which, as a unit, describes a complex set of facts.
+
+## Architecture and Components of an Information System
+
+![Information System](img/information_system_comps.png)
+
+## File System
+
+A file system is a structured method used by an operating system to organize, store, and retrieve data on a storage drive. It manages how data is named, placed, and grouped into files and directories, acting as a bridge between the raw hardware and the user.
+
+## Why do we use databases?
+
+- Enable multi-user operations: Manage transactions
+- Query and manipulate data sets
+- Ensure data consistency and integrity automatically
+- Retrieve large data quantities (indexing, parallelization) efficiently
+
+## Big Data Challenges
+
+- **Volume**: This refers to the sheer amount of data generated every second, requiring massive storage capacities that go far beyond traditional hardware.
+- **Velocity**: This represents the incredible speed at which data is created, processed, and analyzed, often in real-time or near real-time.
+- **Variety**: This describes the diverse types of data available, ranging from structured text in databases to unstructured formats like video, images, and social media posts.
+- **Veracity**: This focuses on the quality, accuracy, and trustworthiness of the data, as "messy" data can lead to incorrect conclusions.
+- **Value**: This is the most critical V, referring to the ability to turn bulk data into meaningful insights that drive business decisions or solve problems.
+
+## NoSQL Databases
+
+Optimization for Big Data:
+
+- Non-relational data structures
+- Non-relational database languages
+
+## Data Management 
+
+Data Management comprises all methods related to creating value from data as a resource.
+
+![Data Value Cycle](img/data_value_circle.png)
+
+### Database Application
+
+![Database Applications](img/database_app.png)
