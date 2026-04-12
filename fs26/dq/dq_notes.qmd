@@ -309,3 +309,107 @@ It essentially tests if the means / covariances are the same under each missingn
 ::: {.callout-important}
 The test has low power: even if the test doesn't reject, MCAR is not guaranteed.
 :::
+
+# Lecture 05: Univariate Outlier Detection
+
+Anomaly detection generally refers to the process of automatically detecting events or behaviors which deviate from those considered normal. Outlier detection aims at identifying unusual objects in a database, i.e., different than the majority of the data and therefore suspicious resulting from a contamination, error, or fraud.
+
+## Outliers
+
+- Data error (e.g., during data entry or transmission) -> remove to avoid bias, or use robust methods (e.g., median in place of mean).
+- Not an error: in this case outliers may be the most interesting data points -> keep. Robust methods can still be useful depending on context. It may even be preferable to model the outliers explicitly (e.g., as a separate category)
+
+## Paradigms
+
+### Supervised Outlier Detection
+
+The data set is fully labeled; each datapoint is labeled as either normal or abnormal. OD problem boils down to classification (with pronounced class imbalance). Rare, as labeling (by a domain expert) is expensive.
+
+## Semi-Supervised Outlier Detection
+
+Only (or mostly) normal observations are labeled. Goal to to learn the distribution from the normal observations; outliers will be detected by deviating from that distribution.
+
+### Unsupervised Outlier Detection
+
+The data set is unlabeled; it is not known if an observation is normal or abnormal. OD tries to identify outliers based on their dissimilarity to ”typical” observations. 
+
+> Note: Much more common scenario.
+
+### Parametric
+
+A specific distribution (e.g., Gaussian) is assumed and only its parameters (e.g., mean and variance) are
+estimated from the data.
+
+- Advantage: efficient (less data needed) if parametric assumption is correct.
+- Disadvantage: the assumption might be wrong.
+
+### Non-parametric
+
+The entire distribution is learned from the data.
+
+- Advantage: flexible; no distributional assumption needed.
+- Disadvantage: needs more data.
+
+
+## Noise vs. Anomalies
+
+Noise is a random or natural variability of a process. Example: Thermal noise of a measuring sensor. Typically does not produce unusual values. Anomalies are data points that significantly deviate from the expected behavior of the majority of the data.
+
+## Types of Outliers
+
+- Global: A data point is considered a global outlier if it significantly deviates from the entire rest of the dataset.
+- Local: A local outlier is a value that is unusual only when compared to its immediate neighborhood, even if it looks normal in a global context.
+- Cluster: These are groups of data points that collectively deviate from the main pattern of the data, forming their own anomalous structure.
+- Micro-Cluster: A micro-cluster consists of a very small, dense group of points that are isolated from the main clusters and treated as a collective anomaly.
+
+## Univariate Outlier Detection
+
+### Tukey’s Criterion
+
+A value is considered an outlier if the value is more than $1.5 \times IQR$ outside of the Boxplot.
+
+### Percentile Method
+
+he percentile method simply treats the most extreme observations on either side as (potential) outliers.
+
+$$
+100 \times \dfrac{\alpha}{2}\%
+$$
+
+::: {.callout-important}
+Note: this will, by definition, mark $\alpha$% of the data as outliers, regardless of the distribution. 
+:::
+
+### z-Score Method
+
+The z-score methods treats any observation with abs $|z_i| > k$ as an outlier, for some value of $k$.
+
+$$
+z_i = \dfrac{x_i - \bar{x}}{S_x}
+$$
+
+Below is a comparison showing the percentage flagged as outliers by the z-score method under normality and in
+the worst case.
+
+![K-Table](img/k_table.png)
+
+### Grubbs’ Test
+
+Grubbs' test is a statistical method used to detect a single outlier that follows an approximately normal distribution. The test identifies the largest absolute deviation from the sample mean and determines if that value is statistically significant compared to the rest of the data.
+
+Hypotheses:
+
+- $H_0$: The observation was drawn from the same distribution (**not an outlier**)
+- $H_A$: The observation was drawn from a different distribution (**outlier**)
+
+$$
+G = \max|z_i| = \dfrac{\max|x_i - \bar{x}|}{S_x}
+$$
+
+::: {.callout-caution}
+Grubbs' test can suffer from masking, where the presence of multiple outliers "hides" each other, making the test fail to detect any of them.
+:::
+
+### Rosner’s test
+
+Rosner’s test can test a pre-specified number 𝑘 of extreme observations for whether they are outliers. It is a direct generalization of Grubbs’ test. It works by successively removing observations and applying Grubbs’ test again, adjusting the critical value to control Type I error.
