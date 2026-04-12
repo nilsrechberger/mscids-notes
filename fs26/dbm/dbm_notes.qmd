@@ -27,6 +27,8 @@ A file system is a structured method used by an operating system to organize, st
 
 ## Big Data Challenges
 
+Big data primarily refers to data sets that are too large or complex to be dealt with by traditional data-processing software. Data with many entries (rows) offers greater statistical power, while data with higher complexity (more attributes or columns) may lead to a higher false discovery rate.
+
 - **Volume**: This refers to the sheer amount of data generated every second, requiring massive storage capacities that go far beyond traditional hardware.
 - **Velocity**: This represents the incredible speed at which data is created, processed, and analyzed, often in real-time or near real-time.
 - **Variety**: This describes the diverse types of data available, ranging from structured text in databases to unstructured formats like video, images, and social media posts.
