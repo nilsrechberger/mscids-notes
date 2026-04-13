@@ -413,3 +413,105 @@ Grubbs' test can suffer from masking, where the presence of multiple outliers "h
 ### Rosner’s test
 
 Rosner’s test can test a pre-specified number 𝑘 of extreme observations for whether they are outliers. It is a direct generalization of Grubbs’ test. It works by successively removing observations and applying Grubbs’ test again, adjusting the critical value to control Type I error.
+
+# Lecture 06: Multivariate Outlier Detection
+
+Unlike univariate methods, multivariate approaches identify outliers based on deviations from the multi-dimensional distribution rather than extreme values in isolated attributes.
+
+## Notation
+
+We need two subscripts to label data:
+
+- $i \in {1, \dots, N}$: for labeling observations.
+- $i \in {1, \dots, N}$: for labeling attributes.
+
+::: {.callout}
+We’ll use $x_i$ to refer to the entire vector of attributes corresponding to the $𝑖$th observations.
+
+$$
+x_2 = [1, 2, 3]^T
+$$
+:::
+
+## Mahalanobis Distance
+
+The Mahalanobis Distance is a sophisticated measure of the distance between a point and a distribution. Unlike the standard Euclidean distance, it accounts for the correlations between variables and the scale of the data.
+
+$$
+\tilde{D}_i^2 = \sum_{j=1}^{p} z_{ij}^2
+$$
+
+### Cutoff Value
+
+If the data follow a multivariate normal distribution, then the squared Mahalanobis distance $D_i^2 = (x_i - \bar{x})^T \Sigma^{-1} (x_i - \bar{x})$, is approximately $x^2$ distributed with $p$ degrees of freedom.
+
+> Note: $p$ equals the number of attributes.
+
+This means that we can use the corresponding critical value as a cutoff to identify outliers. The Mahalanobis distance uses the ellipsoids as cutoffs to detect outliers.
+
+$k$ represents how many standard deviations away from the center you are looking
+
+![K-Table](img/k_table.png)
+
+## Introduction to Clustering
+
+Clustering is an unsupervised machine learning technique. The Goal is to find structure in the data. The differences between the clusters are as large as possible, but the datapoints within a cluster are as similar as possible.
+
+::: {.callout-important}
+Not necessarily designed for outlier detection but can be used for it.
+:::
+
+### Euclidean Distance
+
+Euclidean distance is the most common metric used to measure the straight-line distance between two points in a multi-dimensional space. In clustering, it serves as the "ruler" used to determine how similar or different data points are.
+
+$$
+d(\mathbf{x}_1, \mathbf{x}_2) = \sqrt{\sum_{j=1}^{p} (x_{1j} - x_{2j})^2}
+$$
+
+### K-Means
+
+K-means is probably the best-known clustering algorithm.
+
+> Note: $k$ = number of clusters (to be specified a priori)
+
+Given $k$ and $a$ set of points ($x_1, \dots, x_N$), each of which is a p-dimensional vector the objective is to find $k$ so-called centroids ($\mu_1, \dots, \mu_k$) (also of dimension $p$) such that the average squared Euclidean distance between each point and its nearest centroid is minimal.
+
+$$
+R(\mu_1, \dots, \mu_k) = \frac{1}{N} \sum_{i=1}^{n} \min_{j \in \{1, \dots, k\}} d(\mathbf{x}_i, \mu_j)^2
+$$
+
+#### Lloyd’s Heuristic
+
+Lloyd’s heuristic is what most people mean when they talk about the k-means algorithm.
+
+Starting point: Choose k and k random datapoints as the initial centroid $\mu_i$. Iterate the following two steps until convergence (local optimum):
+
+1. Assign each datapoint to the closest centroid $\mu_i$.
+2. Compute new centroids $\mu_i$ as the mean of all datapoints assigned to it.
+
+In practice, the algorithm is used multiple times to compare results.
+
+::: {.callout-tip}
+It is recommended to scale each variable to have standard deviation 1 (as in z-scores)
+:::
+
+#### How many clusters?
+
+One way to determine the number of clusters is a scree plot. The scree plot runs k-means for different choices of $k$ and plots the objective function $R(\mu_1, \dots, \mu_k)$ against $k$.
+
+![Screen Plot](img/screen_plot.png)
+
+### Outlier Detection using Clustering
+
+Barai & Dey (2017) suggest a very simple way to use clustering for outlier detection: Simply consider the smallest cluster as a outlier.
+
+#### Silhouette Plot
+
+Silhouette coefficients of an observation measure the average distance from its own cluster compared to the average difference of the nearest cluster scaled to the interval $[-1, 1]$. A value close to 1 indicates an inlier that is well-separated from other clusters. Negative values may signal local outliers. An average silhouette coefficient of 0.5 signals good clustering (0.7 excellent)
+
+::: {.callout-caution}
+A small cluster with a very high average silhouette coefficient may indicate a cluster of outliers (well separated from everything else).
+:::
+
+![Silhouette Plot](img/silhouette_plot.png)
