@@ -360,6 +360,20 @@ window.Quarto = {
   <li><a href="#rosners-test" id="toc-rosners-test" class="nav-link" data-scroll-target="#rosners-test">Rosner’s test</a></li>
   </ul></li>
   </ul></li>
+  <li><a href="#lecture-06-multivariate-outlier-detection" id="toc-lecture-06-multivariate-outlier-detection" class="nav-link" data-scroll-target="#lecture-06-multivariate-outlier-detection">Lecture 06: Multivariate Outlier Detection</a>
+  <ul class="collapse">
+  <li><a href="#notation" id="toc-notation" class="nav-link" data-scroll-target="#notation">Notation</a></li>
+  <li><a href="#mahalanobis-distance" id="toc-mahalanobis-distance" class="nav-link" data-scroll-target="#mahalanobis-distance">Mahalanobis Distance</a>
+  <ul class="collapse">
+  <li><a href="#cutoff-value" id="toc-cutoff-value" class="nav-link" data-scroll-target="#cutoff-value">Cutoff Value</a></li>
+  </ul></li>
+  <li><a href="#introduction-to-clustering" id="toc-introduction-to-clustering" class="nav-link" data-scroll-target="#introduction-to-clustering">Introduction to Clustering</a>
+  <ul class="collapse">
+  <li><a href="#euclidean-distance" id="toc-euclidean-distance" class="nav-link" data-scroll-target="#euclidean-distance">Euclidean Distance</a></li>
+  <li><a href="#k-means" id="toc-k-means" class="nav-link" data-scroll-target="#k-means">K-Means</a></li>
+  <li><a href="#outlier-detection-using-clustering" id="toc-outlier-detection-using-clustering" class="nav-link" data-scroll-target="#outlier-detection-using-clustering">Outlier Detection using Clustering</a></li>
+  </ul></li>
+  </ul></li>
   </ul>
 <div class="quarto-alternate-formats"><h2>Other Formats</h2><ul><li><a href="dq_notes.pdf"><i class="bi bi-file-pdf"></i>PDF</a></li></ul></div></nav>
     </div>
@@ -950,8 +964,150 @@ Caution
 <section id="rosners-test" class="level3">
 <h3 class="anchored" data-anchor-id="rosners-test">Rosner’s test</h3>
 <p>Rosner’s test can test a pre-specified number 𝑘 of extreme observations for whether they are outliers. It is a direct generalization of Grubbs’ test. It works by successively removing observations and applying Grubbs’ test again, adjusting the critical value to control Type I error.</p>
+</section>
+</section>
+</section>
+<section id="lecture-06-multivariate-outlier-detection" class="level1">
+<h1>Lecture 06: Multivariate Outlier Detection</h1>
+<p>Unlike univariate methods, multivariate approaches identify outliers based on deviations from the multi-dimensional distribution rather than extreme values in isolated attributes.</p>
+<section id="notation" class="level2">
+<h2 class="anchored" data-anchor-id="notation">Notation</h2>
+<p>We need two subscripts to label data:</p>
+<ul>
+<li><span class="math inline">i \in {1, \dots, N}</span>: for labeling observations.</li>
+<li><span class="math inline">i \in {1, \dots, N}</span>: for labeling attributes.</li>
+</ul>
+<div class="callout callout-style-simple callout-none no-icon">
+<div class="callout-body d-flex">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-body-container">
+<p>We’ll use <span class="math inline">x_i</span> to refer to the entire vector of attributes corresponding to the <span class="math inline">𝑖</span>th observations.</p>
+<p><span class="math display">
+x_2 = [1, 2, 3]^T
+</span></p>
+</div>
+</div>
+</div>
+</section>
+<section id="mahalanobis-distance" class="level2">
+<h2 class="anchored" data-anchor-id="mahalanobis-distance">Mahalanobis Distance</h2>
+<p>The Mahalanobis Distance is a sophisticated measure of the distance between a point and a distribution. Unlike the standard Euclidean distance, it accounts for the correlations between variables and the scale of the data.</p>
+<p><span class="math display">
+\tilde{D}_i^2 = \sum_{j=1}^{p} z_{ij}^2
+</span></p>
+<section id="cutoff-value" class="level3">
+<h3 class="anchored" data-anchor-id="cutoff-value">Cutoff Value</h3>
+<p>If the data follow a multivariate normal distribution, then the squared Mahalanobis distance <span class="math inline">D_i^2 = (x_i - \bar{x})^T \Sigma^{-1} (x_i - \bar{x})</span>, is approximately <span class="math inline">x^2</span> distributed with <span class="math inline">p</span> degrees of freedom.</p>
+<blockquote class="blockquote">
+<p>Note: <span class="math inline">p</span> equals the number of attributes.</p>
+</blockquote>
+<p>This means that we can use the corresponding critical value as a cutoff to identify outliers. The Mahalanobis distance uses the ellipsoids as cutoffs to detect outliers.</p>
+<p><span class="math inline">k</span> represents how many standard deviations away from the center you are looking</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="img/k_table.png" class="img-fluid figure-img"></p>
+<figcaption>K-Table</figcaption>
+</figure>
+</div>
+</section>
+</section>
+<section id="introduction-to-clustering" class="level2">
+<h2 class="anchored" data-anchor-id="introduction-to-clustering">Introduction to Clustering</h2>
+<p>Clustering is an unsupervised machine learning technique. The Goal is to find structure in the data. The differences between the clusters are as large as possible, but the datapoints within a cluster are as similar as possible.</p>
+<div class="callout callout-style-default callout-important callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Important
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Not necessarily designed for outlier detection but can be used for it.</p>
+</div>
+</div>
+<section id="euclidean-distance" class="level3">
+<h3 class="anchored" data-anchor-id="euclidean-distance">Euclidean Distance</h3>
+<p>Euclidean distance is the most common metric used to measure the straight-line distance between two points in a multi-dimensional space. In clustering, it serves as the “ruler” used to determine how similar or different data points are.</p>
+<p><span class="math display">
+d(\mathbf{x}_1, \mathbf{x}_2) = \sqrt{\sum_{j=1}^{p} (x_{1j} - x_{2j})^2}
+</span></p>
+</section>
+<section id="k-means" class="level3">
+<h3 class="anchored" data-anchor-id="k-means">K-Means</h3>
+<p>K-means is probably the best-known clustering algorithm.</p>
+<blockquote class="blockquote">
+<p>Note: <span class="math inline">k</span> = number of clusters (to be specified a priori)</p>
+</blockquote>
+<p>Given <span class="math inline">k</span> and <span class="math inline">a</span> set of points (<span class="math inline">x_1, \dots, x_N</span>), each of which is a p-dimensional vector the objective is to find <span class="math inline">k</span> so-called centroids (<span class="math inline">\mu_1, \dots, \mu_k</span>) (also of dimension <span class="math inline">p</span>) such that the average squared Euclidean distance between each point and its nearest centroid is minimal.</p>
+<p><span class="math display">
+R(\mu_1, \dots, \mu_k) = \frac{1}{N} \sum_{i=1}^{n} \min_{j \in \{1, \dots, k\}} d(\mathbf{x}_i, \mu_j)^2
+</span></p>
+<section id="lloyds-heuristic" class="level4">
+<h4 class="anchored" data-anchor-id="lloyds-heuristic">Lloyd’s Heuristic</h4>
+<p>Lloyd’s heuristic is what most people mean when they talk about the k-means algorithm.</p>
+<p>Starting point: Choose k and k random datapoints as the initial centroid <span class="math inline">\mu_i</span>. Iterate the following two steps until convergence (local optimum):</p>
+<ol type="1">
+<li>Assign each datapoint to the closest centroid <span class="math inline">\mu_i</span>.</li>
+<li>Compute new centroids <span class="math inline">\mu_i</span> as the mean of all datapoints assigned to it.</li>
+</ol>
+<p>In practice, the algorithm is used multiple times to compare results.</p>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Tip
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>It is recommended to scale each variable to have standard deviation 1 (as in z-scores)</p>
+</div>
+</div>
+</section>
+<section id="how-many-clusters" class="level4">
+<h4 class="anchored" data-anchor-id="how-many-clusters">How many clusters?</h4>
+<p>One way to determine the number of clusters is a scree plot. The scree plot runs k-means for different choices of <span class="math inline">k</span> and plots the objective function <span class="math inline">R(\mu_1, \dots, \mu_k)</span> against <span class="math inline">k</span>.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="img/screen_plot.png" class="img-fluid figure-img"></p>
+<figcaption>Screen Plot</figcaption>
+</figure>
+</div>
+</section>
+</section>
+<section id="outlier-detection-using-clustering" class="level3">
+<h3 class="anchored" data-anchor-id="outlier-detection-using-clustering">Outlier Detection using Clustering</h3>
+<p>Barai &amp; Dey (2017) suggest a very simple way to use clustering for outlier detection: Simply consider the smallest cluster as a outlier.</p>
+<section id="silhouette-plot" class="level4">
+<h4 class="anchored" data-anchor-id="silhouette-plot">Silhouette Plot</h4>
+<p>Silhouette coefficients of an observation measure the average distance from its own cluster compared to the average difference of the nearest cluster scaled to the interval <span class="math inline">[-1, 1]</span>. A value close to 1 indicates an inlier that is well-separated from other clusters. Negative values may signal local outliers. An average silhouette coefficient of 0.5 signals good clustering (0.7 excellent)</p>
+<div class="callout callout-style-default callout-caution callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Caution
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>A small cluster with a very high average silhouette coefficient may indicate a cluster of outliers (well separated from everything else).</p>
+</div>
+</div>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="img/silhouette_plot.png" class="img-fluid figure-img"></p>
+<figcaption>Silhouette Plot</figcaption>
+</figure>
+</div>
 
 
+</section>
 </section>
 </section>
 </section>
