@@ -32,10 +32,22 @@ website:
             href: fs26/rtp/rtp_notes.qmd
           - text: "Exercises"
             href: fs26/rtp/rtp_exercises.qmd
+      - text: "Database Management for Data Scientists"
+        menu:
+          - text: "Notes"
+            href: fs26/dbm/dbm_notes.qmd
+          - text: "Exercises"
+            href: fs26/dbm/dbm_exercises.qmd
+      - text: "DevOps"
+        menu:
+          - text: "Notes"
+            href: fs26/devops/devops_notes.qmd
+          - text: "Exercises"
+            href: fs26/devops/devops_exercises.qmd
     right:
       - text: "Old Modules"
         menu: 
-          - text: "Comuter Science Concepts for Data Science - Notes"
+          - text: "Computer Science Concepts for Data Science - Notes"
             href: hs25/csc/csc_notes.qmd
           - text: "Classical and Bayesian Statistics - Notes"
             href: hs25/sa/sa_notes.qmd
