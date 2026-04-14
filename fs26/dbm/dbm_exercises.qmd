@@ -1,0 +1,13 @@
+---
+title: Database Management - Exercises
+author: Nils Rechberger
+date: 2026-04-10
+---
+
+# Exercise: Data Management
+
+## Learning Objectives
+
+1. A database is an organized and structured set of records stored and managed for a common purpose.
+2. Big data primarily refers to data sets that are too large or complex to be dealt with by traditional data-processing software.
+3. Enable multi-user operations: Manage transactions, query and manipulate data sets, ensure data consistency and integrity automatically and retrieve large data quantities.

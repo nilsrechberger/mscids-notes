@@ -1,0 +1,9 @@
+---
+title: DevOps - Exercises
+author: Nils Rechberger
+date: 2026-004-09
+---
+
+::: {.callout}
+coming soon...
+:::
