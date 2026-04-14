@@ -546,3 +546,130 @@ plot(ARMAacf(ma=c(2,0.4),pacf=T,lag.max=20),type="h",ylab="PACF")
 ```
 
 Generalization: In general, we can show that the autocorrelation function of an $MA(q)$ vanishes for all lags larger than $q$.
+
+# W-06-Timeseries-Diagnostics-MA
+
+## Moving Average Model
+
+A moving average MA(q) model is a model in the form
+
+$$
+X_t = E_t + \beta_1 E_{t-1} + \beta_2 E_{t-2} + \dots + \beta_q E_{t-q}
+$$
+
+with the time series $E_t$ of innovations. The ACF displays cutoff and PACF displays fast decay. In general, we can show that the autocorrelation function of an $MA(q)$ vanishes for all lags larger than $q$.
+
+### Invertibility
+
+An $MA(q)$ model is invertible if the absolute value of the roots of the characteristic polynomial are larger than $1$. Invertible $MA(q)$ processes can be expressed as $AR(∞)$ processes.
+
+### Model Identification
+
+$MA(q)$ models are (weakly) stationary, display clear cut-off in the ACF and PACF displays a fast decaying or a damped sinusoid behaviour.
+
+::: {.callout}
+If these conditions are met, a MA(q) model may be a good choice.
+:::
+
+```{r}
+# Let us simulate an MA(3) process
+data<-arima.sim(n=1000,list(ma=c(0.6,0.4,0.2)))
+plot(data)
+```
+
+```{r}
+acf(data)
+```
+
+```{r}
+pacf(data)
+```
+
+### Parameter Identification
+
+The parameters of an $MA(q)$ model can be estimated with:
+
+- Yule-Walker equations: As in the case of the $AR(p)$ processes, the parameters of $MA(q)$ processes can also be estimated by the Yule-Walker equations (after a global mean has been subtracted).
+- Conditional sum of squares: `arima(data, order=c(…), method=“CSS”)`
+- Maximum-likelihood estimation (default method in R): `arima(data, order=c(…),method=“CSS-MLE”)`
+
+## ARMA Models
+
+An $ARMA(p,q)$ process combines an $AR(p)$ and a $MA(q)$ process
+
+$$
+X_t = \alpha_1 X_{t-1} + \dots + \alpha_p X_{t-p} + E_t + \beta_1 E_{t-1} + \dots + \beta_q E_{t-q}
+$$
+
+### Definition
+
+- Stationarity An $ARMA(p,q)$ model is stationary if the absolute value of the roots of characteristic polynom is larger than 1.
+> Note: Analogy to the $AR(p)$ process
+- Invertability An $ARMA(p,q)$ model is invertible if the absolute value of the roots of characteristic polynom is larger than 1.
+> Note: Analogy to the $MA(q)$ process
+- Consequence: Any stationary and invertible $ARMA(p,q)$ model can either be rewritten in the form of an $AR(∞)$ or an $MA(∞)$ model.
+
+::: {.callout-note}
+In practise $ARMA(p,q)$ models are preferred because they require fewer parameters.
+:::
+
+```{r}
+data<-arima.sim(n=250,list(ar=c(1.1,-0.5),ma=c(0.4)))
+plot(data)
+```
+
+```{r}
+acf(data)
+```
+
+```{r}
+pacf(data)
+```
+
+### Order Identification
+
+Generic workflow for fitting:
+
+- Is the model stationary?
+- Do the properties of (P)ACF match?
+- Which orders $p$,$q$ could be cut off in the (P)ACF?
+
+> Note: Even with theoretical (P)ACF the identification of the cut-off can be challenging.
+
+### Fitting ARMA Models
+
+- Conditional sum of squares: Applicable for any invertible $ARMA(p,q)$ process `arima(data, order=c(…), method=«CSS»)`
+- Maximum likelihood estimation: Performs maximum likelihood estimation after CSS-process `arima(…, order=c(…), method="CSS-ML")`
+
+```{r}
+library(fpp2)
+plot(log(sunspotarea))
+```
+
+```{r}
+library(forecast)
+model <- auto.arima(log(sunspotarea), max.p = 10, max.q = 10, stationary = TRUE)
+model
+```
+
+```{r}
+plot(resid(model))
+```
+
+```{r}
+plot(sunspotarea)
+lines(exp(log(sunspotarea)-resid(model)),col="red")
+```
+
+#### Advantages
+Estimates all parameters above and provides error estimates.
+
+#### Disadvantage
+Works for any distribution of the innovation. For distributions that deviate strongly from Gaussian type, results may be unreliable.
+
+
+
+## Key Properties of Models
+
+![Model Properties](img/model_props.png)
+
