@@ -83,3 +83,54 @@ What are the distributions of the following boxplots?
 - Varriable A: Normal
 - Varriable B: Right skewed
 - Varriable C: Right skewed
+
+# Tasks for Exercise 06: Multivariate Outlier detection – Cluster Analysis
+
+
+::: {.callout}
+Change the parameter `centers` to compare different group sizes.
+:::
+
+```{r}
+library(readxl)
+
+if (!require("readxl")) install.packages("readxl", dependencies=TRUE)
+if (!require("MVA")) install.packages("MVA", dependencies=TRUE)
+if (!require("cluster")) install.packages("cluster", dependencies=TRUE)
+
+library(readxl)
+library(MVA)
+library(cluster)
+
+data <- read_excel("/home/nils/dev/mscids-notes/fs26/dq/data/data_extreme.xlsx")
+head(data)
+data
+
+plot(data)
+boxplot(data)
+
+datas <- scale(data, center = FALSE, scale = TRUE)
+
+boxplot(datas)
+plot(datas)
+
+dists <- dist(datas)
+
+
+km <- kmeans(datas, centers = 4, nstart = 10)
+groups_km <- km$cluster
+groups_km
+
+cluster_size <- cbind(sum(groups_km == 1), sum(groups_km == 2), sum(groups_km == 3), sum(groups_km == 4))
+cluster_size
+
+plot(datas, pch = groups_km, col=groups_km, lwd=2)
+legend("topright", legend = 1:4, pch = 1:4, col=1:4, bty="n")
+
+reps <- rep(0, 6)
+for (i in 1:6) reps[i] <- sum(kmeans(datas, centers = i, nstart = 20)$withinss)
+par(mfrow = c(1,1))
+plot(1:6, reps, type = "b", xlab = "Number of groups", ylab = "Sum of squares")
+
+plot(silhouette(groups_km, dists))
+```
