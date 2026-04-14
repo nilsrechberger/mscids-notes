@@ -227,6 +227,36 @@ window.Quarto = {
   </li>  
     </ul>
   </li>
+  <li class="nav-item dropdown ">
+    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-database-management-for-data-scientists" role="link" data-bs-toggle="dropdown" aria-expanded="false">
+ <span class="menu-text">Database Management for Data Scientists</span>
+    </a>
+    <ul class="dropdown-menu" aria-labelledby="nav-menu-database-management-for-data-scientists">    
+        <li>
+    <a class="dropdown-item" href="../../fs26/dbm/dbm_notes.html">
+ <span class="dropdown-text">Notes</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../fs26/dbm/dbm_exercises.html">
+ <span class="dropdown-text">Exercises</span></a>
+  </li>  
+    </ul>
+  </li>
+  <li class="nav-item dropdown ">
+    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-devops" role="link" data-bs-toggle="dropdown" aria-expanded="false">
+ <span class="menu-text">DevOps</span>
+    </a>
+    <ul class="dropdown-menu" aria-labelledby="nav-menu-devops">    
+        <li>
+    <a class="dropdown-item" href="../../fs26/devops/devops_notes.html">
+ <span class="dropdown-text">Notes</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../fs26/devops/devops_exercises.html">
+ <span class="dropdown-text">Exercises</span></a>
+  </li>  
+    </ul>
+  </li>
 </ul>
             <ul class="navbar-nav navbar-nav-scroll ms-auto">
   <li class="nav-item dropdown ">
@@ -236,7 +266,7 @@ window.Quarto = {
     <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="nav-menu-old-modules">    
         <li>
     <a class="dropdown-item" href="../../hs25/csc/csc_notes.html">
- <span class="dropdown-text">Comuter Science Concepts for Data Science - Notes</span></a>
+ <span class="dropdown-text">Computer Science Concepts for Data Science - Notes</span></a>
   </li>  
         <li>
     <a class="dropdown-item" href="../../hs25/sa/sa_notes.html">
@@ -369,6 +399,22 @@ window.Quarto = {
   <li><a href="#qq-plot" id="toc-qq-plot" class="nav-link" data-scroll-target="#qq-plot">QQ-Plot</a></li>
   </ul></li>
   <li><a href="#moving-average-models-ma" id="toc-moving-average-models-ma" class="nav-link" data-scroll-target="#moving-average-models-ma">Moving Average Models (MA)</a></li>
+  </ul></li>
+  <li><a href="#w-06-timeseries-diagnostics-ma" id="toc-w-06-timeseries-diagnostics-ma" class="nav-link" data-scroll-target="#w-06-timeseries-diagnostics-ma">W-06-Timeseries-Diagnostics-MA</a>
+  <ul class="collapse">
+  <li><a href="#moving-average-model" id="toc-moving-average-model" class="nav-link" data-scroll-target="#moving-average-model">Moving Average Model</a>
+  <ul class="collapse">
+  <li><a href="#invertibility" id="toc-invertibility" class="nav-link" data-scroll-target="#invertibility">Invertibility</a></li>
+  <li><a href="#model-identification" id="toc-model-identification" class="nav-link" data-scroll-target="#model-identification">Model Identification</a></li>
+  <li><a href="#parameter-identification" id="toc-parameter-identification" class="nav-link" data-scroll-target="#parameter-identification">Parameter Identification</a></li>
+  </ul></li>
+  <li><a href="#arma-models" id="toc-arma-models" class="nav-link" data-scroll-target="#arma-models">ARMA Models</a>
+  <ul class="collapse">
+  <li><a href="#definition" id="toc-definition" class="nav-link" data-scroll-target="#definition">Definition</a></li>
+  <li><a href="#order-identification" id="toc-order-identification" class="nav-link" data-scroll-target="#order-identification">Order Identification</a></li>
+  <li><a href="#fitting-arma-models" id="toc-fitting-arma-models" class="nav-link" data-scroll-target="#fitting-arma-models">Fitting ARMA Models</a></li>
+  </ul></li>
+  <li><a href="#key-properties-of-models" id="toc-key-properties-of-models" class="nav-link" data-scroll-target="#key-properties-of-models">Key Properties of Models</a></li>
   </ul></li>
   </ul>
 <div class="quarto-alternate-formats"><h2>Other Formats</h2><ul><li><a href="rtp_notes.pdf"><i class="bi bi-file-pdf"></i>PDF</a></li></ul></div></nav>
@@ -1261,6 +1307,263 @@ Note
 </div>
 </div>
 <p>Generalization: In general, we can show that the autocorrelation function of an <span class="math inline">MA(q)</span> vanishes for all lags larger than <span class="math inline">q</span>.</p>
+</section>
+</section>
+<section id="w-06-timeseries-diagnostics-ma" class="level1">
+<h1>W-06-Timeseries-Diagnostics-MA</h1>
+<section id="moving-average-model" class="level2">
+<h2 class="anchored" data-anchor-id="moving-average-model">Moving Average Model</h2>
+<p>A moving average MA(q) model is a model in the form</p>
+<p><span class="math display">
+X_t = E_t + \beta_1 E_{t-1} + \beta_2 E_{t-2} + \dots + \beta_q E_{t-q}
+</span></p>
+<p>with the time series <span class="math inline">E_t</span> of innovations. The ACF displays cutoff and PACF displays fast decay. In general, we can show that the autocorrelation function of an <span class="math inline">MA(q)</span> vanishes for all lags larger than <span class="math inline">q</span>.</p>
+<section id="invertibility" class="level3">
+<h3 class="anchored" data-anchor-id="invertibility">Invertibility</h3>
+<p>An <span class="math inline">MA(q)</span> model is invertible if the absolute value of the roots of the characteristic polynomial are larger than <span class="math inline">1</span>. Invertible <span class="math inline">MA(q)</span> processes can be expressed as <span class="math inline">AR(∞)</span> processes.</p>
+</section>
+<section id="model-identification" class="level3">
+<h3 class="anchored" data-anchor-id="model-identification">Model Identification</h3>
+<p><span class="math inline">MA(q)</span> models are (weakly) stationary, display clear cut-off in the ACF and PACF displays a fast decaying or a damped sinusoid behaviour.</p>
+<div class="callout callout-style-simple callout-none no-icon">
+<div class="callout-body d-flex">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-body-container">
+<p>If these conditions are met, a MA(q) model may be a good choice.</p>
+</div>
+</div>
+</div>
+<div class="cell">
+<details open="" class="code-fold">
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb36"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb36-1"><a href="#cb36-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Let us simulate an MA(3) process</span></span>
+<span id="cb36-2"><a href="#cb36-2" aria-hidden="true" tabindex="-1"></a>data<span class="ot">&lt;-</span><span class="fu">arima.sim</span>(<span class="at">n=</span><span class="dv">1000</span>,<span class="fu">list</span>(<span class="at">ma=</span><span class="fu">c</span>(<span class="fl">0.6</span>,<span class="fl">0.4</span>,<span class="fl">0.2</span>)))</span>
+<span id="cb36-3"><a href="#cb36-3" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(data)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="rtp_notes_files/figure-html/unnamed-chunk-27-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+<div class="cell">
+<details open="" class="code-fold">
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb37"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb37-1"><a href="#cb37-1" aria-hidden="true" tabindex="-1"></a><span class="fu">acf</span>(data)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="rtp_notes_files/figure-html/unnamed-chunk-28-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+<div class="cell">
+<details open="" class="code-fold">
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb38"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb38-1"><a href="#cb38-1" aria-hidden="true" tabindex="-1"></a><span class="fu">pacf</span>(data)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="rtp_notes_files/figure-html/unnamed-chunk-29-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+</section>
+<section id="parameter-identification" class="level3">
+<h3 class="anchored" data-anchor-id="parameter-identification">Parameter Identification</h3>
+<p>The parameters of an <span class="math inline">MA(q)</span> model can be estimated with:</p>
+<ul>
+<li>Yule-Walker equations: As in the case of the <span class="math inline">AR(p)</span> processes, the parameters of <span class="math inline">MA(q)</span> processes can also be estimated by the Yule-Walker equations (after a global mean has been subtracted).</li>
+<li>Conditional sum of squares: <code>arima(data, order=c(…), method=“CSS”)</code></li>
+<li>Maximum-likelihood estimation (default method in R): <code>arima(data, order=c(…),method=“CSS-MLE”)</code></li>
+</ul>
+</section>
+</section>
+<section id="arma-models" class="level2">
+<h2 class="anchored" data-anchor-id="arma-models">ARMA Models</h2>
+<p>An <span class="math inline">ARMA(p,q)</span> process combines an <span class="math inline">AR(p)</span> and a <span class="math inline">MA(q)</span> process</p>
+<p><span class="math display">
+X_t = \alpha_1 X_{t-1} + \dots + \alpha_p X_{t-p} + E_t + \beta_1 E_{t-1} + \dots + \beta_q E_{t-q}
+</span></p>
+<section id="definition" class="level3">
+<h3 class="anchored" data-anchor-id="definition">Definition</h3>
+<ul>
+<li>Stationarity An <span class="math inline">ARMA(p,q)</span> model is stationary if the absolute value of the roots of characteristic polynom is larger than 1. &gt; Note: Analogy to the <span class="math inline">AR(p)</span> process</li>
+<li>Invertability An <span class="math inline">ARMA(p,q)</span> model is invertible if the absolute value of the roots of characteristic polynom is larger than 1. &gt; Note: Analogy to the <span class="math inline">MA(q)</span> process</li>
+<li>Consequence: Any stationary and invertible <span class="math inline">ARMA(p,q)</span> model can either be rewritten in the form of an <span class="math inline">AR(∞)</span> or an <span class="math inline">MA(∞)</span> model.</li>
+</ul>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Note
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>In practise <span class="math inline">ARMA(p,q)</span> models are preferred because they require fewer parameters.</p>
+</div>
+</div>
+<div class="cell">
+<details open="" class="code-fold">
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb39"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb39-1"><a href="#cb39-1" aria-hidden="true" tabindex="-1"></a>data<span class="ot">&lt;-</span><span class="fu">arima.sim</span>(<span class="at">n=</span><span class="dv">250</span>,<span class="fu">list</span>(<span class="at">ar=</span><span class="fu">c</span>(<span class="fl">1.1</span>,<span class="sc">-</span><span class="fl">0.5</span>),<span class="at">ma=</span><span class="fu">c</span>(<span class="fl">0.4</span>)))</span>
+<span id="cb39-2"><a href="#cb39-2" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(data)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="rtp_notes_files/figure-html/unnamed-chunk-30-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+<div class="cell">
+<details open="" class="code-fold">
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb40"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb40-1"><a href="#cb40-1" aria-hidden="true" tabindex="-1"></a><span class="fu">acf</span>(data)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="rtp_notes_files/figure-html/unnamed-chunk-31-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+<div class="cell">
+<details open="" class="code-fold">
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb41"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb41-1"><a href="#cb41-1" aria-hidden="true" tabindex="-1"></a><span class="fu">pacf</span>(data)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="rtp_notes_files/figure-html/unnamed-chunk-32-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+</section>
+<section id="order-identification" class="level3">
+<h3 class="anchored" data-anchor-id="order-identification">Order Identification</h3>
+<p>Generic workflow for fitting:</p>
+<ul>
+<li>Is the model stationary?</li>
+<li>Do the properties of (P)ACF match?</li>
+<li>Which orders <span class="math inline">p</span>,<span class="math inline">q</span> could be cut off in the (P)ACF?</li>
+</ul>
+<blockquote class="blockquote">
+<p>Note: Even with theoretical (P)ACF the identification of the cut-off can be challenging.</p>
+</blockquote>
+</section>
+<section id="fitting-arma-models" class="level3">
+<h3 class="anchored" data-anchor-id="fitting-arma-models">Fitting ARMA Models</h3>
+<ul>
+<li>Conditional sum of squares: Applicable for any invertible <span class="math inline">ARMA(p,q)</span> process <code>arima(data, order=c(…), method=«CSS»)</code></li>
+<li>Maximum likelihood estimation: Performs maximum likelihood estimation after CSS-process <code>arima(…, order=c(…), method="CSS-ML")</code></li>
+</ul>
+<div class="cell">
+<details open="" class="code-fold">
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb42"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb42-1"><a href="#cb42-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(fpp2)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output cell-output-stderr">
+<pre><code>── Attaching packages ──────────────────────────────────────────── fpp2 2.5.1 ──</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>✔ ggplot2   4.0.1     ✔ fma       2.5  
+✔ forecast  9.0.2     ✔ expsmooth 2.3  </code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code></code></pre>
+</div>
+<details open="" class="code-fold">
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb46"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb46-1"><a href="#cb46-1" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(<span class="fu">log</span>(sunspotarea))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="rtp_notes_files/figure-html/unnamed-chunk-33-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+<div class="cell">
+<details open="" class="code-fold">
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb47"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb47-1"><a href="#cb47-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(forecast)</span>
+<span id="cb47-2"><a href="#cb47-2" aria-hidden="true" tabindex="-1"></a>model <span class="ot">&lt;-</span> <span class="fu">auto.arima</span>(<span class="fu">log</span>(sunspotarea), <span class="at">max.p =</span> <span class="dv">10</span>, <span class="at">max.q =</span> <span class="dv">10</span>, <span class="at">stationary =</span> <span class="cn">TRUE</span>)</span>
+<span id="cb47-3"><a href="#cb47-3" aria-hidden="true" tabindex="-1"></a>model</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output cell-output-stdout">
+<pre><code>Series: log(sunspotarea) 
+ARIMA(2,0,1) with non-zero mean 
+
+Coefficients:
+         ar1      ar2      ma1    mean
+      1.4834  -0.7710  -0.5132  6.1885
+s.e.  0.0728   0.0605   0.0953  0.0983
+
+sigma^2 = 0.4794:  log likelihood = -147.06
+AIC=304.12   AICc=304.56   BIC=318.86</code></pre>
+</div>
+</div>
+<div class="cell">
+<details open="" class="code-fold">
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb49"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb49-1"><a href="#cb49-1" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(<span class="fu">resid</span>(model))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="rtp_notes_files/figure-html/unnamed-chunk-35-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+<div class="cell">
+<details open="" class="code-fold">
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb50"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb50-1"><a href="#cb50-1" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(sunspotarea)</span>
+<span id="cb50-2"><a href="#cb50-2" aria-hidden="true" tabindex="-1"></a><span class="fu">lines</span>(<span class="fu">exp</span>(<span class="fu">log</span>(sunspotarea)<span class="sc">-</span><span class="fu">resid</span>(model)),<span class="at">col=</span><span class="st">"red"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="rtp_notes_files/figure-html/unnamed-chunk-36-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+<section id="advantages-1" class="level4">
+<h4 class="anchored" data-anchor-id="advantages-1">Advantages</h4>
+<p>Estimates all parameters above and provides error estimates.</p>
+</section>
+<section id="disadvantage" class="level4">
+<h4 class="anchored" data-anchor-id="disadvantage">Disadvantage</h4>
+<p>Works for any distribution of the innovation. For distributions that deviate strongly from Gaussian type, results may be unreliable.</p>
+</section>
+</section>
+</section>
+<section id="key-properties-of-models" class="level2">
+<h2 class="anchored" data-anchor-id="key-properties-of-models">Key Properties of Models</h2>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="img/model_props.png" class="img-fluid figure-img"></p>
+<figcaption>Model Properties</figcaption>
+</figure>
+</div>
 
 
 </section>

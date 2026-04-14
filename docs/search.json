@@ -1883,6 +1883,27 @@
     "text": "Moving Average Models (MA)\nA moving average MA(q) model is a model in the form\n\nX_t = E_t + \\beta_1 E_{t-1} + \\beta_2 E_{t-2} + \\dots + \\beta_q E_{t-q}\n\nwith the time series E_t of innovations.\n\n\n\n\n\n\nNote\n\n\n\nA moving average model does not have an explicit reference to previous values; only the innovation parts are considered.\n\n\n\n\nCode\nset.seed(42)\n\n#MA(2)\nplot(arima.sim(n=100,list(ma=c(2,0.4))))\n\n\n\n\n\n\n\n\n\n\n\nCode\nplot(ARMAacf(ma=c(2,0.4),lag.max=20),type=\"h\",ylab=\"ACF\")\n\n\n\n\n\n\n\n\n\n\n\nCode\nplot(ARMAacf(ma=c(2,0.4),pacf=T,lag.max=20),type=\"h\",ylab=\"PACF\")\n\n\n\n\n\n\n\n\n\nGeneralization: In general, we can show that the autocorrelation function of an MA(q) vanishes for all lags larger than q."
   },
   {
+    "objectID": "fs26/rtp/rtp_notes.html#moving-average-model",
+    "href": "fs26/rtp/rtp_notes.html#moving-average-model",
+    "title": "Discrete Response, Time Series and Panel Data - Notes",
+    "section": "Moving Average Model",
+    "text": "Moving Average Model\nA moving average MA(q) model is a model in the form\n\nX_t = E_t + \\beta_1 E_{t-1} + \\beta_2 E_{t-2} + \\dots + \\beta_q E_{t-q}\n\nwith the time series E_t of innovations. The ACF displays cutoff and PACF displays fast decay. In general, we can show that the autocorrelation function of an MA(q) vanishes for all lags larger than q.\n\nInvertibility\nAn MA(q) model is invertible if the absolute value of the roots of the characteristic polynomial are larger than 1. Invertible MA(q) processes can be expressed as AR(∞) processes.\n\n\nModel Identification\nMA(q) models are (weakly) stationary, display clear cut-off in the ACF and PACF displays a fast decaying or a damped sinusoid behaviour.\n\n\n\n\n\n\nIf these conditions are met, a MA(q) model may be a good choice.\n\n\n\n\n\nCode\n# Let us simulate an MA(3) process\ndata&lt;-arima.sim(n=1000,list(ma=c(0.6,0.4,0.2)))\nplot(data)\n\n\n\n\n\n\n\n\n\n\n\nCode\nacf(data)\n\n\n\n\n\n\n\n\n\n\n\nCode\npacf(data)\n\n\n\n\n\n\n\n\n\n\n\nParameter Identification\nThe parameters of an MA(q) model can be estimated with:\n\nYule-Walker equations: As in the case of the AR(p) processes, the parameters of MA(q) processes can also be estimated by the Yule-Walker equations (after a global mean has been subtracted).\nConditional sum of squares: arima(data, order=c(…), method=“CSS”)\nMaximum-likelihood estimation (default method in R): arima(data, order=c(…),method=“CSS-MLE”)"
+  },
+  {
+    "objectID": "fs26/rtp/rtp_notes.html#arma-models",
+    "href": "fs26/rtp/rtp_notes.html#arma-models",
+    "title": "Discrete Response, Time Series and Panel Data - Notes",
+    "section": "ARMA Models",
+    "text": "ARMA Models\nAn ARMA(p,q) process combines an AR(p) and a MA(q) process\n\nX_t = \\alpha_1 X_{t-1} + \\dots + \\alpha_p X_{t-p} + E_t + \\beta_1 E_{t-1} + \\dots + \\beta_q E_{t-q}\n\n\nDefinition\n\nStationarity An ARMA(p,q) model is stationary if the absolute value of the roots of characteristic polynom is larger than 1. &gt; Note: Analogy to the AR(p) process\nInvertability An ARMA(p,q) model is invertible if the absolute value of the roots of characteristic polynom is larger than 1. &gt; Note: Analogy to the MA(q) process\nConsequence: Any stationary and invertible ARMA(p,q) model can either be rewritten in the form of an AR(∞) or an MA(∞) model.\n\n\n\n\n\n\n\nNote\n\n\n\nIn practise ARMA(p,q) models are preferred because they require fewer parameters.\n\n\n\n\nCode\ndata&lt;-arima.sim(n=250,list(ar=c(1.1,-0.5),ma=c(0.4)))\nplot(data)\n\n\n\n\n\n\n\n\n\n\n\nCode\nacf(data)\n\n\n\n\n\n\n\n\n\n\n\nCode\npacf(data)\n\n\n\n\n\n\n\n\n\n\n\nOrder Identification\nGeneric workflow for fitting:\n\nIs the model stationary?\nDo the properties of (P)ACF match?\nWhich orders p,q could be cut off in the (P)ACF?\n\n\nNote: Even with theoretical (P)ACF the identification of the cut-off can be challenging.\n\n\n\nFitting ARMA Models\n\nConditional sum of squares: Applicable for any invertible ARMA(p,q) process arima(data, order=c(…), method=«CSS»)\nMaximum likelihood estimation: Performs maximum likelihood estimation after CSS-process arima(…, order=c(…), method=\"CSS-ML\")\n\n\n\nCode\nlibrary(fpp2)\n\n\n── Attaching packages ──────────────────────────────────────────── fpp2 2.5.1 ──\n\n\n✔ ggplot2   4.0.1     ✔ fma       2.5  \n✔ forecast  9.0.2     ✔ expsmooth 2.3  \n\n\n\n\n\nCode\nplot(log(sunspotarea))\n\n\n\n\n\n\n\n\n\n\n\nCode\nlibrary(forecast)\nmodel &lt;- auto.arima(log(sunspotarea), max.p = 10, max.q = 10, stationary = TRUE)\nmodel\n\n\nSeries: log(sunspotarea) \nARIMA(2,0,1) with non-zero mean \n\nCoefficients:\n         ar1      ar2      ma1    mean\n      1.4834  -0.7710  -0.5132  6.1885\ns.e.  0.0728   0.0605   0.0953  0.0983\n\nsigma^2 = 0.4794:  log likelihood = -147.06\nAIC=304.12   AICc=304.56   BIC=318.86\n\n\n\n\nCode\nplot(resid(model))\n\n\n\n\n\n\n\n\n\n\n\nCode\nplot(sunspotarea)\nlines(exp(log(sunspotarea)-resid(model)),col=\"red\")\n\n\n\n\n\n\n\n\n\n\nAdvantages\nEstimates all parameters above and provides error estimates.\n\n\nDisadvantage\nWorks for any distribution of the innovation. For distributions that deviate strongly from Gaussian type, results may be unreliable."
+  },
+  {
+    "objectID": "fs26/rtp/rtp_notes.html#key-properties-of-models",
+    "href": "fs26/rtp/rtp_notes.html#key-properties-of-models",
+    "title": "Discrete Response, Time Series and Panel Data - Notes",
+    "section": "Key Properties of Models",
+    "text": "Key Properties of Models\n\n\n\nModel Properties"
+  },
+  {
     "objectID": "fs26/rtp/rtp_exercises.html",
     "href": "fs26/rtp/rtp_exercises.html",
     "title": "Discrete Response, Time Series and Panel Data - Exercises",
@@ -2441,6 +2462,13 @@
     "title": "Data Collection, Integration and Preprocessing - Notes",
     "section": "",
     "text": "For web scraping, in Switzerland we follow two restrictions:\n\nNew Federal Act on Data Protection nFADP (in effect since September 1st 2023).\nThe international convention to scrape only pages allowed by the owner in the robots.txt. A widely accepted convention for robots.txt is given by Google.\n\n\n\n\n\n\n\nWarning\n\n\n\nNever scrape personalized data."
+  },
+  {
+    "objectID": "fs26/devops/devops_exercises.html",
+    "href": "fs26/devops/devops_exercises.html",
+    "title": "DevOps - Exercises",
+    "section": "",
+    "text": "coming soon…"
   },
   {
     "objectID": "hs25/doe/doe_notes.html",
