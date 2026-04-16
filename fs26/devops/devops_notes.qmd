@@ -238,3 +238,302 @@ At its core, Functional Programming (FP) is a programming paradigm that treats c
 1. **Pure Functions**: Pure functions are functions that have no side effects.
 2. **Immutable Data**: Do not modify data in-place.
 3. **Lazy Evaluation**: Only evaluate as expression when we need to operate on it.
+
+# Lecture 02
+
+## Branching
+
+Branches allow us to diverge from the main line of work and to develop something in isolation. We can work on various new features, without messing up the main line of work. Git uses the HEAD pointer to point to the branch.
+
+
+```bash
+git branch # list all local branches
+git branch -a # list all branches (local and in repository)
+git switch <name> # switch between branches
+```
+
+## Merging
+
+Merging is the act of bringing to branches together. There are two types of merges.
+
+### Fast-Forward Merge
+
+When the two branches have not diverged from each other and there is a direct linear path from the target branch to the source branch, the merge is pretty simple. Just bring the pointer of the target branch to the latest commit of the source branch.
+
+> Note: By default, git will first try to do a Fast-Forward merge. If this is not possible, a 3-Way merge is executed.
+
+### 3-Way Merge
+
+The two branches have diverged from each other. A merge creates a new commit (merge commit) that combines the changes from the two branches. It is called 3-Way because it is based on three commits: The common ancestor and the latest two commits of the branches.
+
+![3-Way Merge](img/3_way_merge.png)
+
+
+```bash
+git switch main # go to main first
+git merge branch-name
+```
+
+### Merge Conflicts
+
+When git encounters a problem during merging, we get a merge conflict. This happens, for example, when the same file has been changed in both branches. Git then stops the merge process and asks for support to solve the conflict. To solve the merge conflict, decide which code you want to keep and delete the rest.
+
+> Note. Use `git merge --abort` in case you want to abort the merge.
+
+### The Problem of Merging
+
+The problem of merging with merge commits is the „non linear" history. As soon as we have multiple branches and merge commits, the history gets hard to read. By rebasing the „base“ commit of the branch to the current commit, we can use a Fast-Forward merge and get a linear commit history.
+
+
+```bash
+git switch branch-name
+git rebase main
+```
+
+Now the feature-branch originates from the latest commit in the main branch.
+
+
+::: {.callout-caution}
+Be causious with rebasing, because it rewrites history! Under the hood, git has to create new commits (since commits cannot be modified) and overwrites the previous ones.
+:::
+
+Best is to use rebasing only for local branches. As soon as the branch has been pushed to remote, don’t use rebasing anymore. Except you know exactly what you’re doing.
+
+## Fetching, Pulling & Pushing
+
+### The Remote Repository
+
+Besides recording code changes, git allows us to collaborate. To share local changes with others, there needs to be a remote repository every contributor has access to. The remote repository can be a private server or a cloud service. Most common is GitHub.
+
+
+```bash
+git remote # show all remote repositories (usually just one, "origin")
+git remote -v # more details
+```
+
+In order to keep track of the branches in the remote repository, git uses remote tracking branches. Despite it’s called branch, it’s not like a regular branch (we cannot check it out, for example). They're just there to let us know where the remote pointers are pointing to.
+
+### Fetching
+
+The remote repository is not connected to the local repository, in the sense, that any changes to the remote are NOT automatically tracked in the local repository. Changes have to be downloaded with the fetch command. The remote changes are now locally saved (with the origin/main pointer pointing to it). However, the local main pointer is not updated by the fetch command. Therefore, we have to do a merge in the same way as we would merge a branch (git merge origin/main).
+
+
+::: {.callout-note}
+
+A shortcut to fetch and merge changes from the remote repository is git pull (pull = fetch + merge).
+
+:::
+
+### Pushing
+
+Upload the local changes to the remote repository.
+
+
+```bash
+git push origin main
+git push # 'origin' is optional, if there is just one remote. 'main' is optional when we are on main branch
+```
+
+### Sharing Branches
+
+Every local branch may be linked to a remote branch. This „upstream“ branch tells git, where to push the changes to.
+
+
+```bash
+# push a new branch (create an upstream branch)
+git push -u origin branch-name
+
+# delete a remote branch
+git push -d origin branch-name
+```
+
+## Pull Requests
+
+When we collaborate with others on a project, it is good practice to use pull request for merging feature/bugfix branches. Instead of just merging the changes into the main branch, we would like other to review and comment our code before merging. In the case where the reviewer has requested changes, the PR-owner can update the pull request by adding commits to the branch.
+
+## Forking
+
+When you want to contribute to a open-source project, you usually don't have push access to the repository. So, you cannot create branches for a pull request. In this case, you can fork the repository. By forking a repository, a complete copy of the repo is created in your account. It allows you to make changes to the project independently and experiment without affecting the original repository. Once you’ve made changes in your forked repo, you can submit a pull request to suggest those changes be merged into the original project. This is a common way to collaborate on open-source projects.
+
+### Syncing a Fork
+
+Despite having a complete copy of the original repository, your forked repo is still connected to the original one and you have several options to synchronize, when the original repo changed.
+
+> Note: The simplest way is to use the "Sync fork" button in the GitHub web UI.
+
+## Tags
+
+### Annotated & Lightweight Tags
+
+A best practice is to consider Annotated tags as public, and Lightweight tags as private. Annotated tags store extra meta data such as: the tagger name, email, and date. This is important data for a public release. Lightweight tags are essentially 'bookmarks' to a commit, they are just a name and a pointer to a commit, useful for creating quick links to relevant commits.
+
+
+```bash
+# Create Lightweight Tag
+git tag tagname # set tag on current commit
+git tag tagname commit-id # set tag on specific commit
+
+# Create an Annotated Tag
+git tag -a tagname -m "Message"
+
+git tag # show all tags
+git tag -n # show tags with their messages
+
+# Delete Tag
+git tag -d  # delete tag
+```
+
+## Undo Changes
+
+### Restore
+
+Changes made to the files in the working directory or the staging are can be reverted. This command takes the copy from the „next“ environment (working dir - staging area - commit ) and replaces the current version.
+
+> Note: When nothing has been staged (git add), then staging area = last commit.
+
+
+```bash
+git restore file1.txt
+git restore .
+
+# restore files in the staging area by using the latest commit version
+git restore --staged file1.txt
+```
+
+### Clean
+
+However, git restore does not remove untracked files. To overwrite everything use git clean.
+
+
+```bash
+git clean -f # force is required
+git clean -fd # remove whole directories
+```
+
+## Restoring
+
+Assume we’ve deleted a file and removed it from git many commits ago. So, git restore alone won't bring it back.
+
+
+```bash
+# Step 1: Find the last commit of that file (or any other commit containing the file)
+git log -- file1.txt
+
+# Step 2: Restore the file from this commit
+git restore --source=d15728b file1.txt
+```
+
+## Undo Commits/Merges
+
+
+::: {.callout-important}
+
+The Golden Rule: Don't change the public history! If your commit is already pushed to the remote repository, use git revert instead.
+
+:::
+
+### Reset
+
+With git reset we can delete commits. This includes also merge commits, so that we can undo a merge. What reset actually does is to set the HEAD and MASTER pointer to a previous commit. The latest commit is still there, but it is a lose end now. Git will delete lose ends automatically during cleanup.
+
+
+```bash
+# Just set HEAD and MASTER pointer to this commit (working and staging dir stay the same)
+git reset --soft commit-id
+git reset --soft HEAD~1
+```
+
+### Recovery
+
+What when we accidentally reset the commit? As long as git hasn’t deleted the lose ends, we can recover the state.
+
+
+```bash
+# Step 1: Find out the commit-id of the "lose end"
+git reflog # shows the "reference log" = the log of how the HEAD pointer was moved
+
+# Step 2: Recover
+git reset --hard commit-id # commit id of "lose end"
+git reset --hard HEAD@{1} # alternatively use this
+```
+
+### Revert Commits/Merges
+
+When the changes have already been pushed to the remote, it is not a good idea to delete the commit. Instead, create a commit that reverts the commit.
+
+
+```bash
+git revert HEAD # or commit-id
+
+# In case of merge commits
+git revert -m 1 HEAD # 1st parent
+```
+
+## Scrum
+
+Scrum is an agile project management framework. It was originally developed for software development but has since been applied to other fields. The process is divided into small, manageable units called "sprints", typically lasting 2-4 weeks. The team meets daily to discuss progress and roadblocks. At the end of each sprint, the team reviews the work completed and plans for the next sprint. The goal is to create learning loops to quickly gather and integrate customer feedback. Over the next few chapters we will discuss Scrum in more detail.
+
+### Product Owner
+
+The main job of the Product Owner is to bring the product vision to life. This person represents the business or the customer community and is responsible for working with the customers to determine what features will be in the product release. The Product Owner defines the priorities of the product backlog, ensuring that the development team is working on the most valuable features. They communicate the vision of the product to the development team, negotiates the scope and timeline and is responsible for the profitability of the product.
+
+### Scrum Master
+
+The Scrum Master is the Scrum expert, who coaches the developers, the product owner and the business on the Scrum process. They are responsible for managing the process of how information is exchanged. Unlike a traditional project manager, the Scrum Master does not provide day-to-day direction to the team and does not assign tasks to individuals. Instead, the Scrum Master guides, coaches, and supports the team in following and improving the Scrum practices. They also help remove any obstacles or impediments that the team might be facing in their progress.
+
+### Development Team
+
+The Development Team is responsible for delivering potentially shippable increments of the product at the end of each Sprint. It is usually a self-organized team, which decides who does what, when and how. Members participate in all Scrum events, including the Daily, Sprint Planning, Sprint Review and Sprint Retrospective. The Development Team is cross-functional, meaning it includes all the expertise necessary to deliver the product increment, and it's accountable as a whole for the success of each Sprint.
+
+### Product Backlog
+
+The Product Backlog is a list of todo-tasks, called Product Backlog Items (PBI). The backlog is maintained by the Product Owner, who adds new tasks and prioritizes existing ones on a regular basis. Prioritization of tasks may change, as customers requirements and the market situation evolve over time.
+
+#### Product Backlog Item (PBI)
+
+A PBI is a single element inside the Product Backlog. It is a todo-task. Each PBI should have Acceptance Criteria. They are a formal description of what is required for a task to be completed/done. Only when all acceptance criteria are fulfilled, a task may be considered as complete/done.
+
+![Example PBI](img/example_pbi.png)
+
+#### Sprint Backlog
+
+The Sprint Backlog is a subset of the Product Backlog, which contains all tasks that were selected by the development team for implementation in the current sprint cycle. It is defined in the Sprint Planning, but it may change during the sprint.
+
+#### Increment
+
+Is the usable end-product from a sprint. This end-product does not have to be a new release, it is rather a stepping stone towards the product goal. Multiple Increments may be created within a Sprint. They can result from a single task or multiple tasks together, but only if the tasks are completed.
+
+## Sprint Planning
+
+Every sprint starts with the Sprint Planning. During this meeting, the product owner and the development team decide together which task should be done in the sprint (scope) by moving the tasks from the Product Backlog to the Sprint Backlog. Moreover, a Sprint Goal is defined. The Product Owner guides through the meeting. At the end, each scrum member needs to be clear what the increment of the sprint will be.
+
+> Note: The Product Owner leads the Sprint Planning.
+
+## Daily Scrum
+
+As the name suggests, the Daily Scrum meeting is held every day, typically at the same time and place. It should not last longer than 15 minutes. During the Daily, each team member provides updates on what they accomplished the previous day, what they plan to work on that day and any obstacles or issues they are facing. The purpose of this meeting is to promote communication, identify potential issues early and ensure the team is aligned and moving towards the sprint goal.
+
+> Note: The Scrum Master leads the Daily Scrum.
+
+## Backlog Grooming / Refinement
+
+Updating the product backlog regularly, helps prioritizing the right work. During this ceremony the Product Owner together with Development Team and Scrum Master review and discuss current and new backlog items. Delete items that aren't relevant anymore, add new ones and divide tasks that are too large into smaller items.
+
+> Note: The Product Owner leads the Backlog Grooming / Refinement.
+
+## Sprint Review
+
+The Sprint Review is a collaborative event held at the end of each sprint, bringing together the Scrum Team and stakeholders to inspect the increment and discuss progress. Rather than a formal product demonstration, it is an open conversation — covering what was completed, what wasn't, obstacles encountered, and what that means for the path ahead. The entire Scrum Team shares ownership of the event. The Product Owner clarifies which items are done and facilitates discussion around the product backlog, while the Scrum Master supports the team in keeping the event focused and within its timebox. The Sprint Review is one of the key opportunities for transparency and adaptation in Scrum. Its output is a revised product backlog that reflects new insights, stakeholder feedback, and any shifts in priority.
+
+> Note: The Product Owner leads the Sprint Review
+
+## Sprint Retrospective
+
+The Sprint Retrospective is usually held after the Sprint Review and before the next Sprint Planning. It is a chance for the Scrum Team to reflect on the past sprint, discussing what went well, what didn't, and how they can improve in the next sprint. It fosters a culture of continuous improvement, encouraging the team to enhance their work processes and efficiency. The Scrum Master leads the meeting, ensuring a safe and open environment for the team to share their thoughts and ideas. The outcomes of this meeting often lead to actionable commitments for improvement in the next sprint.
+
+> Note: The Scrum Master leads the Sprint Retrospective.
+
+
+## Kanban
+
+Kanban is more a visual project management framework that centers around the Kanban-Board and the concept of "flow". The main goal is to identify potential bottlenecks in the process and fix them so work can flow through it cost-effectively at an optimal speed and throughput. In contrast to Scrum, it doesn't use sprints, instead, tasks flow continuously. Kanban is commonly used in areas where work is less "plannable" (e.g. a service line).
