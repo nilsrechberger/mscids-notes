@@ -11,3 +11,67 @@ date: 2026-04-10
 1. A database is an organized and structured set of records stored and managed for a common purpose.
 2. Big data primarily refers to data sets that are too large or complex to be dealt with by traditional data-processing software.
 3. Enable multi-user operations: Manage transactions, query and manipulate data sets, ensure data consistency and integrity automatically and retrieve large data quantities.
+
+## Introductory Example: Movie Recommendation Dashboard
+
+### 2.
+
+Edit the SQL code behind the Movie Recommendation question so that only 10 Movies are recommended.
+
+```sql
+SELECT MovieID, Title, COUNT(*) AS N5R
+FROM Ratings
+WHERE UserID IN (
+SELECT UserId AS TargetGroup
+FROM Ratings 
+WHERE MovieID = ( SELECT MovieID
+ 		FROM Movies
+ 		WHERE {{filter}} LIMIT 1 )
+ )
+GROUP BY MovieID
+ORDER BY COUNT(*) DESC
+LIMIT 10; -- Change value here!
+```
+
+### 3. 
+
+Edit the SQL code behind the Genres question so that the genres are sorted by their corresponding number of movies from top to bottom.
+
+```sql
+SELECT Genres.Name, COUNT(*) as n_movies -- Set var name
+FROM Movies
+JOIN Movie_has_Genre USING (MovieID)
+JOIN Genres USING (GenreID)
+GROUP BY Genres.Name
+ORDER BY
+	n_movies DESC; -- Order by n_movies
+```
+
+### 4.
+
+Add a new chart to the dashboard that displays the development of movies per genre and per decade (10 year bins) between the 1950ies and the 2010s.
+
+```sql
+SELECT
+    Genres.Name AS Genre,
+    CAST(strftime('%Y', Release_date) / 10 AS INT) * 10 AS Decade,
+    COUNT(*) AS n_movies
+FROM
+    Movies
+JOIN
+    Movie_has_Genre USING (MovieID)
+JOIN
+    Genres USING (GenreID)
+WHERE 
+    strftime('%Y', Release_date) BETWEEN '1950' AND '2019'
+GROUP BY
+    Genre, 
+    Decade
+ORDER BY 
+    Decade ASC, 
+    n_movies DESC;
+```
+
+::: {.callout}
+To achieve the correct visualisation, you need to edit the chat in Metabase itself.
+:::
