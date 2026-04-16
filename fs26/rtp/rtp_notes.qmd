@@ -673,3 +673,198 @@ Works for any distribution of the innovation. For distributions that deviate str
 
 ![Model Properties](img/model_props.png)
 
+# W-09-Timeseries-ARIMA-SARIMA
+
+## Sarima Models
+
+SARIMA stands for **S**easonal **A**utoregressive **I**ntegrated **M**oving **A**verage. It is an extension of the standard ARIMA model specifically designed to handle univariate time series data that contains a seasonal component. While ARIMA focuses on the relationship between points in time (trend), SARIMA adds a layer to account for cycles that repeat over specific intervals (e.g., monthly sales spikes or daily temperature changes).
+
+
+```{r}
+data("AirPassengers")
+acf(diff(diff(log(AirPassengers),lag=12)))
+```
+
+```{r}
+pacf(diff(diff(log(AirPassengers),lag=12)))
+```
+
+```{r}
+fit<-arima(log(AirPassengers),order=c(0,1,1),seasonal=c(0,1,1))
+fit
+```
+
+```{r}
+library(forecast)
+tsdisplay(fit$residuals)
+```
+
+```{r}
+fitAuto<-auto.arima(log(AirPassengers),ic="aic")
+fitAuto
+```
+
+> Note: The automated procedure selects the same model.
+
+### How to fit SARIMA Models?
+
+1. Estimate the seasonality period s visually. The order of differentiation D (for the seasonality part) is typically less or equal to 1.
+2. Check if another differentiation of lag 1 is required for stationarity. If yes, try d=1, else d=0.
+3. Analyse (P)ACF of the result 𝑍𝑡 of the two differentiations. Determine p,q from the short-lag behavior and P,Q from the multiple-of-the-period dependency.
+4. Fit the model with arima(data,order=c(p,d,q),seasonal=c(P,D,Q))
+5. Check the applicability of the model by analyzing the residuals (residuals should behave like (Gaussian) white noise).
+
+## Non-Linear Models
+
+Linear models are models that can be formulated as linear combination of different time series elements $X_t$ and errors/innovations $E_t$.
+
+> Note: An example are data with changing standard deviation.
+
+### Heteroscedasticity
+
+Heteroscedasticity occurs when the variance of the residuals (errors) in a model is not constant across all levels of the independent variables or across time.
+
+> Note: Heteroskedastic time series are not stationary, because the variance is not equal for all time points.
+
+## ARCH Models
+
+A time series 𝑋𝑡 is autoregressive conditional heteroskedastic of the order $p$ (abbreviated ARCH(p)) if it has the form:
+
+$$
+X_t = \sigma_t W_t \quad \text{with} \quad \sigma_t = \sqrt{\alpha_0 + \sum_{i=1}^{p} \alpha_i X_{t-i}^2}
+$$
+
+### Fitting ARCH Models
+
+```{r}
+#load SMI data
+data("EuStockMarkets")
+
+esm <- EuStockMarkets
+tmp <- EuStockMarkets[,2]
+smi <- ts(tmp, start=start(esm), freq=frequency(esm))
+lret.smi <- diff(log(smi))
+
+#perform fit
+library(tseries)
+fit<-garch(lret.smi, order=c(0,2))
+fit$coef
+```
+
+```{r}
+plot(lret.smi)
+```
+
+```{r}
+fit$fitted.values
+plot(fit$fitted.values[,0:1])
+```
+
+
+```{r}
+values<-fit$residuals
+acf(values^2,na.action=na.pass)
+```
+
+
+```{r}
+pacf(values^2,na.action=na.pass)
+```
+
+## Fundamentals of Forecasting
+
+Generally speaking, we are looking for the most likely next k values based on the first n observations.
+
+### Sources of Uncertainty in Forecasting
+
+Principal sources of uncertainty:
+
+1. Is the model of the past data also appropriate for the future (e.g. change of behavior, policy)?
+2. Did you choose the order of the ARMA(p,q) correctly?
+3. Are the fitting parameters in the model (sufficiently) accurate?
+4. How can you assess the contribution/variability of the innovation terms $E_t$?
+
+### Forecasting different Models
+
+#### $AR(1)$ processes
+
+For an $AR(1)$ model the forecasted value is just the last value times the fitting coefficient $\alpha_1$.
+
+> Note: Only the previous value is required.
+
+
+```{r}
+#Extract training set
+btrain<-window(beaver1[,3],1,100)
+#Fit AR(1) model with Burg's algorithm
+fit<-ar.burg(btrain,order=1)
+#Perform forecast of 14 steps
+forecast <- predict(fit, n.ahead=14)
+#Plot forecast
+plot(beaver1[,3], lty=3)
+lines(btrain, lwd=2)
+lines(forecast$pred, lwd=2, col="red")
+lines(forecast$pred+forecast$se*1.96, col="red")
+lines(forecast$pred-forecast$se*1.96, col="red")
+```
+
+
+#### $AR(p)$ models
+
+For an $AR(p)$ model the $p$-step forecast is $k$ steps ahead, the formula is calculated with the previous predictions. The prognosis intervals only consider the uncertainty of the (Gaussian) innovation. Other sources are neglected.
+
+### Forecastin $ARIMA$ Models
+
+Mathematically derivation of prediction more involved. However, everything is implemented in the predict function.
+
+
+```{r}
+#Read data
+t.url <- "http://stat.ethz.ch/Teaching/Datasets/WBL/foehre.dat"
+douglasfir <- ts(scan(t.url, skip=1), start=1107)
+train <- window(douglasfir, start=1107, end=1900)
+
+#Generate ARMA(4,1) model
+fit <- arima(train, order=c(4,0,1))
+
+# Predict 64 steps
+fc <- predict(fit, n.ahead=64)
+# Plot result
+plot(window(douglasfir, 1800, 1964), lty=3, ylab="")
+lines(train, lwd=1)
+lines(fc$pred, lwd=2, col="red")
+lines(fc$pred+fc$se*1.96, col="red")
+lines(fc$pred-fc$se*1.96, col="red")
+```
+
+### Forecast for time series with trend and seasonality
+
+If data are fit by an $SARIMA$ model, R takes care of all aspects of the
+forecast.
+
+
+```{r}
+#Load data
+lap<-log(AirPassengers)
+ltrain<-window(lap,1949,1959)
+
+#Perform fit
+fit<-arima(ltrain,order=c(0,1,1),seasonal=c(0,1,1))
+
+#Perform forecast
+fc <- predict(fit, n.ahead=24)
+
+#Plot everything
+plot(lap, lty=3,
+xlim=c(1955,1961),ylim=c(5.4,6.6),ylab="log(AP)")
+lines(ltrain, lwd=1)
+lines(fc$pred, lwd=2, col="red")
+lines(fc$pred+fc$se*1.96, col="red")
+lines(fc$pred-fc$se*1.96, col="red")
+```
+
+#### Features
+
+- The predicted values capture the trend and seasonality.
+- The prediction intervals will typically increase over time.
+- The prediction quality of the trend is not ascertained and may be poor.
