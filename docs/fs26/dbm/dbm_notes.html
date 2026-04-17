@@ -258,6 +258,23 @@ gtag('config', 'G-NZ8462CXQ1', { 'anonymize_ip': true});
   <li><a href="#database-application" id="toc-database-application" class="nav-link" data-scroll-target="#database-application">Database Application</a></li>
   </ul></li>
   </ul></li>
+  <li><a href="#session-2-database-modeling" id="toc-session-2-database-modeling" class="nav-link" data-scroll-target="#session-2-database-modeling">Session 2: Database Modeling</a>
+  <ul class="collapse">
+  <li><a href="#database-modeling" id="toc-database-modeling" class="nav-link" data-scroll-target="#database-modeling">Database Modeling</a>
+  <ul class="collapse">
+  <li><a href="#requirements-analysis" id="toc-requirements-analysis" class="nav-link" data-scroll-target="#requirements-analysis">Requirements Analysis</a></li>
+  <li><a href="#conceptual-modeling" id="toc-conceptual-modeling" class="nav-link" data-scroll-target="#conceptual-modeling">Conceptual Modeling</a></li>
+  <li><a href="#database-shema" id="toc-database-shema" class="nav-link" data-scroll-target="#database-shema">Database Shema</a></li>
+  </ul></li>
+  <li><a href="#table-defintion" id="toc-table-defintion" class="nav-link" data-scroll-target="#table-defintion">Table Defintion</a>
+  <ul class="collapse">
+  <li><a href="#entities" id="toc-entities" class="nav-link" data-scroll-target="#entities">Entities</a></li>
+  <li><a href="#relationships" id="toc-relationships" class="nav-link" data-scroll-target="#relationships">Relationships</a></li>
+  <li><a href="#the-entity-relationship-model" id="toc-the-entity-relationship-model" class="nav-link" data-scroll-target="#the-entity-relationship-model">The Entity Relationship Model</a></li>
+  </ul></li>
+  <li><a href="#redundancy-and-normal-forms-in-tables" id="toc-redundancy-and-normal-forms-in-tables" class="nav-link" data-scroll-target="#redundancy-and-normal-forms-in-tables">Redundancy and Normal Forms in Tables</a></li>
+  <li><a href="#normal-forms" id="toc-normal-forms" class="nav-link" data-scroll-target="#normal-forms">Normal Forms</a></li>
+  </ul></li>
   </ul>
 <div class="quarto-alternate-formats"><h2>Other Formats</h2><ul><li><a href="dbm_notes.pdf"><i class="bi bi-file-pdf"></i>PDF</a></li></ul></div></nav>
     </div>
@@ -359,9 +376,131 @@ gtag('config', 'G-NZ8462CXQ1', { 'anonymize_ip': true});
 <figcaption>Database Applications</figcaption>
 </figure>
 </div>
-
-
 </section>
+</section>
+</section>
+<section id="session-2-database-modeling" class="level1">
+<h1>Session 2: Database Modeling</h1>
+<section id="database-modeling" class="level2">
+<h2 class="anchored" data-anchor-id="database-modeling">Database Modeling</h2>
+<section id="requirements-analysis" class="level3">
+<h3 class="anchored" data-anchor-id="requirements-analysis">Requirements Analysis</h3>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="img/requ_analysis.png" class="img-fluid figure-img"></p>
+<figcaption>Requirement Analysis</figcaption>
+</figure>
+</div>
+</section>
+<section id="conceptual-modeling" class="level3">
+<h3 class="anchored" data-anchor-id="conceptual-modeling">Conceptual Modeling</h3>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="img/concept_modeling.png" class="img-fluid figure-img"></p>
+<figcaption>Conceptual Modeling</figcaption>
+</figure>
+</div>
+</section>
+<section id="database-shema" class="level3">
+<h3 class="anchored" data-anchor-id="database-shema">Database Shema</h3>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="img/db_shema.png" class="img-fluid figure-img"></p>
+<figcaption>Database Shema</figcaption>
+</figure>
+</div>
+</section>
+</section>
+<section id="table-defintion" class="level2">
+<h2 class="anchored" data-anchor-id="table-defintion">Table Defintion</h2>
+<p>A table or relation refers to a set of tuples (set of ordered, immutable objects) shown as a table.</p>
+<ul>
+<li>Table name: A table has a unambiguous name.</li>
+<li>Attribute name: Is unambiguous; denotes a specific column with the desired attribute.</li>
+<li>No column order: The attribute number is unlimited; the column order has no meaning.</li>
+<li>No row order: The tuple number in a table is arbitrary; the tuple order has no meaning.</li>
+<li>Identification key: One of the attributes or combination thereof unambiguously identifies the tuples in the table and is called the identification key</li>
+</ul>
+<section id="entities" class="level3">
+<h3 class="anchored" data-anchor-id="entities">Entities</h3>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="img/table_entity.png" class="img-fluid figure-img"></p>
+<figcaption>Table Entity</figcaption>
+</figure>
+</div>
+</section>
+<section id="relationships" class="level3">
+<h3 class="anchored" data-anchor-id="relationships">Relationships</h3>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="img/entity_relation.png" class="img-fluid figure-img"></p>
+<figcaption>Entity Relationship</figcaption>
+</figure>
+</div>
+</section>
+<section id="the-entity-relationship-model" class="level3">
+<h3 class="anchored" data-anchor-id="the-entity-relationship-model">The Entity Relationship Model</h3>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="img/entity_relation_model.png" class="img-fluid figure-img"></p>
+<figcaption>The Entity Relationship Model</figcaption>
+</figure>
+</div>
+</section>
+</section>
+<section id="redundancy-and-normal-forms-in-tables" class="level2">
+<h2 class="anchored" data-anchor-id="redundancy-and-normal-forms-in-tables">Redundancy and Normal Forms in Tables</h2>
+<p>Redundancy in tables can lead to anomalies in databases. An attribute is redundant if individual values of it can be omitted without any loss of information. Normal forms serve to avoid redundancy.</p>
+<blockquote class="blockquote">
+<p>Note: Anomalies = Insertion anomaly, mutation anomaly, deletion anomaly.</p>
+</blockquote>
+</section>
+<section id="normal-forms" class="level2">
+<h2 class="anchored" data-anchor-id="normal-forms">Normal Forms</h2>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 33%">
+<col style="width: 33%">
+<col style="width: 33%">
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: left;">Stage</th>
+<th style="text-align: left;">Key Focus</th>
+<th style="text-align: left;">Goal</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;"><strong>1NF</strong></td>
+<td style="text-align: left;">Atomicity</td>
+<td style="text-align: left;">Eliminate duplicate columns and multi-valued cells.</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><strong>2NF</strong></td>
+<td style="text-align: left;">Full Dependency</td>
+<td style="text-align: left;">Eliminate partial dependencies on the primary key.</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"><strong>3NF</strong></td>
+<td style="text-align: left;">Direct Dependency</td>
+<td style="text-align: left;">Eliminate dependencies between non-key columns.</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><strong>4NF</strong></td>
+<td style="text-align: left;">Multi-valued facts</td>
+<td style="text-align: left;">Isolate independent multi-valued relationships.</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"><strong>5NF</strong></td>
+<td style="text-align: left;">Reconstruction</td>
+<td style="text-align: left;">Minimize redundancy in complex many-to-many relationships.</td>
+</tr>
+</tbody>
+</table>
+
+
 </section>
 </section>
 

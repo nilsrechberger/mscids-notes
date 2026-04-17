@@ -1631,6 +1631,41 @@
     "text": "Task 01\nUsing R, generate a boxplot broken down by gender (variable sex). How can the boxplot be interpreted?\n\n\nCode\nlibrary(readxl)\n\ndata &lt;- read_excel(\"/home/nils/dev/mscids-notes/fs26/dq/data/HSE.xlsx\")\n\nboxplot(wtval ~ sex, data = data)\n\n\n\n\n\n\n\n\n\nWe can clearly se a difference between the two classes.\n\nTask 02\nWhat are the distributions of the following boxplots?\n\n\nAnswer\n\nVarriable A: Normal\nVarriable B: Right skewed\nVarriable C: Right skewed"
   },
   {
+    "objectID": "fs26/dq/dq_exercises.html#task-01-3",
+    "href": "fs26/dq/dq_exercises.html#task-01-3",
+    "title": "Data Quality - Notes",
+    "section": "Task 01",
+    "text": "Task 01\n\n\nCode\nif (!require(\"naniar\")) install.packages(\"naniar\", dependencies=TRUE)\n\n\nLoading required package: naniar\n\n\nCode\nif (!require(\"mice\")) install.packages(\"mice\", dependencies=TRUE)\n\n\nLoading required package: mice\n\n\n\nAttaching package: 'mice'\n\n\nThe following object is masked from 'package:stats':\n\n    filter\n\n\nThe following objects are masked from 'package:base':\n\n    cbind, rbind\n\n\nCode\nlibrary(naniar)\nlibrary(mice)\n\nhead(airquality)\n\n\n  Ozone Solar.R Wind Temp Month Day\n1    41     190  7.4   67     5   1\n2    36     118  8.0   72     5   2\n3    12     149 12.6   74     5   3\n4    18     313 11.5   62     5   4\n5    NA      NA 14.3   56     5   5\n6    28      NA 14.9   66     5   6\n\n\nCode\n# Missing pattern\nmd.pattern(airquality)\n\n\n\n\n\n\n\n\n\n    Wind Temp Month Day Solar.R Ozone   \n111    1    1     1   1       1     1  0\n35     1    1     1   1       1     0  1\n5      1    1     1   1       0     1  1\n2      1    1     1   1       0     0  2\n       0    0     0   0       7    37 44\n\n\nCode\n# Little’s test\nmcar_test(airquality)\n\n\n# A tibble: 1 × 4\n  statistic    df p.value missing.patterns\n      &lt;dbl&gt; &lt;dbl&gt;   &lt;dbl&gt;            &lt;int&gt;\n1      35.1    14 0.00142                4"
+  },
+  {
+    "objectID": "fs26/dq/dq_exercises.html#task-02-2",
+    "href": "fs26/dq/dq_exercises.html#task-02-2",
+    "title": "Data Quality - Notes",
+    "section": "Task 02",
+    "text": "Task 02\n\n\nCode\nif (!require(\"readxl\")) install.packages(\"readxl\", dependencies=TRUE)\nif (!require(\"tidyverse\")) install.packages(\"tidyverse\", dependencies=TRUE)\n\n\nLoading required package: tidyverse\n\n\n── Attaching core tidyverse packages ──────────────────────── tidyverse 2.0.0 ──\n✔ dplyr     1.1.4     ✔ readr     2.1.6\n✔ forcats   1.0.1     ✔ stringr   1.6.0\n✔ ggplot2   4.0.1     ✔ tibble    3.3.1\n✔ lubridate 1.9.4     ✔ tidyr     1.3.2\n✔ purrr     1.2.1     \n── Conflicts ────────────────────────────────────────── tidyverse_conflicts() ──\n✖ purrr::%||%()   masks base::%||%()\n✖ dplyr::filter() masks mice::filter(), stats::filter()\n✖ dplyr::lag()    masks stats::lag()\nℹ Use the conflicted package (&lt;http://conflicted.r-lib.org/&gt;) to force all conflicts to become errors\n\n\nCode\nif (!require(\"mice\")) install.packages(\"mice\", dependencies=TRUE)\n\nlibrary(readxl)\nlibrary(mice)\nlibrary(tidyverse)\n\ndata &lt;- read_excel(\"/home/nils/dev/mscids-notes/fs26/dq/data/grades.xlsx\")\n\n# Missing pattern\nmd.pattern(data)\n\n\n\n\n\n\n\n\n\n   Prefix Assignment Tutorial Midterm TakeHome Final  \n95      1          1        1       1        1     1 0\n3       1          1        1       1        1     0 1\n1       1          1        1       1        0     1 1\n        0          0        0       0        1     3 4\n\n\nCode\ndata &lt;- data %&gt;% \n  mutate(\n    Final = replace_na(Final, mean(Final, na.rm = TRUE)),\n    TakeHome = replace_na(TakeHome, mean(TakeHome, na.rm = TRUE))\n  )\n\n# Missing pattern after replace\nmd.pattern(data)\n\n\n /\\     /\\\n{  `---'  }\n{  O   O  }\n==&gt;  V &lt;==  No need for mice. This data set is completely observed.\n \\  \\|/  /\n  `-----'\n\n\n\n\n\n\n\n\n\n   Prefix Assignment Tutorial Midterm TakeHome Final  \n99      1          1        1       1        1     1 0\n        0          0        0       0        0     0 0\n\n\nOR\n\n\nCode\nif (!require(\"readxl\")) install.packages(\"readxl\", dependencies=TRUE)\nif (!require(\"mice\")) install.packages(\"mice\", dependencies=TRUE)\n\nlibrary(readxl)\nlibrary(mice)\n\ndata &lt;- read_excel(\"/home/nils/dev/mscids-notes/fs26/dq/data/grades.xlsx\")\n\n# Missing pattern\nmd.pattern(data)\n\n\n\n\n\n\n\n\n\n   Prefix Assignment Tutorial Midterm TakeHome Final  \n95      1          1        1       1        1     1 0\n3       1          1        1       1        1     0 1\n1       1          1        1       1        0     1 1\n        0          0        0       0        1     3 4\n\n\nCode\nimp_model &lt;- mice(data, method=\"mean\", m=1, maxit=1)\n\n\n\n iter imp variable\n  1   1  TakeHome  Final\n\n\nCode\ndata_complete &lt;- complete(imp_model)\n\n# Missing pattern\nmd.pattern(data_complete)\n\n\n /\\     /\\\n{  `---'  }\n{  O   O  }\n==&gt;  V &lt;==  No need for mice. This data set is completely observed.\n \\  \\|/  /\n  `-----'\n\n\n\n\n\n\n\n\n\n   Prefix Assignment Tutorial Midterm TakeHome Final  \n99      1          1        1       1        1     1 0\n        0          0        0       0        0     0 0"
+  },
+  {
+    "objectID": "fs26/dq/dq_exercises.html#task-03",
+    "href": "fs26/dq/dq_exercises.html#task-03",
+    "title": "Data Quality - Notes",
+    "section": "Task 03",
+    "text": "Task 03\n\n\n\nMechanism\nSummary\n\n\n\n\nMCAR\nA random “glitch” in the system.\n\n\nMAR\nPredictable based on other info you have.\n\n\nMNAR\nThe “hidden” value is the reason it’s missing."
+  },
+  {
+    "objectID": "fs26/dq/dq_exercises.html#task-01-4",
+    "href": "fs26/dq/dq_exercises.html#task-01-4",
+    "title": "Data Quality - Notes",
+    "section": "Task 01",
+    "text": "Task 01\n\n\nCode\nif (!require(\"readxl\")) install.packages(\"readxl\", dependencies=TRUE)\nif (!require(\"dplyr\")) install.packages(\"dplyr\", dependencies=TRUE)\n\nlibrary(readxl)\nlibrary(dplyr)\n\ndata &lt;- read_excel(\"/home/nils/dev/mscids-notes/fs26/dq/data/HSE.xlsx\")\ndata\n\n\n# A tibble: 13,908 × 2\n   wtval   sex\n   &lt;dbl&gt; &lt;dbl&gt;\n 1  85.2     1\n 2  72.7     1\n 3  84.8     1\n 4  73.6     1\n 5  61.3     1\n 6  81.9     1\n 7  60       1\n 8  NA       1\n 9  NA       1\n10 123.      1\n# ℹ 13,898 more rows\n\n\nCode\ndata.M &lt;- data %&gt;% filter(sex == 1)\ndata.F &lt;- data %&gt;% filter(sex == 2)\n\n\n\nHistogram\n\n\nCode\nhist(data.M$wtval)\n\n\n\n\n\n\n\n\n\n\n\nBoxplot\n\n\nCode\nboxplot(data.M$wtval)\n\n\n\n\n\n\n\n\n\n\n\nPercentile Method\n\n\nCode\n# Calculate thresholds (removing NA values is crucial here)\nlower_bound &lt;- quantile(data.M$wtval, 0.01, na.rm = TRUE)\nupper_bound &lt;- quantile(data.M$wtval, 0.99, na.rm = TRUE)\n\nprint(lower_bound)\n\n\n    1% \n55.384 \n\n\nCode\nprint(upper_bound)\n\n\n    99% \n125.716 \n\n\n\n\nZ-Score\n\n\nCode\nif (!require(\"dplyr\")) install.packages(\"dplyr\", dependencies=TRUE)\n\nlibrary(dplyr)\n\nz_score_data &lt;- data.M %&gt;%\n  mutate(\n    z_score = (\n      wtval - mean(wtval, na.rm = TRUE)) / sd(wtval, na.rm = TRUE)) %&gt;%\n  filter(abs(z_score) &lt;= 5)\n\nz_score_data\n\n\n# A tibble: 5,682 × 3\n   wtval   sex z_score\n   &lt;dbl&gt; &lt;dbl&gt;   &lt;dbl&gt;\n 1  85.2     1  0.105 \n 2  72.7     1 -0.742 \n 3  84.8     1  0.0779\n 4  73.6     1 -0.681 \n 5  61.3     1 -1.52  \n 6  81.9     1 -0.119 \n 7  60       1 -1.60  \n 8 123.      1  2.69  \n 9  98.4     1  1.000 \n10  73.3     1 -0.702 \n# ℹ 5,672 more rows"
+  },
+  {
+    "objectID": "fs26/dq/dq_exercises.html#task-02-3",
+    "href": "fs26/dq/dq_exercises.html#task-02-3",
+    "title": "Data Quality - Notes",
+    "section": "Task 02",
+    "text": "Task 02\n\nGrubbs Test\n\n\nCode\nif (!require(\"readxl\")) install.packages(\"readxl\", dependencies=TRUE)\nif (!require(\"outliers\")) install.packages(\"outliers\", dependencies=TRUE)\n\n\nLoading required package: outliers\n\n\nCode\nlibrary(readxl)\nlibrary(outliers)\n\ndata &lt;- read_excel(\"/home/nils/dev/mscids-notes/fs26/dq/data/HSE.xlsx\")\n\n# Grubbs' test for the maximum value\ngrubbs_result &lt;- grubbs.test(data$wtval)\nprint(grubbs_result)\n\n\n\n    Grubbs test for one outlier\n\ndata:  data$wtval\nG = 6.61164, U = 0.99651, p-value = 2.29e-07\nalternative hypothesis: highest value 184.3 is an outlier\n\n\n\n\nRosner’s Test\n\n\nCode\nif (!require(\"EnvStats\")) install.packages(\"EnvStats\", dependencies=TRUE)\n\n\nLoading required package: EnvStats\n\n\n\nAttaching package: 'EnvStats'\n\n\nThe following objects are masked from 'package:stats':\n\n    predict, predict.lm\n\n\nThe following object is masked from 'package:base':\n\n    print.default\n\n\nCode\nlibrary(EnvStats)\n\n# Rosner's test checking for up to 10 potential outliers\nrosner_result &lt;- rosnerTest(data$wtval, k = 10)\n\n\nWarning in rosnerTest(data$wtval, k = 10): 1389 observations with NA/NaN/Inf in\n'x' removed.\n\n\nCode\nprint(rosner_result$all.stats)\n\n\n   i   Mean.i     SD.i Value Obs.Num    R.i+1 lambda.i+1 Outlier\n1  0 76.28451 16.33717 184.3   12420 6.611640   4.609832    TRUE\n2  1 76.27588 16.30927 178.0    5562 6.237196   4.609815    TRUE\n3  2 76.26776 16.28455 173.4    4618 5.964685   4.609798    TRUE\n4  3 76.26000 16.26204 158.9    3876 5.081773   4.609782    TRUE\n5  4 76.25339 16.24590 158.9    6366 5.087228   4.609765    TRUE\n6  5 76.24679 16.22974 156.2   13068 4.926339   4.609748    TRUE\n7  6 76.24040 16.21464 155.7    5196 4.900485   4.609731    TRUE\n8  7 76.23405 16.19972 155.7    8309 4.905391   4.609715    TRUE\n9  8 76.22770 16.18478 154.0    1929 4.805274   4.609698    TRUE\n10 9 76.22148 16.17048 152.5    3223 4.717146   4.609681    TRUE"
+  },
+  {
     "objectID": "fs26/mpm1/mpm1_exercises.html",
     "href": "fs26/mpm1/mpm1_exercises.html",
     "title": "Applied Machine Learning and Predictive Modelling 1 - Exercises",
@@ -1797,6 +1832,34 @@
     "title": "Database Management - Notes",
     "section": "",
     "text": "Data Management comprises all methods related to creating value from data as a resource.\n\n\n\nData Value Cycle\n\n\n\n\n\n\n\nDatabase Applications"
+  },
+  {
+    "objectID": "fs26/dbm/dbm_notes.html#database-modeling",
+    "href": "fs26/dbm/dbm_notes.html#database-modeling",
+    "title": "Database Management - Notes",
+    "section": "Database Modeling",
+    "text": "Database Modeling\n\nRequirements Analysis\n\n\n\nRequirement Analysis\n\n\n\n\nConceptual Modeling\n\n\n\nConceptual Modeling\n\n\n\n\nDatabase Shema\n\n\n\nDatabase Shema"
+  },
+  {
+    "objectID": "fs26/dbm/dbm_notes.html#table-defintion",
+    "href": "fs26/dbm/dbm_notes.html#table-defintion",
+    "title": "Database Management - Notes",
+    "section": "Table Defintion",
+    "text": "Table Defintion\nA table or relation refers to a set of tuples (set of ordered, immutable objects) shown as a table.\n\nTable name: A table has a unambiguous name.\nAttribute name: Is unambiguous; denotes a specific column with the desired attribute.\nNo column order: The attribute number is unlimited; the column order has no meaning.\nNo row order: The tuple number in a table is arbitrary; the tuple order has no meaning.\nIdentification key: One of the attributes or combination thereof unambiguously identifies the tuples in the table and is called the identification key\n\n\nEntities\n\n\n\nTable Entity\n\n\n\n\nRelationships\n\n\n\nEntity Relationship\n\n\n\n\nThe Entity Relationship Model\n\n\n\nThe Entity Relationship Model"
+  },
+  {
+    "objectID": "fs26/dbm/dbm_notes.html#redundancy-and-normal-forms-in-tables",
+    "href": "fs26/dbm/dbm_notes.html#redundancy-and-normal-forms-in-tables",
+    "title": "Database Management - Notes",
+    "section": "Redundancy and Normal Forms in Tables",
+    "text": "Redundancy and Normal Forms in Tables\nRedundancy in tables can lead to anomalies in databases. An attribute is redundant if individual values of it can be omitted without any loss of information. Normal forms serve to avoid redundancy.\n\nNote: Anomalies = Insertion anomaly, mutation anomaly, deletion anomaly."
+  },
+  {
+    "objectID": "fs26/dbm/dbm_notes.html#normal-forms",
+    "href": "fs26/dbm/dbm_notes.html#normal-forms",
+    "title": "Database Management - Notes",
+    "section": "Normal Forms",
+    "text": "Normal Forms\n\n\n\n\n\n\n\n\nStage\nKey Focus\nGoal\n\n\n\n\n1NF\nAtomicity\nEliminate duplicate columns and multi-valued cells.\n\n\n2NF\nFull Dependency\nEliminate partial dependencies on the primary key.\n\n\n3NF\nDirect Dependency\nEliminate dependencies between non-key columns.\n\n\n4NF\nMulti-valued facts\nIsolate independent multi-valued relationships.\n\n\n5NF\nReconstruction\nMinimize redundancy in complex many-to-many relationships."
   },
   {
     "objectID": "fs26/rtp/rtp_notes.html",

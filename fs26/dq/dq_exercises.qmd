@@ -176,7 +176,7 @@ library(dplyr)
 
 data <- read_excel("/home/nils/dev/mscids-notes/fs26/dq/data/HSE.xlsx")
 data
-data.F <- data %>% filter(sex == 1)
+data.M <- data %>% filter(sex == 1)
 data.F <- data %>% filter(sex == 2)
 ```
 
