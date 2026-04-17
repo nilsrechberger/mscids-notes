@@ -84,16 +84,93 @@ What are the distributions of the following boxplots?
 - Varriable B: Right skewed
 - Varriable C: Right skewed
 
-# Tasks for Exercise 06: Multivariate Outlier detection – Cluster Analysis
+# Tasks for Exercise 04: Missing values
 
+## Task 01
+
+```{r}
+if (!require("naniar")) install.packages("naniar", dependencies=TRUE)
+if (!require("mice")) install.packages("mice", dependencies=TRUE)
+
+library(naniar)
+library(mice)
+
+head(airquality)
+
+
+# Missing pattern
+md.pattern(airquality)
+
+
+# Little’s test
+mcar_test(airquality)
+```
+
+## Task 02
+
+```{r}
+if (!require("readxl")) install.packages("readxl", dependencies=TRUE)
+if (!require("tidyverse")) install.packages("readxl", dependencies=TRUE)
+if (!require("mice")) install.packages("mice", dependencies=TRUE)
+
+library(readxl)
+library(mice)
+library(tidyverse)
+
+data <- read_excel("/home/nils/dev/mscids-notes/fs26/dq/data/grades.xlsx")
+
+# Missing pattern
+md.pattern(data)
+
+data <- data %>% 
+  mutate(
+    Final = replace_na(Final, mean(Final, na.rm = TRUE)),
+    TakeHome = replace_na(TakeHome, mean(TakeHome, na.rm = TRUE))
+  )
+
+# Missing pattern after replace
+md.pattern(data)
+```
+
+OR
+
+
+```{r}
+if (!require("readxl")) install.packages("readxl", dependencies=TRUE)
+if (!require("mice")) install.packages("mice", dependencies=TRUE)
+
+library(readxl)
+library(mice)
+
+data <- read_excel("/home/nils/dev/mscids-notes/fs26/dq/data/grades.xlsx")
+
+# Missing pattern
+md.pattern(data)
+
+imp_model <- mice(data, method="mean", m=1, maxit=1)
+
+data_complete <- complete(imp_model)
+
+# Missing pattern
+md.pattern(data_complete)
+```
+
+## Task 03
+
+| Mechanism | Summary |
+| :--- | :--- |
+| **MCAR** | A random "glitch" in the system. |
+| **MAR** | Predictable based on other info you have. |
+| **MNAR** | The "hidden" value is the reason it’s missing. |
+
+
+# Tasks for Exercise 06: Multivariate Outlier detection – Cluster Analysis
 
 ::: {.callout}
 Change the parameter `centers` to compare different group sizes.
 :::
 
 ```{r}
-library(readxl)
-
 if (!require("readxl")) install.packages("readxl", dependencies=TRUE)
 if (!require("MVA")) install.packages("MVA", dependencies=TRUE)
 if (!require("cluster")) install.packages("cluster", dependencies=TRUE)
