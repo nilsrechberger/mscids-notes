@@ -51,3 +51,58 @@ Data Management comprises all methods related to creating value from data as a r
 ### Database Application
 
 ![Database Applications](img/database_app.png)
+
+# Session 2: Database Modeling
+
+## Database Modeling
+
+### Requirements Analysis
+
+![Requirement Analysis](img/requ_analysis.png)
+
+### Conceptual Modeling
+
+![Conceptual Modeling](img/concept_modeling.png)
+
+### Database Shema
+
+![Database Shema](img/db_shema.png)
+
+## Table Defintion
+
+A table or relation refers to a set of tuples (set of ordered, immutable objects) shown as a table.
+
+- Table name: A table has a unambiguous name.
+- Attribute name: Is unambiguous; denotes a specific column with the desired attribute.
+- No column order: The attribute number is unlimited; the column order has no meaning.
+- No row order: The tuple number in a table is arbitrary; the tuple order has no meaning.
+- Identification key: One of the attributes or combination thereof unambiguously identifies the tuples in the table and is called the identification key
+
+### Entities
+
+![Table Entity](img/table_entity.png)
+
+### Relationships
+
+![Entity Relationship](img/entity_relation.png)
+
+### The Entity Relationship Model
+
+![The Entity Relationship Model](img/entity_relation_model.png)
+
+## Redundancy and Normal Forms in Tables
+
+Redundancy in tables can lead to anomalies in databases. An attribute is redundant if individual values of it can be omitted without any loss of
+information. Normal forms serve to avoid redundancy.
+
+> Note: Anomalies = Insertion anomaly, mutation anomaly, deletion anomaly.
+
+## Normal Forms
+
+| Stage | Key Focus | Goal |
+| :--- | :--- | :--- |
+| **1NF** | Atomicity | Eliminate duplicate columns and multi-valued cells. |
+| **2NF** | Full Dependency | Eliminate partial dependencies on the primary key. |
+| **3NF** | Direct Dependency | Eliminate dependencies between non-key columns. |
+| **4NF** | Multi-valued facts | Isolate independent multi-valued relationships. |
+| **5NF** | Reconstruction | Minimize redundancy in complex many-to-many relationships. |
