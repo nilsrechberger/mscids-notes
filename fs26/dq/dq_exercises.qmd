@@ -110,7 +110,7 @@ mcar_test(airquality)
 
 ```{r}
 if (!require("readxl")) install.packages("readxl", dependencies=TRUE)
-if (!require("tidyverse")) install.packages("readxl", dependencies=TRUE)
+if (!require("tidyverse")) install.packages("tidyverse", dependencies=TRUE)
 if (!require("mice")) install.packages("mice", dependencies=TRUE)
 
 library(readxl)
@@ -163,6 +163,92 @@ md.pattern(data_complete)
 | **MAR** | Predictable based on other info you have. |
 | **MNAR** | The "hidden" value is the reason it’s missing. |
 
+# Tasks for Exercise 05: Univariate Outlier Detection
+
+## Task 01
+
+```{r}
+if (!require("readxl")) install.packages("readxl", dependencies=TRUE)
+if (!require("dplyr")) install.packages("dplyr", dependencies=TRUE)
+
+library(readxl)
+library(dplyr)
+
+data <- read_excel("/home/nils/dev/mscids-notes/fs26/dq/data/HSE.xlsx")
+data
+data.F <- data %>% filter(sex == 1)
+data.F <- data %>% filter(sex == 2)
+```
+
+### Histogram
+
+```{r}
+hist(data.M$wtval)
+```
+
+### Boxplot
+
+```{r}
+boxplot(data.M$wtval)
+```
+
+### Percentile Method
+
+```{r}
+# Calculate thresholds (removing NA values is crucial here)
+lower_bound <- quantile(data.M$wtval, 0.01, na.rm = TRUE)
+upper_bound <- quantile(data.M$wtval, 0.99, na.rm = TRUE)
+
+print(lower_bound)
+print(upper_bound)
+```
+
+### Z-Score
+
+```{r}
+if (!require("dplyr")) install.packages("dplyr", dependencies=TRUE)
+
+library(dplyr)
+
+z_score_data <- data.M %>%
+  mutate(
+    z_score = (
+      wtval - mean(wtval, na.rm = TRUE)) / sd(wtval, na.rm = TRUE)) %>%
+  filter(abs(z_score) <= 5)
+
+z_score_data
+```
+
+## Task 02
+
+### Grubbs Test
+
+```{r}
+if (!require("readxl")) install.packages("readxl", dependencies=TRUE)
+if (!require("outliers")) install.packages("outliers", dependencies=TRUE)
+
+library(readxl)
+library(outliers)
+
+data <- read_excel("/home/nils/dev/mscids-notes/fs26/dq/data/HSE.xlsx")
+
+# Grubbs' test for the maximum value
+grubbs_result <- grubbs.test(data$wtval)
+print(grubbs_result)
+```
+
+### Rosner's Test
+
+
+```{r}
+if (!require("EnvStats")) install.packages("EnvStats", dependencies=TRUE)
+
+library(EnvStats)
+
+# Rosner's test checking for up to 10 potential outliers
+rosner_result <- rosnerTest(data$wtval, k = 10)
+print(rosner_result$all.stats)
+```
 
 # Tasks for Exercise 06: Multivariate Outlier detection – Cluster Analysis
 
