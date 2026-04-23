@@ -667,11 +667,111 @@ Estimates all parameters above and provides error estimates.
 #### Disadvantage
 Works for any distribution of the innovation. For distributions that deviate strongly from Gaussian type, results may be unreliable.
 
-
-
 ## Key Properties of Models
 
 ![Model Properties](img/model_props.png)
+
+# W-07-Timeseries-ARMA-GLS
+
+## Linear Regression with timeseries
+
+### Principle
+
+Model the target time series $Y_t$ as a (linear) combination/function of the constituent, with an error term $E_t$ and the realizations $x_{t1}, \dots, x_{tp}$ of the $p$ time series. Major challenge: In real-world data, the errors can be strongly correlated.
+
+### Find Model Coefficients
+
+An assumption of linear regression is that the error $E_t$ should be stationary and independent of the input time series. Often it is non-white noise and displays serial correlation. Perform a linear fit on the data and analyze the residuals:
+
+```{r}
+# Sample Data
+la_data <- data.frame(
+  year = 2010:2019,
+  value = c(3.79, 3.82, 3.85, 3.88, 3.91, 3.93, 3.96, 3.99, 4.01, 4.03)
+)
+
+# Perform Linear Fit
+model <- lm(value ~ year, data = la_data)
+
+plot(resid(model), type="l")
+```
+
+### Is there a structure in the residuals?
+
+```{r}
+acf(resid(model))
+```
+
+```{r}
+pacf(resid(model))
+```
+
+Error displays a serial connection and may be modeled by an AR(1)
+process. Whenever the error terms are dependent, the error estimation of the linear regression is invalid.
+
+
+::: {.callout-note}
+
+Standard deviation is invalid if residuals are correlated
+
+:::
+
+
+```{r}
+summary(model)
+```
+
+## Durbin-Watson Test
+
+The Durbin-Watson (DW) test is a statistical test used to detect the presence of autocorrelation (specifically first-order serial correlation) in the residuals from a regression analysis.
+
+In a standard linear regression, we assume that residuals are independent. If they are correlated (e.g., if the error at time $t$ is related to the error at time $t−1$), your standard errors may be underestimated, leading to misleadingly "significant" results.
+
+
+```{r}
+library(lmtest)
+dwtest(model)
+```
+
+## Cochrane-Orcutt
+
+The Cochrane-Orcutt method is an iterative procedure used in econometrics and statistics to estimate a linear regression model in the presence of autocorrelation (specifically AR(1) errors).
+
+When the Durbin-Watson test indicates that residuals are correlated, the standard Ordinary Least Squares (OLS) assumptions are violated. Cochrane-Orcutt "cleanses" the model by transforming the variables to eliminate this correlation.
+
+### Steps
+
+1. Perform ordinary least square fit on data.
+2. Analyse (P)ACF and fit AR(1) model on residuals.
+3. Transform data according to parameter of the residuals’ AR(1) process.
+4. Fit the transformed data to determine the parameters of the linear model.
+
+### Generalized Least Square Methode
+
+Generalized Least Squares (GLS) is a powerful extension of Ordinary Least Squares (OLS) used to estimate unknown parameters in a linear regression model when the underlying assumptions about the error terms are violated. Specifically, it is used when there is heteroscedasticity (non-constant variance) or autocorrelation (correlated errors).
+
+## Impact of Missing Variables
+
+Correlated errors are often caused by missing input variables. In a perfect world, these parameters would be included in the model. However, often it is impossible to provide the input.
+
+# W-08-Timeseries-GLS-ARIMA
+
+An ARIMA model is basically an ARMA model that has been "stretched" to include a trend. Because it contains that trend (the unit root), it doesn't settle back to a constant average, making it non-stationary.
+
+## Definition
+
+ARIMA stands for AutoRegressive Integrated Moving Average. It is a powerful and flexible class of statistical models used for analyzing and forecasting time-series data. Unlike simple linear regression, ARIMA explicitly accounts for the dependencies between observations over time. The model is defined by three parameters $p, d, q$.
+
+## Interpreting the Model Output
+
+```{r}
+library(TSA)
+data(oil.price)
+fit<-arima(log(oil.price),order=c(2,1,1))
+fit
+```
+
+This ARIMA(2,1,1) model is equal to an ARMA(3,1) model.
 
 # W-09-Timeseries-ARIMA-SARIMA
 
