@@ -537,3 +537,41 @@ The Sprint Retrospective is usually held after the Sprint Review and before the 
 ## Kanban
 
 Kanban is more a visual project management framework that centers around the Kanban-Board and the concept of "flow". The main goal is to identify potential bottlenecks in the process and fix them so work can flow through it cost-effectively at an optimal speed and throughput. In contrast to Scrum, it doesn't use sprints, instead, tasks flow continuously. Kanban is commonly used in areas where work is less "plannable" (e.g. a service line).
+
+# Lecture 03
+
+## Typing
+
+All programming languages include some kind of type system that formalizes which categories of objects (e.g. integer, floating point, string) it can work with and how those categories are treated. Python is a dynamically typed language. This means that the Python interpreter does type checking only as code runs, and that the type of a variable is allowed to change over its lifetime.
+
+### Pros and Cons
+
+| Category | Key Point | Description |
+| :--- | :--- | :--- |
+| **Pros** | **Documentation** | Type hints serve as explicit documentation for expected data types, replacing or supplementing docstrings. |
+| | **Tooling & IDEs** | They improve static analysis, linting, and code completion, making it easier for IDEs to reason about the code. |
+| | **Architecture** | Writing hints forces developers to think deeply about data structures, leading to cleaner and more maintainable designs. |
+| **Cons** | **Time & Effort** | Adding type hints requires extra initial development time, even if it eventually reduces debugging efforts. |
+| | **Version Compatibility** | Best suited for modern Python versions; older versions (like 2.7) require less elegant workarounds like type comments. |
+| | **Startup Penalty** | Importing the `typing` module can introduce a slight overhead in execution startup time, especially in short scripts. |
+
+### Pydantic
+
+Pydantic is the most widely used data validation library for Python. It uses Python type hints to enforce data structures, ensuring that the data your application processes is both valid and consistent.
+
+
+```python
+from pydantic import BaseModel
+
+class User(BaseModel):
+    id: int
+    username: str
+    is_active: bool = True  # Default value
+
+# Success: "1" is coerced to integer 1
+user = User(id="1", username="nils")
+print(user.id)
+```
+
+> Note: While standard Python type hints are purely "cosmetic" and ignored at runtime, Pydantic turns those hints into active guards for your data.
+
