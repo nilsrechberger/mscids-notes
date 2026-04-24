@@ -1596,6 +1596,13 @@
     "text": "Kanban\nKanban is more a visual project management framework that centers around the Kanban-Board and the concept of “flow”. The main goal is to identify potential bottlenecks in the process and fix them so work can flow through it cost-effectively at an optimal speed and throughput. In contrast to Scrum, it doesn’t use sprints, instead, tasks flow continuously. Kanban is commonly used in areas where work is less “plannable” (e.g. a service line)."
   },
   {
+    "objectID": "fs26/devops/devops_notes.html#typing",
+    "href": "fs26/devops/devops_notes.html#typing",
+    "title": "DevOps - Notes",
+    "section": "Typing",
+    "text": "Typing\nAll programming languages include some kind of type system that formalizes which categories of objects (e.g. integer, floating point, string) it can work with and how those categories are treated. Python is a dynamically typed language. This means that the Python interpreter does type checking only as code runs, and that the type of a variable is allowed to change over its lifetime.\n\nPros and Cons\n\n\n\n\n\n\n\n\nCategory\nKey Point\nDescription\n\n\n\n\nPros\nDocumentation\nType hints serve as explicit documentation for expected data types, replacing or supplementing docstrings.\n\n\n\nTooling & IDEs\nThey improve static analysis, linting, and code completion, making it easier for IDEs to reason about the code.\n\n\n\nArchitecture\nWriting hints forces developers to think deeply about data structures, leading to cleaner and more maintainable designs.\n\n\nCons\nTime & Effort\nAdding type hints requires extra initial development time, even if it eventually reduces debugging efforts.\n\n\n\nVersion Compatibility\nBest suited for modern Python versions; older versions (like 2.7) require less elegant workarounds like type comments.\n\n\n\nStartup Penalty\nImporting the typing module can introduce a slight overhead in execution startup time, especially in short scripts.\n\n\n\n\n\nPydantic\nPydantic is the most widely used data validation library for Python. It uses Python type hints to enforce data structures, ensuring that the data your application processes is both valid and consistent.\nfrom pydantic import BaseModel\n\nclass User(BaseModel):\n    id: int\n    username: str\n    is_active: bool = True  # Default value\n\n# Success: \"1\" is coerced to integer 1\nuser = User(id=\"1\", username=\"nils\")\nprint(user.id)\n\nNote: While standard Python type hints are purely “cosmetic” and ignored at runtime, Pydantic turns those hints into active guards for your data."
+  },
+  {
     "objectID": "fs26/dq/dq_exercises.html",
     "href": "fs26/dq/dq_exercises.html",
     "title": "Data Quality - Notes",
@@ -1862,6 +1869,34 @@
     "text": "Normal Forms\n\n\n\n\n\n\n\n\nStage\nKey Focus\nGoal\n\n\n\n\n1NF\nAtomicity\nEliminate duplicate columns and multi-valued cells.\n\n\n2NF\nFull Dependency\nEliminate partial dependencies on the primary key.\n\n\n3NF\nDirect Dependency\nEliminate dependencies between non-key columns.\n\n\n4NF\nMulti-valued facts\nIsolate independent multi-valued relationships.\n\n\n5NF\nReconstruction\nMinimize redundancy in complex many-to-many relationships."
   },
   {
+    "objectID": "fs26/dbm/dbm_notes.html#sql-data-manipulation-lanugage",
+    "href": "fs26/dbm/dbm_notes.html#sql-data-manipulation-lanugage",
+    "title": "Database Management - Notes",
+    "section": "SQL Data Manipulation Lanugage",
+    "text": "SQL Data Manipulation Lanugage\n\nCREATE TABLE: Define tables\nDROP TABLE: Delete tables\nALTER TABLE: Change table definition\nINSERT: Insert data\n\nINSERT INTO Employee VALUES\n('E22', 'Cole', '7th Street', 'Manhattan', 'A6'),\n('E23', 'Smith', 'Reseda Blvd', 'Los Angeles', 'A5')\n\nUPDATE: Changing the data\nSELECT: Filter data\nDELETE: Delete data"
+  },
+  {
+    "objectID": "fs26/dbm/dbm_notes.html#data-base-integration",
+    "href": "fs26/dbm/dbm_notes.html#data-base-integration",
+    "title": "Database Management - Notes",
+    "section": "Data Base Integration",
+    "text": "Data Base Integration\nDatabase Integration not only helps automate Data Preparation. Metadata and schema integration also contributes to data understanding."
+  },
+  {
+    "objectID": "fs26/dbm/dbm_notes.html#etl-extract-transform-load",
+    "href": "fs26/dbm/dbm_notes.html#etl-extract-transform-load",
+    "title": "Database Management - Notes",
+    "section": "ETL (Extract, Transform, Load)",
+    "text": "ETL (Extract, Transform, Load)\nIn the traditional ETL process, data is transformed on a secondary staging server before it ever reaches the target database (usually a Data Warehouse).\n\nNote: Best for structured data, small-to-medium data volumes, and legacy on-premise systems.\n\nLOAD DATA LOCAL INFILE '/path/to/ratings.csv'\nINTO TABLE Ratings\nFIELDS TERMINATED BY ','\nENCLOSED BY '\"'\nIGNORE 1 LINES\n(UserID, MovieID, Rating, @Timestamp)\nSET Timestamp = FROM_UNIXTIME(@Timestamp);\n\nLoading large Datasets\nBy Table Import Utility in the MySQL Shell."
+  },
+  {
+    "objectID": "fs26/dbm/dbm_notes.html#elt-extract-load-transform",
+    "href": "fs26/dbm/dbm_notes.html#elt-extract-load-transform",
+    "title": "Database Management - Notes",
+    "section": "ELT (Extract, Load, Transform)",
+    "text": "ELT (Extract, Load, Transform)\nELT is a modern evolution where data is loaded into the target system (usually a Cloud Data Warehouse or Data Lake) in its raw form. The transformation happens within the target system using its own processing power.\n\nNote: Best for unstructured/Big Data, high velocity, and modern cloud environments (like Snowflake, BigQuery, or Redshift).\n\n\n\n\nETL vs. ELT"
+  },
+  {
     "objectID": "fs26/rtp/rtp_notes.html",
     "href": "fs26/rtp/rtp_notes.html",
     "title": "Discrete Response, Time Series and Panel Data - Notes",
@@ -2079,11 +2114,53 @@
     "text": "Key Properties of Models\n\n\n\nModel Properties"
   },
   {
+    "objectID": "fs26/rtp/rtp_notes.html#linear-regression-with-timeseries",
+    "href": "fs26/rtp/rtp_notes.html#linear-regression-with-timeseries",
+    "title": "Discrete Response, Time Series and Panel Data - Notes",
+    "section": "Linear Regression with timeseries",
+    "text": "Linear Regression with timeseries\n\nPrinciple\nModel the target time series Y_t as a (linear) combination/function of the constituent, with an error term E_t and the realizations x_{t1}, \\dots, x_{tp} of the p time series. Major challenge: In real-world data, the errors can be strongly correlated.\n\n\nFind Model Coefficients\nAn assumption of linear regression is that the error E_t should be stationary and independent of the input time series. Often it is non-white noise and displays serial correlation. Perform a linear fit on the data and analyze the residuals:\n\n\nCode\n# Sample Data\nla_data &lt;- data.frame(\n  year = 2010:2019,\n  value = c(3.79, 3.82, 3.85, 3.88, 3.91, 3.93, 3.96, 3.99, 4.01, 4.03)\n)\n\n# Perform Linear Fit\nmodel &lt;- lm(value ~ year, data = la_data)\n\nplot(resid(model), type=\"l\")\n\n\n\n\n\n\n\n\n\n\n\nIs there a structure in the residuals?\n\n\nCode\nacf(resid(model))\n\n\n\n\n\n\n\n\n\n\n\nCode\npacf(resid(model))\n\n\n\n\n\n\n\n\n\nError displays a serial connection and may be modeled by an AR(1) process. Whenever the error terms are dependent, the error estimation of the linear regression is invalid.\n\n\n\n\n\n\nNote\n\n\n\nStandard deviation is invalid if residuals are correlated\n\n\n\n\nCode\nsummary(model)\n\n\n\nCall:\nlm(formula = value ~ year, data = la_data)\n\nResiduals:\n       Min         1Q     Median         3Q        Max \n-0.0083636 -0.0023030 -0.0000303  0.0032273  0.0064848 \n\nCoefficients:\n              Estimate Std. Error t value Pr(&gt;|t|)    \n(Intercept) -5.041e+01  1.116e+00  -45.19 6.35e-11 ***\nyear         2.697e-02  5.538e-04   48.70 3.50e-11 ***\n---\nSignif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1\n\nResidual standard error: 0.00503 on 8 degrees of freedom\nMultiple R-squared:  0.9966,    Adjusted R-squared:  0.9962 \nF-statistic:  2372 on 1 and 8 DF,  p-value: 3.498e-11"
+  },
+  {
+    "objectID": "fs26/rtp/rtp_notes.html#durbin-watson-test",
+    "href": "fs26/rtp/rtp_notes.html#durbin-watson-test",
+    "title": "Discrete Response, Time Series and Panel Data - Notes",
+    "section": "Durbin-Watson Test",
+    "text": "Durbin-Watson Test\nThe Durbin-Watson (DW) test is a statistical test used to detect the presence of autocorrelation (specifically first-order serial correlation) in the residuals from a regression analysis.\nIn a standard linear regression, we assume that residuals are independent. If they are correlated (e.g., if the error at time t is related to the error at time t−1), your standard errors may be underestimated, leading to misleadingly “significant” results.\n\n\nCode\nlibrary(lmtest)\n\n\nLoading required package: zoo\n\n\n\nAttaching package: 'zoo'\n\n\nThe following objects are masked from 'package:base':\n\n    as.Date, as.Date.numeric\n\n\nCode\ndwtest(model)\n\n\n\n    Durbin-Watson test\n\ndata:  model\nDW = 0.99211, p-value = 0.009606\nalternative hypothesis: true autocorrelation is greater than 0"
+  },
+  {
+    "objectID": "fs26/rtp/rtp_notes.html#cochrane-orcutt",
+    "href": "fs26/rtp/rtp_notes.html#cochrane-orcutt",
+    "title": "Discrete Response, Time Series and Panel Data - Notes",
+    "section": "Cochrane-Orcutt",
+    "text": "Cochrane-Orcutt\nThe Cochrane-Orcutt method is an iterative procedure used in econometrics and statistics to estimate a linear regression model in the presence of autocorrelation (specifically AR(1) errors).\nWhen the Durbin-Watson test indicates that residuals are correlated, the standard Ordinary Least Squares (OLS) assumptions are violated. Cochrane-Orcutt “cleanses” the model by transforming the variables to eliminate this correlation.\n\nSteps\n\nPerform ordinary least square fit on data.\nAnalyse (P)ACF and fit AR(1) model on residuals.\nTransform data according to parameter of the residuals’ AR(1) process.\nFit the transformed data to determine the parameters of the linear model.\n\n\n\nGeneralized Least Square Methode\nGeneralized Least Squares (GLS) is a powerful extension of Ordinary Least Squares (OLS) used to estimate unknown parameters in a linear regression model when the underlying assumptions about the error terms are violated. Specifically, it is used when there is heteroscedasticity (non-constant variance) or autocorrelation (correlated errors)."
+  },
+  {
+    "objectID": "fs26/rtp/rtp_notes.html#impact-of-missing-variables",
+    "href": "fs26/rtp/rtp_notes.html#impact-of-missing-variables",
+    "title": "Discrete Response, Time Series and Panel Data - Notes",
+    "section": "Impact of Missing Variables",
+    "text": "Impact of Missing Variables\nCorrelated errors are often caused by missing input variables. In a perfect world, these parameters would be included in the model. However, often it is impossible to provide the input."
+  },
+  {
+    "objectID": "fs26/rtp/rtp_notes.html#definition-1",
+    "href": "fs26/rtp/rtp_notes.html#definition-1",
+    "title": "Discrete Response, Time Series and Panel Data - Notes",
+    "section": "Definition",
+    "text": "Definition\nARIMA stands for AutoRegressive Integrated Moving Average. It is a powerful and flexible class of statistical models used for analyzing and forecasting time-series data. Unlike simple linear regression, ARIMA explicitly accounts for the dependencies between observations over time. The model is defined by three parameters p, d, q."
+  },
+  {
+    "objectID": "fs26/rtp/rtp_notes.html#interpreting-the-model-output",
+    "href": "fs26/rtp/rtp_notes.html#interpreting-the-model-output",
+    "title": "Discrete Response, Time Series and Panel Data - Notes",
+    "section": "Interpreting the Model Output",
+    "text": "Interpreting the Model Output\n\n\nCode\nlibrary(TSA)\n\n\nRegistered S3 methods overwritten by 'TSA':\n  method       from    \n  fitted.Arima forecast\n  plot.Arima   forecast\n\n\n\nAttaching package: 'TSA'\n\n\nThe following objects are masked from 'package:stats':\n\n    acf, arima\n\n\nThe following object is masked from 'package:utils':\n\n    tar\n\n\nCode\ndata(oil.price)\nfit&lt;-arima(log(oil.price),order=c(2,1,1))\nfit\n\n\n\nCall:\narima(x = log(oil.price), order = c(2, 1, 1))\n\nCoefficients:\n          ar1     ar2     ma1\n      -0.3240  0.0150  0.5981\ns.e.   0.2653  0.1107  0.2571\n\nsigma^2 estimated as 0.006642:  log likelihood = 261.12,  aic = -516.25\n\n\nThis ARIMA(2,1,1) model is equal to an ARMA(3,1) model."
+  },
+  {
     "objectID": "fs26/rtp/rtp_notes.html#sarima-models",
     "href": "fs26/rtp/rtp_notes.html#sarima-models",
     "title": "Discrete Response, Time Series and Panel Data - Notes",
     "section": "Sarima Models",
-    "text": "Sarima Models\nSARIMA stands for Seasonal Autoregressive Integrated Moving Average. It is an extension of the standard ARIMA model specifically designed to handle univariate time series data that contains a seasonal component. While ARIMA focuses on the relationship between points in time (trend), SARIMA adds a layer to account for cycles that repeat over specific intervals (e.g., monthly sales spikes or daily temperature changes).\n\n\nCode\ndata(\"AirPassengers\")\nacf(diff(diff(log(AirPassengers),lag=12)))\n\n\n\n\n\n\n\n\n\n\n\nCode\npacf(diff(diff(log(AirPassengers),lag=12)))\n\n\n\n\n\n\n\n\n\n\n\nCode\nfit&lt;-arima(log(AirPassengers),order=c(0,1,1),seasonal=c(0,1,1))\nfit\n\n\n\nCall:\narima(x = log(AirPassengers), order = c(0, 1, 1), seasonal = c(0, 1, 1))\n\nCoefficients:\n          ma1     sma1\n      -0.4018  -0.5569\ns.e.   0.0896   0.0731\n\nsigma^2 estimated as 0.001348:  log likelihood = 244.7,  aic = -483.4\n\n\n\n\nCode\nlibrary(forecast)\ntsdisplay(fit$residuals)\n\n\n\n\n\n\n\n\n\n\n\nCode\nfitAuto&lt;-auto.arima(log(AirPassengers),ic=\"aic\")\nfitAuto\n\n\nSeries: log(AirPassengers) \nARIMA(0,1,1)(0,1,1)[12] \n\nCoefficients:\n          ma1     sma1\n      -0.4018  -0.5569\ns.e.   0.0896   0.0731\n\nsigma^2 = 0.001371:  log likelihood = 244.7\nAIC=-483.4   AICc=-483.21   BIC=-474.77\n\n\n\nNote: The automated procedure selects the same model.\n\n\nHow to fit SARIMA Models?\n\nEstimate the seasonality period s visually. The order of differentiation D (for the seasonality part) is typically less or equal to 1.\nCheck if another differentiation of lag 1 is required for stationarity. If yes, try d=1, else d=0.\nAnalyse (P)ACF of the result 𝑍𝑡 of the two differentiations. Determine p,q from the short-lag behavior and P,Q from the multiple-of-the-period dependency.\nFit the model with arima(data,order=c(p,d,q),seasonal=c(P,D,Q))\nCheck the applicability of the model by analyzing the residuals (residuals should behave like (Gaussian) white noise)."
+    "text": "Sarima Models\nSARIMA stands for Seasonal Autoregressive Integrated Moving Average. It is an extension of the standard ARIMA model specifically designed to handle univariate time series data that contains a seasonal component. While ARIMA focuses on the relationship between points in time (trend), SARIMA adds a layer to account for cycles that repeat over specific intervals (e.g., monthly sales spikes or daily temperature changes).\n\n\nCode\ndata(\"AirPassengers\")\nacf(diff(diff(log(AirPassengers),lag=12)))\n\n\n\n\n\n\n\n\n\n\n\nCode\npacf(diff(diff(log(AirPassengers),lag=12)))\n\n\n\n\n\n\n\n\n\n\n\nCode\nfit&lt;-arima(log(AirPassengers),order=c(0,1,1),seasonal=c(0,1,1))\nfit\n\n\n\nCall:\narima(x = log(AirPassengers), order = c(0, 1, 1), seasonal = c(0, 1, 1))\n\nCoefficients:\n          ma1     sma1\n      -0.4018  -0.5569\ns.e.   0.0896   0.0731\n\nsigma^2 estimated as 0.001348:  log likelihood = 244.7,  aic = -485.4\n\n\n\n\nCode\nlibrary(forecast)\ntsdisplay(fit$residuals)\n\n\n\n\n\n\n\n\n\n\n\nCode\nfitAuto&lt;-auto.arima(log(AirPassengers),ic=\"aic\")\nfitAuto\n\n\nSeries: log(AirPassengers) \nARIMA(0,1,1)(0,1,1)[12] \n\nCoefficients:\n          ma1     sma1\n      -0.4018  -0.5569\ns.e.   0.0896   0.0731\n\nsigma^2 = 0.001371:  log likelihood = 244.7\nAIC=-483.4   AICc=-483.21   BIC=-474.77\n\n\n\nNote: The automated procedure selects the same model.\n\n\nHow to fit SARIMA Models?\n\nEstimate the seasonality period s visually. The order of differentiation D (for the seasonality part) is typically less or equal to 1.\nCheck if another differentiation of lag 1 is required for stationarity. If yes, try d=1, else d=0.\nAnalyse (P)ACF of the result 𝑍𝑡 of the two differentiations. Determine p,q from the short-lag behavior and P,Q from the multiple-of-the-period dependency.\nFit the model with arima(data,order=c(p,d,q),seasonal=c(P,D,Q))\nCheck the applicability of the model by analyzing the residuals (residuals should behave like (Gaussian) white noise)."
   },
   {
     "objectID": "fs26/rtp/rtp_notes.html#non-linear-models",
@@ -2630,6 +2707,20 @@
     "title": "Data Quality - Notes",
     "section": "Introduction to Clustering",
     "text": "Introduction to Clustering\nClustering is an unsupervised machine learning technique. The Goal is to find structure in the data. The differences between the clusters are as large as possible, but the datapoints within a cluster are as similar as possible.\n\n\n\n\n\n\nImportant\n\n\n\nNot necessarily designed for outlier detection but can be used for it.\n\n\n\nEuclidean Distance\nEuclidean distance is the most common metric used to measure the straight-line distance between two points in a multi-dimensional space. In clustering, it serves as the “ruler” used to determine how similar or different data points are.\n\nd(\\mathbf{x}_1, \\mathbf{x}_2) = \\sqrt{\\sum_{j=1}^{p} (x_{1j} - x_{2j})^2}\n\n\n\nK-Means\nK-means is probably the best-known clustering algorithm.\n\nNote: k = number of clusters (to be specified a priori)\n\nGiven k and a set of points (x_1, \\dots, x_N), each of which is a p-dimensional vector the objective is to find k so-called centroids (\\mu_1, \\dots, \\mu_k) (also of dimension p) such that the average squared Euclidean distance between each point and its nearest centroid is minimal.\n\nR(\\mu_1, \\dots, \\mu_k) = \\frac{1}{N} \\sum_{i=1}^{n} \\min_{j \\in \\{1, \\dots, k\\}} d(\\mathbf{x}_i, \\mu_j)^2\n\n\nLloyd’s Heuristic\nLloyd’s heuristic is what most people mean when they talk about the k-means algorithm.\nStarting point: Choose k and k random datapoints as the initial centroid \\mu_i. Iterate the following two steps until convergence (local optimum):\n\nAssign each datapoint to the closest centroid \\mu_i.\nCompute new centroids \\mu_i as the mean of all datapoints assigned to it.\n\nIn practice, the algorithm is used multiple times to compare results.\n\n\n\n\n\n\nTip\n\n\n\nIt is recommended to scale each variable to have standard deviation 1 (as in z-scores)\n\n\n\n\nHow many clusters?\nOne way to determine the number of clusters is a scree plot. The scree plot runs k-means for different choices of k and plots the objective function R(\\mu_1, \\dots, \\mu_k) against k.\n\n\n\nScreen Plot\n\n\n\n\n\nOutlier Detection using Clustering\nBarai & Dey (2017) suggest a very simple way to use clustering for outlier detection: Simply consider the smallest cluster as a outlier.\n\nSilhouette Plot\nSilhouette coefficients of an observation measure the average distance from its own cluster compared to the average difference of the nearest cluster scaled to the interval [-1, 1]. A value close to 1 indicates an inlier that is well-separated from other clusters. Negative values may signal local outliers. An average silhouette coefficient of 0.5 signals good clustering (0.7 excellent)\n\n\n\n\n\n\nCaution\n\n\n\nA small cluster with a very high average silhouette coefficient may indicate a cluster of outliers (well separated from everything else).\n\n\n\n\n\nSilhouette Plot"
+  },
+  {
+    "objectID": "fs26/dq/dq_notes.html#ransac",
+    "href": "fs26/dq/dq_notes.html#ransac",
+    "title": "Data Quality - Notes",
+    "section": "RANSAC",
+    "text": "RANSAC\nRandom Sample Consensus is an iterative procedure for estimating parameters of a mathematical model from a set of observed data containing outliers. The goal is to ensure that outliers do not affect the estimation of the model. A basic assumption is that the data consists of:\n\ninliers: Data whose distribution can be explained by model parameters.\noutliers: Data that do not fit this model.\n\n\n\n\nRANSAC\n\n\n\nProcedure\n\nRandomly select as many points as necessary to calculate the parameters of the model. Call this subset the hypothetical inliers (n)\nFit the model to the set of hypothetical inliers.\nDetermine the subset of points whose distance from the model is smaller than a certain threshold. This subset is called the consensus set (t)\nThe estimated model is good if enough data points have been classified as part of the consensus set (i.e., hypothetical inliers are probably inliers) (d)\n\nIn that case, re-estimate the model using all members of this consensus set.\n\nRepeat steps 1 through 5 several times and return the best-found model.\n\nransac &lt;- function(data, n, k, t, d) {\n    iterations &lt;- 0\n    :\n    while (iterations &lt; k) {\n        maybeinliers &lt;- sample(nrow(data), n)\n        maybemodel &lt;- lm(y ~ x, data = data, subset = maybeinliers)\n    :\n    } bestfit\n}"
+  },
+  {
+    "objectID": "fs26/dq/dq_notes.html#dbscan",
+    "href": "fs26/dq/dq_notes.html#dbscan",
+    "title": "Data Quality - Notes",
+    "section": "DBSCAN",
+    "text": "DBSCAN\nDBSCAN is a density-based clustering algorithm. It groups together points that are packed closely together (high-density regions) and marks points in low-density regions as outliers or noise.\n\nKey Parameters\n\nEpsilon (\\epsilon): The maximum distance between two samples for one to be considered as in the neighborhood of the other. Think of it as the “search radius.”\nMinPts: The minimum number of points required to form a dense region (a cluster).\n\n\n\nPoints Classification\n\nCore points: Contain at least MinPts data points.\nBorder points: Contains less than MinPts points but contains at least one core point within a radius \\epsilon.\nNoise points: Are neither core points nor border points.\n\n\n\n\nDBSCAN Points Classification\n\n\nkNNdistplot(data, k = 4)\n\nNote: The kNNdist plot sorts all data points by their k-nearest neighbor distance."
   },
   {
     "objectID": "fs26/cip/cip_notes.html",

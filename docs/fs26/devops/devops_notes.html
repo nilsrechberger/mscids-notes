@@ -226,6 +226,22 @@ gtag('config', 'G-NZ8462CXQ1', { 'anonymize_ip': true});
  <span class="dropdown-text">Computer Science Concepts for Data Science - Notes</span></a>
   </li>  
         <li>
+    <a class="dropdown-item" href="../../hs25/doe/doe_notes.html">
+ <span class="dropdown-text">Design of Experiments</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../hs25/lia1/lia1_notes.html">
+ <span class="dropdown-text">Linear Algebra 01</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../hs25/pds/pds_notes.html">
+ <span class="dropdown-text">Python for Data Science</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../hs25/r_bootcamp/r_bootcamp_notes.html">
+ <span class="dropdown-text">R-Bootcamp</span></a>
+  </li>  
+        <li>
     <a class="dropdown-item" href="../../hs25/sa/sa_notes.html">
  <span class="dropdown-text">Classical and Bayesian Statistics - Notes</span></a>
   </li>  
@@ -358,6 +374,14 @@ gtag('config', 'G-NZ8462CXQ1', { 'anonymize_ip': true});
   <li><a href="#sprint-review" id="toc-sprint-review" class="nav-link" data-scroll-target="#sprint-review">Sprint Review</a></li>
   <li><a href="#sprint-retrospective" id="toc-sprint-retrospective" class="nav-link" data-scroll-target="#sprint-retrospective">Sprint Retrospective</a></li>
   <li><a href="#kanban" id="toc-kanban" class="nav-link" data-scroll-target="#kanban">Kanban</a></li>
+  </ul></li>
+  <li><a href="#lecture-03" id="toc-lecture-03" class="nav-link" data-scroll-target="#lecture-03">Lecture 03</a>
+  <ul class="collapse">
+  <li><a href="#typing" id="toc-typing" class="nav-link" data-scroll-target="#typing">Typing</a>
+  <ul class="collapse">
+  <li><a href="#pros-and-cons" id="toc-pros-and-cons" class="nav-link" data-scroll-target="#pros-and-cons">Pros and Cons</a></li>
+  <li><a href="#pydantic" id="toc-pydantic" class="nav-link" data-scroll-target="#pydantic">Pydantic</a></li>
+  </ul></li>
   </ul></li>
   </ul>
 <div class="quarto-alternate-formats"><h2>Other Formats</h2><ul><li><a href="devops_notes.pdf"><i class="bi bi-file-pdf"></i>PDF</a></li></ul></div></nav>
@@ -930,8 +954,81 @@ Important
 <section id="kanban" class="level2">
 <h2 class="anchored" data-anchor-id="kanban">Kanban</h2>
 <p>Kanban is more a visual project management framework that centers around the Kanban-Board and the concept of “flow”. The main goal is to identify potential bottlenecks in the process and fix them so work can flow through it cost-effectively at an optimal speed and throughput. In contrast to Scrum, it doesn’t use sprints, instead, tasks flow continuously. Kanban is commonly used in areas where work is less “plannable” (e.g.&nbsp;a service line).</p>
+</section>
+</section>
+<section id="lecture-03" class="level1">
+<h1>Lecture 03</h1>
+<section id="typing" class="level2">
+<h2 class="anchored" data-anchor-id="typing">Typing</h2>
+<p>All programming languages include some kind of type system that formalizes which categories of objects (e.g.&nbsp;integer, floating point, string) it can work with and how those categories are treated. Python is a dynamically typed language. This means that the Python interpreter does type checking only as code runs, and that the type of a variable is allowed to change over its lifetime.</p>
+<section id="pros-and-cons" class="level3">
+<h3 class="anchored" data-anchor-id="pros-and-cons">Pros and Cons</h3>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 33%">
+<col style="width: 33%">
+<col style="width: 33%">
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: left;">Category</th>
+<th style="text-align: left;">Key Point</th>
+<th style="text-align: left;">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;"><strong>Pros</strong></td>
+<td style="text-align: left;"><strong>Documentation</strong></td>
+<td style="text-align: left;">Type hints serve as explicit documentation for expected data types, replacing or supplementing docstrings.</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"></td>
+<td style="text-align: left;"><strong>Tooling &amp; IDEs</strong></td>
+<td style="text-align: left;">They improve static analysis, linting, and code completion, making it easier for IDEs to reason about the code.</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"></td>
+<td style="text-align: left;"><strong>Architecture</strong></td>
+<td style="text-align: left;">Writing hints forces developers to think deeply about data structures, leading to cleaner and more maintainable designs.</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><strong>Cons</strong></td>
+<td style="text-align: left;"><strong>Time &amp; Effort</strong></td>
+<td style="text-align: left;">Adding type hints requires extra initial development time, even if it eventually reduces debugging efforts.</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"></td>
+<td style="text-align: left;"><strong>Version Compatibility</strong></td>
+<td style="text-align: left;">Best suited for modern Python versions; older versions (like 2.7) require less elegant workarounds like type comments.</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"></td>
+<td style="text-align: left;"><strong>Startup Penalty</strong></td>
+<td style="text-align: left;">Importing the <code>typing</code> module can introduce a slight overhead in execution startup time, especially in short scripts.</td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="pydantic" class="level3">
+<h3 class="anchored" data-anchor-id="pydantic">Pydantic</h3>
+<p>Pydantic is the most widely used data validation library for Python. It uses Python type hints to enforce data structures, ensuring that the data your application processes is both valid and consistent.</p>
+<div class="sourceCode" id="cb26"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb26-1"><a href="#cb26-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> pydantic <span class="im">import</span> BaseModel</span>
+<span id="cb26-2"><a href="#cb26-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb26-3"><a href="#cb26-3" aria-hidden="true" tabindex="-1"></a><span class="kw">class</span> User(BaseModel):</span>
+<span id="cb26-4"><a href="#cb26-4" aria-hidden="true" tabindex="-1"></a>    <span class="bu">id</span>: <span class="bu">int</span></span>
+<span id="cb26-5"><a href="#cb26-5" aria-hidden="true" tabindex="-1"></a>    username: <span class="bu">str</span></span>
+<span id="cb26-6"><a href="#cb26-6" aria-hidden="true" tabindex="-1"></a>    is_active: <span class="bu">bool</span> <span class="op">=</span> <span class="va">True</span>  <span class="co"># Default value</span></span>
+<span id="cb26-7"><a href="#cb26-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb26-8"><a href="#cb26-8" aria-hidden="true" tabindex="-1"></a><span class="co"># Success: "1" is coerced to integer 1</span></span>
+<span id="cb26-9"><a href="#cb26-9" aria-hidden="true" tabindex="-1"></a>user <span class="op">=</span> User(<span class="bu">id</span><span class="op">=</span><span class="st">"1"</span>, username<span class="op">=</span><span class="st">"nils"</span>)</span>
+<span id="cb26-10"><a href="#cb26-10" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(user.<span class="bu">id</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<blockquote class="blockquote">
+<p>Note: While standard Python type hints are purely “cosmetic” and ignored at runtime, Pydantic turns those hints into active guards for your data.</p>
+</blockquote>
 
 
+</section>
 </section>
 </section>
 
