@@ -515,3 +515,61 @@ A small cluster with a very high average silhouette coefficient may indicate a c
 :::
 
 ![Silhouette Plot](img/silhouette_plot.png)
+
+# Lecture 07: Multivariate Outlier Detection - Other Algorithms
+
+## RANSAC
+
+**Ran**dom **Sa**mple **C**onsensus is an iterative procedure for estimating parameters of a mathematical model from a set of observed data containing outliers. The goal is to ensure that outliers do not affect the estimation of the model. A basic assumption is that the data consists of:
+
+- inliers: Data whose distribution can be explained by model parameters.
+- outliers: Data that do not fit this model.
+
+![RANSAC](img/ransac.png)
+
+### Procedure
+
+1. Randomly select as many points as necessary to calculate the parameters of the model. Call this subset the hypothetical inliers ($n$)
+2. Fit the model to the set of hypothetical inliers.
+3. Determine the subset of points whose distance from the model is smaller than a certain threshold. This subset is called the consensus set ($t$)
+4.  The estimated model is good if enough data points have been classified as part of the consensus set (i.e., hypothetical inliers are probably inliers) ($d$)
+
+In that case, re-estimate the model using all members of this consensus set.
+
+5. Repeat steps 1 through 5 several times and return the best-found model.
+
+```r
+ransac <- function(data, n, k, t, d) {
+    iterations <- 0
+    :
+    while (iterations < k) {
+        maybeinliers <- sample(nrow(data), n)
+        maybemodel <- lm(y ~ x, data = data, subset = maybeinliers)
+    :
+    } bestfit
+}
+```
+
+## DBSCAN
+
+DBSCAN is a density-based clustering algorithm. It groups together points that are packed closely together (high-density regions) and marks points in low-density regions as outliers or noise.
+
+### Key Parameters
+
+- Epsilon ($\epsilon$): The maximum distance between two samples for one to be considered as in the neighborhood of the other. Think of it as the "search radius."
+- MinPts: The minimum number of points required to form a dense region (a cluster).
+
+### Points Classification
+
+- **Core points**: Contain at least MinPts data points.
+- **Border points**: Contains less than MinPts points but contains at least one core point within a radius $\epsilon$.
+- **Noise points**: Are neither core points nor border points.
+
+![DBSCAN Points Classification](img/dbscan_point_classes.png)
+
+
+```r
+kNNdistplot(data, k = 4)
+```
+
+> Note: The kNNdist plot sorts all data points by their k-nearest neighbor distance.
