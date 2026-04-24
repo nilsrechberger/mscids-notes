@@ -106,3 +106,56 @@ information. Normal forms serve to avoid redundancy.
 | **3NF** | Direct Dependency | Eliminate dependencies between non-key columns. |
 | **4NF** | Multi-valued facts | Isolate independent multi-valued relationships. |
 | **5NF** | Reconstruction | Minimize redundancy in complex many-to-many relationships. |
+
+# Session 3: Database Integration
+
+## SQL Data Manipulation Lanugage
+
+- `CREATE TABLE`: Define tables
+- `DROP TABLE`: Delete tables
+- `ALTER TABLE`: Change table definition
+- `INSERT`: Insert data
+
+
+```sql
+INSERT INTO Employee VALUES
+('E22', 'Cole', '7th Street', 'Manhattan', 'A6'),
+('E23', 'Smith', 'Reseda Blvd', 'Los Angeles', 'A5')
+```
+
+- `UPDATE`: Changing the data
+- `SELECT`: Filter data
+- `DELETE`: Delete data
+
+## Data Base Integration
+
+Database Integration not only helps automate Data Preparation. Metadata and schema integration also contributes to data understanding.
+
+## ETL (Extract, Transform, Load)
+
+In the traditional ETL process, data is transformed on a secondary staging server before it ever reaches the target database (usually a Data Warehouse).
+
+> Note: Best for structured data, small-to-medium data volumes, and legacy on-premise systems.
+
+
+```sql
+LOAD DATA LOCAL INFILE '/path/to/ratings.csv'
+INTO TABLE Ratings
+FIELDS TERMINATED BY ','
+ENCLOSED BY '"'
+IGNORE 1 LINES
+(UserID, MovieID, Rating, @Timestamp)
+SET Timestamp = FROM_UNIXTIME(@Timestamp);
+```
+
+### Loading large Datasets
+
+By Table Import Utility in the MySQL Shell.
+
+## ELT (Extract, Load, Transform)
+
+ELT is a modern evolution where data is loaded into the target system (usually a Cloud Data Warehouse or Data Lake) in its raw form. The transformation happens within the target system using its own processing power.
+
+> Note: Best for unstructured/Big Data, high velocity, and modern cloud environments (like Snowflake, BigQuery, or Redshift).
+
+![ETL vs. ELT](img/etl_vs_elt.png)
