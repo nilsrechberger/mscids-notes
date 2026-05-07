@@ -575,3 +575,368 @@ print(user.id)
 
 > Note: While standard Python type hints are purely "cosmetic" and ignored at runtime, Pydantic turns those hints into active guards for your data.
 
+# Lecture 04
+
+## Software Development
+
+### Testing
+
+- Unit Testing: Unit testing focuses on verifying the functionality of individual components, such as functions or classes, in isolation from the rest of the application. This testing is highly granular, ensuring that each small piece of code works as expected.
+- Integration Testing: Integration testing examines how different units or components of an application work together. After individual units have been tested, integration testing ensures that their interactions produce the correct outcomes. This testing occurs in an environment where components are partially or fully integrated, often involving external systems like databases or APIs, to detect interface issues or data flow problems between modules.
+- System Testing: System testing evaluates the complete, integrated application to ensure it meets the specified requirements and functions as intended.
+- Acceptance Testing: The system is evaluated against business requirements to ensure it meets the needs of the end users and stakeholders before it is approved for release.
+
+### Tests in Python
+
+Python comes with built-in testing capabilities.
+
+```python
+assert sum([1, 2, 3]) == 6, „Should be 6“
+```
+
+- assertEqual(a, b) - checks a == b
+- assertNotEqual(a, b) - checks a != b
+- assertTrue(a) - checks that statement returns True
+- assertFalse(a) - checks that statement returns False
+- assertIsNone(a) - checks that a is None
+- assertIsNotNone(a) - checks that a is not None
+- assertIn(a, b) - checks that a in b
+- assertNotIn(a, b) - checks that a not in b
+- assertIsInstance(a, b) - checks that isinstance(a, b)
+- assertNotIsInstance(a, b) - checks that not isinstance(a, b)
+- assertRaises(a) - verify that a specific exception gets raised
+
+##### Project Structure
+
+There are best practices when it comes to the project folder structure.
+
+```bash
+my_project/
+│
+├── src/                        # Your main code directory
+│   ├── module1.py              # Your code module
+│   ├── module2.py              # Another code module
+│   └── ...                     # Other modules
+│
+├── tests/                      # Test directory
+    ├── conftest.py             # (optional) Fixtures for pytest framework
+    ├── test_module1.py         # Tests for module1
+    ├── test_module2.py         # Tests for module2
+    └── ...                     # Other test modules
+```
+
+#### Test Runners
+
+##### `unittest`
+
+`unittest` is a testing framework and test runner for Python. When using the unittest framework, you will have to create a class (that inherits from unittest.TestCase) and put all tests into class methods and use a series of special assertion methods from the parent class (unittest.TestCase) instead of the built-in assert statement.
+
+```python
+import unittest
+
+def add(a, b):
+    return a + b
+
+class TestMathOperations(unittest.TestCase):
+    def test_add(self):
+        self.assertEqual(add(1, 2), 3)
+        self.assertEqual(add(-1, 1), 0)
+        self.assertEqual(add(-1, -1), -2)
+
+if __name__ == '__main__':
+    unittest.main()
+```
+
+::: {.callout-tip}
+
+Use a function to test functions, use classes to test classes (one test class for every class)
+
+:::
+
+
+#### `pytest`
+
+`pytest` is a popular testing framework for Python that makes it easy to write simple as well as scalable test cases. It’s widely used in the Python community due to its flexibility, simplicity, and powerful features. It supports the execution of unittest test cases, but in order to make use of the full advantages it is best to use the pytest test format.
+
+
+```python
+from xy import func, MyClass
+
+# tests can be organized in functions
+def test_func():
+  assert func(3) == 5
+
+class TestMyClass:
+  # or as class methods
+  def test_mymethod__whatistested():
+    myobj = MyClass()
+    assert myobj.mymethod(3) == 5
+```
+
+##### Fixures
+
+Fixtures allow you to define code that should run before your tests, ensuring that each test starts with a known state. They are often used to prepare resources such as initial data, database connections or configuration settings.
+
+> Note: When the fixtures are used in several test-files, it is common to create a `conftest.py` file that contains all the fixtures. 
+
+### Test-Driven Development (TDD)
+
+Test-Driven Development is a software development methodology where developers write tests for a feature before writing the code to implement that feature. First, the developer writes a test for a small piece of functionality (Red phase) that will initially fail since the code doesn’t yet exist. Next, they write the minimum amount of code necessary to make the test pass (Green phase). Finally, they refactor the code, improving its structure and efficiency while ensuring that all tests continue to pass.
+
+### Code Quality
+
+#### Characteristics of Quality Code
+
+- It serves its purpose and it’s reliable (works correctly under specified conditions without failure)
+- It's understandable
+- It follows a consistent style
+- It's behavior can be easily tested with automated tests (Testability)
+- It’s easy to maintain (fixing bugs, adding new features or improving performance)
+- It runs efficiently (in terms of CPU, memory and network)(performance)
+- It doesn't contain security vulnerabilities
+- It's documented well
+
+#### Clean Code
+
+Clean code is an important aspect of code quality, but high code quality requires attention to additional factors beyond readability and maintainability. Both are essential for creating reliable, efficient, and maintainable software.
+
+##### Clean Code Principles
+
+- Meaningful Names: Use descriptive and unambiguous names for variables, functions, classes, and other entities.
+- Keep It Simple, Stupid (KISS): Avoid unnecessary complexity.
+- Don't Repeat Yourself (DRY): Eliminate duplication by abstracting common code.
+- Separation of Concerns (SoC): Divide the code into distinct sections, each handling a specific aspect or concern.
+- You Aren't Gonna Need It (YAGNI): Do not add functionality until it is necessary.
+- Encapsulation: Hide implementation details and expose only what is necessary. 
+
+##### SOLID
+
+SOLID is a set of five essential principles for OOP. It’s about how to form classes, manage inheritance and abstraction.
+
+- Single Responsibility Principle (SRP): A class or function should have only one reason to change. Each module should focus on a single task or responsibility. If your function/class name contains „and“ you may need to split it into two functions/classes
+- Open/Closed Principle (OCP): Software entities should be open for extension but closed for modification. Use inheritance to extend behavior without changing existing code.
+Liskov Substitution Principle (LSP) - Subtypes must be substitutable for their base types without altering the correctness of the program. Ensure derived classes do not violate the expectations set by the base class.
+- Interface Segregation Principle (ISP): Many client-specific interfaces are better than one general-purpose interface. Avoid forcing clients to depend on methods they do not use.
+- Dependency Inversion Principle (DIP): Depend on abstractions, not on concretions. High-level modules should not depend on low-level modules but on abstractions.
+
+##### Code Standards
+
+###### PEP 8 Naming Convention
+
+- Class Names: Should use CamelCase.
+- Variable Names: Should use snake_case and be all lowercase.
+- Function Names: Should use snake_case and be all lowercase.
+- Constants: Should use snake_case and be all uppercase.
+- Modules: Should have short, snake_case names and be all lowercase.
+- Quotes: Single quotes and double quotes are treated the same; just pick one and be consistent.
+
+###### PEP 8 Line Formatting
+
+- Indentation: Use 4 spaces (spaces are preferred over tabs).
+- Line Length: Lines should not be longer than 79 characters.
+- Multiple Statements: Avoid multiple statements on the same line.
+- Blank Lines:
+    - Top-level function and class definitions should be surrounded by two blank lines.
+    - Method definitions inside a class should be surrounded by a single blank line.
+- Imports: Imports should be on separate lines.
+
+###### PEP 8 Whitespace
+
+- Trailing Whitespace: Avoid trailing whitespace anywhere.
+- Binary Operators: Always surround binary operators with a single space on either side.
+- Keyword Arguments: Don't use spaces around the = sign when used to indicate a keyword argument.
+
+###### PEP 8 Comments
+
+- Complete Sentences: Comments should be complete sentences.
+- Space After #: Comments should have a space after the # sign with the first word capitalized.
+- Multi-line Comments (Docstrings): Should have a short single-line description followed by more text.
+
+##### `Pylint`
+
+Pylint is a static code analysis tool that inspects Python code for errors, enforces coding standards, and identifies potential issues or code smells without actually running the code. It is a linter for Python code.
+
+##### `Mypy`
+
+Mypy is a static type checker for Python (static = without running your code), which helps developers ensure their code adheres to specified type annotations (PEP 484). By integrating Mypy into a Python project, developers can catch type-related errors before runtime, leading to more reliable and maintainable code.
+
+
+::: {.callout-important}
+
+Without type annotations (dynamic typing) mypy won't check the functions/classes. As soon as type annotations are added (static typing), mypy will report errors.
+
+:::
+
+### Python Errors
+
+- SyntaxError: invalid syntax: This error occurs when the Python interpreter encounters code that doesn't follow the correct syntax rules. It could be a missing parenthesis, a misplaced colon, or some other syntax-related issue.
+- IndentationError: unexpected indent : Python relies on indentation to define code blocks. This error occurs when indentation is inconsistent or incorrect.
+- NameError: name 'variable' is not defined: These types of errors can result from attempting to use a variable or function that hasn't been defined.
+- AttributeError: 'module' object has no attribute 'attribute_name': You may get this type of error when trying to access an attribute or method that doesn't exist for a module or object.
+- FileNotFoundError: [Errno 2] No such file or directory: 'filename': You'll get this error when attempting to access a file that doesn't exist.
+- IndexError: List index out of range: This type of error happens when you're trying to access an index in a sequence (like a list or a string) that doesn't exist. The same error can happen for strings and tuples for the same reason.
+- ImportError: No module named 'module_name': You'll get this error if you attempt to import a module that isn't installed or accessible.
+- TypeError: This is a common exception in Python that occurs when an operation or function is applied to an object of an inappropriate type.
+- ValueError: This type of error occurs when a function receives an argument of the correct type but with an inappropriate value.
+
+#### Foundational Debugging Techniques
+
+##### Print Statements
+
+By strategically placing print statements at different parts of your code, you can create a log of sorts that shows the order in which different sections of your code are being executed. This can help you understand the control flow and pinpoint where the program might be deviating from your expectations.
+
+##### Logging
+
+Logging is like writing notes while your program runs. Instead of just printing things to the screen, you write them to a log. It helps you keep track of what your program is doing, especially when things go wrong.
+
+##### Exception Handling
+
+Wrap suspicious code blocks with try-except statements to catch and handle exceptions. This prevents your program from crashing abruptly, allowing you to gracefully handle errors and log relevant information.
+
+##### Assertions
+
+An assertion is a statement that you add to your code to check if a certain condition holds true. If the condition is false, it indicates a bug or an unexpected situation in your program.
+
+##### Interactive Debugger (PDB)
+
+Python comes with a built-in debugger called PDB (Python Debugger). It allows you to pause the execution of your Python code, inspect variables, and step through your code line by line to find and fix issues. While print statements and logging are helpful for basic debugging, PDB takes debugging to the next level by allowing you to intervene and analyze your code in real-time.
+
+# Lecture 05
+
+## Docker
+
+Docker is an open-source project that automates the deployment of software applications inside containers by providing an additional layer of abstraction and automation of OS-level virtualization. The key benefit of Docker is that it allows users to package an application with all of its dependencies into a standardized unit for software development. Unlike virtual machines, containers do not have high overhead and hence enable more efficient usage of the underlying system and resources.
+
+### Container
+
+Containers offer a logical packaging mechanism in which applications can be abstracted from the environment in which they actually run. This decoupling allows container-based applications to be deployed easily and consistently, regardless of whether the target environment is a private data center, the public cloud, or even a developer’s personal laptop. This gives developers the ability to create predictable environments that are isolated from the rest of the applications and can be run anywhere
+
+### Docker Basics
+
+- Images: All containers are started from an image. The image defines the initial state of the container’s filesystem. Prebuilt images are available in public repositories such as Docker Hub, including options for popular operating systems and applications.
+- Containers: A container is an instance of an image. It’s a running process independent of your other containers and the existing processes on your host. You can start multiple containers that use the same image simultaneously. Containers have a writable filesystem layer applied on top of the image, allowing modifications to be made.
+- Dockerfile: A Dockerfile is a text document that contains all the commands a user could call on the command line to assemble an image. Using docker build users can create an automated build that executes several command-line instructions in succession.
+
+### Container's Shell
+
+Once you have your application running in a container, you might want to carry out some tasks that require you to get inside the container. For example, you might want to modify files or directories, install new packages, or perhaps analyze logs to troubleshoot issues. The "docker exec" is for accessing a container’s shell.
+
+```bash
+docker exec -it <container-name-or-id> <shell-executable>
+```
+
+### Mount Local Directory
+
+Docker containers are immutable by nature. This means that restarting a container erases all your stored data in the container. But Docker provides bind mounts, which is a mechanism for persisting data in your Docker container. Using the parameter -mount allows you to bind a local directory. This way you can write code locally and run code in container without re-building and re-starting the container.
+
+
+```bash
+docker run -d \
+  -it \
+  --name devtest \
+  --mount type=bind,source="$(pwd)"/target,target=/app \
+  nginx:latest
+```
+> Note: Binding a directory is a 2-way sync. Every file you change on the host is changed in the container, and every file that is changed in the container is changed on the host.
+
+## API Basics
+
+### Client-Server-Model
+
+The client-server model is a foundational concept in computer networking where two types of entities interact: clients and servers.
+
+- Client: A client is a device or program that requests a service or resource from another device (the server). It can be anything from a computer, smartphone, or software application, such as a web browser.
+- Server: A server is a device or program that provides services or resources requested by the client. Servers can offer a variety of services, such as hosting websites, managing databases, storing files, or running applications.
+
+### Workflow
+
+1. The client initiates communication by sending a request to the server over a network (e.g., the Internet or a local network).
+2. The server receives the request, processes it (like fetching data from a database, executing some function, or delivering a file), and prepares a response.
+3. The server sends the response back to the client. This could be a web page, a file, data from a database, or some other service result.
+
+### Web Development
+
+Web development is the process of creating, building, and maintaining websites and web applications that run in a web browser. These applications usually follow a client–server model, where the user’s device (the client) communicates with a remote system (the server) over a network such as the internet.
+
+- Frontend (client-side): Part of a web application that users see and interact with directly. It includes layout, design, navigation, buttons, forms, and all visual and interactive elements in the browser. Frontend development typically uses HTML for structure, CSS for styling, and JavaScript for interactivity, often supported by frameworks and libraries such as React, Vue, or Angular.
+- Backend (server-side): Part of the application that runs on servers and is not directly visible to users. It handles tasks such as processing requests, applying business logic, interacting with databases, and integrating with external services or APIs. Backend development can use many languages and platforms, including Python, PHP, Ruby, Java, C#, JavaScript/TypeScript with Node.js, or Go, along with frameworks and database technologies.
+
+### APIs
+
+An Application Programming Interface (API) defines how two programs or services can communicate with each other and exchange data in a structured way. It acts like a contract: one side offers specific operations, and the other side knows how to call them. A common analogy is a waiter in a restaurant, who takes your order to the kitchen and brings back your food, hiding the internal details of how it is prepared.
+
+
+::: {.callout-note}
+
+APIs are typically organized into endpoints. An endpoint is a specific URL or address that represents one operation or resource you can interact with.
+
+:::
+
+#### API Styles
+
+- REST (Representational State Transfer) – A widely used style that typically uses HTTP, URLs as resource identifiers, and formats like JSON. It is flexible and relatively simple to work with.
+- SOAP (Simple Object Access Protocol) – A protocol based on XML with a rich set of standards for messaging, contracts, and security. It is more formal and heavyweight than typical REST APIs.
+- WebSockets – A protocol that provides a persistent, bidirectional connection between client and server, well suited for real-time features such as chats or live dashboards.
+- GraphQL – A query language and runtime for APIs that lets clients request exactly the data they need in a single request, reducing overfetching and underfetching.
+gRPC – A high-performance, contract-first RPC framework that uses HTTP/2 and binary messages (often Protocol Buffers), well suited for communication between microservices.
+- Webhooks – An integration pattern where one service sends HTTP callbacks to another service when certain events occur, allowing event-driven communication.
+
+### RESTful API
+
+A RESTful API (Representational State Transfer API) is an implementation of the REST architectural style, commonly used for web services. It is built around resources and the actions that can be performed on them, usually exposed via URLs. For example, in a simple book library service, each book is a resource, and the API allows clients to get information about a book or add, modify, and delete books.
+
+#### Requests
+
+- GET: Retrieve data (for example, fetch a list of books or details of a single book). GET requests should only read data and must not change server state.
+- POST: Create a new resource (for example, add a new book to the library).
+- PUT: Replace an existing resource with new data (for example, overwrite the details of an existing book).
+- PATCH: Partially update an existing resource (for example, change just the title of a book).
+- DELETE: Remove a resource (for example, delete a book).
+
+#### Response Codes
+
+##### 2xx: Success
+- **200 OK**: Request succeeded.
+- **201 Created**: Resource successfully created.
+- **204 No Content**: Request succeeded, no content returned (e.g., after DELETE).
+
+##### 4xx: Client Error
+- **400 Bad Request**: Invalid request (syntax or logic error).
+- **401 Unauthorized**: Authentication is required or failed.
+- **403 Forbidden**: Authenticated, but no permission for this action.
+- **404 Not Found**: Resource does not exist.
+- **429 Too Many Requests**: Rate limit exceeded.
+
+##### 5xx: Server Error
+- **500 Internal Server Error**: Generic server-side error.
+- **503 Service Unavailable**: Server is down for maintenance or overloaded.
+
+## Decorators
+
+In Python, a decorator is a design pattern that allows you to modify the functionality of a function by wrapping it in another function. The outer function is called the decorator, which takes the original function as an argument and returns a modified version of it. Instead of assigning the function call to a variable, Python provides a much more elegant way to achieve this functionality using the `@` symbol.
+
+
+```python
+def make_pretty(func):
+    def inner():
+        print("I got decorated")
+        func()
+    return inner
+
+@make_pretty
+def ordinary():
+    print("I am ordinary")
+
+ordinary() 
+```
+
+### Build-in Decorators
+
+### Built-in Python Decorators
+
+* **@staticmethod**: Defines a method that does not receive an implicit first argument (self/cls).
+* **@classmethod**: Defines a method that receives the class as the first argument instead of the instance.
+* **@atexit.register**: Registers a function to be executed when the program terminates.
+* **@dataclass**: Automatically generates special methods (like `__init__` and `__repr__`) for classes.
+* **@unique**: Ensures that enumeration members have unique values (from the `enum` module).
+* **@property & @setter**: Allows a method to be accessed like an attribute while enabling custom logic for getting and setting values.
