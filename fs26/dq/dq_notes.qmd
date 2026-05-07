@@ -573,3 +573,49 @@ kNNdistplot(data, k = 4)
 ```
 
 > Note: The kNNdist plot sorts all data points by their k-nearest neighbor distance.
+
+# Lecture 08: Data quality in the context of DoE and ML
+
+## The End of Theory
+
+The new availability of huge amounts of data, along with the statistical tools to crunch these
+numbers, offers a whole new way of understanding the world. Correlation supersedes causation,
+and science can advance even without coherent models, unified theories, or really any
+mechanistic explanation at all.
+
+### Pro
+
+- Reduced dependence on explicit a priori theories.
+- Large data quantities may cover entire domains and provide comprehensive solutions given sufficient, representative, and well-measured data.
+- ML and AI leverage large datasets to extract patterns and make predictions in high-dimensional settings. Scalable computation enables detection of complex, nonlinear relationships.
+- Automated feature learning reduces reliance on manual, theory-driven variable construction.
+
+### Contra
+
+- Correlation is not causation.
+- Large data quantities are generated within specific contexts and constraints:
+    - Aim and purpose, sampling and selection mechanisms
+    - Measurement systems and technology, platform effects
+    - Regulatory environment
+- Data cannot be interpreted independently of their generation process and context.
+- There is no unbiased, value-free data analysis; assumptions enter from collection to modeling
+- Measurement error, noise and bias persist; vulnerability to distribution shifts
+- Lack of experimental design reduces sample efficiency
+
+## Transforming Data into Content
+
+In the context of processing and using data, the DIKW pyramid is often mentioned.
+
+![DIKW Pyramid](img/dikw_pyramid.png)
+
+
+::: {.callout-caution}
+
+The pyramid assumes that data simply exists. But data has to be created.
+
+:::
+
+
+## Data quality in the context of DoE and ML
+
+DoE and ML approaches provide complementary methodologies for quality improvement. DoE is focused on identifying quality-relevant process factors, is human‑centered and typically uses "small", designed data and becomes more effective with deeper prior knowledge about the process. ML is focused on identifying patterns/features in large, often unstructured data, is data‑/model‑centered and often deals with "big", observational data and is more effective with higher data quality and a larger amount of training data.
