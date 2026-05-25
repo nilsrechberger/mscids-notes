@@ -657,3 +657,9 @@ Most DBMS provide a textual or graphical execution plan to estimate query perfor
 ### SARGable queries
 
 SARGable stands for Search Argument Able. A query is SARGable if the MySQL engine can take advantage of an existing index to speed up the execution. If a query is Non-SARGable, MySQL cannot use the index and is forced to resort to a slow Full Table Scan.
+
+# Session 7: Database Visualization
+
+## Value of Database Visualization
+
+![Value of Database Visualization](img/value_of_database_vis.png)
