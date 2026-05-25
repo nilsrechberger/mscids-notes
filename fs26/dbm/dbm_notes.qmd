@@ -553,3 +553,107 @@ FROM
 WHERE
     c.ProfessorPersonId < 2130;
 ```
+
+# Session 6: SQL Performance
+
+## Hardware Components for Data
+
+### Capacity and Latency
+
+![Hardware components for data](img/hardware_comp.png)
+
+### Bottelnecks
+
+Table joins can be bottlenecks. Especially without indexes, they need to process a lot of data and, thus, might heavily use I/O. For query performance, you can skip/avoid joins by using:
+
+- denormalized table design
+- materialized view
+
+## Indexes
+
+Do not just index each and every column in your tables (they must be updated with each insert, update and delete!). Create indexes that serve several different queries! When you load a huge amount of data, you might drop the indexes and recreate them after the import.
+
+### Cluster Indexes
+
+- Tables physically ordered by key
+- The key(s) and the data of a row are stored together
+- Only one clustered index per table
+
+> Note: MySQL automatically clusters the table!
+
+### Nonclustered / Secondary Index
+
+- Additional data structure containing key(s)
+- More than one index possible per table
+- Data is separate from index
+
+
+```sql
+CREATE INDEX
+    IDX_Person_Name
+ON
+    person (Name);
+```
+
+## Heap
+
+- Table content unordered
+- Data usually appended to the end
+- Identifier necessary to access the row (additional 6 bytes per row!)
+    - Row Identifier [RID] or
+    - Tuple Identifier [TID]
+
+::: {.callout-important}
+
+Heap is not an index.
+
+:::
+
+## Query Optimizer
+
+The Query Optimizer supports you to reduce the amount of data processed and also saved in the interim result sets.
+
+### Algebraic Transformation
+
+![Relational algebra with(out) transformation](img/optimization_example.png)
+
+```sql
+SELECT
+    c.CourseNo,
+    p.Name,
+    p.Birthdate
+FROM
+    course AS c
+INNER JOIN
+    person AS p
+ON
+    c.ProfessorPersonId = p.PersonId
+WHERE
+    p.Name LIKE 'K%';
+```
+
+### Execution Plan
+
+Most DBMS provide a textual or graphical execution plan to estimate query performance.
+
+#### The "Good" Operators (Efficient)
+
+- Unique Key Lookup: Searching or joining via a Primary Key or Unique Index. (Fastest).
+- Non-Unique Key Lookup: Searching an indexed column that allows duplicate values.
+- Index Range Scan: Fetching a subset of data using operators like >=, <, or BETWEEN ... AND.
+
+#### The "Bad" Operators (Inefficient)
+
+- Full Table Scan ("ALL"): MySQL reads every single row in the table from disk.
+- Full Index Scan ("INDEX"): MySQL reads the entire index tree from top to bottom.
+
+## Syntactical Query Optimization
+
+### Functions on search columns
+
+- Bad: `WHERE LEFT(b.Name, 2) = 'An';`
+- Good: `WHERE b.Name LIKE 'An%';`
+
+### SARGable queries
+
+SARGable stands for Search Argument Able. A query is SARGable if the MySQL engine can take advantage of an existing index to speed up the execution. If a query is Non-SARGable, MySQL cannot use the index and is forced to resort to a slow Full Table Scan.
