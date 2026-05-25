@@ -466,6 +466,16 @@ window.Quarto = {
   <li><a href="#points-classification" id="toc-points-classification" class="nav-link" data-scroll-target="#points-classification">Points Classification</a></li>
   </ul></li>
   </ul></li>
+  <li><a href="#lecture-08-data-quality-in-the-context-of-doe-and-ml" id="toc-lecture-08-data-quality-in-the-context-of-doe-and-ml" class="nav-link" data-scroll-target="#lecture-08-data-quality-in-the-context-of-doe-and-ml">Lecture 08: Data quality in the context of DoE and ML</a>
+  <ul class="collapse">
+  <li><a href="#the-end-of-theory" id="toc-the-end-of-theory" class="nav-link" data-scroll-target="#the-end-of-theory">The End of Theory</a>
+  <ul class="collapse">
+  <li><a href="#pro" id="toc-pro" class="nav-link" data-scroll-target="#pro">Pro</a></li>
+  <li><a href="#contra" id="toc-contra" class="nav-link" data-scroll-target="#contra">Contra</a></li>
+  </ul></li>
+  <li><a href="#transforming-data-into-content" id="toc-transforming-data-into-content" class="nav-link" data-scroll-target="#transforming-data-into-content">Transforming Data into Content</a></li>
+  <li><a href="#data-quality-in-the-context-of-doe-and-ml" id="toc-data-quality-in-the-context-of-doe-and-ml" class="nav-link" data-scroll-target="#data-quality-in-the-context-of-doe-and-ml">Data quality in the context of DoE and ML</a></li>
+  </ul></li>
   </ul>
 <div class="quarto-alternate-formats"><h2>Other Formats</h2><ul><li><a href="dq_notes.pdf"><i class="bi bi-file-pdf"></i>PDF</a></li></ul></div></nav>
     </div>
@@ -1266,9 +1276,68 @@ Caution
 <blockquote class="blockquote">
 <p>Note: The kNNdist plot sorts all data points by their k-nearest neighbor distance.</p>
 </blockquote>
-
-
 </section>
+</section>
+</section>
+<section id="lecture-08-data-quality-in-the-context-of-doe-and-ml" class="level1">
+<h1>Lecture 08: Data quality in the context of DoE and ML</h1>
+<section id="the-end-of-theory" class="level2">
+<h2 class="anchored" data-anchor-id="the-end-of-theory">The End of Theory</h2>
+<p>The new availability of huge amounts of data, along with the statistical tools to crunch these numbers, offers a whole new way of understanding the world. Correlation supersedes causation, and science can advance even without coherent models, unified theories, or really any mechanistic explanation at all.</p>
+<section id="pro" class="level3">
+<h3 class="anchored" data-anchor-id="pro">Pro</h3>
+<ul>
+<li>Reduced dependence on explicit a priori theories.</li>
+<li>Large data quantities may cover entire domains and provide comprehensive solutions given sufficient, representative, and well-measured data.</li>
+<li>ML and AI leverage large datasets to extract patterns and make predictions in high-dimensional settings. Scalable computation enables detection of complex, nonlinear relationships.</li>
+<li>Automated feature learning reduces reliance on manual, theory-driven variable construction.</li>
+</ul>
+</section>
+<section id="contra" class="level3">
+<h3 class="anchored" data-anchor-id="contra">Contra</h3>
+<ul>
+<li>Correlation is not causation.</li>
+<li>Large data quantities are generated within specific contexts and constraints:
+<ul>
+<li>Aim and purpose, sampling and selection mechanisms</li>
+<li>Measurement systems and technology, platform effects</li>
+<li>Regulatory environment</li>
+</ul></li>
+<li>Data cannot be interpreted independently of their generation process and context.</li>
+<li>There is no unbiased, value-free data analysis; assumptions enter from collection to modeling</li>
+<li>Measurement error, noise and bias persist; vulnerability to distribution shifts</li>
+<li>Lack of experimental design reduces sample efficiency</li>
+</ul>
+</section>
+</section>
+<section id="transforming-data-into-content" class="level2">
+<h2 class="anchored" data-anchor-id="transforming-data-into-content">Transforming Data into Content</h2>
+<p>In the context of processing and using data, the DIKW pyramid is often mentioned.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="img/dikw_pyramid.png" class="img-fluid figure-img"></p>
+<figcaption>DIKW Pyramid</figcaption>
+</figure>
+</div>
+<div class="callout callout-style-default callout-caution callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Caution
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>The pyramid assumes that data simply exists. But data has to be created.</p>
+</div>
+</div>
+</section>
+<section id="data-quality-in-the-context-of-doe-and-ml" class="level2">
+<h2 class="anchored" data-anchor-id="data-quality-in-the-context-of-doe-and-ml">Data quality in the context of DoE and ML</h2>
+<p>DoE and ML approaches provide complementary methodologies for quality improvement. DoE is focused on identifying quality-relevant process factors, is human‑centered and typically uses “small”, designed data and becomes more effective with deeper prior knowledge about the process. ML is focused on identifying patterns/features in large, often unstructured data, is data‑/model‑centered and often deals with “big”, observational data and is more effective with higher data quality and a larger amount of training data.</p>
+
+
 </section>
 </section>
 
