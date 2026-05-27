@@ -739,7 +739,7 @@ Big data systems often prioritize availability over consistency.
 
 A Quantile-Quantile (Q-Q) Plot is a visual tool used in statistics to assess if a dataset follows a specific theoretical distribution (most commonly, a normal distribution).It plots the quantiles of your sample data against the quantiles of the theoretical distribution. If the data fits the chosen distribution, the points will fall roughly along a straight diagonal line ($y = x$).
 
-```{r}
+```r
 set.seed(42)
 sample_data <- rnorm(100, mean = 50, sd = 10)
 

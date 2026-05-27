@@ -476,6 +476,34 @@ window.Quarto = {
   <li><a href="#transforming-data-into-content" id="toc-transforming-data-into-content" class="nav-link" data-scroll-target="#transforming-data-into-content">Transforming Data into Content</a></li>
   <li><a href="#data-quality-in-the-context-of-doe-and-ml" id="toc-data-quality-in-the-context-of-doe-and-ml" class="nav-link" data-scroll-target="#data-quality-in-the-context-of-doe-and-ml">Data quality in the context of DoE and ML</a></li>
   </ul></li>
+  <li><a href="#lecture-09-quality-criteria-of-studies" id="toc-lecture-09-quality-criteria-of-studies" class="nav-link" data-scroll-target="#lecture-09-quality-criteria-of-studies">Lecture 09: Quality Criteria of Studies</a>
+  <ul class="collapse">
+  <li><a href="#validity" id="toc-validity" class="nav-link" data-scroll-target="#validity">Validity</a></li>
+  <li><a href="#checklist" id="toc-checklist" class="nav-link" data-scroll-target="#checklist">Checklist</a></li>
+  <li><a href="#reproducibility-vs.-replicability" id="toc-reproducibility-vs.-replicability" class="nav-link" data-scroll-target="#reproducibility-vs.-replicability">Reproducibility vs.&nbsp;Replicability</a>
+  <ul class="collapse">
+  <li><a href="#the-four-horsemen-of-irreproducability" id="toc-the-four-horsemen-of-irreproducability" class="nav-link" data-scroll-target="#the-four-horsemen-of-irreproducability">The “Four Horsemen of Irreproducability”</a></li>
+  <li><a href="#measuring-replication-success" id="toc-measuring-replication-success" class="nav-link" data-scroll-target="#measuring-replication-success">Measuring Replication Success</a></li>
+  </ul></li>
+  </ul></li>
+  <li><a href="#lecture-10-data-quality-aspects-in-large-datasets" id="toc-lecture-10-data-quality-aspects-in-large-datasets" class="nav-link" data-scroll-target="#lecture-10-data-quality-aspects-in-large-datasets">Lecture 10: Data Quality Aspects in Large Datasets</a>
+  <ul class="collapse">
+  <li><a href="#the-5-vs-of-big-data" id="toc-the-5-vs-of-big-data" class="nav-link" data-scroll-target="#the-5-vs-of-big-data">The 5 V’s of Big Data</a>
+  <ul class="collapse">
+  <li><a href="#big-data-specific-challenges" id="toc-big-data-specific-challenges" class="nav-link" data-scroll-target="#big-data-specific-challenges">Big Data-Specific Challenges</a></li>
+  </ul></li>
+  <li><a href="#big-data-quality" id="toc-big-data-quality" class="nav-link" data-scroll-target="#big-data-quality">Big Data Quality</a></li>
+  <li><a href="#scale-up-vs.-scale-out" id="toc-scale-up-vs.-scale-out" class="nav-link" data-scroll-target="#scale-up-vs.-scale-out">Scale Up vs.&nbsp;Scale Out</a>
+  <ul class="collapse">
+  <li><a href="#cap-theorem" id="toc-cap-theorem" class="nav-link" data-scroll-target="#cap-theorem">CAP Theorem</a></li>
+  </ul></li>
+  <li><a href="#the-base-model" id="toc-the-base-model" class="nav-link" data-scroll-target="#the-base-model">The BASE Model</a></li>
+  <li><a href="#best-practices" id="toc-best-practices" class="nav-link" data-scroll-target="#best-practices">Best Practices</a></li>
+  <li><a href="#qq-plot" id="toc-qq-plot" class="nav-link" data-scroll-target="#qq-plot">QQ-Plot</a>
+  <ul class="collapse">
+  <li><a href="#interpretaiton" id="toc-interpretaiton" class="nav-link" data-scroll-target="#interpretaiton">Interpretaiton</a></li>
+  </ul></li>
+  </ul></li>
   </ul>
 <div class="quarto-alternate-formats"><h2>Other Formats</h2><ul><li><a href="dq_notes.pdf"><i class="bi bi-file-pdf"></i>PDF</a></li></ul></div></nav>
     </div>
@@ -1336,8 +1364,176 @@ Caution
 <section id="data-quality-in-the-context-of-doe-and-ml" class="level2">
 <h2 class="anchored" data-anchor-id="data-quality-in-the-context-of-doe-and-ml">Data quality in the context of DoE and ML</h2>
 <p>DoE and ML approaches provide complementary methodologies for quality improvement. DoE is focused on identifying quality-relevant process factors, is human‑centered and typically uses “small”, designed data and becomes more effective with deeper prior knowledge about the process. ML is focused on identifying patterns/features in large, often unstructured data, is data‑/model‑centered and often deals with “big”, observational data and is more effective with higher data quality and a larger amount of training data.</p>
+</section>
+</section>
+<section id="lecture-09-quality-criteria-of-studies" class="level1">
+<h1>Lecture 09: Quality Criteria of Studies</h1>
+<section id="validity" class="level2">
+<h2 class="anchored" data-anchor-id="validity">Validity</h2>
+<ul>
+<li>Internal validity: The extent to which a study can confidently establish a cause-and-effect relationship between the independent variable (treatment/manipulation) and the dependent variable (outcome).</li>
+<li>External Validity: The extent to which the results of a study can be generalized to other people, settings, times, or situations outside the specific study conditions.</li>
+<li>Trade-off: Lab experiments → high internal validity, often low external validity. Real-world studies → higher external validity, often lower internal validity.</li>
+</ul>
+</section>
+<section id="checklist" class="level2">
+<h2 class="anchored" data-anchor-id="checklist">Checklist</h2>
+<ul>
+<li>Is there a clear statement defining the objective and goal of the work?</li>
+<li>Is there an adequate description justifying the choice of the research method?</li>
+<li>Is the research method appropriate to address the defined goal?</li>
+<li>Is the applied evaluation feasible to achieve the desired results?</li>
+<li>Are the findings precisely and coherently reported?</li>
+<li>Is the value of the work evident?</li>
+</ul>
+<blockquote class="blockquote">
+<p>Note: <a href="Shakeel et. al. (2020)">https://dl.acm.org/doi/10.1145/3356901</a></p>
+</blockquote>
+</section>
+<section id="reproducibility-vs.-replicability" class="level2">
+<h2 class="anchored" data-anchor-id="reproducibility-vs.-replicability">Reproducibility vs.&nbsp;Replicability</h2>
+<ul>
+<li>Reproducibility: Obtaining consistent results using the same data (original authors’ artefacts), computational steps, methods, and code.</li>
+<li>Replicability: Obtaining consistent results across studies aimed at answering the same scientific question, each of which has obtained its own data.</li>
+<li>Repeatability: Reproducibility by the same team, rather than someone else.</li>
+</ul>
+<section id="the-four-horsemen-of-irreproducability" class="level3">
+<h3 class="anchored" data-anchor-id="the-four-horsemen-of-irreproducability">The “Four Horsemen of Irreproducability”</h3>
+<ul>
+<li>Publication bias: Journals selectively publish results that are statistically significant or otherwise attractive. There is no “Journal of Failed Research”.</li>
+<li>p-hacking: Researchers torture the data with different methods until the data confess (a p-value below 5% is found), and then report only that analysis. This multiple testing inflates Type I error (probability of falsely rejecting the null). A pileup of p-values just below the arbitrary 5% threshold in published work has been demonstrated.</li>
+<li>HARKing (Hypothesizing After the Results are Known): Researchers run the study, look at the data, then write the paper as if they had predicted the “significant” findings all along (post-hoc hypotheses presented as a priori). Famous paper showing the dangers from economics: “I Just Ran Two Million Regressions”.</li>
+<li>Low statistical power: Researchers use sample sizes too small to reliably detect the effects they’re looking for (or to rule them out). Leads to noisy, inconsistent results, high rates of false negatives, and exaggerated effect sizes when something does pop up by chance.</li>
+</ul>
+</section>
+<section id="measuring-replication-success" class="level3">
+<h3 class="anchored" data-anchor-id="measuring-replication-success">Measuring Replication Success</h3>
+<ul>
+<li>Repeated significance: This simply asks whether an effect that was significant in the original study continues to be significant in the replication attempt.</li>
+<li>Compatibility of effect size
+<ul>
+<li>Is the effect size of the replication attempt contained in the prediction interval of the original study? Note: prediction intervals are similar to confidence intervals, but they bracket not the mean, but an individual observation (which is noisy, so the interval is wider.)</li>
+<li>Q-Test: this is a formal test of the compatibility of effect sizes. The null is that the effects are compatible; reject if p-value &lt; 0.05. This turns out to be equivalent to the previous criterion.</li>
+</ul></li>
+</ul>
+</section>
+</section>
+</section>
+<section id="lecture-10-data-quality-aspects-in-large-datasets" class="level1">
+<h1>Lecture 10: Data Quality Aspects in Large Datasets</h1>
+<section id="the-5-vs-of-big-data" class="level2">
+<h2 class="anchored" data-anchor-id="the-5-vs-of-big-data">The 5 V’s of Big Data</h2>
+<ul>
+<li>Volume: The massive scale of data — think terabytes, petabytes, or exabytes generated from sources like social media, sensors (IoT), transactions, etc.</li>
+<li>Velocity: The high speed at which data is generated, collected, and needs to be processed (e.g., real-time streams from IoT devices or stock markets, X/Twitter posts, etc.).</li>
+<li>Variety: The different types and formats of data — structured (databases), semi-structured (JSON/XML documents), and unstructured (text, images, videos, emails).</li>
+<li>Later frameworks identify other Vs. Most common are the 5 Vs, which include in addition</li>
+<li>Veracity (or lack thereof): The quality, accuracy, and trustworthiness of the data. Big data often includes noise, biases, inconsistencies, or incompleteness, so cleaning and validation are crucial.</li>
+<li>Value: The most important one — the actual business or actionable insights you can extract. Raw data has no worth unless it drives decisions, predictions, or innovation</li>
+</ul>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="img/5_v_big_data.png" class="img-fluid figure-img"></p>
+<figcaption>The 5 V’s of Big Data</figcaption>
+</figure>
+</div>
+<section id="big-data-specific-challenges" class="level3">
+<h3 class="anchored" data-anchor-id="big-data-specific-challenges">Big Data-Specific Challenges</h3>
+<ul>
+<li>Volume: Scale makes manual inspection impossible; issues hide in petabytes.</li>
+<li>Velocity: Real-time streams leave little time for thorough validation.</li>
+<li>Variety: Mixing structured, unstructured (text, images, video), and semi-structured data from diverse sources (IoT, social media, legacy systems) creates format/schema mismatches and integration headaches.</li>
+<li>Veracity issues: Noisy, biased, or uncertain data (e.g., fake social media posts, sensor errors, human entry mistakes), unclear lineage.</li>
+<li>Distributed systems: Data silos, replication across clouds/clusters, and evolving schemas lead to inconsistencies,</li>
+</ul>
+</section>
+</section>
+<section id="big-data-quality" class="level2">
+<h2 class="anchored" data-anchor-id="big-data-quality">Big Data Quality</h2>
+<ul>
+<li>Completeness: no missing records/field values</li>
+<li>Correctness/accuracy: the data accurately describe the entity in question</li>
+<li>Conformity/validity: correct types, value ranges, etc.</li>
+<li>Consistency: no contradictions between different data sets / tables</li>
+<li>Currency: the data are up to date</li>
+</ul>
+</section>
+<section id="scale-up-vs.-scale-out" class="level2">
+<h2 class="anchored" data-anchor-id="scale-up-vs.-scale-out">Scale Up vs.&nbsp;Scale Out</h2>
+<ul>
+<li>Scale up/Vertical scaling: make a single machine more powerful (more CPUs, RAM, disk space, …)</li>
+<li>Scale out/Horizontal scaling: add more machines (nodes) to a cluster</li>
+</ul>
+<p>Modern hyperscalers almost always scale out; scaling up hits practical limits, and scaling out is much cheaper because it uses commodity hardware.</p>
+<section id="cap-theorem" class="level3">
+<h3 class="anchored" data-anchor-id="cap-theorem">CAP Theorem</h3>
+<p>The CAP theorem holds that any distributed data store can provide at most two of the following three guarantees:</p>
+<ul>
+<li>Consistency: all clients see the same data at the same time, no matter which node they connect to</li>
+<li>Availability: Every request received by a non-failing node in the system results in a response</li>
+<li>Partition tolerance: the system continues to operate despite an arbitrary number of messages being dropped (or delayed) by the network between nodes.</li>
+</ul>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Note
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Intuition: When a network partition failure happens, it must be decided whether to do one of the following:</p>
+<ul>
+<li>cancel the operation and thus decrease the availability but ensure consistency</li>
+<li>proceed with the operation and thus provide availability but risk inconsistency.</li>
+</ul>
+</div>
+</div>
+</section>
+</section>
+<section id="the-base-model" class="level2">
+<h2 class="anchored" data-anchor-id="the-base-model">The BASE Model</h2>
+<p>Big data systems often prioritize availability over consistency.</p>
+<ul>
+<li>Basically Available: The system guarantees responsiveness and uptime, even during node failures or network partitions</li>
+<li>Soft state: Data consistency is not guaranteed at all times; the system state may change over time without input due to data replication and synchronization.</li>
+<li>Eventual Consistency: The system will become consistent eventually, once it stops receiving input, allowing nodes to synchronize data asynchronously</li>
+</ul>
+<blockquote class="blockquote">
+<p>Note: The BASE model is to be contrasted with the ACID model for traditional database.</p>
+</blockquote>
+</section>
+<section id="best-practices" class="level2">
+<h2 class="anchored" data-anchor-id="best-practices">Best Practices</h2>
+<ul>
+<li>Shift left and automate: Embed quality checks early in pipelines (ingestion, transformation) to prevent inaccurate data from entering the system. Use tools to check for schemas, data types, and required fields.</li>
+<li>Data Observability and Monitoring: Rather than static checks, adopt automated, real-time monitoring to detect anomalies (e.g., schema changes, unexpected null values, distribution drifts) as they occur. Set thresholds (e.g., &lt;1% nulls for key fields) and score overall quality.</li>
+<li>Governance &amp; Culture: Assign data owners, define SLAs for quality, maintain clear definitions (metadata), and train teams.</li>
+<li>Utilize AI for Data Cleansing &amp; Anomaly Detection: Use machine learning models to identify complex patterns, inconsistencies, and outliers that automated rule-based systems might miss.</li>
+</ul>
+</section>
+<section id="qq-plot" class="level2">
+<h2 class="anchored" data-anchor-id="qq-plot">QQ-Plot</h2>
+<p>A Quantile-Quantile (Q-Q) Plot is a visual tool used in statistics to assess if a dataset follows a specific theoretical distribution (most commonly, a normal distribution).It plots the quantiles of your sample data against the quantiles of the theoretical distribution. If the data fits the chosen distribution, the points will fall roughly along a straight diagonal line (<span class="math inline">y = x</span>).</p>
+<div class="sourceCode" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">42</span>)</span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>sample_data <span class="ot">&lt;-</span> <span class="fu">rnorm</span>(<span class="dv">100</span>, <span class="at">mean =</span> <span class="dv">50</span>, <span class="at">sd =</span> <span class="dv">10</span>)</span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a><span class="fu">qqnorm</span>(sample_data, <span class="at">main =</span> <span class="st">"Normal Q-Q Plot"</span>, </span>
+<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a>       <span class="at">xlab =</span> <span class="st">"Theoretical Quantiles"</span>, <span class="at">ylab =</span> <span class="st">"Sample Quantiles"</span>,</span>
+<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a>       <span class="at">col =</span> <span class="st">"blue"</span>, <span class="at">pch =</span> <span class="dv">16</span>)</span>
+<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a><span class="fu">qqline</span>(sample_data, <span class="at">col =</span> <span class="st">"red"</span>, <span class="at">lwd =</span> <span class="dv">2</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<section id="interpretaiton" class="level3">
+<h3 class="anchored" data-anchor-id="interpretaiton">Interpretaiton</h3>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="img/qq_plot_interpretaiton.jpg" class="img-fluid figure-img"></p>
+<figcaption>QQ-Plot Interpretation</figcaption>
+</figure>
+</div>
 
 
+</section>
 </section>
 </section>
 

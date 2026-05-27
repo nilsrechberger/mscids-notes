@@ -2828,6 +2828,69 @@
     "text": "Data quality in the context of DoE and ML\nDoE and ML approaches provide complementary methodologies for quality improvement. DoE is focused on identifying quality-relevant process factors, is human‑centered and typically uses “small”, designed data and becomes more effective with deeper prior knowledge about the process. ML is focused on identifying patterns/features in large, often unstructured data, is data‑/model‑centered and often deals with “big”, observational data and is more effective with higher data quality and a larger amount of training data."
   },
   {
+    "objectID": "fs26/dq/dq_notes.html#validity",
+    "href": "fs26/dq/dq_notes.html#validity",
+    "title": "Data Quality - Notes",
+    "section": "Validity",
+    "text": "Validity\n\nInternal validity: The extent to which a study can confidently establish a cause-and-effect relationship between the independent variable (treatment/manipulation) and the dependent variable (outcome).\nExternal Validity: The extent to which the results of a study can be generalized to other people, settings, times, or situations outside the specific study conditions.\nTrade-off: Lab experiments → high internal validity, often low external validity. Real-world studies → higher external validity, often lower internal validity."
+  },
+  {
+    "objectID": "fs26/dq/dq_notes.html#checklist",
+    "href": "fs26/dq/dq_notes.html#checklist",
+    "title": "Data Quality - Notes",
+    "section": "Checklist",
+    "text": "Checklist\n\nIs there a clear statement defining the objective and goal of the work?\nIs there an adequate description justifying the choice of the research method?\nIs the research method appropriate to address the defined goal?\nIs the applied evaluation feasible to achieve the desired results?\nAre the findings precisely and coherently reported?\nIs the value of the work evident?\n\n\nNote: https://dl.acm.org/doi/10.1145/3356901"
+  },
+  {
+    "objectID": "fs26/dq/dq_notes.html#reproducibility-vs.-replicability",
+    "href": "fs26/dq/dq_notes.html#reproducibility-vs.-replicability",
+    "title": "Data Quality - Notes",
+    "section": "Reproducibility vs. Replicability",
+    "text": "Reproducibility vs. Replicability\n\nReproducibility: Obtaining consistent results using the same data (original authors’ artefacts), computational steps, methods, and code.\nReplicability: Obtaining consistent results across studies aimed at answering the same scientific question, each of which has obtained its own data.\nRepeatability: Reproducibility by the same team, rather than someone else.\n\n\nThe “Four Horsemen of Irreproducability”\n\nPublication bias: Journals selectively publish results that are statistically significant or otherwise attractive. There is no “Journal of Failed Research”.\np-hacking: Researchers torture the data with different methods until the data confess (a p-value below 5% is found), and then report only that analysis. This multiple testing inflates Type I error (probability of falsely rejecting the null). A pileup of p-values just below the arbitrary 5% threshold in published work has been demonstrated.\nHARKing (Hypothesizing After the Results are Known): Researchers run the study, look at the data, then write the paper as if they had predicted the “significant” findings all along (post-hoc hypotheses presented as a priori). Famous paper showing the dangers from economics: “I Just Ran Two Million Regressions”.\nLow statistical power: Researchers use sample sizes too small to reliably detect the effects they’re looking for (or to rule them out). Leads to noisy, inconsistent results, high rates of false negatives, and exaggerated effect sizes when something does pop up by chance.\n\n\n\nMeasuring Replication Success\n\nRepeated significance: This simply asks whether an effect that was significant in the original study continues to be significant in the replication attempt.\nCompatibility of effect size\n\nIs the effect size of the replication attempt contained in the prediction interval of the original study? Note: prediction intervals are similar to confidence intervals, but they bracket not the mean, but an individual observation (which is noisy, so the interval is wider.)\nQ-Test: this is a formal test of the compatibility of effect sizes. The null is that the effects are compatible; reject if p-value &lt; 0.05. This turns out to be equivalent to the previous criterion."
+  },
+  {
+    "objectID": "fs26/dq/dq_notes.html#the-5-vs-of-big-data",
+    "href": "fs26/dq/dq_notes.html#the-5-vs-of-big-data",
+    "title": "Data Quality - Notes",
+    "section": "The 5 V’s of Big Data",
+    "text": "The 5 V’s of Big Data\n\nVolume: The massive scale of data — think terabytes, petabytes, or exabytes generated from sources like social media, sensors (IoT), transactions, etc.\nVelocity: The high speed at which data is generated, collected, and needs to be processed (e.g., real-time streams from IoT devices or stock markets, X/Twitter posts, etc.).\nVariety: The different types and formats of data — structured (databases), semi-structured (JSON/XML documents), and unstructured (text, images, videos, emails).\nLater frameworks identify other Vs. Most common are the 5 Vs, which include in addition\nVeracity (or lack thereof): The quality, accuracy, and trustworthiness of the data. Big data often includes noise, biases, inconsistencies, or incompleteness, so cleaning and validation are crucial.\nValue: The most important one — the actual business or actionable insights you can extract. Raw data has no worth unless it drives decisions, predictions, or innovation\n\n\n\n\nThe 5 V’s of Big Data\n\n\n\nBig Data-Specific Challenges\n\nVolume: Scale makes manual inspection impossible; issues hide in petabytes.\nVelocity: Real-time streams leave little time for thorough validation.\nVariety: Mixing structured, unstructured (text, images, video), and semi-structured data from diverse sources (IoT, social media, legacy systems) creates format/schema mismatches and integration headaches.\nVeracity issues: Noisy, biased, or uncertain data (e.g., fake social media posts, sensor errors, human entry mistakes), unclear lineage.\nDistributed systems: Data silos, replication across clouds/clusters, and evolving schemas lead to inconsistencies,"
+  },
+  {
+    "objectID": "fs26/dq/dq_notes.html#big-data-quality",
+    "href": "fs26/dq/dq_notes.html#big-data-quality",
+    "title": "Data Quality - Notes",
+    "section": "Big Data Quality",
+    "text": "Big Data Quality\n\nCompleteness: no missing records/field values\nCorrectness/accuracy: the data accurately describe the entity in question\nConformity/validity: correct types, value ranges, etc.\nConsistency: no contradictions between different data sets / tables\nCurrency: the data are up to date"
+  },
+  {
+    "objectID": "fs26/dq/dq_notes.html#scale-up-vs.-scale-out",
+    "href": "fs26/dq/dq_notes.html#scale-up-vs.-scale-out",
+    "title": "Data Quality - Notes",
+    "section": "Scale Up vs. Scale Out",
+    "text": "Scale Up vs. Scale Out\n\nScale up/Vertical scaling: make a single machine more powerful (more CPUs, RAM, disk space, …)\nScale out/Horizontal scaling: add more machines (nodes) to a cluster\n\nModern hyperscalers almost always scale out; scaling up hits practical limits, and scaling out is much cheaper because it uses commodity hardware.\n\nCAP Theorem\nThe CAP theorem holds that any distributed data store can provide at most two of the following three guarantees:\n\nConsistency: all clients see the same data at the same time, no matter which node they connect to\nAvailability: Every request received by a non-failing node in the system results in a response\nPartition tolerance: the system continues to operate despite an arbitrary number of messages being dropped (or delayed) by the network between nodes.\n\n\n\n\n\n\n\nNote\n\n\n\nIntuition: When a network partition failure happens, it must be decided whether to do one of the following:\n\ncancel the operation and thus decrease the availability but ensure consistency\nproceed with the operation and thus provide availability but risk inconsistency."
+  },
+  {
+    "objectID": "fs26/dq/dq_notes.html#the-base-model",
+    "href": "fs26/dq/dq_notes.html#the-base-model",
+    "title": "Data Quality - Notes",
+    "section": "The BASE Model",
+    "text": "The BASE Model\nBig data systems often prioritize availability over consistency.\n\nBasically Available: The system guarantees responsiveness and uptime, even during node failures or network partitions\nSoft state: Data consistency is not guaranteed at all times; the system state may change over time without input due to data replication and synchronization.\nEventual Consistency: The system will become consistent eventually, once it stops receiving input, allowing nodes to synchronize data asynchronously\n\n\nNote: The BASE model is to be contrasted with the ACID model for traditional database."
+  },
+  {
+    "objectID": "fs26/dq/dq_notes.html#best-practices",
+    "href": "fs26/dq/dq_notes.html#best-practices",
+    "title": "Data Quality - Notes",
+    "section": "Best Practices",
+    "text": "Best Practices\n\nShift left and automate: Embed quality checks early in pipelines (ingestion, transformation) to prevent inaccurate data from entering the system. Use tools to check for schemas, data types, and required fields.\nData Observability and Monitoring: Rather than static checks, adopt automated, real-time monitoring to detect anomalies (e.g., schema changes, unexpected null values, distribution drifts) as they occur. Set thresholds (e.g., &lt;1% nulls for key fields) and score overall quality.\nGovernance & Culture: Assign data owners, define SLAs for quality, maintain clear definitions (metadata), and train teams.\nUtilize AI for Data Cleansing & Anomaly Detection: Use machine learning models to identify complex patterns, inconsistencies, and outliers that automated rule-based systems might miss."
+  },
+  {
+    "objectID": "fs26/dq/dq_notes.html#qq-plot",
+    "href": "fs26/dq/dq_notes.html#qq-plot",
+    "title": "Data Quality - Notes",
+    "section": "QQ-Plot",
+    "text": "QQ-Plot\nA Quantile-Quantile (Q-Q) Plot is a visual tool used in statistics to assess if a dataset follows a specific theoretical distribution (most commonly, a normal distribution).It plots the quantiles of your sample data against the quantiles of the theoretical distribution. If the data fits the chosen distribution, the points will fall roughly along a straight diagonal line (y = x).\nset.seed(42)\nsample_data &lt;- rnorm(100, mean = 50, sd = 10)\n\nqqnorm(sample_data, main = \"Normal Q-Q Plot\", \n       xlab = \"Theoretical Quantiles\", ylab = \"Sample Quantiles\",\n       col = \"blue\", pch = 16)\nqqline(sample_data, col = \"red\", lwd = 2)\n\nInterpretaiton\n\n\n\nQQ-Plot Interpretation"
+  },
+  {
     "objectID": "fs26/cip/cip_notes.html",
     "href": "fs26/cip/cip_notes.html",
     "title": "Data Collection, Integration and Preprocessing - Notes",
