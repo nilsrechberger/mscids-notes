@@ -619,3 +619,46 @@ The pyramid assumes that data simply exists. But data has to be created.
 ## Data quality in the context of DoE and ML
 
 DoE and ML approaches provide complementary methodologies for quality improvement. DoE is focused on identifying quality-relevant process factors, is human‑centered and typically uses "small", designed data and becomes more effective with deeper prior knowledge about the process. ML is focused on identifying patterns/features in large, often unstructured data, is data‑/model‑centered and often deals with "big", observational data and is more effective with higher data quality and a larger amount of training data.
+
+# Lecture 09: Quality Criteria of Studies
+
+## Validity
+
+- Internal validity: The extent to which a study can confidently establish a cause-and-effect relationship between the independent variable (treatment/manipulation) and the dependent variable (outcome).
+- External Validity: The extent to which the results of a study can be generalized to other people, settings, times,
+or situations outside the specific study conditions.
+- Trade-off: Lab experiments → high internal validity, often low external validity. Real-world studies → higher
+external validity, often lower internal validity.
+
+## Checklist
+
+- Is there a clear statement defining the objective and goal of the work?
+- Is there an adequate description justifying the choice of the research method?
+- Is the research method appropriate to address the defined goal?
+- Is the applied evaluation feasible to achieve the desired results?
+- Are the findings precisely and coherently reported?
+- Is the value of the work evident?
+
+> Note: [https://dl.acm.org/doi/10.1145/3356901](Shakeel et. al. (2020))
+
+## Reproducibility vs. Replicability
+
+- Reproducibility: Obtaining consistent results using the same data (original authors’ artefacts), computational steps, methods, and code.
+- Replicability: Obtaining consistent results across studies aimed at answering the same scientific question, each of which has obtained its own data.
+- Repeatability: Reproducibility by the same team, rather than someone else.
+
+### The “Four Horsemen of Irreproducability”
+
+- Publication bias: Journals selectively publish results that are statistically significant or otherwise attractive. There is no “Journal of Failed Research”.
+- p-hacking: Researchers torture the data with different methods until the data confess (a p-value below 5% is found), and then report only that analysis. This multiple testing inflates Type I error (probability of falsely rejecting the null). A pileup of p-values just below the arbitrary 5% threshold in published work has been demonstrated.
+- HARKing (Hypothesizing After the Results are Known): Researchers run the study, look at the data, then write the paper as if they had predicted the "significant" findings all along (post-hoc hypotheses presented as a priori). Famous paper showing the dangers from economics: “I Just Ran Two Million Regressions”.
+- Low statistical power: Researchers use sample sizes too small to reliably detect the effects they're looking for (or
+to rule them out). Leads to noisy, inconsistent results, high rates of false negatives, and exaggerated effect sizes
+when something does pop up by chance.
+
+### Measuring Replication Success
+
+- Repeated significance: This simply asks whether an effect that was significant in the original study continues to be significant in the replication attempt.
+- Compatibility of effect size
+    - Is the effect size of the replication attempt contained in the prediction interval of the original study? Note: prediction intervals are similar to confidence intervals, but they bracket not the mean, but an individual observation (which is noisy, so the interval is wider.)
+    - Q-Test: this is a formal test of the compatibility of effect sizes. The null is that the effects are compatible; reject if p-value < 0.05. This turns out to be equivalent to the previous criterion.
