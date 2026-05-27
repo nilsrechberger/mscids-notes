@@ -2,6 +2,9 @@
 title: Applied Machine Learning and Predictive Modelling 1 - Notes
 author: Nils Rechberger
 date: 2026-02-09
+execute:
+  warning: false
+  message: false
 ---
 
 # Week 01: Linear Models
@@ -542,7 +545,7 @@ The best model is the most useful one!
 
 A set of $n$ observations is randomly split into training and validation sets. The statistical learning method is then fitted to the training set and its performance evaluated on the validation set.
 
-```{r}
+```r
 set.seed(1)
 
 df <- data.frame(
@@ -565,7 +568,7 @@ train_set
 
 A set of $n$ observations is randomly divided into five non-overlapping groups. Each of these fifths acts as a validation set and the remainder as a training set. The test error is estimated by averaging the five resulting mean squared error (MSE) estimates.
 
-```{r}
+```r
 set.seed(1)
 df <- data.frame(x = 1:100, y = rnorm(100))
 
@@ -584,7 +587,7 @@ train_data
 
 A set of $n$ data points is repeatedly split into a training set containing all but one observation and a validation set containing only that observation. The test error is estimated by averaging the resulting MSE's.
 
-```{r}
+```r
 set.seed(1)
 
 df <- data.frame(x = 1:100, y = rnorm(100))
