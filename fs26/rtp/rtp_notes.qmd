@@ -1250,3 +1250,56 @@ diff(predictions)
 ```
 
 For a payment/income ratio of 0.3, the probability of having the mortgage denied increases by 15.8 % if the applicant is Afro-American.
+
+# Week-12-Discrete-Choice
+
+## Logit Regression
+
+A logit regression (short for logistic regression) is a statistical model used to predict the probability of a binary outcome.
+
+### Comparing the probit and the logit models
+
+
+```{r}
+# Fitting a logit model
+logitModel <- glm(deny ~ pirat,family = binomial(link = “logit”), data = HMDA)
+
+coeftest(logitModel, vcov. = vcovHC, type = “HC1”)
+```
+
+
+```{r}
+# Visualize the probit and the logit model
+plot(x = HMDA$pirat,y = HMDA$deny)
+
+# Generate predicted values
+x<-seq(0, 3, 0.01)
+y_probit <- predict(probitModel, list(pirat = x), type = "response")
+y_logit <- predict(logitModel, list(pirat = x), type = "response")
+lines(x, y_probit)
+lines(x, y_logit)
+```
+
+### Is there an ethnic Bias?
+
+
+```{r}
+# Ethnicity-aware logit model
+logitModelEthn<- glm(deny ~ pirat + afam, family = binomial(link = "logit"), data = HMDA)
+
+coeftest(logitModelEthn, vcov. = vcovHC, type = "HC1")
+```
+
+
+```{r}
+# 1. Compute the predictions for P/I ratio = 0.3
+predictions <- predict(logitModelEthn,
+newdata = data.frame("afam" = c("no", "yes"),
+"pirat" = c(0.3, 0.3)),
+type = "response")
+
+# 2. Compute the difference in probabilities
+diff(predictions)
+```
+
+For a payment/income ratio of 0.3, the probability having the mortgage denied increases by 14.9% if the applicant is Afro-American (for the probit model it was 15.8%)
