@@ -860,12 +860,10 @@ fit$fitted.values
 plot(fit$fitted.values[,0:1])
 ```
 
-
 ```{r}
 values<-fit$residuals
 acf(values^2,na.action=na.pass)
 ```
-
 
 ```{r}
 pacf(values^2,na.action=na.pass)
@@ -892,7 +890,6 @@ For an $AR(1)$ model the forecasted value is just the last value times the fitti
 
 > Note: Only the previous value is required.
 
-
 ```{r}
 #Extract training set
 btrain<-window(beaver1[,3],1,100)
@@ -917,7 +914,6 @@ For an $AR(p)$ model the $p$-step forecast is $k$ steps ahead, the formula is ca
 
 Mathematically derivation of prediction more involved. However, everything is implemented in the predict function.
 
-
 ```{r}
 #Read data
 t.url <- "http://stat.ethz.ch/Teaching/Datasets/WBL/foehre.dat"
@@ -939,9 +935,7 @@ lines(fc$pred-fc$se*1.96, col="red")
 
 ### Forecast for time series with trend and seasonality
 
-If data are fit by an $SARIMA$ model, R takes care of all aspects of the
-forecast.
-
+If data are fit by an $SARIMA$ model, R takes care of all aspects of the forecast.
 
 ```{r}
 #Load data
@@ -968,3 +962,176 @@ lines(fc$pred-fc$se*1.96, col="red")
 - The predicted values capture the trend and seasonality.
 - The prediction intervals will typically increase over time.
 - The prediction quality of the trend is not ascertained and may be poor.
+
+# W-10-Timeseries-Forecasting
+
+## Forecasting MA, AR and ARMA Models
+
+For an $AR(1)$ model $x_t = \alpha_1 Y_{t-1} + E_t$ the 1-step forecast can be calculated as:
+
+$$
+\hat{X}_{n+1;1:n} = \alpha_1 x_n
+$$
+
+i.e. the forecasted value is just the last value times the fitting coefficient.
+
+> Note: Here, only the last value is required.
+
+The 95% prognosis interval is then (for Gaussian innovations) is $\alpha_1 x_n \pm 1.96 \sigma_e$. The prognosis intervals only consider the uncertainty of the (Gaussian) innovation. Other sources are neglected.
+
+For an AR(p) model, the p-step forcast is:
+
+$$
+\hat{X}_{n+1;1:n} = \alpha_1 x_n + \dots + \alpha_p x_{n+1-p}
+$$
+
+
+::: {.callout-note}
+
+For k steps ahead, the formula is calculated with the previous predictions.
+
+:::
+
+```{r}
+data(beavers)
+#Extract training set
+btrain<-window(beaver1[,3],1,100)
+#Fit AR(1) model with Burg's algorithm
+fit<-ar.burg(btrain,order=1)
+#Perform forecast of 14 steps
+forecast <- predict(fit, n.ahead=14)
+#Plot forecast
+plot(beaver1[,3], lty=3)
+lines(btrain, lwd=2)
+lines(forecast$pred, lwd=2, col="red")
+lines(forecast$pred+forecast$se*1.96, col="red")
+lines(forecast$pred-forecast$se*1.96, col="red")
+```
+
+## Forcasting ARIMA Models
+
+The predicted values capture the trend and seasonality. The prediction intervals will typically increase over time. The prediction quality of the trend is not ascertained and may be poor.
+
+
+```{r}
+#Load data
+lap<-log(AirPassengers)
+ltrain<-window(lap,1949,1959)
+#Perform fit
+fit<-arima(ltrain,order=c(0,1,1),seasonal=c(0,1,1))
+#Perform forecast
+fc <- predict(fit, n.ahead=24)
+#Plot everything
+plot(lap, lty=3,
+xlim=c(1955,1961),ylim=c(5.4,6.6),ylab="log(AP)")
+lines(ltrain, lwd=1)
+lines(fc$pred, lwd=2, col="red")
+lines(fc$pred+fc$se*1.96, col="red")
+lines(fc$pred-fc$se*1.96, col="red")
+```
+
+## Forecatinng of Decomposed Models
+
+Before introducing SARIMA models, we established the following workflow:
+
+1. Remove trend
+2. Remove seasonality effects
+3. Fit the remainder with an ARMA(p,q) model
+
+How to use this decomposition for a forecast?
+
+1. Trend: Extrapolate linearly or manually
+2. Seasonal pattern: Copy previous values or extrapolate
+3. Stationary remainder: Use forecast functions.
+
+
+```{r}
+address <- "http://www.maths.adelaide.edu.au/andrew.metcalfe/Data/Maine.dat"
+dat <- read.table(address,header=T)
+tsd <- ts(dat,start=c(1996,1),freq=12)
+
+plot(log(tsd[,1]),ylab="Unemployment Maine")
+```
+
+
+```{r}
+#Decompose data in trend, seasonal and remainder
+decomp<-stl(log(tsd[,1]),s.window="periodic")
+plot(decomp)
+```
+
+### 1. Trend Forecast
+
+
+```{r}
+#Trend forecast by linear extrapolation
+# Actual interpolation
+xx <- time(decomp$time.series[,2])[105:128]
+yy <- decomp$time.series[105:128,2]
+fit.regr <- lm(yy~xx)
+t.fore <- 1.494 + (0:23)/12 * coef(fit.regr)[2]
+```
+
+### 2. Seasonal Forecast
+
+
+```{r}
+# Seasonal forecast using last values
+season <- decomp$time.series[,1]
+l2y <- window(season,start=c(2004,9),end=c(2006,8))
+s.fore <- ts(l2y, start=c(2006,9), end=c(2008,8), freq=12)
+```
+
+### 3. Fitting the remainder
+
+
+```{r}
+rmndr <- decomp$time.series[,3]
+tsdisplay(rmndr)
+fit.rmndr <- arima(rmndr, order=c(4,0,0), include.mean=F)
+r.fore <- predict(fit.rmndr, n.ahead=24)$pred
+```
+
+### 4. Final Forecast
+
+
+```{r}
+# Adding the 3 components
+fore <- t.fore + s.fore + r.fore
+```
+
+## Panel Data
+
+The defining characteristic of panel data is that it combines two dimensions: cross-sectional data and time-series data. In short: you observe the same subjects (entities) repeatedly over multiple time periods.
+
+![Panel Data](img/panel_data.jpeg)
+
+### Balanced Panel Data
+
+every single subject/entity is observed for the exact same time periods. There are no missing slots in your matrix.
+
+If you have $N$ subjects and $T$ time periods, a perfectly balanced panel will have exactly $N \times T$ observations.
+
+> Note: Unbalanced panel = A panel data set that is not balanced.
+
+## Fixed Effect Models
+
+### What if each entity has its bias?
+
+A global least squares fit may yield wrong models for data with a constant offset between two entities.
+
+![Global Linear Regression Bias](img/lin_reg_bias.png)
+
+The goal is to completely eliminate unobserved, time-invariant bias ($\alpha_i$) from your panel data regression so you can get a clean, unbiased estimate of $\beta_1$.
+
+```{r}
+# Fit a separate fitting parameter for each state
+fatal_fe_lm_mod <- lm(fatal_rate ~ beertax + state - 1,
+data = Fatalities)
+summary(fatal_fe_lm_mod)
+# Subtract time averaged panel data
+Fatalities_demeaned <- with(Fatalities,
+data.frame(fatal_rate = fatal_rate - ave(fatal_rate, state),
+beertax = beertax - ave(beertax, state)))
+summary(lm(fatal_rate ~ beertax - 1, data = Fatalities_demeaned))
+```
