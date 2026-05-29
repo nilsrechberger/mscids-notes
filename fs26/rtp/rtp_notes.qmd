@@ -893,10 +893,13 @@ For an $AR(1)$ model the forecasted value is just the last value times the fitti
 ```{r}
 #Extract training set
 btrain<-window(beaver1[,3],1,100)
+
 #Fit AR(1) model with Burg's algorithm
 fit<-ar.burg(btrain,order=1)
+
 #Perform forecast of 14 steps
 forecast <- predict(fit, n.ahead=14)
+
 #Plot forecast
 plot(beaver1[,3], lty=3)
 lines(btrain, lwd=2)
@@ -994,12 +997,16 @@ For k steps ahead, the formula is calculated with the previous predictions.
 
 ```{r}
 data(beavers)
+
 #Extract training set
 btrain<-window(beaver1[,3],1,100)
+
 #Fit AR(1) model with Burg's algorithm
 fit<-ar.burg(btrain,order=1)
+
 #Perform forecast of 14 steps
 forecast <- predict(fit, n.ahead=14)
+
 #Plot forecast
 plot(beaver1[,3], lty=3)
 lines(btrain, lwd=2)
@@ -1017,10 +1024,13 @@ The predicted values capture the trend and seasonality. The prediction intervals
 #Load data
 lap<-log(AirPassengers)
 ltrain<-window(lap,1949,1959)
+
 #Perform fit
 fit<-arima(ltrain,order=c(0,1,1),seasonal=c(0,1,1))
+
 #Perform forecast
 fc <- predict(fit, n.ahead=24)
+
 #Plot everything
 plot(lap, lty=3,
 xlim=c(1955,1961),ylim=c(5.4,6.6),ylab="log(AP)")
@@ -1064,7 +1074,7 @@ plot(decomp)
 
 
 ```{r}
-#Trend forecast by linear extrapolation
+# Trend forecast by linear extrapolation
 # Actual interpolation
 xx <- time(decomp$time.series[,2])[105:128]
 yy <- decomp$time.series[105:128,2]
@@ -1129,9 +1139,114 @@ The goal is to completely eliminate unobserved, time-invariant bias ($\alpha_i$)
 fatal_fe_lm_mod <- lm(fatal_rate ~ beertax + state - 1,
 data = Fatalities)
 summary(fatal_fe_lm_mod)
+
 # Subtract time averaged panel data
 Fatalities_demeaned <- with(Fatalities,
 data.frame(fatal_rate = fatal_rate - ave(fatal_rate, state),
 beertax = beertax - ave(beertax, state)))
 summary(lm(fatal_rate ~ beertax - 1, data = Fatalities_demeaned))
 ```
+
+# Week-11-Forecasting
+
+## Discrete Response
+
+### Binary Response
+
+A binary response (or dichotomous variable) is a discrete response with exactly two possible outcomes, typically coded as $0$ (Failure/No) and $1$ (Success/Yes).
+
+### Integer Response
+
+An integer response (often called count data) is a discrete response where the outcomes are non-negative whole numbers ($\mathbb{N_0}$​). Unlike binary data, it can go up to infinity, but it cannot contain decimals
+
+## Linear Probability Model
+
+Interpret the prediction of the regression as the probability of a positive answer.
+
+
+```{r}
+# Load data sets
+library(AER)
+data(HMDA)
+
+# Convert column 'deny' to numeric
+HMDA$deny <- as.numeric(HMDA$deny) - 1
+
+# Estimate a simple linear probability model
+linearProbModel <- lm(deny ~ pirat, data = HMDA)
+linearProbModel
+
+# Visualize points
+plot(x = HMDA$pirat, y = HMDA$deny)
+abline(linearProbModel)
+```
+
+### Is there a Bias?
+
+
+```{r}
+# Refit the model
+linearProbModelWithEthnicity <- lm(deny ~ pirat + afam, data = HMDA)
+coeftest(linearProbModelWithEthnicity)
+```
+
+According to this model, being Afro-American increases the probability of denial by 17.7%.
+
+## Probit Regression
+
+A probit regression is a statistical model used to estimate the relationship between a set of independent variables and a binary dependent variable, The main goal is to let the linear regression predict the quantile of the error distribution.
+
+
+```{r}
+# Estimate with probit model
+probitModel<-glm(deny ~pirat, family = binomial(link = "probit"), data = HMDA)
+coeftest(probitModel, vcov. = vcovHC, type = "HC1"))
+```
+
+### How to quantify the impact of the coefficients?
+
+Predict the probability for two different values $𝑋$ and $𝑋 + \Delta X$ and compute the difference.
+
+
+```{r}
+# 1. Compute the predictions for P/I ratio = 0.3, 0.4
+predictions <- predict(probitModel, newdata = data.frame("pirat" = c(0.3, 0.4)), type = "response")
+
+# 2. Compute the difference in probabilities.
+diff(predictions)
+```
+
+
+For payment/income ratio between 0.3 and 0.4, the probability of having the mortgage denied increases by 6.1%.
+
+### Visualization of the model
+
+```{r}
+# Visualize the probit model
+plot(x = HMDA$pirat,y = HMDA$deny)
+# Generate predicted values
+x<-seq(0, 3, 0.01)
+y <- predict(probitModel, list(pirat = x), type = "response")
+lines(x, y)
+```
+
+### Is there an Ethnic Bias?
+
+
+```{r}
+# Ethnicity-aware probit model
+probitModelEthn<- glm(deny ~ pirat + afam, family = binomial(link = "probit"), data = HMDA)
+
+coeftest(probitModelEthn)
+```
+
+
+```{r}
+# 1. Compute the predictions for P/I ratio = 0.3
+predictions <- predict(probitModelEthn, newdata = data.frame("a" = c("no", "yes"), "pirat" = c(0.3, 0.3)), type = "response")
+
+# 2. Compute the difference in probabilities
+diff(predictions)
+```
+
+For a payment/income ratio of 0.3, the probability of having the mortgage denied increases by 15.8 % if the applicant is Afro-American.
