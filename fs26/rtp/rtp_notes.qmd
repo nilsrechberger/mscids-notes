@@ -1056,13 +1056,12 @@ How to use this decomposition for a forecast?
 
 
 ```{r}
-address <- "http://www.maths.adelaide.edu.au/andrew.metcalfe/Data/Maine.dat"
+address <- "https://raw.githubusercontent.com/prabeshdhakal/Introductory-Time-Series-with-R-Datasets/master/Maine.dat"
 dat <- read.table(address,header=T)
 tsd <- ts(dat,start=c(1996,1),freq=12)
 
 plot(log(tsd[,1]),ylab="Unemployment Maine")
 ```
-
 
 ```{r}
 #Decompose data in trend, seasonal and remainder
@@ -1071,7 +1070,6 @@ plot(decomp)
 ```
 
 ### 1. Trend Forecast
-
 
 ```{r}
 # Trend forecast by linear extrapolation
@@ -1135,15 +1133,27 @@ A global least squares fit may yield wrong models for data with a constant offse
 The goal is to completely eliminate unobserved, time-invariant bias ($\alpha_i$) from your panel data regression so you can get a clean, unbiased estimate of $\beta_1$.
 
 ```{r}
-# Fit a separate fitting parameter for each state
-fatal_fe_lm_mod <- lm(fatal_rate ~ beertax + state - 1,
-data = Fatalities)
+library(AER)
+data(Fatalities)
+
+# 1. Calculate the missing fatal_rate column first
+Fatalities$fatal_rate <- (Fatalities$fatal / Fatalities$pop) * 10000
+
+# 2. Fit a separate fitting parameter for each state (LS独立変数アプローチ)
+fatal_fe_lm_mod <- lm(fatal_rate ~ beertax + state - 1, data = Fatalities)
 summary(fatal_fe_lm_mod)
 
-# Subtract time averaged panel data
+# 3. Subtract time averaged panel data (Within / Time-Demeaned Transformation)
 Fatalities_demeaned <- with(Fatalities,
-data.frame(fatal_rate = fatal_rate - ave(fatal_rate, state),
-beertax = beertax - ave(beertax, state)))
+  data.frame(
+    # state is needed to keep track of entities, though not in the final OLS
+    state = state, 
+    fatal_rate = fatal_rate - ave(fatal_rate, state),
+    beertax = beertax - ave(beertax, state)
+  )
+)
+
+# 4. Run the regression on demeaned data without an intercept
 summary(lm(fatal_rate ~ beertax - 1, data = Fatalities_demeaned))
 ```
 
@@ -1183,9 +1193,10 @@ abline(linearProbModel)
 
 ### Is there a Bias?
 
-
 ```{r}
-# Refit the model
+library(AER)
+library(lmtest)
+data("HMDA")
 linearProbModelWithEthnicity <- lm(deny ~ pirat + afam, data = HMDA)
 coeftest(linearProbModelWithEthnicity)
 ```
@@ -1198,15 +1209,16 @@ A probit regression is a statistical model used to estimate the relationship bet
 
 
 ```{r}
+library(AER)
+data(HMDA)
 # Estimate with probit model
-probitModel<-glm(deny ~pirat, family = binomial(link = "probit"), data = HMDA)
-coeftest(probitModel, vcov. = vcovHC, type = "HC1"))
+probitModel<-glm(deny ~ pirat, family = binomial(link = "probit"), data = HMDA)
+coeftest(probitModel, vcov. = vcovHC, type = "HC1")
 ```
 
 ### How to quantify the impact of the coefficients?
 
 Predict the probability for two different values $𝑋$ and $𝑋 + \Delta X$ and compute the difference.
-
 
 ```{r}
 # 1. Compute the predictions for P/I ratio = 0.3, 0.4
@@ -1215,7 +1227,6 @@ predictions <- predict(probitModel, newdata = data.frame("pirat" = c(0.3, 0.4)),
 # 2. Compute the difference in probabilities.
 diff(predictions)
 ```
-
 
 For payment/income ratio between 0.3 and 0.4, the probability of having the mortgage denied increases by 6.1%.
 
@@ -1232,7 +1243,6 @@ lines(x, y)
 
 ### Is there an Ethnic Bias?
 
-
 ```{r}
 # Ethnicity-aware probit model
 probitModelEthn<- glm(deny ~ pirat + afam, family = binomial(link = "probit"), data = HMDA)
@@ -1240,10 +1250,9 @@ probitModelEthn<- glm(deny ~ pirat + afam, family = binomial(link = "probit"), d
 coeftest(probitModelEthn)
 ```
 
-
 ```{r}
 # 1. Compute the predictions for P/I ratio = 0.3
-predictions <- predict(probitModelEthn, newdata = data.frame("a" = c("no", "yes"), "pirat" = c(0.3, 0.3)), type = "response")
+predictions <- predict(probitModelEthn, newdata = data.frame("afam" = factor(c("no", "yes"), levels = levels(HMDA$afam)), "pirat" = c(0.3, 0.3)), type = "response")
 
 # 2. Compute the difference in probabilities
 diff(predictions)
@@ -1262,9 +1271,9 @@ A logit regression (short for logistic regression) is a statistical model used t
 
 ```{r}
 # Fitting a logit model
-logitModel <- glm(deny ~ pirat,family = binomial(link = “logit”), data = HMDA)
+logitModel <- glm(deny ~ pirat,family = binomial(link = "logit"), data = HMDA)
 
-coeftest(logitModel, vcov. = vcovHC, type = “HC1”)
+coeftest(logitModel, vcov. = vcovHC, type = "HC1")
 ```
 
 
@@ -1294,7 +1303,7 @@ coeftest(logitModelEthn, vcov. = vcovHC, type = "HC1")
 ```{r}
 # 1. Compute the predictions for P/I ratio = 0.3
 predictions <- predict(logitModelEthn,
-newdata = data.frame("afam" = c("no", "yes"),
+newdata = data.frame("afam" = factor(c("no", "yes"), levels = levels(HMDA$afam)),
 "pirat" = c(0.3, 0.3)),
 type = "response")
 
