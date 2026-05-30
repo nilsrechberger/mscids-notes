@@ -557,3 +557,107 @@ The process is stationary for $\alpha_2 = 0.5$.
 ### C
 
 The condition for stationarity is $∣\alpha∣<1$. Therefore, if $∣\alpha∣≥1$, the root $z=\dfrac{1}{\alpha}$​ lies either on the unit circle $(∣z∣=1)$ or inside it $(∣z∣≤1)$. This mathematically confirms that the model is non-stationary in these cases.
+
+# Series 6
+
+## Exercise 6.1
+
+```{r}
+yields <- read.table("http://stat.ethz.ch/Teaching/Datasets/WBL/yields.dat", header = FALSE)
+
+t.yields <- ts(yields[, 1])
+```
+
+### A
+
+```{r}
+acf(t.yields)
+```
+
+```{r}
+pacf(t.yields)
+```
+
+The process could be modelled by a $AR(p)$-Model with the value $p = 3$
+
+### B
+
+```{r}
+r.yw <- ar(t.yields, method = "yw", order.max = 3)
+r.yw$resid
+str(r.yw)
+```
+
+Yule-Walker-Koeffizienten:
+
+* $\alpha_1 = -0.32$
+* $\alpha_2 = 0.18$
+
+Model:
+
+$$
+X_t = -0.32 \cdot X_{t-1} + 0.18 \cdot X_{t-2} + \varepsilon_t
+$$
+
+### C
+
+```{r}
+r.burg <- ar(t.yields, method = "burg", order.max = 3)
+r.burg$resid
+str(r.burg)
+```
+
+Burg-Koeffizienten:
+
+* $\alpha_1 = -0.332$
+* $\alpha_2 = 0.183$
+
+Model:
+
+$$
+X_t = -0.332 \cdot X_{t-1} + 0.183 \cdot X_{t-2} + \varepsilon_t
+$$
+
+### D
+
+```{r}
+r.mle <- ar(t.yields, method = "mle", order.max = 3)
+r.mle$resid
+str(r.mle)
+```
+
+## Exercise 6.2
+
+```{r}
+d.force <- read.table("http://stat.ethz.ch/Teaching/Datasets/WBL/kraft.dat", header = FALSE)
+ts.force <- ts(d.force[, 1])
+```
+
+### A
+
+```{r}
+ts.forceA <- window(ts.force, end = 280)
+plot(ts.forceA)
+```
+
+### B
+
+```{r}
+pacf(ts.forceA)
+```
+
+
+```{r}
+ar.force <- ar(ts.forceA, method = "ols", order = 6)
+ar.force$aic
+```
+
+### C
+
+```{r}
+ar.force <- arima(ts.forceA, order = c(6, 0, 0), method = "ML")
+plot(ar.force$res)
+abline(h=0, col="red", lty=2)
+```
+
+The model seems to be appropriate for this time series since the residuals looks normal distributed.
