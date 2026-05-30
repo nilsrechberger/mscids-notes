@@ -5,6 +5,26 @@
       {
         "Name": "CRAN",
         "URL": "https://cloud.r-project.org"
+      },
+      {
+        "Name": "BioCsoft",
+        "URL": "https://bioconductor.org/packages/3.23/bioc"
+      },
+      {
+        "Name": "BioCann",
+        "URL": "https://bioconductor.org/packages/3.23/data/annotation"
+      },
+      {
+        "Name": "BioCexp",
+        "URL": "https://bioconductor.org/packages/3.23/data/experiment"
+      },
+      {
+        "Name": "BioCworkflows",
+        "URL": "https://bioconductor.org/packages/3.23/workflows"
+      },
+      {
+        "Name": "BioCbooks",
+        "URL": "https://bioconductor.org/packages/3.23/books"
       }
     ]
   },
@@ -12,6 +32,64 @@
     "Version": "3.23"
   },
   "Packages": {
+    "AER": {
+      "Package": "AER",
+      "Version": "1.2-16",
+      "Source": "Repository",
+      "Date": "2026-02-09",
+      "Title": "Applied Econometrics with R",
+      "Authors@R": "c(person(given = \"Christian\", family = \"Kleiber\", role = \"aut\", email = \"Christian.Kleiber@unibas.ch\",  comment = c(ORCID = \"0000-0002-6781-4733\")), person(given = \"Achim\", family = \"Zeileis\", role = c(\"aut\", \"cre\"), email = \"Achim.Zeileis@R-project.org\", comment = c(ORCID = \"0000-0003-0918-3766\")))",
+      "Description": "Functions, data sets, examples, demos, and vignettes for the book Christian Kleiber and Achim Zeileis (2008), Applied Econometrics with R, Springer-Verlag, New York. ISBN 978-0-387-77316-2. <doi:10.1007/978-0-387-77318-6> (See the vignette \"AER\" for a package overview.)",
+      "LazyLoad": "yes",
+      "Depends": [
+        "R (>= 3.0.0)",
+        "car (>= 2.0-19)",
+        "lmtest",
+        "sandwich (>= 2.4-0)",
+        "survival (>= 2.37-5)",
+        "zoo"
+      ],
+      "Suggests": [
+        "boot",
+        "dynlm",
+        "effects",
+        "fGarch",
+        "forecast",
+        "foreign",
+        "ineq",
+        "KernSmooth",
+        "lattice",
+        "longmemo",
+        "MASS",
+        "mlogit",
+        "nlme",
+        "nnet",
+        "np",
+        "plm",
+        "pscl",
+        "quantreg",
+        "rgl",
+        "ROCR",
+        "rugarch",
+        "sampleSelection",
+        "scatterplot3d",
+        "strucchange",
+        "systemfit (>= 1.1-20)",
+        "truncreg",
+        "tseries",
+        "urca",
+        "vars"
+      ],
+      "Imports": [
+        "stats",
+        "Formula (>= 0.2-0)"
+      ],
+      "License": "GPL-2 | GPL-3",
+      "NeedsCompilation": "no",
+      "Author": "Christian Kleiber [aut] (ORCID: <https://orcid.org/0000-0002-6781-4733>), Achim Zeileis [aut, cre] (ORCID: <https://orcid.org/0000-0003-0918-3766>)",
+      "Maintainer": "Achim Zeileis <Achim.Zeileis@R-project.org>",
+      "Repository": "CRAN"
+    },
     "BiocManager": {
       "Package": "BiocManager",
       "Version": "1.30.27",
@@ -118,6 +196,30 @@
       "Maintainer": "Kirill Müller <kirill@cynkra.com>",
       "Repository": "CRAN"
     },
+    "Deriv": {
+      "Package": "Deriv",
+      "Version": "4.2.0",
+      "Source": "Repository",
+      "Type": "Package",
+      "Title": "Symbolic Differentiation",
+      "Date": "2025-06-20",
+      "Authors@R": "c(person(given=\"Andrew\", family=\"Clausen\", role=\"aut\"), person(given=\"Serguei\", family=\"Sokol\", role=c(\"aut\", \"cre\"), email=\"sokol@insa-toulouse.fr\", comment = c(ORCID = \"0000-0002-5674-3327\")), person(given=\"Andreas\", family=\"Rappold\", role=\"ctb\", email=\"arappold@gmx.at\"))",
+      "Description": "R-based solution for symbolic differentiation. It admits user-defined function as well as function substitution in arguments of functions to be differentiated. Some symbolic simplification is part of the work.",
+      "License": "GPL (>= 3)",
+      "Suggests": [
+        "testthat (>= 0.11.0)"
+      ],
+      "BugReports": "https://github.com/sgsokol/Deriv/issues",
+      "RoxygenNote": "7.3.1",
+      "Imports": [
+        "methods"
+      ],
+      "Encoding": "UTF-8",
+      "NeedsCompilation": "no",
+      "Author": "Andrew Clausen [aut], Serguei Sokol [aut, cre] (ORCID: <https://orcid.org/0000-0002-5674-3327>), Andreas Rappold [ctb]",
+      "Maintainer": "Serguei Sokol <sokol@insa-toulouse.fr>",
+      "Repository": "CRAN"
+    },
     "EnvStats": {
       "Package": "EnvStats",
       "Version": "3.1.0",
@@ -151,6 +253,24 @@
       "NeedsCompilation": "no",
       "Author": "Steven P. Millard [aut], Alexander Kowarik [ctb, cre] (<https://orcid.org/0000-0001-8598-4130>)",
       "Maintainer": "Alexander Kowarik <alexander.kowarik@statistik.gv.at>",
+      "Repository": "CRAN"
+    },
+    "Formula": {
+      "Package": "Formula",
+      "Version": "1.2-5",
+      "Source": "Repository",
+      "Date": "2023-02-23",
+      "Title": "Extended Model Formulas",
+      "Description": "Infrastructure for extended formulas with multiple parts on the right-hand side and/or multiple responses on the left-hand side (see <doi:10.18637/jss.v034.i01>).",
+      "Authors@R": "c(person(given = \"Achim\", family = \"Zeileis\", role = c(\"aut\", \"cre\"), email = \"Achim.Zeileis@R-project.org\", comment = c(ORCID = \"0000-0003-0918-3766\")), person(given = \"Yves\", family = \"Croissant\", role = \"aut\", email = \"Yves.Croissant@univ-reunion.fr\"))",
+      "Depends": [
+        "R (>= 2.0.0)",
+        "stats"
+      ],
+      "License": "GPL-2 | GPL-3",
+      "NeedsCompilation": "no",
+      "Author": "Achim Zeileis [aut, cre] (<https://orcid.org/0000-0003-0918-3766>), Yves Croissant [aut]",
+      "Maintainer": "Achim Zeileis <Achim.Zeileis@R-project.org>",
       "Repository": "CRAN"
     },
     "HSAUR2": {
@@ -362,6 +482,36 @@
       "Encoding": "UTF-8",
       "NeedsCompilation": "yes",
       "Author": "Douglas Bates [aut] (ORCID: <https://orcid.org/0000-0001-8316-9503>), Martin Maechler [aut, cre] (ORCID: <https://orcid.org/0000-0002-8685-9910>), Mikael Jagan [aut] (ORCID: <https://orcid.org/0000-0002-3542-2938>), Timothy A. Davis [ctb] (ORCID: <https://orcid.org/0000-0001-7614-6899>, SuiteSparse libraries, collaborators listed in dir(system.file(\"doc\", \"SuiteSparse\", package=\"Matrix\"), pattern=\"License\", full.names=TRUE, recursive=TRUE)), George Karypis [ctb] (ORCID: <https://orcid.org/0000-0003-2753-1437>, METIS library, Copyright: Regents of the University of Minnesota), Jason Riedy [ctb] (ORCID: <https://orcid.org/0000-0002-4345-4200>, GNU Octave's condest() and onenormest(), Copyright: Regents of the University of California), Jens Oehlschlägel [ctb] (initial nearPD()), R Core Team [ctb] (ROR: <https://ror.org/02zz1nj61>, base R's matrix implementation)",
+      "Maintainer": "Martin Maechler <mmaechler+Matrix@gmail.com>",
+      "Repository": "CRAN"
+    },
+    "MatrixModels": {
+      "Package": "MatrixModels",
+      "Version": "0.5-4",
+      "Source": "Repository",
+      "VersionNote": "Released 0.5-3 on 2023-11-06",
+      "Date": "2025-03-25",
+      "Title": "Modelling with Sparse and Dense Matrices",
+      "Contact": "Matrix-authors@R-project.org",
+      "Authors@R": "c( person(\"Douglas\", \"Bates\", role = \"aut\", email = \"bates@stat.wisc.edu\", comment = c(ORCID = \"0000-0001-8316-9503\")), person(\"Martin\", \"Maechler\", role = c(\"aut\", \"cre\"), email = \"mmaechler+Matrix@gmail.com\", comment = c(ORCID = \"0000-0002-8685-9910\")))",
+      "Description": "Generalized Linear Modelling with sparse and dense 'Matrix' matrices, using modular prediction and response module classes.",
+      "Depends": [
+        "R (>= 3.6.0)"
+      ],
+      "Imports": [
+        "stats",
+        "methods",
+        "Matrix (>= 1.6-0)",
+        "Matrix(< 1.8-0)"
+      ],
+      "ImportsNote": "_not_yet_stats4",
+      "Encoding": "UTF-8",
+      "LazyLoad": "yes",
+      "License": "GPL (>= 2)",
+      "URL": "https://Matrix.R-forge.R-project.org/, https://r-forge.r-project.org/R/?group_id=61",
+      "BugReports": "https://R-forge.R-project.org/tracker/?func=add&atid=294&group_id=61",
+      "NeedsCompilation": "no",
+      "Author": "Douglas Bates [aut] (<https://orcid.org/0000-0001-8316-9503>), Martin Maechler [aut, cre] (<https://orcid.org/0000-0002-8685-9910>)",
       "Maintainer": "Martin Maechler <mmaechler+Matrix@gmail.com>",
       "Repository": "CRAN"
     },
@@ -643,6 +793,33 @@
       "Maintainer": "Ravi Varadhan <ravi.varadhan@jhu.edu>",
       "Repository": "CRAN"
     },
+    "SparseM": {
+      "Package": "SparseM",
+      "Version": "1.84-2",
+      "Source": "Repository",
+      "Authors@R": "c( person(\"Roger\", \"Koenker\",  role = c(\"cre\",\"aut\"), email =  \"rkoenker@uiuc.edu\"), person(c(\"Pin\", \"Tian\"), \"Ng\",  role = c(\"ctb\"), comment = \"Contributions to Sparse QR code\", email =  \"pin.ng@nau.edu\") , person(\"Yousef\", \"Saad\",  role = c(\"ctb\"), comment = \"author of sparskit2\") , person(\"Ben\", \"Shaby\", role = c(\"ctb\"), comment = \"author of chol2csr\") , person(\"Martin\", \"Maechler\", role = \"ctb\", comment = c(\"chol() tweaks; S4\", ORCID = \"0000-0002-8685-9910\")) )",
+      "Maintainer": "Roger Koenker <rkoenker@uiuc.edu>",
+      "Depends": [
+        "R (>= 2.15)",
+        "methods"
+      ],
+      "Imports": [
+        "graphics",
+        "stats",
+        "utils"
+      ],
+      "VignetteBuilder": "knitr",
+      "Suggests": [
+        "knitr"
+      ],
+      "Description": "Some basic linear algebra functionality for sparse matrices is provided:  including Cholesky decomposition and backsolving as well as standard R subsetting and Kronecker products.",
+      "License": "GPL (>= 2)",
+      "Title": "Sparse Linear Algebra",
+      "URL": "http://www.econ.uiuc.edu/~roger/research/sparse/sparse.html",
+      "NeedsCompilation": "yes",
+      "Author": "Roger Koenker [cre, aut], Pin Tian Ng [ctb] (Contributions to Sparse QR code), Yousef Saad [ctb] (author of sparskit2), Ben Shaby [ctb] (author of chol2csr), Martin Maechler [ctb] (chol() tweaks; S4, <https://orcid.org/0000-0002-8685-9910>)",
+      "Repository": "CRAN"
+    },
     "TH.data": {
       "Package": "TH.data",
       "Version": "1.1-5",
@@ -766,6 +943,27 @@
       "NeedsCompilation": "no",
       "Author": "Jake Conway [aut], Nils Gehlenborg [aut, cre]",
       "Maintainer": "Nils Gehlenborg <nils@hms.harvard.edu>",
+      "Repository": "CRAN"
+    },
+    "abind": {
+      "Package": "abind",
+      "Version": "1.4-8",
+      "Source": "Repository",
+      "Date": "2024-09-08",
+      "Title": "Combine Multidimensional Arrays",
+      "Authors@R": "c(person(\"Tony\", \"Plate\", email = \"tplate@acm.org\", role = c(\"aut\", \"cre\")), person(\"Richard\", \"Heiberger\", role = c(\"aut\")))",
+      "Maintainer": "Tony Plate <tplate@acm.org>",
+      "Description": "Combine multidimensional arrays into a single array. This is a generalization of 'cbind' and 'rbind'.  Works with vectors, matrices, and higher-dimensional arrays (aka tensors). Also provides functions 'adrop', 'asub', and 'afill' for manipulating, extracting and replacing data in arrays.",
+      "Depends": [
+        "R (>= 1.5.0)"
+      ],
+      "Imports": [
+        "methods",
+        "utils"
+      ],
+      "License": "MIT + file LICENSE",
+      "NeedsCompilation": "no",
+      "Author": "Tony Plate [aut, cre], Richard Heiberger [aut]",
       "Repository": "CRAN"
     },
     "askpass": {
@@ -1212,6 +1410,87 @@
       "Maintainer": "Gábor Csárdi <csardi.gabor@gmail.com>",
       "Repository": "CRAN"
     },
+    "car": {
+      "Package": "car",
+      "Version": "3.1-5",
+      "Source": "Repository",
+      "Date": "2026-01-05",
+      "Title": "Companion to Applied Regression",
+      "Authors@R": "c(person(\"John\", \"Fox\", role =\"aut\" , email = \"jfox@mcmaster.ca\"), person(\"Sanford\", \"Weisberg\", role = \"aut\", email = \"sandy@umn.edu\"), person(\"Brad\", \"Price\", role = c(\"aut\", \"cre\"), email = \"brad.price@mail.wvu.edu\"), person(\"Daniel\", \"Adler\", role=\"ctb\"), person(\"Douglas\", \"Bates\", role = \"ctb\"), person(\"Gabriel\", \"Baud-Bovy\", role = \"ctb\"), person(\"Ben\", \"Bolker\", role=\"ctb\"), person(\"Steve\", \"Ellison\", role=\"ctb\"), person(\"David\", \"Firth\", role = \"ctb\"), person(\"Michael\", \"Friendly\", role = \"ctb\"), person(\"Gregor\", \"Gorjanc\", role = \"ctb\"), person(\"Spencer\", \"Graves\", role = \"ctb\"), person(\"Richard\", \"Heiberger\", role = \"ctb\"), person(\"Pavel\", \"Krivitsky\", role = \"ctb\"), person(\"Rafael\", \"Laboissiere\", role = \"ctb\"), person(\"Martin\", \"Maechler\", role=\"ctb\"), person(\"Georges\", \"Monette\", role = \"ctb\"), person(\"Duncan\", \"Murdoch\", role=\"ctb\"), person(\"Henric\", \"Nilsson\", role = \"ctb\"), person(\"Derek\", \"Ogle\", role = \"ctb\"), person(\"Iain\", \"Proctor\", role = \"ctb\"), person(\"Brian\", \"Ripley\", role = \"ctb\"), person(\"Tom\", \"Short\", role=\"ctb\"), person(\"William\", \"Venables\", role = \"ctb\"), person(\"Steve\", \"Walker\", role=\"ctb\"), person(\"David\", \"Winsemius\", role=\"ctb\"), person(\"Achim\", \"Zeileis\", role = \"ctb\"), person(\"R-Core\", role=\"ctb\"))",
+      "Depends": [
+        "R (>= 3.5.0)",
+        "carData (>= 3.0-0)"
+      ],
+      "Imports": [
+        "abind",
+        "Formula",
+        "MASS",
+        "mgcv",
+        "nnet",
+        "pbkrtest (>= 0.4-4)",
+        "quantreg",
+        "grDevices",
+        "utils",
+        "stats",
+        "graphics",
+        "lme4 (>= 1.1-27.1)",
+        "nlme",
+        "scales"
+      ],
+      "Suggests": [
+        "alr4",
+        "boot",
+        "coxme",
+        "effects",
+        "knitr",
+        "leaps",
+        "lmtest",
+        "Matrix",
+        "MatrixModels",
+        "ordinal",
+        "plotrix",
+        "mvtnorm",
+        "rgl (>= 0.111.3)",
+        "rio",
+        "sandwich",
+        "SparseM",
+        "survival",
+        "survey"
+      ],
+      "ByteCompile": "yes",
+      "LazyLoad": "yes",
+      "Description": "Functions to Accompany J. Fox and S. Weisberg,  An R Companion to Applied Regression, Third Edition, Sage, 2019.",
+      "License": "GPL (>= 2)",
+      "URL": "https://github.com/bprice2652/car_repo, https://CRAN.R-project.org/package=car, https://z.umn.edu/carbook",
+      "VignetteBuilder": "knitr",
+      "NeedsCompilation": "no",
+      "Author": "John Fox [aut], Sanford Weisberg [aut], Brad Price [aut, cre], Daniel Adler [ctb], Douglas Bates [ctb], Gabriel Baud-Bovy [ctb], Ben Bolker [ctb], Steve Ellison [ctb], David Firth [ctb], Michael Friendly [ctb], Gregor Gorjanc [ctb], Spencer Graves [ctb], Richard Heiberger [ctb], Pavel Krivitsky [ctb], Rafael Laboissiere [ctb], Martin Maechler [ctb], Georges Monette [ctb], Duncan Murdoch [ctb], Henric Nilsson [ctb], Derek Ogle [ctb], Iain Proctor [ctb], Brian Ripley [ctb], Tom Short [ctb], William Venables [ctb], Steve Walker [ctb], David Winsemius [ctb], Achim Zeileis [ctb], R-Core [ctb]",
+      "Maintainer": "Brad Price <brad.price@mail.wvu.edu>",
+      "Repository": "CRAN"
+    },
+    "carData": {
+      "Package": "carData",
+      "Version": "3.0-6",
+      "Source": "Repository",
+      "Date": "2026-01-30",
+      "Title": "Companion to Applied Regression Data Sets",
+      "Authors@R": "c(person(\"John\", \"Fox\", role = \"aut\", email = \"jfox@mcmaster.ca\"), person(\"Sanford\", \"Weisberg\", role = \"aut\", email = \"sandy@umn.edu\"), person(\"Brad\", \"Price\", role = c(\"aut\", \"cre\"), email = \"brad.price@mail.wvu.edu\"))",
+      "Depends": [
+        "R (>= 3.5.0)"
+      ],
+      "Suggests": [
+        "car (>= 3.0-0)"
+      ],
+      "LazyLoad": "yes",
+      "LazyData": "yes",
+      "Description": "Datasets to Accompany J. Fox and S. Weisberg,  An R Companion to Applied Regression, Third Edition, Sage (2019).",
+      "License": "GPL (>= 2)",
+      "URL": "https://r-forge.r-project.org/projects/car/, https://CRAN.R-project.org/package=carData, https://z.umn.edu/carbook",
+      "NeedsCompilation": "no",
+      "Author": "John Fox [aut], Sanford Weisberg [aut], Brad Price [aut, cre]",
+      "Maintainer": "Brad Price <brad.price@mail.wvu.edu>",
+      "Repository": "CRAN"
+    },
     "caret": {
       "Package": "caret",
       "Version": "7.0-1",
@@ -1615,6 +1894,56 @@
       "Maintainer": "Hadley Wickham <hadley@rstudio.com>",
       "Repository": "CRAN"
     },
+    "cowplot": {
+      "Package": "cowplot",
+      "Version": "1.2.0",
+      "Source": "Repository",
+      "Title": "Streamlined Plot Theme and Plot Annotations for 'ggplot2'",
+      "Authors@R": "person( given = \"Claus O.\", family = \"Wilke\", role = c(\"aut\", \"cre\"), email = \"wilke@austin.utexas.edu\", comment = c(ORCID = \"0000-0002-7470-9261\") )",
+      "Description": "Provides various features that help with creating publication-quality figures with 'ggplot2', such as a set of themes, functions to align plots and arrange them into complex compound figures, and functions that make it easy to annotate plots and or mix plots with images. The package was originally written for internal use in the Wilke lab, hence the name (Claus O. Wilke's plot package). It has also been used extensively in the book Fundamentals of Data Visualization.",
+      "URL": "https://wilkelab.org/cowplot/",
+      "BugReports": "https://github.com/wilkelab/cowplot/issues",
+      "Depends": [
+        "R (>= 3.5.0)"
+      ],
+      "Imports": [
+        "ggplot2 (>= 3.5.2)",
+        "grid",
+        "gtable",
+        "grDevices",
+        "methods",
+        "rlang",
+        "scales"
+      ],
+      "License": "GPL-2",
+      "Suggests": [
+        "Cairo",
+        "covr",
+        "dplyr",
+        "forcats",
+        "gridGraphics (>= 0.4-0)",
+        "knitr",
+        "lattice",
+        "magick",
+        "maps",
+        "PASWR",
+        "patchwork",
+        "rmarkdown",
+        "ragg",
+        "testthat (>= 1.0.0)",
+        "tidyr",
+        "vdiffr (>= 0.3.0)",
+        "VennDiagram"
+      ],
+      "VignetteBuilder": "knitr",
+      "Collate": "'add_sub.R' 'align_plots.R' 'as_grob.R' 'as_gtable.R' 'axis_canvas.R' 'cowplot.R' 'draw.R' 'get_plot_component.R' 'get_axes.R' 'get_titles.R' 'get_legend.R' 'get_panel.R' 'gtable.R' 'key_glyph.R' 'plot_grid.R' 'save.R' 'set_null_device.R' 'setup.R' 'stamp.R' 'themes.R' 'utils_ggplot2.R'",
+      "RoxygenNote": "7.3.2",
+      "Encoding": "UTF-8",
+      "NeedsCompilation": "no",
+      "Author": "Claus O. Wilke [aut, cre] (ORCID: <https://orcid.org/0000-0002-7470-9261>)",
+      "Maintainer": "Claus O. Wilke <wilke@austin.utexas.edu>",
+      "Repository": "CRAN"
+    },
     "cpp11": {
       "Package": "cpp11",
       "Version": "0.5.5",
@@ -1869,6 +2198,57 @@
       "NeedsCompilation": "yes",
       "Author": "Dirk Eddelbuettel [aut, cre] (ORCID: <https://orcid.org/0000-0001-6419-907X>), Antoine Lucas [ctb] (ORCID: <https://orcid.org/0000-0002-8059-9767>), Jarek Tuszynski [ctb], Henrik Bengtsson [ctb] (ORCID: <https://orcid.org/0000-0002-7579-5165>), Simon Urbanek [ctb] (ORCID: <https://orcid.org/0000-0003-2297-1732>), Mario Frasca [ctb], Bryan Lewis [ctb], Murray Stokely [ctb], Hannes Muehleisen [ctb] (ORCID: <https://orcid.org/0000-0001-8552-0029>), Duncan Murdoch [ctb], Jim Hester [ctb] (ORCID: <https://orcid.org/0000-0002-2739-7082>), Wush Wu [ctb] (ORCID: <https://orcid.org/0000-0001-5180-0567>), Qiang Kou [ctb] (ORCID: <https://orcid.org/0000-0001-6786-5453>), Thierry Onkelinx [ctb] (ORCID: <https://orcid.org/0000-0001-8804-4216>), Michel Lang [ctb] (ORCID: <https://orcid.org/0000-0001-9754-0393>), Viliam Simko [ctb], Kurt Hornik [ctb] (ORCID: <https://orcid.org/0000-0003-4198-9911>), Radford Neal [ctb] (ORCID: <https://orcid.org/0000-0002-2473-3407>), Kendon Bell [ctb] (ORCID: <https://orcid.org/0000-0002-9093-8312>), Matthew de Queljoe [ctb], Dmitry Selivanov [ctb] (ORCID: <https://orcid.org/0000-0003-0492-6647>), Ion Suruceanu [ctb] (ORCID: <https://orcid.org/0009-0005-6446-4909>), Bill Denney [ctb] (ORCID: <https://orcid.org/0000-0002-5759-428X>), Dirk Schumacher [ctb], András Svraka [ctb] (ORCID: <https://orcid.org/0009-0008-8480-1329>), Sergey Fedorov [ctb] (ORCID: <https://orcid.org/0000-0002-5970-7233>), Will Landau [ctb] (ORCID: <https://orcid.org/0000-0003-1878-3253>), Floris Vanderhaeghe [ctb] (ORCID: <https://orcid.org/0000-0002-6378-6229>), Kevin Tappe [ctb], Harris McGehee [ctb], Tim Mastny [ctb], Aaron Peikert [ctb] (ORCID: <https://orcid.org/0000-0001-7813-818X>), Mark van der Loo [ctb] (ORCID: <https://orcid.org/0000-0002-9807-4686>), Chris Muir [ctb] (ORCID: <https://orcid.org/0000-0003-2555-3878>), Moritz Beller [ctb] (ORCID: <https://orcid.org/0000-0003-4852-0526>), Sebastian Campbell [ctb] (ORCID: <https://orcid.org/0009-0000-5948-4503>), Winston Chang [ctb] (ORCID: <https://orcid.org/0000-0002-1576-2126>), Dean Attali [ctb] (ORCID: <https://orcid.org/0000-0002-5645-3493>), Michael Chirico [ctb] (ORCID: <https://orcid.org/0000-0003-0787-087X>), Kevin Ushey [ctb] (ORCID: <https://orcid.org/0000-0003-2880-7407>), Carl Pearson [ctb] (ORCID: <https://orcid.org/0000-0003-0701-7860>)",
       "Maintainer": "Dirk Eddelbuettel <edd@debian.org>",
+      "Repository": "CRAN"
+    },
+    "doBy": {
+      "Package": "doBy",
+      "Version": "4.7.1",
+      "Source": "Repository",
+      "Title": "Groupwise Statistics, LSmeans, Linear Estimates, Utilities",
+      "Authors@R": "c( person(given = \"Ulrich\", family = \"Halekoh\", email = \"uhalekoh@health.sdu.dk\", role = c(\"aut\", \"cph\")), person(given = \"Søren\", family = \"Højsgaard\", email = \"sorenh@math.aau.dk\", role = c(\"aut\", \"cre\", \"cph\")) )",
+      "Description": "Utility package containing: Main categories: Working with grouped data: 'do' something to data when  stratified 'by' some variables.  General linear estimates. Data handling utilities. Functional programming, in particular restrict functions to a smaller domain. Miscellaneous functions for data handling. Model stability in connection with model selection. Miscellaneous other tools.",
+      "Encoding": "UTF-8",
+      "VignetteBuilder": "knitr",
+      "LazyData": "true",
+      "LazyDataCompression": "xz",
+      "URL": "https://github.com/hojsgaard/doBy",
+      "License": "GPL (>= 2)",
+      "Depends": [
+        "R (>= 4.2.0)",
+        "methods"
+      ],
+      "Imports": [
+        "boot",
+        "broom",
+        "cowplot",
+        "Deriv",
+        "dplyr",
+        "forecast",
+        "ggplot2",
+        "MASS",
+        "Matrix",
+        "modelr",
+        "microbenchmark",
+        "rlang",
+        "purrr",
+        "tibble",
+        "tidyr"
+      ],
+      "Suggests": [
+        "geepack",
+        "knitr",
+        "lme4",
+        "markdown",
+        "rmarkdown",
+        "multcomp",
+        "pbkrtest (>= 0.5.2)",
+        "survival",
+        "testthat (>= 2.1.0)"
+      ],
+      "RoxygenNote": "7.3.3",
+      "NeedsCompilation": "no",
+      "Author": "Ulrich Halekoh [aut, cph], Søren Højsgaard [aut, cre, cph]",
+      "Maintainer": "Søren Højsgaard <sorenh@math.aau.dk>",
       "Repository": "CRAN"
     },
     "dplyr": {
@@ -4042,6 +4422,35 @@
       "Author": "Stef van Buuren [aut, cre], Karin Groothuis-Oudshoorn [aut], Gerko Vink [ctb], Rianne Schouten [ctb], Alexander Robitzsch [ctb], Patrick Rockenschaub [ctb], Lisa Doove [ctb], Shahab Jolani [ctb], Margarita Moreno-Betancur [ctb], Ian White [ctb], Philipp Gaffert [ctb], Florian Meinfelder [ctb], Bernie Gray [ctb], Vincent Arel-Bundock [ctb], Mingyang Cai [ctb], Thom Volker [ctb], Edoardo Costantini [ctb], Caspar van Lissa [ctb], Hanne Oberman [ctb], Stephen Wade [ctb], Florian van Leeuwen [ctb], Frederik Fabricius-Bjerre [ctb]",
       "Repository": "CRAN"
     },
+    "microbenchmark": {
+      "Package": "microbenchmark",
+      "Version": "1.5.0",
+      "Source": "Repository",
+      "Title": "Accurate Timing Functions",
+      "Description": "Provides infrastructure to accurately measure and compare the execution time of R expressions.",
+      "Authors@R": "c(person(\"Olaf\", \"Mersmann\", role=c(\"aut\")), person(\"Claudia\", \"Beleites\", role=c(\"ctb\")), person(\"Rainer\", \"Hurling\", role=c(\"ctb\")), person(\"Ari\", \"Friedman\", role=c(\"ctb\")), person(given=c(\"Joshua\",\"M.\"), family=\"Ulrich\", role=\"cre\", email=\"josh.m.ulrich@gmail.com\"))",
+      "URL": "https://github.com/joshuaulrich/microbenchmark/",
+      "BugReports": "https://github.com/joshuaulrich/microbenchmark/issues/",
+      "License": "BSD_2_clause + file LICENSE",
+      "Depends": [
+        "R (>= 3.2.0)"
+      ],
+      "Imports": [
+        "graphics",
+        "stats"
+      ],
+      "Suggests": [
+        "ggplot2",
+        "multcomp",
+        "RUnit"
+      ],
+      "SystemRequirements": "On a Unix-alike, one of the C functions mach_absolute_time (macOS), clock_gettime or gethrtime. If none of these is found, the obsolescent POSIX function gettimeofday will be tried.",
+      "ByteCompile": "yes",
+      "NeedsCompilation": "yes",
+      "Author": "Olaf Mersmann [aut], Claudia Beleites [ctb], Rainer Hurling [ctb], Ari Friedman [ctb], Joshua M. Ulrich [cre]",
+      "Maintainer": "Joshua M. Ulrich <josh.m.ulrich@gmail.com>",
+      "Repository": "CRAN"
+    },
     "mime": {
       "Package": "mime",
       "Version": "0.13",
@@ -4621,6 +5030,43 @@
       "Maintainer": "Henrik Bengtsson <henrikb@braju.com>",
       "Repository": "CRAN"
     },
+    "pbkrtest": {
+      "Package": "pbkrtest",
+      "Version": "0.5.5",
+      "Source": "Repository",
+      "Title": "Parametric Bootstrap, Kenward-Roger and Satterthwaite Based Methods for Test in Mixed Models",
+      "Authors@R": "c( person(given = \"Ulrich\", family = \"Halekoh\", email = \"uhalekoh@health.sdu.dk\", role = c(\"aut\", \"cph\")), person(given = \"Søren\", family = \"Højsgaard\", email = \"sorenh@math.aau.dk\", role = c(\"aut\", \"cre\", \"cph\")) )",
+      "Maintainer": "Søren Højsgaard <sorenh@math.aau.dk>",
+      "Description": "Computes p-values based on (a) Satterthwaite or Kenward-Rogers degree of freedom methods and (b) parametric bootstrap for mixed effects models as implemented in the 'lme4' package. Implements parametric bootstrap test for generalized linear mixed models as implemented in 'lme4' and generalized linear models. The package is documented in the paper by Halekoh and Højsgaard, (2012, <doi:10.18637/jss.v059.i09>).  Please see 'citation(\"pbkrtest\")' for citation details.",
+      "URL": "https://people.math.aau.dk/~sorenh/software/pbkrtest/",
+      "Depends": [
+        "R (>= 4.2.0)",
+        "lme4 (>= 1.1.31)"
+      ],
+      "Imports": [
+        "broom",
+        "dplyr",
+        "MASS",
+        "methods",
+        "numDeriv",
+        "Matrix (>= 1.2.3)",
+        "doBy (>= 4.6.22)"
+      ],
+      "Suggests": [
+        "nlme",
+        "markdown",
+        "knitr"
+      ],
+      "Encoding": "UTF-8",
+      "VignetteBuilder": "knitr",
+      "License": "GPL (>= 2)",
+      "ByteCompile": "Yes",
+      "RoxygenNote": "7.3.2",
+      "LazyData": "true",
+      "NeedsCompilation": "no",
+      "Author": "Ulrich Halekoh [aut, cph], Søren Højsgaard [aut, cre, cph]",
+      "Repository": "CRAN"
+    },
     "pillar": {
       "Package": "pillar",
       "Version": "1.11.1",
@@ -5097,6 +5543,44 @@
       "Author": "Jeffrey A. Ryan [aut, cph], Joshua M. Ulrich [cre, aut], Ethan B. Smith [ctb], Wouter Thielen [ctb], Paul Teetor [ctb], Steve Bronder [ctb]",
       "Maintainer": "Joshua M. Ulrich <josh.m.ulrich@gmail.com>",
       "Repository": "CRAN"
+    },
+    "quantreg": {
+      "Package": "quantreg",
+      "Version": "6.1",
+      "Source": "Repository",
+      "Title": "Quantile Regression",
+      "Description": "Estimation and inference methods for models for conditional quantile functions:  Linear and nonlinear parametric and non-parametric (total variation penalized) models  for conditional quantiles of a univariate response and several methods for handling censored survival data.  Portfolio selection methods based on expected shortfall risk are also now included. See Koenker, R. (2005) Quantile Regression, Cambridge U. Press, <doi:10.1017/CBO9780511754098> and Koenker, R. et al. (2017) Handbook of Quantile Regression,  CRC Press, <doi:10.1201/9781315120256>.",
+      "Authors@R": "c( person(\"Roger\", \"Koenker\",  role = c(\"cre\",\"aut\"), email =  \"rkoenker@illinois.edu\"), person(\"Stephen\", \"Portnoy\",  role = c(\"ctb\"),  comment = \"Contributions to Censored QR code\", email =  \"sportnoy@illinois.edu\"), person(c(\"Pin\", \"Tian\"), \"Ng\",  role = c(\"ctb\"),  comment = \"Contributions to Sparse QR code\", email =  \"pin.ng@nau.edu\"), person(\"Blaise\", \"Melly\",  role = c(\"ctb\"),  comment = \"Contributions to preprocessing code\", email =  \"mellyblaise@gmail.com\"), person(\"Achim\", \"Zeileis\",  role = c(\"ctb\"),  comment = \"Contributions to dynrq code essentially identical to his dynlm code\",  email =  \"Achim.Zeileis@uibk.ac.at\"), person(\"Philip\", \"Grosjean\",  role = c(\"ctb\"),  comment = \"Contributions to nlrq code\", email =  \"phgrosjean@sciviews.org\"), person(\"Cleve\", \"Moler\",  role = c(\"ctb\"),  comment = \"author of several linpack routines\"), person(\"Yousef\", \"Saad\",  role = c(\"ctb\"),  comment = \"author of sparskit2\"), person(\"Victor\", \"Chernozhukov\",  role = c(\"ctb\"),  comment = \"contributions to extreme value inference code\"), person(\"Ivan\", \"Fernandez-Val\",  role = c(\"ctb\"),  comment = \"contributions to extreme value inference code\"), person(\"Martin\", \"Maechler\", role = \"ctb\", comment = c(\"tweaks (src/chlfct.f, 'tiny','Large')\", ORCID = \"0000-0002-8685-9910\")), person(c(\"Brian\", \"D\"), \"Ripley\",  role = c(\"trl\",\"ctb\"),  comment = \"Initial (2001) R port from S (to my everlasting shame --  how could I have been so slow to adopt R!) and for numerous other  suggestions and useful advice\", email =  \"ripley@stats.ox.ac.uk\"))",
+      "Maintainer": "Roger Koenker <rkoenker@illinois.edu>",
+      "Repository": "CRAN",
+      "Depends": [
+        "R (>= 3.5)",
+        "stats",
+        "SparseM"
+      ],
+      "Imports": [
+        "methods",
+        "graphics",
+        "Matrix",
+        "MatrixModels",
+        "survival",
+        "MASS"
+      ],
+      "Suggests": [
+        "interp",
+        "rgl",
+        "logspline",
+        "nor1mix",
+        "Formula",
+        "zoo",
+        "R.rsp",
+        "conquer"
+      ],
+      "License": "GPL (>= 2)",
+      "URL": "https://www.r-project.org",
+      "NeedsCompilation": "yes",
+      "VignetteBuilder": "R.rsp",
+      "Author": "Roger Koenker [cre, aut], Stephen Portnoy [ctb] (Contributions to Censored QR code), Pin Tian Ng [ctb] (Contributions to Sparse QR code), Blaise Melly [ctb] (Contributions to preprocessing code), Achim Zeileis [ctb] (Contributions to dynrq code essentially identical to his dynlm code), Philip Grosjean [ctb] (Contributions to nlrq code), Cleve Moler [ctb] (author of several linpack routines), Yousef Saad [ctb] (author of sparskit2), Victor Chernozhukov [ctb] (contributions to extreme value inference code), Ivan Fernandez-Val [ctb] (contributions to extreme value inference code), Martin Maechler [ctb] (tweaks (src/chlfct.f, 'tiny','Large'), <https://orcid.org/0000-0002-8685-9910>), Brian D Ripley [trl, ctb] (Initial (2001) R port from S (to my everlasting shame -- how could I have been so slow to adopt R!) and for numerous other suggestions and useful advice)"
     },
     "ragg": {
       "Package": "ragg",
