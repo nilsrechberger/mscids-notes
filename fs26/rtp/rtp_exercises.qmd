@@ -661,3 +661,73 @@ abline(h=0, col="red", lty=2)
 ```
 
 The model seems to be appropriate for this time series since the residuals looks normal distributed.
+
+# Series 7
+
+## Exercise 7.1
+
+### A
+
+```{r}
+arma.1 <-arima.sim(n=250,list(ar=c(-0.75),ma=c(-0.3, 0.25)))
+```
+
+### B
+
+```{r}
+arma.2 <-arima.sim(n=250,list(ar=c(-0.75, -0.3),ma=c(0.25)))
+```
+
+## Exercise 7.2
+
+```{r}
+library(fpp2)
+data(sunspotarea)
+plot(sunspotarea)
+```
+
+### B
+
+```{r}
+ts.sunspotarea <- ts(log(sunspotarea))
+ts.sunspotareaA <- window(ts.sunspotarea, end = 100)
+```
+
+```{r}
+acf(ts.sunspotareaA)
+```
+
+```{r}
+pacf(ts.sunspotareaA)
+```
+
+Based on the $(p-)acf$, we choose a $AR$-model with the value $p = 3$
+
+## Exercise 7.3
+
+```{r}
+t.url <- "http://stat.ethz.ch/Teaching/Datasets/WBL/varve.dat"
+d.varve <- ts(scan(t.url)[201:550])
+```
+
+### A
+
+```{r}
+plot(d.varve)
+```
+
+Yes, there is a need for log-transform.
+
+### B
+
+```{r}
+plot(log(d.varve))
+```
+
+The time series it not stationary by simply using log-tranformation. We try differencing.
+
+```{r}
+plot(diff(d.varve, 10))
+```
+
+Looks good now.
