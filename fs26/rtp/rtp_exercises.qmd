@@ -301,6 +301,7 @@ Using differencing alone, we eliminate the trend but do not obtain a fully stati
 ### A
 
 ```{r}
+#| output: false
 arima.sim(list(ar = c(0.8)), n = 1000)
 ```
 
@@ -336,13 +337,11 @@ lines(1:100, estim_pacf, type = "l")
 
 ```{r}
 data <- read.table("/home/nils/dev/mscids-notes/fs26/rtp/data/kreatin.dat", header=TRUE)
-data
 ```
 
 ### A
 
 The Model should follow a **Random Walk**.
-
 
 ### B
 
@@ -363,7 +362,6 @@ pacf(ts)
 
 ```{r}
 data <- read.table("/home/nils/dev/mscids-notes/fs26/rtp/data/ts_S3_A2.dat", header=TRUE)
-data
 ```
 
 ### A
