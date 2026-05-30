@@ -39,11 +39,7 @@ website:
           - text: "Exercises"
             href: fs26/dbm/dbm_exercises.qmd
       - text: "DevOps"
-        menu:
-          - text: "Notes"
-            href: fs26/devops/devops_notes.qmd
-          - text: "Exercises"
-            href: fs26/devops/devops_exercises.qmd
+        href: fs26/devops/devops_notes.qmd
     right:
       - text: "Old Modules"
         menu: 
