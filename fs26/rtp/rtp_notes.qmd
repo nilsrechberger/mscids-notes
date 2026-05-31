@@ -2,6 +2,9 @@
 title: Discrete Response, Time Series and Panel Data - Notes
 author: Nils Rechberger
 date: 2026-02-26
+execute:
+  warning: false
+  message: false
 ---
 
 #  W-01-Timeseries-Introduction-Visualisation-Stationarity

@@ -2,6 +2,9 @@
 title: Discrete Response, Time Series and Panel Data - Exercises
 author: Nils Rechberger
 date: 2026-03-05
+execute:
+  warning: false
+  message: false
 ---
 
 # Series 1
@@ -738,7 +741,7 @@ Looks good now.
 
 ### A
 
-```{r}
+```r
 arima.1 <-arima.sim(
     n=250,
     order=c(2, 1, 2),
@@ -784,8 +787,6 @@ cat("Equivalent ARMA MA coefficients:", arma_ma_coefs, "\n")
 ```{r}
 d.beluga <- read.table("http://stat.ethz.ch/Teaching/Datasets/WBL/beluga.dat", header = TRUE)
 d.beluga <- ts(d.beluga)
-
-d.beluga
 ```
 
 ### A
@@ -802,7 +803,7 @@ abline(h=0, col="red")
 
 ### B
 
-```{r}
+``` r
 acf(d.beluga)
 ```
 
@@ -1011,7 +1012,6 @@ lines(fc$pred-fc$se*1.96, col="blue")
 
 ### C
 
-
 ```{r}
 t.E <- ts(rnorm(201))
 t.X <- (1:201) + t.E
@@ -1058,7 +1058,6 @@ The dataset is balanced!
 ### B
 
 #### I
-
 
 ```{r}
 library(plm)
