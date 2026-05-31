@@ -996,3 +996,34 @@ lines(fc$pred, lwd=2, col="red")
 lines(fc$pred+fc$se*1.96, col="blue")
 lines(fc$pred-fc$se*1.96, col="blue")
 ```
+
+# Series 11
+
+## Exercise 11.1
+
+### A
+
+| Process | Simplified Formula | Mean | Variance | Stationary? | Time-Series Classification |
+| :--- | :--- | :--- | :--- | :--- | :--- |
+| **i) $X_t$** | $t + E_t$ | $t$ *(Changes with time)* | $\sigma^2$ *(Constant)* | **No** | Trend-Stationary (Raw process is non-stationary) |
+| **ii) $Y_t$** | $1 + E_t - E_{t-1}$ | $1$ *(Constant)* | $2\sigma^2$ *(Constant)* | **Yes** | Stationary MA(1) process with a drift |
+| **iii) $Z_t$** | $E_t$ | $0$ *(Constant)* | $\sigma^2$ *(Constant)* | **Yes** | Stationary White Noise |
+
+### C
+
+
+```{r}
+t.E <- ts(rnorm(201))
+t.X <- (1:201) + t.E
+t.Y <- diff(t.X)
+t.Z <- t.E
+```
+
+```{r}
+plot(t.Y)
+```
+
+```{r}
+plot(t.Z)
+```
+
