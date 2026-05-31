@@ -868,3 +868,53 @@ $$
 y = -0.1442\alpha_1 + 0.1452\alpha_2 + -0.5334\beta_1 + -0.3548\beta_2 + \varepsilon_0
 $$
 
+# Series 9
+
+## Exercise 9.1
+
+### A
+
+
+```{r}
+library(astsa)
+data(prodn)
+
+plot(prodn)
+```
+
+### B
+
+```{r}
+plot(diff(log(prodn)))
+```
+
+### C
+
+```{r}
+prodn.trans <- diff(log(prodn))
+
+acf(prodn.trans)
+```
+
+```{r}
+pacf(prodn.trans)
+```
+
+```{r}
+library(forecast)
+
+fit<-arima(
+    x=prodn.trans,
+    order=c(1,1,1),
+    seasonal=c(1,1,1)
+    )
+
+tsdisplay(fit$residual)
+```
+
+```{r}
+fitAuto<-auto.arima(prodn.trans, ic="aic")
+fitAuto
+
+tsdisplay(fitAuto$residual)
+```
