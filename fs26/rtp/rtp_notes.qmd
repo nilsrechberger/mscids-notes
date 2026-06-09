@@ -276,6 +276,58 @@ A challenge in the interpretation of ACFs is that the effect of smaller lags rem
 pacf(sunspot.year)
 ```
 
+
+::: {.callout-note}
+
+- ACF -> MA-Model
+- PACF -> AR-Model
+
+:::
+
+## Analysis of the ARMA(2,1) Process for Stationarity
+
+Given the process equation:
+$$X_t = 1.2X_{t-1} - 0.36X_{t-2} + E_t + 0.5E_{t-1}$$
+
+
+### Step 1: Isolate the AR Part
+
+To check for stationarity, only the AR (autoregressive) part is relevant. We move all $X$ terms to the left side of the equation (paying close attention to the signs):
+
+$$X_t - 1.2X_{t-1} + 0.36X_{t-2} = E_t + 0.5E_{t-1}$$
+
+### Step 2: Set up the Characteristic Polynomial
+
+We replace the time lags with the variable $z$ (where $X_t \rightarrow 1$, $X_{t-1} \rightarrow z$, and $X_{t-2} \rightarrow z^2$):
+
+$$\Phi(z) = 1 - 1.2z + 0.36z^2$$
+
+### Step 3: Calculate the Characteristic Roots
+
+To find the roots (zeros), we set the polynomial equal to zero:
+
+$$0.36z^2 - 1.2z + 1 = 0$$
+
+Applying the **quadratic formula** (abc-formula) with $a = 0.36$, $b = -1.2$, and $c = 1$:
+
+$$z = \frac{-(-1.2) \pm \sqrt{(-1.2)^2 - 4 \cdot 0.36 \cdot 1}}{2 \cdot 0.36}$$
+
+$$z = \frac{1.2 \pm \sqrt{1.44 - 1.44}}{0.72}$$
+
+Since the discriminant under the square root is $0$, we have a **repeated root** (double root):
+
+$$z_1 = z_2 = \frac{1.2}{0.72} = \frac{5}{3} \approx 1.67$$
+
+### Step 4: Check the Stationarity Condition
+
+An ARMA process is stationary if the absolute value (modulus) of all characteristic roots is **greater than 1** ($|z_i| > 1$), meaning they lie outside the unit circle.
+
+* **Condition Check:** $|1.67| > 1 \quad \color{green}{\checkmark}$
+
+### Conclusion
+
+Since all characteristic roots lie outside the unit circle, the given ARMA process is **stationary**.
+
 # W-04-Timeseries-ACF-AR
 
 ## Fundamentals of Modeling
@@ -831,6 +883,62 @@ Heteroscedasticity occurs when the variance of the residuals (errors) in a model
 
 ## ARCH Models
 
+### 1. Overview
+**ARCH** stands for **Autoregressive Conditional Heteroskedasticity**. Developed by Robert Engle in 1982, these models are specifically designed to model and forecast time-varying volatility (risk) in financial and economic time series data.
+
+Unlike traditional time series models (like ARIMA) which assume constant variance (homoskedasticity), ARCH models capture the phenomenon of **volatility clustering**—the tendency for large shocks to be followed by large shocks, and small shocks to be followed by small shocks.
+
+### 2. Core Concepts
+* **Heteroskedasticity:** The variance of the error terms is not constant over time.
+* **Conditional:** The volatility at the current time step depends on past information.
+* **Autoregressive:** The model predicts current variance by looking back at its own past squared error terms.
+
+### 3. Mathematical Formulation
+
+An $ARCH(p)$ model consists of two parts: the **mean equation** and the **variance equation**.
+
+#### The Mean Equation
+The observed return or value $r_t$ is modeled as a function of an expected value $\mu_t$ (which can be a constant or an ARMA process) and a residual error term $\epsilon_t$:
+
+$$
+r_t = \mu_t + \epsilon_t
+$$
+
+Where the error term $\epsilon_t$ is broken down into a standard normal random variable $z_t$ and the conditional standard deviation $\sigma_t$:
+
+$$
+\epsilon_t = \sigma_t z_t \quad \text{where} \quad z_t \sim \mathcal{N}(0, 1)
+$$
+
+#### The Variance Equation (ARCH(p))
+The conditional variance $\sigma_t^2$ is modeled as a linear function of $p$ lagged squared residuals from the past:
+
+$$
+\sigma_t^2 = \alpha_0 + \alpha_1 \epsilon_{t-1}^2 + \alpha_2 \epsilon_{t-2}^2 + \dots + \alpha_p \epsilon_{t-p}^2
+$$
+
+$$
+\sigma_t^2 = \alpha_0 + \sum_{i=1}^{p} \alpha_i \epsilon_{t-i}^2
+$$
+
+**Constraints for stability and positivity:**
+* $\alpha_0 > 0$ (Ensures variance is always strictly positive)
+* $\alpha_i \geq 0$ for all $i > 0$ (Ensures non-negative contributions)
+* $\sum_{i=1}^{p} \alpha_i < 1$ (Ensures the process is stationary)
+
+### 4. Why Use ARCH Models?
+* **Risk Management:** Essential for calculating dynamic Value-at-Risk (VaR) and Expected Shortfall.
+* **Asset Pricing:** Crucial for pricing options and other derivatives where volatility is a key input.
+* **Realistic Forecasting:** It expands standard confidence intervals during turbulent market periods, preventing underestimation of risk.
+
+
+### 5. Extension: The GARCH Model
+In practice, pure $ARCH(p)$ models often require a large number of lags ($p$) to capture financial volatility accurately. To solve this, Tim Bollerslev introduced the **GARCH** (**G**eneralized ARCH) model, which includes lagged values of the variance itself:
+
+$$\sigma_t^2 = \alpha_0 + \sum_{i=1}^{p} \alpha_i \epsilon_{t-i}^2 + \sum_{j=1}^{q} \beta_j \sigma_{t-j}^2$$
+
+A standard **GARCH(1,1)** model is typically sufficient to model most financial asset returns effectively.
+
 A time series 𝑋𝑡 is autoregressive conditional heteroskedastic of the order $p$ (abbreviated ARCH(p)) if it has the form:
 
 $$
@@ -1127,6 +1235,41 @@ If you have $N$ subjects and $T$ time periods, a perfectly balanced panel will h
 
 ## Fixed Effect Models
 
+A **Fixed Effects (FE) Model** is primarily used with **panel data** (longitudinal data), which observes multiple entities (e.g., individuals, companies, countries) across multiple time periods. 
+
+### Core Concept
+It controls for **unobserved heterogeneity** by factoring out all individual characteristics that do not change over time (time-invariant variables). This eliminates omitted variable bias caused by these hidden factors. The model solely analyzes the "within-variation" (how variables change within the *same* entity over time).
+
+### The Basic Equation
+$$
+Y_it = \beta * X_it + \alpha_i + u_it
+$$
+
+* **Y_it**: Dependent variable for entity *i* at time *t*.
+* **X_it**: Time-varying independent variable(s).
+* **beta**: The effect of the independent variable(s) we want to estimate.
+* **alpha_i**: The **Fixed Effect** (an individual intercept that captures all time-invariant traits of entity *i*).
+* **u_it**: Error term (time-varying unobserved factors).
+
+### Time Fixed Effects
+Besides individual effects, you can include **Time Fixed Effects** to control for macro-events that affect all entities equally at a specific point in time (e.g., a global financial crisis). Using both individual and time effects is called a **Two-Way Fixed Effects Model**.
+
+### FE vs. Random Effects (RE)
+* **Fixed Effects:** Assumes unobserved individual traits *correlate* with the independent variables.
+* **Random Effects:** Assumes unobserved individual traits do *not* correlate with the independent variables.
+* *Note:* The **Hausman Test** is typically used to statistically determine which model is more appropriate.
+
+### Pros & Cons
+
+**Advantages:**
+* **Reduces Bias:** Elegantly solves the omitted variable bias for any unobserved, time-invariant factors.
+* **Causality:** Provides a stronger case for causal inference compared to simple cross-sectional models.
+
+**Disadvantages:**
+* **No Time-Invariant Variables:** You cannot estimate the effects of variables that don't change over time (like gender or birthplace), as they are absorbed by the fixed effect ($\alpha_i$).
+* **Low Efficiency with Low Variation:** If your independent variables barely change over time, the model loses statistical power and becomes imprecise.
+* **Degrees of Freedom:** In panels with many entities, the model consumes a massive amount of degrees of freedom to estimate all the individual intercepts.
+
 ### What if each entity has its bias?
 
 A global least squares fit may yield wrong models for data with a constant offset between two entities.
@@ -1174,8 +1317,56 @@ An integer response (often called count data) is a discrete response where the o
 
 ## Linear Probability Model
 
-Interpret the prediction of the regression as the probability of a positive answer.
+A **Linear Probability Model (LPM)** is a standard Multiple Linear Regression model (Ordinary Least Squares - OLS) applied to a **binary dependent variable** ($Y_i = 0$ or $1$). Instead of predicting a continuous outcome, the LPM models the *probability* that an event occurs.
 
+### 1. Core Specification
+
+The model is written as:
+
+$$
+Y_t = \beta_0 + \beta_1 X_{1,t} + \beta_2 X_{2,t} + \dots + \epsilon_t
+$$
+
+Where:
+* $Y_t \in \{0, 1\}$ (e.g., $1 = \text{Recession}$, $0 = \text{No Recession}$)
+* $X_{k,t}$ are the explanatory variables (which can include time-series elements like lagged variables $Y_{t-1}$).
+* The predicted value $\hat{Y}_t$ is interpreted directly as the conditional probability: 
+
+$$
+P(Y_t = 1 \mid X_t) = \hat{Y}_t
+$$
+
+## 2. Advantages
+
+* **Simple Interpretation:** Coefficients ($\beta_k$) show the direct change in probability. If $\beta_1 = 0.05$, a one-unit increase in $X_1$ increases the probability of the event by **5 percentage points**.
+* **Computational Ease:** Estimated via standard OLS, avoiding the iterative maximum likelihood estimation required for Logit/Probit.
+* **Handles Dynamics Well:** Readily accommodates time-series features like fixed effects, instrumental variables, lag structures ($Y_{t-1}$), and interaction terms without complex scaling issues.
+
+### 3. Disadvantages & Key Challenges
+
+#### Nonsensical Predictions
+Because the OLS line is straight and unbounded, the model can predict probabilities greater than 1 or less than 0 (e.g., $\hat{Y}_t = 1.25$ or $-0.15$) for extreme values of $X$.
+
+#### Inherent Heteroskedasticity
+Since $Y_t$ can only be 0 or 1, the variance of the error term ($\epsilon_t$) depends on $X_t$:
+
+$$\text{Var}(\epsilon_t \mid X_t) = P(X_t)[1 - P(X_t)]$$
+
+This violates the OLS homoskedasticity assumption, meaning standard errors and $p$-values will be biased.
+
+#### Non-Normal Residuals
+The error terms cannot be normally distributed because they can only take on two distinct values for any given $X_t$ ($\epsilon_t = 1 - X_t\beta$ or $\epsilon_t = -X_t\beta$).
+
+#### Specific Time-Series Issue: Autocorrelation
+In time-series applications, the shocks ($\epsilon_t$) are often correlated over time ($\epsilon_t$ correlates with $\epsilon_{t-1}$), compounding the bias in standard errors.
+
+### 4. Crucial Fixes for Empirical Work
+
+To use an LPM validly (especially in time series), you must fix the standard errors:
+* **Robust Standard Errors:** Use Huber-White sandwich estimators to correct for heteroskedasticity.
+* **Newey-West Standard Errors:** Use HAC (Heteroskedasticity and Autocorrelation Consistent) standard errors to correct for both heteroskedasticity and time-series serial correlation.
+
+Interpret the prediction of the regression as the probability of a positive answer.
 
 ```{r}
 # Load data sets
@@ -1208,8 +1399,67 @@ According to this model, being Afro-American increases the probability of denial
 
 ## Probit Regression
 
-A probit regression is a statistical model used to estimate the relationship between a set of independent variables and a binary dependent variable, The main goal is to let the linear regression predict the quantile of the error distribution.
+A **Probit Regression** is a statistical model used to estimate the relationship between a set of explanatory variables and a **binary dependent variable** ($Y \in \{0, 1\}$). Unlike the Linear Probability Model (LPM), Probit uses a non-linear S-shaped curve, guaranteeing that all predicted probabilities fall strictly between 0 and 1.
 
+
+### 1. Mathematical Specification
+
+The Probit model constrains the predicted values using the **Cumulative Distribution Function (CDF) of the standard normal distribution**, typically denoted by $\Phi$ (Phi).
+
+The probability that the event occurs ($Y = 1$) given the predictors $X$ is modeled as:
+
+$$
+P(Y = 1 \mid X) = \Phi(\beta_0 + \beta_1 X_1 + \beta_2 X_2 + \dots + \beta_k X_k)
+$$
+
+Where the standard normal CDF is defined by the integral:
+$$
+\Phi(z) = \int_{-\infty}^{z} \frac{1}{\sqrt{2\pi}} e^{-\frac{t^2}{2}} dt
+$$
+
+### 2. The Latent Variable Framework
+
+The Probit model can be derived from an underlying, unobserved (**latent**) continuous variable $Y^*$, which represents a propensity or utility index:
+
+$$
+Y^* = \beta_0 + \beta_1 X_1 + \dots + \epsilon
+$$
+
+We do not observe $Y^*$; we only observe the binary outcome $Y$, which triggers when $Y^*$ crosses a certain threshold (normalized to 0):
+
+$$
+Y = 
+\begin{cases} 
+1 & \text{if } Y^* > 0 \\ 
+0 & \text{if } Y^* \le 0 
+\end{cases}
+$$
+
+Assuming the error term $\epsilon$ follows a **standard normal distribution** ($\epsilon \sim N(0, 1)$) yields the Probit model.
+
+### 3. Interpretation & Marginal Effects
+
+Because the Probit function is non-linear, the coefficients ($\beta_k$) **cannot** be interpreted as direct changes in probability. 
+* A positive $\beta_k$ means an increase in $X_k$ *increases* the probability that $Y=1$.
+* To find the actual change in percentage points, you must calculate **Marginal Effects**:
+
+| Method | Definition |
+| :--- | :--- |
+| **Average Marginal Effect (AME)** | Calculates the marginal effect for each individual observation and then takes the average across the entire sample. *(Preferred approach)* |
+| **Marginal Effect at the Mean (MEM)** | Calculates the marginal effect for a hypothetical individual who holds the exact average characteristics ($\bar{X}$) of the sample. |
+
+### 4. Probit vs. Logit vs. LPM
+
+* **LPM (Linear):** Easy to interpret but yields nonsensical predictions ($<0$ or $>1$) and suffers from inherent heteroskedasticity.
+* **Probit (Normal CDF):** Restricts outputs to $[0, 1]$. Assumes normally distributed errors.
+* **Logit (Logistic CDF):** Restricts outputs to $[0, 1]$. Assumes logistically distributed errors (slightly fatter tails than Probit). 
+* *Note:* In practice, Probit and Logit yield nearly identical conclusions and tracking, varying only in the scale of their raw coefficients.
+
+### 5. Estimation Method
+
+Unlike OLS used in LPM, Probit coefficients are estimated using **Maximum Likelihood Estimation (MLE)**. MLE searches iteratively for the parameter values ($\beta$) that maximize the likelihood of observing the actual data sample.
+
+A probit regression is a statistical model used to estimate the relationship between a set of independent variables and a binary dependent variable, The main goal is to let the linear regression predict the quantile of the error distribution.
 
 ```{r}
 library(AER)
