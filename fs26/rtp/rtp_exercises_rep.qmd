@@ -1,0 +1,479 @@
+---
+title: Discrete Response, Time Series and Panel Data - Exercises (Rep.)
+author: Nils Rechberger
+date: 2026-03-05
+execute:
+  warning: false
+  message: false
+---
+
+# Series 1
+
+## Exercise 1.1
+
+### a
+
+$12$
+
+### b
+
+None
+
+### c
+
+$7$
+
+### d
+
+$365$
+
+## Exercise 1.2
+
+```{r}
+hstart <- read.table("/home/nils/dev/mscids-notes/fs26/rtp/data/hstart.dat")
+
+ts.hstart <- ts(
+  data=hstart,
+  start=1966,
+  end=1974
+  )
+
+plot(ts.hstart)
+```
+
+The process is not stationary. We see a seasonal trend from 1967 to 1972.
+
+## Exxercise 1.3
+
+### a
+
+```{r}
+set.seed(1)
+
+Et <- ts(rnorm(101, 0, 1))
+Et[1] <- 0
+y1 <- 0 #delete later
+
+for (i in 2:length(Et)) {
+y1[i] <- Et[i] - 0.5 * Et[i-1]
+}
+
+y1 = y1[2:length(y1)]
+ts.y1 = ts(y1)
+plot(y1, type="l")
+abline(h=mean(y1), col="red")
+```
+
+The process seems stationary.
+
+### b
+
+```{r}
+set.seed(1)
+
+Et <- ts(rnorm(101, 0, 1))
+Et[1] <- 0
+y2 <- 0 #delete later
+
+for (i in 2:length(Et)) {
+y2[i] <- y2[i-1] + Et[i]
+}
+
+y2 = y2[2:length(y2)]
+ts.y2 = ts(y2)
+plot(y2, type="l")
+abline(h=mean(y1), col="red")
+```
+
+The process is not stationary.
+
+### c
+
+```{r}
+set.seed(1)
+
+Et <- ts(rnorm(101, 0, 1))
+Et[1] <- 0
+y3 <- 0 #delete later
+
+for (i in 2:length(Et)) {
+y3[i] <- 0.5 * y3[i-1] + Et[i]
+}
+
+y3 = y3[2:length(y3)]
+ts.y3 = ts(y3)
+plot(y3, type="l")
+abline(h=mean(y3), col="red")
+```
+
+The process seems stationary.
+
+### d
+
+```{r}
+set.seed(1)
+
+Et <- ts(runif(101, 0.95, 1.05))
+Et[1] <- 0
+y4 <- 1 #delete later
+
+for (i in 2:length(Et)) {
+y4[i] <- y4[i-1] * Et[i]
+}
+
+y4 = y4[2:length(y4)]
+ts.y4 = ts(y4)
+plot(y4, type="l")
+abline(h=mean(y4), col="red")
+```
+
+The model is not stationary
+
+# Series 2
+
+## Exercise 2.1
+
+### a
+
+```{r}
+t <- seq(1, 100, length = 100)
+data <- 0.5 * t + 1 + runif(100, -1, 1)
+ts <- ts(data)
+
+plot(ts)
+print(length(ts))
+
+plot(diff(ts))
+print(length(diff(ts)))
+```
+
+We can remove the linear trend with one time backward differencing. The length of the ts increases by 1.
+
+### b
+
+```{r}
+t <- seq(1, 100, length = 100)
+data <- 2 * t**2 + 3 * t - 1 + runif(100, -200, 200)
+ts <- ts(data)
+
+plot(ts)
+print(length(ts))
+
+plot(diff(ts))
+print(length(diff(ts)))
+
+plot(diff(ts, difference=2))
+print(length(diff(ts, difference=2)))
+```
+
+We can remove the linear trend with two times backward differencing. The length of the ts increases by 2.
+
+## Exercise 2.2
+
+```{r}
+hstart <- read.table("/home/nils/dev/mscids-notes/fs26/rtp/data/hstart.dat")
+
+ts.hstart <- ts(
+  data = hstart$V1, 
+  start = c(1966, 1), # January 1966
+  end = c(1974, 12),  # December 1974
+  frequency = 12      # Monthly data
+)
+
+decomp <- stl(ts.hstart, s.window = "periodic") 
+plot(decomp)
+```
+
+### b
+
+```{r}
+weights <- c(0.5, rep(1, 11), 0.5) / 12
+ts.filtertrend <- filter(
+  ts,
+  filter = weights,
+  sides = 2
+)
+
+plot(ts.filtertrend)
+```
+
+### c
+
+```{r}
+hstart <- read.table("/home/nils/dev/mscids-notes/fs26/rtp/data/hstart.dat")
+
+ts.hstart <- ts(
+  data = hstart$V1, 
+  start = c(1966, 1), # January 1966
+  end = c(1974, 12),  # December 1974
+  frequency = 12      # Monthly data
+)
+
+plot((diff(ts, difference=2)))
+```
+
+## Exercise 2.3
+
+```{r}
+data(co2)
+
+plot(co2)
+acf(co2)
+```
+
+# Series 3
+
+## Exercise 3.1
+
+A -> 1
+B -> 3
+C -> 2
+D -> 4
+
+## Exercise 3.2
+
+### a
+
+```{r}
+cbe <- read.table("/home/nils/dev/mscids-notes/fs26/rtp/data/cbe.dat", header=TRUE)
+
+ts <- ts(
+  data=cbe$elec,
+  start=c(1958, 1),
+  end=c(1990, 12),
+  frequency=12
+)
+
+plot(ts)
+```
+
+It is not meaningful to interpret the correlogram of this time series because the process is not stationary.
+
+### b
+
+```{r}
+decomp <- decompose(ts, type = "multiplicative")
+acf(decomp$random, na.action = na.pass)
+```
+
+### c
+
+```{r}
+elec.stl1 <- stl(log(ts), s.window="periodic")
+plot(elec.stl1)
+
+elec.stl2 <- stl(log(ts), s.window=13)
+plot(elec.stl2)
+```
+
+By simply log-transforming the data does make the process stationary.
+
+# Series 4
+
+## Exercise 4.1
+
+### a
+
+```{r}
+data <- arima.sim(list(ar = c(0.8)), n = 1000)
+```
+
+### b
+
+```{r}
+ARMAacf(ar=c(0.8), lag.max = 10)
+```
+
+### c
+
+$p(k) = a^k_1 = 0.8^k$
+
+### d
+
+```{r}
+ARMAacf(ar=c(0.8), lag.max = 10)
+acf(data)
+```
+
+## Exercise 4.2
+
+```{r}
+kreatin <- read.table("/home/nils/dev/mscids-notes/fs26/rtp/data/kreatin.dat", header=TRUE)
+
+plot(kreatin$gehalt, type="l")
+```
+
+The process should follow white noise.
+
+### b
+
+```{r}
+acf(kreatin$gehalt)
+```
+
+```{r}
+pacf(kreatin$gehalt)
+```
+
+White noise fits.
+
+## Exercise 4.3
+
+```{r}
+data <- read.table("/home/nils/dev/mscids-notes/fs26/rtp/data/ts_S3_A2.dat", header=TRUE)
+
+ts1 <- data$ts1
+ts2 <- data$ts2
+```
+
+### a
+
+```{r}
+plot(ts1, type="l")
+abline(h=mean(ts1), col="red")
+
+plot(ts2, type="l")
+abline(h=mean(ts2), col="red")
+```
+
+$ts1$ seems stationary, $ts2$ not.
+
+# Series 5
+
+## Exercise 5.1
+
+### a
+
+```{r}
+data <- arima.sim(list(ar = c(0.9, -0.5)), n = 100)
+plot(data)
+```
+
+#### II
+
+```{r}
+## Theoretical autocorrelations for X_t = 0.9
+## X_t-1 - 0.5 X_t-2 + e_t
+plot(0:30, ARMAacf(ar = c(0.9, -0.5), lag.max = 30), type = "h", ylab = "ACF")
+## Theoretical partial autocorrelations
+plot(1:30, ARMAacf(ar = c(0.9, -0.5), lag.max = 30, pacf = TRUE), type = "h", ylab = "PACF")
+```
+
+### III
+
+```{r}
+r.sim1 <- arima.sim(n = 200, model = list(ar = c(0.9, -0.5)))
+plot(r.sim1)
+```
+
+#### IV
+
+```{r}
+acf(r.sim1)
+```
+
+```{r}
+pacf(r.sim1)
+```
+
+## Exercise 5.2
+
+### a
+
+#### I
+
+```{r}
+polyroot(c(1, 0.5, 2))
+```
+
+The process is not stationary
+
+#### II
+
+The process is not stationary since $a_1 = 1$.
+
+### b
+
+```{r}
+polyroot(c(1, 0.5, 0.26))
+```
+
+$a_2$ has to be $< 0.25$.
+
+# Series 6
+
+## Exercise 6.1
+
+```{r}
+yields <- read.table("/home/nils/dev/mscids-notes/fs26/rtp/data/yields.dat", header = FALSE)
+t.yields <- ts(yields[, 1])
+```
+
+### a
+
+```{r}
+acf(t.yields)
+```
+
+```{r}
+pacf(t.yields)
+```
+
+The process can be modeled by a $AR(2)$.
+
+### b
+
+```{r}
+r.yw <- ar(t.yields, method = "yw", order.max = 2)
+r.yw$resid
+str(r.yw)
+```
+
+### c
+
+```{r}
+r.burg <- ar(t.yields, method = "burg", order.max = 2)
+r.burg$resid
+str(r.burg)
+```
+
+### d
+
+```{r}
+r.mle <- ar(t.yields, method = "mle", order.max = 2)
+r.mle$resid
+str(r.mle)
+```
+
+## Exercise 6.2
+
+```{r}
+d.force <- read.table("/home/nils/dev/mscids-notes/fs26/rtp/data/kraft.dat", header = FALSE)
+ts.force <- ts(d.force[, 1])
+```
+
+### a
+
+```{r}
+ts.forceA <- window(ts.force, end = 280)
+plot(ts.forceA)
+```
+
+### b
+
+```{r}
+pacf(ts.forceA)
+```
+
+We should use a $AR(7)$ model.
+
+```{r}
+ar.force <- ar(ts.forceA, method = "ols")
+plot(ar.force$aic, type="l")
+```
+
+### c
+
+```{r}
+ar.force <- arima(ts.forceA, order = c(7, 0, 0), method = "ML")
+```
