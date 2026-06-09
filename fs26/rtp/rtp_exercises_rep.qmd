@@ -477,3 +477,261 @@ plot(ar.force$aic, type="l")
 ```{r}
 ar.force <- arima(ts.forceA, order = c(7, 0, 0), method = "ML")
 ```
+
+# Series 7
+
+## Exercise 7.1
+
+### a
+
+```{r}
+data <- arima.sim(n = 100, model = list(ar = c(-0.75), ma = c(-0.3, 0.25)))
+plot(data, type="l")
+```
+
+### b
+
+```{r}
+data <- arima.sim(n = 100, model = list(ar = c(0.5, -0.3), ma = c(0.25)))
+plot(data, type="l")
+```
+
+## Exercise 7.2
+
+### a
+```{r}
+library(fpp2)
+data(sunspotarea)
+
+plot(sunspotarea, type="l")
+```
+
+We should log-transform because the data are not stationary.
+
+### b
+
+```{r}
+subset <- log(sunspotarea[1:100])
+ar.sun<- ar(subset, method = "ols")
+ar.sun
+```
+
+## Exercise 7.3
+
+```{r}
+t.url <- "http://stat.ethz.ch/Teaching/Datasets/WBL/varve.dat"
+d.varve <- ts(scan(t.url)[201:550])
+```
+
+### a
+
+```{r}
+plot(d.varve, type="l")
+```
+
+We should log-transform the data because the process is not stationary.
+
+### b
+
+```{r}
+log.d.varve <- log(d.varve)
+plot(log.d.varve, type="l")
+```
+
+Still not stationary.
+
+```{r}
+diff.log.d.varve <- diff(log.d.varve)
+plot(diff.log.d.varve, type="l")
+```
+
+By applying differencing, we can make the process stationary.
+
+# Series 8
+
+## Exercise 8.1
+
+### a
+
+```r
+arima.sim(model = list(order=c(2, 1, 2), ar=c(0.5, 0.5), ma=c(-0.4, 0.3)), n=100)
+```
+
+´Error in arima.sim(model = list(order = c(2, 1, 2), ar = c(0.5, 0.5),: 'ar' part of model is not stationary´
+
+### b
+
+1. **Substitute the given coefficients**:
+   $$
+   (1 - 0.5B - 0.5B^2)(1 - B) X_t = (1 - 0.4B + 0.3B^2) E_t
+   $$
+
+2. **Expand the left-hand side (AR polynomial multiplied by the difference operator)**:
+   $$
+   (1 - B - 0.5B + 0.5B^2 - 0.5B^2 + 0.5B^3) X_t = (1 - 0.4B + 0.3B^2) E_t
+   $$
+
+3. **Simplify the expression**:
+   $$
+   (1 - 1.5B + 0.5B^3) X_t = (1 - 0.4B + 0.3B^2) E_t
+   $$
+
+The resulting expression represents an **$\text{ARMA}(3,2)$** process with the following parameters:
+
+* **Autoregressive (AR) Coefficients:**
+  * $\alpha_1^* = 1.5$
+  * $\alpha_2^* = 0$
+  * $\alpha_3^* = -0.5$
+* **Moving Average (MA) Coefficients:**
+  * $\beta_1 = -0.4$
+  * $\beta_2 = 0.3$
+
+## Exercise 8.1
+
+```{r}
+d.beluga <- read.table("http://stat.ethz.ch/Teaching/Datasets/WBL/beluga.dat", header = TRUE)
+d.beluga <- ts(d.beluga)
+```
+
+### a
+
+```{r}
+lm <- lm(NURSING ~ PERIOD + BOUTS + LOCKONS + DAYNIGHT, data=d.beluga)
+acf(lm$res)
+```
+
+looks more or less good.
+
+### b
+
+```{r}
+r.burg <- ar(d.beluga, method = "burg")
+str(r.burg)
+```
+
+### c
+
+```{r}
+library(nlme) # Load the package containing the procedure gls()
+r.bel.gls <- gls(NURSING ~ BOUTS + LOCKONS + DAYNIGHT + PERIOD, data = d.beluga, correlation = corARMA(form = ~PERIOD, p = r.burg$order, q = 0, fixed = FALSE), method = "ML")
+
+summary(r.bel.gls)
+d.resid <- ts(resid(r.bel.gls))
+```
+
+## Exercise 8.3
+
+### a
+
+```{r}
+acf(log(d.varve))
+pacf(log(d.varve))
+
+r.varve <- arima(log(d.varve), order = c(0, 0, 9))
+```
+
+### b
+
+```{r}
+r.varve
+```
+
+# Series 9
+
+## Exercise 9.1
+### a
+
+```{r}
+library(astsa)
+data(prodn)
+
+plot(prodn, type="l")
+```
+
+No constance variance. The process is not stationary.
+
+### b
+
+We can apply tome transformations
+
+```{r}
+plot(diff(log(prodn)))
+```
+
+### c
+
+```{r}
+arima(prodn, order = c(1, 1, 1), seasonal = c(1, 1, 1))
+```
+
+# Series 10
+
+## Exercise 10.1
+
+```{r}
+library(fpp2)
+lsunspot100 <- window(log(sunspotarea), start = 1875, end = 1974)
+fit.ar10 <- arima(lsunspot100, order = c(10, 0, 0))
+```
+
+### a
+
+```{r}
+pred <- predict(fit.ar10, n.ahead = 100)
+plot(lsunspot100)
+abline(h = fit.ar10$coef["intercept"], lty = 2)
+lines(pred$pred, col = "green")
+```
+
+### b
+
+```{r}
+data <- lsunspot100 <- window(log(sunspotarea), start = 1875, end = 2011)
+plot(data)
+abline(h = fit.ar10$coef["intercept"], lty = 2)
+lines(pred$pred, col = "green")
+```
+
+## Exercise 10.2
+
+```{r}
+d.air <- AirPassengers
+d.airshort <- window(d.air, end = c(1956, 12))
+plot(diff(log(d.airshort)))
+```
+
+### a
+
+```{r}
+log.airshort <- log(d.airshort)
+fit.sarima <- arima(log.airshort, 
+                    order = c(0, 1, 1), 
+                    seasonal = list(
+                      order = c(0, 1, 1),
+                      period = 12
+                      )
+                    )
+pred.sarima <- predict(fit.sarima, n.ahead = 48)
+
+plot(log.airshort)
+abline(h = fit.sarima$coef["intercept"], lty = 2)
+lines(pred.sarima$pred, col = "green")
+```
+
+# Series 11
+
+## Exercise 11.1
+
+### a
+
+#### I
+
+Not stationary
+
+#### II
+
+Statonary
+
+#### III
+
+Stationary
