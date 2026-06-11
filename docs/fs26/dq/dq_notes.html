@@ -382,7 +382,7 @@ window.Quarto = {
   </ul></li>
   <li><a href="#forms-of-non-response" id="toc-forms-of-non-response" class="nav-link" data-scroll-target="#forms-of-non-response">Forms of non-response</a>
   <ul class="collapse">
-  <li><a href="#forms-of-item-non-response-little-and-rubin-2020" id="toc-forms-of-item-non-response-little-and-rubin-2020" class="nav-link" data-scroll-target="#forms-of-item-non-response-little-and-rubin-2020">Forms of item non-response (Little and Rubin, 2020)</a></li>
+  <li><a href="#forms-of-item-non-response-little-and-rubin-2020" id="toc-forms-of-item-non-response-little-and-rubin-2020" class="nav-link" data-scroll-target="#forms-of-item-non-response-little-and-rubin-2020">Forms of Item Non-Response (Little and Rubin, 2020)</a></li>
   </ul></li>
   <li><a href="#missing-data-mechanism" id="toc-missing-data-mechanism" class="nav-link" data-scroll-target="#missing-data-mechanism">Missing data mechanism</a>
   <ul class="collapse">
@@ -403,7 +403,12 @@ window.Quarto = {
   <li><a href="#overview-of-imputation-methods" id="toc-overview-of-imputation-methods" class="nav-link" data-scroll-target="#overview-of-imputation-methods">Overview of Imputation Methods</a></li>
   </ul></li>
   <li><a href="#multiple-imputation" id="toc-multiple-imputation" class="nav-link" data-scroll-target="#multiple-imputation">Multiple Imputation</a></li>
-  <li><a href="#littles-mcar-test" id="toc-littles-mcar-test" class="nav-link" data-scroll-target="#littles-mcar-test">Little’s MCAR Test</a></li>
+  <li><a href="#littles-mcar-test" id="toc-littles-mcar-test" class="nav-link" data-scroll-target="#littles-mcar-test">Little’s MCAR Test</a>
+  <ul class="collapse">
+  <li><a href="#cheat-sheet-how-to-read-md.pattern-in-r" id="toc-cheat-sheet-how-to-read-md.pattern-in-r" class="nav-link" data-scroll-target="#cheat-sheet-how-to-read-md.pattern-in-r">Cheat Sheet: How to Read <code>md.pattern()</code> in R</a></li>
+  <li><a href="#littles-mcar-test-degrees-of-freedom-calculation" id="toc-littles-mcar-test-degrees-of-freedom-calculation" class="nav-link" data-scroll-target="#littles-mcar-test-degrees-of-freedom-calculation">Little’s MCAR Test: Degrees of Freedom Calculation</a></li>
+  <li><a href="#example-pattern" id="toc-example-pattern" class="nav-link" data-scroll-target="#example-pattern">Example Pattern</a></li>
+  </ul></li>
   </ul></li>
   <li><a href="#lecture-05-univariate-outlier-detection" id="toc-lecture-05-univariate-outlier-detection" class="nav-link" data-scroll-target="#lecture-05-univariate-outlier-detection">Lecture 05: Univariate Outlier Detection</a>
   <ul class="collapse">
@@ -868,13 +873,38 @@ Tip
 <li>Item non-response: subjects refuse to answer specific questions</li>
 </ul>
 <section id="forms-of-item-non-response-little-and-rubin-2020" class="level3">
-<h3 class="anchored" data-anchor-id="forms-of-item-non-response-little-and-rubin-2020">Forms of item non-response (Little and Rubin, 2020)</h3>
+<h3 class="anchored" data-anchor-id="forms-of-item-non-response-little-and-rubin-2020">Forms of Item Non-Response (Little and Rubin, 2020)</h3>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
 <p><img src="img/non_response.png" class="img-fluid figure-img"></p>
 <figcaption>Forms of item non-response (Little and Rubin, 2020)</figcaption>
 </figure>
 </div>
+<section id="forms-of-item-non-response" class="level4">
+<h4 class="anchored" data-anchor-id="forms-of-item-non-response">Forms of Item Non-Response</h4>
+<ul>
+<li><strong>Univariate:</strong> Only one variable has missing values; the rest are complete.
+<ul>
+<li><em>Example:</em> Survey respondents answer demographic questions but skip the “income” field.</li>
+</ul></li>
+<li><strong>Multivariate:</strong> A specific set of variables is missing simultaneously for certain records.
+<ul>
+<li><em>Example:</em> A patient misses a specific clinic visit, so all test results (blood pressure, heart rate) for that day are missing together.</li>
+</ul></li>
+<li><strong>Monotone (Respondent Fatigue):</strong> A cascading pattern where missing a value means all subsequent variables are also missing.
+<ul>
+<li><em>Example:</em> A user quits a long survey halfway through; all remaining questions are blank.</li>
+</ul></li>
+<li><strong>File Matching:</strong> Caused by merging datasets with mutually exclusive properties.
+<ul>
+<li><em>Example:</em> Merging “online” and “in-store” customer databases; online customers will naturally lack in-store purchase data.</li>
+</ul></li>
+<li><strong>General:</strong> Arbitrary, unstructured missing values scattered throughout the dataset.
+<ul>
+<li><em>Example:</em> Random sensor connection glitches causing sporadic data gaps in a temperature log.</li>
+</ul></li>
+</ul>
+</section>
 </section>
 </section>
 <section id="missing-data-mechanism" class="level2">
@@ -956,6 +986,35 @@ Important
 <p>The test has low power: even if the test doesn’t reject, MCAR is not guaranteed.</p>
 </div>
 </div>
+<section id="cheat-sheet-how-to-read-md.pattern-in-r" class="level3">
+<h3 class="anchored" data-anchor-id="cheat-sheet-how-to-read-md.pattern-in-r">Cheat Sheet: How to Read <code>md.pattern()</code> in R</h3>
+<p>The output matrix of <code>md.pattern(airquality)</code> works like a coordinate system:</p>
+<pre class="text"><code>    Ozone Solar.R Wind Temp Month Day    
+111     1       1    1    1     1   1   0  &lt;- Complete rows (no missing values)
+ 35     0       1    1    1     1   1   1  &lt;- Only 'Ozone' is missing
+  5     1       0    1    1     1   1   1  &lt;- Only 'Solar.R' is missing
+  2     0       0    1    1     1   1   2  &lt;- BOTH 'Ozone' AND 'Solar.R' are missing
+       37       7    0    0     0   0  44
+^      ^        ^                      ^
+n     Missing values per variable     Total missing values</code></pre>
+</section>
+<section id="littles-mcar-test-degrees-of-freedom-calculation" class="level3">
+<h3 class="anchored" data-anchor-id="littles-mcar-test-degrees-of-freedom-calculation">Little’s MCAR Test: Degrees of Freedom Calculation</h3>
+<p><strong>The Formula:</strong> <span class="math display">
+df = \sum(p_j) - p
+</span></p>
+<ul>
+<li><strong>p_j</strong>: The number of observed (non-missing) variables in the j-th missing data pattern.</li>
+<li><strong>p</strong>: The total number of variables in your dataset.</li>
+</ul>
+</section>
+<section id="example-pattern" class="level3">
+<h3 class="anchored" data-anchor-id="example-pattern">Example Pattern</h3>
+<p><strong>1. Total Variables (p)</strong> There are 6 variables in total: Prefix, Assignment, Tutorial, Midterm, TakeHome, and Final[cite: 156]. * <code>p = 6</code></p>
+<p><strong>2. Observed Variables per Pattern (p_j)</strong> [cite_start]Based on the <code>md.pattern</code> output, we have three distinct missingness patterns[cite: 155, 184]: * [cite_start]<strong>Pattern 1 (Complete cases):</strong> All 6 variables are fully observed for 95 rows[cite: 157, 158, 159, 160, 161, 162]. * <span class="math inline">p_1 = 6</span> * [cite_start]<strong>Pattern 2 (Missing Final):</strong> 5 variables are observed (Final is missing) for 3 rows[cite: 164, 165, 166, 167, 168, 169]. * <span class="math inline">p_2 = 5</span> * [cite_start]<strong>Pattern 3 (Missing TakeHome):</strong> 5 variables are observed (TakeHome is missing) for 1 row[cite: 171, 172, 173, 174, 175, 176]. * <span class="math inline">p_3 = 5</span></p>
+<p><strong>3. Sum of Observed Variables (sum(p_j))</strong> * <span class="math inline">\sum(p_j) = 6 + 5 + 5 = 16</span></p>
+<p><strong>4. Final Calculation</strong> * <span class="math inline">df = 16 - 6 = 10</span></p>
+</section>
 </section>
 </section>
 <section id="lecture-05-univariate-outlier-detection" class="level1">
@@ -1255,15 +1314,15 @@ Caution
 <ol start="5" type="1">
 <li>Repeat steps 1 through 5 several times and return the best-found model.</li>
 </ol>
-<div class="sourceCode" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>ransac <span class="ot">&lt;-</span> <span class="cf">function</span>(data, n, k, t, d) {</span>
-<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>    iterations <span class="ot">&lt;-</span> <span class="dv">0</span></span>
-<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>    <span class="sc">:</span></span>
-<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>    <span class="cf">while</span> (iterations <span class="sc">&lt;</span> k) {</span>
-<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>        maybeinliers <span class="ot">&lt;-</span> <span class="fu">sample</span>(<span class="fu">nrow</span>(data), n)</span>
-<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a>        maybemodel <span class="ot">&lt;-</span> <span class="fu">lm</span>(y <span class="sc">~</span> x, <span class="at">data =</span> data, <span class="at">subset =</span> maybeinliers)</span>
-<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a>    <span class="sc">:</span></span>
-<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a>    } bestfit</span>
-<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>ransac <span class="ot">&lt;-</span> <span class="cf">function</span>(data, n, k, t, d) {</span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>    iterations <span class="ot">&lt;-</span> <span class="dv">0</span></span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>    <span class="sc">:</span></span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a>    <span class="cf">while</span> (iterations <span class="sc">&lt;</span> k) {</span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a>        maybeinliers <span class="ot">&lt;-</span> <span class="fu">sample</span>(<span class="fu">nrow</span>(data), n)</span>
+<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a>        maybemodel <span class="ot">&lt;-</span> <span class="fu">lm</span>(y <span class="sc">~</span> x, <span class="at">data =</span> data, <span class="at">subset =</span> maybeinliers)</span>
+<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a>    <span class="sc">:</span></span>
+<span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a>    } bestfit</span>
+<span id="cb2-9"><a href="#cb2-9" aria-hidden="true" tabindex="-1"></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </section>
 </section>
 <section id="dbscan" class="level2">
@@ -1289,7 +1348,7 @@ Caution
 <figcaption>DBSCAN Points Classification</figcaption>
 </figure>
 </div>
-<div class="sourceCode" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="fu">kNNdistplot</span>(data, <span class="at">k =</span> <span class="dv">4</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="fu">kNNdistplot</span>(data, <span class="at">k =</span> <span class="dv">4</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <blockquote class="blockquote">
 <p>Note: The kNNdist plot sorts all data points by their k-nearest neighbor distance.</p>
 </blockquote>
@@ -1394,6 +1453,19 @@ Caution
 <li>HARKing (Hypothesizing After the Results are Known): Researchers run the study, look at the data, then write the paper as if they had predicted the “significant” findings all along (post-hoc hypotheses presented as a priori). Famous paper showing the dangers from economics: “I Just Ran Two Million Regressions”.</li>
 <li>Low statistical power: Researchers use sample sizes too small to reliably detect the effects they’re looking for (or to rule them out). Leads to noisy, inconsistent results, high rates of false negatives, and exaggerated effect sizes when something does pop up by chance.</li>
 </ul>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Note
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Good to know: If the null hypothesis is true, p-values follow a uniform distribution between 0 and 1.</p>
+</div>
+</div>
 </section>
 <section id="measuring-replication-success" class="level3">
 <h3 class="anchored" data-anchor-id="measuring-replication-success">Measuring Replication Success</h3>
@@ -1505,13 +1577,13 @@ Note
 <section id="qq-plot" class="level2">
 <h2 class="anchored" data-anchor-id="qq-plot">QQ-Plot</h2>
 <p>A Quantile-Quantile (Q-Q) Plot is a visual tool used in statistics to assess if a dataset follows a specific theoretical distribution (most commonly, a normal distribution).It plots the quantiles of your sample data against the quantiles of the theoretical distribution. If the data fits the chosen distribution, the points will fall roughly along a straight diagonal line (<span class="math inline">y = x</span>).</p>
-<div class="sourceCode" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">42</span>)</span>
-<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>sample_data <span class="ot">&lt;-</span> <span class="fu">rnorm</span>(<span class="dv">100</span>, <span class="at">mean =</span> <span class="dv">50</span>, <span class="at">sd =</span> <span class="dv">10</span>)</span>
-<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a><span class="fu">qqnorm</span>(sample_data, <span class="at">main =</span> <span class="st">"Normal Q-Q Plot"</span>, </span>
-<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a>       <span class="at">xlab =</span> <span class="st">"Theoretical Quantiles"</span>, <span class="at">ylab =</span> <span class="st">"Sample Quantiles"</span>,</span>
-<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a>       <span class="at">col =</span> <span class="st">"blue"</span>, <span class="at">pch =</span> <span class="dv">16</span>)</span>
-<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a><span class="fu">qqline</span>(sample_data, <span class="at">col =</span> <span class="st">"red"</span>, <span class="at">lwd =</span> <span class="dv">2</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">42</span>)</span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>sample_data <span class="ot">&lt;-</span> <span class="fu">rnorm</span>(<span class="dv">100</span>, <span class="at">mean =</span> <span class="dv">50</span>, <span class="at">sd =</span> <span class="dv">10</span>)</span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a><span class="fu">qqnorm</span>(sample_data, <span class="at">main =</span> <span class="st">"Normal Q-Q Plot"</span>, </span>
+<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a>       <span class="at">xlab =</span> <span class="st">"Theoretical Quantiles"</span>, <span class="at">ylab =</span> <span class="st">"Sample Quantiles"</span>,</span>
+<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a>       <span class="at">col =</span> <span class="st">"blue"</span>, <span class="at">pch =</span> <span class="dv">16</span>)</span>
+<span id="cb4-7"><a href="#cb4-7" aria-hidden="true" tabindex="-1"></a><span class="fu">qqline</span>(sample_data, <span class="at">col =</span> <span class="st">"red"</span>, <span class="at">lwd =</span> <span class="dv">2</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <section id="interpretaiton" class="level3">
 <h3 class="anchored" data-anchor-id="interpretaiton">Interpretaiton</h3>
 <div class="quarto-figure quarto-figure-center">

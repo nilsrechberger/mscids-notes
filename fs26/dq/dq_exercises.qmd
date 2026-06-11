@@ -310,20 +310,41 @@ data <- read_excel("/home/nils/dev/mscids-notes/fs26/dq/data/learning.xlsx")
 
 data <- rename.variable(data, "effort", "x")
 data <- rename.variable(data, "success", "y")
-plot(data)
+plot(data$x, data$y, main="RANSAC Fitting") # explicitly plotting x and y
 
 ransac <- function(data, n, k, t, d) {
   iterations <- 0
   bestfit <- NULL
   besterr <- 1e5
+  
   while (iterations < k) {
     maybeinliers <- sample(nrow(data), n)
     maybemodel <- lm(y ~ x, data = data, subset = maybeinliers)
-    alsoinliers <- NULL
-    for (point in setdiff(1:nrow(data), maybeinliers)) {
-      if (abs(maybemodel$coefficients[2]*data[point, 1] - data[point, 2] + maybemodel$coefficients[1])/(sqrt(maybemodel$coefficients[2] + 1)) < t)
-        alsoinliers <- c(alsoinliers, point)
+    
+    # Skip if model failed to find valid coefficients (e.g., vertical line)
+    if (any(is.na(coef(maybemodel)))) {
+      iterations <- iterations + 1
+      next
     }
+    
+    alsoinliers <- NULL
+    m <- maybemodel$coefficients[2] # slope
+    c <- maybemodel$coefficients[1] # intercept
+    
+    for (point in setdiff(1:nrow(data), maybeinliers)) {
+      # Use [[ ]] to ensure we get a single numeric value, not a 1x1 tibble
+      x0 <- data[[point, 1]]
+      y0 <- data[[point, 2]]
+      
+      # Corrected distance formula (m^2 + 1)
+      dist <- abs(m * x0 - y0 + c) / sqrt(m^2 + 1)
+      
+      # Safety check against NA distances
+      if (!is.na(dist) && dist < t) {
+        alsoinliers <- c(alsoinliers, point)
+      }
+    }
+    
     if (length(alsoinliers) > d) {
       bettermodel <- lm(y ~ x, data = data, subset = c(maybeinliers, alsoinliers))
       thiserr <- summary(bettermodel)$sigma
@@ -334,18 +355,29 @@ ransac <- function(data, n, k, t, d) {
     }
     iterations <- iterations + 1
   }
-  bestfit
+  return(bestfit)
 }
 
-abline(lm(y ~ x, data = data))
+# Base OLS model
+abline(lm(y ~ x, data = data), col = "red", lwd = 2)
 
 x <- 1
-repeat 
-{
-  # print(x)
-  x = x+1
-  abline(ransac(data, n = 10, k = 10, t = 0.5, d = 10), col = "blue")
-  if (x == 10){break}
+repeat {
+  x <- x + 1
+  
+  # Run RANSAC and capture the result
+  r_model <- ransac(data, n = 10, k = 10, t = 0.5, d = 10)
+  
+  # Only attempt to plot if RANSAC successfully found a model
+  if (!is.null(r_model)) {
+    abline(r_model, col = "blue")
+  } else {
+    message("Iteration ", x, ": RANSAC could not find a model meeting threshold 'd'.")
+  }
+  
+  if (x == 10) { break } 
+  # Note: I removed q() here. Having q() directly after a loop in Quarto 
+  # will terminate the R session mid-render, which will also cause a crash.
 }
 ```
 

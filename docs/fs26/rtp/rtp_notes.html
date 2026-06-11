@@ -374,6 +374,14 @@ window.Quarto = {
   <li><a href="#autocorrelation-of-process-vs.-estimated-values-of-realization" id="toc-autocorrelation-of-process-vs.-estimated-values-of-realization" class="nav-link" data-scroll-target="#autocorrelation-of-process-vs.-estimated-values-of-realization">Autocorrelation of process vs.&nbsp;estimated values of realization</a></li>
   </ul></li>
   <li><a href="#partial-autocorrelation" id="toc-partial-autocorrelation" class="nav-link" data-scroll-target="#partial-autocorrelation">Partial Autocorrelation</a></li>
+  <li><a href="#analysis-of-the-arma21-process-for-stationarity" id="toc-analysis-of-the-arma21-process-for-stationarity" class="nav-link" data-scroll-target="#analysis-of-the-arma21-process-for-stationarity">Analysis of the ARMA(2,1) Process for Stationarity</a>
+  <ul class="collapse">
+  <li><a href="#step-1-isolate-the-ar-part" id="toc-step-1-isolate-the-ar-part" class="nav-link" data-scroll-target="#step-1-isolate-the-ar-part">Step 1: Isolate the AR Part</a></li>
+  <li><a href="#step-2-set-up-the-characteristic-polynomial" id="toc-step-2-set-up-the-characteristic-polynomial" class="nav-link" data-scroll-target="#step-2-set-up-the-characteristic-polynomial">Step 2: Set up the Characteristic Polynomial</a></li>
+  <li><a href="#step-3-calculate-the-characteristic-roots" id="toc-step-3-calculate-the-characteristic-roots" class="nav-link" data-scroll-target="#step-3-calculate-the-characteristic-roots">Step 3: Calculate the Characteristic Roots</a></li>
+  <li><a href="#step-4-check-the-stationarity-condition" id="toc-step-4-check-the-stationarity-condition" class="nav-link" data-scroll-target="#step-4-check-the-stationarity-condition">Step 4: Check the Stationarity Condition</a></li>
+  <li><a href="#conclusion" id="toc-conclusion" class="nav-link" data-scroll-target="#conclusion">Conclusion</a></li>
+  </ul></li>
   </ul></li>
   <li><a href="#w-04-timeseries-acf-ar" id="toc-w-04-timeseries-acf-ar" class="nav-link" data-scroll-target="#w-04-timeseries-acf-ar">W-04-Timeseries-ACF-AR</a>
   <ul class="collapse">
@@ -454,6 +462,11 @@ window.Quarto = {
   </ul></li>
   <li><a href="#arch-models" id="toc-arch-models" class="nav-link" data-scroll-target="#arch-models">ARCH Models</a>
   <ul class="collapse">
+  <li><a href="#overview" id="toc-overview" class="nav-link" data-scroll-target="#overview">1. Overview</a></li>
+  <li><a href="#core-concepts" id="toc-core-concepts" class="nav-link" data-scroll-target="#core-concepts">2. Core Concepts</a></li>
+  <li><a href="#mathematical-formulation" id="toc-mathematical-formulation" class="nav-link" data-scroll-target="#mathematical-formulation">3. Mathematical Formulation</a></li>
+  <li><a href="#why-use-arch-models" id="toc-why-use-arch-models" class="nav-link" data-scroll-target="#why-use-arch-models">4. Why Use ARCH Models?</a></li>
+  <li><a href="#extension-the-garch-model" id="toc-extension-the-garch-model" class="nav-link" data-scroll-target="#extension-the-garch-model">5. Extension: The GARCH Model</a></li>
   <li><a href="#fitting-arch-models" id="toc-fitting-arch-models" class="nav-link" data-scroll-target="#fitting-arch-models">Fitting ARCH Models</a></li>
   </ul></li>
   <li><a href="#fundamentals-of-forecasting" id="toc-fundamentals-of-forecasting" class="nav-link" data-scroll-target="#fundamentals-of-forecasting">Fundamentals of Forecasting</a>
@@ -481,6 +494,11 @@ window.Quarto = {
   </ul></li>
   <li><a href="#fixed-effect-models" id="toc-fixed-effect-models" class="nav-link" data-scroll-target="#fixed-effect-models">Fixed Effect Models</a>
   <ul class="collapse">
+  <li><a href="#core-concept" id="toc-core-concept" class="nav-link" data-scroll-target="#core-concept">Core Concept</a></li>
+  <li><a href="#the-basic-equation" id="toc-the-basic-equation" class="nav-link" data-scroll-target="#the-basic-equation">The Basic Equation</a></li>
+  <li><a href="#time-fixed-effects" id="toc-time-fixed-effects" class="nav-link" data-scroll-target="#time-fixed-effects">Time Fixed Effects</a></li>
+  <li><a href="#fe-vs.-random-effects-re" id="toc-fe-vs.-random-effects-re" class="nav-link" data-scroll-target="#fe-vs.-random-effects-re">FE vs.&nbsp;Random Effects (RE)</a></li>
+  <li><a href="#pros-cons" id="toc-pros-cons" class="nav-link" data-scroll-target="#pros-cons">Pros &amp; Cons</a></li>
   <li><a href="#what-if-each-entity-has-its-bias" id="toc-what-if-each-entity-has-its-bias" class="nav-link" data-scroll-target="#what-if-each-entity-has-its-bias">What if each entity has its bias?</a></li>
   </ul></li>
   </ul></li>
@@ -493,10 +511,21 @@ window.Quarto = {
   </ul></li>
   <li><a href="#linear-probability-model" id="toc-linear-probability-model" class="nav-link" data-scroll-target="#linear-probability-model">Linear Probability Model</a>
   <ul class="collapse">
+  <li><a href="#core-specification" id="toc-core-specification" class="nav-link" data-scroll-target="#core-specification">1. Core Specification</a></li>
+  </ul></li>
+  <li><a href="#advantages-2" id="toc-advantages-2" class="nav-link" data-scroll-target="#advantages-2">2. Advantages</a>
+  <ul class="collapse">
+  <li><a href="#disadvantages-key-challenges" id="toc-disadvantages-key-challenges" class="nav-link" data-scroll-target="#disadvantages-key-challenges">3. Disadvantages &amp; Key Challenges</a></li>
+  <li><a href="#crucial-fixes-for-empirical-work" id="toc-crucial-fixes-for-empirical-work" class="nav-link" data-scroll-target="#crucial-fixes-for-empirical-work">4. Crucial Fixes for Empirical Work</a></li>
   <li><a href="#is-there-a-bias" id="toc-is-there-a-bias" class="nav-link" data-scroll-target="#is-there-a-bias">Is there a Bias?</a></li>
   </ul></li>
   <li><a href="#probit-regression" id="toc-probit-regression" class="nav-link" data-scroll-target="#probit-regression">Probit Regression</a>
   <ul class="collapse">
+  <li><a href="#mathematical-specification" id="toc-mathematical-specification" class="nav-link" data-scroll-target="#mathematical-specification">1. Mathematical Specification</a></li>
+  <li><a href="#the-latent-variable-framework" id="toc-the-latent-variable-framework" class="nav-link" data-scroll-target="#the-latent-variable-framework">2. The Latent Variable Framework</a></li>
+  <li><a href="#interpretation-marginal-effects" id="toc-interpretation-marginal-effects" class="nav-link" data-scroll-target="#interpretation-marginal-effects">3. Interpretation &amp; Marginal Effects</a></li>
+  <li><a href="#probit-vs.-logit-vs.-lpm" id="toc-probit-vs.-logit-vs.-lpm" class="nav-link" data-scroll-target="#probit-vs.-logit-vs.-lpm">4. Probit vs.&nbsp;Logit vs.&nbsp;LPM</a></li>
+  <li><a href="#estimation-method" id="toc-estimation-method" class="nav-link" data-scroll-target="#estimation-method">5. Estimation Method</a></li>
   <li><a href="#how-to-quantify-the-impact-of-the-coefficients" id="toc-how-to-quantify-the-impact-of-the-coefficients" class="nav-link" data-scroll-target="#how-to-quantify-the-impact-of-the-coefficients">How to quantify the impact of the coefficients?</a></li>
   <li><a href="#visualization-of-the-model" id="toc-visualization-of-the-model" class="nav-link" data-scroll-target="#visualization-of-the-model">Visualization of the model</a></li>
   <li><a href="#is-there-an-ethnic-bias" id="toc-is-there-an-ethnic-bias" class="nav-link" data-scroll-target="#is-there-an-ethnic-bias">Is there an Ethnic Bias?</a></li>
@@ -1002,6 +1031,57 @@ Important
 </div>
 </div>
 </div>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Note
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<ul>
+<li>ACF -&gt; MA-Model</li>
+<li>PACF -&gt; AR-Model</li>
+</ul>
+</div>
+</div>
+</section>
+<section id="analysis-of-the-arma21-process-for-stationarity" class="level2">
+<h2 class="anchored" data-anchor-id="analysis-of-the-arma21-process-for-stationarity">Analysis of the ARMA(2,1) Process for Stationarity</h2>
+<p>Given the process equation: <span class="math display">X_t = 1.2X_{t-1} - 0.36X_{t-2} + E_t + 0.5E_{t-1}</span></p>
+<section id="step-1-isolate-the-ar-part" class="level3">
+<h3 class="anchored" data-anchor-id="step-1-isolate-the-ar-part">Step 1: Isolate the AR Part</h3>
+<p>To check for stationarity, only the AR (autoregressive) part is relevant. We move all <span class="math inline">X</span> terms to the left side of the equation (paying close attention to the signs):</p>
+<p><span class="math display">X_t - 1.2X_{t-1} + 0.36X_{t-2} = E_t + 0.5E_{t-1}</span></p>
+</section>
+<section id="step-2-set-up-the-characteristic-polynomial" class="level3">
+<h3 class="anchored" data-anchor-id="step-2-set-up-the-characteristic-polynomial">Step 2: Set up the Characteristic Polynomial</h3>
+<p>We replace the time lags with the variable <span class="math inline">z</span> (where <span class="math inline">X_t \rightarrow 1</span>, <span class="math inline">X_{t-1} \rightarrow z</span>, and <span class="math inline">X_{t-2} \rightarrow z^2</span>):</p>
+<p><span class="math display">\Phi(z) = 1 - 1.2z + 0.36z^2</span></p>
+</section>
+<section id="step-3-calculate-the-characteristic-roots" class="level3">
+<h3 class="anchored" data-anchor-id="step-3-calculate-the-characteristic-roots">Step 3: Calculate the Characteristic Roots</h3>
+<p>To find the roots (zeros), we set the polynomial equal to zero:</p>
+<p><span class="math display">0.36z^2 - 1.2z + 1 = 0</span></p>
+<p>Applying the <strong>quadratic formula</strong> (abc-formula) with <span class="math inline">a = 0.36</span>, <span class="math inline">b = -1.2</span>, and <span class="math inline">c = 1</span>:</p>
+<p><span class="math display">z = \frac{-(-1.2) \pm \sqrt{(-1.2)^2 - 4 \cdot 0.36 \cdot 1}}{2 \cdot 0.36}</span></p>
+<p><span class="math display">z = \frac{1.2 \pm \sqrt{1.44 - 1.44}}{0.72}</span></p>
+<p>Since the discriminant under the square root is <span class="math inline">0</span>, we have a <strong>repeated root</strong> (double root):</p>
+<p><span class="math display">z_1 = z_2 = \frac{1.2}{0.72} = \frac{5}{3} \approx 1.67</span></p>
+</section>
+<section id="step-4-check-the-stationarity-condition" class="level3">
+<h3 class="anchored" data-anchor-id="step-4-check-the-stationarity-condition">Step 4: Check the Stationarity Condition</h3>
+<p>An ARMA process is stationary if the absolute value (modulus) of all characteristic roots is <strong>greater than 1</strong> (<span class="math inline">|z_i| &gt; 1</span>), meaning they lie outside the unit circle.</p>
+<ul>
+<li><strong>Condition Check:</strong> <span class="math inline">|1.67| &gt; 1 \quad \color{green}{\checkmark}</span></li>
+</ul>
+</section>
+<section id="conclusion" class="level3">
+<h3 class="anchored" data-anchor-id="conclusion">Conclusion</h3>
+<p>Since all characteristic roots lie outside the unit circle, the given ARMA process is <strong>stationary</strong>.</p>
+</section>
 </section>
 </section>
 <section id="w-04-timeseries-acf-ar" class="level1">
@@ -1937,10 +2017,63 @@ AIC=-483.4   AICc=-483.21   BIC=-474.77</code></pre>
 </section>
 <section id="arch-models" class="level2">
 <h2 class="anchored" data-anchor-id="arch-models">ARCH Models</h2>
+<section id="overview" class="level3">
+<h3 class="anchored" data-anchor-id="overview">1. Overview</h3>
+<p><strong>ARCH</strong> stands for <strong>Autoregressive Conditional Heteroskedasticity</strong>. Developed by Robert Engle in 1982, these models are specifically designed to model and forecast time-varying volatility (risk) in financial and economic time series data.</p>
+<p>Unlike traditional time series models (like ARIMA) which assume constant variance (homoskedasticity), ARCH models capture the phenomenon of <strong>volatility clustering</strong>—the tendency for large shocks to be followed by large shocks, and small shocks to be followed by small shocks.</p>
+</section>
+<section id="core-concepts" class="level3">
+<h3 class="anchored" data-anchor-id="core-concepts">2. Core Concepts</h3>
+<ul>
+<li><strong>Heteroskedasticity:</strong> The variance of the error terms is not constant over time.</li>
+<li><strong>Conditional:</strong> The volatility at the current time step depends on past information.</li>
+<li><strong>Autoregressive:</strong> The model predicts current variance by looking back at its own past squared error terms.</li>
+</ul>
+</section>
+<section id="mathematical-formulation" class="level3">
+<h3 class="anchored" data-anchor-id="mathematical-formulation">3. Mathematical Formulation</h3>
+<p>An <span class="math inline">ARCH(p)</span> model consists of two parts: the <strong>mean equation</strong> and the <strong>variance equation</strong>.</p>
+<section id="the-mean-equation" class="level4">
+<h4 class="anchored" data-anchor-id="the-mean-equation">The Mean Equation</h4>
+<p>The observed return or value <span class="math inline">r_t</span> is modeled as a function of an expected value <span class="math inline">\mu_t</span> (which can be a constant or an ARMA process) and a residual error term <span class="math inline">\epsilon_t</span>:</p>
+<p><span class="math display">
+r_t = \mu_t + \epsilon_t
+</span></p>
+<p>Where the error term <span class="math inline">\epsilon_t</span> is broken down into a standard normal random variable <span class="math inline">z_t</span> and the conditional standard deviation <span class="math inline">\sigma_t</span>:</p>
+<p><span class="math display">
+\epsilon_t = \sigma_t z_t \quad \text{where} \quad z_t \sim \mathcal{N}(0, 1)
+</span></p>
+</section>
+<section id="the-variance-equation-archp" class="level4">
+<h4 class="anchored" data-anchor-id="the-variance-equation-archp">The Variance Equation (ARCH(p))</h4>
+<p>The conditional variance <span class="math inline">\sigma_t^2</span> is modeled as a linear function of <span class="math inline">p</span> lagged squared residuals from the past:</p>
+<p><span class="math display">
+\sigma_t^2 = \alpha_0 + \alpha_1 \epsilon_{t-1}^2 + \alpha_2 \epsilon_{t-2}^2 + \dots + \alpha_p \epsilon_{t-p}^2
+</span></p>
+<p><span class="math display">
+\sigma_t^2 = \alpha_0 + \sum_{i=1}^{p} \alpha_i \epsilon_{t-i}^2
+</span></p>
+<p><strong>Constraints for stability and positivity:</strong> * <span class="math inline">\alpha_0 &gt; 0</span> (Ensures variance is always strictly positive) * <span class="math inline">\alpha_i \geq 0</span> for all <span class="math inline">i &gt; 0</span> (Ensures non-negative contributions) * <span class="math inline">\sum_{i=1}^{p} \alpha_i &lt; 1</span> (Ensures the process is stationary)</p>
+</section>
+</section>
+<section id="why-use-arch-models" class="level3">
+<h3 class="anchored" data-anchor-id="why-use-arch-models">4. Why Use ARCH Models?</h3>
+<ul>
+<li><strong>Risk Management:</strong> Essential for calculating dynamic Value-at-Risk (VaR) and Expected Shortfall.</li>
+<li><strong>Asset Pricing:</strong> Crucial for pricing options and other derivatives where volatility is a key input.</li>
+<li><strong>Realistic Forecasting:</strong> It expands standard confidence intervals during turbulent market periods, preventing underestimation of risk.</li>
+</ul>
+</section>
+<section id="extension-the-garch-model" class="level3">
+<h3 class="anchored" data-anchor-id="extension-the-garch-model">5. Extension: The GARCH Model</h3>
+<p>In practice, pure <span class="math inline">ARCH(p)</span> models often require a large number of lags (<span class="math inline">p</span>) to capture financial volatility accurately. To solve this, Tim Bollerslev introduced the <strong>GARCH</strong> (<strong>G</strong>eneralized ARCH) model, which includes lagged values of the variance itself:</p>
+<p><span class="math display">\sigma_t^2 = \alpha_0 + \sum_{i=1}^{p} \alpha_i \epsilon_{t-i}^2 + \sum_{j=1}^{q} \beta_j \sigma_{t-j}^2</span></p>
+<p>A standard <strong>GARCH(1,1)</strong> model is typically sufficient to model most financial asset returns effectively.</p>
 <p>A time series 𝑋𝑡 is autoregressive conditional heteroskedastic of the order <span class="math inline">p</span> (abbreviated ARCH(p)) if it has the form:</p>
 <p><span class="math display">
 X_t = \sigma_t W_t \quad \text{with} \quad \sigma_t = \sqrt{\alpha_0 + \sum_{i=1}^{p} \alpha_i X_{t-i}^2}
 </span></p>
+</section>
 <section id="fitting-arch-models" class="level3">
 <h3 class="anchored" data-anchor-id="fitting-arch-models">Fitting ARCH Models</h3>
 <div class="cell">
@@ -4276,6 +4409,41 @@ Note
 </section>
 <section id="fixed-effect-models" class="level2">
 <h2 class="anchored" data-anchor-id="fixed-effect-models">Fixed Effect Models</h2>
+<p>A <strong>Fixed Effects (FE) Model</strong> is primarily used with <strong>panel data</strong> (longitudinal data), which observes multiple entities (e.g., individuals, companies, countries) across multiple time periods.</p>
+<section id="core-concept" class="level3">
+<h3 class="anchored" data-anchor-id="core-concept">Core Concept</h3>
+<p>It controls for <strong>unobserved heterogeneity</strong> by factoring out all individual characteristics that do not change over time (time-invariant variables). This eliminates omitted variable bias caused by these hidden factors. The model solely analyzes the “within-variation” (how variables change within the <em>same</em> entity over time).</p>
+</section>
+<section id="the-basic-equation" class="level3">
+<h3 class="anchored" data-anchor-id="the-basic-equation">The Basic Equation</h3>
+<p><span class="math display">
+Y_it = \beta * X_it + \alpha_i + u_it
+</span></p>
+<ul>
+<li><strong>Y_it</strong>: Dependent variable for entity <em>i</em> at time <em>t</em>.</li>
+<li><strong>X_it</strong>: Time-varying independent variable(s).</li>
+<li><strong>beta</strong>: The effect of the independent variable(s) we want to estimate.</li>
+<li><strong>alpha_i</strong>: The <strong>Fixed Effect</strong> (an individual intercept that captures all time-invariant traits of entity <em>i</em>).</li>
+<li><strong>u_it</strong>: Error term (time-varying unobserved factors).</li>
+</ul>
+</section>
+<section id="time-fixed-effects" class="level3">
+<h3 class="anchored" data-anchor-id="time-fixed-effects">Time Fixed Effects</h3>
+<p>Besides individual effects, you can include <strong>Time Fixed Effects</strong> to control for macro-events that affect all entities equally at a specific point in time (e.g., a global financial crisis). Using both individual and time effects is called a <strong>Two-Way Fixed Effects Model</strong>.</p>
+</section>
+<section id="fe-vs.-random-effects-re" class="level3">
+<h3 class="anchored" data-anchor-id="fe-vs.-random-effects-re">FE vs.&nbsp;Random Effects (RE)</h3>
+<ul>
+<li><strong>Fixed Effects:</strong> Assumes unobserved individual traits <em>correlate</em> with the independent variables.</li>
+<li><strong>Random Effects:</strong> Assumes unobserved individual traits do <em>not</em> correlate with the independent variables.</li>
+<li><em>Note:</em> The <strong>Hausman Test</strong> is typically used to statistically determine which model is more appropriate.</li>
+</ul>
+</section>
+<section id="pros-cons" class="level3">
+<h3 class="anchored" data-anchor-id="pros-cons">Pros &amp; Cons</h3>
+<p><strong>Advantages:</strong> * <strong>Reduces Bias:</strong> Elegantly solves the omitted variable bias for any unobserved, time-invariant factors. * <strong>Causality:</strong> Provides a stronger case for causal inference compared to simple cross-sectional models.</p>
+<p><strong>Disadvantages:</strong> * <strong>No Time-Invariant Variables:</strong> You cannot estimate the effects of variables that don’t change over time (like gender or birthplace), as they are absorbed by the fixed effect (<span class="math inline">\alpha_i</span>). * <strong>Low Efficiency with Low Variation:</strong> If your independent variables barely change over time, the model loses statistical power and becomes imprecise. * <strong>Degrees of Freedom:</strong> In panels with many entities, the model consumes a massive amount of degrees of freedom to estimate all the individual intercepts.</p>
+</section>
 <section id="what-if-each-entity-has-its-bias" class="level3">
 <h3 class="anchored" data-anchor-id="what-if-each-entity-has-its-bias">What if each entity has its bias?</h3>
 <p>A global least squares fit may yield wrong models for data with a constant offset between two entities.</p>
@@ -4419,6 +4587,50 @@ F-statistic: 14.23 on 1 and 335 DF,  p-value: 0.0001913</code></pre>
 </section>
 <section id="linear-probability-model" class="level2">
 <h2 class="anchored" data-anchor-id="linear-probability-model">Linear Probability Model</h2>
+<p>A <strong>Linear Probability Model (LPM)</strong> is a standard Multiple Linear Regression model (Ordinary Least Squares - OLS) applied to a <strong>binary dependent variable</strong> (<span class="math inline">Y_i = 0</span> or <span class="math inline">1</span>). Instead of predicting a continuous outcome, the LPM models the <em>probability</em> that an event occurs.</p>
+<section id="core-specification" class="level3">
+<h3 class="anchored" data-anchor-id="core-specification">1. Core Specification</h3>
+<p>The model is written as:</p>
+<p><span class="math display">
+Y_t = \beta_0 + \beta_1 X_{1,t} + \beta_2 X_{2,t} + \dots + \epsilon_t
+</span></p>
+<p>Where: * <span class="math inline">Y_t \in \{0, 1\}</span> (e.g., <span class="math inline">1 = \text{Recession}</span>, <span class="math inline">0 = \text{No Recession}</span>) * <span class="math inline">X_{k,t}</span> are the explanatory variables (which can include time-series elements like lagged variables <span class="math inline">Y_{t-1}</span>). * The predicted value <span class="math inline">\hat{Y}_t</span> is interpreted directly as the conditional probability:</p>
+<p><span class="math display">
+P(Y_t = 1 \mid X_t) = \hat{Y}_t
+</span></p>
+</section>
+</section>
+<section id="advantages-2" class="level2">
+<h2 class="anchored" data-anchor-id="advantages-2">2. Advantages</h2>
+<ul>
+<li><strong>Simple Interpretation:</strong> Coefficients (<span class="math inline">\beta_k</span>) show the direct change in probability. If <span class="math inline">\beta_1 = 0.05</span>, a one-unit increase in <span class="math inline">X_1</span> increases the probability of the event by <strong>5 percentage points</strong>.</li>
+<li><strong>Computational Ease:</strong> Estimated via standard OLS, avoiding the iterative maximum likelihood estimation required for Logit/Probit.</li>
+<li><strong>Handles Dynamics Well:</strong> Readily accommodates time-series features like fixed effects, instrumental variables, lag structures (<span class="math inline">Y_{t-1}</span>), and interaction terms without complex scaling issues.</li>
+</ul>
+<section id="disadvantages-key-challenges" class="level3">
+<h3 class="anchored" data-anchor-id="disadvantages-key-challenges">3. Disadvantages &amp; Key Challenges</h3>
+<section id="nonsensical-predictions" class="level4">
+<h4 class="anchored" data-anchor-id="nonsensical-predictions">Nonsensical Predictions</h4>
+<p>Because the OLS line is straight and unbounded, the model can predict probabilities greater than 1 or less than 0 (e.g., <span class="math inline">\hat{Y}_t = 1.25</span> or <span class="math inline">-0.15</span>) for extreme values of <span class="math inline">X</span>.</p>
+</section>
+<section id="inherent-heteroskedasticity" class="level4">
+<h4 class="anchored" data-anchor-id="inherent-heteroskedasticity">Inherent Heteroskedasticity</h4>
+<p>Since <span class="math inline">Y_t</span> can only be 0 or 1, the variance of the error term (<span class="math inline">\epsilon_t</span>) depends on <span class="math inline">X_t</span>:</p>
+<p><span class="math display">\text{Var}(\epsilon_t \mid X_t) = P(X_t)[1 - P(X_t)]</span></p>
+<p>This violates the OLS homoskedasticity assumption, meaning standard errors and <span class="math inline">p</span>-values will be biased.</p>
+</section>
+<section id="non-normal-residuals" class="level4">
+<h4 class="anchored" data-anchor-id="non-normal-residuals">Non-Normal Residuals</h4>
+<p>The error terms cannot be normally distributed because they can only take on two distinct values for any given <span class="math inline">X_t</span> (<span class="math inline">\epsilon_t = 1 - X_t\beta</span> or <span class="math inline">\epsilon_t = -X_t\beta</span>).</p>
+</section>
+<section id="specific-time-series-issue-autocorrelation" class="level4">
+<h4 class="anchored" data-anchor-id="specific-time-series-issue-autocorrelation">Specific Time-Series Issue: Autocorrelation</h4>
+<p>In time-series applications, the shocks (<span class="math inline">\epsilon_t</span>) are often correlated over time (<span class="math inline">\epsilon_t</span> correlates with <span class="math inline">\epsilon_{t-1}</span>), compounding the bias in standard errors.</p>
+</section>
+</section>
+<section id="crucial-fixes-for-empirical-work" class="level3">
+<h3 class="anchored" data-anchor-id="crucial-fixes-for-empirical-work">4. Crucial Fixes for Empirical Work</h3>
+<p>To use an LPM validly (especially in time series), you must fix the standard errors: * <strong>Robust Standard Errors:</strong> Use Huber-White sandwich estimators to correct for heteroskedasticity. * <strong>Newey-West Standard Errors:</strong> Use HAC (Heteroskedasticity and Autocorrelation Consistent) standard errors to correct for both heteroskedasticity and time-series serial correlation.</p>
 <p>Interpret the prediction of the regression as the probability of a positive answer.</p>
 <div class="cell">
 <details open="" class="code-fold">
@@ -4457,6 +4669,7 @@ Coefficients:
 </div>
 </div>
 </div>
+</section>
 <section id="is-there-a-bias" class="level3">
 <h3 class="anchored" data-anchor-id="is-there-a-bias">Is there a Bias?</h3>
 <div class="cell">
@@ -4483,6 +4696,72 @@ afamyes      0.17743         NA      NA       NA</code></pre>
 </section>
 <section id="probit-regression" class="level2">
 <h2 class="anchored" data-anchor-id="probit-regression">Probit Regression</h2>
+<p>A <strong>Probit Regression</strong> is a statistical model used to estimate the relationship between a set of explanatory variables and a <strong>binary dependent variable</strong> (<span class="math inline">Y \in \{0, 1\}</span>). Unlike the Linear Probability Model (LPM), Probit uses a non-linear S-shaped curve, guaranteeing that all predicted probabilities fall strictly between 0 and 1.</p>
+<section id="mathematical-specification" class="level3">
+<h3 class="anchored" data-anchor-id="mathematical-specification">1. Mathematical Specification</h3>
+<p>The Probit model constrains the predicted values using the <strong>Cumulative Distribution Function (CDF) of the standard normal distribution</strong>, typically denoted by <span class="math inline">\Phi</span> (Phi).</p>
+<p>The probability that the event occurs (<span class="math inline">Y = 1</span>) given the predictors <span class="math inline">X</span> is modeled as:</p>
+<p><span class="math display">
+P(Y = 1 \mid X) = \Phi(\beta_0 + \beta_1 X_1 + \beta_2 X_2 + \dots + \beta_k X_k)
+</span></p>
+<p>Where the standard normal CDF is defined by the integral: <span class="math display">
+\Phi(z) = \int_{-\infty}^{z} \frac{1}{\sqrt{2\pi}} e^{-\frac{t^2}{2}} dt
+</span></p>
+</section>
+<section id="the-latent-variable-framework" class="level3">
+<h3 class="anchored" data-anchor-id="the-latent-variable-framework">2. The Latent Variable Framework</h3>
+<p>The Probit model can be derived from an underlying, unobserved (<strong>latent</strong>) continuous variable <span class="math inline">Y^*</span>, which represents a propensity or utility index:</p>
+<p><span class="math display">
+Y^* = \beta_0 + \beta_1 X_1 + \dots + \epsilon
+</span></p>
+<p>We do not observe <span class="math inline">Y^*</span>; we only observe the binary outcome <span class="math inline">Y</span>, which triggers when <span class="math inline">Y^*</span> crosses a certain threshold (normalized to 0):</p>
+<p><span class="math display">
+Y =
+\begin{cases}
+1 &amp; \text{if } Y^* &gt; 0 \\
+0 &amp; \text{if } Y^* \le 0
+\end{cases}
+</span></p>
+<p>Assuming the error term <span class="math inline">\epsilon</span> follows a <strong>standard normal distribution</strong> (<span class="math inline">\epsilon \sim N(0, 1)</span>) yields the Probit model.</p>
+</section>
+<section id="interpretation-marginal-effects" class="level3">
+<h3 class="anchored" data-anchor-id="interpretation-marginal-effects">3. Interpretation &amp; Marginal Effects</h3>
+<p>Because the Probit function is non-linear, the coefficients (<span class="math inline">\beta_k</span>) <strong>cannot</strong> be interpreted as direct changes in probability. * A positive <span class="math inline">\beta_k</span> means an increase in <span class="math inline">X_k</span> <em>increases</em> the probability that <span class="math inline">Y=1</span>. * To find the actual change in percentage points, you must calculate <strong>Marginal Effects</strong>:</p>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 50%">
+<col style="width: 50%">
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: left;">Method</th>
+<th style="text-align: left;">Definition</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;"><strong>Average Marginal Effect (AME)</strong></td>
+<td style="text-align: left;">Calculates the marginal effect for each individual observation and then takes the average across the entire sample. <em>(Preferred approach)</em></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><strong>Marginal Effect at the Mean (MEM)</strong></td>
+<td style="text-align: left;">Calculates the marginal effect for a hypothetical individual who holds the exact average characteristics (<span class="math inline">\bar{X}</span>) of the sample.</td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="probit-vs.-logit-vs.-lpm" class="level3">
+<h3 class="anchored" data-anchor-id="probit-vs.-logit-vs.-lpm">4. Probit vs.&nbsp;Logit vs.&nbsp;LPM</h3>
+<ul>
+<li><strong>LPM (Linear):</strong> Easy to interpret but yields nonsensical predictions (<span class="math inline">&lt;0</span> or <span class="math inline">&gt;1</span>) and suffers from inherent heteroskedasticity.</li>
+<li><strong>Probit (Normal CDF):</strong> Restricts outputs to <span class="math inline">[0, 1]</span>. Assumes normally distributed errors.</li>
+<li><strong>Logit (Logistic CDF):</strong> Restricts outputs to <span class="math inline">[0, 1]</span>. Assumes logistically distributed errors (slightly fatter tails than Probit).</li>
+<li><em>Note:</em> In practice, Probit and Logit yield nearly identical conclusions and tracking, varying only in the scale of their raw coefficients.</li>
+</ul>
+</section>
+<section id="estimation-method" class="level3">
+<h3 class="anchored" data-anchor-id="estimation-method">5. Estimation Method</h3>
+<p>Unlike OLS used in LPM, Probit coefficients are estimated using <strong>Maximum Likelihood Estimation (MLE)</strong>. MLE searches iteratively for the parameter values (<span class="math inline">\beta</span>) that maximize the likelihood of observing the actual data sample.</p>
 <p>A probit regression is a statistical model used to estimate the relationship between a set of independent variables and a binary dependent variable, The main goal is to let the linear regression predict the quantile of the error distribution.</p>
 <div class="cell">
 <details open="" class="code-fold">
@@ -4504,6 +4783,7 @@ pirat        2.96787    0.53698   5.5269 3.259e-08 ***
 Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1</code></pre>
 </div>
 </div>
+</section>
 <section id="how-to-quantify-the-impact-of-the-coefficients" class="level3">
 <h3 class="anchored" data-anchor-id="how-to-quantify-the-impact-of-the-coefficients">How to quantify the impact of the coefficients?</h3>
 <p>Predict the probability for two different values <span class="math inline">𝑋</span> and <span class="math inline">𝑋 + \Delta X</span> and compute the difference.</p>
