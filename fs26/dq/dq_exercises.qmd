@@ -297,3 +297,98 @@ plot(1:6, reps, type = "b", xlab = "Number of groups", ylab = "Sum of squares")
 
 plot(silhouette(groups_km, dists))
 ```
+
+# Tasks for Exercise 07: Multivariate Outlier Detection – Other Algorithms
+
+## Task 01
+
+```{r}
+library(readxl)
+library(questionr)
+
+data <- read_excel("/home/nils/dev/mscids-notes/fs26/dq/data/learning.xlsx")
+
+data <- rename.variable(data, "effort", "x")
+data <- rename.variable(data, "success", "y")
+plot(data)
+
+ransac <- function(data, n, k, t, d) {
+  iterations <- 0
+  bestfit <- NULL
+  besterr <- 1e5
+  while (iterations < k) {
+    maybeinliers <- sample(nrow(data), n)
+    maybemodel <- lm(y ~ x, data = data, subset = maybeinliers)
+    alsoinliers <- NULL
+    for (point in setdiff(1:nrow(data), maybeinliers)) {
+      if (abs(maybemodel$coefficients[2]*data[point, 1] - data[point, 2] + maybemodel$coefficients[1])/(sqrt(maybemodel$coefficients[2] + 1)) < t)
+        alsoinliers <- c(alsoinliers, point)
+    }
+    if (length(alsoinliers) > d) {
+      bettermodel <- lm(y ~ x, data = data, subset = c(maybeinliers, alsoinliers))
+      thiserr <- summary(bettermodel)$sigma
+      if (thiserr < besterr) {
+        bestfit <- bettermodel
+        besterr <- thiserr
+      }
+    }
+    iterations <- iterations + 1
+  }
+  bestfit
+}
+
+abline(lm(y ~ x, data = data))
+
+x <- 1
+repeat 
+{
+  # print(x)
+  x = x+1
+  abline(ransac(data, n = 10, k = 10, t = 0.5, d = 10), col = "blue")
+  if (x == 10){break}
+}
+```
+
+## Task 02
+
+```{r}
+library(readxl)
+library(dbscan)
+
+data <- read_excel("/home/nils/dev/mscids-notes/fs26/dq/data/learning.xlsx")
+
+head(data)
+plot(data)
+
+kNNdistplot(data,  k = 4)
+
+dbscanResult <- dbscan(data, eps= 15, minPts=4)
+dbscanResult
+
+hullplot(data, dbscanResult)
+```
+
+# Tasks for Exercse 10
+
+## Task 01
+
+```{r}
+library(ggplot2)
+data <- diamonds
+
+hist(data$carat)
+qqnorm(data$carat)
+qqline(data$carat, col = "red", lwd = 2)
+```
+
+```{r}
+hist(data$price)
+qqnorm(data$price)
+qqline(data$price, col = "red", lwd = 2)
+```
+
+```{r}
+hist(data$depth)
+qqnorm(data$depth)
+qqline(data$depth, col = "red", lwd = 2)
+```
