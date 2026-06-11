@@ -230,7 +230,6 @@ Naively, one might think that missing data just means there is less data to anal
 - In longitudinal studies, parts of the sample do not participate at all measurement time points
 - Sensor failure
 
-
 ### Causes during data processing
 
 - typing errors during coding
@@ -243,9 +242,22 @@ Naively, one might think that missing data just means there is less data to anal
 - Unit non-response: subjects refuse to participate or are systematically unreachable
 - Item non-response: subjects refuse to answer specific questions
 
-### Forms of item non-response (Little and Rubin, 2020)
+### Forms of Item Non-Response (Little and Rubin, 2020)
 
 ![Forms of item non-response (Little and Rubin, 2020)](img/non_response.png)
+
+#### Forms of Item Non-Response
+
+* **Univariate:** Only one variable has missing values; the rest are complete. 
+  * *Example:* Survey respondents answer demographic questions but skip the "income" field.
+* **Multivariate:** A specific set of variables is missing simultaneously for certain records.
+  * *Example:* A patient misses a specific clinic visit, so all test results (blood pressure, heart rate) for that day are missing together.
+* **Monotone (Respondent Fatigue):** A cascading pattern where missing a value means all subsequent variables are also missing.
+  * *Example:* A user quits a long survey halfway through; all remaining questions are blank.
+* **File Matching:** Caused by merging datasets with mutually exclusive properties.
+  * *Example:* Merging "online" and "in-store" customer databases; online customers will naturally lack in-store purchase data.
+* **General:** Arbitrary, unstructured missing values scattered throughout the dataset.
+  * *Example:* Random sensor connection glitches causing sporadic data gaps in a temperature log.
 
 ## Missing data mechanism
 
@@ -310,6 +322,52 @@ It essentially tests if the means / covariances are the same under each missingn
 The test has low power: even if the test doesn't reject, MCAR is not guaranteed.
 :::
 
+### Cheat Sheet: How to Read `md.pattern()` in R
+
+The output matrix of `md.pattern(airquality)` works like a coordinate system:
+
+```text
+    Ozone Solar.R Wind Temp Month Day    
+111     1       1    1    1     1   1   0  <- Complete rows (no missing values)
+ 35     0       1    1    1     1   1   1  <- Only 'Ozone' is missing
+  5     1       0    1    1     1   1   1  <- Only 'Solar.R' is missing
+  2     0       0    1    1     1   1   2  <- BOTH 'Ozone' AND 'Solar.R' are missing
+       37       7    0    0     0   0  44
+^      ^        ^                      ^
+n     Missing values per variable     Total missing values
+```
+
+### Little's MCAR Test: Degrees of Freedom Calculation
+
+**The Formula:**
+$$
+df = \sum(p_j) - p
+$$
+
+* **p_j**: The number of observed (non-missing) variables in the j-th missing data pattern.
+* **p**: The total number of variables in your dataset.
+
+### Example Pattern
+
+**1. Total Variables (p)**
+There are 6 variables in total: Prefix, Assignment, Tutorial, Midterm, TakeHome, and Final[cite: 156]. 
+* `p = 6`
+
+**2. Observed Variables per Pattern (p_j)**
+[cite_start]Based on the `md.pattern` output, we have three distinct missingness patterns[cite: 155, 184]:
+* [cite_start]**Pattern 1 (Complete cases):** All 6 variables are fully observed for 95 rows[cite: 157, 158, 159, 160, 161, 162].
+    * $p_1 = 6$
+* [cite_start]**Pattern 2 (Missing Final):** 5 variables are observed (Final is missing) for 3 rows[cite: 164, 165, 166, 167, 168, 169].
+    * $p_2 = 5$
+* [cite_start]**Pattern 3 (Missing TakeHome):** 5 variables are observed (TakeHome is missing) for 1 row[cite: 171, 172, 173, 174, 175, 176].
+    * $p_3 = 5$
+
+**3. Sum of Observed Variables (sum(p_j))**
+* $\sum(p_j) = 6 + 5 + 5 = 16$
+
+**4. Final Calculation**
+* $df = 16 - 6 = 10$
+
 # Lecture 05: Univariate Outlier Detection
 
 Anomaly detection generally refers to the process of automatically detecting events or behaviors which deviate from those considered normal. Outlier detection aims at identifying unusual objects in a database, i.e., different than the majority of the data and therefore suspicious resulting from a contamination, error, or fraud.
@@ -349,7 +407,6 @@ The entire distribution is learned from the data.
 
 - Advantage: flexible; no distributional assumption needed.
 - Disadvantage: needs more data.
-
 
 ## Noise vs. Anomalies
 
@@ -655,6 +712,14 @@ external validity, often lower internal validity.
 - Low statistical power: Researchers use sample sizes too small to reliably detect the effects they're looking for (or
 to rule them out). Leads to noisy, inconsistent results, high rates of false negatives, and exaggerated effect sizes
 when something does pop up by chance.
+
+
+::: {.callout-note}
+
+Good to know: If the null hypothesis is true, p-values follow a uniform distribution between 0 and 1.
+
+:::
+
 
 ### Measuring Replication Success
 
