@@ -143,4 +143,4 @@ Check out the [Matplotlib Cheat Sheet](../files/cheat_sheet_matplotlib.pdf).
 
 Thousands of packages are available for Python. However, it is advisable to use well-maintained and established standard packages such as `numpy`, `pandas`, and `matplotlib`, as these are regularly updated and have large communities.
 
-If you are looking for a specific tool, PyPI (Python Package Index) is the central hub: [PIPY](https://pypi.org/)
+If you are looking for a specific tool, PyPI (Python Package Index) is the central hub: [PyPI](https://pypi.org/)

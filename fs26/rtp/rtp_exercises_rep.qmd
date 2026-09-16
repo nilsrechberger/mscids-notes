@@ -30,7 +30,7 @@ $365$
 ## Exercise 1.2
 
 ```{r}
-hstart <- read.table("/home/nils/dev/mscids-notes/fs26/rtp/data/hstart.dat")
+hstart <- read.table("./data/hstart.dat")
 
 ts.hstart <- ts(
   data=hstart,
@@ -171,7 +171,7 @@ We can remove the linear trend with two times backward differencing. The length 
 ## Exercise 2.2
 
 ```{r}
-hstart <- read.table("/home/nils/dev/mscids-notes/fs26/rtp/data/hstart.dat")
+hstart <- read.table("./data/hstart.dat")
 
 ts.hstart <- ts(
   data = hstart$V1, 
@@ -200,7 +200,7 @@ plot(ts.filtertrend)
 ### c
 
 ```{r}
-hstart <- read.table("/home/nils/dev/mscids-notes/fs26/rtp/data/hstart.dat")
+hstart <- read.table("./data/hstart.dat")
 
 ts.hstart <- ts(
   data = hstart$V1, 
@@ -235,7 +235,7 @@ D -> 4
 ### a
 
 ```{r}
-cbe <- read.table("/home/nils/dev/mscids-notes/fs26/rtp/data/cbe.dat", header=TRUE)
+cbe <- read.table("./data/cbe.dat", header=TRUE)
 
 ts <- ts(
   data=cbe$elec,
@@ -298,7 +298,7 @@ acf(data)
 ## Exercise 4.2
 
 ```{r}
-kreatin <- read.table("/home/nils/dev/mscids-notes/fs26/rtp/data/kreatin.dat", header=TRUE)
+kreatin <- read.table("./data/kreatin.dat", header=TRUE)
 
 plot(kreatin$gehalt, type="l")
 ```
@@ -320,7 +320,7 @@ White noise fits.
 ## Exercise 4.3
 
 ```{r}
-data <- read.table("/home/nils/dev/mscids-notes/fs26/rtp/data/ts_S3_A2.dat", header=TRUE)
+data <- read.table("./data/ts_S3_A2.dat", header=TRUE)
 
 ts1 <- data$ts1
 ts2 <- data$ts2
@@ -405,7 +405,7 @@ $a_2$ has to be $< 0.25$.
 ## Exercise 6.1
 
 ```{r}
-yields <- read.table("/home/nils/dev/mscids-notes/fs26/rtp/data/yields.dat", header = FALSE)
+yields <- read.table("./data/yields.dat", header = FALSE)
 t.yields <- ts(yields[, 1])
 ```
 
@@ -448,7 +448,7 @@ str(r.mle)
 ## Exercise 6.2
 
 ```{r}
-d.force <- read.table("/home/nils/dev/mscids-notes/fs26/rtp/data/kraft.dat", header = FALSE)
+d.force <- read.table("./data/kraft.dat", header = FALSE)
 ts.force <- ts(d.force[, 1])
 ```
 
@@ -557,7 +557,7 @@ By applying differencing, we can make the process stationary.
 arima.sim(model = list(order=c(2, 1, 2), ar=c(0.5, 0.5), ma=c(-0.4, 0.3)), n=100)
 ```
 
-´Error in arima.sim(model = list(order = c(2, 1, 2), ar = c(0.5, 0.5),: 'ar' part of model is not stationary´
+`Error in arima.sim(model = list(order = c(2, 1, 2), ar = c(0.5, 0.5),: 'ar' part of model is not stationary`
 
 ### b
 
@@ -586,7 +586,7 @@ The resulting expression represents an **$\text{ARMA}(3,2)$** process with the f
   * $\beta_1 = -0.4$
   * $\beta_2 = 0.3$
 
-## Exercise 8.1
+## Exercise 8.2
 
 ```{r}
 d.beluga <- read.table("http://stat.ethz.ch/Teaching/Datasets/WBL/beluga.dat", header = TRUE)

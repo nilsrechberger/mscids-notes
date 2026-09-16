@@ -111,6 +111,9 @@ function gtag(){dataLayer.push(arguments);}
 gtag('js', new Date());
 gtag('config', 'G-NZ8462CXQ1', { 'anonymize_ip': true});
 </script>
+<script src="../../site_libs/quarto-diagram/mermaid.min.js"></script>
+<script src="../../site_libs/quarto-diagram/mermaid-init.js"></script>
+<link href="../../site_libs/quarto-diagram/mermaid.css" rel="stylesheet">
 
   <script>window.backupDefine = window.define; window.define = undefined;</script><script src="https://cdn.jsdelivr.net/npm/katex@latest/dist/katex.min.js"></script>
   <script>document.addEventListener("DOMContentLoaded", function () {
@@ -180,70 +183,6 @@ window.Quarto = {
     <a class="nav-link" href="../../index.html"> 
 <span class="menu-text">Home</span></a>
   </li>  
-  <li class="nav-item dropdown ">
-    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-applied-machine-learning-and-predictive-modelling-1" role="link" data-bs-toggle="dropdown" aria-expanded="false">
- <span class="menu-text">Applied Machine Learning and Predictive Modelling 1</span>
-    </a>
-    <ul class="dropdown-menu" aria-labelledby="nav-menu-applied-machine-learning-and-predictive-modelling-1">    
-        <li>
-    <a class="dropdown-item" href="../../fs26/mpm1/mpm1_notes.html">
- <span class="dropdown-text">Notes</span></a>
-  </li>  
-        <li>
-    <a class="dropdown-item" href="../../fs26/mpm1/mpm1_exercises.html">
- <span class="dropdown-text">Exercises</span></a>
-  </li>  
-    </ul>
-  </li>
-  <li class="nav-item dropdown ">
-    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-data-quality" role="link" data-bs-toggle="dropdown" aria-expanded="false">
- <span class="menu-text">Data Quality</span>
-    </a>
-    <ul class="dropdown-menu" aria-labelledby="nav-menu-data-quality">    
-        <li>
-    <a class="dropdown-item" href="../../fs26/dq/dq_notes.html">
- <span class="dropdown-text">Notes</span></a>
-  </li>  
-        <li>
-    <a class="dropdown-item" href="../../fs26/dq/dq_exercises.html">
- <span class="dropdown-text">Exercises</span></a>
-  </li>  
-    </ul>
-  </li>
-  <li class="nav-item dropdown ">
-    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-discrete-response-time-series-and-panel-data" role="link" data-bs-toggle="dropdown" aria-expanded="false">
- <span class="menu-text">Discrete Response, Time Series and Panel Data</span>
-    </a>
-    <ul class="dropdown-menu" aria-labelledby="nav-menu-discrete-response-time-series-and-panel-data">    
-        <li>
-    <a class="dropdown-item" href="../../fs26/rtp/rtp_notes.html">
- <span class="dropdown-text">Notes</span></a>
-  </li>  
-        <li>
-    <a class="dropdown-item" href="../../fs26/rtp/rtp_exercises.html">
- <span class="dropdown-text">Exercises</span></a>
-  </li>  
-    </ul>
-  </li>
-  <li class="nav-item dropdown ">
-    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-database-management-for-data-scientists" role="link" data-bs-toggle="dropdown" aria-expanded="false">
- <span class="menu-text">Database Management for Data Scientists</span>
-    </a>
-    <ul class="dropdown-menu" aria-labelledby="nav-menu-database-management-for-data-scientists">    
-        <li>
-    <a class="dropdown-item" href="../../fs26/dbm/dbm_notes.html">
- <span class="dropdown-text">Notes</span></a>
-  </li>  
-        <li>
-    <a class="dropdown-item" href="../../fs26/dbm/dbm_exercises.html">
- <span class="dropdown-text">Exercises</span></a>
-  </li>  
-    </ul>
-  </li>
-  <li class="nav-item">
-    <a class="nav-link" href="../../fs26/devops/devops_notes.html"> 
-<span class="menu-text">DevOps</span></a>
-  </li>  
 </ul>
             <ul class="navbar-nav navbar-nav-scroll ms-auto">
   <li class="nav-item dropdown ">
@@ -251,29 +190,120 @@ window.Quarto = {
  <span class="menu-text">Old Notes</span>
     </a>
     <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="nav-menu-old-notes">    
+        <li class="dropdown-header"><strong>FS26</strong></li>
+        <li>
+    <a class="dropdown-item" href="../../fs26/cip/cip_notes.html">
+ <span class="dropdown-text">CIP — Notes</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../fs26/dbm/dbm_notes.html">
+ <span class="dropdown-text">DBM — Notes</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../fs26/dbm/dbm_exercises.html">
+ <span class="dropdown-text">DBM — Exercises</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../fs26/devops/devops_notes.html">
+ <span class="dropdown-text">DevOps — Notes</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../fs26/devops/devops_exercises.html">
+ <span class="dropdown-text">DevOps — Exercises</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../fs26/dq/dq_notes.html">
+ <span class="dropdown-text">DQ — Notes</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../fs26/dq/dq_exercises.html">
+ <span class="dropdown-text">DQ — Exercises</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../fs26/mpm1/mpm1_notes.html">
+ <span class="dropdown-text">MPM1 — Notes</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../fs26/mpm1/mpm1_exercises.html">
+ <span class="dropdown-text">MPM1 — Exercises</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../fs26/rtp/rtp_notes.html">
+ <span class="dropdown-text">RTP — Notes</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../fs26/rtp/rtp_exercises.html">
+ <span class="dropdown-text">RTP — Exercises</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../fs26/rtp/rtp_exercises_rep.html">
+ <span class="dropdown-text">RTP — Exercises (Rep.)</span></a>
+  </li>  
+        <li><hr class="dropdown-divider"></li>
+        <li class="dropdown-header"><strong>HS25</strong></li>
         <li>
     <a class="dropdown-item" href="../../hs25/csc/csc_notes.html">
- <span class="dropdown-text">Computer Science Concepts for Data Science</span></a>
+ <span class="dropdown-text">CSC — Notes</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../hs25/csc/csc_exercises.html">
+ <span class="dropdown-text">CSC — Exercises</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../hs25/csc/csc_exam_summary.pdf">
+ <span class="dropdown-text">CSC — Exam Summary (PDF)</span></a>
   </li>  
         <li>
     <a class="dropdown-item" href="../../hs25/doe/doe_notes.html">
- <span class="dropdown-text">Design of Experiments</span></a>
+ <span class="dropdown-text">DOE — Notes</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../hs25/doe/doe_exercises.html">
+ <span class="dropdown-text">DOE — Exercises</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../hs25/doe/doe_exam_summary.pdf">
+ <span class="dropdown-text">DOE — Exam Summary (PDF)</span></a>
   </li>  
         <li>
     <a class="dropdown-item" href="../../hs25/lia1/lia1_notes.html">
- <span class="dropdown-text">Linear Algebra 01</span></a>
+ <span class="dropdown-text">LIA1 — Notes</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../hs25/lia1/lia1_exercises.html">
+ <span class="dropdown-text">LIA1 — Exercises</span></a>
   </li>  
         <li>
     <a class="dropdown-item" href="../../hs25/pds/pds_notes.html">
- <span class="dropdown-text">Python for Data Science</span></a>
+ <span class="dropdown-text">PDS — Notes</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../hs25/pds/pds_exercises.html">
+ <span class="dropdown-text">PDS — Exercises</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../hs25/pds/pds_additional_exercises.html">
+ <span class="dropdown-text">PDS — Additional Exercises</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../hs25/pds/pds_mock_exam.html">
+ <span class="dropdown-text">PDS — Mock Exam</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../hs25/pds/pds_modul_exam_fs23.html">
+ <span class="dropdown-text">PDS — Modul Exam (FS23)</span></a>
   </li>  
         <li>
     <a class="dropdown-item" href="../../hs25/r_bootcamp/r_bootcamp_notes.html">
- <span class="dropdown-text">R-Bootcamp</span></a>
+ <span class="dropdown-text">R-Bootcamp — Notes</span></a>
   </li>  
         <li>
     <a class="dropdown-item" href="../../hs25/sa/sa_notes.html">
- <span class="dropdown-text">Classical and Bayesian Statistics</span></a>
+ <span class="dropdown-text">SA — Notes</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../hs25/sa/sa_exercises.html">
+ <span class="dropdown-text">SA — Exercises</span></a>
   </li>  
     </ul>
   </li>
@@ -327,9 +357,12 @@ window.Quarto = {
   <ul>
   <li><a href="#week-1-case-study-bits-bytes" id="toc-week-1-case-study-bits-bytes" class="nav-link active" data-scroll-target="#week-1-case-study-bits-bytes">Week 1: Case Study: Bits &amp; Bytes</a>
   <ul class="collapse">
+  <li><a href="#decimal-to-binary-conversion" id="toc-decimal-to-binary-conversion" class="nav-link" data-scroll-target="#decimal-to-binary-conversion">Decimal to Binary Conversion</a>
+  <ul class="collapse">
   <li><a href="#integer-part-45" id="toc-integer-part-45" class="nav-link" data-scroll-target="#integer-part-45">1. Integer Part (<code>45</code>)</a></li>
   <li><a href="#fractional-part-0.375" id="toc-fractional-part-0.375" class="nav-link" data-scroll-target="#fractional-part-0.375">2. Fractional Part (<code>0.375</code>)</a></li>
   <li><a href="#combine" id="toc-combine" class="nav-link" data-scroll-target="#combine">3. Combine</a></li>
+  </ul></li>
   <li><a href="#binary-to-decimal-conversion" id="toc-binary-to-decimal-conversion" class="nav-link" data-scroll-target="#binary-to-decimal-conversion">Binary to Decimal Conversion</a>
   <ul class="collapse">
   <li><a href="#integer-part-11001" id="toc-integer-part-11001" class="nav-link" data-scroll-target="#integer-part-11001">1. Integer Part (<code>11001</code>)</a></li>
@@ -400,6 +433,8 @@ window.Quarto = {
 <h1>Week 1: Case Study: Bits &amp; Bytes</h1>
 <p><strong>Format:</strong> <code>IIIIIIII.FFFF</code> (8 bits integer, 4 bits fraction)</p>
 <p><strong>Example: <code>45.375</code></strong></p>
+<section id="decimal-to-binary-conversion" class="level2">
+<h2 class="anchored" data-anchor-id="decimal-to-binary-conversion">Decimal to Binary Conversion</h2>
 <section id="integer-part-45" class="level3">
 <h3 class="anchored" data-anchor-id="integer-part-45">1. Integer Part (<code>45</code>)</h3>
 <ul>
@@ -438,6 +473,7 @@ window.Quarto = {
 <li><strong>Fraction:</strong> <code>0110</code></li>
 <li><strong>Final (12-Bit):</strong> <code>001011010110</code></li>
 </ul>
+</section>
 </section>
 <section id="binary-to-decimal-conversion" class="level2">
 <h2 class="anchored" data-anchor-id="binary-to-decimal-conversion">Binary to Decimal Conversion</h2>
@@ -536,7 +572,12 @@ R_s = 1\text{Mbit/sec} = \dfrac{32000}{1000} = 32\text{sec}
 </section>
 <section id="exercise-3-domains-hosts-and-urls" class="level2">
 <h2 class="anchored" data-anchor-id="exercise-3-domains-hosts-and-urls">Exercise 3: Domains, Hosts and URLs</h2>
-<pre class="{bash}"><code>flowchart TD
+<div class="cell" data-layout-align="default">
+<div class="cell-output-display">
+<div>
+<p></p><figure class="figure"><p></p>
+<div>
+<pre class="mermaid mermaid-js">flowchart TD
     A(Root) --&gt; B(edu)
     B --&gt; C[umass]
     C --&gt; E(cs)
@@ -555,7 +596,13 @@ R_s = 1\text{Mbit/sec} = \dfrac{32000}{1000} = 32\text{sec}
         direction LR
         E
         F
-    end</code></pre>
+    end
+</pre>
+</div>
+<p></p></figure><p></p>
+</div>
+</div>
+</div>
 </section>
 <section id="exercise-4-http-protocol" class="level2">
 <h2 class="anchored" data-anchor-id="exercise-4-http-protocol">Exercise 4: http Protocol</h2>
@@ -566,15 +613,15 @@ R_s = 1\text{Mbit/sec} = \dfrac{32000}{1000} = 32\text{sec}
 <h1>Week 3: Web Applications &amp; HTML</h1>
 <section id="exercise-2-develop-a-web-page---task-1" class="level2">
 <h2 class="anchored" data-anchor-id="exercise-2-develop-a-web-page---task-1">Exercise 2: Develop a web page - Task 1</h2>
-<div class="sourceCode" id="cb3"><pre class="sourceCode html code-with-copy"><code class="sourceCode html"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="dt">&lt;!DOCTYPE</span> html<span class="dt">&gt;</span></span>
-<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="dt">&lt;</span><span class="kw">html</span><span class="dt">&gt;</span></span>
-<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>  <span class="dt">&lt;</span><span class="kw">head</span><span class="dt">&gt;</span></span>
-<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a>    Exercise 2: Develop a web page - Task 1</span>
-<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a>  <span class="dt">&lt;/</span><span class="kw">head</span><span class="dt">&gt;</span></span>
-<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a>  <span class="dt">&lt;</span><span class="kw">body</span><span class="dt">&gt;</span></span>
-<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a>    <span class="dt">&lt;</span><span class="kw">img</span><span class="ot"> src</span><span class="op">=</span><span class="st">"img/siliconValley.jpg"</span><span class="ot"> hight</span><span class="op">=</span><span class="st">"1000"</span><span class="ot"> width</span><span class="op">=</span><span class="st">"500"</span><span class="dt">&gt;</span></span>
-<span id="cb3-8"><a href="#cb3-8" aria-hidden="true" tabindex="-1"></a>  <span class="dt">&lt;/</span><span class="kw">body</span><span class="dt">&gt;</span></span>
-<span id="cb3-9"><a href="#cb3-9" aria-hidden="true" tabindex="-1"></a><span class="dt">&lt;/</span><span class="kw">html</span><span class="dt">&gt;</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb2"><pre class="sourceCode html code-with-copy"><code class="sourceCode html"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="dt">&lt;!DOCTYPE</span> html<span class="dt">&gt;</span></span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="dt">&lt;</span><span class="kw">html</span><span class="dt">&gt;</span></span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>  <span class="dt">&lt;</span><span class="kw">head</span><span class="dt">&gt;</span></span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a>    Exercise 2: Develop a web page - Task 1</span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a>  <span class="dt">&lt;/</span><span class="kw">head</span><span class="dt">&gt;</span></span>
+<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a>  <span class="dt">&lt;</span><span class="kw">body</span><span class="dt">&gt;</span></span>
+<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a>    <span class="dt">&lt;</span><span class="kw">img</span><span class="ot"> src</span><span class="op">=</span><span class="st">"img/siliconValley.jpg"</span><span class="ot"> hight</span><span class="op">=</span><span class="st">"1000"</span><span class="ot"> width</span><span class="op">=</span><span class="st">"500"</span><span class="dt">&gt;</span></span>
+<span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a>  <span class="dt">&lt;/</span><span class="kw">body</span><span class="dt">&gt;</span></span>
+<span id="cb2-9"><a href="#cb2-9" aria-hidden="true" tabindex="-1"></a><span class="dt">&lt;/</span><span class="kw">html</span><span class="dt">&gt;</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 
 
   
@@ -587,20 +634,20 @@ R_s = 1\text{Mbit/sec} = \dfrac{32000}{1000} = 32\text{sec}
 </section>
 <section id="exercise-2-develop-a-web-page---task-2" class="level2">
 <h2 class="anchored" data-anchor-id="exercise-2-develop-a-web-page---task-2">Exercise 2: Develop a web page - Task 2</h2>
-<div class="sourceCode" id="cb4"><pre class="sourceCode html code-with-copy"><code class="sourceCode html"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="dt">&lt;!DOCTYPE</span> html<span class="dt">&gt;</span></span>
-<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a><span class="dt">&lt;</span><span class="kw">html</span><span class="dt">&gt;</span></span>
-<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>  <span class="dt">&lt;</span><span class="kw">head</span><span class="dt">&gt;</span></span>
-<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a>    Exercise 2: Develop a web page - Task 2</span>
-<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a>  <span class="dt">&lt;/</span><span class="kw">head</span><span class="dt">&gt;</span></span>
-<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb4-7"><a href="#cb4-7" aria-hidden="true" tabindex="-1"></a>  <span class="dt">&lt;</span><span class="kw">body</span><span class="dt">&gt;</span></span>
-<span id="cb4-8"><a href="#cb4-8" aria-hidden="true" tabindex="-1"></a>    <span class="dt">&lt;</span><span class="kw">h2</span><span class="dt">&gt;</span>Links to well-known companies in Silicon Valley<span class="dt">&lt;/</span><span class="kw">h2</span><span class="dt">&gt;</span></span>
-<span id="cb4-9"><a href="#cb4-9" aria-hidden="true" tabindex="-1"></a>    <span class="dt">&lt;</span><span class="kw">img</span><span class="ot"> src</span><span class="op">=</span><span class="st">"img/tesla.png"</span><span class="dt">&gt;</span></span>
-<span id="cb4-10"><a href="#cb4-10" aria-hidden="true" tabindex="-1"></a>    <span class="dt">&lt;</span><span class="kw">h2</span><span class="dt">&gt;</span>Link to overview map Silicon Valley<span class="dt">&lt;/</span><span class="kw">h2</span><span class="dt">&gt;</span></span>
-<span id="cb4-11"><a href="#cb4-11" aria-hidden="true" tabindex="-1"></a>    <span class="dt">&lt;</span><span class="kw">a</span><span class="ot"> href</span><span class="op">=</span><span class="st">"https://siliconvalleyguide.info/"</span><span class="dt">&gt;</span>Map<span class="dt">&lt;/</span><span class="kw">a</span><span class="dt">&gt;</span></span>
-<span id="cb4-12"><a href="#cb4-12" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb4-13"><a href="#cb4-13" aria-hidden="true" tabindex="-1"></a>  <span class="dt">&lt;/</span><span class="kw">body</span><span class="dt">&gt;</span></span>
-<span id="cb4-14"><a href="#cb4-14" aria-hidden="true" tabindex="-1"></a><span class="dt">&lt;/</span><span class="kw">html</span><span class="dt">&gt;</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb3"><pre class="sourceCode html code-with-copy"><code class="sourceCode html"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="dt">&lt;!DOCTYPE</span> html<span class="dt">&gt;</span></span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="dt">&lt;</span><span class="kw">html</span><span class="dt">&gt;</span></span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>  <span class="dt">&lt;</span><span class="kw">head</span><span class="dt">&gt;</span></span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a>    Exercise 2: Develop a web page - Task 2</span>
+<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a>  <span class="dt">&lt;/</span><span class="kw">head</span><span class="dt">&gt;</span></span>
+<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a>  <span class="dt">&lt;</span><span class="kw">body</span><span class="dt">&gt;</span></span>
+<span id="cb3-8"><a href="#cb3-8" aria-hidden="true" tabindex="-1"></a>    <span class="dt">&lt;</span><span class="kw">h2</span><span class="dt">&gt;</span>Links to well-known companies in Silicon Valley<span class="dt">&lt;/</span><span class="kw">h2</span><span class="dt">&gt;</span></span>
+<span id="cb3-9"><a href="#cb3-9" aria-hidden="true" tabindex="-1"></a>    <span class="dt">&lt;</span><span class="kw">img</span><span class="ot"> src</span><span class="op">=</span><span class="st">"img/tesla.png"</span><span class="dt">&gt;</span></span>
+<span id="cb3-10"><a href="#cb3-10" aria-hidden="true" tabindex="-1"></a>    <span class="dt">&lt;</span><span class="kw">h2</span><span class="dt">&gt;</span>Link to overview map Silicon Valley<span class="dt">&lt;/</span><span class="kw">h2</span><span class="dt">&gt;</span></span>
+<span id="cb3-11"><a href="#cb3-11" aria-hidden="true" tabindex="-1"></a>    <span class="dt">&lt;</span><span class="kw">a</span><span class="ot"> href</span><span class="op">=</span><span class="st">"https://siliconvalleyguide.info/"</span><span class="dt">&gt;</span>Map<span class="dt">&lt;/</span><span class="kw">a</span><span class="dt">&gt;</span></span>
+<span id="cb3-12"><a href="#cb3-12" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-13"><a href="#cb3-13" aria-hidden="true" tabindex="-1"></a>  <span class="dt">&lt;/</span><span class="kw">body</span><span class="dt">&gt;</span></span>
+<span id="cb3-14"><a href="#cb3-14" aria-hidden="true" tabindex="-1"></a><span class="dt">&lt;/</span><span class="kw">html</span><span class="dt">&gt;</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 
 
   
@@ -618,36 +665,36 @@ R_s = 1\text{Mbit/sec} = \dfrac{32000}{1000} = 32\text{sec}
 </section>
 <section id="exercise-3-develop-a-css-file" class="level2">
 <h2 class="anchored" data-anchor-id="exercise-3-develop-a-css-file">Exercise 3: Develop a CSS file</h2>
-<div class="sourceCode" id="cb5"><pre class="sourceCode html code-with-copy"><code class="sourceCode html"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="dt">&lt;!DOCTYPE</span> html<span class="dt">&gt;</span></span>
-<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a><span class="dt">&lt;</span><span class="kw">html</span><span class="dt">&gt;</span></span>
-<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a><span class="dt">&lt;</span><span class="kw">head</span><span class="dt">&gt;</span></span>
-<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a>    <span class="dt">&lt;</span><span class="kw">title</span><span class="dt">&gt;</span>Exercise 3: Develop a CSS file<span class="dt">&lt;/</span><span class="kw">title</span><span class="dt">&gt;</span></span>
-<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a>    <span class="dt">&lt;</span><span class="kw">style</span><span class="dt">&gt;</span></span>
-<span id="cb5-7"><a href="#cb5-7" aria-hidden="true" tabindex="-1"></a>      body { </span>
-<span id="cb5-8"><a href="#cb5-8" aria-hidden="true" tabindex="-1"></a>        <span class="kw">background-color</span><span class="ch">:</span> <span class="cn">lightgoldenrodyellow</span><span class="op">;</span></span>
-<span id="cb5-9"><a href="#cb5-9" aria-hidden="true" tabindex="-1"></a>        <span class="kw">color</span><span class="ch">:</span> <span class="cn">blue</span><span class="op">;</span></span>
-<span id="cb5-10"><a href="#cb5-10" aria-hidden="true" tabindex="-1"></a>      }</span>
-<span id="cb5-11"><a href="#cb5-11" aria-hidden="true" tabindex="-1"></a>      </span>
-<span id="cb5-12"><a href="#cb5-12" aria-hidden="true" tabindex="-1"></a>      img {</span>
-<span id="cb5-13"><a href="#cb5-13" aria-hidden="true" tabindex="-1"></a>        <span class="kw">border</span><span class="ch">:</span> <span class="dv">2</span><span class="dt">px</span> <span class="dv">solid</span> <span class="cn">blue</span><span class="op">;</span></span>
-<span id="cb5-14"><a href="#cb5-14" aria-hidden="true" tabindex="-1"></a>        <span class="kw">padding</span><span class="ch">:</span> <span class="dv">5</span><span class="dt">px</span><span class="op">;</span></span>
-<span id="cb5-15"><a href="#cb5-15" aria-hidden="true" tabindex="-1"></a>      }</span>
-<span id="cb5-16"><a href="#cb5-16" aria-hidden="true" tabindex="-1"></a>      </span>
-<span id="cb5-17"><a href="#cb5-17" aria-hidden="true" tabindex="-1"></a>      a {</span>
-<span id="cb5-18"><a href="#cb5-18" aria-hidden="true" tabindex="-1"></a>        <span class="kw">color</span><span class="ch">:</span> <span class="cn">red</span><span class="op">;</span></span>
-<span id="cb5-19"><a href="#cb5-19" aria-hidden="true" tabindex="-1"></a>      }</span>
-<span id="cb5-20"><a href="#cb5-20" aria-hidden="true" tabindex="-1"></a>    <span class="dt">&lt;/</span><span class="kw">style</span><span class="dt">&gt;</span></span>
-<span id="cb5-21"><a href="#cb5-21" aria-hidden="true" tabindex="-1"></a><span class="dt">&lt;/</span><span class="kw">head</span><span class="dt">&gt;</span></span>
-<span id="cb5-22"><a href="#cb5-22" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb5-23"><a href="#cb5-23" aria-hidden="true" tabindex="-1"></a><span class="dt">&lt;</span><span class="kw">body</span><span class="dt">&gt;</span></span>
-<span id="cb5-24"><a href="#cb5-24" aria-hidden="true" tabindex="-1"></a>    <span class="dt">&lt;</span><span class="kw">h2</span><span class="dt">&gt;</span>Links to well-known companies in Silicon Valley<span class="dt">&lt;/</span><span class="kw">h2</span><span class="dt">&gt;</span>    </span>
-<span id="cb5-25"><a href="#cb5-25" aria-hidden="true" tabindex="-1"></a>    <span class="dt">&lt;</span><span class="kw">img</span><span class="ot"> src</span><span class="op">=</span><span class="st">"img/tesla.png"</span><span class="ot"> alt</span><span class="op">=</span><span class="st">"Tesla Logo"</span><span class="dt">&gt;</span></span>
-<span id="cb5-26"><a href="#cb5-26" aria-hidden="true" tabindex="-1"></a>    <span class="dt">&lt;</span><span class="kw">h2</span><span class="dt">&gt;</span>Link to overview map Silicon Valley<span class="dt">&lt;/</span><span class="kw">h2</span><span class="dt">&gt;</span></span>
-<span id="cb5-27"><a href="#cb5-27" aria-hidden="true" tabindex="-1"></a>    <span class="dt">&lt;</span><span class="kw">a</span><span class="ot"> href</span><span class="op">=</span><span class="st">"https://siliconvalleyguide.info/"</span><span class="dt">&gt;</span>Map<span class="dt">&lt;/</span><span class="kw">a</span><span class="dt">&gt;</span></span>
-<span id="cb5-28"><a href="#cb5-28" aria-hidden="true" tabindex="-1"></a><span class="dt">&lt;/</span><span class="kw">body</span><span class="dt">&gt;</span></span>
-<span id="cb5-29"><a href="#cb5-29" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb5-30"><a href="#cb5-30" aria-hidden="true" tabindex="-1"></a><span class="dt">&lt;/</span><span class="kw">html</span><span class="dt">&gt;</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb4"><pre class="sourceCode html code-with-copy"><code class="sourceCode html"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="dt">&lt;!DOCTYPE</span> html<span class="dt">&gt;</span></span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a><span class="dt">&lt;</span><span class="kw">html</span><span class="dt">&gt;</span></span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a><span class="dt">&lt;</span><span class="kw">head</span><span class="dt">&gt;</span></span>
+<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a>    <span class="dt">&lt;</span><span class="kw">title</span><span class="dt">&gt;</span>Exercise 3: Develop a CSS file<span class="dt">&lt;/</span><span class="kw">title</span><span class="dt">&gt;</span></span>
+<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a>    <span class="dt">&lt;</span><span class="kw">style</span><span class="dt">&gt;</span></span>
+<span id="cb4-7"><a href="#cb4-7" aria-hidden="true" tabindex="-1"></a>      body { </span>
+<span id="cb4-8"><a href="#cb4-8" aria-hidden="true" tabindex="-1"></a>        <span class="kw">background-color</span><span class="ch">:</span> <span class="cn">lightgoldenrodyellow</span><span class="op">;</span></span>
+<span id="cb4-9"><a href="#cb4-9" aria-hidden="true" tabindex="-1"></a>        <span class="kw">color</span><span class="ch">:</span> <span class="cn">blue</span><span class="op">;</span></span>
+<span id="cb4-10"><a href="#cb4-10" aria-hidden="true" tabindex="-1"></a>      }</span>
+<span id="cb4-11"><a href="#cb4-11" aria-hidden="true" tabindex="-1"></a>      </span>
+<span id="cb4-12"><a href="#cb4-12" aria-hidden="true" tabindex="-1"></a>      img {</span>
+<span id="cb4-13"><a href="#cb4-13" aria-hidden="true" tabindex="-1"></a>        <span class="kw">border</span><span class="ch">:</span> <span class="dv">2</span><span class="dt">px</span> <span class="dv">solid</span> <span class="cn">blue</span><span class="op">;</span></span>
+<span id="cb4-14"><a href="#cb4-14" aria-hidden="true" tabindex="-1"></a>        <span class="kw">padding</span><span class="ch">:</span> <span class="dv">5</span><span class="dt">px</span><span class="op">;</span></span>
+<span id="cb4-15"><a href="#cb4-15" aria-hidden="true" tabindex="-1"></a>      }</span>
+<span id="cb4-16"><a href="#cb4-16" aria-hidden="true" tabindex="-1"></a>      </span>
+<span id="cb4-17"><a href="#cb4-17" aria-hidden="true" tabindex="-1"></a>      a {</span>
+<span id="cb4-18"><a href="#cb4-18" aria-hidden="true" tabindex="-1"></a>        <span class="kw">color</span><span class="ch">:</span> <span class="cn">red</span><span class="op">;</span></span>
+<span id="cb4-19"><a href="#cb4-19" aria-hidden="true" tabindex="-1"></a>      }</span>
+<span id="cb4-20"><a href="#cb4-20" aria-hidden="true" tabindex="-1"></a>    <span class="dt">&lt;/</span><span class="kw">style</span><span class="dt">&gt;</span></span>
+<span id="cb4-21"><a href="#cb4-21" aria-hidden="true" tabindex="-1"></a><span class="dt">&lt;/</span><span class="kw">head</span><span class="dt">&gt;</span></span>
+<span id="cb4-22"><a href="#cb4-22" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-23"><a href="#cb4-23" aria-hidden="true" tabindex="-1"></a><span class="dt">&lt;</span><span class="kw">body</span><span class="dt">&gt;</span></span>
+<span id="cb4-24"><a href="#cb4-24" aria-hidden="true" tabindex="-1"></a>    <span class="dt">&lt;</span><span class="kw">h2</span><span class="dt">&gt;</span>Links to well-known companies in Silicon Valley<span class="dt">&lt;/</span><span class="kw">h2</span><span class="dt">&gt;</span>    </span>
+<span id="cb4-25"><a href="#cb4-25" aria-hidden="true" tabindex="-1"></a>    <span class="dt">&lt;</span><span class="kw">img</span><span class="ot"> src</span><span class="op">=</span><span class="st">"img/tesla.png"</span><span class="ot"> alt</span><span class="op">=</span><span class="st">"Tesla Logo"</span><span class="dt">&gt;</span></span>
+<span id="cb4-26"><a href="#cb4-26" aria-hidden="true" tabindex="-1"></a>    <span class="dt">&lt;</span><span class="kw">h2</span><span class="dt">&gt;</span>Link to overview map Silicon Valley<span class="dt">&lt;/</span><span class="kw">h2</span><span class="dt">&gt;</span></span>
+<span id="cb4-27"><a href="#cb4-27" aria-hidden="true" tabindex="-1"></a>    <span class="dt">&lt;</span><span class="kw">a</span><span class="ot"> href</span><span class="op">=</span><span class="st">"https://siliconvalleyguide.info/"</span><span class="dt">&gt;</span>Map<span class="dt">&lt;/</span><span class="kw">a</span><span class="dt">&gt;</span></span>
+<span id="cb4-28"><a href="#cb4-28" aria-hidden="true" tabindex="-1"></a><span class="dt">&lt;/</span><span class="kw">body</span><span class="dt">&gt;</span></span>
+<span id="cb4-29"><a href="#cb4-29" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-30"><a href="#cb4-30" aria-hidden="true" tabindex="-1"></a><span class="dt">&lt;/</span><span class="kw">html</span><span class="dt">&gt;</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </section>
 </section>
 <section id="week-4-algorithms" class="level1">
@@ -655,17 +702,17 @@ R_s = 1\text{Mbit/sec} = \dfrac{32000}{1000} = 32\text{sec}
 <section id="exercise-1" class="level2">
 <h2 class="anchored" data-anchor-id="exercise-1">Exercise 1</h2>
 <p>Develop a recursive algorithm for the function <code>power(x, n)</code>.</p>
-<div id="6c71c743" class="cell" data-execution_count="1">
+<div id="c9e62e9d" class="cell" data-execution_count="1">
 <details open="" class="code-fold">
 <summary>Code</summary>
-<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> power(x, n):</span>
-<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> n <span class="op">==</span> <span class="dv">0</span>:</span>
-<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a>        <span class="cf">return</span> <span class="dv">1</span></span>
-<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a>    <span class="cf">else</span>:</span>
-<span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a>        <span class="cf">return</span> x <span class="op">*</span> power(x, n <span class="op">-</span> <span class="dv">1</span>)</span>
-<span id="cb6-6"><a href="#cb6-6" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-7"><a href="#cb6-7" aria-hidden="true" tabindex="-1"></a>res <span class="op">=</span> power(<span class="dv">2</span>, <span class="dv">3</span>)</span>
-<span id="cb6-8"><a href="#cb6-8" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(res)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> power(x, n):</span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> n <span class="op">==</span> <span class="dv">0</span>:</span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>        <span class="cf">return</span> <span class="dv">1</span></span>
+<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a>    <span class="cf">else</span>:</span>
+<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a>        <span class="cf">return</span> x <span class="op">*</span> power(x, n <span class="op">-</span> <span class="dv">1</span>)</span>
+<span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-7"><a href="#cb5-7" aria-hidden="true" tabindex="-1"></a>res <span class="op">=</span> power(<span class="dv">2</span>, <span class="dv">3</span>)</span>
+<span id="cb5-8"><a href="#cb5-8" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(res)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 <div class="cell-output cell-output-stdout">
 <pre><code>8</code></pre>
@@ -675,23 +722,23 @@ R_s = 1\text{Mbit/sec} = \dfrac{32000}{1000} = 32\text{sec}
 <section id="exercise-2" class="level2">
 <h2 class="anchored" data-anchor-id="exercise-2">Exercise 2</h2>
 <p>Develop a recursive algorithm for the product of the natural odd numbers from <code>m</code> to <code>n</code>: <code>product(m, n)</code>.</p>
-<div id="db5d7aa5" class="cell" data-execution_count="2">
+<div id="3908bb6c" class="cell" data-execution_count="2">
 <details open="" class="code-fold">
 <summary>Code</summary>
-<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> product(m: <span class="bu">int</span>, n: <span class="bu">int</span>) <span class="op">-&gt;</span> <span class="bu">int</span>:</span>
-<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a>  <span class="co">""" Returns the product of the odd numbers from m to n """</span></span>
-<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Check for only odd number inputs</span></span>
-<span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a>  <span class="cf">assert</span> m <span class="op">%</span> <span class="dv">2</span> <span class="op">==</span> <span class="dv">1</span> <span class="kw">and</span> n <span class="op">%</span> <span class="dv">2</span> <span class="op">==</span> <span class="dv">1</span></span>
-<span id="cb8-5"><a href="#cb8-5" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb8-6"><a href="#cb8-6" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Recursion</span></span>
-<span id="cb8-7"><a href="#cb8-7" aria-hidden="true" tabindex="-1"></a>  <span class="cf">if</span> m <span class="op">==</span> n:</span>
-<span id="cb8-8"><a href="#cb8-8" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> m</span>
-<span id="cb8-9"><a href="#cb8-9" aria-hidden="true" tabindex="-1"></a>  <span class="cf">else</span>:</span>
-<span id="cb8-10"><a href="#cb8-10" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> m <span class="op">*</span> product(m <span class="op">+</span> <span class="dv">2</span>, n)</span>
-<span id="cb8-11"><a href="#cb8-11" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb8-12"><a href="#cb8-12" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb8-13"><a href="#cb8-13" aria-hidden="true" tabindex="-1"></a>res <span class="op">=</span> product(<span class="dv">3</span>, <span class="dv">11</span>)</span>
-<span id="cb8-14"><a href="#cb8-14" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(res)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> product(m: <span class="bu">int</span>, n: <span class="bu">int</span>) <span class="op">-&gt;</span> <span class="bu">int</span>:</span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>  <span class="co">""" Returns the product of the odd numbers from m to n """</span></span>
+<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Check for only odd number inputs</span></span>
+<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a>  <span class="cf">assert</span> m <span class="op">%</span> <span class="dv">2</span> <span class="op">==</span> <span class="dv">1</span> <span class="kw">and</span> n <span class="op">%</span> <span class="dv">2</span> <span class="op">==</span> <span class="dv">1</span></span>
+<span id="cb7-5"><a href="#cb7-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-6"><a href="#cb7-6" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Recursion</span></span>
+<span id="cb7-7"><a href="#cb7-7" aria-hidden="true" tabindex="-1"></a>  <span class="cf">if</span> m <span class="op">==</span> n:</span>
+<span id="cb7-8"><a href="#cb7-8" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> m</span>
+<span id="cb7-9"><a href="#cb7-9" aria-hidden="true" tabindex="-1"></a>  <span class="cf">else</span>:</span>
+<span id="cb7-10"><a href="#cb7-10" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> m <span class="op">*</span> product(m <span class="op">+</span> <span class="dv">2</span>, n)</span>
+<span id="cb7-11"><a href="#cb7-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-12"><a href="#cb7-12" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-13"><a href="#cb7-13" aria-hidden="true" tabindex="-1"></a>res <span class="op">=</span> product(<span class="dv">3</span>, <span class="dv">11</span>)</span>
+<span id="cb7-14"><a href="#cb7-14" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(res)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 <div class="cell-output cell-output-stdout">
 <pre><code>10395</code></pre>

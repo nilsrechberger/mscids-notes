@@ -1,7 +1,7 @@
 ---
 title: DevOps - Exercises
 author: Nils Rechberger
-date: 2026-004-09
+date: 2026-04-09
 ---
 
 ::: {.callout}

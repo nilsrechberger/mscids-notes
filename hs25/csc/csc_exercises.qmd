@@ -9,6 +9,8 @@ toc: true
 
 **Example: `45.375`**
 
+## Decimal to Binary Conversion
+
 ### 1. Integer Part (`45`)
 - **Method:** Repeatedly divide by 2 & note the remainder.
 - **Calculation:**
@@ -111,7 +113,7 @@ $$
 
 ## Exercise 3: Domains, Hosts and URLs
 
-```{bash}
+```{mermaid}
 flowchart TD
     A(Root) --> B(edu)
     B --> C[umass]

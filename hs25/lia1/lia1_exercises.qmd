@@ -1,6 +1,6 @@
 ---
-title: Linear Algebra 01
-autor: Nils Rechberger
+title: Linear Algebra 01 - Exercises
+author: Nils Rechberger
 toc: true
 ---
 

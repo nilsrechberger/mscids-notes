@@ -48,7 +48,7 @@ Tabels are the most common form of datasets
 
 The aim of EDA ist to summarize data by numerical parameters and graphical representation of data. Data should if possible always be graphically displayed and compared with corresponding key figures.
 
-> Note:  Note: whenever a dataset is reduced by key figures or graphics, information gets lost.
+> Note: whenever a dataset is reduced by key figures or graphics, information gets lost.
 
 # Key Figures
 
@@ -79,7 +79,7 @@ mean(x)
 
 > Note: The arithmetic mean is not robust to outliers.
 
-## Empirical Variancehave
+## Empirical Variance
 
 The value of empirical variance has no physical interpretation.
 
@@ -573,7 +573,7 @@ p-value is probability of observing an event under null hypothesis that is at le
 
 # Week 06: t-Test, Wilcoxon-Test, Confidence Interval
 
-### $t$-Distribution
+## $t$-Distribution
 
 Distribution of test statistics for t-test under null hypothesis. Similar to normal distribution, but flatter, due to greater uncertainty. Depends on number of observations. Symmetric distribution around $0$, but flattens out slower than standard normal distribution $\mathcal{N} (0, 1)$
 

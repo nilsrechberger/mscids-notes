@@ -6,6 +6,11 @@
 # Quarto
 /.quarto/
 
+# Per-source-file build byproducts (e.g. LaTeX figure caches for diagrams),
+# next to a .qmd file. The published site under docs/ stays tracked.
+*_files/
+!docs/**/*_files/
+
 # Python
 /.venv/
 
@@ -13,9 +18,6 @@
 data/
 */data/
 */*/data/
-
-# Image directories
-*/*/img
 
 # Tmp
 submissions/

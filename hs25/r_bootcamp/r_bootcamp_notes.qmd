@@ -299,7 +299,7 @@ ggplot(
     mapping = aes(
         x = x_var,
         y = y_var
-    ) +
+    )
 ) + geom_point()
 ```
 

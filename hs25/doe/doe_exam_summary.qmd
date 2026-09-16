@@ -752,7 +752,7 @@ pwr.anova.test(f = 0.25, k = 2, power = power, sig.level = alpha)
 ```{r}
 # install.packages("readxl")
 library(readxl)
-data <- read_excel(path="/home/nils/dev/mscids-notes/hs25/doe/data/clickrate.xlsx")
+data <- read_excel(path="./data/clickrate.xlsx")
 oneway.test(DV ~ factor(IV1), var.equal=TRUE, data=data)
 fit <- aov(DV ~ factor(IV1), data=data)
 summary(fit, intercept=TRUE)
@@ -774,7 +774,7 @@ We can reduce the combination of experiments from 27 (Full Factorial) to 9 (Frac
 
 ```{r}
 library(readxl)
-dwelltime_Latin <- read_excel("/home/nils/dev/mscids-notes/hs25/doe/data/dwelltime_latin.xlsx")
+dwelltime_Latin <- read_excel("./data/dwelltime_latin.xlsx")
 View(dwelltime_Latin)
 fit <- aov(DV ~ factor(A) + factor(B) + factor(C), data = dwelltime_Latin)
 summary(fit)

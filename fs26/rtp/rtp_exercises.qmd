@@ -21,7 +21,7 @@ What is the expected period (time period of repetition) and the time step for th
 ## Exercise 1.2
 
 ```{r}
-hstart <- read.table("/home/nils/dev/mscids-notes/fs26/rtp/data/hstart.dat")
+hstart <- read.table("./data/hstart.dat")
 
 ts <- ts(hstart,start=c(1966,1),freq=12)
 
@@ -179,7 +179,7 @@ Since we applied backward differencing twice, the length of the output time seri
 ### A
 
 ```{r}
-hstart <- read.table("/home/nils/dev/mscids-notes/fs26/rtp/data/hstart.dat")
+hstart <- read.table("./data/hstart.dat")
 
 ts <- ts(hstart[, 1], start = c(1966, 1), frequency = 12)
 hstart_stl <- stl(ts, s.window = "periodic")
@@ -190,7 +190,7 @@ plot(hstart_stl)
 ### B
 
 ```{r}
-hstart <- read.table("/home/nils/dev/mscids-notes/fs26/rtp/data/hstart.dat")
+hstart <- read.table("./data/hstart.dat")
 
 ts <- ts(hstart[, 1], start = c(1966, 1), frequency = 12)
 
@@ -205,7 +205,7 @@ lines(hstart_stl$time.series[, "trend"], col = "red")
 ### C
 
 ```{r}
-hstart <- read.table("/home/nils/dev/mscids-notes/fs26/rtp/data/hstart.dat")
+hstart <- read.table("./data/hstart.dat")
 
 ts <- ts(hstart[, 1], start = c(1966, 1), frequency = 12)
 plot(ts)
@@ -239,7 +239,7 @@ legend("topleft", legend = paste("Lag", 1:12), col = rainbow(12), lty = 1, ncol 
 ## Exercise 3.2
 
 ```{r}
-cbe <- read.table("/home/nils/dev/mscids-notes/fs26/rtp/data/cbe.dat", header = TRUE)
+cbe <- read.table("./data/cbe.dat", header = TRUE)
 ts <- ts(cbe$elec,  start = c(1958, 1), frequency = 12)
 plot(ts)
 ```
@@ -280,7 +280,7 @@ acf(decomp$random, na.action = na.pass)
 ### E
 
 ```{r}
-cbe <- read.table("/home/nils/dev/mscids-notes/fs26/rtp/data/cbe.dat", header = TRUE)
+cbe <- read.table("./data/cbe.dat", header = TRUE)
 ts <- ts(cbe$elec,  start = c(1958, 1), frequency = 12)
 
 ts.2 <- diff(ts, lag=1)
@@ -288,7 +288,7 @@ plot(ts.2)
 ```
 
 ```{r}
-cbe <- read.table("/home/nils/dev/mscids-notes/fs26/rtp/data/cbe.dat", header = TRUE)
+cbe <- read.table("./data/cbe.dat", header = TRUE)
 ts <- ts(cbe$elec,  start = c(1958, 1), frequency = 12)
 
 ts.3 <- diff(ts, lag=12)
@@ -339,7 +339,7 @@ lines(1:100, estim_pacf, type = "l")
 ## Exercise 4.2
 
 ```{r}
-data <- read.table("/home/nils/dev/mscids-notes/fs26/rtp/data/kreatin.dat", header=TRUE)
+data <- read.table("./data/kreatin.dat", header=TRUE)
 ```
 
 ### A
@@ -364,7 +364,7 @@ pacf(ts)
 ## Exercise 4.3
 
 ```{r}
-data <- read.table("/home/nils/dev/mscids-notes/fs26/rtp/data/ts_S3_A2.dat", header=TRUE)
+data <- read.table("./data/ts_S3_A2.dat", header=TRUE)
 ```
 
 ### A

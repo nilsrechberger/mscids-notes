@@ -19,14 +19,12 @@ You can use Python in two main ways: ad-hoc in your terminal or as a script in a
 The terminal (also called Shell, PowerShell, or Command Line) is a text-based interface to your computer.
 
 By running `python3` (or just python on some systems), you start the interactive interpreter and can directly enter and immediately execute Python commands:
-Bash
 
 ```bash
 python3
 ```
 
 To exit the Python interpreter and return to the regular terminal, use the `quit()` function:
-Python
 
 ```python
 quit()
@@ -60,3 +58,7 @@ An IDE is a special application that makes writing code easier – comparable to
 - Debugging Tools: Tools for finding and fixing errors.
 
 There are many excellent IDEs available. Choose one you like, for example: VS Code, Spyder, or PyCharm. Essentially, they all serve the same purpose with different extra features.
+
+::: {.callout-tip}
+Check out the [Python Cheat Sheet](../files/cheat_sheet_python.pdf).
+:::

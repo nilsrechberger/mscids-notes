@@ -289,7 +289,7 @@ else:
 
 Write a python program that constructs the following pattern using a nested for loop:
 
-```{txt}
+```txt
 *
 **
 ***
@@ -412,7 +412,7 @@ Suppose we wish to draw a Christmas tree.
 Example tree - desired height: 8
 The result looks like:
 
-```{txt}
+```txt
      x
     xxx
    xxxxx
@@ -514,7 +514,7 @@ even_num = extract_even_num((1, 2, 3 ,4, 5, 6, 7, 8, 9))
 print(even_num)
 ```
 
-## Exercice 2
+## Exercise 2
 
 Write a function accepts a list as input and returns the unique values contained in that list as a list. Hint: you can use the "set" method to check your solution.
 
@@ -593,7 +593,7 @@ def main():
 main()
 ```
 
-## Extercise 4
+## Exercise 4
 
 Keyword parameters
 If we want call the function circumference(2) with the 'width' 2
@@ -681,7 +681,7 @@ while band < len(musicians):
 
 ## Exercise 02
 
-Change the solution of Exercise 02 so that the program writes the output to the file 'musicians2.txt'.
+Change the solution of Exercise 01 so that the program writes the output to the file 'musicians2.txt'.
 
 ```{python}
 with open('data/musicians.txt', mode='r') as file: # Read file
@@ -1086,7 +1086,7 @@ for elem in obj_list:
 
 ```python
 '''
-Collection of ...FILL HERE...
+Collection of methods to manipulate strings.
 '''
 module_variable = "Hello"
 
@@ -1155,7 +1155,7 @@ import numpy as np
 import pandas as pd
 
 # df means Data Frame
-df = pd.read_csv('/home/nils/dev/mscids-notes/hs25/pds/data/airquality.csv')
+df = pd.read_csv('./data/airquality.csv')
 
 # Preview
 df.head(n=10)

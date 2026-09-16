@@ -1,5 +1,5 @@
 ---
-title: "Comuter Science Concepts for Data Science - Notes"
+title: "Computer Science Concepts for Data Scientists - Notes"
 toc: true
 ---
 
@@ -151,9 +151,9 @@ Descriptive Language HTML, with a set of HTML elements/tags, is used to create W
 
 Most HTML Elements are characterized by having a start and end tag.
 
-```{html}
+```html
 <h1>Header 1</h1>
-<p>Paragraph</p> 
+<p>Paragraph</p>
 ```
 
 - Headings: Headings are text size pre-sets ranging from `<h1>` to `<h6>`
@@ -168,7 +168,7 @@ Most HTML Elements are characterized by having a start and end tag.
 
 It is possible to include elements within elements. Such constructs are being referred to as nested elements.
 
-```{html}
+```html
 <p>Star<b>Wars</b></p>
 ```
 
