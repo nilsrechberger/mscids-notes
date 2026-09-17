@@ -370,7 +370,7 @@ A very common way to estimate the performance of a binary model is too look at p
 
 ```{r}
 d.stab <- read.table(
-    "/home/nils/dev/mscids-notes/fs26/mpm1/data/stability.dat",
+    "./data/stability.dat",
     stringsAsFactors = TRUE,
     header = TRUE
 )

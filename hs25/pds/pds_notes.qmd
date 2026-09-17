@@ -34,7 +34,7 @@ A Python script is a collection of commands. Executing a Python script means sen
 
 To avoid dependency issues of packages and keep the development environment clean, developers programme applications in virtual environments.
 
-```{bash}
+```bash
 Python3 -m venv .venv # Standard name
 ```
 
@@ -42,7 +42,7 @@ Python3 -m venv .venv # Standard name
 
 You need to activate the virtual environment.
 
-```{bash}
+```bash
 . .venv/bin/activate # For Linux
 ```
 
@@ -142,7 +142,7 @@ Block operations start with a colon (:) and are defined by indentations. Indenta
 
 ## Single block
 
-```{markdown}
+```markdown
 instruction
 instruction
 block header:
@@ -155,7 +155,7 @@ instruction
 
 ## Nested blocks
 
-```{markdown}
+```markdown
 instruction
 instruction
 block 1 header:

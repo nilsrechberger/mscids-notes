@@ -350,16 +350,16 @@ $$
 ### Example Pattern
 
 **1. Total Variables (p)**
-There are 6 variables in total: Prefix, Assignment, Tutorial, Midterm, TakeHome, and Final[cite: 156]. 
+There are 6 variables in total: Prefix, Assignment, Tutorial, Midterm, TakeHome, and Final.
 * `p = 6`
 
 **2. Observed Variables per Pattern (p_j)**
-[cite_start]Based on the `md.pattern` output, we have three distinct missingness patterns[cite: 155, 184]:
-* [cite_start]**Pattern 1 (Complete cases):** All 6 variables are fully observed for 95 rows[cite: 157, 158, 159, 160, 161, 162].
+Based on the `md.pattern` output, we have three distinct missingness patterns:
+* **Pattern 1 (Complete cases):** All 6 variables are fully observed for 95 rows.
     * $p_1 = 6$
-* [cite_start]**Pattern 2 (Missing Final):** 5 variables are observed (Final is missing) for 3 rows[cite: 164, 165, 166, 167, 168, 169].
+* **Pattern 2 (Missing Final):** 5 variables are observed (Final is missing) for 3 rows.
     * $p_2 = 5$
-* [cite_start]**Pattern 3 (Missing TakeHome):** 5 variables are observed (TakeHome is missing) for 1 row[cite: 171, 172, 173, 174, 175, 176].
+* **Pattern 3 (Missing TakeHome):** 5 variables are observed (TakeHome is missing) for 1 row.
     * $p_3 = 5$
 
 **3. Sum of Observed Variables (sum(p_j))**
@@ -696,7 +696,7 @@ external validity, often lower internal validity.
 - Are the findings precisely and coherently reported?
 - Is the value of the work evident?
 
-> Note: [https://dl.acm.org/doi/10.1145/3356901](Shakeel et. al. (2020))
+> Note: [Shakeel et. al. (2020)](https://dl.acm.org/doi/10.1145/3356901)
 
 ## Reproducibility vs. Replicability
 

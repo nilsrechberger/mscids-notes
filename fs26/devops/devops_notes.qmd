@@ -591,7 +591,7 @@ print(user.id)
 Python comes with built-in testing capabilities.
 
 ```python
-assert sum([1, 2, 3]) == 6, „Should be 6“
+assert sum([1, 2, 3]) == 6, "Should be 6"
 ```
 
 - assertEqual(a, b) - checks a == b
@@ -929,8 +929,6 @@ def ordinary():
 
 ordinary() 
 ```
-
-### Build-in Decorators
 
 ### Built-in Python Decorators
 

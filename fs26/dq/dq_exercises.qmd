@@ -1,5 +1,5 @@
 ---
-title: Data Quality - Notes
+title: Data Quality - Exercises
 author: Nils Rechberger
 date: 2026-02-23
 ---
@@ -67,7 +67,7 @@ Using R, generate a boxplot broken down by gender (variable sex). How can the bo
 ```{r}
 library(readxl)
 
-data <- read_excel("/home/nils/dev/mscids-notes/fs26/dq/data/HSE.xlsx")
+data <- read_excel("./data/HSE.xlsx")
 
 boxplot(wtval ~ sex, data = data)
 ```
@@ -117,7 +117,7 @@ library(readxl)
 library(mice)
 library(tidyverse)
 
-data <- read_excel("/home/nils/dev/mscids-notes/fs26/dq/data/grades.xlsx")
+data <- read_excel("./data/grades.xlsx")
 
 # Missing pattern
 md.pattern(data)
@@ -142,7 +142,7 @@ if (!require("mice")) install.packages("mice", dependencies=TRUE)
 library(readxl)
 library(mice)
 
-data <- read_excel("/home/nils/dev/mscids-notes/fs26/dq/data/grades.xlsx")
+data <- read_excel("./data/grades.xlsx")
 
 # Missing pattern
 md.pattern(data)
@@ -174,7 +174,7 @@ if (!require("dplyr")) install.packages("dplyr", dependencies=TRUE)
 library(readxl)
 library(dplyr)
 
-data <- read_excel("/home/nils/dev/mscids-notes/fs26/dq/data/HSE.xlsx")
+data <- read_excel("./data/HSE.xlsx")
 data
 data.M <- data %>% filter(sex == 1)
 data.F <- data %>% filter(sex == 2)
@@ -230,7 +230,7 @@ if (!require("outliers")) install.packages("outliers", dependencies=TRUE)
 library(readxl)
 library(outliers)
 
-data <- read_excel("/home/nils/dev/mscids-notes/fs26/dq/data/HSE.xlsx")
+data <- read_excel("./data/HSE.xlsx")
 
 # Grubbs' test for the maximum value
 grubbs_result <- grubbs.test(data$wtval)
@@ -265,7 +265,7 @@ library(readxl)
 library(MVA)
 library(cluster)
 
-data <- read_excel("/home/nils/dev/mscids-notes/fs26/dq/data/data_extreme.xlsx")
+data <- read_excel("./data/data_extreme.xlsx")
 head(data)
 data
 
@@ -306,7 +306,7 @@ plot(silhouette(groups_km, dists))
 library(readxl)
 library(questionr)
 
-data <- read_excel("/home/nils/dev/mscids-notes/fs26/dq/data/learning.xlsx")
+data <- read_excel("./data/learning.xlsx")
 
 data <- rename.variable(data, "effort", "x")
 data <- rename.variable(data, "success", "y")
@@ -387,7 +387,7 @@ repeat {
 library(readxl)
 library(dbscan)
 
-data <- read_excel("/home/nils/dev/mscids-notes/fs26/dq/data/learning.xlsx")
+data <- read_excel("./data/learning.xlsx")
 
 head(data)
 plot(data)

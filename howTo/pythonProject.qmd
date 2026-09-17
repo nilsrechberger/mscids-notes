@@ -83,10 +83,10 @@ You must activate the environment before installing packages or running your cod
 # For Mac/Linux
 . .venv/bin/activate
 
-# For Windowns (PowerShell)
+# For Windows (PowerShell)
 .venv\Scripts\Activate.ps1
 
-# For Windowns (CMD)
+# For Windows (CMD)
 .\.venv\Scripts\activate.bat
 ```
 

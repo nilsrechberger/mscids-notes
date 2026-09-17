@@ -42,7 +42,7 @@ There are more death by heart diseases than accidents.
 
 Since the engine is the only thing that keeps a plane in the air, it makes sense for it to be more armoured than the rest of the plane. Even if other parts have more bullet holes on average (e.g. the fuselage), the plane could still fly.
 
-# Problem 1.2
+## Problem 1.2
 
 ```{r}
 # Define vectors
@@ -151,13 +151,13 @@ cat("Median stays the same:", originla_meadian, "=", new_median)
 
 # Problems 2
 
-## Probmel 2.1
+## Problem 2.1
 
 ### a
 
 ```{r}
 # Read data
-data <- read.csv('/home/nils/dev/mscids-notes/hs25/sa/data/husband_wife.csv')
+data <- read.csv('./data/husband_wife.csv')
 head(data)
 ```
 
@@ -206,7 +206,7 @@ boxplot(count ~ spray,
 ## Problem 2.3
 
 ```{r}
-data <- read.csv('/home/nils/dev/mscids-notes/hs25/sa/data/Diet.csv')
+data <- read.csv('./data/Diet.csv')
 head(data)
 ```
 
@@ -857,7 +857,7 @@ There is not a statistically significant difference.
 ## Problem 6.6
 
 ```{r}
-mf <- read.csv("/home/nils/dev/mscids-notes/hs25/sa/data/husband_wife.csv")
+mf <- read.csv("./data/husband_wife.csv")
 diff <- mf$age.husband - mf$age.wife
 
 boxplot(diff, col = "orange")
@@ -903,10 +903,10 @@ It is an unpaired and a two-sided test.
 - Null hypotheses: There is no difference between the two groups.
 - Alternative hypothesis: There is a difference between the two groups.
 
-### III
+#### III
 
 ```{r}
-t.test(x=mf$height.husband, y=mf$height.wife, , mu=13, alternative="two.sided", paired=FALSE, conf.level=0.95)
+t.test(x=mf$height.husband, y=mf$height.wife, mu=13, alternative="two.sided", paired=FALSE, conf.level=0.95)
 ```
 
 There is not a statistically significant difference.
@@ -979,7 +979,7 @@ True
 ### a
 
 ```{r}
-inc <- read.table("/home/nils/dev/mscids-notes/hs25/sa/data/income.dat", header=TRUE)
+inc <- read.table("./data/income.dat", header=TRUE)
 ```
 
 ### b
@@ -1002,7 +1002,7 @@ m$coefficients
 - a: The regression line crosses the $y$ axis at the point $x$ = -40199.575.
 - b: Fore one step at the direction $x$ (one year of education), we increase the salary by 6451.475.
 
-## d
+### d
 
 ```{r}
 cat("The correlaiton between the education and income is:", cor(inc$Educ, inc$Income2005))
@@ -1071,10 +1071,10 @@ cat("The correlaiton between the x4 and y4 is:", cor(anscombe$x4, anscombe$y4))
 
 The correlation value is almost identical.
 
-### Problem 7.3
+## Problem 7.3
 
 ```{r}
-install.packages("ISLR")
+if (!require("ISLR")) install.packages("ISLR")
 library(ISLR)
 ```
 
@@ -1124,7 +1124,7 @@ model <- lm(mpg ~ horsepower, data=Auto)
 abline(model, col="red")
 ```
 
-### Problem 7.4
+## Problem 7.4
 
 ### a
 
@@ -1197,7 +1197,7 @@ The $R^2$-value is 0.5441, so about 54 % of the variability is explained by the 
 ## Problem 8.1
 
 ```{r}
-Auto <- read.csv("/home/nils/dev/mscids-notes/hs25/sa/data/auto.csv")
+Auto <- read.csv("./data/auto.csv")
 
 # Read data
 head(Auto)
@@ -1250,7 +1250,7 @@ summary(model)
 ## Problem 8.2
 
 ```{r}
-boston <- read.csv("/home/nils/dev/mscids-notes/hs25/sa/data/boston.csv")
+boston <- read.csv("./data/boston.csv")
 head(boston)
 ```
 
@@ -1303,7 +1303,7 @@ more.
 ### a
 
 ```{r}
-cs <- read.csv("/home/nils/dev/mscids-notes/hs25/sa/data/carseats.csv")
+cs <- read.csv("./data/carseats.csv")
 head(cs)
 ```
 
@@ -1361,7 +1361,7 @@ P(B|L) = \dfrac{P(L|B)P(B)}{P(L)}
 $$
 
 - $P(L|B) = 60\%$
-- $P(B)$ = 25\%$
+- $P(B) = 25\%$
 - $P(L) = [P(L∣A)⋅P(A)]+[P(L∣B)⋅P(B)]+[P(L∣C)⋅P(C)] = 0.20+0.15+0.1225=0.4725$
 
 $$

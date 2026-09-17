@@ -2,6 +2,9 @@
 title: Applied Machine Learning and Predictive Modelling 1 - Exercises
 author: Nils Rechberger
 date: 2026-02-21
+execute:
+  warning: false
+  message: false
 ---
 
 # Series 1: Linear Models
@@ -10,7 +13,7 @@ In class we fitted a model to the “cats” dataset. You may remember that the 
 
 ```{r}
 d.cats <- read.csv(
-    file = "/home/nils/dev/mscids-notes/fs26/mpm1/data/Cats.csv",
+    file = "./data/Cats.csv",
     header = TRUE,
     stringsAsFactors = TRUE
     )
@@ -327,7 +330,7 @@ plot(
 # Series 3: GLMs - Binominal
 
 ```{r}
-d.xray <- readRDS("/home/nils/dev/mscids-notes/fs26/mpm1/data/Xray.RDS")
+d.xray <- readRDS("./data/Xray.RDS")
 str(d.xray)
 ```
 
@@ -476,7 +479,7 @@ As expected (from the graphical analysis), we can confirm that there is a clear 
 # Series 4: Cross Validation
 
 ```{r}
-d.xray <- readRDS("/home/nils/dev/mscids-notes/fs26/mpm1/data/Xray.RDS")
+d.xray <- readRDS("./data/Xray.RDS")
 str(d.xray)
 ```
 

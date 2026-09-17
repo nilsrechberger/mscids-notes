@@ -6,6 +6,13 @@
 # Quarto
 /.quarto/
 
+# Per-source-file build byproducts (e.g. LaTeX figure caches for diagrams),
+# next to a .qmd file.
+*_files/
+
+# Rendered site: built and deployed by the render.yml GitHub Action.
+/docs/
+
 # Python
 /.venv/
 
@@ -13,9 +20,6 @@
 data/
 */data/
 */*/data/
-
-# Image directories
-*/*/img
 
 # Tmp
 submissions/

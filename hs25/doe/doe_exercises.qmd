@@ -358,7 +358,7 @@ more data traffic. Other variants are refined and tested with proportionally les
 based on the observed success. As the test progresses, more and more information about the performance of the variants becomes
 available, so that the most successful variant can be identified dynamically. Th dynamic version is harder to implement and needs to run long enough.
 
-# Task 02
+## Task 02
 
 A multivariate test for a website was carried out.
 The test measured the average click rate (number of clicks on advertising banners) on a website.
@@ -371,12 +371,12 @@ Use a univariate ANOVA to answer the question.
 Describe the results – insert also the R-code, the R-output and if necessary, R-plots.
 Data set: clickrate.xlsx → ILIAS → "Data Resources & R Files"
 
-## Answer
+### Answer
 
 ```{r}
 # install.packages("readxl")
 library(readxl)
-data <- read_excel(path="/home/nils/dev/mscids-notes/hs25/doe/data/clickrate.xlsx")
+data <- read_excel(path="./data/clickrate.xlsx")
 oneway.test(DV ~ factor(IV1), var.equal=TRUE, data=data)
 fit <- aov(DV ~ factor(IV1), data=data)
 summary(fit, intercept=TRUE)
@@ -430,7 +430,7 @@ We can reduce the combination of experiments from 27 (Full Factorial) to 9 (Frac
 ```{r}
 library(readxl)
 
-dwelltime_Latin <- read_excel("/home/nils/dev/mscids-notes/hs25/doe/data/dwelltime_latin.xlsx")
+dwelltime_Latin <- read_excel("./data/dwelltime_latin.xlsx")
 View(dwelltime_Latin)
 
 fit <- aov(DV ~ factor(A) + factor(B) + factor(C), data = dwelltime_Latin)
