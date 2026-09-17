@@ -1,6 +1,0 @@
-/* Keep the "Old Notes" archive dropdown (grows every semester) scrollable
-   instead of overflowing the viewport on short/mobile screens. */
-.navbar .dropdown-menu {
-  max-height: 80vh;
-  overflow-y: auto;
-}
