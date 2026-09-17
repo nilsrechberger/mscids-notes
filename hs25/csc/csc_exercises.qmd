@@ -113,6 +113,7 @@ $$
 
 ## Exercise 3: Domains, Hosts and URLs
 
+::: {.content-visible unless-format="pdf"}
 ```{mermaid}
 flowchart TD
     A(Root) --> B(edu)
@@ -135,6 +136,11 @@ flowchart TD
         F
     end
 ```
+:::
+
+::: {.content-visible when-format="pdf"}
+*(Diagram omitted in PDF export — see the HTML version.)*
+:::
 
 ## Exercise 4: http Protocol
 
