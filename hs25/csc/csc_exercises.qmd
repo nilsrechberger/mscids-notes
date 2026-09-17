@@ -113,34 +113,7 @@ $$
 
 ## Exercise 3: Domains, Hosts and URLs
 
-::: {.content-visible unless-format="pdf"}
-```{mermaid}
-flowchart TD
-    A(Root) --> B(edu)
-    B --> C[umass]
-    C --> E(cs)
-    F[gaia]
-    D[www]
-
-    %% Subgraph trick
-    subgraph row1[ ]
-        direction LR
-        C
-        D
-    end
-
-    %% Subgraph trick
-    subgraph row2[ ]
-        direction LR
-        E
-        F
-    end
-```
-:::
-
-::: {.content-visible when-format="pdf"}
-*(Diagram omitted in PDF export — see the HTML version.)*
-:::
+![](img/domain_tree_exercise.png)
 
 ## Exercise 4: http Protocol
 
