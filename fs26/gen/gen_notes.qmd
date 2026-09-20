@@ -1,0 +1,287 @@
+---
+title: Generative AI - Notes
+author: Nils Rechberger
+date: 2026-09-17
+---
+
+# Lecture 01: Introduction to Generative AI
+
+## What is AI?
+
+Artificial Intelligence is the study and construction of systems that perform tasks which, when performed by humans, we describe as requiring intelligence.
+
+> Note: There is no single accepted definition.
+
+Two properties of this definition matter more than the definition itself:
+
+- It is defined by task, not by mechanism. Nothing is said about how the system works inside.
+- It is a moving target. Route planning, spell checking and speech transcription were all called AI until they worked reliably, after which they quietly became software.
+
+![AI Definition by Russel & Norving](img/rus_nor_matrix_ai_def.png)
+
+### Tradition vs. Statistical Learning
+
+![Tradition vs. Statistical Learning](img/trad_vs_stats.png)
+
+### GenAI in the World of Data Science
+
+![Where Generative AI sits](img/ai_location.png)
+
+## History of AI
+
+### AI Winter
+
+An AI Winter is a period of sharply reduced funding, interest, and commercial development in artificial intelligence, typically triggered by overhyped expectations followed by disappointing real-world results.
+
+1. Demonstrations generalise badly: A demo shows the best case on chosen inputs. Deployment cost is dominated by the worst case, and nobody demos that.
+2. The last ten percent is most of the work: Expert systems did not fail on accuracy. They failed on maintenance, because the rules had to be kept current by the experts who wrote them.
+3. Capability and value are different variables: Both winters arrived while the technology was still improving. Improvement is not adoption, and adoption is not profit.
+
+## What is GenAI?
+
+### Discriminative and Generative Models
+
+![Discriminative and Generative Models](img/discriminative_and_generative_models.png)
+
+A model that has learned $p(x)$ can be used discriminatively. The reverse does not work. That asymmetry is why one pretrained language model handles classification, extraction, translation and summarisation, where the previous generation needed a separate trained model for each.
+
+### What a Language Model really is
+
+Strip away the interface and a language model does exactly one thing: given some text, it produces a probability for every possible next piece of text. Three consequences follow directly. Almost every complaint about these systems is one
+of them, wearing a different hat:
+
+- The output is a sample, so the same prompt legitimately gives different answers on different runs.
+- The model is fitted to what is likely, not to what is true. A plausible citation and a real one look identical from the inside.
+- Whatever was rare or absent in the data is rare or absent in the model, however confidently it is described.
+
+### Families of generative models
+
+![Families of generative models](img/gen_ai_families.png)
+
+#### Modalities
+
+![Modalities](img/modalities.png)
+
+
+::: {.callout-note}
+
+A multimodal model pushes several of these into one shared space, so a picture and a sentence describing it land close together. Once they do, either can condition the generation of the other. That is the whole basis of text-to-image.
+
+:::
+
+## Where is GenAI
+
+- Software engineering: Code completion, test generation, migration, review.
+- Customer service: First-line response drafting, ticket routing, call summarisation.
+- Marketing and sales: Copy variants, personalisation, lead research, CRM notes.
+- Finance and controlling: Report drafting, variance commentary, document extraction.
+- Legal and compliance: Contract review against a playbook, clause extraction.
+- Human resources: Job descriptions, screening support, policy question answering.
+- Research and development: Literature search, hypothesis generation, simulation surrogates.
+
+Depending on the field, GenAI can be deploy as an assistant, embedded feature or agent.
+
+## Introduction to LLMs
+
+The probability of a whole text splits exactly into a product of one-step predictions:
+
+$$
+p(x_1, x_2, \dots, x_T) = \prod_{t=1}^{T} p(x_t \mid x_1 \dots x_{t-1})
+$$
+
+Read it right to left: the probability of the whole is the probability of each piece given everything before it. The split is exact, so all of the modelling sits in that one conditional, and that conditional is what the network computes.
+
+
+::: {.callout-note}
+
+Two things follow, and both are load-bearing:
+
+- The label is free. The right answer is just the next word in the text, so nobody has to annotate anything. This is what makes training on the whole web possible.
+- Everything else is a side effect. Grammar, world knowledge, translation and arithmetic were never trained for. They are what it takes to predict text well.
+
+:::
+
+### Tokenisation
+
+Text is cut into subword pieces, each with an integer id. The vocabulary is learned from the corpus: frequent strings survive whole, rare ones get split.
+
+Three consequences you will meet using these systems:
+
+- Arithmetic is unreliable, partly because a number has no stable representation.
+- Counting letters or reversing a word is hard, for the same reason.
+- Some languages need more pieces per word than English, so the same sentence costs more to process. Multilingual products pay a tax nobody budgets for.
+
+### Embeddings
+
+Each token identifier is replaced by a vector of a few thousand numbers, learned along with everything else. Tokens that appear in similar contexts end up near each other.
+
+- Similarity becomes geometry: distance in this space is a usable measure of relatedness, which no dictionary lookup gives you.
+- Position in the sentence is added separately. Without it, the machinery that follows would treat a sentence as an unordered bag of words.
+- The same vectors, taken from an intermediate layer, are what search systems index.
+
+> Note: Semantic search over your own documents is a nearest-neighbour query in this space
+
+### Self-attention
+
+Self-attention is a mechanism in deep learning that allows a model to weigh the importance of different tokens in a sequence relative to each other, regardless of their position.Instead of processing data sequentially (like traditional RNNs), it evaluates the entire input at once to capture long-range dependencies and context. For each input token, the model creates three vectors:
+
+- Query ($Q$): What the token is looking for.
+- Key ($K$): What the token contains/offers.
+- Value ($V$): The actual representation of the token to pass along.
+
+The model computes dot products of the Query with all Keys to determine relevance scores, applies a Softmax function to turn scores into probabilities (weights), and multiplies these weights by the Values.
+
+$$
+\text{Attention}(Q, K, V) = \text{softmax}\left(\frac{QK^T}{\sqrt{d_k}}\right)V
+$$
+
+> Note: Multi-head attention runs several of these side by side with separate projections, so different heads can follow different relations at once.
+
+#### Properties of Attention
+
+1. It is parallel: Every position is computed at the same time. A recurrent network has to finish word t before it can start word t + 1; a transformer does not. This is why the architecture can absorb a whole GPU cluster.
+2. It is quadratic: Every position is compared with every other, so the score matrix
+has $T^2$ entries. (e.g. 1000 tokens have 1 attention cost).
+
+### Transformer Block
+
+A decoder-only Transformer block processes text through two main stages wrapped in stability controls:
+
+1. RMSNorm (Pre-Normalization): Normalizes token vectors before each stage to keep training and signal flow stable across deep layers.
+
+2. Causal Self-Attention (Token Communication): Allows tokens to look back at previous words to gather context using Query, Key, and Value projections. Causal masking blocks future tokens, while RoPE injects positional information.
+
+3. Residual Connection: Adds the pre-attention input back into the attention output ($x+\text{Attention}(x)$) to prevent signal loss.
+
+4. Feed-Forward Network / FFN (Token Computation): Processes each token independently through expanded non-linear layers (e.g., SwiGLU) to recall facts and perform reasoning.
+
+5. Residual Connection: Adds the pre-FFN input back into the final output.
+
+### Pretrained model
+
+A pretrained model continues text. It does not follow instructions. Three stages close
+the gap. Finetuning and preference tunding use a small fraction of the data and compute, yet change observed
+behaviour more than anything else: capability from stage one, usability from the rest.
+
+#### Add unknown Information to a Model
+
+1. Add it to the prompt
+
+2. Retrieval (RAG)
+
+3. Fine-tuning
+
+> Note: Tine-tuning teaches form, not facts.
+
+### Decoding
+
+The model gives a probability for every possible next token. How you pick from that list
+is a design choice with visible consequences.
+
+- Greedy: Always take the most likely token.
+
+- Temperature: Sharps the distribution.
+
+- Top-$p$: Sample from the most likely tokens covering $p$ of the mass.
+
+### Limitation of LLMs
+
+- Fabrication: The objective rewards likely continuations, and a plausible
+reference is a likely continuation.
+
+- Overconfidence: Fluency is identical whether the model is right or wrong, so
+the surface carries no signal.
+
+- Asymmetric knowledge: A model trained on “A is B” does not reliably answer about “B is A”. Facts are stored by context, not as relations.
+
+- Arithmetic: Digits are tokenised inconsistently and there is no carry mechanism. Delegate to a tool.
+
+- Stale knowledge Weights are frozen at training time. Anything later has to arrive through the prompt.
+
+- Prompt injection Instructions and data share one channel, so text hidden in a retrieved document can redirect the model. Unsolved, and the main security concern for agents.
+
+## Diffusion Models
+
+Adding noise to an image takes one line of code and no learning at all. Creating an image is hard. Diffusion models exploit that asymmetry: define an easy process that destroys the data, then learn to reverse a single step of it.
+
+![Diffusion Workflow](img/diffusion_flow.png)
+
+Generation runs right to left. You start from pure noise and walk back, and what comes
+out was never in the training set.
+
+### Training
+
+The training loop has four steps, none of which needs a human:
+
+1. Take a training image $x_0$.
+
+2. Pick a random noise level $t$.
+
+3. Add exactly that much noise $ϵ$ to get $x_t$. We know what we added.
+
+4. Show $x_t$ to the network and ask it to name the noise.
+
+Since we generated $ϵ$ ourselves, the correct answer is free. Train by minimising the gap
+between guess and truth
+
+$$
+\text{loss} = \left\| \epsilon - \epsilon_\theta(x_t, t) \right\|^2
+$$
+
+### From Noise to Picture
+
+#### Conditioning
+The prompt is turned into an embedding and handed to the network at every denoising step, so the text steers each one. Text and images were trained into a shared space beforehand, which is what allows a sentence to point at a region of image
+space.
+
+#### Guidance
+At each step the model is run twice, once with the prompt and once without, and the difference is amplified. Turning this up raises prompt adherence and lowers variety. It is the most visible knob in image generation and the reason over-guided pictures look stiff and oversaturated.
+
+#### Working small
+Running the process on full-resolution pixels is expensive. Latent diffusion runs it in a compressed space and decodes only at the end. That one change put image generation on consumer hardware, and with it the entire open ecosystem.
+
+## GenAI in Industry
+
+### The Gap between Productivity and Profit
+
+- Measurement: Time saved on a task never reaches Earnings Before Interest and Taxes (EBIT) unless the freed capacity is redeployed or removed. Most firms do neither.
+
+- Workflow: What distinguishes the six percent is redesign of end-to-end processes, not the choice of model or vendor.
+
+- Competition: A gain available to every firm in a sector is competed into prices rather than kept as margin.
+
+- Timing: Costs are immediate; returns lag. This is the optimistic reading, and it is the one every vendor offers.
+
+### Cost Structure
+
+- Marginal cost is not zero: Every call consumes tokens and therefore money. A feature used ten times more often costs ten times more to run, which inverts the usual software instinct that usage is free.
+
+- Input and output are priced differently, and long context is priced differently again, following the quadratic cost from Part 5.
+
+- Inference dominates the lifetime bill, not training, for anyone not building frontier models themselves.
+
+- Caching and routing are the two levers that actually move the number: reuse repeated context, and send easy calls to a small model.
+
+### Regulation
+
+The EU AI Act, Regulation (EU) 2024/1689, reaches Swiss companies whenever a system is placed on the EU market or its output is used in the EU. The Digital Omnibus on AI, Regulation (EU) 2026/1744, entered into force on 27 July 2026 and moved several dates. Switzerland has no equivalent horizontal AI statute. The binding domestic constraints are the revised Data Protection Act, sector supervision such as FINMA, and copyright.
+
+### Business Cases Risks
+
+- Fabrication: A confident, well-formatted, wrong answer reaching a customer.
+- Data leakage: Confidential input sent to a third-party endpoint under unclear terms.
+- Intellectual property: Unclear rights in training data and in generated output.
+- Prompt injection: Instructions hidden in a document that an agent then follows.
+- Bias: Patterns in the training data reproduced in screening or scoring.
+- Vendor dependence: Capability, price and behaviour controlled by an external provider.
+- Evaluation debt: No test set, so no way to notice when an update broke the workflow.
+
+## GenAI in Research
+
+### GenAI as an Object of Reseach
+
+- Interpretability: What computation does a trained network actually implement?
+- Generalisation: Why does a model with more parameters than data not simply memorise?
+- Evaluation How do you measure capability when benchmarks leak into training data?
+- Calibration Can a model report its own uncertainty in a way that survives fine-tuning?
+- Data limits What happens as models are trained on the output of earlier models?
