@@ -19,7 +19,7 @@ execute:
 ## Exercise 3.2
 
 ```{r}
-cbe <- read.table("/home/nils/dev/mscids-notes/sp26/rtp/data/cbe.dat", header = TRUE)
+cbe <- read.table("../../sp26/rtp/data/cbe.dat", header = TRUE)
 ts <- ts(cbe$elec,  start = c(1958, 1), frequency = 12)
 plot(ts)
 ```
@@ -60,7 +60,7 @@ acf(decomp$random, na.action = na.pass)
 ### E
 
 ```{r}
-cbe <- read.table("/home/nils/dev/mscids-notes/sp26/rtp/data/cbe.dat", header = TRUE)
+cbe <- read.table("../../sp26/rtp/data/cbe.dat", header = TRUE)
 ts <- ts(cbe$elec,  start = c(1958, 1), frequency = 12)
 
 ts.2 <- diff(ts, lag=1)
@@ -68,7 +68,7 @@ plot(ts.2)
 ```
 
 ```{r}
-cbe <- read.table("/home/nils/dev/mscids-notes/sp26/rtp/data/cbe.dat", header = TRUE)
+cbe <- read.table("../../sp26/rtp/data/cbe.dat", header = TRUE)
 ts <- ts(cbe$elec,  start = c(1958, 1), frequency = 12)
 
 ts.3 <- diff(ts, lag=12)

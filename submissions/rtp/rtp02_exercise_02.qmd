@@ -59,7 +59,7 @@ Since we applied backward differencing twice, the length of the output time seri
 ### A
 
 ```{r}
-hstart <- read.table("/home/nils/dev/mscids-notes/sp26/rtp/data/hstart.dat")
+hstart <- read.table("../../sp26/rtp/data/hstart.dat")
 
 ts <- ts(hstart[, 1], start = c(1966, 1), frequency = 12)
 hstart_stl <- stl(ts, s.window = "periodic")
@@ -70,7 +70,7 @@ plot(hstart_stl)
 ### B
 
 ```{r}
-hstart <- read.table("/home/nils/dev/mscids-notes/sp26/rtp/data/hstart.dat")
+hstart <- read.table("../../sp26/rtp/data/hstart.dat")
 
 ts <- ts(hstart[, 1], start = c(1966, 1), frequency = 12)
 
@@ -85,7 +85,7 @@ lines(hstart_stl$time.series[, "trend"], col = "red")
 ### C
 
 ```{r}
-hstart <- read.table("/home/nils/dev/mscids-notes/sp26/rtp/data/hstart.dat")
+hstart <- read.table("../../sp26/rtp/data/hstart.dat")
 
 ts <- ts(hstart[, 1], start = c(1966, 1), frequency = 12)
 plot(ts)

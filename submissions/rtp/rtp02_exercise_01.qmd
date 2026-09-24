@@ -21,7 +21,7 @@ What is the expected period (time period of repetition) and the time step for th
 ## Exercise 1.2
 
 ```{r}
-hstart <- read.table("/home/nils/dev/mscids-notes/sp26/rtp/data/hstart.dat")
+hstart <- read.table("../../sp26/rtp/data/hstart.dat")
 
 ts <- ts(hstart,start=c(1966,1),freq=12)
 

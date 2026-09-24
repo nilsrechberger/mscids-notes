@@ -49,7 +49,7 @@ lines(1:100, estim_pacf, type = "l")
 ## Exercise 4.2
 
 ```{r}
-data <- read.table("/home/nils/dev/mscids-notes/sp26/rtp/data/kreatin.dat", header=TRUE)
+data <- read.table("../../sp26/rtp/data/kreatin.dat", header=TRUE)
 ```
 
 ### A
@@ -74,7 +74,7 @@ pacf(ts)
 ## Exercise 4.3
 
 ```{r}
-data <- read.table("/home/nils/dev/mscids-notes/sp26/rtp/data/ts_S3_A2.dat", header=TRUE)
+data <- read.table("../../sp26/rtp/data/ts_S3_A2.dat", header=TRUE)
 ```
 
 ### A
