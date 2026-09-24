@@ -1,0 +1,15 @@
+{
+  "hash": "31089262291499ce8033652d4880386c",
+  "result": {
+    "engine": "knitr",
+    "markdown": "---\ntitle: Discrete Response, Time Series and Panel Data - Exercise 12\nauthor: Nils Rechberger\ndate: 2026-05-31\nexecute:\n  warning: false\n  message: false\n---\n\n\n\n\n# Series 12\n\n## Exercise 12.1\n\n\n\n\n::: {.cell}\n\n```{.r .cell-code}\nlibrary(AER)\ndata(\"Guns\")\n```\n:::\n\n\n\n\n### A\n\n#### I\n\n\n\n\n::: {.cell}\n\n```{.r .cell-code}\nsummary(\"Guns\")\n```\n\n::: {.cell-output .cell-output-stdout}\n\n```\n   Length  N.unique   N.blank Min.nchar Max.nchar \n        1         1         0         4         4 \n```\n\n\n:::\n:::\n\n\n\n\n#### II\n\n\n\n\n::: {.cell}\n\n```{.r .cell-code}\n# verify that panel is balanced\nyears <- length(levels(Guns$year))\nstates <- length(levels(Guns$state))\nyears * states == nrow(Guns)\n```\n\n::: {.cell-output .cell-output-stdout}\n\n```\n[1] TRUE\n```\n\n\n:::\n:::\n\n\n\n\nThe dataset is balanced!\n\n### B\n\n#### I\n\n\n\n\n::: {.cell}\n\n```{.r .cell-code}\nlibrary(plm)\n\nmodel.se <- plm(\n    formula = log(violent) ~ law,\n    data = Guns,\n    index = c(\"state\", \"year\"),\n    model = \"within\"\n    )\n\nmodel.se\n```\n\n::: {.cell-output .cell-output-stdout}\n\n```\n\nModel Formula: log(violent) ~ law\n\nCoefficients:\n lawyes \n0.11366 \n```\n\n\n:::\n:::\n\n\n\n\n#### II\n\n\n\n\n::: {.cell}\n\n```{.r .cell-code}\ncoeftest(model.se, vcov. = vcovHC, type = \"HC1\")\n```\n\n::: {.cell-output .cell-output-stdout}\n\n```\n\nt test of coefficients:\n\n       Estimate Std. Error t value Pr(>|t|)   \nlawyes 0.113663   0.035689  3.1848 0.001488 **\n---\nSignif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1\n```\n\n\n:::\n:::\n\n\n\n\n#### III\n\n\n\n\n::: {.cell}\n\n```{.r .cell-code}\nmodel = plm(log(violent) ~ law, data = Guns, index = c(\"state\", \"year\"), model = \"pooling\")\n\npFtest(model.se, model)\n```\n\n::: {.cell-output .cell-output-stdout}\n\n```\n\n\tF test for individual effects\n\ndata:  log(violent) ~ law\nF = 260.5, df1 = 50, df2 = 1121, p-value < 2.2e-16\nalternative hypothesis: significant effects\n```\n\n\n:::\n:::\n",
+    "supporting": [],
+    "filters": [
+      "rmarkdown/pagebreak.lua"
+    ],
+    "includes": {},
+    "engineDependencies": {},
+    "preserve": {},
+    "postProcess": true
+  }
+}

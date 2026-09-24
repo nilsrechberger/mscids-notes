@@ -1,0 +1,67 @@
+---
+title: Discrete Response, Time Series and Panel Data - Exercise 12
+author: Nils Rechberger
+date: 2026-05-31
+execute:
+  warning: false
+  message: false
+---
+
+# Series 12
+
+## Exercise 12.1
+
+```{r}
+library(AER)
+data("Guns")
+```
+
+### A
+
+#### I
+
+```{r}
+summary("Guns")
+```
+
+#### II
+
+```{r}
+# verify that panel is balanced
+years <- length(levels(Guns$year))
+states <- length(levels(Guns$state))
+years * states == nrow(Guns)
+```
+
+The dataset is balanced!
+
+### B
+
+#### I
+
+```{r}
+library(plm)
+
+model.se <- plm(
+    formula = log(violent) ~ law,
+    data = Guns,
+    index = c("state", "year"),
+    model = "within"
+    )
+
+model.se
+```
+
+#### II
+
+```{r}
+coeftest(model.se, vcov. = vcovHC, type = "HC1")
+```
+
+#### III
+
+```{r}
+model = plm(log(violent) ~ law, data = Guns, index = c("state", "year"), model = "pooling")
+
+pFtest(model.se, model)
+```

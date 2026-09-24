@@ -1,0 +1,17 @@
+{
+  "hash": "85f873b605a0d1df5cb1c5227b80a8ff",
+  "result": {
+    "engine": "knitr",
+    "markdown": "---\ntitle: Discrete Response, Time Series and Panel Data - Exercise 09\nauthor: Nils Rechberger\ndate: 2026-05-31\nexecute:\n  warning: false\n  message: false\n---\n\n\n\n\n# Series 9\n\n## Exercise 9.1\n\n### A\n\n\n\n\n::: {.cell}\n\n```{.r .cell-code}\nlibrary(astsa)\ndata(prodn)\n\nplot(prodn)\n```\n\n::: {.cell-output-display}\n![](rtp02_exercise_09_files/figure-html/unnamed-chunk-1-1.png){width=672}\n:::\n:::\n\n\n\n\n### B\n\n\n\n\n::: {.cell}\n\n```{.r .cell-code}\nplot(diff(log(prodn)))\n```\n\n::: {.cell-output-display}\n![](rtp02_exercise_09_files/figure-html/unnamed-chunk-2-1.png){width=672}\n:::\n:::\n\n\n\n\n### C\n\n\n\n\n::: {.cell}\n\n```{.r .cell-code}\nprodn.trans <- diff(log(prodn))\n\nacf(prodn.trans)\n```\n\n::: {.cell-output-display}\n![](rtp02_exercise_09_files/figure-html/unnamed-chunk-3-1.png){width=672}\n:::\n:::\n\n::: {.cell}\n\n```{.r .cell-code}\npacf(prodn.trans)\n```\n\n::: {.cell-output-display}\n![](rtp02_exercise_09_files/figure-html/unnamed-chunk-4-1.png){width=672}\n:::\n:::\n\n::: {.cell}\n\n```{.r .cell-code}\nlibrary(forecast)\n\nfit<-arima(\n    x=prodn.trans,\n    order=c(1,1,1),\n    seasonal=c(1,1,1)\n    )\n\ntsdisplay(fit$residual)\n```\n\n::: {.cell-output-display}\n![](rtp02_exercise_09_files/figure-html/unnamed-chunk-5-1.png){width=672}\n:::\n:::\n\n::: {.cell}\n\n```{.r .cell-code}\nfitAuto<-auto.arima(prodn.trans, ic=\"aic\")\nfitAuto\n```\n\n::: {.cell-output .cell-output-stdout}\n\n```\nSeries: prodn.trans \nARIMA(3,0,0)(2,1,1)[12] \n\nCoefficients:\n         ar1     ar2      ar3     sar1    sar2     sma1\n      0.2431  0.1458  -0.0493  -0.1832  -0.240  -0.6940\ns.e.  0.0527  0.0544   0.0531   0.0708   0.063   0.0583\n\nsigma^2 = 0.0002249:  log likelihood = 993.91\nAIC=-1973.83   AICc=-1973.51   BIC=-1946.65\n```\n\n\n:::\n\n```{.r .cell-code}\ntsdisplay(fitAuto$residual)\n```\n\n::: {.cell-output-display}\n![](rtp02_exercise_09_files/figure-html/unnamed-chunk-6-1.png){width=672}\n:::\n:::\n",
+    "supporting": [
+      "rtp02_exercise_09_files"
+    ],
+    "filters": [
+      "rmarkdown/pagebreak.lua"
+    ],
+    "includes": {},
+    "engineDependencies": {},
+    "preserve": {},
+    "postProcess": true
+  }
+}

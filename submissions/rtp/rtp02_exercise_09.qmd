@@ -1,0 +1,58 @@
+---
+title: Discrete Response, Time Series and Panel Data - Exercise 09
+author: Nils Rechberger
+date: 2026-05-31
+execute:
+  warning: false
+  message: false
+---
+
+# Series 9
+
+## Exercise 9.1
+
+### A
+
+```{r}
+library(astsa)
+data(prodn)
+
+plot(prodn)
+```
+
+### B
+
+```{r}
+plot(diff(log(prodn)))
+```
+
+### C
+
+```{r}
+prodn.trans <- diff(log(prodn))
+
+acf(prodn.trans)
+```
+
+```{r}
+pacf(prodn.trans)
+```
+
+```{r}
+library(forecast)
+
+fit<-arima(
+    x=prodn.trans,
+    order=c(1,1,1),
+    seasonal=c(1,1,1)
+    )
+
+tsdisplay(fit$residual)
+```
+
+```{r}
+fitAuto<-auto.arima(prodn.trans, ic="aic")
+fitAuto
+
+tsdisplay(fitAuto$residual)
+```

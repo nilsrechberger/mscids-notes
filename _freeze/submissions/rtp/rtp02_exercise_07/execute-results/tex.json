@@ -1,0 +1,17 @@
+{
+  "hash": "4290a2cc8ed739d98f23cb859d246d29",
+  "result": {
+    "engine": "knitr",
+    "markdown": "---\ntitle: Discrete Response, Time Series and Panel Data - Exercise 07\nauthor: Nils Rechberger\ndate: 2026-05-31\nexecute:\n  warning: false\n  message: false\n---\n\n\n\n\n# Series 7\n\n## Exercise 7.1\n\n### A\n\n\n\n\n::: {.cell}\n\n```{.r .cell-code}\narma.1 <-arima.sim(n=250,list(ar=c(-0.75),ma=c(-0.3, 0.25)))\n```\n:::\n\n\n\n\n### B\n\n\n\n\n::: {.cell}\n\n```{.r .cell-code}\narma.2 <-arima.sim(n=250,list(ar=c(-0.75, -0.3),ma=c(0.25)))\n```\n:::\n\n\n\n\n## Exercise 7.2\n\n\n\n\n::: {.cell}\n\n```{.r .cell-code}\nlibrary(fpp2)\ndata(sunspotarea)\nplot(sunspotarea)\n```\n\n::: {.cell-output-display}\n![](rtp02_exercise_07_files/figure-pdf/unnamed-chunk-3-1.pdf){fig-pos='H'}\n:::\n:::\n\n\n\n\n### B\n\n\n\n\n::: {.cell}\n\n```{.r .cell-code}\nts.sunspotarea <- ts(log(sunspotarea))\nts.sunspotareaA <- window(ts.sunspotarea, end = 100)\n```\n:::\n\n::: {.cell}\n\n```{.r .cell-code}\nacf(ts.sunspotareaA)\n```\n\n::: {.cell-output-display}\n![](rtp02_exercise_07_files/figure-pdf/unnamed-chunk-5-1.pdf){fig-pos='H'}\n:::\n:::\n\n::: {.cell}\n\n```{.r .cell-code}\npacf(ts.sunspotareaA)\n```\n\n::: {.cell-output-display}\n![](rtp02_exercise_07_files/figure-pdf/unnamed-chunk-6-1.pdf){fig-pos='H'}\n:::\n:::\n\n\n\n\nBased on the $(p-)acf$, we choose a $AR$-model with the value $p = 3$\n\n## Exercise 7.3\n\n\n\n\n::: {.cell}\n\n```{.r .cell-code}\nt.url <- \"http://stat.ethz.ch/Teaching/Datasets/WBL/varve.dat\"\nd.varve <- ts(scan(t.url)[201:550])\n```\n:::\n\n\n\n\n### A\n\n\n\n\n::: {.cell}\n\n```{.r .cell-code}\nplot(d.varve)\n```\n\n::: {.cell-output-display}\n![](rtp02_exercise_07_files/figure-pdf/unnamed-chunk-8-1.pdf){fig-pos='H'}\n:::\n:::\n\n\n\n\nYes, there is a need for log-transform.\n\n### B\n\n\n\n\n::: {.cell}\n\n```{.r .cell-code}\nplot(log(d.varve))\n```\n\n::: {.cell-output-display}\n![](rtp02_exercise_07_files/figure-pdf/unnamed-chunk-9-1.pdf){fig-pos='H'}\n:::\n:::\n\n\n\n\nThe time series it not stationary by simply using log-tranformation. We try differencing.\n\n\n\n\n::: {.cell}\n\n```{.r .cell-code}\nplot(diff(d.varve, 10))\n```\n\n::: {.cell-output-display}\n![](rtp02_exercise_07_files/figure-pdf/unnamed-chunk-10-1.pdf){fig-pos='H'}\n:::\n:::\n\n\n\n\nLooks good now.\n",
+    "supporting": [
+      "rtp02_exercise_07_files"
+    ],
+    "filters": [
+      "rmarkdown/pagebreak.lua"
+    ],
+    "includes": {},
+    "engineDependencies": {},
+    "preserve": null,
+    "postProcess": false
+  }
+}

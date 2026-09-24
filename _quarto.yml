@@ -14,77 +14,72 @@ website:
     left:
       - text: "Home"
         href: index.qmd
-      # Add the current semester's courses here as you create them, e.g.:
-      # - text: "DBM"
-      #   menu:
-      #     - text: "Notes"
-      #       href: hs26/dbm/dbm_notes.qmd
-      #     - text: "Exercises"
-      #       href: hs26/dbm/dbm_exercises.qmd
-      # Once a semester is finished, move its entries down into the
-      # "Old Notes" archive on the right instead of deleting them.
+      - text: "Datawarehouse & Data Lake"
+        href: fa26/dwl/dwl_notes.qmd
+      - text: "Generative AI"
+        href: fa26/gen/gen_notes.qmd
     right:
       - text: "Old Notes"
         menu:
-          - text: "**FS26**"
+          - text: "**SP26**"
           - text: "CIP — Notes"
-            href: fs26/cip/cip_notes.qmd
+            href: sp26/cip/cip_notes.qmd
           - text: "DBM — Notes"
-            href: fs26/dbm/dbm_notes.qmd
+            href: sp26/dbm/dbm_notes.qmd
           - text: "DBM — Exercises"
-            href: fs26/dbm/dbm_exercises.qmd
+            href: sp26/dbm/dbm_exercises.qmd
           - text: "DevOps — Notes"
-            href: fs26/devops/devops_notes.qmd
+            href: sp26/devops/devops_notes.qmd
           - text: "DevOps — Exercises"
-            href: fs26/devops/devops_exercises.qmd
+            href: sp26/devops/devops_exercises.qmd
           - text: "DQ — Notes"
-            href: fs26/dq/dq_notes.qmd
+            href: sp26/dq/dq_notes.qmd
           - text: "DQ — Exercises"
-            href: fs26/dq/dq_exercises.qmd
+            href: sp26/dq/dq_exercises.qmd
           - text: "MPM1 — Notes"
-            href: fs26/mpm1/mpm1_notes.qmd
+            href: sp26/mpm1/mpm1_notes.qmd
           - text: "MPM1 — Exercises"
-            href: fs26/mpm1/mpm1_exercises.qmd
+            href: sp26/mpm1/mpm1_exercises.qmd
           - text: "RTP — Notes"
-            href: fs26/rtp/rtp_notes.qmd
+            href: sp26/rtp/rtp_notes.qmd
           - text: "RTP — Exercises"
-            href: fs26/rtp/rtp_exercises.qmd
+            href: sp26/rtp/rtp_exercises.qmd
           - text: "RTP — Exercises (Rep.)"
-            href: fs26/rtp/rtp_exercises_rep.qmd
+            href: sp26/rtp/rtp_exercises_rep.qmd
           - text: "---"
-          - text: "**HS25**"
+          - text: "**FA25**"
           - text: "CSC — Notes"
-            href: hs25/csc/csc_notes.qmd
+            href: fa25/csc/csc_notes.qmd
           - text: "CSC — Exercises"
-            href: hs25/csc/csc_exercises.qmd
+            href: fa25/csc/csc_exercises.qmd
           - text: "CSC — Exam Summary (PDF)"
-            href: hs25/csc/csc_exam_summary.pdf
+            href: fa25/csc/csc_exam_summary.pdf
           - text: "DOE — Notes"
-            href: hs25/doe/doe_notes.qmd
+            href: fa25/doe/doe_notes.qmd
           - text: "DOE — Exercises"
-            href: hs25/doe/doe_exercises.qmd
+            href: fa25/doe/doe_exercises.qmd
           - text: "DOE — Exam Summary (PDF)"
-            href: hs25/doe/doe_exam_summary.pdf
+            href: fa25/doe/doe_exam_summary.pdf
           - text: "LIA1 — Notes"
-            href: hs25/lia1/lia1_notes.qmd
+            href: fa25/lia1/lia1_notes.qmd
           - text: "LIA1 — Exercises"
-            href: hs25/lia1/lia1_exercises.qmd
+            href: fa25/lia1/lia1_exercises.qmd
           - text: "PDS — Notes"
-            href: hs25/pds/pds_notes.qmd
+            href: fa25/pds/pds_notes.qmd
           - text: "PDS — Exercises"
-            href: hs25/pds/pds_exercises.qmd
+            href: fa25/pds/pds_exercises.qmd
           - text: "PDS — Additional Exercises"
-            href: hs25/pds/pds_additional_exercises.qmd
+            href: fa25/pds/pds_additional_exercises.qmd
           - text: "PDS — Mock Exam"
-            href: hs25/pds/pds_mock_exam.qmd
+            href: fa25/pds/pds_mock_exam.qmd
           - text: "PDS — Modul Exam (FS23)"
-            href: hs25/pds/pds_modul_exam_fs23.qmd
+            href: fa25/pds/pds_modul_exam_fs23.qmd
           - text: "R-Bootcamp — Notes"
-            href: hs25/r_bootcamp/r_bootcamp_notes.qmd
+            href: fa25/r_bootcamp/r_bootcamp_notes.qmd
           - text: "SA — Notes"
-            href: hs25/sa/sa_notes.qmd
+            href: fa25/sa/sa_notes.qmd
           - text: "SA — Exercises"
-            href: hs25/sa/sa_exercises.qmd
+            href: fa25/sa/sa_exercises.qmd
       - text: "How to"
         menu:
           - text: "Terminal"

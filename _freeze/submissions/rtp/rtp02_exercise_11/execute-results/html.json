@@ -1,0 +1,17 @@
+{
+  "hash": "480bfad92f976ac69bbfd67e2d936bf9",
+  "result": {
+    "engine": "knitr",
+    "markdown": "---\ntitle: Discrete Response, Time Series and Panel Data - Exercise 11\nauthor: Nils Rechberger\ndate: 2026-05-31\nexecute:\n  warning: false\n  message: false\n---\n\n\n\n\n# Series 11\n\n## Exercise 11.1\n\n### A\n\n| Process | Simplified Formula | Mean | Variance | Stationary? | Time-Series Classification |\n| :--- | :--- | :--- | :--- | :--- | :--- |\n| **i) $X_t$** | $t + E_t$ | $t$ *(Changes with time)* | $\\sigma^2$ *(Constant)* | **No** | Trend-Stationary (Raw process is non-stationary) |\n| **ii) $Y_t$** | $1 + E_t - E_{t-1}$ | $1$ *(Constant)* | $2\\sigma^2$ *(Constant)* | **Yes** | Stationary MA(1) process with a drift |\n| **iii) $Z_t$** | $E_t$ | $0$ *(Constant)* | $\\sigma^2$ *(Constant)* | **Yes** | Stationary White Noise |\n\n### C\n\n\n\n\n::: {.cell}\n\n```{.r .cell-code}\nt.E <- ts(rnorm(201))\nt.X <- (1:201) + t.E\nt.Y <- diff(t.X)\nt.Z <- t.E\n```\n:::\n\n::: {.cell}\n\n```{.r .cell-code}\nplot(t.Y)\n```\n\n::: {.cell-output-display}\n![](rtp02_exercise_11_files/figure-html/unnamed-chunk-2-1.png){width=672}\n:::\n:::\n\n::: {.cell}\n\n```{.r .cell-code}\nplot(t.Z)\n```\n\n::: {.cell-output-display}\n![](rtp02_exercise_11_files/figure-html/unnamed-chunk-3-1.png){width=672}\n:::\n:::\n",
+    "supporting": [
+      "rtp02_exercise_11_files"
+    ],
+    "filters": [
+      "rmarkdown/pagebreak.lua"
+    ],
+    "includes": {},
+    "engineDependencies": {},
+    "preserve": {},
+    "postProcess": true
+  }
+}
