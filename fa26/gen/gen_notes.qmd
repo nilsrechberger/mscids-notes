@@ -285,3 +285,239 @@ The EU AI Act, Regulation (EU) 2024/1689, reaches Swiss companies whenever a sys
 - Evaluation How do you measure capability when benchmarks leak into training data?
 - Calibration Can a model report its own uncertainty in a way that survives fine-tuning?
 - Data limits What happens as models are trained on the output of earlier models?
+
+# Lecture 02: Building Blocks of Generative AI$
+
+## Markov Chains
+
+A Markov chain is a mathematical system that models transitions from one state to another based on probabilistic rules. Its defining feature—the Markov Property—dictates that the probability of transitioning to the next state depends *only* on the current state (or a fixed history of recent states), ignoring all prior steps.
+
+$$
+p(x_t|x_{t-1})
+$$
+
+Fitting this model needs no optimiser. Count how often word b follows word $a$, and
+divide:
+
+$$
+\hat{p}(b|a) = \dfrac{\#(ab)}{\#a}
+$$
+
+- The states are the words of the vocabulary.
+- The model is a table of transition probabilities, one row per word.
+- Generation is a random walk: look up the row of the current word, draw the next word from it, move there, repeat.
+
+### Word Corpus example
+
+![A fifteen-word corpus](img/word_corp_expl.png)
+
+There are 12 unique words out of the 15 total words. Therefore, the transition matrix is $12 \times 12$. Unlabeled arrows mean a probability of $1.0$ (or 100%). For instance, after `whispers`, the only word that ever followed it in the training text was `to`. Three words — `moon`, `dreams`, and `stars` — repeat in the training sentence, creating three loops. Each of these 3 nodes has two outgoing paths.
+
+
+```{=python}
+import random
+from collections import Counter, defaultdict
+words = (
+    "moon whispers to moon dreams weave through dreams"
+    "stars mirror stars in the nights embrace"
+    ).split()
+counts = defaultdict(Counter) # counts[a][b]: how often b follows a
+for a, b in zip(words, words[1:]):
+    counts[a][b] += 1
+def generate(start, max_words):
+    out = [start]
+    while len(out) < max_words and counts[out[-1]]: # stop at a word with no successor
+        followers = counts[out[-1]]
+        out.append(random.choices(list(followers), weights=followers.values())[0])
+    return " ".join(out)
+```
+
+### What one word of memory costs
+
+Expanding the context to $n$ preceding words requires a lookup table with **$V^{n+1}$ entries** for a vocabulary size of $V$ words. or a realistic vocabulary size of **$V = 50,000$ words**, the number of required table entries explodes exponentially.
+
+| Context ($n$ Previous Words) | Formula ($V^{n+1}$) | Total Entries in Lookup Table |
+| :--- | :--- | :--- |
+| **1 previous word** (Bigram) | $50,000^2$ | $2.5 \times 10^9$ (2.5 billion) |
+| **2 previous words** (Trigram) | $50,000^3$ | $1.25 \times 10^{14}$ (125 trillion) |
+| **3 previous words** (4-gram) | $50,000^4$ | $6.25 \times 10^{18}$ (6.25 quintillion) |
+
+Most word combinations are never observed in training data (frequency = 0), leaving the model with no probability values for those contexts. Instead of storing a discrete probability number for every possible context, we compute predictions using a mathematical function with shared parameters across all contexts.
+
+## Recurrent Networks
+
+### Architectural Overview
+
+An RNN processes sequential data by passing information across time steps through a recurring loop. A single Recurrent Cell processes input $x_t$ and passes its memory back to itself via a feedback loop.
+
+![How an RNN works](img/rnn_cells.png)
+
+### Core Equations
+
+The state transitions and predictions are computed using two main equations:
+
+1. **Hidden State Update:**
+   $$h_t = \sigma(U x_t + W h_{t-1})$$
+
+2. **Output Prediction:**
+   $$y_t = f(V h_t)$$
+
+### Key Components & Concepts
+
+* **$x_t$ (Input):** The input vector at time step $t$.
+* **$h_t$ (Hidden State):** The memory of the network. It summarizes everything learned from prior steps ($x_1 \dots x_t$).
+* **Weight Matrices (Shared Parameters):**
+  * **$U$:** Reads and projects the current input $x_t$.
+  * **$W$:** Carries the previous hidden state $h_{t-1}$ forward to the next step.
+  * **$V$:** Transforms the hidden state $h_t$ into the output $y_t$.
+  > **Note:** The exact same three weight matrices ($U, W, V$) are reused at every single time step.
+
+* **Activation Functions:**
+  * **$\sigma$:** Non-linear activation function for updating the hidden state (typically $\tanh$).
+  * **$f$:** Activation function for output generation (e.g., Softmax over the vocabulary for word prediction tasks).
+
+### Limitations of RNNs
+
+1. **Sequential Processing Bottleneck:**
+   * Step $t$ depends directly on step $t-1$.
+   * Words must be processed one after the other, preventing parallel training across sequence positions on modern GPUs.
+
+2. **Vanishing and Exploding Gradients:**
+   * Passing error signals back over many steps involves repeated matrix multiplication by weight $W$.
+   * **Vanishing:** Early words stop influencing learning as gradients shrink toward zero.
+   * **Exploding:** Gradients grow exponentially, making training unstable and causing it to diverge.
+
+3. **Fixed-Size Vector Bottleneck:**
+   * The hidden state vector has a fixed size.
+   * Information from an entire sequence—whether 10 words or 1,000 words—must be compressed into this single vector.
+
+## Transformer
+
+### Transformer Architecture Comparison
+
+| Feature | Encoder-only | Decoder-only | Encoder-decoder |
+| :--- | :--- | :--- | :--- |
+| **Examples** | BERT, RoBERTa, DistilBERT, ALBERT | GPT, GPT-2, GPT-3, GPT-4 | T5, BART, Original 2017 Transformer |
+| **Context** | **Bidirectional:** Reads left and right context simultaneously | **Unidirectional:** Reads strictly left-to-right | **Hybrid:** Bidirectional for input, left-to-right for output |
+| **Pretraining Task** | Masked language modeling, next-sentence prediction | **Autoregressive:** Predict the next token | Reconstruct corrupted text |
+| **Typical Use** | Text classification, named-entity recognition, question answering over text | Writing, summarization, dialogue, answering open-ended questions | Machine translation, text summarization |
+| **Generates Text** | **No** (does not require a decoder) | **Yes** (token by token, no separate encoding step) | **Yes** |
+
+
+::: {.callout-note}
+
+* **Encoder-only** models excel at understanding and analyzing existing text.
+* **Decoder-only** models (like the GPT family) serve as the foundation for modern generative AI chat assistants by predicting text token by token.
+* **Encoder-decoder** models bridge both approaches, making them well-suited for translation and sequence transformation tasks.
+
+:::
+
+## GPT Decoder
+
+### Pipeline
+
+![From a string to a probability](img/gpt_pipeline.png)
+
+* **Input:** The raw sequence to be extended, e.g., the start of a sentence
+* **Tokenisation:** Splits the input into tokens: words, subwords, or characters
+* **Embedding:** Maps each token to a dense vector
+* **Positional encoding:** Injects the position of each token in the sequence
+* **Masked self-attention:** Computes attention scores between tokens, with future tokens masked out
+* **Feed-forward layers:** A small neural network applied to each token after attention
+* **Output layer:** A linear layer followed by a softmax over the vocabulary
+
+#### Tokenisation
+
+- Word-level is simple, but the vocabulary is huge and an unseen word has no token.
+- Subword balances the two, and is what GPT and BERT use. Lecture 1 showed what it does to arithmetic and to German.
+- Character-level never meets an unseen word, but sequences get long, and attention cost grows with the square of the length.
+
+
+```{=pyhton}
+import tiktoken
+
+encoding = tiktoken.get_encoding("cl100k_base")
+print(encoding.encode("Natural language processing is fascinating!"))
+```
+
+> Note: The model never sees a letter.
+
+#### Embeddings
+
+* **Input:** The token sequence from the previous stage
+* **Lookup table:** A matrix $E$ with one row per token in the vocabulary
+* **Lookup operation:** Token $i$ selects row $i$ of $E$
+* **Output:** A sequence of dense vectors, one per token
+
+##### Learning Embeddings
+
+| Feature | Skip-gram | CBOW (Continuous Bag of Words) |
+| :--- | :--- | :--- |
+| **Goal** | Predict the surrounding words from a target word | Predict a target word from its surrounding words |
+| **Training Input** | One target word | The context words |
+| **Training Output** | The context words | The target word |
+| **Rare Words** | Handles them better | May struggle |
+| **Training Speed** | Slower | Faster |
+
+#### Self-attention
+
+An embedding is the same vector wherever the token appears. *Bank* by a river and *bank* with a loan desk enter the network identically. Something has to mix in the context, and self-attention is that something.
+
+For every input token vector, self-attention creates three distinct vectors by multiplying the token embedding by three learned projection matrices ($W_Q, W_K, W_V$):
+
+* **Query ($Q$):** Represents what the current token is looking for.
+* **Key ($K$):** Represents what information the token contains (used for matching with queries).
+* **Value ($V$):** Contains the actual contextual content/representation of the token.
+
+The standard scaled dot-product attention is calculated using the following formula:
+
+$$
+\text{Attention}(Q, K, V) = \text{softmax}\left(\frac{Q K^T}{\sqrt{d_k}}\right) V
+$$
+
+1. **Dot Product Similarity ($QK^T$):** Computes raw similarity scores between every Query vector and all Key vectors in the sequence.
+2. **Scaling ($\sqrt{d_k}$):** Divides by the square root of the Key dimension size ($d_k$) to prevent extreme gradient values during training.
+3. **Softmax Normalization:** Converts scores into probabilities (weights) that sum to 1 across the sequence.
+4. **Weighted Value Combination ($V$):** Multiplies the softmax attention weights by the Value vectors to form the final contextual representation for each token.
+
+#### The feed-forward Network
+
+* **Purpose:** Adds non-linearity and processes the output of attention further
+* **Structure:** Two fully connected layers with a non-linear activation (e.g., ReLU) between
+* **Input:** The output of attention: one context vector per token
+* **Output:** A vector of the same size, in a space where prediction is easier
+
+$$
+text{FFN}(x) = W_2 \sigma(W_1 x + b_1) + b_2
+$$
+
+* **$x$:** Input context vector from the attention layer
+* **$W_1, W_2$:** Weight matrices for the linear transformations
+* **$b_1, b_2$:** Bias vectors
+* **$\sigma$:** Non-linear activation function (such as ReLU, GELU, or SwiGLU)
+
+
+::: {.callout-note}
+
+Layer normalisation rescales each token vector to zero mean and unit variance, which keeps activations in range from block to block.
+
+:::
+
+## Assesing Quality
+
+| Metric | Main Idea | Direction |
+| :--- | :--- | :--- |
+| **Perplexity** | Measures how well the model predicts a given text | Lower is better |
+| **BLEU** | Evaluates $n$-gram overlap between model output and reference translations | Higher is better |
+| **ROUGE** | Measures token overlap with references, with variants that emphasize recall | Higher is better |
+| **METEOR** | Measures text overlap while also accounting for synonyms, word stems, and word order | Higher is better |
+| **BERTScore** | Computes similarity based on contextual BERT embeddings instead of surface strings | Higher is better |
+| **Human evaluation** | Human judges rate generated text for fluency, coherence, and relevance | Higher is better |
+
+### Perplexity
+
+Perplexity (PPL) is a fundamental evaluation metric in natural language processing (NLP) and language modeling. It measures how effectively a model predicts a given text sequence. Perplexity is calculated as the exponential of the average negative log-likelihood (or cross-entropy loss $H$) over a sequence of $N$ tokens $W = (w_1, w_2, \dots, w_N)$:
+
+$$
+\text{PPL}(W) = \exp\left( -\frac{1}{N} \sum_{i=1}^{N} \log P(x_i \mid x_1, \dots, x_{i-1}) \right)
+$$
