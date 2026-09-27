@@ -18,6 +18,8 @@ website:
         href: fa26/dwl/dwl_notes.qmd
       - text: "Generative AI"
         href: fa26/gen/gen_notes.qmd
+      - text: "Deep Learning"
+        href: fa26/dpl/dpl_notes.qmd
     right:
       - text: "Old Notes"
         menu:
