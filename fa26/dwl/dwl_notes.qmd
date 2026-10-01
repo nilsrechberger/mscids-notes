@@ -134,3 +134,44 @@ Underpinning all four layers are overarching management, monitoring, and governa
 * **Risk of "Data Swamps":** Without governance measures like detailed metadata tracking, data lakes easily devolve into disorganized, unusable storage dumps.
 * **Access Control & Governance Hurdles:** Broad, cross-departmental access to internal and external data makes enforcing data governance and auditing user access difficult.
 * **Unclear Strategic Role:** The exact operational role—whether to replace, offload, or sit in parallel with data warehouses/marts—remains ambiguous, though dimensional modeling remains essential across all setups.
+
+# Lecture 03: Architectures & Data Pipelines
+
+## Data Pipelines
+
+A data pipeline is an automated set of processes that moves raw data from one or more source systems, transforms it into a usable format, and loads it into a destination system for analysis, reporting, or storage.
+
+### Key Components
+
+* **Data Sources:** Where the raw data originates.
+* **Orchestration Tool:** Coordinates execution dependencies and scheduling (e.g., Apache Airflow, Prefect).
+* **Target Destinations:** Analytical engines or storage systems (e.g., Snowflake, BigQuery, PostgreSQL).
+* **Monitoring & Data Quality:** Tracks pipeline status, errors, latency, and data integrity.
+
+### Extract, Transform, Load
+
+ETL is normally a continuous, ongoing process with a well-defined workflow. ETL first extracts data from homogeneous or heterogeneous data sources. Then, data is cleansed, enriched, transformed, and stored either back in the lake or in a data warehouse.
+
+### Extract, Load, Transform
+
+ELT is a variant of ETL wherein the extracted data is first loaded into the target system. Transformations are performed after the data is loaded into the data warehouse. ELT typically works well when the target system is powerful enough to handle transformations. Analytical databases like Amazon Redshift and Google BigQ.
+
+## Directed Acyclic Graphs
+
+DAGs are a special subset of graphs in which the edges between nodes have a specific direction, and no cycles exist. When we say “no cycles exist” what we mean is the nodes cant create a path back to themselves.
+
+- Nodes: A step in the data pipeline process.
+- Edges: The dependencies or relationships other between nodes.
+
+![Directed Acyclic Graphs (DAGs)](img/dags.png)
+
+### DAGs Properties
+
+DAGs consist of vertices, or nodes & directed edges that connect those nodes. DAGs have a direction (->) and do not contain cycles.
+
+
+::: {.callout-note}
+
+In ETL, each step of the process typically depends on the last. Each step in a node and the dependencies on prior steps are directed edges.
+
+:::
