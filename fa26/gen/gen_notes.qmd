@@ -521,3 +521,215 @@ Perplexity (PPL) is a fundamental evaluation metric in natural language processi
 $$
 \text{PPL}(W) = \exp\left( -\frac{1}{N} \sum_{i=1}^{N} \log P(x_i \mid x_1, \dots, x_{i-1}) \right)
 $$
+
+# Lecture 03: Intro to RAG
+
+## Why an LLM needs Retrieval
+
+The model predicts the next token from patterns it learned in training, appends it, and repeats. Its knowledge is frozen at the training cutoff and stored in the model’s weights. This is called parametric memory. The model have never seen events after the training cutoff.
+
+### Hallucination
+
+The model is trained to produce plausible text, not to say “I don’t know”. When the facts are missing, it fills the gap with plausible patterns, and the result reads exactly like a correct answer. Two way to fix that:
+
+1. Retrain/Fine-tune: High cost and slow.
+2. Provide knowledge: Low costs and instant.
+
+
+::: {.callout-tip}
+
+A retrieval-augmented LLM is like a student in an open-book exam.
+
+:::
+
+## Retrieve
+
+You must find the right page among thousands, and two things get in the way:
+
+- People and documents use different words for the same thing. “access” vs. “permission request”; “laptop” vs. “notebook”.
+- Some terms must match exactly. “Hadoop”, “HDFS-0417”.
+
+### Keyword Search
+
+> Idea: Score each document by how well its words match the query words.
+
+Three intuitions, one line each:
+
+- Words that are rare across the collection count more. “Hadoop” counts a lot; “the” counts almost nothing.
+- Repeating a word helps, but with diminishing returns. The tenth “Hadoop” adds less than the second.
+- Long documents don’t win just because they contain more words
+
+![Keyword Search](img/keyword_search.png)
+
+::: {.callout-note}
+
+BM25 it the standard method that combines these three intuitions. It is the default keyword search in most search engines.
+
+:::
+
+| Strong at | Weak at |
+| :--- | :--- |
+| Exact terms, product names, error codes ("HDFS-0417") and acronyms. | Synonyms and paraphrases. A query for "access" misses a document that says "permission request". |
+| Fast and cheap. | Typos. "Hadop" matches nothing. |
+| Explainable: you can see exactly why a document matched. | |
+
+### Embedding
+
+> Idea: Turning text into a location
+
+An embedding model turns a piece of text into a list of numbers: a point in “meaning space”. Texts with similar meanings land close together, even when they share no word.
+
+#### Cosine Similarity
+
+Draw each text as an arrow from the origin. The smaller the angle between two arrows, the more similar the meaning.
+
+![Cosine similarity](img/cosine_sim.png)
+
+$$
+\cos \theta = \frac{A \cdot B}{||A|| ||B||}
+$$
+
+#### Vector database and top-$k$
+
+A vector database stores, for each chunk:
+
+- its vector,
+- its original text,
+- metadata: source, date.
+
+It finds the nearest vectors to a query quickly, and it can be updated at any time without touching the LLM.
+
+Top-$k$ retrieval. Embed the question, return the $k$ closest chunks, ranked. A small $k$ can miss information; a large $k$ adds noise and token cost.
+
+### Comparison
+
+| | Keyword (BM25) | Vector |
+| :--- | :--- | :--- |
+| Matches | Words | Meaning |
+| Good at | Exact terms, codes, names | Synonyms, paraphrases |
+| Weak at | Synonyms | Rare exact terms, codes |
+
+## The Naive RAG Pipeline
+
+Two phases:
+
+1. Indexing runs once, and again whenever documents change. The LLM is not involved at all.
+2. Querying runs for every question. The same embedding model must be used in both phases, or question and chunks live in different spaces.
+
+![The Naive RAG Pipeline](img/naive_rag.png)
+
+### Chunking
+
+Whole documents are too long and too unfocused to retrieve precisely, so we split them. Chunk size (the window) is how much text goes in each chunk. Overlap is how much consecutive chunks share.
+
+- Small chunks are precise, but lose context.
+- Large chunks carry context, but also noise.
+- Overlap stops an idea from being cut in half at a chunk boundary.
+
+### Limitations
+
+Naive RAG relies on a single query and vector search alone, leading to two primary failure modes:
+
+- Semantic / Wording Mismatch: Relevant information (e.g., "Hadoop cluster permission request") is missed if the query phrasing differs too much from the indexed chunk.
+- Retrieval Cutoff (Low Rank): A relevant chunk is retrieved, but falls outside the top $k$ context window (e.g., ranked #4 when $k = 3$) and never reaches the LLM prompt.
+
+## Reciprocal Rank Fusion
+
+RRF is the default fusion method for hybrid search in Elasticsearch, OpenSearch, Azure AI Search, MongoDB Atlas and Weaviate. For every list a document appears in, it earns **1 / (k + its rank)**. Add up the points from all lists.
+
+$$
+\mathrm{RRF}(d) = \sum_{\text{lists}} \frac{1}{k + \text{rank}}
+$$
+
+- The rank starts at **1** for the top result.
+- If a document is not in a list, it earns **0** from that list.
+- *k* is a constant. The standard value is **k = 60**.
+
+
+::: {.callout-note}
+
+A small $k$ rewards being first somewhere; a large $k$ rewards showing up everywhere. $k$ = 60 favours consensus.
+
+:::
+
+
+## Advanced RAG
+
+![Advanced RAG](img/advance_rag.png)
+
+Darker boxes mark what is new compared with naive RAG. V1 is the original question, so its vector search is the one naive RAG already had. The keyword search also runs on the original question, which means exact terms such as "Hadoop" are never paraphrased away. Everything after the fusion step is unchanged: the same prompt template and the same LLM.
+
+### Naive vs. Advanced RAG
+
+|                        | Naive  | Advanced                  |
+|------------------------|--------|---------------------------|
+| Query phrasings        | 1      | 3 (+ original)            |
+| Retrievers             | Vector | Vector + keyword          |
+| Merging                | None   | RRF                       |
+| LLM calls per question | 1      | 2 (rewrite + answer)      |
+| Cost and latency       | Lower  | Higher                    |
+
+## Evaluating a RAG Pipeline
+
+A RAG pipeline can fail in two places: the retriever fetched the wrong chunks, or the generator misused the right ones.
+
+![RAG Failure](img/rag_failure.png)
+
+### Faithfulness
+
+> Question it answers: is every claim in the answer supported by the context?
+
+Split the answer into claims and check each one against the retrieved context. The score is supported claims divided by all claims.
+
+![Faihfulness](img/faithfullness.png)
+
+> Note: The one unsupported claim is a hallucination.
+
+### Answer Relevancy
+
+> Question it answers: does the answer address the question?
+
+The judge writes the questions the answer would fit. We measure how close they are to the real question with cosine similarity, the same measure as in Unit 4. Close questions, high score.
+
+![Answer Relevancy](img/relevancy.png)
+
+### Context Precision
+
+> Question it answers: are the relevant chunks ranked at the top?
+
+Same chunks, different order, different score. The metric rewards putting the relevant chunks first, because the LLM reads the top of the context most reliably and a small k cuts off the bottom.
+
+![Three retrieved chunks, two of them relevant, in both cases.](img/context_precision.png)
+
+
+::: {.callout-note}
+
+How the number is computed: At each position with a relevant chunk, take the share of relevant chunks so far, then average.
+
+Case 1: $(1/1 + 2/3) / 2 = 0.83$
+Case 2: $($1/2 + 2/3) / 2 = 0.58$
+
+:::
+
+### Context Recall
+
+> Question it answers: is every statement in the ground truth supported by a retrieved context?
+
+Split the ground truth into statements and check how many the retrieved chunks contain.
+
+![Context Recall](img/context_recall.png)
+
+Something needed for a correct answer was never retrieved. No prompt can fix that; the LLM cannot use a chunk it never saw.
+
+### Evaluation Summary
+
+![Evaluation Summary](img/eval_summary.png)
+
+
+::: {.callout-tip}
+
+Check the retriever first. If context recall is low, the generator never
+had a chance; if the retriever scores well and the answer is still wrong, look at the
+prompt.
+
+:::
