@@ -175,3 +175,63 @@ DAGs consist of vertices, or nodes & directed edges that connect those nodes. DA
 In ETL, each step of the process typically depends on the last. Each step in a node and the dependencies on prior steps are directed edges.
 
 :::
+
+# Lecture 04 Data Storage
+
+## AirFlow
+
+Apache Airflow is an open-source platform for programmatically authoring, scheduling and monitoring data pipelines (workflows defined as Python code).
+
+- Scheduler orchestrates the execution of jobs on a trigger or schedule. The Scheduler chooses how to prioritize the running and execution of tasks within the system.
+- Work Queue is used by the scheduler in most Airflow installations to deliver tasks that need to be run to the Workers.
+- Worker processes execute the operations defined in each DAG. In most Airflow installations, workers pull from the work queue when it is ready to process a task. When the worker completes the execution of the task, it will attempt to process more work from the work queue until there is no further work remaining. When work in the queue arrives, the worker will begin to process it.
+- Database saves credentials, connections, history, and configuration. The database, often referred to as the metadata database, also stores the state of all tasks in the system. Airflow components interact with the database with the Python ORM, SQLAlchemy.
+- Web Interface provides a control dashboard for users and maintainers.
+
+### Operators
+
+Operators define the atomic steps of work that make up a DAG. Airflow comes with many Operators that can perform common operations.
+
+### Connection via Airflow Hooks
+
+Connections can be accessed in code via hooks. Hooks provide a reusable interface to external systems and databases. With hooks, you don’t have to worry about how and where to store these connection strings and secrets in your code. Airflow comes with many Hooks that can integrate with common systems.
+
+### Data Lineage
+
+Description of the discrete steps involved in the creation, movement, and calculation of the dataset. Helps organizations surface and agree on dataset definitions.
+
+### Schedules
+
+Used appropriately, pipeline schedules are also a form of data partitioning, which can substantially increase the speed of our pipelines runs. Determining the appropriate time period for a schedule is based on a number of factors which you need to consider as the pipeline designer:
+
+- What is the size of data?
+- How frequently is data arriving?
+- What's the frequency on related datasets?
+
+### Data Partitioning
+
+Pipeline data partitioning is the process of isolating data to be analysed by one of more attributes, such as time, logical type or data size.
+
+
+::: {.callout-note}
+
+Data partitioning often leads to faster and more reliable pipelines.
+
+:::
+
+- Logical partitioning: Breaks conceptually related data into discrete groups for processing.
+- Size partitioning: Separates data for processing based on desired or required storage limits.
+
+### Data Quality
+
+Data quality is the measure of how well a dataset satisfies its intended use.
+
+- Data must be a certain size
+- Data must be accurate to some margin of error
+- Data must arrive within a given timeframe from the start of execution
+- Pipelines must run on a particular schedule
+- Data must not contain any sensitive information
+
+### Extending Airflow
+
+Airflow was built with the intention of allowing its users to extend and customize its functionality through plugins. Airflow has a rich and vibrant open source community. This community is constantly adding new functionality and extending the capabilities of Airflow.
